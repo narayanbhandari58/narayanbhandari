@@ -1,12 +1,9 @@
 
 [build]
-  publish = "public"
-  command = "hugo"
-
-[context.production.environment]
-  HUGO_VERSION = "0.92.0"
-
+  publish = "."
+  command = ""
+  
 [[headers]]
   for = "/cms/*"
   [headers.values]
-    Content-Security-Policy = "frame-ancestors 'self'https://app.netlify.com"
+    Content-Security-Policy = "frame-ancestors 'self'"
