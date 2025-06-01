@@ -7,6 +7,6 @@
   HUGO_VERSION = "0.92.0"
 
 [[headers]]
-  for = "/admin/*"
+  for = "/cms/*"
   [headers.values]
-    Content-Security-Policy = "frame-ancestors 'self'"
+    Content-Security-Policy = "frame-ancestors 'self'https://app.netlify.com"
