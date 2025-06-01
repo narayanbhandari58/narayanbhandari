@@ -11,4 +11,5 @@
 [[headers]]
   for = "/admin/*"
   [headers.values]
-    Content-Security-Policy = "frame-ancestors 'self'"
+    Content-Security-Policy = "frame-ancestors 'self'https://app.netlify.com"
+    x-frame-options="SAMEORIGIN"
