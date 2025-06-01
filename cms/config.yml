@@ -1,17 +1,39 @@
 backend:
-  name: github
-  repo: narayanbhandari58/narayanbhandari
+  name: git-gateway
   branch: main
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
+site_url: https://narayan-bhandari.com.np
+
 collections:
-  - name: "posts"
-    label: "Posts"
-    folder: "posts"
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "sahitya"
+    label: "साहित्य"
+    folder: "content/sahitya"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "loksewa"
+    label: "लोकसेवा सामग्री"
+    folder: "content/loksewa"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "PDF File", name: "file", widget: "file" }
