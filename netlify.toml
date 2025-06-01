@@ -1,9 +1,0 @@
-
-[build]
-  publish = "."
-  command = ""
-  
-[[headers]]
-  for = "/cms/*"
-  [headers.values]
-    Content-Security-Policy = "frame-ancestors 'self'"
