@@ -45,6 +45,9 @@
         .sidebar a:hover {
             background: #8a1515;
         }
+        .recent-posts {
+            margin-top: 20px;
+        }
         .content {
             width: 1000px; /* Set width of main content area */
             height: auto; /* Set height of main content area to auto */
@@ -136,6 +139,10 @@
     <div class="sidebar hidden" id="sidebar">
         <h2>CMS प्यानल</h2>
         <a href="#" id="logoutButton">लगआउट गर्नुहोस्</a>
+        <div class="recent-posts">
+            <h2>Recent Posts</h2>
+            <ul id="recentPostsList"></ul>
+        </div>
     </div>
     <div class="content">
         <h1>CMS प्यानल</h1>
@@ -177,6 +184,7 @@
     <script>
         const postForm = document.getElementById('postForm');
         const postsList = document.getElementById('posts');
+        const recentPostsList = document.getElementById('recentPostsList');
         const loginForm = document.getElementById('loginForm');
         const logoutButton = document.getElementById('logoutButton');
         const sidebar = document.getElementById('sidebar');
@@ -194,6 +202,7 @@
         function loadPosts() {
             const posts = JSON.parse(localStorage.getItem('posts')) || [];
             postsList.innerHTML = '';
+            recentPostsList.innerHTML = ''; // Clear recent posts list
             posts.forEach((post, index) => {
                 const li = document.createElement('li');
                 li.innerHTML = `<strong>${post.title}</strong>
@@ -202,8 +211,14 @@
                     <button onclick="deletePost(${index})">Delete</button>
                 </div>`;
                 postsList.appendChild(li);
+
+                // Add to recent posts list
+                const recentLi = document.createElement('li');
+                recentLi.innerHTML = `<a href="#" onclick="editPost(${index})">${post.title}</a>`;
+                recentPostsList.appendChild(recentLi);
             });
             postsList.style.display = posts.length > 0 ? 'block' : 'none'; // Show or hide posts list
+            sidebar.style.display = posts.length > 0 ? 'block' : 'none'; // Show sidebar if there are posts
         }
 
         // Add new post
