@@ -1,9 +1,15 @@
+`index.html`
+```html
 <!DOCTYPE html>
 <html lang="ne">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>नारायण भण्डारी - व्यक्तिगत वेवसाइट</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&family=Poppins&display=swap" rel="stylesheet" />
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 <style>
   /* Reset and base */
   *, *::before, *::after {
@@ -16,13 +22,15 @@
     color: #1a1a1a;
     line-height: 1.6;
     font-size: 16px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
   a {
-    color: #bb1919; /* BBC red */
+    color: #bb1919;
     text-decoration: none;
   }
-  a:hover,
-  a:focus {
+  a:hover, a:focus {
     text-decoration: underline;
   }
   h1, h2, h3, h4 {
@@ -46,369 +54,393 @@
     margin-bottom: 1em;
     color: #444444;
   }
-  /* Layout containers */
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 24px 16px 48px 16px;
-  }
+
+  /* Header */
   header {
     background-color: #bb1919;
     color: white;
     padding: 16px 24px;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 110;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  }
-  header .header-inner {
-    max-width: 960px;
-    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
   }
-  header h1 {
-    margin: 0;
+  .logo {
+    font-weight: 900;
+    font-size: 1.75rem;
   }
-  nav {
+  nav.desktop-nav {
     display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
   }
-  nav button, nav a {
+  nav.desktop-nav a {
     background: white;
     color: #bb1919;
-    border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 8px 14px;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  nav button:hover, nav a:hover {
+  nav.desktop-nav a.active,
+  nav.desktop-nav a:hover,
+  nav.desktop-nav a:focus {
     background-color: #e63946;
     color: white;
   }
-  nav button:focus, nav a:focus {
-    outline: 3px solid #f77f00;
-    outline-offset: 2px;
-  }
-  nav a.active {
-    background-color: #8a1515;
-    color: white;
-    pointer-events: none;
-  }
+
+  /* Main container */
   main {
-    background-color: white;
-    padding: 32px 24px;
-    border-radius: 12px;
-    box-shadow: 0 3px 9px rgb(187 25 25 / 0.15);
-    margin-top: 24px;
+    flex-grow: 1;
+    max-width: 960px;
+    margin: 24px auto 48px auto;
+    padding: 0 16px;
     min-height: 60vh;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(187 25 25 / 0.15);
   }
+
+  /* Sections */
   section {
     margin-bottom: 48px;
   }
-  /* Admin panel styles */
-  #adminPanel {
-    background-color: #ba1f1f41;
-    border: 2px solid #bb1919;
-    border-radius: 12px;
-    padding: 16px;
-    max-width: 800px;
-    margin-top: 32px;
-  }
-  #adminPanel h2 {
-    margin-top: 0;
-  }
-  label {
-    display: block;
-    margin-top: 12px;
-    font-weight: 600;
-  }
-  input[type="text"], input[type="url"], textarea, select {
-    width: 100%;
-    padding: 8px;
-    margin-top: 4px;
-    border: 1.5px solid #bb1919;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-family: inherit;
-    resize: vertical;
-  }
-  textarea {
-    min-height: 80px;
-  }
-  input[type="file"] {
-    margin-top: 6px;
-  }
-  button.primaryBtn {
-    margin-top: 16px;
-    background-color: #bb1919;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 12px 24px;
+
+  /* Content accordion */
+  .accordion-title {
     font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  button.primaryBtn:hover, button.primaryBtn:focus {
-    background-color: #8a1515;
-  }
-  button.dangerBtn {
-    background-color: #e52424;
+    padding: 12px;
+    background: #bb1919;
     color: white;
-    border: none;
     border-radius: 8px;
-    padding: 6px 12px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-left: 8px;
-    transition: background-color 0.3s ease;
-  }
-  button.dangerBtn:hover, button.dangerBtn:focus {
-    background-color: #a81818;
-  }
-  /* Content listing */
-  .content-list {
-    list-style: none;
-    padding-left: 0;
-  }
-  .content-list li {
-    border-bottom: 1px solid #ddd;
-    padding: 12px 0;
+    user-select: none;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
   }
-  .content-list li:last-child {
-    border-bottom: none;
+  .accordion-title:hover,
+  .accordion-title:focus {
+    background-color: #8a1515;
+    outline: none;
   }
-  .content-title {
-    font-weight: 600;
-    color: #bb1919;
-    cursor: pointer;
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    border: 1px solid #bb1919;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 0 12px;
   }
-  .content-title:hover {
-    text-decoration: underline;
+  .accordion-content.expanded {
+    padding: 16px 12px;
   }
-  /* Embedded video and PDF */
+  .icon-toggle {
+    font-size: 24px;
+  }
+
+  /* YouTube & PDF Iframes */
   iframe.video-embed,
   iframe.pdf-embed {
     width: 100%;
-    max-width: 720px;
-    height: 405px;
     border: none;
     border-radius: 12px;
     box-shadow: 0 3px 10px rgb(187 25 25 / 0.2);
     margin-top: 12px;
   }
+  iframe.video-embed {
+    aspect-ratio: 16 / 9;
+  }
   iframe.pdf-embed {
-    height: 720px;
+    height: 500px;
   }
-  /* Responsive */
-  @media (max-width: 768px) {
-    header .header-inner {
-      flex-direction: column;
-      gap: 12px;
-    }
-    main {
-      padding: 24px 12px;
-    }
-    iframe.video-embed,
-    iframe.pdf-embed {
-      height: 240px;
-      max-width: 100%;
-    }
+
+  /* Comment Section */
+  #commentsSection {
+    margin-top: 32px;
   }
-  /* Login screen */
-  #loginScreen {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
+  #commentsSection h3 {
+    margin-bottom: 16px;
   }
-  #loginScreen form {
-    background: white;
-    padding: 32px;
-    border-radius: 12px;
-    max-width: 360px;
+  #commentForm textarea {
     width: 100%;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
-  }
-  #loginScreen h2 {
-    margin-top: 0;
-    margin-bottom: 24px;
-    color: #bb1919;
-    text-align: center;
-  }
-  #loginScreen label {
-    font-weight: 600;
-    margin-bottom: 8px;
-    display: block;
-  }
-  #loginScreen input[type="password"] {
-    width: 100%;
-    padding: 10px;
+    resize: vertical;
+    min-height: 80px;
+    font-family: inherit;
     font-size: 1rem;
+    border-radius: 8px;
     border: 1.5px solid #bb1919;
-    border-radius: 6px;
-  }
-  #loginScreen button {
-    margin-top: 20px;
-    width: 100%;
     padding: 12px;
-    font-weight: 700;
+  }
+  #commentForm input[type="text"], #commentForm input[type="email"] {
+    width: calc(50% - 12px);
+    margin-right: 12px;
+    padding: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1.5px solid #bb1919;
+    box-sizing: border-box;
+  }
+  #commentForm input[type="email"] {
+    margin-right: 0;
+  }
+  #commentForm button {
+    margin-top: 12px;
     background-color: #bb1919;
     color: white;
-    cursor: pointer;
-    border: none;
+    font-weight: 700;
     border-radius: 8px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  #loginScreen button:hover, #loginScreen button:focus {
+  #commentForm button:hover,
+  #commentForm button:focus {
     background-color: #8a1515;
   }
-  #loginError {
+  #commentsList {
+    margin-top: 24px;
+    list-style: none;
+    padding-left: 0;
+  }
+  #commentsList li {
+    border-bottom: 1px solid #ddd;
+    padding: 12px 0;
+  }
+  #commentsList li .comment-header {
+    font-weight: 700;
+    color: #bb1919;
+    margin-bottom: 4px;
+  }
+  #commentsList li .comment-body {
+    white-space: pre-wrap;
+  }
+
+  /* Emoji reactions */
+  .emoji-reactions {
+    margin-top: 16px;
+    display: flex;
+    gap: 24px;
+  }
+  .emoji-button {
+    font-size: 28px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    transition: transform 0.2s ease;
+    user-select: none;
+  }
+  .emoji-button:hover,
+  .emoji-button:focus {
+    outline: none;
+    transform: scale(1.2);
+  }
+  .emoji-count {
+    margin-left: 6px;
+    font-weight: 700;
+    color: #bb1919;
+  }
+
+  /* Subscription Section */
+  #subscriptionSection {
+    margin-top: 48px;
+    padding: 24px;
+    background: #fef0f0;
+    border: 1.5px solid #bb1919;
+    border-radius: 12px;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #subscriptionSection h3 {
+    margin-top: 0;
+  }
+  #subscriptionSection input[type="email"] {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1.5px solid #bb1919;
+  }
+  #subscriptionSection button {
     margin-top: 12px;
-    color: #e52424;
+    width: 100%;
+    background-color: #bb1919;
+    color: white;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #subscriptionSection button:hover,
+  #subscriptionSection button:focus {
+    background-color: #8a1515;
+  }
+  #subscriptionMessage {
+    margin-top: 12px;
+    color: green;
     font-weight: 600;
+  }
+
+  /* Footer */
+  footer {
+    background-color: #bb1919;
+    color: white;
     text-align: center;
+    padding: 12px 0;
+    margin-top: auto;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    header {
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      text-align: center;
+    }
+    nav.desktop-nav {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    main {
+      margin: 24px 12px 48px 12px;
+      max-width: 100%;
+    }
+    #subscriptionSection {
+      margin: 24px 12px 48px 12px;
+      max-width: 100%;
+    }
   }
 </style>
 </head>
 <body>
 <header role="banner">
-  <div class="header-inner">
-    <h1>नारायण भण्डारी</h1>
-    <nav role="navigation" aria-label="मुख्य मेनु">
-      <a href="#" class="nav-link active" data-section="lekha">लेख/रचना</a>
-      <a href="#" class="nav-link" data-section="sahitya">साहित्य</a>
-      <a href="#" class="nav-link" data-section="loksewa">लोकसेवा</a>
-      <a href="#" class="nav-link" data-section="patrapatrika">पत्रपत्रिका</a>
-      <a href="#" class="nav-link" data-section="mero-barema">मेरो बारेमा</a>
-      <button id="adminLoginBtn" title="प्रशासकीय प्यानल खोल्नुहोस्">Admin</button>
-    </nav>
-  </div>
+  <div class="logo">नारायण भण्डारी</div>
+  <nav class="desktop-nav" role="navigation" aria-label="मुख्य मेनु">
+    <a href="#" data-section="lekha" class="active">लेख/रचना</a>
+    <a href="#" data-section="sahitya">साहित्य</a>
+    <a href="#" data-section="loksewa">लोकसेवा</a>
+    <a href="#" data-section="patrapatrika">पत्रपत्रिका</a>
+    <a href="#" data-section="mero-barema">मेरो बारेमा</a>
+  </nav>
 </header>
 
-<main role="main" class="container" tabindex="-1">
-  <!-- Sections will be dynamically loaded here -->
+<main tabindex="-1" role="main" aria-live="polite" aria-atomic="true">
+  <!-- Dynamic content area -->
 </main>
 
-<!-- Admin Panel -->
-<div id="adminPanel" hidden aria-label="प्रशासकीय प्यानल">
-  <h2>प्रशासकीय प्यानल</h2>
-  <label for="contentTypeSelect">समग्रीको प्रकार छान्नुहोस्:</label>
-  <select id="contentTypeSelect" aria-required="true">
-    <option value="" disabled selected>-- छान्नुहोस् --</option>
-    <option value="lekha">लेख/रचना</option>
-    <option value="sahitya">साहित्य</option>
-    <option value="loksewa">लोकसेवा</option>
-    <option value="patrapatrika">पत्रपत्रिका</option>
-    <option value="mero-barema">मेरो बारेमा</option>
-  </select>
-
-  <label for="titleInput">शीर्षक:</label>
-  <input id="titleInput" type="text" placeholder="शीर्षक लेख्नुहोस्" aria-required="true" />
-
-  <label for="contentInput">समग्री (HTML/टेक्स्ट):</label>
-  <textarea id="contentInput" placeholder="यहाँ लेख्नुहोस् वा <b>HTML</b> टाइप गर्न सक्नुहुन्छ" aria-required="true"></textarea>
-
-  <label for="youtubeInput">YouTube भिडियो लिंक (यदि छ भने):</label>
-  <input id="youtubeInput" type="url" placeholder="उदाहरण: https://www.youtube.com/watch?v=..." />
-
-  <label for="pdfInput">PDF फाइल अपलोड (यदि छ भने):</label>
-  <input id="pdfInput" type="file" accept="application/pdf" />
-
-  <button id="saveContentBtn" class="primaryBtn">सेभ गर्नुहोस्</button>
-  <button id="cancelContentBtn" class="dangerBtn">रद्द गर्नुहोस्</button>
-
-  <h3>वर्तमान सामग्रीहरू</h3>
-  <ul id="contentList" class="content-list" aria-live="polite" aria-relevant="additions removals"></ul>
-
-  <button id="adminLogoutBtn" class="dangerBtn" style="margin-top:16px;">लगआउट</button>
-</div>
-
-<!-- Login Screen -->
-<div id="loginScreen" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
-  <form id="loginForm" novalidate>
-    <h2 id="loginTitle">प्रशासकीय लगइन</h2>
-    <label for="adminPassword">पासवर्ड:</label>
-    <input type="password" id="adminPassword" name="adminPassword" required autocomplete="current-password" />
-    <div id="loginError" aria-live="assertive" role="alert"></div>
-    <button type="submit">लगइन</button>
+<!-- Subscription Section -->
+<section id="subscriptionSection">
+  <h3>सदस्यता लिनुहोस्</h3>
+  <form id="subscriptionForm" aria-label="समाचारपत्र सदस्यता फारम">
+    <input type="email" id="subscriptionEmail" name="subscriptionEmail" placeholder="इमेल ठेगाना" required aria-required="true" />
+    <button type="submit">सब्स्क्राइब गर्नुहोस्</button>
   </form>
-</div>
+  <div id="subscriptionMessage" role="status" aria-live="polite"></div>
+</section>
+
+<!-- Footer -->
+<footer>
+  सर्वाधिकार © नारायण भण्डारी, २०८२
+</footer>
 
 <script>
 (() => {
-  // Password for admin - store hashed in real app - here plain text for demo!
-  const ADMIN_PASSWORD = "narayan123"; 
-
-  // Elements
-  const loginScreen = document.getElementById('loginScreen');
-  const loginForm = document.getElementById('loginForm');
-  const loginError = document.getElementById('loginError');
-  const adminPanel = document.getElementById('adminPanel');
-  const adminLoginBtn = document.getElementById('adminLoginBtn');
-  const adminLogoutBtn = document.getElementById('adminLogoutBtn');
-  const navLinks = document.querySelectorAll('nav .nav-link');
+  const navLinks = document.querySelectorAll('nav.desktop-nav a');
   const main = document.querySelector('main');
-  const contentTypeSelect = document.getElementById('contentTypeSelect');
-  const titleInput = document.getElementById('titleInput');
-  const contentInput = document.getElementById('contentInput');
-  const youtubeInput = document.getElementById('youtubeInput');
-  const pdfInput = document.getElementById('pdfInput');
-  const saveContentBtn = document.getElementById('saveContentBtn');
-  const cancelContentBtn = document.getElementById('cancelContentBtn');
-  const contentList = document.getElementById('contentList');
+  const subscriptionForm = document.getElementById('subscriptionForm');
+  const subscriptionEmailInput = document.getElementById('subscriptionEmail');
+  const subscriptionMessage = document.getElementById('subscriptionMessage');
 
-  // Current viewed section key
+  // Comments related elements will be created dynamically per post
+
   let currentSection = 'lekha';
-  // Editing state
-  let editId = null;
 
-  // Data structure:
-  // Store content by section in localStorage
-  // Each section: array of objects {id:string, title:string, htmlContent:string, youtube:string|null, pdfURL:string|null}
-  const STORAGE_KEY = "nv_website_content";
+  // Sample data structure with Facebook and YouTube links in mero-barema section
+  const contents = {
+    lekha: [
+      {
+        id: '1',
+        title: 'पहिलो लेख',
+        htmlContent: '<p>यो मेरो पहिलो लेख हो।</p>'
+      }
+    ],
+    sahitya: [
+      {
+        id: '2',
+        title: 'कविता संग्रह',
+        htmlContent: '<p>मेरा मनपर्ने कविताहरू यहाँ समावेश छन्।</p>'
+      }
+    ],
+    loksewa: [],
+    patrapatrika: [],
+    'mero-barema': [
+      {
+        id: '3',
+        title: 'मेरो बारेमा',
+        htmlContent: 
+          `<p>नमस्ते! म नारायण भण्डारी, एक लेखक र ब्लगर।</p>
+           <p>मेरो फेसबुक लिंक: <a href="https://www.facebook.com/narayanbhandari23/" target="_blank" rel="noopener noreferrer">Facebook</a></p>
+           <p>मेरो यूट्यूब च्यानल: <a href="https://www.youtube.com/@ALLINONEFORNEPAL" target="_blank" rel="noopener noreferrer">YouTube</a></p>`
+      }
+    ]
+  };
 
-  // Initialize app
-  function init() {
-    // Set nav click handlers
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const section = e.target.dataset.section;
-        if(section && section !== currentSection){
-          switchSection(section);
-        }
-      });
-    });
+  // Store and retrieve comments and reactions from localStorage
+  const COMMENTS_STORAGE_KEY = 'nv_comments';
+  const REACTIONS_STORAGE_KEY = 'nv_reactions';
+  const SUBSCRIPTIONS_STORAGE_KEY = 'nv_subscriptions';
 
-    adminLoginBtn.addEventListener('click', showLogin);
-    adminLogoutBtn.addEventListener('click', logoutAdmin);
-    loginForm.addEventListener('submit', handleLogin);
-    saveContentBtn.addEventListener('click', saveContent);
-    cancelContentBtn.addEventListener('click', cancelEditing);
-
-    switchSection(currentSection);
-    checkLoggedIn();
+  function getStoredComments() {
+    const data = localStorage.getItem(COMMENTS_STORAGE_KEY);
+    return data ? JSON.parse(data) : {};
+  }
+  function saveStoredComments(data) {
+    localStorage.setItem(COMMENTS_STORAGE_KEY, JSON.stringify(data));
   }
 
-  // Switch displayed main section
-  function switchSection(sectionKey) {
-    currentSection = sectionKey;
-    // Update nav visuals
+  function getStoredReactions() {
+    const data = localStorage.getItem(REACTIONS_STORAGE_KEY);
+    return data ? JSON.parse(data) : {};
+  }
+  function saveStoredReactions(data) {
+    localStorage.setItem(REACTIONS_STORAGE_KEY, JSON.stringify(data));
+  }
+
+  function getStoredSubscriptions() {
+    const data = localStorage.getItem(SUBSCRIPTIONS_STORAGE_KEY);
+    return data ? JSON.parse(data) : [];
+  }
+  function saveStoredSubscriptions(data) {
+    localStorage.setItem(SUBSCRIPTIONS_STORAGE_KEY, JSON.stringify(data));
+  }
+
+  // --- Navigation ---
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const section = e.target.dataset.section;
+      if (section !== currentSection) {
+        currentSection = section;
+        updateActiveNav();
+        renderSection();
+      }
+    });
+  });
+
+  function updateActiveNav() {
     navLinks.forEach(link => {
-      if(link.dataset.section === sectionKey){
+      if (link.dataset.section === currentSection) {
         link.classList.add('active');
         link.setAttribute('aria-current', 'page');
       } else {
@@ -416,393 +448,259 @@
         link.removeAttribute('aria-current');
       }
     });
+  }
 
-    // Load content for the section and render
-    const contents = loadContent();
-    const sectionContents = contents[sectionKey] || [];
-
-    if(sectionContents.length === 0){
-      main.innerHTML = `<section><h2>${getSectionTitle(sectionKey)}</h2><p>यस खण्डमा कुनै सामग्री उपलब्ध छैन।</p></section>`;
+  // --- Render section content ---
+  function renderSection() {
+    if (!contents[currentSection] || contents[currentSection].length === 0) {
+      main.innerHTML = `<section><h2>${getSectionTitle(currentSection)}</h2><p>यस खण्डमा कुनै सामग्री उपलब्ध छैन।</p></section>`;
       return;
     }
 
-    // Compose HTML
-    let html = `<section><h2>${getSectionTitle(sectionKey)}</h2>`;
+    let html = `<section><h2>${getSectionTitle(currentSection)}</h2>`;
 
-    // For "मेरो बारेमा" show first content only if exists
-    if(sectionKey === 'mero-barema'){
-      const item = sectionContents[0];
-      html += renderContentItem(item);
+    if (currentSection === 'mero-barema') {
+      // Show single about item
+      html += contents[currentSection][0].htmlContent;
     } else {
-      // For other sections list all items with expandable content
-      for(let item of sectionContents){
-        html += renderContentAccordion(item);
-      }
+      // Show accordion for posts
+      contents[currentSection].forEach(item => {
+        html += renderAccordionItem(item);
+      });
     }
 
     html += '</section>';
+
     main.innerHTML = html;
 
-    // Add event listeners for expand/collapse in accordion
-    if(sectionKey !== 'mero-barema'){
-      const titles = main.querySelectorAll('.accordion-title');
-      titles.forEach(title => {
-        title.addEventListener('click', () => {
-          const contentDiv = title.nextElementSibling;
-          if(contentDiv.style.maxHeight){
-            contentDiv.style.maxHeight = null;
-            title.setAttribute('aria-expanded','false');
-          } else {
-            contentDiv.style.maxHeight = contentDiv.scrollHeight + "px";
-            title.setAttribute('aria-expanded','true');
-          }
-        });
+    // Attach accordion toggle events
+    const titles = main.querySelectorAll('.accordion-title');
+    titles.forEach(title => {
+      title.addEventListener('click', () => {
+        toggleAccordion(title);
       });
+      title.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleAccordion(title);
+        }
+      });
+      title.setAttribute('aria-expanded', 'false');
+    });
+
+    // Render comments and reactions for each post
+    contents[currentSection].forEach(item => {
+      if(currentSection !== 'mero-barema'){
+        renderComments(item.id);
+        renderReactions(item.id);
+      }
+    });
+  }
+
+  function toggleAccordion(title) {
+    const content = title.nextElementSibling;
+    const expanded = title.getAttribute('aria-expanded') === 'true';
+    if (expanded) {
+      content.style.maxHeight = null;
+      title.setAttribute('aria-expanded', 'false');
+    } else {
+      content.style.maxHeight = content.scrollHeight + 'px';
+      title.setAttribute('aria-expanded', 'true');
     }
   }
 
-  // Helpers to get display names
-  function getSectionTitle(key){
-    switch(key){
-      case 'lekha': return "लेख/रचना";
-      case 'sahitya': return "साहित्य";
-      case 'loksewa': return "लोकसेवा";
-      case 'patrapatrika': return "पत्रपत्रिका";
-      case 'mero-barema': return "मेरो बारेमा";
-      default: return "";
-    }
-  }
-
-  // Render content accordion style for lists
-  function renderContentAccordion(item){
-    const safeTitle = escapeHtml(item.title);
-    let html = 
-    `<article class="content-article" tabindex="0">
-      <h3 class="accordion-title" role="button" aria-expanded="false" tabindex="0">${safeTitle}</h3>
-      <div class="accordion-content" style="max-height:0;overflow:hidden;transition:max-height 0.35s ease;">
-        ${item.htmlContent}
-        ${item.youtube ? renderYouTubeEmbed(item.youtube) : ''}
-        ${item.pdfURL ? renderPdfEmbed(item.pdfURL) : ''}
-      </div>
-    </article>`;
-    return html;
-  }
-
-  // Render content for single item "मेरो बारेमा"
-  function renderContentItem(item){
-    let html = `
-      <article>
-        ${item.htmlContent}
-        ${item.youtube ? renderYouTubeEmbed(item.youtube) : ''}
-        ${item.pdfURL ? renderPdfEmbed(item.pdfURL) : ''}
+  function renderAccordionItem(item) {
+    let html =
+      `<article tabindex="0" class="content-article" aria-label="सामग्री: ${escapeHtml(item.title)}">
+        <h3 tabindex="0" role="button" class="accordion-title" aria-expanded="false" aria-controls="content-${item.id}">
+          ${escapeHtml(item.title)}
+          <span class="material-icons icon-toggle" aria-hidden="true">expand_more</span>
+        </h3>
+        <div class="accordion-content" id="content-${item.id}" aria-hidden="true" style="max-height: 0; overflow:hidden; transition:max-height 0.35s ease;">
+          ${item.htmlContent}
+          ${item.youtube ? renderYouTubeEmbed(item.youtube) : ''}
+          ${item.pdfURL ? renderPdfEmbed(item.pdfURL) : ''}
+          <div id="reaction-container-${item.id}" class="emoji-reactions" aria-label="यो पोष्टमा प्रतिक्रिया दिनुहोस्" role="region"></div>
+          <section id="comments-${item.id}" class="comments-section" aria-label="कमेन्टहरू">
+            <h3>कमेन्टहरू</h3>
+            <form id="comment-form-${item.id}" class="comment-form" aria-label="कमेन्ट फारम">
+              <input type="text" id="comment-name-${item.id}" name="commentName" placeholder="तपाईंको नाम" required aria-required="true" />
+              <input type="email" id="comment-email-${item.id}" name="commentEmail" placeholder="इमेल (वैकल्पिक)" />
+              <textarea id="comment-text-${item.id}" name="commentText" placeholder="यहाँ कमेन्ट लेख्नुहोस्..." required aria-required="true"></textarea>
+              <button type="submit" aria-label="कमेन्ट पठाउनुहोस्">कमेन्ट पठाउनुहोस्</button>
+            </form>
+            <ul id="comments-list-${item.id}" class="comments-list" aria-live="polite" aria-relevant="additions"></ul>
+          </section>
+        </div>
       </article>`;
     return html;
   }
 
-  // Render YouTube iframe embed from URL
-  function renderYouTubeEmbed(url){
+  function renderYouTubeEmbed(url) {
     const videoId = extractYouTubeID(url);
     if(!videoId) return '';
-    return `<iframe class="video-embed" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" allowfullscreen></iframe>`;
+    return `<iframe class="video-embed" src="https://www.youtube.com/embed/${videoId}" title="YouTube भिडियो" allowfullscreen loading="lazy"></iframe>`;
+  }
+  function renderPdfEmbed(url) {
+    return `<iframe class="pdf-embed" src="${url}" aria-label="PDF कागजात" loading="lazy"></iframe>`;
   }
 
-  // Render PDF iframe embed
-  function renderPdfEmbed(url){
-    return `<iframe class="pdf-embed" src="${url}" aria-label="PDF document"></iframe>`;
-  }
-
-  // Extract YouTube video ID from URL
-  function extractYouTubeID(url){
+  // Extract YouTube ID
+  function extractYouTubeID(url) {
     try {
       const u = new URL(url);
-      if(u.hostname.includes('youtu.be')){
+      if (u.hostname.includes('youtu.be')) {
         return u.pathname.slice(1);
-      } else if(u.hostname.includes('youtube.com')){
+      }
+      if (u.hostname.includes('youtube.com')) {
         return u.searchParams.get('v');
       }
-    } catch(e){}
+    } catch(e) {}
     return null;
   }
 
-  // Escape html text for safety
+  // Escape HTML for safety
   function escapeHtml(text) {
     const div = document.createElement('div');
     div.innerText = text;
     return div.innerHTML;
   }
 
-  // Load content object from localStorage
-  function loadContent(){
-    try {
-      const data = localStorage.getItem(STORAGE_KEY);
-      return data ? JSON.parse(data) : {};
-    } catch(e) {
-      return {};
+  // Get section title display string
+  function getSectionTitle(key) {
+    switch (key) {
+      case 'lekha': return 'लेख/रचना';
+      case 'sahitya': return 'साहित्य';
+      case 'loksewa': return 'लोकसेवा';
+      case 'patrapatrika': return 'पत्रपत्रिका';
+      case 'mero-barema': return 'मेरो बारेमा';
+      default: return '';
     }
   }
 
-  // Save content object to localStorage
-  function saveContentData(data){
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-  }
+  // --- Comments and reactions ---
 
-  // Admin login logic
-  function showLogin(){
-    loginScreen.style.display = 'flex';
-    loginScreen.querySelector('input').focus();
-  }
+  function renderComments(postId) {
+    const commentListId = `comments-list-${postId}`;
+    const commentFormId = `comment-form-${postId}`;
+    const nameInputId = `comment-name-${postId}`;
+    const emailInputId = `comment-email-${postId}`;
+    const textInputId = `comment-text-${postId}`;
 
-  function handleLogin(evt){
-    evt.preventDefault();
-    const pw = loginForm.adminPassword.value.trim();
-    if(pw === ADMIN_PASSWORD){
-      loginError.textContent = '';
-      loginScreen.style.display = 'none';
-      setAdminLoggedIn(true);
-      loadAdminPanel();
-    } else {
-      loginError.textContent = 'पासवर्ड गलत छ। पुन: प्रयास गर्नुहोस्।';
+    const commentsListEl = document.getElementById(commentListId);
+    if (!commentsListEl) return;
+
+    const comments = getStoredComments()[postId] || [];
+
+    if (comments.length === 0) {
+      commentsListEl.innerHTML = '<p>अहिले सम्म कुनै कमेन्ट छैन।</p>';
+      return;
     }
-    loginForm.reset();
-  }
+    let html = '';
+    comments.forEach(comment => {
+      html += `
+        <li tabindex="0">
+          <div class="comment-header">${escapeHtml(comment.name)}${comment.email ? ' (' + escapeHtml(comment.email) + ')' : ''}</div>
+          <div class="comment-body">${escapeHtml(comment.text)}</div>
+        </li>`;
+    });
+    commentsListEl.innerHTML = html;
 
-  function setAdminLoggedIn(value){
-    sessionStorage.setItem('nv_admin_logged_in', value ? 'true' : 'false');
-  }
-
-  function isAdminLoggedIn(){
-    return sessionStorage.getItem('nv_admin_logged_in') === 'true';
-  }
-
-  function logoutAdmin(){
-    setAdminLoggedIn(false);
-    adminPanel.hidden = true;
-  }
-
-  // Show or hide admin panel based on login state
-  function checkLoggedIn(){
-    if(isAdminLoggedIn()){
-      loadAdminPanel();
-    }
-  }
-
-  function loadAdminPanel(){
-    adminPanel.hidden = false;
-    clearContentForm();
-    renderContentList();
-  }
-
-  // Clear form inputs
-  function clearContentForm(){
-    contentTypeSelect.value = '';
-    titleInput.value = '';
-    contentInput.value = '';
-    youtubeInput.value = '';
-    pdfInput.value = '';
-    editId = null;
-    saveContentBtn.textContent = 'सेभ गर्नुहोस्';
-  }
-
-  // Render list of current contents with edit/delete
-  function renderContentList(){
-    const contents = loadContent();
-    const fragment = document.createDocumentFragment();
-    contentList.innerHTML = '';
-    Object.entries(contents).forEach(([section, items]) => {
-      if(!items.length) return;
-      // Section heading
-      const sectionHeader = document.createElement('li');
-      sectionHeader.style.listStyle = 'none';
-      sectionHeader.style.paddingTop = '16px';
-      sectionHeader.style.fontWeight = '700';
-      sectionHeader.style.color = '#bb1919';
-      sectionHeader.textContent = getSectionTitle(section);
-      fragment.appendChild(sectionHeader);
-      // Section items
-      items.forEach(item => {
-        const li = document.createElement('li');
-        li.style.justifyContent = 'space-between';
-
-        const titleSpan = document.createElement('span');
-        titleSpan.textContent = item.title;
-        titleSpan.tabIndex = 0;
-        titleSpan.className = 'content-title';
-
-        // Edit button
-        const editBtn = document.createElement('button');
-        editBtn.textContent = 'सम्पादन';
-        editBtn.className = 'primaryBtn';
-        editBtn.addEventListener('click', () => {
-          loadItemToForm(section, item);
-        });
-
-        // Delete button
-        const delBtn = document.createElement('button');
-        delBtn.textContent = 'हटाउनुहोस्';
-        delBtn.className = 'dangerBtn';
-        delBtn.addEventListener('click', () => {
-          if(confirm('के तपाईं यो सामग्री हटाउन निश्चित हुनुहुन्छ?')){
-            deleteContent(section, item.id);
-          }
-        });
-
-        const btnContainer = document.createElement('div');
-        btnContainer.appendChild(editBtn);
-        btnContainer.appendChild(delBtn);
-
-        li.appendChild(titleSpan);
-        li.appendChild(btnContainer);
-        fragment.appendChild(li);
+    // Add submit listener to form
+    const commentForm = document.getElementById(commentFormId);
+    if (commentForm && !commentForm.hasListener) {
+      commentForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById(nameInputId).value.trim();
+        const email = document.getElementById(emailInputId).value.trim();
+        const text = document.getElementById(textInputId).value.trim();
+        if (!name || !text) {
+          alert('कृपया आफ्नो नाम र कमेन्ट दुवै लेख्नुहोस्।');
+          return;
+        }
+        addComment(postId, { name, email: email || null, text, timestamp: new Date().toISOString() });
+        commentForm.reset();
       });
-    });
-    contentList.appendChild(fragment);
-  }
-
-  // Load an item into admin form for editing
-  function loadItemToForm(section, item){
-    contentTypeSelect.value = section;
-    titleInput.value = item.title;
-    contentInput.value = item.htmlContent;
-    youtubeInput.value = item.youtube || '';
-    // We cannot reload pdf file input, so only show a message
-    alert('PDF फाइल पुन: अपलोड गर्नुहोस् यदि तपाईं यसलाई प्रतिस्थापन गर्न चाहनुहुन्छ।');
-
-    editId = item.id;
-    saveContentBtn.textContent = 'अपडेट गर्नुहोस्';
-    window.scrollTo({top: adminPanel.offsetTop, behavior: 'smooth'});
-    titleInput.focus();
-  }
-
-  // Save or update content from admin form
-  async function saveContent(){
-    const type = contentTypeSelect.value;
-    const title = titleInput.value.trim();
-    const htmlContent = contentInput.value.trim();
-    const youtube = youtubeInput.value.trim();
-    const pdfFile = pdfInput.files[0];
-
-    if(!type){
-      alert('कृपया समग्रीको प्रकार छान्नुहोस्।');
-      return;
-    }
-    if(!title){
-      alert('शीर्षक अनिवार्य छ।');
-      return;
-    }
-    if(!htmlContent){
-      alert('समग्री लेख्नुहोस्।');
-      return;
-    }
-    // Validate YouTube URL if provided
-    if(youtube && !extractYouTubeID(youtube)){
-      alert('कृपया सही YouTube URL दिनुहोस्।');
-      return;
-    }
-
-    const contents = loadContent();
-
-    let pdfURL = null;
-
-    // If user uploaded a new PDF, create URL object
-    if(pdfFile){
-      pdfURL = await getPdfUrlFromFile(pdfFile);
-    } else if(editId){
-      // Keep old PDF URL if exists during edit and no new PDF uploaded
-      const old = findContentById(contents, editId);
-      if(old) pdfURL = old.pdfURL || null;
-    }
-
-    if(!contents[type]) contents[type] = [];
-
-    if(editId){
-      // Update existing content
-      const idx = contents[type].findIndex(it => it.id === editId);
-      if(idx >= 0){
-        contents[type][idx] = {
-          id: editId,
-          title,
-          htmlContent,
-          youtube: youtube || null,
-          pdfURL: pdfURL || null,
-        };
-      } else {
-        alert('समग्री अपडेट गर्न असमर्थ।');
-        return;
-      }
-    } else {
-      // Add new content
-      const newItem = {
-        id: 'id'+Date.now(),
-        title,
-        htmlContent,
-        youtube: youtube || null,
-        pdfURL: pdfURL || null,
-      };
-      contents[type].push(newItem);
-    }
-
-    saveContentData(contents);
-    clearContentForm();
-    renderContentList();
-    alert('समग्री सफलतापूर्वक सेभ भयो।');
-
-    // If currently viewing this section, refresh main content
-    if(type === currentSection){
-      switchSection(type);
+      commentForm.hasListener = true;
     }
   }
 
-  // Cancel editing state
-  function cancelEditing(){
-    clearContentForm();
-  }
-
-  // Delete content by id in section
-  function deleteContent(section, id){
-    const contents = loadContent();
-    if(!contents[section]) return;
-    contents[section] = contents[section].filter(item => item.id !== id);
-    saveContentData(contents);
-    renderContentList();
-    alert('समग्री हटाइयो।');
-    if(section === currentSection){
-      switchSection(section);
+  function addComment(postId, comment) {
+    const allComments = getStoredComments();
+    if (!allComments[postId]) {
+      allComments[postId] = [];
     }
+    allComments[postId].push(comment);
+    saveStoredComments(allComments);
+    renderComments(postId);
   }
 
-  // Find content by id in all sections
-  function findContentById(contents, id) {
-    for(let section in contents) {
-      const found = contents[section].find(item => item.id === id);
-      if(found) return found;
-    }
-    return null;
-  }
+  // --- Emoji Reactions ---
+  // Emoji set: 😊 (smile), ❤️ (love), 😞 (upset)
+  const emojiSet = [
+    { name: 'ramro', symbol: '😊' },
+    { name: 'manparyo', symbol: '❤️' },
+    { name: 'naramro', symbol: '😞' }
+  ];
 
-  // Convert PDF file to object URL for embed
-  function getPdfUrlFromFile(file){
-    return new Promise(resolve => {
-      const url = URL.createObjectURL(file);
-      resolve(url);
+  function renderReactions(postId) {
+    const containerId = `reaction-container-${postId}`;
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const reactions = getStoredReactions();
+    const postReactions = reactions[postId] || { ramro: 0, manparyo: 0, naramro: 0 };
+
+    container.innerHTML = '';
+    emojiSet.forEach(emoji => {
+      const btn = document.createElement('button');
+      btn.className = 'emoji-button';
+      btn.setAttribute('aria-label', emoji.name);
+      btn.title = emoji.name;
+      btn.innerText = emoji.symbol;
+      const countSpan = document.createElement('span');
+      countSpan.className = 'emoji-count';
+      countSpan.innerText = postReactions[emoji.name] || 0;
+      btn.appendChild(countSpan);
+
+      btn.addEventListener('click', () => {
+        postReactions[emoji.name] = (postReactions[emoji.name] || 0) + 1;
+        reactions[postId] = postReactions;
+        saveStoredReactions(reactions);
+        renderReactions(postId); // Refresh counts visually
+      });
+
+      container.appendChild(btn);
     });
   }
 
-  // Accessibility: allow keyboard toggling of accordion
-  document.addEventListener('keydown', (e) => {
-    if(e.target.classList.contains('accordion-title') && (e.key === 'Enter' || e.key === ' ')){
-      e.preventDefault();
-      e.target.click();
+  // --- Subscription functionality ---
+  subscriptionForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = subscriptionEmailInput.value.trim();
+    if (!email) {
+      alert('कृपया इमेल ठेगाना लेख्नुहोस्।');
+      return;
     }
+    const subs = getStoredSubscriptions();
+    if (subs.includes(email.toLowerCase())) {
+      subscriptionMessage.textContent = 'यो इमेल पहिले नै सदस्यता लिइसक्यो।';
+      subscriptionEmailInput.value = '';
+      return;
+    }
+    subs.push(email.toLowerCase());
+    saveStoredSubscriptions(subs);
+    subscriptionMessage.textContent = 'धन्यवाद! तपाईं सफलतापूर्वक सदस्यता लिनुभयो।';
+    subscriptionEmailInput.value = '';
   });
 
-  // Init on load
-  window.addEventListener('DOMContentLoaded', init);
+  // Initialize page
+  updateActiveNav();
+  renderSection();
+
 })();
 </script>
-
-<!-- Google Fonts for Nepali -->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&family=Poppins&display=swap" rel="stylesheet" />
-
 </body>
 </html>
 
+```
