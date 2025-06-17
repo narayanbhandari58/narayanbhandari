@@ -14,6 +14,7 @@
         }
         h1 {
             color: #bb1919;
+            text-align: center;
         }
         form {
             margin-bottom: 20px;
@@ -36,6 +37,7 @@
             padding: 10px 15px;
             border-radius: 4px;
             cursor: pointer;
+            width: 100%;
         }
         button:hover {
             background-color: #8a1515;
@@ -54,20 +56,23 @@
             margin-bottom: 10px;
             border-radius: 4px;
         }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <h1>CMS प्यानल</h1>
     
     <!-- Login Form -->
-    <form id="loginForm">
+    <form id="loginForm" class="hidden">
         <input type="email" id="username" placeholder="इमेल" required />
         <input type="password" id="password" placeholder="पासवर्ड" required />
         <button type="submit">लगइन गर्नुहोस्</button>
     </form>
 
     <!-- Post Form -->
-    <form id="postForm" style="display: none;"> <!-- Initially hidden -->
+    <form id="postForm" class="hidden"> <!-- Initially hidden -->
         <select id="postSection" required>
             <option value="" disabled selected>सेक्सन छान्नुहोस्</option>
             <option value="lekha">लेख/रचना</option>
@@ -97,6 +102,10 @@
         // Admin credentials
         const ADMIN_EMAIL = "bhandarinarayan300@gmail.com";
         const ADMIN_PASSWORD = "9846874405n@";
+
+        // Session timeout settings
+        const SESSION_TIMEOUT = 10 * 60 * 1000; // 10 minutes
+        let sessionTimeout;
 
         // Load existing posts from localStorage
         function loadPosts() {
@@ -165,17 +174,44 @@
 
             if (username === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
                 alert('लगइन सफल!');
-                loginForm.style.display = 'none'; // Hide login form
-                postForm.style.display = 'block'; // Show post form
+                loginForm.classList.add('hidden'); // Hide login form
+                postForm.classList.remove('hidden'); // Show post form
                 loadPosts(); // Load posts after login
                 postsList.style.display = 'block'; // Show posts list after login
+                startSessionTimeout(); // Start session timeout
             } else {
                 alert('इमेल वा पासवर्ड गलत छ। कृपया पुन: प्रयास गर्नुहोस्।');
             }
         });
 
+        // Start session timeout
+        function startSessionTimeout() {
+            clearTimeout(sessionTimeout); // Clear any existing timeout
+            sessionTimeout = setTimeout(() => {
+                alert('तपाईंको सेसन समय समाप्त भयो। कृपया पुन: लगइन गर्नुहोस्।');
+                logout(); // Call logout function
+            }, SESSION_TIMEOUT);
+        }
+
+        // Logout function
+        function logout() {
+            loginForm.classList.remove('hidden'); // Show login form
+            postForm.classList.add('hidden'); // Hide post form
+            postsList.style.display = 'none'; // Hide posts list
+            localStorage.removeItem('posts'); // Optionally clear posts
+            clearTimeout(sessionTimeout); // Clear timeout
+        }
+
         // Initial load
-        loadPosts();
+        if (localStorage.getItem('posts')) {
+            loginForm.classList.add('hidden'); // Hide login form if already logged in
+            postForm.classList.remove('hidden'); // Show post form
+            loadPosts(); // Load posts
+            postsList.style.display = 'block'; // Show posts list
+            startSessionTimeout(); // Start session timeout
+        } else {
+            loginForm.classList.remove('hidden'); // Show login form
+        }
     </script>
 </body>
 </html>
