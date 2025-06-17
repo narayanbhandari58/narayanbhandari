@@ -1,346 +1,267 @@
 <!DOCTYPE html>
 <html lang="ne">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CMS प्यानल - नारायण भण्डारी</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&family=Poppins&display=swap" rel="stylesheet" />
-    <style>
-        body {
-            font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-            color: #1a1a1a; /* Default text color */
-            display: flex;
-            flex-direction: row; /* Align sidebar and content side by side */
-            height: 100vh;
-            margin: 0;
-        }
-        .sidebar {
-            width: 250px;
-            background: #bb1919;
-            color: white; /* Sidebar text color */
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-        }
-        .sidebar h2 {
-            font-size: 1.5rem;
-            margin: 0 0 20px 0;
-        }
-        .sidebar a {
-            color: white; /* Sidebar link color */
-            text-decoration: none;
-            display: block;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
-        .sidebar a:hover {
-            background: #8a1515;
-        }
-        .recent-posts {
-            margin-top: 20px;
-        }
-        .content {
-            width: calc(100% - 250px); /* Adjust width to fill remaining space */
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column; /* Stack elements vertically */
-            align-items: center; /* Center elements horizontally */
-            background: white; /* Background color for content area */
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Shadow effect */
-        }
-        h1 {
-            color: #bb1919;
-            text-align: center;
-            margin-bottom: 20px; /* Add space below the title */
-        }
-        .login-form {
-            margin-bottom: 20px;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            width: 350px; /* Set width of login form */
-            height: 300px; /* Set height of login form */
-            display: flex;
-            flex-direction: column; /* Stack elements vertically */
-            justify-content: center; /* Center elements vertically */
-            align-items: center; /* Center elements horizontally */
-        }
-        .post-form {
-            margin-bottom: 20px;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            width: 400px; /* Set width of post form */
-            height: auto; /* Set height of post form to auto */
-            display: flex;
-            flex-direction: column; /* Stack elements vertically */
-            justify-content: flex-start; /* Align items to the start */
-            align-items: center; /* Center elements horizontally */
-        }
-        input, textarea, select {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #bb1919;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #bb1919;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
-        button:hover {
-            background-color: #8a1515;
-        }
-        #postsList {
-            margin-top: 20px;
-            display: none; /* Initially hidden */
-        }
-        #postsList ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        #postsList li {
-            padding: 10px;
-            border: 1px solid #ddd;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            display: flex;
-            justify-content: space-between; /* Space between title and buttons */
-            align-items: center; /* Center items vertically */
-        }
-        .hidden {
-            display: none;
-        }
-        .forgot-password {
-            margin-top: 10px;
-            text-align: center;
-        }
-        .forgot-password a {
-            color: #bb1919;
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMS प्यानल - नारायण भण्डारी</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&family=Poppins&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+      background: #f8f9fa;
+      color: #1a1a1a;
+      margin: 0;
+      display: flex;
+      height: 100vh;
+    }
+    .sidebar {
+      width: 250px;
+      background: #8f0e04;
+      color: white;
+      padding: 20px;
+      display: none;
+      flex-direction: column;
+    }
+    .sidebar h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      margin: 10px 0;
+      display: block;
+      padding: 10px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .sidebar a:hover {
+      background: #660c02;
+    }
+    .recent-posts ul {
+      list-style: none;
+      padding: 0;
+    }
+    .recent-posts li a {
+      color: white;
+      text-decoration: underline;
+    }
+    .content {
+      flex-grow: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    h1, h2 {
+      color: #8f0e04;
+      text-align: center;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      margin: 0 auto 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    textarea {
+      display: none;
+    }
+    button {
+      margin-top: 10px;
+      width: 100%;
+      background: #8f0e04;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .post-item {
+      background: white;
+      margin: 10px auto;
+      max-width: 600px;
+      padding: 10px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .post-item button {
+      margin-left: 5px;
+    }
+    @media (max-width: 768px) {
+      .sidebar { display: none; position: absolute; z-index: 100; height: 100vh; }
+    }
+  </style>
 </head>
 <body>
-    <div class="sidebar hidden" id="sidebar">
-        <h2>CMS प्यानल</h2>
-        <a href="#" id="logoutButton">लगआउट गर्नुहोस्</a>
-        <div class="recent-posts">
-            <h2>Recent Posts</h2>
-            <ul id="recentPostsList"></ul>
-        </div>
+  <div class="sidebar" id="sidebar">
+    <h2>CMS प्यानल</h2>
+    <a href="#" id="logoutButton">लगआउट गर्नुहोस्</a>
+    <div class="recent-posts">
+      <h3>Recent Posts</h3>
+      <ul id="recentPostsList"></ul>
     </div>
-    <div class="content">
-        <h1>CMS प्यानल</h1>
-        
-        <!-- Login Form -->
-        <form id="loginForm" class="login-form">
-            <input type="email" id="username" placeholder="इमेल" required />
-            <input type="password" id="password" placeholder="पासवर्ड" required />
-            <button type="submit">लगइन गर्नुहोस्</button>
-            <div class="forgot-password">
-                <a href="#" id="forgotPassword">पासवर्ड विर्सिनुभयो?</a>
-            </div>
-        </form>
+  </div>
+  <div class="content">
+    <h1>CMS प्यानल</h1>
+    <form id="loginForm">
+      <input type="email" id="username" placeholder="इमेल" required />
+      <input type="password" id="password" placeholder="पासवर्ड" required />
+      <button type="submit">लगइन गर्नुहोस्</button>
+    </form>
+    <form id="postForm" style="display:none">
+      <select id="postSection" required>
+        <option value="" disabled selected>सेक्सन छान्नुहोस्</option>
+        <option value="lekha">लेख/रचना</option>
+        <option value="sahitya">साहित्य</option>
+        <option value="loksewa">लोकसेवा</option>
+        <option value="patrapatrika">पत्रपत्रिका</option>
+        <option value="mero-barema">मेरो बारेमा</option>
+      </select>
+      <input type="text" id="postTitle" placeholder="पोष्टको शीर्षक" required />
+      <textarea id="postContent"></textarea>
+      <input type="url" id="youtubeLink" placeholder="YouTube भिडियो लिंक (यदि छ भने)" />
+      <input type="file" id="pdfFile" accept="application/pdf" />
+      <input type="text" id="postTags" placeholder="ट्यागहरू (#tag1, #tag2)" />
+      <button type="submit">पोष्ट थप्नुहोस्</button>
+    </form>
+    <div id="postsList"></div>
+  </div>
+  <script>
+    tinymce.init({
+      selector: '#postContent',
+      height: 300,
+      menubar: false,
+      plugins: 'link image code lists',
+      toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist | link image | code'
+    });
 
-        <!-- Post Form -->
-        <form id="postForm" class="post-form hidden"> <!-- Initially hidden -->
-            <select id="postSection" required>
-                <option value="" disabled selected>सेक्सन छान्नुहोस्</option>
-                <option value="lekha">लेख/रचना</option>
-                <option value="sahitya">साहित्य</option>
-                <option value="loksewa">लोकसेवा</option>
-                <option value="patrapatrika">पत्रपत्रिका</option>
-                <option value="mero-barema">मेरो बारेमा</option>
-            </select>
-            <input type="text" id="postTitle" placeholder="पोष्टको शीर्षक" required />
-            <textarea id="postContent" placeholder="पोष्टको सामग्री" rows="5" required></textarea>
-            <input type="url" id="youtubeLink" placeholder="YouTube भिडियो लिंक (यदि छ भने)" />
-            <input type="file" id="pdfFile" accept="application/pdf" />
-            <input type="text" id="postTags" placeholder="ट्यागहरू (ह्यासट्यागसहित, जस्तै: #tag1, #tag2)" />
-            <button type="submit">पोष्ट थप्नुहोस्</button>
-        </form>
+    const ADMIN_EMAIL = "bhandarinarayan300@gmail.com";
+    const ADMIN_PASSWORD = "9846874405n@";
+    const SESSION_TIMEOUT = 10 * 60 * 1000;
+    let sessionTimeout;
+    const loginForm = document.getElementById("loginForm");
+    const postForm = document.getElementById("postForm");
+    const sidebar = document.getElementById("sidebar");
+    const postsList = document.getElementById("postsList");
+    const recentPostsList = document.getElementById("recentPostsList");
 
-        <div id="postsList">
-            <h2>पुनरावलोकन गरिएका पोष्टहरू</h2>
-            <ul id="posts"></ul>
-        </div>
-    </div>
+    function loadPosts() {
+      const posts = JSON.parse(localStorage.getItem("posts")) || [];
+      postsList.innerHTML = "";
+      recentPostsList.innerHTML = "";
+      posts.forEach((post, i) => {
+        const div = document.createElement("div");
+        div.className = "post-item";
+        div.innerHTML = `<span><strong>${post.title}</strong></span>
+        <span>
+          <button onclick="editPost(${i})">Edit</button>
+          <button onclick="deletePost(${i})">Delete</button>
+        </span>`;
+        postsList.appendChild(div);
 
-    <script>
-        const postForm = document.getElementById('postForm');
-        const postsList = document.getElementById('posts');
-        const recentPostsList = document.getElementById('recentPostsList');
-        const loginForm = document.getElementById('loginForm');
-        const logoutButton = document.getElementById('logoutButton');
-        const sidebar = document.getElementById('sidebar');
-        const forgotPasswordLink = document.getElementById('forgotPassword');
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="#" onclick="editPost(${i})">${post.title}</a>`;
+        recentPostsList.appendChild(li);
+      });
+      sidebar.style.display = posts.length ? "flex" : "none";
+    }
 
-        // Admin credentials
-        const ADMIN_EMAIL = "bhandarinarayan300@gmail.com";
-        const ADMIN_PASSWORD = "9846874405n@";
+    loginForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const email = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      if (email === ADMIN_EMAIL && pass === ADMIN_PASSWORD) {
+        loginForm.style.display = "none";
+        postForm.style.display = "block";
+        sidebar.style.display = "flex";
+        loadPosts();
+        startSessionTimeout();
+        localStorage.setItem("isLoggedIn", "true");
+      } else {
+        alert("गलत लगइन विवरण");
+      }
+    });
 
-        // Session timeout settings
-        const SESSION_TIMEOUT = 10 * 60 * 1000; // 10 minutes
-        let sessionTimeout;
+    document.getElementById("logoutButton").addEventListener("click", e => {
+      e.preventDefault();
+      logout();
+    });
 
-        // Load existing posts from localStorage
-        function loadPosts() {
-            const posts = JSON.parse(localStorage.getItem('posts')) || [];
-            postsList.innerHTML = '';
-            recentPostsList.innerHTML = ''; // Clear recent posts list
-            posts.forEach((post, index) => {
-                const li = document.createElement('li');
-                li.innerHTML = `<strong>${post.title}</strong>
-                <div>
-                    <button onclick="editPost(${index})">Edit</button>
-                    <button onclick="deletePost(${index})">Delete</button>
-                </div>`;
-                postsList.appendChild(li);
+    function logout() {
+      loginForm.style.display = "block";
+      postForm.style.display = "none";
+      sidebar.style.display = "none";
+      postsList.innerHTML = "";
+      clearTimeout(sessionTimeout);
+      localStorage.removeItem("isLoggedIn");
+    }
 
-                // Add to recent posts list
-                const recentLi = document.createElement('li');
-                recentLi.innerHTML = `<a href="#" onclick="editPost(${index})">${post.title}</a>`;
-                recentPostsList.appendChild(recentLi);
-            });
-            postsList.style.display = posts.length > 0 ? 'block' : 'none'; // Show or hide posts list
-            sidebar.style.display = posts.length > 0 ? 'block' : 'none'; // Show sidebar if there are posts
-        }
+    function startSessionTimeout() {
+      clearTimeout(sessionTimeout);
+      sessionTimeout = setTimeout(() => {
+        alert("सेसन समाप्त भयो");
+        logout();
+      }, SESSION_TIMEOUT);
+    }
 
-        // Add new post
-        postForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const section = document.getElementById('postSection').value;
-            const title = document.getElementById('postTitle').value;
-            const content = document.getElementById('postContent').value;
-            const youtubeLink = document.getElementById('youtubeLink').value;
-            const pdfFile = document.getElementById('pdfFile').files[0];
-            const tagsInput = document.getElementById('postTags').value;
-            const tags = tagsInput.split(',').map(tag => tag.trim()).filter(tag => tag.startsWith('#')); // Process tags
+    document.getElementById("postForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const posts = JSON.parse(localStorage.getItem("posts")) || [];
+      const newPost = {
+        title: document.getElementById("postTitle").value,
+        content: tinymce.get("postContent").getContent(),
+        section: document.getElementById("postSection").value,
+        youtube: document.getElementById("youtubeLink").value,
+        tags: document.getElementById("postTags").value.split(',').map(t => t.trim())
+      };
+      posts.push(newPost);
+      localStorage.setItem("posts", JSON.stringify(posts));
+      document.getElementById("postForm").reset();
+      tinymce.get("postContent").setContent('');
+      loadPosts();
+    });
 
-            const posts = JSON.parse(localStorage.getItem('posts')) || [];
-            const newPost = { title, content, section, youtube: youtubeLink, tags };
+    function editPost(index) {
+      const posts = JSON.parse(localStorage.getItem("posts")) || [];
+      const post = posts[index];
+      document.getElementById("postTitle").value = post.title;
+      tinymce.get("postContent").setContent(post.content || '');
+      document.getElementById("postSection").value = post.section;
+      document.getElementById("youtubeLink").value = post.youtube || '';
+      document.getElementById("postTags").value = (post.tags || []).join(', ');
+      posts.splice(index, 1);
+      localStorage.setItem("posts", JSON.stringify(posts));
+      loadPosts();
+    }
 
-            // Handle PDF file upload
-            if (pdfFile) {
-                const pdfURL = URL.createObjectURL(pdfFile);
-                newPost.pdf = pdfURL;
-            }
+    function deletePost(index) {
+      const posts = JSON.parse(localStorage.getItem("posts")) || [];
+      if (confirm("पक्का हटाउने?")) {
+        posts.splice(index, 1);
+        localStorage.setItem("posts", JSON.stringify(posts));
+        loadPosts();
+      }
+    }
 
-            posts.push(newPost);
-            localStorage.setItem('posts', JSON.stringify(posts));
-            postForm.reset();
-            loadPosts();
-            updateMainSite(); // Update main site with new post
-        });
-
-        // Edit post
-        function editPost(index) {
-            const posts = JSON.parse(localStorage.getItem('posts')) || [];
-            const post = posts[index];
-            document.getElementById('postSection').value = post.section;
-            document.getElementById('postTitle').value = post.title;
-            document.getElementById('postContent').value = post.content;
-            document.getElementById('youtubeLink').value = post.youtube || '';
-            document.getElementById('postTags').value = post.tags.join(', ');
-
-            // Remove the post from the list
-            posts.splice(index, 1);
-            localStorage.setItem('posts', JSON.stringify(posts));
-            loadPosts();
-        }
-
-        // Delete post
-        function deletePost(index) {
-            const posts = JSON.parse(localStorage.getItem('posts')) || [];
-            posts.splice(index, 1);
-            localStorage.setItem('posts', JSON.stringify(posts));
-            loadPosts();
-            updateMainSite(); // Update main site after deletion
-        }
-
-        // Update main site with new posts
-        function updateMainSite() {
-            const posts = JSON.parse(localStorage.getItem('posts')) || [];
-            const mainContent = posts.map(post => `<h3>${post.title}</h3><p>${post.content}</p>`).join('');
-            localStorage.setItem('mainSiteContent', mainContent);
-        }
-
-        // Handle login
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            if (username === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
-                alert('लगइन सफल!');
-                loginForm.classList.add('hidden'); // Hide login form
-                sidebar.classList.remove('hidden'); // Show sidebar
-                postForm.classList.remove('hidden'); // Show post form
-                loadPosts(); // Load posts after login
-                postsList.style.display = 'block'; // Show posts list after login
-                startSessionTimeout(); // Start session timeout
-                localStorage.setItem('isLoggedIn', 'true'); // Set login status
-            } else {
-                alert('इमेल वा पासवर्ड गलत छ। कृपया पुन: प्रयास गर्नुहोस्।');
-            }
-        });
-
-        // Start session timeout
-        function startSessionTimeout() {
-            clearTimeout(sessionTimeout); // Clear any existing timeout
-            sessionTimeout = setTimeout(() => {
-                alert('तपाईंको सेसन समय समाप्त भयो। कृपया पुन: लगइन गर्नुहोस्।');
-                logout(); // Call logout function
-            }, SESSION_TIMEOUT);
-        }
-
-        // Logout function
-        function logout() {
-            loginForm.classList.remove('hidden'); // Show login form
-            sidebar.classList.add('hidden'); // Hide sidebar
-            postForm.classList.add('hidden'); // Hide post form
-            postsList.style.display = 'none'; // Hide posts list
-            localStorage.removeItem('posts'); // Optionally clear posts
-            localStorage.removeItem('isLoggedIn'); // Clear login status
-            clearTimeout(sessionTimeout); // Clear timeout
-        }
-
-        // Logout button event
-        logoutButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            logout();
-        });
-
-        // Forgot password event
-        forgotPasswordLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('पासवर्ड रिसेट गर्नको लागि इमेल पठाइएको छ: bhandarinarayan300@gmail.com');
-            // Here you can implement the actual email verification logic
-        });
-
-        // Initial load
-        if (localStorage.getItem('isLoggedIn') === 'true') {
-            loginForm.classList.add('hidden'); // Hide login form if already logged in
-            sidebar.classList.remove('hidden'); // Show sidebar
-            postForm.classList.remove('hidden'); // Show post form
-            loadPosts(); // Load posts
-            postsList.style.display = 'block'; // Show posts list
-            startSessionTimeout(); // Start session timeout
-        } else {
-            loginForm.classList.remove('hidden'); // Show login form
-        }
-    </script>
+    if (localStorage.getItem("isLoggedIn") === "true") {
+      loginForm.style.display = "none";
+      postForm.style.display = "block";
+      sidebar.style.display = "flex";
+      loadPosts();
+      startSessionTimeout();
+    }
+  </script>
 </body>
 </html>
