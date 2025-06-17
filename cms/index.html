@@ -1,0 +1,57 @@
+GitHub मा कोड अपलोड गर्नका लागि तलका चरणहरू अनुसरण गर्नुहोस्:
+
+### 1. GitHub खाता सिर्जना गर्नुहोस् (यदि छैन भने)
+- GitHub को वेबसाइटमा जानुहोस्: [github.com](https://github.com)
+- "Sign up" मा क्लिक गरेर खाता सिर्जना गर्नुहोस्।
+
+### 2. नयाँ Repository सिर्जना गर्नुहोस्
+- GitHub मा लगइन गर्नुहोस्।
+- "Repositories" ट्याबमा जानुहोस्।
+- "New" बटनमा क्लिक गर्नुहोस्।
+- Repository को नाम दिनुहोस् (जस्तै, `narayan-bhandari`), र आवश्यक विवरण भर्नुहोस्।
+- "Public" वा "Private" चयन गर्नुहोस् (सार्वजनिकको लागि, सबैले देख्न सक्छन्)।
+- "Create repository" बटनमा क्लिक गर्नुहोस्।
+
+### 3. GitHub Desktop वा Git Command Line प्रयोग गर्नुहोस्
+#### GitHub Desktop प्रयोग गरेर:
+1. **GitHub Desktop डाउनलोड गर्नुहोस्**: [GitHub Desktop](https://desktop.github.com/)
+2. **GitHub Desktop खोल्नुहोस्** र आफ्नो GitHub खाता साइन इन गर्नुहोस्।
+3. "File" मेनुमा जानुहोस् र "New repository" चयन गर्नुहोस्।
+4. Repository को नाम र स्थान चयन गर्नुहोस् र "Create repository" मा क्लिक गर्नुहोस्।
+5. आफ्नो कोड फाइलहरू (जस्तै, `cms-preview.html`) लाई यस नयाँ Repository मा ड्र्याग र ड्रप गर्नुहोस्।
+6. "Commit to main" बटनमा क्लिक गर्नुहोस्।
+7. "Push origin" बटनमा क्लिक गरेर GitHub मा अपलोड गर्नुहोस्।
+
+#### Git Command Line प्रयोग गरेर:
+1. **Git स्थापना गर्नुहोस्**: यदि तपाईंको कम्प्युटरमा Git छैन भने, [Git](https://git-scm.com/downloads) डाउनलोड र स्थापना गर्नुहोस्।
+2. **कमाण्ड प्रॉम्प्ट/टर्मिनल खोल्नुहोस्**।
+3. आफ्नो प्रोजेक्टको फोल्डरमा जानुहोस्:
+   ```bash
+   cd path/to/your/project
+   ```
+4. Git Repository इनिशियलाइज गर्नुहोस्:
+   ```bash
+   git init
+   ```
+5. फाइलहरू थप्नुहोस्:
+   ```bash
+   git add .
+   ```
+6. कमिट गर्नुहोस्:
+   ```bash
+   git commit -m "Initial commit"
+   ```
+7. GitHub Repository लाई रिमोटको रूपमा थप्नुहोस्:
+   ```bash
+   git remote add origin https://github.com/yourusername/narayan-bhandari.git
+   ```
+   (यहाँ `yourusername` लाई तपाईंको GitHub प्रयोगकर्ता नामसँग परिवर्तन गर्नुहोस्)
+8. फाइलहरू GitHub मा धकेल्नुहोस्:
+   ```bash
+   git push -u origin main
+   ```
+
+### 4. Repository जाँच गर्नुहोस्
+- GitHub मा जानुहोस् र तपाईंको Repository खोल्नुहोस्। यहाँ तपाईंको कोड अपलोड भएको देख्न सक्नुहुन्छ।
+
+यदि तपाईंलाई कुनै समस्या छ भने, कृपया सोध्न नहिचकिचाउनुहोस्!
