@@ -247,6 +247,7 @@
                 loadPosts(); // Load posts after login
                 postsList.style.display = 'block'; // Show posts list after login
                 startSessionTimeout(); // Start session timeout
+                localStorage.setItem('isLoggedIn', 'true'); // Set login status
             } else {
                 alert('इमेल वा पासवर्ड गलत छ। कृपया पुन: प्रयास गर्नुहोस्।');
             }
@@ -268,6 +269,7 @@
             postForm.classList.add('hidden'); // Hide post form
             postsList.style.display = 'none'; // Hide posts list
             localStorage.removeItem('posts'); // Optionally clear posts
+            localStorage.removeItem('isLoggedIn'); // Clear login status
             clearTimeout(sessionTimeout); // Clear timeout
         }
 
@@ -285,7 +287,7 @@
         });
 
         // Initial load
-        if (localStorage.getItem('posts')) {
+        if (localStorage.getItem('isLoggedIn') === 'true') {
             loginForm.classList.add('hidden'); // Hide login form if already logged in
             sidebar.classList.remove('hidden'); // Show sidebar
             postForm.classList.remove('hidden'); // Show post form
