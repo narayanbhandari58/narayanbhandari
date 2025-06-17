@@ -47,7 +47,7 @@
         }
         .content {
             width: 1000px; /* Set width of main content area */
-            height: 1400px; /* Set height of main content area */
+            height: auto; /* Set height of main content area to auto */
             padding: 20px;
             overflow-y: auto;
             display: flex;
@@ -57,7 +57,7 @@
             border-radius: 8px; /* Rounded corners */
             box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Shadow effect */
         }
-        form {
+        .login-form {
             margin-bottom: 20px;
             padding: 20px;
             background: white;
@@ -68,6 +68,19 @@
             display: flex;
             flex-direction: column; /* Stack elements vertically */
             justify-content: center; /* Center elements vertically */
+            align-items: center; /* Center elements horizontally */
+        }
+        .post-form {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 400px; /* Set width of post form */
+            height: auto; /* Set height of post form to auto */
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: flex-start; /* Align items to the start */
             align-items: center; /* Center elements horizontally */
         }
         input, textarea, select {
@@ -125,7 +138,7 @@
         <h1>CMS प्यानल</h1>
         
         <!-- Login Form -->
-        <form id="loginForm">
+        <form id="loginForm" class="login-form">
             <input type="email" id="username" placeholder="इमेल" required />
             <input type="password" id="password" placeholder="पासवर्ड" required />
             <button type="submit">लगइन गर्नुहोस्</button>
@@ -135,7 +148,7 @@
         </form>
 
         <!-- Post Form -->
-        <form id="postForm" class="hidden"> <!-- Initially hidden -->
+        <form id="postForm" class="post-form hidden"> <!-- Initially hidden -->
             <select id="postSection" required>
                 <option value="" disabled selected>सेक्सन छान्नुहोस्</option>
                 <option value="lekha">लेख/रचना</option>
