@@ -1,10 +1,10 @@
-```
 <!DOCTYPE html>
 <html lang="ne">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>नारायण भण्डारी - व्यक्तिगत वेवसाइट</title>
+    <title>नारायण भण्डारी - लेखक, साहित्यकार र लोकसेवा तयारी सामग्री</title>
+    <meta name="description" content="नारायण भण्डारीको व्यक्तिगत वेवसाइट — लेखक, साहित्यकार र लोकसेवा तयारी सामग्रीको स्रोत।" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&family=Poppins&display=swap" rel="stylesheet" />
     <!-- Material Icons -->
@@ -28,6 +28,7 @@
         a {
             color: #bb1919;
             text-decoration: none;
+            cursor: pointer;
         }
         a:hover, a:focus {
             text-decoration: underline;
@@ -82,10 +83,9 @@
             border-radius: 6px;
             padding: 8px 14px;
             font-weight: 600;
-            cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        nav.desktop-nav a.active,
+        nav.desktop-nav a[aria-current="page"],
         nav.desktop-nav a:hover,
         nav.desktop-nav a:focus {
             background-color: #e63946;
@@ -102,6 +102,7 @@
             background: white;
             border-radius: 12px;
             box-shadow: 0 3px 12px rgba(187 25 25 / 0.15);
+            outline: none;
         }
 
         /* Sections */
@@ -148,8 +149,13 @@
         }
         #subscriptionMessage {
             margin-top: 12px;
-            color: green;
             font-weight: 600;
+        }
+        #subscriptionMessage.success {
+            color: green;
+        }
+        #subscriptionMessage.error {
+            color: #b00020; /* dark red */
         }
 
         /* Footer */
@@ -186,13 +192,13 @@
 </head>
 <body>
 <header role="banner">
-    <div class="logo">नारायण भण्डारी</div>
+    <h1 class="logo">नारायण भण्डारी</h1>
     <nav class="desktop-nav" role="navigation" aria-label="मुख्य मेनु">
-        <a href="#" data-section="lekha" class="active">लेख/रचना</a>
-        <a href="#" data-section="sahitya">साहित्य</a>
-        <a href="#" data-section="loksewa">लोकसेवा</a>
-        <a href="#" data-section="patrapatrika">पत्रपत्रिका</a>
-        <a href="#" data-section="mero-barema">मेरो बारेमा</a>
+        <a href="javascript:void(0);" data-section="lekha" aria-current="page">लेख/रचना</a>
+        <a href="javascript:void(0);" data-section="sahitya">साहित्य</a>
+        <a href="javascript:void(0);" data-section="loksewa">लोकसेवा</a>
+        <a href="javascript:void(0);" data-section="patrapatrika">पत्रपत्रिका</a>
+        <a href="javascript:void(0);" data-section="mero-barema">मेरो बारेमा</a>
     </nav>
 </header>
 
@@ -212,7 +218,7 @@
 
 <!-- Footer -->
 <footer>
-    सर्वाधिकार © नारायण भण्डारी, २०८२
+    सर्वाधिकार © नारायण भण्डारी, <span id="footerYear">२०८२</span>
 </footer>
 
 <script>
@@ -220,32 +226,73 @@
     const subscriptionForm = document.getElementById('subscriptionForm');
     const subscriptionEmailInput = document.getElementById('subscriptionEmail');
     const subscriptionMessage = document.getElementById('subscriptionMessage');
+    const mainContentDiv = document.getElementById('mainContent');
+    const navLinks = document.querySelectorAll('nav.desktop-nav a');
 
-    // Load content from localStorage
+    // Load content from localStorage safely (assumes content is safe)
     function loadMainContent() {
         const mainContent = localStorage.getItem('mainSiteContent') || '<p>अहिले सम्म कुनै सामग्री उपलब्ध छैन।</p>';
-        document.getElementById('mainContent').innerHTML = mainContent;
+        mainContentDiv.innerHTML = mainContent;
+        mainContentDiv.focus();
+    }
+
+    // Email validation regex (simple)
+    function isValidEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
     }
 
     // Subscription functionality
     subscriptionForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const email = subscriptionEmailInput.value.trim();
+        subscriptionMessage.className = '';
+        subscriptionMessage.textContent = '';
+
         if (!email) {
-            alert('कृपया इमेल ठेगाना लेख्नुहोस्।');
+            subscriptionMessage.textContent = 'कृपया इमेल ठेगाना लेख्नुहोस्।';
+            subscriptionMessage.classList.add('error');
+            subscriptionEmailInput.focus();
             return;
         }
+
+        if (!isValidEmail(email)) {
+            subscriptionMessage.textContent = 'कृपया मान्य इमेल ठेगाना लेख्नुहोस्।';
+            subscriptionMessage.classList.add('error');
+            subscriptionEmailInput.focus();
+            return;
+        }
+
         const subs = JSON.parse(localStorage.getItem('nv_subscriptions')) || [];
         if (subs.includes(email.toLowerCase())) {
             subscriptionMessage.textContent = 'यो इमेल पहिले नै सदस्यता लिइसक्यो।';
+            subscriptionMessage.classList.add('error');
             subscriptionEmailInput.value = '';
+            subscriptionEmailInput.focus();
             return;
         }
         subs.push(email.toLowerCase());
         localStorage.setItem('nv_subscriptions', JSON.stringify(subs));
         subscriptionMessage.textContent = 'धन्यवाद! तपाईं सफलतापूर्वक सदस्यता लिनुभयो।';
+        subscriptionMessage.classList.add('success');
         subscriptionEmailInput.value = '';
     });
+
+    // Manage nav active state for accessibility
+    navLinks.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            navLinks.forEach(l => {
+                l.removeAttribute('aria-current');
+            });
+            e.currentTarget.setAttribute('aria-current', 'page');
+            // Could add code here to load different sections dynamically
+        });
+    });
+
+    // Set footer year dynamically (using Gregorian year for simplicity)
+    // You can replace with Nepali calendar year if needed
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
 
     // Initial load
     loadMainContent();
@@ -253,4 +300,3 @@
 </script>
 </body>
 </html>
-```
