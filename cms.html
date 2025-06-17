@@ -115,6 +115,9 @@
             border: 1px solid #ddd;
             margin-bottom: 10px;
             border-radius: 4px;
+            display: flex;
+            justify-content: space-between; /* Space between title and buttons */
+            align-items: center; /* Center items vertically */
         }
         .hidden {
             display: none;
@@ -193,12 +196,11 @@
             postsList.innerHTML = '';
             posts.forEach((post, index) => {
                 const li = document.createElement('li');
-                li.innerHTML = `<strong>${post.title}</strong><p>${post.content}</p>
-                <p>सेक्सन: ${post.section}</p>
-                ${post.youtube ? `<p>YouTube: <a href="${post.youtube}" target="_blank">${post.youtube}</a></p>` : ''}
-                ${post.pdf ? `<p>PDF: <a href="${post.pdf}" target="_blank">डाउनलोड गर्नुहोस्</a></p>` : ''}
-                ${post.tags ? `<p>ट्यागहरू: ${post.tags.join(', ')}</p>` : ''}
-                <button onclick="deletePost(${index})">हटाउनुहोस्</button>`;
+                li.innerHTML = `<strong>${post.title}</strong>
+                <div>
+                    <button onclick="editPost(${index})">Edit</button>
+                    <button onclick="deletePost(${index})">Delete</button>
+                </div>`;
                 postsList.appendChild(li);
             });
             postsList.style.display = posts.length > 0 ? 'block' : 'none'; // Show or hide posts list
@@ -230,6 +232,22 @@
             loadPosts();
             updateMainSite(); // Update main site with new post
         });
+
+        // Edit post
+        function editPost(index) {
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            const post = posts[index];
+            document.getElementById('postSection').value = post.section;
+            document.getElementById('postTitle').value = post.title;
+            document.getElementById('postContent').value = post.content;
+            document.getElementById('youtubeLink').value = post.youtube || '';
+            document.getElementById('postTags').value = post.tags.join(', ');
+
+            // Remove the post from the list
+            posts.splice(index, 1);
+            localStorage.setItem('posts', JSON.stringify(posts));
+            loadPosts();
+        }
 
         // Delete post
         function deletePost(index) {
