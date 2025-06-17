@@ -22,7 +22,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        input, textarea {
+        input, textarea, select {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
@@ -42,6 +42,7 @@
         }
         #postsList {
             margin-top: 20px;
+            display: none; /* Initially hidden */
         }
         #postsList ul {
             list-style-type: none;
@@ -57,9 +58,29 @@
 </head>
 <body>
     <h1>CMS प्यानल</h1>
-    <form id="postForm">
+    
+    <!-- Login Form -->
+    <form id="loginForm">
+        <input type="email" id="username" placeholder="इमेल" required />
+        <input type="password" id="password" placeholder="पासवर्ड" required />
+        <button type="submit">लगइन गर्नुहोस्</button>
+    </form>
+
+    <!-- Post Form -->
+    <form id="postForm" style="display: none;"> <!-- Initially hidden -->
+        <select id="postSection" required>
+            <option value="" disabled selected>सेक्सन छान्नुहोस्</option>
+            <option value="lekha">लेख/रचना</option>
+            <option value="sahitya">साहित्य</option>
+            <option value="loksewa">लोकसेवा</option>
+            <option value="patrapatrika">पत्रपत्रिका</option>
+            <option value="mero-barema">मेरो बारेमा</option>
+        </select>
         <input type="text" id="postTitle" placeholder="पोष्टको शीर्षक" required />
         <textarea id="postContent" placeholder="पोष्टको सामग्री" rows="5" required></textarea>
+        <input type="url" id="youtubeLink" placeholder="YouTube भिडियो लिंक (यदि छ भने)" />
+        <input type="file" id="pdfFile" accept="application/pdf" />
+        <input type="text" id="postTags" placeholder="ट्यागहरू (ह्यासट्यागसहित, जस्तै: #tag1, #tag2)" />
         <button type="submit">पोष्ट थप्नुहोस्</button>
     </form>
 
@@ -71,6 +92,11 @@
     <script>
         const postForm = document.getElementById('postForm');
         const postsList = document.getElementById('posts');
+        const loginForm = document.getElementById('loginForm');
+
+        // Admin credentials
+        const ADMIN_EMAIL = "bhandarinarayan300@gmail.com";
+        const ADMIN_PASSWORD = "9846874405n@";
 
         // Load existing posts from localStorage
         function loadPosts() {
@@ -79,19 +105,37 @@
             posts.forEach((post, index) => {
                 const li = document.createElement('li');
                 li.innerHTML = `<strong>${post.title}</strong><p>${post.content}</p>
+                <p>सेक्सन: ${post.section}</p>
+                ${post.youtube ? `<p>YouTube: <a href="${post.youtube}" target="_blank">${post.youtube}</a></p>` : ''}
+                ${post.pdf ? `<p>PDF: <a href="${post.pdf}" target="_blank">डाउनलोड गर्नुहोस्</a></p>` : ''}
+                ${post.tags ? `<p>ट्यागहरू: ${post.tags.join(', ')}</p>` : ''}
                 <button onclick="deletePost(${index})">हटाउनुहोस्</button>`;
                 postsList.appendChild(li);
             });
+            postsList.style.display = posts.length > 0 ? 'block' : 'none'; // Show or hide posts list
         }
 
         // Add new post
         postForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            const section = document.getElementById('postSection').value;
             const title = document.getElementById('postTitle').value;
             const content = document.getElementById('postContent').value;
+            const youtubeLink = document.getElementById('youtubeLink').value;
+            const pdfFile = document.getElementById('pdfFile').files[0];
+            const tagsInput = document.getElementById('postTags').value;
+            const tags = tagsInput.split(',').map(tag => tag.trim()).filter(tag => tag.startsWith('#')); // Process tags
 
             const posts = JSON.parse(localStorage.getItem('posts')) || [];
-            posts.push({ title, content });
+            const newPost = { title, content, section, youtube: youtubeLink, tags };
+
+            // Handle PDF file upload
+            if (pdfFile) {
+                const pdfURL = URL.createObjectURL(pdfFile);
+                newPost.pdf = pdfURL;
+            }
+
+            posts.push(newPost);
             localStorage.setItem('posts', JSON.stringify(posts));
             postForm.reset();
             loadPosts();
@@ -112,6 +156,23 @@
             const mainContent = posts.map(post => `<h3>${post.title}</h3><p>${post.content}</p>`).join('');
             localStorage.setItem('mainSiteContent', mainContent);
         }
+
+        // Handle login
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+                alert('लगइन सफल!');
+                loginForm.style.display = 'none'; // Hide login form
+                postForm.style.display = 'block'; // Show post form
+                loadPosts(); // Load posts after login
+                postsList.style.display = 'block'; // Show posts list after login
+            } else {
+                alert('इमेल वा पासवर्ड गलत छ। कृपया पुन: प्रयास गर्नुहोस्।');
+            }
+        });
 
         // Initial load
         loadPosts();
