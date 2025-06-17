@@ -11,12 +11,16 @@
             background-color: #f8f9fa;
             color: #1a1a1a;
             display: flex;
+            flex-direction: column; /* Stack elements vertically */
             height: 100vh;
             margin: 0;
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
         }
         h1 {
             color: #bb1919;
             text-align: center;
+            margin-bottom: 20px; /* Add space below the title */
         }
         .sidebar {
             width: 250px;
@@ -45,6 +49,9 @@
             flex-grow: 1;
             padding: 20px;
             overflow-y: auto;
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center elements horizontally */
         }
         form {
             margin-bottom: 20px;
@@ -52,6 +59,12 @@
             background: white;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 350px; /* Set width of login form */
+            height: 300px; /* Set height of login form */
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: center; /* Center elements vertically */
+            align-items: center; /* Center elements horizontally */
         }
         input, textarea, select {
             width: 100%;
@@ -89,10 +102,18 @@
         .hidden {
             display: none;
         }
+        .forgot-password {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .forgot-password a {
+            color: #bb1919;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
-    <div class="sidebar">
+    <div class="sidebar hidden" id="sidebar">
         <h2>CMS प्यानल</h2>
         <a href="#" id="logoutButton">लगआउट गर्नुहोस्</a>
     </div>
@@ -100,10 +121,13 @@
         <h1>CMS प्यानल</h1>
         
         <!-- Login Form -->
-        <form id="loginForm" class="hidden">
+        <form id="loginForm">
             <input type="email" id="username" placeholder="इमेल" required />
             <input type="password" id="password" placeholder="पासवर्ड" required />
             <button type="submit">लगइन गर्नुहोस्</button>
+            <div class="forgot-password">
+                <a href="#" id="forgotPassword">पासवर्ड विर्सिनुभयो?</a>
+            </div>
         </form>
 
         <!-- Post Form -->
@@ -135,6 +159,8 @@
         const postsList = document.getElementById('posts');
         const loginForm = document.getElementById('loginForm');
         const logoutButton = document.getElementById('logoutButton');
+        const sidebar = document.getElementById('sidebar');
+        const forgotPasswordLink = document.getElementById('forgotPassword');
 
         // Admin credentials
         const ADMIN_EMAIL = "bhandarinarayan300@gmail.com";
@@ -212,6 +238,7 @@
             if (username === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
                 alert('लगइन सफल!');
                 loginForm.classList.add('hidden'); // Hide login form
+                sidebar.classList.remove('hidden'); // Show sidebar
                 postForm.classList.remove('hidden'); // Show post form
                 loadPosts(); // Load posts after login
                 postsList.style.display = 'block'; // Show posts list after login
@@ -233,6 +260,7 @@
         // Logout function
         function logout() {
             loginForm.classList.remove('hidden'); // Show login form
+            sidebar.classList.add('hidden'); // Hide sidebar
             postForm.classList.add('hidden'); // Hide post form
             postsList.style.display = 'none'; // Hide posts list
             localStorage.removeItem('posts'); // Optionally clear posts
@@ -245,9 +273,17 @@
             logout();
         });
 
+        // Forgot password event
+        forgotPasswordLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('पासवर्ड रिसेट गर्नको लागि इमेल पठाइएको छ: bhandarinarayan300@gmail.com');
+            // Here you can implement the actual email verification logic
+        });
+
         // Initial load
         if (localStorage.getItem('posts')) {
             loginForm.classList.add('hidden'); // Hide login form if already logged in
+            sidebar.classList.remove('hidden'); // Show sidebar
             postForm.classList.remove('hidden'); // Show post form
             loadPosts(); // Load posts
             postsList.style.display = 'block'; // Show posts list
