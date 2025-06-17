@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CMS प्यानल - नारायण भण्डारी</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&family=Poppins&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+            padding: 20px;
+        }
+        h1 {
+            color: #bb1919;
+        }
+        form {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #bb1919;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #bb1919;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #8a1515;
+        }
+        #postsList {
+            margin-top: 20px;
+        }
+        #postsList ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #postsList li {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CMS प्यानल</h1>
+    <form id="postForm">
+        <input type="text" id="postTitle" placeholder="पोष्टको शीर्षक" required />
+        <textarea id="postContent" placeholder="पोष्टको सामग्री" rows="5" required></textarea>
+        <button type="submit">पोष्ट थप्नुहोस्</button>
+    </form>
+
+    <div id="postsList">
+        <h2>पुनरावलोकन गरिएका पोष्टहरू</h2>
+        <ul id="posts"></ul>
+    </div>
+
+    <script>
+        const postForm = document.getElementById('postForm');
+        const postsList = document.getElementById('posts');
+
+        // Load existing posts from localStorage
+        function loadPosts() {
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            postsList.innerHTML = '';
+            posts.forEach((post, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${post.title}</strong><p>${post.content}</p>
+                <button onclick="deletePost(${index})">हटाउनुहोस्</button>`;
+                postsList.appendChild(li);
+            });
+        }
+
+        // Add new post
+        postForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const title = document.getElementById('postTitle').value;
+            const content = document.getElementById('postContent').value;
+
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            posts.push({ title, content });
+            localStorage.setItem('posts', JSON.stringify(posts));
+            postForm.reset();
+            loadPosts();
+            updateMainSite(); // Update main site with new post
+        });
+
+        // Delete post
+        function deletePost(index) {
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            posts.splice(index, 1);
+            localStorage.setItem('posts', JSON.stringify(posts));
+            loadPosts();
+        }
+
+        // Update main site with new posts
+        function updateMainSite() {
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            const mainContent = posts.map(post => `<h3>${post.title}</h3><p>${post.content}</p>`).join('');
+            localStorage.setItem('mainSiteContent', mainContent);
+        }
+
+        // Initial load
+        loadPosts();
+    </script>
+</body>
+</html>
