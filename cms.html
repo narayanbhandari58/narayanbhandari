@@ -10,11 +10,41 @@
             font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
             background-color: #f8f9fa;
             color: #1a1a1a;
-            padding: 20px;
+            display: flex;
+            height: 100vh;
+            margin: 0;
         }
         h1 {
             color: #bb1919;
             text-align: center;
+        }
+        .sidebar {
+            width: 250px;
+            background: #bb1919;
+            color: white;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .sidebar h2 {
+            font-size: 1.5rem;
+            margin: 0 0 20px 0;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .sidebar a:hover {
+            background: #8a1515;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
         }
         form {
             margin-bottom: 20px;
@@ -62,42 +92,49 @@
     </style>
 </head>
 <body>
-    <h1>CMS प्यानल</h1>
-    
-    <!-- Login Form -->
-    <form id="loginForm" class="hidden">
-        <input type="email" id="username" placeholder="इमेल" required />
-        <input type="password" id="password" placeholder="पासवर्ड" required />
-        <button type="submit">लगइन गर्नुहोस्</button>
-    </form>
+    <div class="sidebar">
+        <h2>CMS प्यानल</h2>
+        <a href="#" id="logoutButton">लगआउट गर्नुहोस्</a>
+    </div>
+    <div class="content">
+        <h1>CMS प्यानल</h1>
+        
+        <!-- Login Form -->
+        <form id="loginForm" class="hidden">
+            <input type="email" id="username" placeholder="इमेल" required />
+            <input type="password" id="password" placeholder="पासवर्ड" required />
+            <button type="submit">लगइन गर्नुहोस्</button>
+        </form>
 
-    <!-- Post Form -->
-    <form id="postForm" class="hidden"> <!-- Initially hidden -->
-        <select id="postSection" required>
-            <option value="" disabled selected>सेक्सन छान्नुहोस्</option>
-            <option value="lekha">लेख/रचना</option>
-            <option value="sahitya">साहित्य</option>
-            <option value="loksewa">लोकसेवा</option>
-            <option value="patrapatrika">पत्रपत्रिका</option>
-            <option value="mero-barema">मेरो बारेमा</option>
-        </select>
-        <input type="text" id="postTitle" placeholder="पोष्टको शीर्षक" required />
-        <textarea id="postContent" placeholder="पोष्टको सामग्री" rows="5" required></textarea>
-        <input type="url" id="youtubeLink" placeholder="YouTube भिडियो लिंक (यदि छ भने)" />
-        <input type="file" id="pdfFile" accept="application/pdf" />
-        <input type="text" id="postTags" placeholder="ट्यागहरू (ह्यासट्यागसहित, जस्तै: #tag1, #tag2)" />
-        <button type="submit">पोष्ट थप्नुहोस्</button>
-    </form>
+        <!-- Post Form -->
+        <form id="postForm" class="hidden"> <!-- Initially hidden -->
+            <select id="postSection" required>
+                <option value="" disabled selected>सेक्सन छान्नुहोस्</option>
+                <option value="lekha">लेख/रचना</option>
+                <option value="sahitya">साहित्य</option>
+                <option value="loksewa">लोकसेवा</option>
+                <option value="patrapatrika">पत्रपत्रिका</option>
+                <option value="mero-barema">मेरो बारेमा</option>
+            </select>
+            <input type="text" id="postTitle" placeholder="पोष्टको शीर्षक" required />
+            <textarea id="postContent" placeholder="पोष्टको सामग्री" rows="5" required></textarea>
+            <input type="url" id="youtubeLink" placeholder="YouTube भिडियो लिंक (यदि छ भने)" />
+            <input type="file" id="pdfFile" accept="application/pdf" />
+            <input type="text" id="postTags" placeholder="ट्यागहरू (ह्यासट्यागसहित, जस्तै: #tag1, #tag2)" />
+            <button type="submit">पोष्ट थप्नुहोस्</button>
+        </form>
 
-    <div id="postsList">
-        <h2>पुनरावलोकन गरिएका पोष्टहरू</h2>
-        <ul id="posts"></ul>
+        <div id="postsList">
+            <h2>पुनरावलोकन गरिएका पोष्टहरू</h2>
+            <ul id="posts"></ul>
+        </div>
     </div>
 
     <script>
         const postForm = document.getElementById('postForm');
         const postsList = document.getElementById('posts');
         const loginForm = document.getElementById('loginForm');
+        const logoutButton = document.getElementById('logoutButton');
 
         // Admin credentials
         const ADMIN_EMAIL = "bhandarinarayan300@gmail.com";
@@ -201,6 +238,12 @@
             localStorage.removeItem('posts'); // Optionally clear posts
             clearTimeout(sessionTimeout); // Clear timeout
         }
+
+        // Logout button event
+        logoutButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            logout();
+        });
 
         // Initial load
         if (localStorage.getItem('posts')) {
