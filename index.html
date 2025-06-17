@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>नारायण भण्डारी - लेखक, साहित्यकार र लोकसेवा तयारी सामग्री</title>
-    <meta name="description" content="नारायण भण्डारीको व्यक्तिगत वेवसाइट — लेखक, साहित्यकार र लोकसेवा तयारी सामग्रीको स्रोत।" />
-    <!-- Google Fonts -->
+    <title>नारायण भण्डारी - व्यक्तिगत वेवसाइट</title>
+    <meta name="description" content="नारायण भण्डारीको व्यक्तिगत वेवसाइट" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&family=Poppins&display=swap" rel="stylesheet" />
-    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <style>
-        /* Reset and base */
+        /* Base & Reset */
         *, *::before, *::after {
             box-sizing: border-box;
         }
@@ -71,6 +69,9 @@
         .logo {
             font-weight: 900;
             font-size: 1.75rem;
+            color: white;
+            cursor: pointer;
+            user-select: none;
         }
         nav.desktop-nav {
             display: flex;
@@ -92,7 +93,7 @@
             color: white;
         }
 
-        /* Main container */
+        /* Main */
         main {
             flex-grow: 1;
             max-width: 960px;
@@ -105,9 +106,45 @@
             outline: none;
         }
 
-        /* Sections */
-        section {
+        /* Section container */
+        .section-posts {
             margin-bottom: 48px;
+        }
+        .section-posts h2 {
+            border-bottom: 3px solid #bb1919;
+            padding-bottom: 6px;
+            margin-bottom: 16px;
+        }
+
+        /* Post item */
+        .post-item {
+            border: 1px solid #bb1919;
+            border-radius: 10px;
+            padding: 12px 18px;
+            margin-bottom: 12px;
+            background-color: #fff4f4;
+            position: relative;
+        }
+        .post-item p {
+            margin: 0 0 8px 0;
+            white-space: pre-wrap;
+        }
+        .post-delete-btn {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            background: transparent;
+            border: none;
+            color: #bb1919;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        .post-delete-btn:hover,
+        .post-delete-btn:focus {
+            color: #8a1515;
+            outline: none;
         }
 
         /* Subscription Section */
@@ -155,7 +192,7 @@
             color: green;
         }
         #subscriptionMessage.error {
-            color: #b00020; /* dark red */
+            color: #b00020;
         }
 
         /* Footer */
@@ -192,18 +229,18 @@
 </head>
 <body>
 <header role="banner">
-    <h1 class="logo">नारायण भण्डारी</h1>
+    <h1 class="logo" tabindex="0" role="link" aria-label="होम पेजमा जानुहोस्" title="होम पेजमा जानुहोस्">नारायण भण्डारी</h1>
     <nav class="desktop-nav" role="navigation" aria-label="मुख्य मेनु">
-        <a href="javascript:void(0);" data-section="lekha" aria-current="page">लेख/रचना</a>
-        <a href="javascript:void(0);" data-section="sahitya">साहित्य</a>
-        <a href="javascript:void(0);" data-section="loksewa">लोकसेवा</a>
-        <a href="javascript:void(0);" data-section="patrapatrika">पत्रपत्रिका</a>
+        <a href="javascript:void(0);" data-section="lekha" aria-current="false">लेख/रचना</a>
+        <a href="javascript:void(0);" data-section="sahitya" aria-current="false">साहित्य</a>
+        <a href="javascript:void(0);" data-section="loksewa" aria-current="false">लोकसेवा</a>
+        <a href="javascript:void(0);" data-section="patrapatrika" aria-current="false">पत्रपत्रिका</a>
         <a href="javascript:void(0);" data-section="mero-barema">मेरो बारेमा</a>
     </nav>
 </header>
 
 <main tabindex="-1" role="main" aria-live="polite" aria-atomic="true">
-    <div id="mainContent"></div> <!-- Dynamic content area -->
+    <div id="mainContent" aria-live="polite" aria-atomic="true"></div>
 </main>
 
 <!-- Subscription Section -->
@@ -216,9 +253,8 @@
     <div id="subscriptionMessage" role="status" aria-live="polite"></div>
 </section>
 
-<!-- Footer -->
 <footer>
-    सर्वाधिकार © नारायण भण्डारी, <span id="footerYear">२०८२</span>
+    सर्वाधिकार © नारायण भण्डारी, <span id="footerYear"></span>
 </footer>
 
 <script>
@@ -228,21 +264,128 @@
     const subscriptionMessage = document.getElementById('subscriptionMessage');
     const mainContentDiv = document.getElementById('mainContent');
     const navLinks = document.querySelectorAll('nav.desktop-nav a');
+    const logo = document.querySelector('.logo');
 
-    // Load content from localStorage safely (assumes content is safe)
-    function loadMainContent() {
-        const mainContent = localStorage.getItem('mainSiteContent') || '<p>अहिले सम्म कुनै सामग्री उपलब्ध छैन।</p>';
-        mainContentDiv.innerHTML = mainContent;
-        mainContentDiv.focus();
+    // Define all valid sections and their Nepali names for header display
+    const sectionTitles = {
+        lekha: 'लेख/रचना',
+        sahitya: 'साहित्य',
+        loksewa: 'लोकसेवा',
+        patrapatrika: 'पत्रपत्रिका'
+    };
+
+    // Escape HTML utility
+    function escapeHtml(text) {
+        return text.replace(/[&<>"']/g, function(m) {
+            switch (m) {
+                case '&': return '&amp;';
+                case '<': return '&lt;';
+                case '>': return '&gt;';
+                case '"': return '&quot;';
+                case "'": return '&#39;';
+                default: return m;
+            }
+        });
     }
 
-    // Email validation regex (simple)
+    // Render posts grouped by section (home page)
+    function renderHomePage() {
+        let posts = JSON.parse(localStorage.getItem('nv_posts')) || [];
+
+        if(posts.length === 0) {
+            mainContentDiv.innerHTML = '<p>अहिले सम्म कुनै सामग्री उपलब्ध छैन।</p>';
+            return;
+        }
+
+        // Group posts by section
+        const grouped = {};
+        posts.forEach(post => {
+            if(!grouped[post.section]) grouped[post.section] = [];
+            grouped[post.section].push(post.content);
+        });
+
+        let html = '';
+        // Render each section in order of sectionTitles keys
+        for(const secKey of Object.keys(sectionTitles)) {
+            if(grouped[secKey] && grouped[secKey].length > 0) {
+                html += `<section class="section-posts" aria-label="${sectionTitles[secKey]}">
+                    <h2>${sectionTitles[secKey]}</h2>`;
+                grouped[secKey].forEach((content, idx) => {
+                    html += `<article class="post-item" role="article" aria-label="${sectionTitles[secKey]} - पोस्ट ${idx + 1}">
+                        <p>${escapeHtml(content)}</p>
+                        <button class="post-delete-btn" aria-label="पोस्ट हटाउनुहोस्" data-section="${secKey}" data-index="${idx}">हटाउनुहोस्</button>
+                    </article>`;
+                });
+                html += '</section>';
+            }
+        }
+
+        mainContentDiv.innerHTML = html;
+    }
+
+    // Render single section with posts (like clicking लेख/रचना only posts)
+    function renderSectionPage(sectionKey) {
+        let posts = JSON.parse(localStorage.getItem('nv_posts')) || [];
+        posts = posts.filter(post => post.section === sectionKey);
+
+        if(posts.length === 0) {
+            mainContentDiv.innerHTML = `<p>${sectionTitles[sectionKey]} खण्डमा कुनै पोस्ट छैन।</p>`;
+            return;
+        }
+
+        let html = `<section class="section-posts" aria-label="${sectionTitles[sectionKey]}">`;
+        posts.forEach((post, idx) => {
+            html += `<article class="post-item" role="article" aria-label="${sectionTitles[sectionKey]} - पोस्ट ${idx + 1}">
+                <p>${escapeHtml(post.content)}</p>
+                <button class="post-delete-btn" aria-label="पोस्ट हटाउनुहोस्" data-section="${sectionKey}" data-index="${idx}">हटाउनुहोस्</button>
+            </article>`;
+        });
+        html += '</section>';
+
+        mainContentDiv.innerHTML = html;
+    }
+
+    // Delete post handler (works for home page and section pages)
+    mainContentDiv.addEventListener('click', e => {
+        if(e.target.classList.contains('post-delete-btn')) {
+            const section = e.target.getAttribute('data-section');
+            const idx = parseInt(e.target.getAttribute('data-index'), 10);
+            let posts = JSON.parse(localStorage.getItem('nv_posts')) || [];
+
+            // Filter posts of that section
+            const postsInSection = posts.filter(p => p.section === section);
+            if(idx >= 0 && idx < postsInSection.length) {
+                // Find global index of the post to delete
+                let globalIndex = -1, count = 0;
+                for(let i=0; i<posts.length; i++) {
+                    if(posts[i].section === section) {
+                        if(count === idx) {
+                            globalIndex = i;
+                            break;
+                        }
+                        count++;
+                    }
+                }
+                if(globalIndex !== -1) {
+                    posts.splice(globalIndex,1);
+                    localStorage.setItem('nv_posts', JSON.stringify(posts));
+                    if(currentSection === 'home') {
+                        renderHomePage();
+                    } else {
+                        renderSectionPage(currentSection);
+                    }
+                }
+            }
+        }
+    });
+
+    // Email validation
     function isValidEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);
     }
 
-    // Subscription functionality
+    // Subscription form submit
     subscriptionForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const email = subscriptionEmailInput.value.trim();
@@ -278,24 +421,64 @@
         subscriptionEmailInput.value = '';
     });
 
-    // Manage nav active state for accessibility
+    // Navigation and current section state
+    let currentSection = 'home'; // 'home' means full home page grouped by section
+
+    function setActiveNav(section) {
+        navLinks.forEach(l => {
+            if(l.dataset.section === section) {
+                l.setAttribute('aria-current', 'page');
+            } else {
+                l.removeAttribute('aria-current');
+            }
+        });
+    }
+
+    // On clicking nav links
     navLinks.forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();
-            navLinks.forEach(l => {
-                l.removeAttribute('aria-current');
-            });
-            e.currentTarget.setAttribute('aria-current', 'page');
-            // Could add code here to load different sections dynamically
+            const section = e.currentTarget.dataset.section;
+            if(!section) {
+                // For मेरो बारेमा or unknown sections
+                mainContentDiv.innerHTML = '<p>यो खण्ड विकासाधीन छ।</p>';
+                setActiveNav(null);
+                currentSection = null;
+                mainContentDiv.focus();
+                return;
+            }
+            currentSection = section;
+            setActiveNav(section);
+            renderSectionPage(section);
+            mainContentDiv.focus();
         });
     });
 
-    // Set footer year dynamically (using Gregorian year for simplicity)
-    // You can replace with Nepali calendar year if needed
+    // Logo click => go to Home page (all posts grouped by section)
+    logo.addEventListener('click', () => {
+        currentSection = 'home';
+        setActiveNav(null); // no nav active in home page
+        renderHomePage();
+        mainContentDiv.focus();
+    });
+    logo.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            currentSection = 'home';
+            setActiveNav(null);
+            renderHomePage();
+            mainContentDiv.focus();
+        }
+    });
+
+    // Footer year
     document.getElementById('footerYear').textContent = new Date().getFullYear();
 
-    // Initial load
-    loadMainContent();
+    // Initial load => home page
+    currentSection = 'home';
+    setActiveNav(null);
+    renderHomePage();
+
 })();
 </script>
 </body>
