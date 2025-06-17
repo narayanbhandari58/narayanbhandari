@@ -1,57 +1,120 @@
-GitHub मा कोड अपलोड गर्नका लागि तलका चरणहरू अनुसरण गर्नुहोस्:
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CMS प्यानल - नारायण भण्डारी</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&family=Poppins&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+            padding: 20px;
+        }
+        h1 {
+            color: #bb1919;
+        }
+        form {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #bb1919;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #bb1919;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #8a1515;
+        }
+        #postsList {
+            margin-top: 20px;
+        }
+        #postsList ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #postsList li {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CMS प्यानल</h1>
+    <form id="postForm">
+        <input type="text" id="postTitle" placeholder="पोष्टको शीर्षक" required />
+        <textarea id="postContent" placeholder="पोष्टको सामग्री" rows="5" required></textarea>
+        <button type="submit">पोष्ट थप्नुहोस्</button>
+    </form>
 
-### 1. GitHub खाता सिर्जना गर्नुहोस् (यदि छैन भने)
-- GitHub को वेबसाइटमा जानुहोस्: [github.com](https://github.com)
-- "Sign up" मा क्लिक गरेर खाता सिर्जना गर्नुहोस्।
+    <div id="postsList">
+        <h2>पुनरावलोकन गरिएका पोष्टहरू</h2>
+        <ul id="posts"></ul>
+    </div>
 
-### 2. नयाँ Repository सिर्जना गर्नुहोस्
-- GitHub मा लगइन गर्नुहोस्।
-- "Repositories" ट्याबमा जानुहोस्।
-- "New" बटनमा क्लिक गर्नुहोस्।
-- Repository को नाम दिनुहोस् (जस्तै, `narayan-bhandari`), र आवश्यक विवरण भर्नुहोस्।
-- "Public" वा "Private" चयन गर्नुहोस् (सार्वजनिकको लागि, सबैले देख्न सक्छन्)।
-- "Create repository" बटनमा क्लिक गर्नुहोस्।
+    <script>
+        const postForm = document.getElementById('postForm');
+        const postsList = document.getElementById('posts');
 
-### 3. GitHub Desktop वा Git Command Line प्रयोग गर्नुहोस्
-#### GitHub Desktop प्रयोग गरेर:
-1. **GitHub Desktop डाउनलोड गर्नुहोस्**: [GitHub Desktop](https://desktop.github.com/)
-2. **GitHub Desktop खोल्नुहोस्** र आफ्नो GitHub खाता साइन इन गर्नुहोस्।
-3. "File" मेनुमा जानुहोस् र "New repository" चयन गर्नुहोस्।
-4. Repository को नाम र स्थान चयन गर्नुहोस् र "Create repository" मा क्लिक गर्नुहोस्।
-5. आफ्नो कोड फाइलहरू (जस्तै, `cms-preview.html`) लाई यस नयाँ Repository मा ड्र्याग र ड्रप गर्नुहोस्।
-6. "Commit to main" बटनमा क्लिक गर्नुहोस्।
-7. "Push origin" बटनमा क्लिक गरेर GitHub मा अपलोड गर्नुहोस्।
+        // Load existing posts from localStorage
+        function loadPosts() {
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            postsList.innerHTML = '';
+            posts.forEach((post, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${post.title}</strong><p>${post.content}</p>
+                <button onclick="deletePost(${index})">हटाउनुहोस्</button>`;
+                postsList.appendChild(li);
+            });
+        }
 
-#### Git Command Line प्रयोग गरेर:
-1. **Git स्थापना गर्नुहोस्**: यदि तपाईंको कम्प्युटरमा Git छैन भने, [Git](https://git-scm.com/downloads) डाउनलोड र स्थापना गर्नुहोस्।
-2. **कमाण्ड प्रॉम्प्ट/टर्मिनल खोल्नुहोस्**।
-3. आफ्नो प्रोजेक्टको फोल्डरमा जानुहोस्:
-   ```bash
-   cd path/to/your/project
-   ```
-4. Git Repository इनिशियलाइज गर्नुहोस्:
-   ```bash
-   git init
-   ```
-5. फाइलहरू थप्नुहोस्:
-   ```bash
-   git add .
-   ```
-6. कमिट गर्नुहोस्:
-   ```bash
-   git commit -m "Initial commit"
-   ```
-7. GitHub Repository लाई रिमोटको रूपमा थप्नुहोस्:
-   ```bash
-   git remote add origin https://github.com/yourusername/narayan-bhandari.git
-   ```
-   (यहाँ `yourusername` लाई तपाईंको GitHub प्रयोगकर्ता नामसँग परिवर्तन गर्नुहोस्)
-8. फाइलहरू GitHub मा धकेल्नुहोस्:
-   ```bash
-   git push -u origin main
-   ```
+        // Add new post
+        postForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const title = document.getElementById('postTitle').value;
+            const content = document.getElementById('postContent').value;
 
-### 4. Repository जाँच गर्नुहोस्
-- GitHub मा जानुहोस् र तपाईंको Repository खोल्नुहोस्। यहाँ तपाईंको कोड अपलोड भएको देख्न सक्नुहुन्छ।
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            posts.push({ title, content });
+            localStorage.setItem('posts', JSON.stringify(posts));
+            postForm.reset();
+            loadPosts();
+            updateMainSite(); // Update main site with new post
+        });
 
-यदि तपाईंलाई कुनै समस्या छ भने, कृपया सोध्न नहिचकिचाउनुहोस्!
+        // Delete post
+        function deletePost(index) {
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            posts.splice(index, 1);
+            localStorage.setItem('posts', JSON.stringify(posts));
+            loadPosts();
+        }
+
+        // Update main site with new posts
+        function updateMainSite() {
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            const mainContent = posts.map(post => `<h3>${post.title}</h3><p>${post.content}</p>`).join('');
+            localStorage.setItem('mainSiteContent', mainContent);
+        }
+
+        // Initial load
+        loadPosts();
+    </script>
+</body>
+</html>
