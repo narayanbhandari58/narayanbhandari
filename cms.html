@@ -237,6 +237,7 @@
             posts.splice(index, 1);
             localStorage.setItem('posts', JSON.stringify(posts));
             loadPosts();
+            updateMainSite(); // Update main site after deletion
         }
 
         // Update main site with new posts
