@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>नारायण भण्डारी - व्यक्तिगत वेवसाइट</title>
   <meta name="description" content="नारायण भण्डारीको व्यक्तिगत वेवसाइट" />
+  <meta name="author" content="नारायण भण्डारी" />
+  <meta name="keywords" content="नारायण भण्डारी, नेपाली ब्लग, लोकसेवा तयारी, साहित्य" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&family=Poppins&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <style>
@@ -190,6 +192,22 @@
         max-width: 100%;
       }
     }
+
+    /* Responsive YouTube iframe container */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
   </style>
 </head>
 <body>
@@ -204,7 +222,7 @@
     </nav>
   </header>
 
-  <main id="mainContent">
+  <main id="mainContent" tabindex="0">
     <p>सामग्री लोड हुँदैछ...</p>
   </main>
 
@@ -236,12 +254,14 @@
       async function loadPosts() {
         try {
           const res = await fetch(GITHUB_REPO_API);
+          if (!res.ok) throw new Error("Failed to fetch posts");
           const files = await res.json();
           const posts = [];
 
           for (const file of files) {
             if (file.name.endsWith(".json")) {
               const fileRes = await fetch(file.download_url);
+              if (!fileRes.ok) continue;
               const post = await fileRes.json();
               posts.push(post);
             }
@@ -253,9 +273,20 @@
         }
       }
 
+      function updateAriaCurrent(section) {
+        document.querySelectorAll('nav.desktop-nav a').forEach(link => {
+          if (link.dataset.section === section) {
+            link.setAttribute('aria-current', 'page');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      }
+
       function renderPosts(posts, filterSection = null) {
         if (!posts.length) {
           mainContentDiv.innerHTML = "<p>अहिले सम्म कुनै सामग्री उपलब्ध छैन।</p>";
+          updateAriaCurrent(null);
           return;
         }
 
@@ -276,7 +307,7 @@
           grouped[key].forEach(post => {
             html += `<article class="post-item"><h3>${post.title}</h3><div>${post.content}</div>`;
             if (post.youtube) {
-              html += `<div style="margin-top:10px;"><iframe width="100%" height="315" src="${post.youtube.replace("watch?v=", "embed/")}" frameborder="0" allowfullscreen></iframe></div>`;
+              html += `<div class="video-container" style="margin-top:10px;"><iframe src="${post.youtube.replace("watch?v=", "embed/")}" allowfullscreen></iframe></div>`;
             }
             html += `</article>`;
           });
@@ -284,6 +315,7 @@
         }
 
         mainContentDiv.innerHTML = html;
+        updateAriaCurrent(filterSection);
       }
 
       document.querySelector(".logo").addEventListener("click", async () => {
