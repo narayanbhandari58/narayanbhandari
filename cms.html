@@ -13,25 +13,43 @@
       background: #f8f9fa;
       color: #1a1a1a;
       margin: 0;
-      overflow-x: hidden;
-      height: 100vh;
       display: flex;
+      height: 100vh;
     }
-    /* Sidebar */
+    #menuToggle {
+      position: fixed;
+      top: 15px;
+      left: 250px; /* sidebar width */
+      z-index: 9999;
+      background: transparent;
+      border: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: #8f0e04;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0 5px 5px 0;
+      box-shadow: 1px 0 4px rgba(0,0,0,0.1);
+      transition: left 0.3s ease;
+    }
     .sidebar {
+      width: 250px;
+      background: #8f0e04;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
       position: fixed;
       top: 0;
       left: 0;
-      width: 250px;
       height: 100vh;
-      background: #8f0e04;
-      color: white;
-      padding: 20px 60px 20px 40px; /* right padding for 3 dots */
-      display: flex;
-      flex-direction: column;
-      overflow-y: auto;
       transition: transform 0.3s ease;
-      z-index: 1000;
+      transform: translateX(0);
+      z-index: 999;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     }
     .sidebar.hide {
       transform: translateX(-250px);
@@ -55,40 +73,14 @@
     .recent-posts ul {
       list-style: none;
       padding: 0;
+      max-height: 300px;
+      overflow-y: auto;
     }
     .recent-posts li a {
       color: white;
       text-decoration: underline;
       cursor: pointer;
     }
-
-    /* 3 dots button */
-    #menuToggle {
-      position: fixed;
-      top: 20px;
-      left: 250px; /* Sidebar right edge */
-      width: 40px;
-      height: 40px;
-      background: #8f0e04;
-      border: none;
-      color: white;
-      font-size: 28px;
-      cursor: pointer;
-      z-index: 1100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
-      user-select: none;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.2);
-      transition: background 0.3s, left 0.3s, border-radius 0.3s;
-    }
-    #menuToggle:hover {
-      background: #660c02;
-    }
-
-    /* Content */
     .content {
       flex-grow: 1;
       padding: 20px;
@@ -97,10 +89,9 @@
       transition: margin-left 0.3s ease;
       height: 100vh;
     }
-    .content.expanded {
+    .content.fullwidth {
       margin-left: 0;
     }
-
     h1, h2 {
       color: #8f0e04;
       text-align: center;
@@ -162,22 +153,21 @@
     }
     @media (max-width: 768px) {
       .sidebar {
-        height: auto;
         position: fixed;
-        z-index: 1000;
-      }
-      .content {
-        margin-left: 0;
+        z-index: 100;
+        height: 100vh;
       }
       #menuToggle {
         left: 0;
+      }
+      .content {
+        margin-left: 0;
       }
     }
   </style>
 </head>
 <body>
-
-  <button id="menuToggle">&#8942;</button>
+  <button id="menuToggle" title="Toggle Sidebar">&#8942;</button>
 
   <div class="sidebar" id="sidebar">
     <h2>CMS प्यानल</h2>
@@ -190,11 +180,13 @@
 
   <div class="content" id="content">
     <h1>CMS प्यानल</h1>
+
     <form id="loginForm">
       <input type="email" id="username" placeholder="इमेल" required />
       <input type="password" id="password" placeholder="पासवर्ड" required />
       <button type="submit">लगइन गर्नुहोस्</button>
     </form>
+
     <form id="postForm" style="display:none">
       <select id="postSection" required>
         <option value="" disabled selected>सेक्सन छान्नुहोस्</option>
@@ -211,190 +203,381 @@
       <input type="text" id="postTags" placeholder="ट्यागहरू (#tag1, #tag2)" />
       <button type="submit">पोष्ट थप्नुहोस्</button>
     </form>
+
     <div id="postsList"></div>
     <div class="pagination" id="pagination"></div>
   </div>
 
-  <script>
-    tinymce.init({
-      selector: '#postContent',
-      height: 300,
-      menubar: false,
-      plugins: 'link image code lists',
-      toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist | link image | code'
-    });
+<script>
+  tinymce.init({
+    selector: '#postContent',
+    height: 300,
+    menubar: false,
+    plugins: 'link image code lists',
+    toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist | link image | code'
+  });
 
-    const ADMIN_EMAIL = "bhandarinarayan300@gmail.com";
-    const ADMIN_PASSWORD = "9846874405n@";
-    const SESSION_TIMEOUT = 10 * 60 * 1000;
-    let sessionTimeout;
-    const loginForm = document.getElementById("loginForm");
-    const postForm = document.getElementById("postForm");
-    const sidebar = document.getElementById("sidebar");
-    const postsList = document.getElementById("postsList");
-    const recentPostsList = document.getElementById("recentPostsList");
-    const pagination = document.getElementById("pagination");
-    const menuToggle = document.getElementById('menuToggle');
-    const content = document.getElementById('content');
+  const ADMIN_EMAIL = "bhandarinarayan300@gmail.com";
+  const ADMIN_PASSWORD = "9846874405n@";
+  const SESSION_TIMEOUT = 10 * 60 * 1000;
+  const GITHUB_USERNAME = "narayanbhandari58";
+  const GITHUB_REPO = "narayanbhandari";
+  const GITHUB_BRANCH = "main";  // adjust if needed
+  const GITHUB_TOKEN = "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";
 
-    menuToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('hide');
-      content.classList.toggle('expanded');
+  let sessionTimeout;
+  let currentPage = 1;
+  const postsPerPage = 10;
+  const loginForm = document.getElementById("loginForm");
+  const postForm = document.getElementById("postForm");
+  const sidebar = document.getElementById("sidebar");
+  const postsList = document.getElementById("postsList");
+  const recentPostsList = document.getElementById("recentPostsList");
+  const pagination = document.getElementById("pagination");
+  const menuToggle = document.getElementById("menuToggle");
+  const contentDiv = document.getElementById("content");
 
-      if (sidebar.classList.contains('hide')) {
-        menuToggle.style.left = '0px';
-        menuToggle.style.borderRadius = '0 5px 5px 0';
-      } else {
-        menuToggle.style.left = '250px';
-        menuToggle.style.borderRadius = '5px 0 0 5px';
+  // Sidebar toggle with 3 dots button
+  menuToggle.addEventListener("click", () => {
+    sidebar.classList.toggle("hide");
+    if(sidebar.classList.contains("hide")){
+      menuToggle.style.left = "0";
+      contentDiv.classList.add("fullwidth");
+    } else {
+      menuToggle.style.left = "250px";
+      contentDiv.classList.remove("fullwidth");
+    }
+  });
+
+  // Pagination rendering
+  function renderPagination(totalPosts) {
+    pagination.innerHTML = '';
+    const totalPages = Math.ceil(totalPosts / postsPerPage);
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.createElement("button");
+      btn.textContent = i;
+      btn.onclick = () => {
+        currentPage = i;
+        loadPosts();
+      };
+      pagination.appendChild(btn);
+    }
+  }
+
+  // Load posts from GitHub repo
+  async function loadPosts() {
+    postsList.innerHTML = "";
+    recentPostsList.innerHTML = "";
+
+    try {
+      const response = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/posts?ref=${GITHUB_BRANCH}`, {
+        headers: {
+          Authorization: `token ${GITHUB_TOKEN}`
+        }
+      });
+      if (!response.ok) throw new Error("GitHub repo बाट पोस्ट लोड गर्न सकिएन");
+      const files = await response.json();
+
+      // Filter only .md files and sort by name (you can add better sorting logic if you want)
+      const mdFiles = files.filter(f => f.name.endsWith(".md")).sort((a,b) => a.name.localeCompare(b.name));
+
+      // Fetch content of each md file
+      const posts = [];
+      for(let i=0; i < mdFiles.length; i++){
+        const file = mdFiles[i];
+        const contentResponse = await fetch(file.download_url);
+        const contentText = await contentResponse.text();
+
+        // Simple parse title and body from markdown (first line as title, rest as content)
+        const lines = contentText.split("\n");
+        const titleLine = lines.find(line => line.trim().length > 0);
+        const title = titleLine ? titleLine.replace(/^#\s*/, '').trim() : file.name.replace(".md", "");
+        const body = contentText;
+
+        posts.push({
+          title,
+          content: body,
+          filename: file.name
+        });
       }
-    });
 
-    function paginatePosts(posts) {
-      const postsPerPage = 10;
+      // Paginate posts for display
+      const totalPosts = posts.length;
       const start = (currentPage - 1) * postsPerPage;
       const end = start + postsPerPage;
-      return posts.slice(start, end);
-    }
-
-    function renderPagination(totalPosts) {
-      pagination.innerHTML = '';
-      const postsPerPage = 10;
-      const totalPages = Math.ceil(totalPosts / postsPerPage);
-      for (let i = 1; i <= totalPages; i++) {
-        const btn = document.createElement("button");
-        btn.textContent = i;
-        btn.onclick = () => {
-          currentPage = i;
-          loadPosts();
-        };
-        pagination.appendChild(btn);
-      }
-    }
-
-    function loadPosts() {
-      const posts = JSON.parse(localStorage.getItem("posts")) || [];
-      postsList.innerHTML = "";
-      recentPostsList.innerHTML = "";
-      const paginated = paginatePosts(posts);
+      const paginated = posts.slice(start, end);
 
       paginated.forEach((post, i) => {
         const div = document.createElement("div");
         div.className = "post-item";
         div.innerHTML = `<span><strong>${post.title}</strong></span>
-        <span>
-          <button onclick="editPost(${(currentPage - 1) * 10 + i})">Edit</button>
-          <button onclick="deletePost(${(currentPage - 1) * 10 + i})">Delete</button>
-        </span>`;
+          <span>
+            <button onclick="editPost('${post.filename}')">Edit</button>
+            <button onclick="deletePost('${post.filename}')">Delete</button>
+          </span>`;
         postsList.appendChild(div);
       });
 
-      posts.slice(0, 10).forEach((post, i) => {
+      // Recent posts (first 10)
+      posts.slice(0, 10).forEach(post => {
         const li = document.createElement("li");
-        li.innerHTML = `<a href="#" onclick="editPost(${i})">${post.title}</a>`;
+        li.innerHTML = `<a href="#" onclick="editPost('${post.filename}')">${post.title}</a>`;
         recentPostsList.appendChild(li);
       });
 
-      renderPagination(posts.length);
+      renderPagination(totalPosts);
+    } catch (error) {
+      alert(error.message);
     }
+  }
 
-    loginForm.addEventListener("submit", e => {
-      e.preventDefault();
-      const email = document.getElementById("username").value;
-      const pass = document.getElementById("password").value;
-      if (email === ADMIN_EMAIL && pass === ADMIN_PASSWORD) {
-        loginForm.style.display = "none";
-        postForm.style.display = "block";
-        sidebar.classList.remove('hide');
-        content.classList.remove('expanded');
-        loadPosts();
-        startSessionTimeout();
-        localStorage.setItem("isLoggedIn", "true");
-      } else {
-        alert("गलत लगइन विवरण");
+  // Create or update a file in GitHub repo
+  async function createOrUpdateFile(filename, content, message) {
+    try {
+      // First, get SHA if file exists (required for update)
+      let sha = null;
+      const getResponse = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/posts/${filename}`, {
+        headers: { Authorization: `token ${GITHUB_TOKEN}` }
+      });
+      if (getResponse.ok) {
+        const fileData = await getResponse.json();
+        sha = fileData.sha;
       }
-    });
 
-    document.getElementById("logoutButton").addEventListener("click", e => {
-      e.preventDefault();
-      logout();
-    });
+      const putResponse = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/posts/${filename}`, {
+        method: "PUT",
+        headers: {
+          Authorization: `token ${GITHUB_TOKEN}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: message,
+          content: btoa(unescape(encodeURIComponent(content))),
+          sha: sha,
+          branch: GITHUB_BRANCH
+        })
+      });
 
-    function logout() {
-      loginForm.style.display = "block";
-      postForm.style.display = "none";
-      sidebar.classList.add('hide');
-      content.classList.add('expanded');
-      postsList.innerHTML = "";
-      clearTimeout(sessionTimeout);
-      localStorage.removeItem("isLoggedIn");
-      menuToggle.style.left = '0px';
-      menuToggle.style.borderRadius = '0 5px 5px 0';
-    }
-
-    function startSessionTimeout() {
-      clearTimeout(sessionTimeout);
-      sessionTimeout = setTimeout(() => {
-        alert("सेसन समाप्त भयो");
-        logout();
-      }, SESSION_TIMEOUT);
-    }
-
-    document.getElementById("postForm").addEventListener("submit", e => {
-      e.preventDefault();
-      const posts = JSON.parse(localStorage.getItem("posts")) || [];
-      const newPost = {
-        title: document.getElementById("postTitle").value,
-        content: tinymce.get("postContent").getContent(),
-        section: document.getElementById("postSection").value,
-        youtube: document.getElementById("youtubeLink").value,
-        tags: document.getElementById("postTags").value.split(',').map(t => t.trim())
-      };
-      posts.push(newPost);
-      localStorage.setItem("posts", JSON.stringify(posts));
-      document.getElementById("postForm").reset();
-      tinymce.get("postContent").setContent('');
-      loadPosts();
-    });
-
-    function editPost(index) {
-      const posts = JSON.parse(localStorage.getItem("posts")) || [];
-      const post = posts[index];
-      document.getElementById("postTitle").value = post.title;
-      tinymce.get("postContent").setContent(post.content || '');
-      document.getElementById("postSection").value = post.section;
-      document.getElementById("youtubeLink").value = post.youtube || '';
-      document.getElementById("postTags").value = (post.tags || []).join(', ');
-      posts.splice(index, 1);
-      localStorage.setItem("posts", JSON.stringify(posts));
-      loadPosts();
-    }
-
-    function deletePost(index) {
-      const posts = JSON.parse(localStorage.getItem("posts")) || [];
-      if (confirm("पक्का हटाउने?")) {
-        posts.splice(index, 1);
-        localStorage.setItem("posts", JSON.stringify(posts));
-        loadPosts();
+      if (!putResponse.ok) {
+        const errData = await putResponse.json();
+        throw new Error(errData.message || "GitHub मा फाइल अपलोड गर्दा समस्या");
       }
+
+      return await putResponse.json();
+
+    } catch (err) {
+      alert("GitHub अपडेटमा त्रुटि: " + err.message);
+      throw err;
     }
+  }
 
-    let currentPage = 1;
+  // Delete file from GitHub repo
+  async function deleteFile(filename) {
+    try {
+      // Get file SHA
+      const getResponse = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/posts/${filename}`, {
+        headers: { Authorization: `token ${GITHUB_TOKEN}` }
+      });
+      if (!getResponse.ok) throw new Error("फाइल फेला परेन");
 
-    // Auto-login check
-    if (localStorage.getItem("isLoggedIn") === "true") {
+      const fileData = await getResponse.json();
+      const sha = fileData.sha;
+
+      const deleteResponse = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/posts/${filename}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `token ${GITHUB_TOKEN}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: `Delete post ${filename}`,
+          sha: sha,
+          branch: GITHUB_BRANCH
+        })
+      });
+
+      if (!deleteResponse.ok) {
+        const errData = await deleteResponse.json();
+        throw new Error(errData.message || "GitHub मा फाइल मेट्दा समस्या");
+      }
+
+      return await deleteResponse.json();
+
+    } catch (err) {
+      alert("GitHub मेट्दा त्रुटि: " + err.message);
+      throw err;
+    }
+  }
+
+  // Edit post (load content from GitHub file)
+  async function editPost(filename) {
+    try {
+      const response = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/posts/${filename}`, {
+        headers: { Authorization: `token ${GITHUB_TOKEN}` }
+      });
+      if (!response.ok) throw new Error("फाइल लोड गर्न सकिएन");
+
+      const fileData = await response.json();
+      const content = atob(fileData.content);
+
+      // Parse markdown content to fill form
+      // Simple parse: first line title, rest content
+      const lines = content.split("\n");
+      const titleLine = lines.find(line => line.trim().length > 0);
+      const title = titleLine ? titleLine.replace(/^#\s*/, '') : filename.replace(".md", "");
+      const body = content;
+
+      document.getElementById("postTitle").value = title;
+      tinymce.get("postContent").setContent(body);
+      document.getElementById("postSection").value = "";  // Could add frontmatter for section if needed
+      document.getElementById("youtubeLink").value = "";
+      document.getElementById("postTags").value = "";
+
+      // Remove previous edit post filename in local storage and save current
+      localStorage.setItem("editingFilename", filename);
+
+      // Show post form and hide login form
       loginForm.style.display = "none";
       postForm.style.display = "block";
-      sidebar.classList.remove('hide');
-      content.classList.remove('expanded');
+      sidebar.classList.remove("hide");
+      contentDiv.classList.remove("fullwidth");
+
+      clearTimeout(sessionTimeout);
+      startSessionTimeout();
+
+    } catch (err) {
+      alert("पोष्ट सम्पादन गर्न समस्या: " + err.message);
+    }
+  }
+
+  // Delete post handler
+  async function deletePost(filename) {
+    if (!confirm("पक्का हटाउने?")) return;
+    try {
+      await deleteFile(filename);
+      alert("पोष्ट हटाइयो");
+      loadPosts();
+    } catch {
+      // error handled in deleteFile
+    }
+  }
+
+  // Logout function
+  function logout() {
+    loginForm.style.display = "block";
+    postForm.style.display = "none";
+    sidebar.classList.remove("hide");
+    contentDiv.classList.add("fullwidth");
+    clearTimeout(sessionTimeout);
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("editingFilename");
+  }
+
+  // Start session timeout
+  function startSessionTimeout() {
+    clearTimeout(sessionTimeout);
+    sessionTimeout = setTimeout(() => {
+      alert("सेसन समाप्त भयो");
+      logout();
+    }, SESSION_TIMEOUT);
+  }
+
+  // Login form submit
+  loginForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const email = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
+
+    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+      alert("लगइन सफल");
+      loginForm.style.display = "none";
+      postForm.style.display = "block";
+      localStorage.setItem("isLoggedIn", "true");
+      sidebar.classList.remove("hide");
+      contentDiv.classList.remove("fullwidth");
       loadPosts();
       startSessionTimeout();
     } else {
-      sidebar.classList.add('hide');
-      content.classList.add('expanded');
-      menuToggle.style.left = '0px';
-      menuToggle.style.borderRadius = '0 5px 5px 0';
+      alert("गलत इमेल वा पासवर्ड");
     }
-  </script>
+  });
+
+  // Logout button click
+  document.getElementById("logoutButton").addEventListener("click", e => {
+    e.preventDefault();
+    logout();
+  });
+
+  // Post form submit (create or update post)
+  postForm.addEventListener("submit", async e => {
+    e.preventDefault();
+
+    const section = document.getElementById("postSection").value;
+    const title = document.getElementById("postTitle").value.trim();
+    const content = tinymce.get("postContent").getContent();
+    const youtubeLink = document.getElementById("youtubeLink").value.trim();
+    const tags = document.getElementById("postTags").value.trim();
+    const editingFilename = localStorage.getItem("editingFilename");
+
+    if (!section) {
+      alert("कृपया सेक्सन छान्नुहोस्");
+      return;
+    }
+    if (!title) {
+      alert("शीर्षक अनिवार्य छ");
+      return;
+    }
+
+    // Markdown content building
+    let mdContent = `# ${title}\n\n`;
+
+    if (youtubeLink) {
+      mdContent += `YouTube भिडियो लिंक: ${youtubeLink}\n\n`;
+    }
+    if (tags) {
+      mdContent += `ट्यागहरू: ${tags}\n\n`;
+    }
+
+    // Tinymce HTML to markdown-like (simple strip html tags for now)
+    // For better, install proper md converter if needed.
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = content;
+    const textContent = tempDiv.textContent || tempDiv.innerText || "";
+    mdContent += textContent;
+
+    // Filename generate from title slug (replace spaces etc)
+    let filenameBase = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    if (!filenameBase) filenameBase = "post";
+
+    const filename = editingFilename || `${filenameBase}.md`;
+
+    try {
+      await createOrUpdateFile(filename, mdContent, editingFilename ? `Update post ${filename}` : `Add new post ${filename}`);
+      alert("पोष्ट सफलतापूर्वक सुरक्षित भयो");
+      localStorage.removeItem("editingFilename");
+      postForm.reset();
+      tinymce.get("postContent").setContent("");
+      loadPosts();
+    } catch (error) {
+      // error handled in createOrUpdateFile
+    }
+  });
+
+  // On page load
+  window.onload = () => {
+    if(localStorage.getItem("isLoggedIn") === "true") {
+      loginForm.style.display = "none";
+      postForm.style.display = "block";
+      loadPosts();
+      startSessionTimeout();
+    } else {
+      loginForm.style.display = "block";
+      postForm.style.display = "none";
+      sidebar.classList.remove("hide");
+      contentDiv.classList.add("fullwidth");
+    }
+  };
+</script>
+
 </body>
 </html>
