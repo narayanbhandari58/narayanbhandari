@@ -149,6 +149,33 @@
       <input type="password" id="password" placeholder="पासवर्ड" required />
       <button type="submit">लगइन गर्नुहोस्</button>
     </form>
+    <script>
+  const GITHUB_TOKEN = "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";
+  const GITHUB_USERNAME = "narayanbhandari58";
+  const GITHUB_REPO = "narayanbhandari";
+
+  document.getElementById("toggleSidebar").addEventListener("click", () => {
+    document.getElementById("sidebar").classList.toggle("show");
+  });
+
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    // Simple validation (you can replace this with your actual authentication logic)
+    if (username === "your_email@example.com" && password === "your_password") {
+      // Hide login form and show post form
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("postForm").style.display = "block";
+    } else {
+      alert("इमेल वा पासवर्ड गलत छ।");
+    }
+  });
+
+  // ... rest of existing script (post saving, editing, deleting) remains unchanged
+</script>
     <form id="postForm" style="display:none">
       <select id="postSection" required>
         <option value="" disabled selected>सेक्सन छान्नुहोस्</option>
