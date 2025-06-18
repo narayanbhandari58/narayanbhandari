@@ -3,141 +3,241 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>नारायण भण्डारी</title>
+  <title>नारायण भण्डारी - मेरो वेबसाइट</title>
   <style>
+    /* BBC Nepali Inspired Color Scheme */
     body {
-      font-family: 'Noto Sans Devanagari', sans-serif;
-      margin: 0; padding: 0;
-      background: #fff;
+      font-family: "Noto Sans Devanagari", sans-serif;
+      margin: 0;
+      background: #f9f9f9;
       color: #222;
+    }
+    header {
+      background-color: #8f0e04; /* BBC Nepali primary red */
+      color: white;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    nav {
+      background: #c62828;
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0.5rem 0;
     }
-
-    .container {
-      max-width: 900px;
-      width: 90vw;
-      padding: 1rem;
-    }
-
-    header {
-      background: #8f0e04;
+    nav a {
       color: white;
-      padding: 1.5rem 1rem;
-      text-align: center;
-      font-weight: bold;
-      font-size: 2rem;
-      border-radius: 0 0 12px 12px;
-      margin-bottom: 1.5rem;
+      text-decoration: none;
+      padding: 0.6rem 1rem;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
     }
-
+    nav a:hover, nav a.active {
+      background-color: #5b0402;
+    }
     main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
       margin-bottom: 3rem;
     }
-
-    /* पुरानो स्टाइलहरू */
-    .welcome-msg {
-      text-align: center;
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-    }
-
-    .posts {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    article.post {
-      background: #f9f9f9;
-      padding: 1rem 1.2rem;
-      border-radius: 8px;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-    }
-
-    article.post h2 {
-      margin-top: 0;
+    section h2 {
       color: #8f0e04;
+      border-bottom: 3px solid #8f0e04;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
     }
-
-    article.post .section-label {
-      font-style: italic;
-      color: #666;
-      margin-bottom: 0.7rem;
+    .posts-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
     }
-
-    article.post iframe {
+    .post-box {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+      padding: 15px 20px;
+      width: 90%;
+      max-width: 700px;
+      box-sizing: border-box;
+      transition: box-shadow 0.3s ease;
+      overflow-wrap: break-word;
+    }
+    @media (min-width: 600px) {
+      .post-box {
+        width: 48%;
+      }
+    }
+    @media (min-width: 900px) {
+      .post-box {
+        width: 30%;
+      }
+    }
+    .post-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      color: #5a0c02;
+    }
+    .post-content {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+    iframe {
       width: 100%;
-      max-height: 220px;
-      border-radius: 8px;
-      margin-top: 0.5rem;
+      height: 200px;
       border: none;
+      margin-top: 0.5rem;
+      border-radius: 5px;
     }
-
-    /* Responsive adjustments */
-    @media (max-width: 600px) {
-      header {
-        font-size: 1.5rem;
-      }
-      .container {
-        width: 95vw;
-      }
+    .post-extra {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.3rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #8f0e04;
+      color: white;
+      font-size: 0.9rem;
+      margin-top: 3rem;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>नारायण भण्डारी</header>
-
-    <main>
-      <div class="welcome-msg">यहाँ तपाईँका लेख/रचना, साहित्य, लोकसेवा तयारी सामग्री, र पत्रपत्रिका हेर्न सक्नुहुन्छ।</div>
-
-      <section class="posts" id="posts">
-        <p>पोस्टहरू लोड हुँदैछ...</p>
-      </section>
-    </main>
-  </div>
+  <header>
+    नारायण भण्डारी
+  </header>
+  <nav>
+    <a href="#lekha" class="active">लेख/रचना</a>
+    <a href="#sahitya">साहित्य</a>
+    <a href="#loksewa">लोकसेवा</a>
+    <a href="#patrapatrika">पत्रपत्रिका</a>
+    <a href="#mero-barema">मेरो बारेमा</a>
+  </nav>
+  <main>
+    <section id="lekha">
+      <h2>लेख/रचना</h2>
+      <div class="posts-section" id="posts-lekha"></div>
+    </section>
+    <section id="sahitya">
+      <h2>साहित्य</h2>
+      <div class="posts-section" id="posts-sahitya"></div>
+    </section>
+    <section id="loksewa">
+      <h2>लोकसेवा</h2>
+      <div class="posts-section" id="posts-loksewa"></div>
+    </section>
+    <section id="patrapatrika">
+      <h2>पत्रपत्रिका</h2>
+      <div class="posts-section" id="posts-patrapatrika"></div>
+    </section>
+    <section id="mero-barema">
+      <h2>मेरो बारेमा</h2>
+      <div class="posts-section" id="posts-mero-barema"></div>
+    </section>
+  </main>
+  <footer>
+    © २०८२ नारायण भण्डारी | Developed by ChatGPT
+  </footer>
 
   <script>
+    // GitHub Details
     const repo = 'narayanbhandari58/narayanbhandari';
+    const branch = 'main';
+
+    // सेक्सनहरूको id र नाम मिलाउने म्याप
+    const sectionMap = {
+      'lekha': 'posts-lekha',
+      'sahitya': 'posts-sahitya',
+      'loksewa': 'posts-loksewa',
+      'patrapatrika': 'posts-patrapatrika',
+      'mero-barema': 'posts-mero-barema'
+    };
 
     async function loadPosts() {
-      const container = document.getElementById('posts');
-      container.innerHTML = '<p>लोड हुँदैछ...</p>';
-
+      for (const containerId of Object.values(sectionMap)) {
+        document.getElementById(containerId).innerHTML = '<p>लोड हुँदैछ...</p>';
+      }
       try {
-        const res = await fetch(`https://api.github.com/repos/${repo}/contents/posts`);
-        if (!res.ok) throw new Error('पोस्टहरू GitHub बाट ल्याउन सकिएन');
+        const res = await fetch(`https://api.github.com/repos/${repo}/contents/posts?ref=${branch}`);
+        if (!res.ok) throw new Error('GitHub बाट पोस्ट फोल्डर फेला परेन');
         const files = await res.json();
 
-        const postFiles = files.filter(f => f.name.endsWith('.json')).sort((a,b) => b.name.localeCompare(a.name));
+        // सबै सेक्सनका लागि खाली array
+        const sections = {
+          'lekha': [],
+          'sahitya': [],
+          'loksewa': [],
+          'patrapatrika': [],
+          'mero-barema': []
+        };
 
-        if (postFiles.length === 0) {
-          container.innerHTML = '<p>कुनै पोस्ट उपलब्ध छैन।</p>';
-          return;
+        // सबै JSON फाइलहरू पढेर सेक्सन अनुसार राख्ने
+        for (const file of files.reverse()) {
+          if (file.name.endsWith('.json')) {
+            const postRes = await fetch(file.download_url);
+            if (!postRes.ok) continue;
+            const post = await postRes.json();
+            if (sections[post.section]) {
+              sections[post.section].push(post);
+            }
+          }
         }
 
-        let html = '';
-        for (const file of postFiles) {
-          const fr = await fetch(file.download_url);
-          const post = await fr.json();
-
-          html += `
-          <article class="post">
-            <h2>${post.title}</h2>
-            <div class="section-label">[${post.section}]</div>
-            <div>${post.content}</div>
-            ${post.youtube ? `<iframe src="${post.youtube.replace('watch?v=', 'embed/')}" allowfullscreen></iframe>` : ''}
-          </article>`;
+        // प्रत्येक सेक्सनमा HTML बनाउने
+        for (const [section, posts] of Object.entries(sections)) {
+          let html = '';
+          for (const post of posts) {
+            let youtubeEmbed = '';
+            if (post.youtube) {
+              const ytUrl = post.youtube.replace('watch?v=', 'embed/');
+              youtubeEmbed = `<iframe src="${ytUrl}" allowfullscreen></iframe>`;
+            }
+            html += `
+              <article class="post-box">
+                <h3 class="post-title">${post.title}</h3>
+                <div class="post-content">${post.content}</div>
+                ${youtubeEmbed}
+                ${post.image ? `<p class="post-extra"><strong>Image:</strong> ${post.image}</p>` : ''}
+                ${post.pdf ? `<p class="post-extra"><strong>PDF:</strong> ${post.pdf}</p>` : ''}
+              </article>
+            `;
+          }
+          document.getElementById(sectionMap[section]).innerHTML = html || '<p>कुनै पोस्ट उपलब्ध छैन।</p>';
         }
 
-        container.innerHTML = html;
-      } catch (e) {
-        container.innerHTML = `<p style="color:red;">${e.message}</p>`;
+      } catch (error) {
+        for (const containerId of Object.values(sectionMap)) {
+          document.getElementById(containerId).innerHTML = '<p>डेटा ल्याउन असफल भयो। कृपया पछि प्रयास गर्नुहोस्।</p>';
+        }
+        console.error(error);
       }
     }
 
-    loadPosts();
+    // पेज लोड हुँदा पोस्ट लोड गर
+    window.onload = loadPosts;
+
+    // नेभिगेसन लिंक एक्टिभ क्लास ह्यान्डल (सजिलो स्क्रोलिंगका लागि)
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
   </script>
 </body>
 </html>
