@@ -83,7 +83,7 @@
       max-width: 600px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    input, select {
+    input, select, textarea {
       width: 100%;
       padding: 10px;
       margin-top: 10px;
@@ -91,7 +91,8 @@
       border-radius: 4px;
     }
     textarea {
-      display: none;
+      display: block; /* Ensure textarea is displayed */
+      height: 150px; /* Set a height for the textarea */
     }
     button {
       margin-top: 10px;
@@ -159,7 +160,7 @@
         <option value="mero-barema">मेरो बारेमा</option>
       </select>
       <input type="text" id="postTitle" placeholder="पोष्टको शीर्षक" required />
-      <textarea id="postContent"></textarea>
+      <textarea id="postContent" placeholder="यहाँ सामग्री लेख्नुहोस्..." required></textarea>
       <input type="url" id="youtubeLink" placeholder="YouTube भिडियो लिंक (यदि छ भने)" />
       <input type="file" id="pdfFile" accept="application/pdf" />
       <input type="text" id="postTags" placeholder="ट्यागहरू (#tag1, #tag2)" />
