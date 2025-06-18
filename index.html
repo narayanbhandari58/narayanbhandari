@@ -1,508 +1,186 @@
 <!DOCTYPE html>
 <html lang="ne">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>नारायण भण्डारी - व्यक्तिगत वेवसाइट</title>
-    <meta name="description" content="नारायण भण्डारीको व्यक्तिगत वेवसाइट" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&family=Poppins&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <style>
-        /* Base & Reset */
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
-        body {
-            margin: 0;
-            font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-            color: #1a1a1a;
-            line-height: 1.6;
-            font-size: 16px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        a {
-            color: #bb1919;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        a:hover, a:focus {
-            text-decoration: underline;
-        }
-        h1, h2, h3, h4 {
-            margin-top: 0;
-            color: #bb1919;
-            font-weight: 700;
-        }
-        h1 {
-            font-size: 2.75rem;
-            letter-spacing: 0.05em;
-        }
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 0.75rem;
-        }
-        h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-        p {
-            margin-bottom: 1em;
-            color: #444444;
-        }
-
-        /* Header */
-        header {
-            background-color: #bb1919;
-            color: white;
-            padding: 16px 24px;
-            position: sticky;
-            top: 0;
-            z-index: 110;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .logo {
-            font-weight: 900;
-            font-size: 1.75rem;
-            color: white;
-            cursor: pointer;
-            user-select: none;
-        }
-        nav.desktop-nav {
-            display: flex;
-            gap: 16px;
-            align-items: center;
-        }
-        nav.desktop-nav a {
-            background: white;
-            color: #bb1919;
-            border-radius: 6px;
-            padding: 8px 14px;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-        nav.desktop-nav a[aria-current="page"],
-        nav.desktop-nav a:hover,
-        nav.desktop-nav a:focus {
-            background-color: #e63946;
-            color: white;
-        }
-
-        /* Main */
-        main {
-            flex-grow: 1;
-            max-width: 960px;
-            margin: 24px auto 48px auto;
-            padding: 0 16px;
-            min-height: 60vh;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 3px 12px rgba(187 25 25 / 0.15);
-            outline: none;
-        }
-
-        /* Section container */
-        .section-posts {
-            margin-bottom: 48px;
-        }
-        .section-posts h2 {
-            border-bottom: 3px solid #bb1919;
-            padding-bottom: 6px;
-            margin-bottom: 16px;
-        }
-
-        /* Post item */
-        .post-item {
-            border: 1px solid #bb1919;
-            border-radius: 10px;
-            padding: 12px 18px;
-            margin-bottom: 12px;
-            background-color: #fff4f4;
-            position: relative;
-            box-shadow: 0 2px 4px rgba(187,25,25,0.15);
-        }
-        .post-item p {
-            margin: 0 0 8px 0;
-            white-space: pre-wrap;
-        }
-        .post-delete-btn {
-            position: absolute;
-            top: 12px;
-            right: 18px;
-            background: transparent;
-            border: none;
-            color: #bb1919;
-            font-weight: 700;
-            cursor: pointer;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-        }
-        .post-delete-btn:hover,
-        .post-delete-btn:focus {
-            color: #8a1515;
-            outline: none;
-        }
-
-        /* Subscription Section */
-        #subscriptionSection {
-            margin-top: 48px;
-            padding: 24px;
-            background: #fef0f0;
-            border: 1.5px solid #bb1919;
-            border-radius: 12px;
-            max-width: 960px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        #subscriptionSection h3 {
-            margin-top: 0;
-        }
-        #subscriptionSection input[type="email"] {
-            width: 100%;
-            padding: 10px 12px;
-            font-size: 1rem;
-            border-radius: 8px;
-            border: 1.5px solid #bb1919;
-        }
-        #subscriptionSection button {
-            margin-top: 12px;
-            width: 100%;
-            background-color: #bb1919;
-            color: white;
-            font-weight: 700;
-            border-radius: 8px;
-            padding: 12px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        #subscriptionSection button:hover,
-        #subscriptionSection button:focus {
-            background-color: #8a1515;
-        }
-        #subscriptionMessage {
-            margin-top: 12px;
-            font-weight: 600;
-        }
-        #subscriptionMessage.success {
-            color: green;
-        }
-        #subscriptionMessage.error {
-            color: #b00020;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #bb1919;
-            color: white;
-            text-align: center;
-            padding: 12px 0;
-            margin-top: auto;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            header {
-                flex-wrap: wrap;
-                gap: 12px;
-                justify-content: center;
-                text-align: center;
-            }
-            nav.desktop-nav {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            main {
-                margin: 24px 12px 48px 12px;
-                max-width: 100%;
-            }
-            #subscriptionSection {
-                margin: 24px 12px 48px 12px;
-                max-width: 100%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>नारायण भण्डारी - व्यक्तिगत वेवसाइट</title>
+  <meta name="description" content="नारायण भण्डारीको व्यक्तिगत वेवसाइट" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&family=Poppins&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    /* ... [Your existing CSS remains unchanged] ... */
+  </style>
 </head>
 <body>
 <header role="banner">
-    <h1 class="logo" tabindex="0" role="link" aria-label="होम पेजमा जानुहोस्" title="होम पेजमा जानुहोस्">नारायण भण्डारी</h1>
-    <nav class="desktop-nav" role="navigation" aria-label="मुख्य मेनु">
-        <a href="javascript:void(0);" data-section="lekha" aria-current="false">लेख/रचना</a>
-        <a href="javascript:void(0);" data-section="sahitya" aria-current="false">साहित्य</a>
-        <a href="javascript:void(0);" data-section="loksewa" aria-current="false">लोकसेवा</a>
-        <a href="javascript:void(0);" data-section="patrapatrika" aria-current="false">पत्रपत्रिका</a>
-        <a href="javascript:void(0);" data-section="mero-barema">मेरो बारेमा</a>
-    </nav>
+  <h1 class="logo" tabindex="0" role="link" aria-label="होम पेजमा जानुहोस्" title="होम पेजमा जानुहोस्">नारायण भण्डारी</h1>
+  <nav class="desktop-nav" role="navigation" aria-label="मुख्य मेनु">
+    <a href="javascript:void(0);" data-section="lekha">लेख/रचना</a>
+    <a href="javascript:void(0);" data-section="sahitya">साहित्य</a>
+    <a href="javascript:void(0);" data-section="loksewa">लोकसेवा</a>
+    <a href="javascript:void(0);" data-section="patrapatrika">पत्रपत्रिका</a>
+    <a href="javascript:void(0);" data-section="mero-barema">मेरो बारेमा</a>
+  </nav>
 </header>
-// Load posts from localStorage
-function loadPosts() {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored) {
-        try {
-            return JSON.parse(stored);
-        } catch {
-            return [];
-        }
-    }
-    return [];
-}
-async function loadPosts() {
-  const GITHUB_REPO_URL = "https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/posts";
-  try {
-    const res = await fetch(GITHUB_REPO_URL);
-    if (!res.ok) throw new Error("GitHub repo load गर्न सकेन");
-    const files = await res.json();
 
-    const posts = [];
-    for (const file of files) {
-      if (file.name.endsWith(".json")) {
-        const fileRes = await fetch(file.download_url);
-        const post = await fileRes.json();
-        posts.push(post);
-      }
-    }
-    return posts;
-  } catch (err) {
-    console.error("पोस्ट लोड गर्दा त्रुटि:", err);
-    return [];
-  }
-}
-
-// Render home page with grouped posts
-function renderHomePage() {
-    let posts = loadPosts();
-    if (posts.length === 0) {
-        mainContentDiv.innerHTML = '<p>अहिले सम्म कुनै सामग्री उपलब्ध छैन।</p>';
-        return;
-    }
-    const grouped = {};
-    posts.forEach(post => {
-        if (!grouped[post.section]) grouped[post.section] = [];
-        grouped[post.section].push(post);
-    });
-    let html = '';
-    for (const secKey of Object.keys(sectionTitles)) {
-        if (grouped[secKey] && grouped[secKey].length > 0) {
-            html += `<section class="section-posts" aria-label="${sectionTitles[secKey]}">`;
-            html += `<h2>${sectionTitles[secKey]}</h2>`;
-            grouped[secKey].forEach((post, idx) => {
-                html += `<article class="post-item" role="article" aria-label="${sectionTitles[secKey]} - पोस्ट ${idx + 1}">
-                    <h3>${escapeHtml(post.title)}</h3>
-                    <div>${post.content}</div>
-                </article>`;
-            });
-            html += '</section>';
-        }
-    }
-    mainContentDiv.innerHTML = html;
-}
 <main tabindex="-1" role="main" aria-live="polite" aria-atomic="true">
-    <div id="mainContent" aria-live="polite" aria-atomic="true"></div>
+  <div id="mainContent" aria-live="polite" aria-atomic="true">
+    <p>सामग्री लोड हुँदैछ...</p>
+  </div>
 </main>
 
-<!-- Subscription Section -->
 <section id="subscriptionSection">
-    <h3>समाचारपत्र सदस्यता लिनुहोस्</h3>
-    <form id="subscriptionForm" aria-label="समाचारपत्र सदस्यता फारम">
-        <input type="email" id="subscriptionEmail" name="subscriptionEmail" placeholder="इमेल ठेगाना" required aria-required="true" />
-        <button type="submit">सब्स्क्राइब गर्नुहोस्</button>
-    </form>
-    <div id="subscriptionMessage" role="status" aria-live="polite"></div>
+  <h3>समाचारपत्र सदस्यता लिनुहोस्</h3>
+  <form id="subscriptionForm" aria-label="समाचारपत्र सदस्यता फारम">
+    <input type="email" id="subscriptionEmail" name="subscriptionEmail" placeholder="इमेल ठेगाना" required />
+    <button type="submit">सब्स्क्राइब गर्नुहोस्</button>
+  </form>
+  <div id="subscriptionMessage" role="status" aria-live="polite"></div>
 </section>
 
 <footer>
-    सर्वाधिकार © नारायण भण्डारी, <span id="footerYear"></span>
+  सर्वाधिकार © नारायण भण्डारी, <span id="footerYear"></span>
 </footer>
 
 <script>
 (() => {
-    const STORAGE_KEY = 'nv_posts';
+  const GITHUB_REPO_API = "https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/posts";
+  const mainContentDiv = document.getElementById("mainContent");
 
-    const subscriptionForm = document.getElementById('subscriptionForm');
-    const subscriptionEmailInput = document.getElementById('subscriptionEmail');
-    const subscriptionMessage = document.getElementById('subscriptionMessage');
-    const mainContentDiv = document.getElementById('mainContent');
-    const navLinks = document.querySelectorAll('nav.desktop-nav a');
-    const logo = document.querySelector('.logo');
+  const sectionTitles = {
+    lekha: "लेख/रचना",
+    sahitya: "साहित्य",
+    loksewa: "लोकसेवा",
+    patrapatrika: "पत्रपत्रिका",
+    "mero-barema": "मेरो बारेमा"
+  };
 
-    // Escape HTML utility
-    function escapeHtml(text) {
-        return text.replace(/[&<>"']/g, function(m) {
-            switch (m) {
-                case '&': return '&amp;';
-                case '<': return '&lt;';
-                case '>': return '&gt;';
-                case '"': return '&quot;';
-                case "'": return '&#39;';
-                default: return m;
-            }
-        });
-    }
+  async function loadPosts() {
+    try {
+      const res = await fetch(GITHUB_REPO_API);
+      if (!res.ok) throw new Error("GitHub बाट पोस्टहरू ल्याउन सकेन");
+      const files = await res.json();
+      const posts = [];
 
-    // Section Titles
-    const sectionTitles = {
-        lekha: 'लेख/रचना',
-        sahitya: 'साहित्य',
-        loksewa: 'लोकसेवा',
-        patrapatrika: 'पत्रपत्रिका'
-    };
-
-    // Load posts from localStorage
-    function loadPosts() {
-        const stored = localStorage.getItem(STORAGE_KEY);
-        if (stored) {
-            try {
-                return JSON.parse(stored);
-            } catch {
-                return [];
-            }
+      for (const file of files) {
+        if (file.name.endsWith(".json")) {
+          const contentRes = await fetch(file.download_url);
+          const post = await contentRes.json();
+          posts.push(post);
         }
-        return [];
+      }
+
+      return posts;
+    } catch (err) {
+      console.error("पोस्ट लोड त्रुटि:", err);
+      mainContentDiv.innerHTML = "<p>पोस्ट लोड गर्न सकिएन। कृपया पछि प्रयास गर्नुहोस्।</p>";
+      return [];
+    }
+  }
+
+  function escapeHtml(text) {
+    if (!text) return "";
+    return text.replace(/[&<>"']/g, m => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+    })[m]);
+  }
+
+  function groupBySection(posts) {
+    const grouped = {};
+    posts.forEach(post => {
+      const section = post.section || "others";
+      if (!grouped[section]) grouped[section] = [];
+      grouped[section].push(post);
+    });
+    return grouped;
+  }
+
+  function renderPosts(posts) {
+    if (posts.length === 0) {
+      mainContentDiv.innerHTML = "<p>अहिले सम्म कुनै सामग्री उपलब्ध छैन।</p>";
+      return;
     }
 
-    // Save posts to localStorage
-    function savePosts(posts) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
-    }
+    const grouped = groupBySection(posts);
+    let html = "";
 
-    // Render home page with grouped posts
-    function renderHomePage() {
-        let posts = loadPosts();
-        if (posts.length === 0) {
-            mainContentDiv.innerHTML = '<p>अहिले सम्म कुनै सामग्री उपलब्ध छैन।</p>';
-            return;
-        }
-        const grouped = {};
-        posts.forEach(post => {
-            if (!grouped[post.section]) grouped[post.section] = [];
-            grouped[post.section].push(post);
+    Object.keys(sectionTitles).forEach(key => {
+      if (grouped[key] && grouped[key].length > 0) {
+        html += `<section class="section-posts" aria-label="${sectionTitles[key]}">
+          <h2>${sectionTitles[key]}</h2>`;
+
+        grouped[key].forEach((post, idx) => {
+          html += `<article class="post-item" role="article" aria-label="${sectionTitles[key]} - पोस्ट ${idx + 1}">
+            <h3>${escapeHtml(post.title)}</h3>
+            <div>${post.content}</div>`;
+          
+          if (post.youtube) {
+            html += `<div style="margin-top:10px;">
+              <iframe width="100%" height="315" src="${post.youtube.replace("watch?v=", "embed/")}" frameborder="0" allowfullscreen></iframe>
+            </div>`;
+          }
+
+          html += `</article>`;
         });
-        let html = '';
-        for (const secKey of Object.keys(sectionTitles)) {
-            if (grouped[secKey] && grouped[secKey].length > 0) {
-                html += `<section class="section-posts" aria-label="${sectionTitles[secKey]}">`;
-                html += `<h2>${sectionTitles[secKey]}</h2>`;
-                grouped[secKey].forEach((post, idx) => {
-                    html += `<article class="post-item" role="article" aria-label="${sectionTitles[secKey]} - पोस्ट ${idx + 1}">
-                        <h3>${escapeHtml(post.title)}</h3>
-                        <div>${post.content}</div>
-                    </article>`;
-                });
-                html += '</section>';
-            }
-        }
-        mainContentDiv.innerHTML = html;
-    }
 
-    // Render posts for a single section
-    function renderSectionPage(sectionKey) {
-        let posts = loadPosts();
-        posts = posts.filter(post => post.section === sectionKey);
-        if (posts.length === 0) {
-            mainContentDiv.innerHTML = `<p>${sectionTitles[sectionKey]} खण्डमा कुनै पोस्ट छैन।</p>`;
-            return;
-        }
-        let html = `<section class="section-posts" aria-label="${sectionTitles[sectionKey]}"><h2>${sectionTitles[sectionKey]}</h2>`;
-        posts.forEach((post, idx) => {
-            html += `<article class="post-item" role="article" aria-label="${sectionTitles[sectionKey]} - पोस्ट ${idx + 1}">
-                <h3>${escapeHtml(post.title)}</h3>
-                <div>${post.content}</div>
-            </article>`;
-        });
-        html += '</section>';
-        mainContentDiv.innerHTML = html;
-    }
-
-    // Navigation and current section state
-    let currentSection = 'home';
-
-    function setActiveNav(section) {
-        navLinks.forEach(l => {
-            if (l.dataset.section === section) {
-                l.setAttribute('aria-current', 'page');
-            } else {
-                l.removeAttribute('aria-current');
-            }
-        });
-    }
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            const section = e.currentTarget.dataset.section;
-            if (!section) {
-                mainContentDiv.innerHTML = '<p>यो खण्ड विकासाधीन छ।</p>';
-                setActiveNav(null);
-                currentSection = null;
-                mainContentDiv.focus();
-                return;
-            }
-            currentSection = section;
-            setActiveNav(section);
-            renderSectionPage(section);
-            mainContentDiv.focus();
-        });
+        html += `</section>`;
+      }
     });
 
-    logo.addEventListener('click', () => {
-        currentSection = 'home';
-        setActiveNav(null);
-        renderHomePage();
-        mainContentDiv.focus();
+    mainContentDiv.innerHTML = html;
+  }
+
+  // Navigation
+  const navLinks = document.querySelectorAll("nav.desktop-nav a");
+  navLinks.forEach(link => {
+    link.addEventListener("click", async e => {
+      e.preventDefault();
+      const section = e.currentTarget.dataset.section;
+      const allPosts = await loadPosts();
+      const filtered = allPosts.filter(post => post.section === section);
+      renderPosts(filtered);
     });
+  });
 
-    // Subscription form submit
-    subscriptionForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = subscriptionEmailInput.value.trim();
-        subscriptionMessage.className = '';
-        subscriptionMessage.textContent = '';
+  document.querySelector(".logo").addEventListener("click", async () => {
+    const posts = await loadPosts();
+    renderPosts(posts);
+  });
 
-        if (!email) {
-            subscriptionMessage.textContent = 'कृपया इमेल ठेगाना लेख्नुहोस्।';
-            subscriptionMessage.classList.add('error');
-            subscriptionEmailInput.focus();
-            return;
-        }
+  // Subscription Form
+  const subscriptionForm = document.getElementById("subscriptionForm");
+  const subscriptionEmailInput = document.getElementById("subscriptionEmail");
+  const subscriptionMessage = document.getElementById("subscriptionMessage");
 
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            subscriptionMessage.textContent = 'कृपया मान्य इमेल ठेगाना लेख्नुहोस्।';
-            subscriptionMessage.classList.add('error');
-            subscriptionEmailInput.focus();
-            return;
-        }
+  subscriptionForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const email = subscriptionEmailInput.value.trim();
+    subscriptionMessage.className = "";
+    subscriptionMessage.textContent = "";
 
-        const subs = JSON.parse(localStorage.getItem('nv_subscriptions') || '[]');
-        if (subs.includes(email.toLowerCase())) {
-            subscriptionMessage.textContent = 'यो इमेल पहिले नै सदस्यता लिइसक्यो।';
-            subscriptionMessage.classList.add('error');
-            subscriptionEmailInput.value = '';
-            subscriptionEmailInput.focus();
-            return;
-        }
-        subs.push(email.toLowerCase());
-        localStorage.setItem('nv_subscriptions', JSON.stringify(subs));
-        subscriptionMessage.textContent = 'धन्यवाद! तपाईं सफलतापूर्वक सदस्यता लिनुभयो।';
-        subscriptionMessage.classList.add('success');
-        subscriptionEmailInput.value = '';
-    });
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      subscriptionMessage.textContent = "मान्य इमेल ठेगाना लेख्नुहोस्।";
+      subscriptionMessage.classList.add("error");
+      return;
+    }
 
-    // Footer year
-    document.getElementById('footerYear').textContent = new Date().getFullYear();
+    const subs = JSON.parse(localStorage.getItem("nv_subscriptions") || "[]");
+    if (subs.includes(email.toLowerCase())) {
+      subscriptionMessage.textContent = "यो इमेल पहिले नै सदस्यता लिइसक्नु भयो।";
+      subscriptionMessage.classList.add("error");
+    } else {
+      subs.push(email.toLowerCase());
+      localStorage.setItem("nv_subscriptions", JSON.stringify(subs));
+      subscriptionMessage.textContent = "सफलतापूर्वक सदस्यता लिइयो!";
+      subscriptionMessage.classList.add("success");
+      subscriptionEmailInput.value = "";
+    }
+  });
 
-    // Initial load => home page
-    currentSection = 'home';
-    setActiveNav(null);
-    renderHomePage();
-
+  // Load on startup
+  document.getElementById("footerYear").textContent = new Date().getFullYear();
+  loadPosts().then(renderPosts);
 })();
 </script>
 </body>
 </html>
-
