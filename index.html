@@ -239,7 +239,47 @@
         <a href="javascript:void(0);" data-section="mero-barema">मेरो बारेमा</a>
     </nav>
 </header>
+// Load posts from localStorage
+function loadPosts() {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+        try {
+            return JSON.parse(stored);
+        } catch {
+            return [];
+        }
+    }
+    return [];
+}
 
+// Render home page with grouped posts
+function renderHomePage() {
+    let posts = loadPosts();
+    if (posts.length === 0) {
+        mainContentDiv.innerHTML = '<p>अहिले सम्म कुनै सामग्री उपलब्ध छैन।</p>';
+        return;
+    }
+    const grouped = {};
+    posts.forEach(post => {
+        if (!grouped[post.section]) grouped[post.section] = [];
+        grouped[post.section].push(post);
+    });
+    let html = '';
+    for (const secKey of Object.keys(sectionTitles)) {
+        if (grouped[secKey] && grouped[secKey].length > 0) {
+            html += `<section class="section-posts" aria-label="${sectionTitles[secKey]}">`;
+            html += `<h2>${sectionTitles[secKey]}</h2>`;
+            grouped[secKey].forEach((post, idx) => {
+                html += `<article class="post-item" role="article" aria-label="${sectionTitles[secKey]} - पोस्ट ${idx + 1}">
+                    <h3>${escapeHtml(post.title)}</h3>
+                    <div>${post.content}</div>
+                </article>`;
+            });
+            html += '</section>';
+        }
+    }
+    mainContentDiv.innerHTML = html;
+}
 <main tabindex="-1" role="main" aria-live="polite" aria-atomic="true">
     <div id="mainContent" aria-live="polite" aria-atomic="true"></div>
 </main>
