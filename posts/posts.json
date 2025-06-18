@@ -1,2 +1,16 @@
-[]
+[
+  {
+    "title": "मेरो पहिलो लेख",
+    "content": "<p>यो मेरो पहिलो लेखको सामग्री हो।</p>",
+    "section": "lekha",
+    "youtube": ""
+  },
+  {
+    "title": "लोकसेवा तयारी सामग्री",
+    "content": "<p>लोकसेवा तयारीका लागि आधारभूत सामग्रीहरू।</p>",
+    "section": "loksewa",
+    "youtube": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  }
+]
+
 
