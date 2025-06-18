@@ -16,44 +16,21 @@
       display: flex;
       height: 100vh;
     }
-    #menuToggle {
-      position: fixed;
-      top: 15px;
-      left: 15px;
-      z-index: 1100; /* sidebar भन्दा माथि */
-      background: transparent;
-      border: none;
-      font-size: 30px; /* थोरै ठूलो */
-      cursor: pointer;
-      color: #8f0e04;
-      user-select: none;
-      padding: 5px 10px;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-    #menuToggle:hover {
-      background-color: rgba(143,14,4,0.1);
-    }
+
+    /* साइडबार */
     .sidebar {
       width: 250px;
       background: #8f0e04;
       color: white;
-      padding: 20px;
-      display: none;
+      padding: 20px 20px 20px 50px; /* left padding बढाइयो ३ डट्सका लागि */
+      display: flex;
       flex-direction: column;
-      position: fixed; /* fix गरियो */
-      top: 0;
-      left: 0;
-      height: 100vh;
-      z-index: 1050; /* toggle button भन्दा तल */
-      overflow-y: auto;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      position: relative;
       transition: transform 0.3s ease;
-      transform: translateX(-260px);
-    }
-    .sidebar.show {
-      display: flex !important;
       transform: translateX(0);
+    }
+    .sidebar.hide {
+      transform: translateX(-250px);
     }
     .sidebar h2 {
       font-size: 1.5rem;
@@ -74,21 +51,43 @@
     .recent-posts ul {
       list-style: none;
       padding: 0;
-      max-height: 300px;
-      overflow-y: auto;
     }
     .recent-posts li a {
       color: white;
       text-decoration: underline;
       cursor: pointer;
     }
+
+    /* 3 डट्स बटन साइडबारभित्र, बायाँ कुनामा */
+    #menuToggle {
+      position: absolute;
+      top: 15px;
+      left: 10px;
+      font-size: 26px;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: #fff;
+      z-index: 1000;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    #menuToggle:hover {
+      color: #ffb3b3;
+    }
+
+    /* सामग्री भाग */
     .content {
       flex-grow: 1;
       padding: 20px;
-      margin-left: 0; /* sidebar fixed भएकाले margin-left हटाइयो */
-      width: 100%;
       overflow-y: auto;
+      transition: margin-left 0.3s ease;
+      margin-left: 250px;
     }
+    .content.expanded {
+      margin-left: 0;
+    }
+
     h1, h2 {
       color: #8f0e04;
       text-align: center;
@@ -151,29 +150,32 @@
     @media (max-width: 768px) {
       .sidebar {
         position: fixed;
+        z-index: 100;
         height: 100vh;
-        transform: translateX(-260px);
-      }
-      .sidebar.show {
-        transform: translateX(0);
+        top: 0;
+        left: 0;
       }
       .content {
-        padding: 20px 10px;
+        margin-left: 0;
+      }
+      .content.expanded {
+        margin-left: 0;
       }
     }
   </style>
 </head>
 <body>
-  <button id="menuToggle" aria-label="मेनु खोल्नुहोस्">&#9776;</button>
-  <div class="sidebar" id="sidebar" aria-label="साइडबार मेनु">
+  <div class="sidebar" id="sidebar">
+    <button id="menuToggle" aria-label="Toggle Menu">&#x22EE;</button>
     <h2>CMS प्यानल</h2>
     <a href="#" id="logoutButton">लगआउट गर्नुहोस्</a>
     <div class="recent-posts">
-      <h3>हालका पोष्टहरू</h3>
+      <h3>Recent Posts</h3>
       <ul id="recentPostsList"></ul>
     </div>
   </div>
-  <div class="content">
+
+  <div class="content" id="content">
     <h1>CMS प्यानल</h1>
     <form id="loginForm">
       <input type="email" id="username" placeholder="इमेल" required />
@@ -219,9 +221,16 @@
     const postsList = document.getElementById("postsList");
     const recentPostsList = document.getElementById("recentPostsList");
     const pagination = document.getElementById("pagination");
+    const content = document.getElementById("content");
+    const menuToggle = document.getElementById("menuToggle");
 
-    document.getElementById("menuToggle").addEventListener("click", () => {
-      sidebar.classList.toggle("show");
+    menuToggle.addEventListener("click", () => {
+      sidebar.classList.toggle("hide");
+      if (sidebar.classList.contains("hide")) {
+        content.classList.add("expanded");
+      } else {
+        content.classList.remove("expanded");
+      }
     });
 
     let currentPage = 1;
@@ -280,7 +289,8 @@
       if (email === ADMIN_EMAIL && pass === ADMIN_PASSWORD) {
         loginForm.style.display = "none";
         postForm.style.display = "block";
-        sidebar.classList.add("show");
+        sidebar.classList.remove("hide");
+        content.classList.remove("expanded");
         loadPosts();
         startSessionTimeout();
         localStorage.setItem("isLoggedIn", "true");
@@ -297,7 +307,8 @@
     function logout() {
       loginForm.style.display = "block";
       postForm.style.display = "none";
-      sidebar.classList.remove("show");
+      sidebar.classList.add("hide");
+      content.classList.add("expanded");
       postsList.innerHTML = "";
       clearTimeout(sessionTimeout);
       localStorage.removeItem("isLoggedIn");
@@ -353,7 +364,8 @@
     if (localStorage.getItem("isLoggedIn") === "true") {
       loginForm.style.display = "none";
       postForm.style.display = "block";
-      sidebar.classList.add("show");
+      sidebar.classList.remove("hide");
+      content.classList.remove("expanded");
       loadPosts();
       startSessionTimeout();
     }
