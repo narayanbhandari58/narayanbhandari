@@ -251,6 +251,27 @@ function loadPosts() {
     }
     return [];
 }
+async function loadPosts() {
+  const GITHUB_REPO_URL = "https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/posts";
+  try {
+    const res = await fetch(GITHUB_REPO_URL);
+    if (!res.ok) throw new Error("GitHub repo load गर्न सकेन");
+    const files = await res.json();
+
+    const posts = [];
+    for (const file of files) {
+      if (file.name.endsWith(".json")) {
+        const fileRes = await fetch(file.download_url);
+        const post = await fileRes.json();
+        posts.push(post);
+      }
+    }
+    return posts;
+  } catch (err) {
+    console.error("पोस्ट लोड गर्दा त्रुटि:", err);
+    return [];
+  }
+}
 
 // Render home page with grouped posts
 function renderHomePage() {
