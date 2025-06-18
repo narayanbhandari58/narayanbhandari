@@ -170,7 +170,7 @@
       <input type="url" id="youtubeLink" placeholder="YouTube भिडियो लिंक (यदि छ भने)" />
       <input type="file" id="pdfFile" accept="application/pdf" />
       <input type="text" id="postTags" placeholder="ट्यागहरू (#tag1, #tag2)" />
-      <button type="submit">पोष्ट थप्नुहोस्</button>
+      <button type="submit" id="submitPostButton">पोष्ट थप्नुहोस्</button>
     </form>
     <div id="postsList"></div>
     <div class="pagination" id="pagination"></div>
@@ -258,7 +258,7 @@
       posts.push(newPost);
       displayRecentPosts();
 
-      // Send the post to the main website (narayan-bhandari.com.np)
+      // Send the post to the main website (replace with your actual API endpoint)
       sendPostToMainWebsite(newPost);
 
       // Clear the form after submission
@@ -268,11 +268,11 @@
 
     function sendPostToMainWebsite(post) {
       // Example API call to send the post to the main website
-      fetch(`https://narayan-bhandari.com.np/api/posts`, {
+      fetch(`https://your-main-website.com/api/posts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${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}` // Use your actual token or authentication method
+          'Authorization': `Bearer ${GITHUB_TOKEN}` // Use your actual token or authentication method
         },
         body: JSON.stringify(post)
       })
