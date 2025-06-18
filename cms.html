@@ -1,133 +1,301 @@
 <!DOCTYPE html>
 <html lang="ne">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CMS प्यानल - नारायण भण्डारी</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&family=Poppins&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/tinymce@6.8.3/tinymce.min.js" referrerpolicy="origin"></script>
-  <style>
-    /* Existing CSS remains unchanged */
-    /* ... [omitted here for brevity] ... */
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CMS - Narayan Bhandari</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f0f0f0; margin: 0; padding: 20px;}
+  .hidden { display: none; }
+  .login-container, .admin-container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
+  h2 { text-align: center; }
+  label { display: block; margin-top: 10px; }
+  input[type=text], input[type=password], textarea, select {
+    width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box;
+  }
+  button {
+    margin-top: 15px; padding: 10px 15px; background: #8f0e04; border: none; color: white; cursor: pointer; border-radius: 4px;
+  }
+  button:hover { background: #a00f05; }
+  table { width: 100%; border-collapse: collapse; margin-top: 20px;}
+  th, td { border: 1px solid #ccc; padding: 8px; text-align: left;}
+  th { background: #8f0e04; color: white; }
+  .action-btn { margin-right: 5px; padding: 5px 10px; cursor: pointer; border: none; border-radius: 3px;}
+  .edit-btn { background-color: #4CAF50; color: white; }
+  .delete-btn { background-color: #f44336; color: white; }
+  textarea { height: 100px; }
+</style>
 </head>
 <body>
-  <div class="sidebar" id="sidebar">
-    <button class="toggle-sidebar" id="toggleSidebar">☰</button>
-    <h2>CMS प्यानल</h2>
-    <a href="#" id="logoutButton">लगआउट गर्नुहोस्</a>
-    <div class="recent-posts">
-      <h3>Recent Posts</h3>
-      <ul id="recentPostsList"></ul>
-    </div>
-  </div>
-  <div class="content">
-    <h1>CMS प्यानल</h1>
-    <form id="loginForm">
-      <input type="email" id="username" placeholder="इमेल" required />
-      <input type="password" id="password" placeholder="पासवर्ड" required />
-      <button type="submit">लगइन गर्नुहोस्</button>
+
+<div class="login-container" id="login-container">
+  <h2>लगइन गर्नुहोस्</h2>
+  <form id="login-form">
+    <label>प्रयोगकर्ता नाम:
+      <input type="text" id="username" required />
+    </label>
+    <label>पासवर्ड:
+      <input type="password" id="password" required />
+    </label>
+    <button type="submit">लगइन</button>
+  </form>
+  <p id="login-error" style="color:red;"></p>
+</div>
+
+<div class="admin-container hidden" id="admin-container">
+  <h2>CMS - सामग्री व्यवस्थापन</h2>
+  <button id="add-new-post">नयाँ लेख थप्नुहोस्</button>
+  <table id="posts-table">
+    <thead>
+      <tr>
+        <th>शीर्षक</th>
+        <th>सेक्सन</th>
+        <th>सम्पादन</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div id="post-form-container" class="hidden">
+    <h3 id="form-title">नयाँ लेख</h3>
+    <form id="post-form">
+      <label>शीर्षक:
+        <input type="text" id="post-title" required />
+      </label>
+      <label>सेक्सन:
+        <select id="post-section" required>
+          <option value="">-- छान्नुहोस् --</option>
+          <option value="लेख/रचना">लेख/रचना</option>
+          <option value="साहित्य">साहित्य</option>
+          <option value="लोकसेवा तयारी">लोकसेवा तयारी</option>
+          <option value="पत्रपत्रिका">पत्रपत्रिका</option>
+          <option value="मेरो बारेमा">मेरो बारेमा</option>
+        </select>
+      </label>
+      <label>सामग्री:
+        <textarea id="post-content" required></textarea>
+      </label>
+      <label>YouTube लिंक (वैकल्पिक):
+        <input type="text" id="post-youtube" />
+      </label>
+      <button type="submit">सेभ गर्नुहोस्</button>
+      <button type="button" id="cancel-post">रद्द गर्नुहोस्</button>
     </form>
-    <form id="postForm" style="display:none">
-      <select id="postSection" required>
-        <option value="" disabled selected>सेक्सन छान्नुहोस्</option>
-        <option value="lekha">लेख/रचना</option>
-        <option value="sahitya">साहित्य</option>
-        <option value="loksewa">लोकसेवा</option>
-        <option value="patrapatrika">पत्रपत्रिका</option>
-        <option value="mero-barema">मेरो बारेमा</option>
-      </select>
-      <input type="text" id="postTitle" placeholder="पोष्टको शीर्षक" required />
-      <textarea id="postContent" placeholder="यहाँ सामग्री लेख्नुहोस्..." required></textarea>
-      <input type="url" id="youtubeLink" placeholder="YouTube भिडियो लिंक (यदि छ भने)" />
-      <input type="text" id="postTags" placeholder="ट्यागहरू (#tag1, #tag2)" />
-      <button type="submit" id="submitPostButton">पोष्ट थप्नुहोस्</button>
-    </form>
   </div>
-  <script>
-    const ADMIN_EMAIL = "bhandarinarayan300@gmail.com";
-    const ADMIN_PASSWORD = "9846874405n@";
+</div>
 
-    const GITHUB_TOKEN = "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";
-    const GITHUB_USERNAME = "narayanbhandari58";
-    const GITHUB_REPO = "narayanbhandari";
+<script>
+(() => {
+  const USERNAME = "Narayan";
+  const PASSWORD = "9846";
+  
+  // तिमीले दिएको GitHub Token यहाँ राख्नुस्:
+  const GITHUB_TOKEN = "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";
+  
+  // GitHub info
+  const REPO_OWNER = "narayanbhandari58";
+  const REPO_NAME = "narayanbhandari";
+  const FILE_PATH = "posts/post.json";
+  const BRANCH = "main";
 
-    const toggleBtn = document.getElementById("toggleSidebar");
-    const sidebar = document.getElementById("sidebar");
-    toggleBtn.addEventListener("click", () => {
-      sidebar.classList.toggle("show");
+  const loginContainer = document.getElementById("login-container");
+  const adminContainer = document.getElementById("admin-container");
+  const loginForm = document.getElementById("login-form");
+  const loginError = document.getElementById("login-error");
+
+  const addNewPostBtn = document.getElementById("add-new-post");
+  const postsTableBody = document.querySelector("#posts-table tbody");
+
+  const postFormContainer = document.getElementById("post-form-container");
+  const postForm = document.getElementById("post-form");
+  const formTitle = document.getElementById("form-title");
+
+  const postTitle = document.getElementById("post-title");
+  const postSection = document.getElementById("post-section");
+  const postContent = document.getElementById("post-content");
+  const postYoutube = document.getElementById("post-youtube");
+  const cancelPostBtn = document.getElementById("cancel-post");
+
+  let posts = [];
+  let editingIndex = null;
+  let sha = null; // To store file sha for GitHub update
+
+  function showError(msg){
+    loginError.textContent = msg;
+  }
+
+  function showAdmin(){
+    loginContainer.classList.add("hidden");
+    adminContainer.classList.remove("hidden");
+  }
+
+  function base64ToUtf8(str) {
+    return decodeURIComponent(escape(atob(str)));
+  }
+
+  function utf8ToBase64(str) {
+    return btoa(unescape(encodeURIComponent(str)));
+  }
+
+  async function fetchPosts(){
+    const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}?ref=${BRANCH}`;
+    try {
+      const res = await fetch(url, {
+        headers: { Authorization: "token " + GITHUB_TOKEN }
+      });
+      if(!res.ok) throw new Error("GitHub बाट डेटा ल्याउन असफल");
+      const data = await res.json();
+      sha = data.sha;
+      const content = base64ToUtf8(data.content);
+      posts = JSON.parse(content);
+      renderPosts();
+    } catch(e){
+      alert("डेटा ल्याउन असफल भयो: " + e.message);
+    }
+  }
+
+  function renderPosts(){
+    postsTableBody.innerHTML = "";
+    posts.forEach((p, idx) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${p.title}</td>
+        <td>${p.section}</td>
+        <td>
+          <button class="action-btn edit-btn" data-index="${idx}">सम्पादन</button>
+          <button class="action-btn delete-btn" data-index="${idx}">मेटाउनुहोस्</button>
+        </td>
+      `;
+      postsTableBody.appendChild(tr);
     });
+  }
 
-    document.getElementById("loginForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const user = document.getElementById("username").value;
-      const pass = document.getElementById("password").value;
-      if (user === ADMIN_EMAIL && pass === ADMIN_PASSWORD) {
-        this.style.display = "none";
-        document.getElementById("postForm").style.display = "block";
-        sidebar.classList.add("show");
-      } else {
-        alert("गलत इमेल वा पासवर्ड।");
-      }
+  function resetForm(){
+    postTitle.value = "";
+    postSection.value = "";
+    postContent.value = "";
+    postYoutube.value = "";
+    editingIndex = null;
+    formTitle.textContent = "नयाँ लेख";
+  }
+
+  function showPostForm(editing){
+    postFormContainer.classList.remove("hidden");
+    if(editing){
+      formTitle.textContent = "लेख सम्पादन गर्नुहोस्";
+    } else {
+      formTitle.textContent = "नयाँ लेख";
+      resetForm();
+    }
+  }
+
+  function hidePostForm(){
+    postFormContainer.classList.add("hidden");
+    resetForm();
+  }
+
+  async function updatePostsFile(){
+    const content = utf8ToBase64(JSON.stringify(posts, null, 2));
+    const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`;
+    const body = {
+      message: editingIndex === null ? "Add new post" : "Update post",
+      content: content,
+      sha: sha,
+      branch: BRANCH
+    };
+    const res = await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Authorization": "token " + GITHUB_TOKEN,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(body)
     });
+    if(!res.ok){
+      const err = await res.json();
+      throw new Error(err.message || "GitHub update असफल");
+    }
+    const data = await res.json();
+    sha = data.content.sha;
+  }
 
-    document.getElementById("logoutButton").addEventListener("click", () => {
-      document.getElementById("loginForm").style.display = "block";
-      document.getElementById("postForm").style.display = "none";
-      sidebar.classList.remove("show");
-    });
+  loginForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const user = document.getElementById("username").value.trim();
+    const pass = document.getElementById("password").value.trim();
+    if(user === USERNAME && pass === PASSWORD){
+      showAdmin();
+      fetchPosts();
+    } else {
+      showError("प्रयोगकर्ता नाम वा पासवर्ड गलत छ।");
+    }
+  });
 
-    // Save post to GitHub
-    document.getElementById("postForm").addEventListener("submit", async function(e) {
-      e.preventDefault();
-      const title = document.getElementById("postTitle").value.trim();
-      const section = document.getElementById("postSection").value;
-      const content = tinymce.get("postContent").getContent();
-      const youtube = document.getElementById("youtubeLink").value.trim();
-      const tags = document.getElementById("postTags").value.trim().split(",").map(t => t.trim());
-      if (!title || !section || !content) return alert("सबै आवश्यक क्षेत्रहरू भर्नुहोस्");
+  addNewPostBtn.addEventListener("click", () => {
+    showPostForm(false);
+  });
 
-      const filename = `posts/${Date.now()}-${encodeURIComponent(title)}.json`;
-      const payload = {
-        title,
-        section,
-        content,
-        youtube,
-        tags
-      };
-      const commitMsg = `पोस्ट थपियो: ${title}`;
-      try {
-        const res = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${filename}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${GITHUB_TOKEN}`
-          },
-          body: JSON.stringify({
-            message: commitMsg,
-            content: btoa(unescape(encodeURIComponent(JSON.stringify(payload))))
-          })
-        });
-        if (res.ok) {
-          alert("पोष्ट GitHub मा सफलतापूर्वक सेभ गरियो");
-          this.reset();
-          tinymce.get("postContent").setContent("");
-        } else {
-          alert("GitHub मा पोस्ट सेभ गर्न सकेन");
+  cancelPostBtn.addEventListener("click", () => {
+    hidePostForm();
+  });
+
+  postForm.addEventListener("submit", async e => {
+    e.preventDefault();
+    const title = postTitle.value.trim();
+    const section = postSection.value;
+    const content = postContent.value.trim();
+    const youtube = postYoutube.value.trim();
+
+    if(!title || !section || !content){
+      alert("शीर्षक, सेक्सन, र सामग्री आवश्यक छ।");
+      return;
+    }
+
+    const newPost = { title, section, content, youtube };
+
+    if(editingIndex === null){
+      posts.push(newPost);
+    } else {
+      posts[editingIndex] = newPost;
+    }
+
+    try {
+      await updatePostsFile();
+      alert("पोष्ट सफलतापूर्वक सेभ भयो।");
+      renderPosts();
+      hidePostForm();
+    } catch(err){
+      alert("पोष्ट सेभ गर्न सकिएन: " + err.message);
+    }
+  });
+
+  postsTableBody.addEventListener("click", e => {
+    if(e.target.tagName === "BUTTON"){
+      const idx = e.target.getAttribute("data-index");
+      if(e.target.classList.contains("edit-btn")){
+        editingIndex = Number(idx);
+        const p = posts[editingIndex];
+        postTitle.value = p.title;
+        postSection.value = p.section;
+        postContent.value = p.content;
+        postYoutube.value = p.youtube || "";
+        showPostForm(true);
+      } else if(e.target.classList.contains("delete-btn")){
+        if(confirm("पोष्ट मेटाउन निश्चित हुनुहुन्छ?")){
+          posts.splice(idx, 1);
+          updatePostsFile().then(() => {
+            alert("पोष्ट मेटाइयो।");
+            renderPosts();
+            hidePostForm();
+          }).catch(err => {
+            alert("पोष्ट मेटाउन सकिएन: " + err.message);
+          });
         }
-      } catch (err) {
-        console.error("Error:", err);
-        alert("GitHub अपडेटमा त्रुटि");
       }
-    });
+    }
+  });
+})();
+</script>
 
-    tinymce.init({
-      selector: '#postContent',
-      height: 300,
-      menubar: false,
-      plugins: 'link image code lists',
-      toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist | link image | code'
-    });
-  </script>
 </body>
 </html>
