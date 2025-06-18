@@ -124,6 +124,7 @@
             margin-bottom: 12px;
             background-color: #fff4f4;
             position: relative;
+            box-shadow: 0 2px 4px rgba(187,25,25,0.15);
         }
         .post-item p {
             margin: 0 0 8px 0;
@@ -259,6 +260,8 @@
 
 <script>
 (() => {
+    const STORAGE_KEY = 'nv_posts';
+
     const subscriptionForm = document.getElementById('subscriptionForm');
     const subscriptionEmailInput = document.getElementById('subscriptionEmail');
     const subscriptionMessage = document.getElementById('subscriptionMessage');
@@ -266,14 +269,6 @@
     const navLinks = document.querySelectorAll('nav.desktop-nav a');
     const logo = document.querySelector('.logo');
 
-    // Define all valid sections and their Nepali names for header display
-    const sectionTitles = {
-        lekha: 'लेख/रचना',
-        sahitya: 'साहित्य',
-        loksewa: 'लोकसेवा',
-        patrapatrika: 'पत्रपत्रिका'
-    };
-
     // Escape HTML utility
     function escapeHtml(text) {
         return text.replace(/[&<>"']/g, function(m) {
@@ -288,301 +283,86 @@
         });
     }
 
-    // Render posts grouped by section (home page)
-    function renderHomePage() {
-        let posts = JSON.parse(localStorage.getItem('nv_posts')) || [];
+    // Section Titles
+    const sectionTitles = {
+        lekha: 'लेख/रचना',
+        sahitya: 'साहित्य',
+        loksewa: 'लोकसेवा',
+        patrapatrika: 'पत्रपत्रिका'
+    };
 
-        if(posts.length === 0) {
+    // Load posts from localStorage
+    function loadPosts() {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+            try {
+                return JSON.parse(stored);
+            } catch {
+                return [];
+            }
+        }
+        return [];
+    }
+
+    // Save posts to localStorage
+    function savePosts(posts) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+    }
+
+    // Render home page with grouped posts
+    function renderHomePage() {
+        let posts = loadPosts();
+        if (posts.length === 0) {
             mainContentDiv.innerHTML = '<p>अहिले सम्म कुनै सामग्री उपलब्ध छैन।</p>';
             return;
         }
-
-        // Group posts by section
         const grouped = {};
         posts.forEach(post => {
-            if(!grouped[post.section]) grouped[post.section] = [];
-            grouped[post.section].push(post.content);
+            if (!grouped[post.section]) grouped[post.section] = [];
+            grouped[post.section].push(post);
         });
-
         let html = '';
-        // Render each section in order of sectionTitles keys
-        for(const secKey of Object.keys(sectionTitles)) {
-            if(grouped[secKey] && grouped[secKey].length > 0) {
-                html += `<section class="section-posts" aria-label="${sectionTitles[secKey]}">
-                    <h2>${sectionTitles[secKey]}</h2>`;
-                grouped[secKey].forEach((content, idx) => {
+        for (const secKey of Object.keys(sectionTitles)) {
+            if (grouped[secKey] && grouped[secKey].length > 0) {
+                html += `<section class="section-posts" aria-label="${sectionTitles[secKey]}">`;
+                html += `<h2>${sectionTitles[secKey]}</h2>`;
+                grouped[secKey].forEach((post, idx) => {
                     html += `<article class="post-item" role="article" aria-label="${sectionTitles[secKey]} - पोस्ट ${idx + 1}">
-                        <p>${escapeHtml(content)}</p>
-                        <button class="post-delete-btn" aria-label="पोस्ट हटाउनुहोस्" data-section="${secKey}" data-index="${idx}">हटाउनुहोस्</button>
+                        <h3>${escapeHtml(post.title)}</h3>
+                        <div>${post.content}</div>
                     </article>`;
                 });
                 html += '</section>';
             }
         }
-
         mainContentDiv.innerHTML = html;
     }
 
-    // Render single section with posts (like clicking लेख/रचना only posts)
+    // Render posts for a single section
     function renderSectionPage(sectionKey) {
-        let posts = JSON.parse(localStorage.getItem('nv_posts')) || [];
+        let posts = loadPosts();
         posts = posts.filter(post => post.section === sectionKey);
-
-        if(posts.length === 0) {
+        if (posts.length === 0) {
             mainContentDiv.innerHTML = `<p>${sectionTitles[sectionKey]} खण्डमा कुनै पोस्ट छैन।</p>`;
             return;
         }
-
-        let html = `<section class="section-posts" aria-label="${sectionTitles[sectionKey]}">`;
+        let html = `<section class="section-posts" aria-label="${sectionTitles[sectionKey]}"><h2>${sectionTitles[sectionKey]}</h2>`;
         posts.forEach((post, idx) => {
             html += `<article class="post-item" role="article" aria-label="${sectionTitles[sectionKey]} - पोस्ट ${idx + 1}">
-                <p>${escapeHtml(post.content)}</p>
-                <button class="post-delete-btn" aria-label="पोस्ट हटाउनुहोस्" data-section="${sectionKey}" data-index="${idx}">हटाउनुहोस्</button>
+                <h3>${escapeHtml(post.title)}</h3>
+                <div>${post.content}</div>
             </article>`;
         });
         html += '</section>';
-
         mainContentDiv.innerHTML = html;
     }
-
-    // Delete post handler (works for home page and section pages)
-    mainContentDiv.addEventListener('click', e => {
-        if(e.target.classList.contains('post-delete-btn')) {
-            const section = e.target.getAttribute('data-section');
-            const idx = parseInt(e.target.getAttribute('data-index'), 10);
-            let posts = JSON.parse(localStorage.getItem('nv_posts')) || [];
-
-            // Filter posts of that section
-            const postsInSection = posts.filter(p => p.section === section);
-            if(idx >= 0 && idx < postsInSection.length) {
-                // Find global index of the post to delete
-                let globalIndex = -1, count = 0;
-                for(let i=0; i<posts.length; i++) {
-                    if(posts[i].section === section) {
-                        if(count === idx) {
-                            globalIndex = i;
-                            break;
-                        }
-                        count++;
-                    }
-                }
-                if(globalIndex !== -1) {
-                    posts.splice(globalIndex,1);
-                    localStorage.setItem('nv_posts', JSON.stringify(posts));
-                    if(currentSection === 'home') {
-                        renderHomePage();
-                    } else {
-                        renderSectionPage(currentSection);
-                    }
-                }
-            }
-        }
-    });
-
-    // Email validation
-    function isValidEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-
-    // Subscription form submit
-    subscriptionForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = subscriptionEmailInput.value.trim();
-        subscriptionMessage.className = '';
-        subscriptionMessage.textContent = '';
-
-        if (!email) {
-            subscriptionMessage.textContent = 'कृपया इमेल ठेगाना लेख्नुहोस्।';
-            subscriptionMessage.classList.add('error');
-            subscriptionEmailInput.focus();
-            return;
-        }
-
-        if (!isValidEmail(email)) {
-            subscriptionMessage.textContent = 'कृपया मान्य इमेल ठेगाना लेख्नुहोस्।';
-            subscriptionMessage.classList.add('error');
-            subscriptionEmailInput.focus();
-            return;
-        }
-
-        const subs = JSON.parse(localStorage.getItem('nv_subscriptions')) || [];
-        if (subs.includes(email.toLowerCase())) {
-            subscriptionMessage.textContent = 'यो इमेल पहिले नै सदस्यता लिइसक्यो।';
-            subscriptionMessage.classList.add('error');
-            subscriptionEmailInput.value = '';
-            subscriptionEmailInput.focus();
-            return;
-        }
-        subs.push(email.toLowerCase());
-        localStorage.setItem('nv_subscriptions', JSON.stringify(subs));
-        subscriptionMessage.textContent = 'धन्यवाद! तपाईं सफलतापूर्वक सदस्यता लिनुभयो।';
-        subscriptionMessage.classList.add('success');
-        subscriptionEmailInput.value = '';
-    });
 
     // Navigation and current section state
-    let currentSection = 'home'; // 'home' means full home page grouped by section
-
-    function setActiveNav(section) {
-        navLinks.forEach(l => {
-            if(l.dataset.section === section) {
-                l.setAttribute('aria-current', 'page');
-            } else {
-                l.removeAttribute('aria-current');
-            }
-        });
-    }
-
-    // On clicking nav links
-    navLinks.forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            const section = e.currentTarget.dataset.section;
-            if(!section) {
-                // For मेरो बारेमा or unknown sections
-                mainContentDiv.innerHTML = '<p>यो खण्ड विकासाधीन छ।</p>';
-                setActiveNav(null);
-                currentSection = null;
-                mainContentDiv.focus();
-                return;
-            }
-            currentSection = section;
-            setActiveNav(section);
-            renderSectionPage(section);
-            mainContentDiv.focus();
-        });
-    });
-
-    // Logo click => go to Home page (all posts grouped by section)
-    logo.addEventListener('click', () => {
-        currentSection = 'home';
-        setActiveNav(null); // no nav active in home page
-        renderHomePage();
-        mainContentDiv.focus();
-    });
-    logo.addEventListener('keydown', (e) => {
-        if(e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            currentSection = 'home';
-            setActiveNav(null);
-            renderHomePage();
-            mainContentDiv.focus();
-        }
-    });
-
-    // Footer year
-    document.getElementById('footerYear').textContent = new Date().getFullYear();
-
-    // Initial load => home page
-    currentSection = 'home';
-    setActiveNav(null);
-    renderHomePage();
-
-})();
-    <script>
-(async () => {
-    const mainContentDiv = document.getElementById('mainContent');
-    const navLinks = document.querySelectorAll('nav.desktop-nav a');
-    const logo = document.querySelector('.logo');
-
-    const GITHUB_USERNAME = "narayanbhandari58";
-    const GITHUB_REPO = "narayanbhandari";
-    const POSTS_FOLDER = "posts";
-    const API_BASE = `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${POSTS_FOLDER}`;
-
-    // Fetch all JSON posts from GitHub repo
-    async function fetchPostsFromGitHub() {
-        try {
-            const res = await fetch(API_BASE);
-            if (!res.ok) throw new Error("GitHub बाट डेटा लिन सकिएन");
-            const files = await res.json();
-            const posts = [];
-            for (const file of files) {
-                if (file.name.endsWith(".json")) {
-                    const f = await fetch(file.download_url);
-                    const content = await f.json();
-                    posts.push(content);
-                }
-            }
-            localStorage.setItem("nv_posts", JSON.stringify(posts));
-        } catch (err) {
-            console.error("पोस्ट लोड गर्दा समस्या:", err);
-        }
-    }
-
-    // --- बाकी तपाईंको स्क्रिप्ट जस्तै ---
-
-    // Escape HTML utility
-    function escapeHtml(text) {
-        return text.replace(/[&<>"']/g, function(m) {
-            switch (m) {
-                case '&': return '&amp;';
-                case '<': return '&lt;';
-                case '>': return '&gt;';
-                case '"': return '&quot;';
-                case "'": return '&#39;';
-                default: return m;
-            }
-        });
-    }
-
-    const sectionTitles = {
-        lekha: 'लेख/रचना',
-        sahitya: 'साहित्य',
-        loksewa: 'लोकसेवा',
-        patrapatrika: 'पत्रपत्रिका'
-    };
-
-    function renderHomePage() {
-        let posts = JSON.parse(localStorage.getItem('nv_posts')) || [];
-        if(posts.length === 0) {
-            mainContentDiv.innerHTML = '<p>अहिले सम्म कुनै सामग्री उपलब्ध छैन।</p>';
-            return;
-        }
-
-        const grouped = {};
-        posts.forEach(post => {
-            if(!grouped[post.section]) grouped[post.section] = [];
-            grouped[post.section].push(post.content);
-        });
-
-        let html = '';
-        for(const secKey of Object.keys(sectionTitles)) {
-            if(grouped[secKey] && grouped[secKey].length > 0) {
-                html += `<section class="section-posts" aria-label="${sectionTitles[secKey]}">
-                    <h2>${sectionTitles[secKey]}</h2>`;
-                grouped[secKey].forEach((content, idx) => {
-                    html += `<article class="post-item">
-                        <p>${escapeHtml(content)}</p>
-                    </article>`;
-                });
-                html += '</section>';
-            }
-        }
-
-        mainContentDiv.innerHTML = html;
-    }
-
-    function renderSectionPage(sectionKey) {
-        let posts = JSON.parse(localStorage.getItem('nv_posts')) || [];
-        posts = posts.filter(post => post.section === sectionKey);
-
-        let html = `<section class="section-posts"><h2>${sectionTitles[sectionKey]}</h2>`;
-        posts.forEach((post, idx) => {
-            html += `<article class="post-item">
-                <p>${escapeHtml(post.content)}</p>
-            </article>`;
-        });
-        html += '</section>';
-        mainContentDiv.innerHTML = html;
-    }
-
     let currentSection = 'home';
 
     function setActiveNav(section) {
         navLinks.forEach(l => {
-            if(l.dataset.section === section) {
+            if (l.dataset.section === section) {
                 l.setAttribute('aria-current', 'page');
             } else {
                 l.removeAttribute('aria-current');
@@ -594,7 +374,7 @@
         link.addEventListener('click', e => {
             e.preventDefault();
             const section = e.currentTarget.dataset.section;
-            if(!section) {
+            if (!section) {
                 mainContentDiv.innerHTML = '<p>यो खण्ड विकासाधीन छ।</p>';
                 setActiveNav(null);
                 currentSection = null;
@@ -615,11 +395,53 @@
         mainContentDiv.focus();
     });
 
-    // Start: Fetch GitHub → load → render
-    await fetchPostsFromGitHub();
+    // Subscription form submit
+    subscriptionForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = subscriptionEmailInput.value.trim();
+        subscriptionMessage.className = '';
+        subscriptionMessage.textContent = '';
+
+        if (!email) {
+            subscriptionMessage.textContent = 'कृपया इमेल ठेगाना लेख्नुहोस्।';
+            subscriptionMessage.classList.add('error');
+            subscriptionEmailInput.focus();
+            return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            subscriptionMessage.textContent = 'कृपया मान्य इमेल ठेगाना लेख्नुहोस्।';
+            subscriptionMessage.classList.add('error');
+            subscriptionEmailInput.focus();
+            return;
+        }
+
+        const subs = JSON.parse(localStorage.getItem('nv_subscriptions') || '[]');
+        if (subs.includes(email.toLowerCase())) {
+            subscriptionMessage.textContent = 'यो इमेल पहिले नै सदस्यता लिइसक्यो।';
+            subscriptionMessage.classList.add('error');
+            subscriptionEmailInput.value = '';
+            subscriptionEmailInput.focus();
+            return;
+        }
+        subs.push(email.toLowerCase());
+        localStorage.setItem('nv_subscriptions', JSON.stringify(subs));
+        subscriptionMessage.textContent = 'धन्यवाद! तपाईं सफलतापूर्वक सदस्यता लिनुभयो।';
+        subscriptionMessage.classList.add('success');
+        subscriptionEmailInput.value = '';
+    });
+
+    // Footer year
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+    // Initial load => home page
+    currentSection = 'home';
+    setActiveNav(null);
     renderHomePage();
+
 })();
-</script>
 </script>
 </body>
 </html>
+
