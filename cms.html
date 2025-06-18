@@ -1,300 +1,546 @@
 <!DOCTYPE html>
 <html lang="ne">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CMS - Narayan Bhandari</title>
-<style>
-  body { font-family: Arial, sans-serif; background: #f0f0f0; margin: 0; padding: 20px;}
-  .hidden { display: none; }
-  .login-container, .admin-container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
-  h2 { text-align: center; }
-  label { display: block; margin-top: 10px; }
-  input[type=text], input[type=password], textarea, select {
-    width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box;
-  }
-  button {
-    margin-top: 15px; padding: 10px 15px; background: #8f0e04; border: none; color: white; cursor: pointer; border-radius: 4px;
-  }
-  button:hover { background: #a00f05; }
-  table { width: 100%; border-collapse: collapse; margin-top: 20px;}
-  th, td { border: 1px solid #ccc; padding: 8px; text-align: left;}
-  th { background: #8f0e04; color: white; }
-  .action-btn { margin-right: 5px; padding: 5px 10px; cursor: pointer; border: none; border-radius: 3px;}
-  .edit-btn { background-color: #4CAF50; color: white; }
-  .delete-btn { background-color: #f44336; color: white; }
-  textarea { height: 100px; }
-</style>
-</head>
-<body>
-
-<div class="login-container" id="login-container">
-  <h2>लगइन गर्नुहोस्</h2>
-  <form id="login-form">
-    <label>प्रयोगकर्ता नाम:
-      <input type="text" id="username" required />
-    </label>
-    <label>पासवर्ड:
-      <input type="password" id="password" required />
-    </label>
-    <button type="submit">लगइन</button>
-  </form>
-  <p id="login-error" style="color:red;"></p>
-</div>
-
-<div class="admin-container hidden" id="admin-container">
-  <h2>CMS - सामग्री व्यवस्थापन</h2>
-  <button id="add-new-post">नयाँ लेख थप्नुहोस्</button>
-  <table id="posts-table">
-    <thead>
-      <tr>
-        <th>शीर्षक</th>
-        <th>सेक्सन</th>
-        <th>सम्पादन</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-
-  <div id="post-form-container" class="hidden">
-    <h3 id="form-title">नयाँ लेख</h3>
-    <form id="post-form">
-      <label>शीर्षक:
-        <input type="text" id="post-title" required />
-      </label>
-      <label>सेक्सन:
-        <select id="post-section" required>
-          <option value="">-- छान्नुहोस् --</option>
-          <option value="लेख/रचना">लेख/रचना</option>
-          <option value="साहित्य">साहित्य</option>
-          <option value="लोकसेवा तयारी">लोकसेवा तयारी</option>
-          <option value="पत्रपत्रिका">पत्रपत्रिका</option>
-          <option value="मेरो बारेमा">मेरो बारेमा</option>
-        </select>
-      </label>
-      <label>सामग्री:
-        <textarea id="post-content" required></textarea>
-      </label>
-      <label>YouTube लिंक (वैकल्पिक):
-        <input type="text" id="post-youtube" />
-      </label>
-      <button type="submit">सेभ गर्नुहोस्</button>
-      <button type="button" id="cancel-post">रद्द गर्नुहोस्</button>
-    </form>
-  </div>
-</div>
-
-<script>
-(() => {
-  const USERNAME = "Narayan";
-  const PASSWORD = "9846";
-  
-  // तिमीले दिएको GitHub Token यहाँ राख्नुस्:
-  const GITHUB_TOKEN = "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";
-  
-  // GitHub info
-  const REPO_OWNER = "narayanbhandari58";
-  const REPO_NAME = "narayanbhandari";
-  const FILE_PATH = "posts/post.json";
-  const BRANCH = "main";
-
-  const loginContainer = document.getElementById("login-container");
-  const adminContainer = document.getElementById("admin-container");
-  const loginForm = document.getElementById("login-form");
-  const loginError = document.getElementById("login-error");
-
-  const addNewPostBtn = document.getElementById("add-new-post");
-  const postsTableBody = document.querySelector("#posts-table tbody");
-
-  const postFormContainer = document.getElementById("post-form-container");
-  const postForm = document.getElementById("post-form");
-  const formTitle = document.getElementById("form-title");
-
-  const postTitle = document.getElementById("post-title");
-  const postSection = document.getElementById("post-section");
-  const postContent = document.getElementById("post-content");
-  const postYoutube = document.getElementById("post-youtube");
-  const cancelPostBtn = document.getElementById("cancel-post");
-
-  let posts = [];
-  let editingIndex = null;
-  let sha = null; // To store file sha for GitHub update
-
-  function showError(msg){
-    loginError.textContent = msg;
-  }
-
-  function showAdmin(){
-    loginContainer.classList.add("hidden");
-    adminContainer.classList.remove("hidden");
-  }
-
-  function base64ToUtf8(str) {
-    return decodeURIComponent(escape(atob(str)));
-  }
-
-  function utf8ToBase64(str) {
-    return btoa(unescape(encodeURIComponent(str)));
-  }
-
-  async function fetchPosts(){
-    const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}?ref=${BRANCH}`;
-    try {
-      const res = await fetch(url, {
-        headers: { Authorization: "token " + GITHUB_TOKEN }
-      });
-      if(!res.ok) throw new Error("GitHub बाट डेटा ल्याउन असफल");
-      const data = await res.json();
-      sha = data.sha;
-      const content = base64ToUtf8(data.content);
-      posts = JSON.parse(content);
-      renderPosts();
-    } catch(e){
-      alert("डेटा ल्याउन असफल भयो: " + e.message);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>नारायण भण्डारी CMS - सामग्री व्यवस्थापक</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&family=Poppins&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    /* Reset & Basic */
+    * {
+      box-sizing: border-box;
     }
-  }
-
-  function renderPosts(){
-    postsTableBody.innerHTML = "";
-    posts.forEach((p, idx) => {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${p.title}</td>
-        <td>${p.section}</td>
-        <td>
-          <button class="action-btn edit-btn" data-index="${idx}">सम्पादन</button>
-          <button class="action-btn delete-btn" data-index="${idx}">मेटाउनुहोस्</button>
-        </td>
-      `;
-      postsTableBody.appendChild(tr);
-    });
-  }
-
-  function resetForm(){
-    postTitle.value = "";
-    postSection.value = "";
-    postContent.value = "";
-    postYoutube.value = "";
-    editingIndex = null;
-    formTitle.textContent = "नयाँ लेख";
-  }
-
-  function showPostForm(editing){
-    postFormContainer.classList.remove("hidden");
-    if(editing){
-      formTitle.textContent = "लेख सम्पादन गर्नुहोस्";
-    } else {
-      formTitle.textContent = "नयाँ लेख";
-      resetForm();
+    body {
+      margin: 0; font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+      background: #f9f9f9; color: #222; min-height: 100vh;
+      display: flex; flex-direction: column;
     }
-  }
-
-  function hidePostForm(){
-    postFormContainer.classList.add("hidden");
-    resetForm();
-  }
-
-  async function updatePostsFile(){
-    const content = utf8ToBase64(JSON.stringify(posts, null, 2));
-    const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`;
-    const body = {
-      message: editingIndex === null ? "Add new post" : "Update post",
-      content: content,
-      sha: sha,
-      branch: BRANCH
-    };
-    const res = await fetch(url, {
-      method: "PUT",
-      headers: {
-        "Authorization": "token " + GITHUB_TOKEN,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(body)
-    });
-    if(!res.ok){
-      const err = await res.json();
-      throw new Error(err.message || "GitHub update असफल");
+    header {
+      background: #bb1919;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
-    const data = await res.json();
-    sha = data.content.sha;
-  }
-
-  loginForm.addEventListener("submit", e => {
-    e.preventDefault();
-    const user = document.getElementById("username").value.trim();
-    const pass = document.getElementById("password").value.trim();
-    if(user === USERNAME && pass === PASSWORD){
-      showAdmin();
-      fetchPosts();
-    } else {
-      showError("प्रयोगकर्ता नाम वा पासवर्ड गलत छ।");
+    header .logout-btn {
+      background: white; color: #bb1919;
+      border: none; padding: 0.5rem 1rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
-  });
-
-  addNewPostBtn.addEventListener("click", () => {
-    showPostForm(false);
-  });
-
-  cancelPostBtn.addEventListener("click", () => {
-    hidePostForm();
-  });
-
-  postForm.addEventListener("submit", async e => {
-    e.preventDefault();
-    const title = postTitle.value.trim();
-    const section = postSection.value;
-    const content = postContent.value.trim();
-    const youtube = postYoutube.value.trim();
-
-    if(!title || !section || !content){
-      alert("शीर्षक, सेक्सन, र सामग्री आवश्यक छ।");
-      return;
+    header .logout-btn:hover {
+      background: #e63946;
+      color: white;
     }
-
-    const newPost = { title, section, content, youtube };
-
-    if(editingIndex === null){
-      posts.push(newPost);
-    } else {
-      posts[editingIndex] = newPost;
+    main {
+      flex-grow: 1;
+      max-width: 960px;
+      margin: 2rem auto;
+      background: white;
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(187,25,25,0.15);
     }
-
-    try {
-      await updatePostsFile();
-      alert("पोष्ट सफलतापूर्वक सेभ भयो।");
-      renderPosts();
-      hidePostForm();
-    } catch(err){
-      alert("पोष्ट सेभ गर्न सकिएन: " + err.message);
+    h2 {
+      color: #bb1919;
+      margin-bottom: 1rem;
+      font-weight: 700;
     }
-  });
-
-  postsTableBody.addEventListener("click", e => {
-    if(e.target.tagName === "BUTTON"){
-      const idx = e.target.getAttribute("data-index");
-      if(e.target.classList.contains("edit-btn")){
-        editingIndex = Number(idx);
-        const p = posts[editingIndex];
-        postTitle.value = p.title;
-        postSection.value = p.section;
-        postContent.value = p.content;
-        postYoutube.value = p.youtube || "";
-        showPostForm(true);
-      } else if(e.target.classList.contains("delete-btn")){
-        if(confirm("पोष्ट मेटाउन निश्चित हुनुहुन्छ?")){
-          posts.splice(idx, 1);
-          updatePostsFile().then(() => {
-            alert("पोष्ट मेटाइयो।");
-            renderPosts();
-            hidePostForm();
-          }).catch(err => {
-            alert("पोष्ट मेटाउन सकिएन: " + err.message);
-          });
-        }
+    form {
+      margin-bottom: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 2rem;
+      align-items: center;
+    }
+    form label {
+      font-weight: 600;
+      color: #555;
+    }
+    form input[type="text"],
+    form input[type="url"],
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: 1.5px solid #bb1919;
+      font-size: 1rem;
+      font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+    }
+    form textarea {
+      resize: vertical;
+      height: 100px;
+    }
+    form button {
+      grid-column: span 2;
+      background: #bb1919;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    form button:hover {
+      background: #8a1515;
+    }
+    .post-list {
+      margin-top: 2rem;
+    }
+    .post-list table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .post-list th, .post-list td {
+      border: 1px solid #bb1919;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      vertical-align: middle;
+    }
+    .post-list th {
+      background: #bb1919;
+      color: white;
+      font-weight: 700;
+    }
+    .post-list tbody tr:hover {
+      background: #fff4f4;
+    }
+    .action-btn {
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #bb1919;
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+      transition: color 0.3s ease;
+    }
+    .action-btn:hover {
+      color: #8a1515;
+    }
+    .message {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: green;
+    }
+    .error {
+      color: #b00020;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      form {
+        grid-template-columns: 1fr;
+      }
+      form button {
+        grid-column: 1;
+      }
+      .post-list th, .post-list td {
+        font-size: 0.9rem;
       }
     }
-  });
-})();
+  </style>
+</head>
+<body>
+  <header>
+    नारायण भण्डारी CMS
+    <button class="logout-btn" id="logoutBtn" title="Logout">Logout</button>
+  </header>
+
+  <main>
+    <h2>नयाँ लेख/रचना थप्नुहोस् / सम्पादन गर्नुहोस्</h2>
+    <div id="msg" class="message"></div>
+
+    <form id="postForm" autocomplete="off">
+      <input type="hidden" id="postFilename" />
+      <label for="postTitle">शीर्षक *</label>
+      <input type="text" id="postTitle" placeholder="शीर्षक लेख्नुहोस्" required />
+
+      <label for="postSection">सेक्सन *</label>
+      <select id="postSection" required>
+        <option value="">-- चयन गर्नुहोस् --</option>
+        <option value="lekha">लेख/रचना</option>
+        <option value="sahitya">साहित्य</option>
+        <option value="loksewa">लोकसेवा</option>
+        <option value="patrapatrika">पत्रपत्रिका</option>
+        <option value="mero-barema">मेरो बारेमा</option>
+      </select>
+
+      <label for="postContent">सामग्री *</label>
+      <textarea id="postContent" placeholder="यहाँ सामग्री लेख्नुहोस्..." required></textarea>
+
+      <label for="postYoutube">YouTube लिंक (वैकल्पिक)</label>
+      <input type="url" id="postYoutube" placeholder="https://www.youtube.com/watch?v=..." />
+
+      <button type="submit">सेभ गर्नुहोस्</button>
+    </form>
+
+    <section class="post-list">
+      <h2>अहिलेका सामग्रीहरू</h2>
+      <table aria-label="सामग्री सूची" id="postsTable">
+        <thead>
+          <tr>
+            <th>शीर्षक</th>
+            <th>सेक्सन</th>
+            <th>कार्यहरू</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Dynamically filled -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+<script>
+  (() => {
+    const token = "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"; // तपाईँको GitHub Token राख्नुहोस्
+    const owner = "narayanbhandari58";
+    const repo = "narayanbhandari";
+    const branch = "main";
+    const postsPath = "posts";
+
+    const msgDiv = document.getElementById("msg");
+    const postForm = document.getElementById("postForm");
+    const postsTableBody = document.querySelector("#postsTable tbody");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    // Login check - simple localStorage
+    const ADMIN_USER = "Narayan";
+    const ADMIN_PASS = "9846";
+
+    function showMessage(text, isError = false) {
+      msgDiv.textContent = text;
+      msgDiv.className = isError ? "error" : "message";
+    }
+
+    // Encode data for GitHub API commit
+    function base64Encode(str) {
+      return btoa(unescape(encodeURIComponent(str)));
+    }
+
+    // Decode base64 content
+    function base64Decode(str) {
+      return decodeURIComponent(escape(atob(str)));
+    }
+
+    // Fetch all posts filenames & details
+    async function fetchPosts() {
+      const url = `https://api.github.com/repos/${owner}/${repo}/contents/${postsPath}?ref=${branch}`;
+      const res = await fetch(url, {
+        headers: {
+          Authorization: `token ${token}`
+        }
+      });
+      if (!res.ok) throw new Error("पोस्टहरू ल्याउन समस्या आयो");
+      const data = await res.json();
+      return data.filter(file => file.name.endsWith(".json"));
+    }
+
+    // Fetch post content by filename
+    async function fetchPostContent(filename) {
+      const url = `https://api.github.com/repos/${owner}/${repo}/contents/${postsPath}/${filename}?ref=${branch}`;
+      const res = await fetch(url, {
+        headers: {
+          Authorization: `token ${token}`
+        }
+      });
+      if (!res.ok) throw new Error("पोस्ट सामग्री ल्याउन समस्या आयो");
+      const data = await res.json();
+      return JSON.parse(base64Decode(data.content));
+    }
+
+    // Save or update post file in GitHub repo
+    async function savePost(post, filename, sha = null) {
+      const path = `${postsPath}/${filename}`;
+      const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+
+      const content = base64Encode(JSON.stringify(post, null, 2));
+      const body = {
+        message: sha ? `Update post: ${filename}` : `Create post: ${filename}`,
+        content,
+        branch,
+      };
+      if (sha) body.sha = sha;
+
+      const res = await fetch(url, {
+        method: "PUT",
+        headers: {
+          Authorization: `token ${token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.message || "पोस्ट सुरक्षित गर्न समस्या आयो");
+      }
+      return await res.json();
+    }
+
+    // Delete post file in GitHub repo
+    async function deletePost(filename, sha) {
+      const path = `${postsPath}/${filename}`;
+      const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+      const body = {
+        message: `Delete post: ${filename}`,
+        branch,
+        sha
+      };
+      const res = await fetch(url, {
+        method: "DELETE",
+        headers: {
+          Authorization: `token ${token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.message || "पोस्ट मेटाउन समस्या आयो");
+      }
+      return await res.json();
+    }
+
+    // Render posts in table
+    async function renderPosts() {
+      postsTableBody.innerHTML = "<tr><td colspan='3'>लोड हुँदै...</td></tr>";
+      try {
+        const files = await fetchPosts();
+        if (files.length === 0) {
+          postsTableBody.innerHTML = "<tr><td colspan='3'>कुनै सामग्री छैन।</td></tr>";
+          return;
+        }
+
+        let rowsHtml = "";
+        for (const file of files) {
+          try {
+            const post = await fetchPostContent(file.name);
+            rowsHtml += `<tr>
+              <td>${post.title}</td>
+              <td>${sectionName(post.section)}</td>
+              <td>
+                <button class="action-btn" data-filename="${file.name}" data-sha="${file.sha}" data-action="edit" title="सम्पादन गर्नुहोस्">
+                  <span class="material-icons">edit</span>
+                </button>
+                <button class="action-btn" data-filename="${file.name}" data-sha="${file.sha}" data-action="delete" title="मेटाउनुहोस्">
+                  <span class="material-icons">delete</span>
+                </button>
+              </td>
+            </tr>`;
+          } catch {
+            // skip broken file
+          }
+        }
+        postsTableBody.innerHTML = rowsHtml;
+      } catch (e) {
+        postsTableBody.innerHTML = `<tr><td colspan="3" class="error">${e.message}</td></tr>`;
+      }
+    }
+
+    function sectionName(key) {
+      switch(key) {
+        case "lekha": return "लेख/रचना";
+        case "sahitya": return "साहित्य";
+        case "loksewa": return "लोकसेवा";
+        case "patrapatrika": return "पत्रपत्रिका";
+        case "mero-barema": return "मेरो बारेमा";
+        default: return "अन्य";
+      }
+    }
+
+    // Handle form submit for create/update post
+    postForm.addEventListener("submit", async e => {
+      e.preventDefault();
+      showMessage("सेभ हुँदैछ...", false);
+
+      const title = document.getElementById("postTitle").value.trim();
+      const section = document.getElementById("postSection").value;
+      const content = document.getElementById("postContent").value.trim();
+      const youtube = document.getElementById("postYoutube").value.trim();
+      const filenameInput = document.getElementById("postFilename").value;
+
+      if (!title || !section || !content) {
+        showMessage("शीर्षक, सेक्सन र सामग्री अनिवार्य छन्।", true);
+        return;
+      }
+
+      // If editing, keep filename and sha, else generate new filename
+      let filename = filenameInput;
+      let sha = null;
+
+      try {
+        if (filename) {
+          // Fetch sha for update
+          const url = `https://api.github.com/repos/${owner}/${repo}/contents/${postsPath}/${filename}?ref=${branch}`;
+          const res = await fetch(url, {
+            headers: { Authorization: `token ${token}` }
+          });
+          if (!res.ok) throw new Error("फाइल अपडेट गर्न सकिएन");
+          const fileData = await res.json();
+          sha = fileData.sha;
+        } else {
+          // generate filename like yyyyMMdd_HHmmss_random.json
+          const d = new Date();
+          const timestamp = d.toISOString().replace(/[:.-]/g,"").slice(0,15);
+          const randomStr = Math.random().toString(36).substring(2,7);
+          filename = `${timestamp}_${randomStr}.json`;
+        }
+
+        const postData = { title, section, content };
+        if (youtube) postData.youtube = youtube;
+
+        await savePost(postData, filename, sha);
+        showMessage("सफलतापूर्वक सेभ गरियो!");
+        postForm.reset();
+        document.getElementById("postFilename").value = "";
+        await renderPosts();
+      } catch (err) {
+        showMessage("त्रुटि: " + err.message, true);
+      }
+    });
+
+    // Handle edit and delete buttons
+    postsTableBody.addEventListener("click", async e => {
+      if (e.target.closest("button.action-btn")) {
+        const btn = e.target.closest("button.action-btn");
+        const action = btn.dataset.action;
+        const filename = btn.dataset.filename;
+        const sha = btn.dataset.sha;
+
+        if (action === "edit") {
+          try {
+            const post = await fetchPostContent(filename);
+            document.getElementById("postTitle").value = post.title || "";
+            document.getElementById("postSection").value = post.section || "";
+            document.getElementById("postContent").value = post.content || "";
+            document.getElementById("postYoutube").value = post.youtube || "";
+            document.getElementById("postFilename").value = filename;
+            showMessage("सामग्री सम्पादन गर्दै हुनुहुन्छ...", false);
+          } catch {
+            showMessage("पोस्ट सामग्री ल्याउन सकेन।", true);
+          }
+        } else if (action === "delete") {
+          if (confirm("के तपाईँ निश्चित रूपमा यो सामग्री मेटाउन चाहनुहुन्छ?")) {
+            try {
+              await deletePost(filename, sha);
+              showMessage("सामग्री मेटाइयो।");
+              await renderPosts();
+            } catch (err) {
+              showMessage("मेटाउन समस्या आयो: " + err.message, true);
+            }
+          }
+        }
+      }
+    });
+
+    // Simple Login system
+    function showLogin() {
+      const loginHTML = `
+        <style>
+          #loginOverlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 9999;
+          }
+          #loginBox {
+            background: white; padding: 2rem; border-radius: 12px;
+            width: 320px; box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+          }
+          #loginBox h2 {
+            margin-top: 0; color: #bb1919;
+            font-weight: 700; text-align: center;
+          }
+          #loginBox label {
+            display: block; margin: 1rem 0 0.3rem 0; font-weight: 600;
+          }
+          #loginBox input[type="text"], #loginBox input[type="password"] {
+            width: 100%; padding: 0.5rem; border-radius: 6px;
+            border: 1.5px solid #bb1919; font-size: 1rem;
+          }
+          #loginBox button {
+            margin-top: 1.5rem; width: 100%;
+            background: #bb1919; color: white;
+            padding: 0.75rem;
+            font-weight: 700;
+            border: none; border-radius: 8px;
+            cursor: pointer;
+          }
+          #loginBox button:hover {
+            background: #8a1515;
+          }
+          #loginError {
+            color: #b00020; margin-top: 0.75rem; font-weight: 700; text-align: center;
+          }
+        </style>
+        <div id="loginOverlay" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+          <div id="loginBox">
+            <h2 id="loginTitle">लगइन गर्नुहोस्</h2>
+            <label for="usernameInput">प्रयोगकर्ता नाम</label>
+            <input id="usernameInput" type="text" autocomplete="username" />
+            <label for="passwordInput">पासवर्ड</label>
+            <input id="passwordInput" type="password" autocomplete="current-password" />
+            <button id="loginSubmitBtn">लगइन</button>
+            <div id="loginError" role="alert" aria-live="assertive"></div>
+          </div>
+        </div>
+      `;
+      document.body.insertAdjacentHTML("beforeend", loginHTML);
+
+      const loginOverlay = document.getElementById("loginOverlay");
+      const usernameInput = document.getElementById("usernameInput");
+      const passwordInput = document.getElementById("passwordInput");
+      const loginSubmitBtn = document.getElementById("loginSubmitBtn");
+      const loginError = document.getElementById("loginError");
+
+      loginSubmitBtn.addEventListener("click", () => {
+        const user = usernameInput.value.trim();
+        const pass = passwordInput.value.trim();
+
+        if (user === ADMIN_USER && pass === ADMIN_PASS) {
+          localStorage.setItem("cmsLoggedIn", "true");
+          loginOverlay.remove();
+          showMessage("स्वागत छ, " + ADMIN_USER + "!");
+          renderPosts();
+        } else {
+          loginError.textContent = "गलत प्रयोगकर्ता नाम वा पासवर्ड।";
+        }
+      });
+
+      passwordInput.addEventListener("keyup", e => {
+        if (e.key === "Enter") loginSubmitBtn.click();
+      });
+
+      usernameInput.focus();
+    }
+
+    // Logout
+    logoutBtn.addEventListener("click", () => {
+      if (confirm("के तपाईँ वास्तवमै लगआउट हुन चाहनुहुन्छ?")) {
+        localStorage.removeItem("cmsLoggedIn");
+        location.reload();
+      }
+    });
+
+    // On load
+    window.addEventListener("load", () => {
+      if (localStorage.getItem("cmsLoggedIn") === "true") {
+        showMessage("लोड हुँदैछ...");
+        renderPosts();
+      } else {
+        showLogin();
+      }
+    });
+  })();
 </script>
 
 </body>
