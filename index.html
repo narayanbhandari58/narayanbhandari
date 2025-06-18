@@ -3,57 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>नारायण भण्डारी - मुख्य पृष्ठ</title>
+  <title>नारायण भण्डारी</title>
   <style>
     body {
       font-family: 'Noto Sans Devanagari', sans-serif;
-      margin: 0; background: #fff;
-      max-width: 900px; margin: 2rem auto;
-      padding: 0 1rem;
+      margin: 0; padding: 0;
+      background: #fff;
       color: #222;
+      display: flex;
+      justify-content: center;
     }
+
+    .container {
+      max-width: 900px;
+      width: 90vw;
+      padding: 1rem;
+    }
+
     header {
+      background: #8f0e04;
+      color: white;
+      padding: 1.5rem 1rem;
       text-align: center;
-      border-bottom: 3px solid #bb1919;
-      padding-bottom: 1rem;
-      margin-bottom: 2rem;
+      font-weight: bold;
+      font-size: 2rem;
+      border-radius: 0 0 12px 12px;
+      margin-bottom: 1.5rem;
     }
-    header h1 {
-      margin: 0;
-      color: #bb1919;
+
+    main {
+      margin-bottom: 3rem;
     }
-    article {
-      margin-bottom: 2rem;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 1rem;
+
+    /* पुरानो स्टाइलहरू */
+    .welcome-msg {
+      text-align: center;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
     }
-    article h2 {
-      margin: 0 0 0.5rem 0;
-      color: #8a1212;
+
+    .posts {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
     }
-    article .section {
+
+    article.post {
+      background: #f9f9f9;
+      padding: 1rem 1.2rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    }
+
+    article.post h2 {
+      margin-top: 0;
+      color: #8f0e04;
+    }
+
+    article.post .section-label {
       font-style: italic;
       color: #666;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.7rem;
     }
-    article iframe {
+
+    article.post iframe {
       width: 100%;
-      height: 200px;
-      border: none;
-      margin-top: 0.5rem;
+      max-height: 220px;
       border-radius: 8px;
+      margin-top: 0.5rem;
+      border: none;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      header {
+        font-size: 1.5rem;
+      }
+      .container {
+        width: 95vw;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>नारायण भण्डारी</h1>
-    <p>लेख/रचना, साहित्य, लोकसेवा तयारी सामग्री र पत्रपत्रिका</p>
-  </header>
+  <div class="container">
+    <header>नारायण भण्डारी</header>
 
-  <section id="posts">
-    <p>पोस्टहरू लोड हुँदैछ...</p>
-  </section>
+    <main>
+      <div class="welcome-msg">यहाँ तपाईँका लेख/रचना, साहित्य, लोकसेवा तयारी सामग्री, र पत्रपत्रिका हेर्न सक्नुहुन्छ।</div>
+
+      <section class="posts" id="posts">
+        <p>पोस्टहरू लोड हुँदैछ...</p>
+      </section>
+    </main>
+  </div>
 
   <script>
     const repo = 'narayanbhandari58/narayanbhandari';
@@ -67,7 +110,6 @@
         if (!res.ok) throw new Error('पोस्टहरू GitHub बाट ल्याउन सकिएन');
         const files = await res.json();
 
-        // सबै JSON फाइलहरू छान्ने र नयाँदेखि पुरानो क्रम मिलाउने
         const postFiles = files.filter(f => f.name.endsWith('.json')).sort((a,b) => b.name.localeCompare(a.name));
 
         if (postFiles.length === 0) {
@@ -81,9 +123,9 @@
           const post = await fr.json();
 
           html += `
-          <article>
+          <article class="post">
             <h2>${post.title}</h2>
-            <div class="section">[${post.section}]</div>
+            <div class="section-label">[${post.section}]</div>
             <div>${post.content}</div>
             ${post.youtube ? `<iframe src="${post.youtube.replace('watch?v=', 'embed/')}" allowfullscreen></iframe>` : ''}
           </article>`;
