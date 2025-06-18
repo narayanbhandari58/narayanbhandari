@@ -2,7 +2,7 @@
 <html lang="ne">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CMS प्यानल - नारायण भण्डारी</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&family=Poppins&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/tinymce@6.8.3/tinymce.min.js" referrerpolicy="origin"></script>
@@ -13,21 +13,40 @@
       background: #f8f9fa;
       color: #1a1a1a;
       margin: 0;
-      display: flex;
       height: 100vh;
+      overflow: hidden;
     }
-
-    /* साइडबार */
+    #menuToggle {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 1100;
+      background: transparent;
+      border: none;
+      font-size: 30px;
+      cursor: pointer;
+      color: #8f0e04;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    #menuToggle:hover {
+      color: #660c02;
+    }
     .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 250px;
+      height: 100vh;
       background: #8f0e04;
       color: white;
-      padding: 20px 20px 20px 50px; /* left padding बढाइयो ३ डट्सका लागि */
+      padding: 20px;
       display: flex;
       flex-direction: column;
-      position: relative;
-      transition: transform 0.3s ease;
       transform: translateX(0);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+      overflow-y: auto;
     }
     .sidebar.hide {
       transform: translateX(-250px);
@@ -51,43 +70,23 @@
     .recent-posts ul {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
     .recent-posts li a {
       color: white;
       text-decoration: underline;
       cursor: pointer;
     }
-
-    /* 3 डट्स बटन साइडबारभित्र, बायाँ कुनामा */
-    #menuToggle {
-      position: absolute;
-      top: 15px;
-      left: 10px;
-      font-size: 26px;
-      cursor: pointer;
-      background: transparent;
-      border: none;
-      color: #fff;
-      z-index: 1000;
-      user-select: none;
-      transition: color 0.3s ease;
-    }
-    #menuToggle:hover {
-      color: #ffb3b3;
-    }
-
-    /* सामग्री भाग */
     .content {
-      flex-grow: 1;
+      margin-left: 250px;
       padding: 20px;
+      height: 100vh;
       overflow-y: auto;
       transition: margin-left 0.3s ease;
-      margin-left: 250px;
     }
     .content.expanded {
       margin-left: 0;
     }
-
     h1, h2 {
       color: #8f0e04;
       text-align: center;
@@ -149,24 +148,17 @@
     }
     @media (max-width: 768px) {
       .sidebar {
-        position: fixed;
-        z-index: 100;
-        height: 100vh;
-        top: 0;
-        left: 0;
+        width: 200px;
       }
       .content {
-        margin-left: 0;
-      }
-      .content.expanded {
-        margin-left: 0;
+        margin-left: 200px;
       }
     }
   </style>
 </head>
 <body>
+  <button id="menuToggle">&#8942;</button>
   <div class="sidebar" id="sidebar">
-    <button id="menuToggle" aria-label="Toggle Menu">&#x22EE;</button>
     <h2>CMS प्यानल</h2>
     <a href="#" id="logoutButton">लगआउट गर्नुहोस्</a>
     <div class="recent-posts">
@@ -174,7 +166,6 @@
       <ul id="recentPostsList"></ul>
     </div>
   </div>
-
   <div class="content" id="content">
     <h1>CMS प्यानल</h1>
     <form id="loginForm">
@@ -218,19 +209,15 @@
     const loginForm = document.getElementById("loginForm");
     const postForm = document.getElementById("postForm");
     const sidebar = document.getElementById("sidebar");
+    const content = document.getElementById("content");
     const postsList = document.getElementById("postsList");
     const recentPostsList = document.getElementById("recentPostsList");
     const pagination = document.getElementById("pagination");
-    const content = document.getElementById("content");
     const menuToggle = document.getElementById("menuToggle");
 
     menuToggle.addEventListener("click", () => {
       sidebar.classList.toggle("hide");
-      if (sidebar.classList.contains("hide")) {
-        content.classList.add("expanded");
-      } else {
-        content.classList.remove("expanded");
-      }
+      content.classList.toggle("expanded");
     });
 
     let currentPage = 1;
