@@ -124,40 +124,28 @@
       border-radius: 4px;
       cursor: pointer;
     }
-    .pagination {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .pagination button {
-      margin: 0 5px;
-      padding: 5px 10px;
-      background: #8f0e04;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
   <div class="sidebar" id="sidebar">
-    <button class="toggle-sidebar" id="toggleSidebar">☰</button>
+    <button class="toggle-sidebar" id="toggleSidebar" aria-label="Toggle Sidebar">☰</button>
     <h2>CMS प्यानल</h2>
     <a href="#" id="logoutButton">लगआउट गर्नुहोस्</a>
     <div class="recent-posts">
       <h3>Recent Posts</h3>
-      <ul id="recentPostsList"></ul>
+      <ul id="recentPostsList" aria-live="polite" aria-atomic="true"></ul>
     </div>
   </div>
   <div class="content">
     <h1>CMS प्यानल</h1>
     <form id="loginForm">
-      <input type="email" id="username" placeholder="इमेल" required />
-      <input type="password" id="password" placeholder="पासवर्ड" required />
+      <input type="email" id="username" placeholder="इमेल" required aria-required="true" />
+      <input type="password" id="password" placeholder="पासवर्ड" required aria-required="true" />
       <button type="submit">लगइन गर्नुहोस्</button>
     </form>
-    <form id="postForm" style="display:none">
-      <select id="postSection" required>
+    <form id="postForm" style="display:none" novalidate>
+      <label for="postSection">सेक्सन छान्नुहोस्</label>
+      <select id="postSection" required aria-required="true">
         <option value="" disabled selected>सेक्सन छान्नुहोस्</option>
         <option value="lekha">लेख/रचना</option>
         <option value="sahitya">साहित्य</option>
@@ -165,167 +153,214 @@
         <option value="patrapatrika">पत्रपत्रिका</option>
         <option value="mero-barema">मेरो बारेमा</option>
       </select>
-      <input type="text" id="postTitle" placeholder="पोष्टको शीर्षक" required />
-      <textarea id="postContent" placeholder="यहाँ सामग्री लेख्नुहोस्..." required></textarea>
+      <input type="text" id="postTitle" placeholder="पोष्टको शीर्षक" required aria-required="true" />
+      <textarea id="postContent" placeholder="यहाँ सामग्री लेख्नुहोस्..." required aria-required="true"></textarea>
       <input type="url" id="youtubeLink" placeholder="YouTube भिडियो लिंक (यदि छ भने)" />
       <input type="file" id="pdfFile" accept="application/pdf" />
       <input type="text" id="postTags" placeholder="ट्यागहरू (#tag1, #tag2)" />
       <button type="submit" id="submitPostButton">पोष्ट थप्नुहोस्</button>
     </form>
-    <div id="postsList"></div>
-    <div class="pagination" id="pagination"></div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/tinymce@6.8.3/tinymce.min.js" referrerpolicy="origin"></script>
   <script>
-    const GITHUB_TOKEN = "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";
-    const GITHUB_USERNAME = "narayanbhandari58";
-    const GITHUB_REPO = "narayanbhandari";
+    // Read and write posts to localStorage key
+    const STORAGE_KEY = 'nv_posts';
 
-    let posts = []; // Array to store posts
+    let posts = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
     // Initialize TinyMCE
     tinymce.init({
       selector: '#postContent',
-      plugins: 'lists link image charmap print preview anchor',
+      plugins: 'lists link image charmap preview anchor',
       toolbar: 'undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | outdent indent | link image',
       menubar: false,
       height: 300,
-      setup: function (editor) {
-        editor.on('change', function () {
-          editor.save();
+      setup: editor => {
+        editor.on('change', () => editor.save());
+      }
+    });
+
+    // Elements references
+    const loginForm = document.getElementById('loginForm');
+    const postForm = document.getElementById('postForm');
+    const toggleSidebarBtn = document.getElementById('toggleSidebar');
+    const sidebar = document.getElementById('sidebar');
+    const logoutButton = document.getElementById('logoutButton');
+    const recentPostsList = document.getElementById('recentPostsList');
+
+    // Session management (simple, localStorage based)
+    function isLoggedIn() {
+      return localStorage.getItem('loggedIn') === 'true';
+    }
+    function setLoggedIn(value) {
+      localStorage.setItem('loggedIn', value ? 'true' : 'false');
+    }
+
+    function renderRecentPosts() {
+      recentPostsList.innerHTML = '';
+      if(posts.length === 0) {
+        recentPostsList.innerHTML = '<li style="color:#fff;">पछिल्ला पोस्टहरू उपलब्ध छैनन्।</li>';
+        return;
+      }
+      posts.forEach(post => {
+        const li = document.createElement('li');
+        li.style.backgroundColor = '#fff';
+        li.style.color = '#1a1a1a';
+        li.style.marginBottom = '8px';
+        li.style.padding = '6px 10px';
+        li.style.borderRadius = '6px';
+        li.style.display = 'flex';
+        li.style.justifyContent = 'space-between';
+        li.style.alignItems = 'center';
+
+        const titleSpan = document.createElement('span');
+        titleSpan.textContent = post.title;
+        titleSpan.setAttribute('tabindex', '0');
+        titleSpan.style.cursor = 'pointer';
+        titleSpan.title = 'यो पोस्ट सम्पादन गर्न क्लिक गर्नुहोस्';
+
+        // On click populate form for editing
+        titleSpan.addEventListener('click', () => {
+          postForm.style.display = 'block';
+          loginForm.style.display = 'none';
+          document.getElementById('postSection').value = post.section;
+          document.getElementById('postTitle').value = post.title;
+          tinymce.get('postContent').setContent(post.content);
+          document.getElementById('youtubeLink').value = post.youtubeLink || '';
+          document.getElementById('postTags').value = post.tags || '';
+          editingPostId = post.id;
+        });
+
+        // Buttons container
+        const btnDiv = document.createElement('div');
+
+        // Edit button (alternative to title click)
+        const editBtn = document.createElement('button');
+        editBtn.textContent = 'Edit';
+        editBtn.style.marginRight = '5px';
+        editBtn.addEventListener('click', () => {
+          titleSpan.click();
+        });
+
+        // Delete button
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.addEventListener('click', () => {
+          if(confirm('के तपाईं यो पोस्ट मेटाउन निश्चित हुनुहुन्छ?')) {
+            posts = posts.filter(p => p.id !== post.id);
+            savePosts();
+            renderRecentPosts();
+            // Clear form if editing same post
+            if(editingPostId === post.id) {
+              clearPostForm();
+            }
+          }
+        });
+
+        btnDiv.appendChild(editBtn);
+        btnDiv.appendChild(deleteBtn);
+
+        li.appendChild(titleSpan);
+        li.appendChild(btnDiv);
+        recentPostsList.appendChild(li);
+      });
+    }
+
+    function savePosts() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+    }
+
+    function clearPostForm() {
+      document.getElementById('postSection').value = '';
+      document.getElementById('postTitle').value = '';
+      document.getElementById('youtubeLink').value = '';
+      document.getElementById('postTags').value = '';
+      tinymce.get('postContent').setContent('');
+      editingPostId = null;
+    }
+
+    // Variable to hold ID of post being edited; null if creating new
+    let editingPostId = null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if(isLoggedIn()) {
+        loginForm.style.display = 'none';
+        postForm.style.display = 'block';
+        renderRecentPosts();
+      }
+    });
+
+    loginForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if(username === 'bhandarinarayan300@gmail.com' && password === '9846874405n@') {
+        setLoggedIn(true);
+        loginForm.style.display = 'none';
+        postForm.style.display = 'block';
+        renderRecentPosts();
+      } else {
+        alert('इमेल वा पासवर्ड गलत छ।');
+      }
+    });
+
+    logoutButton.addEventListener('click', e => {
+      e.preventDefault();
+      setLoggedIn(false);
+      loginForm.style.display = 'block';
+      postForm.style.display = 'none';
+      clearPostForm();
+    });
+
+    toggleSidebarBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('show');
+    });
+
+    postForm.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const section = document.getElementById('postSection').value;
+      const title = document.getElementById('postTitle').value.trim();
+      const content = tinymce.get('postContent').getContent().trim();
+
+      if(!section || !title || !content) {
+        alert('कृपया सबै आवश्यक क्षेत्रहरू भर्नुहोस्।');
+        return;
+      }
+
+      const youtubeLink = document.getElementById('youtubeLink').value.trim();
+      const tags = document.getElementById('postTags').value.trim();
+
+      if(editingPostId) {
+        // Update existing post
+        const i = posts.findIndex(p => p.id === editingPostId);
+        if(i !== -1) {
+          posts[i].section = section;
+          posts[i].title = title;
+          posts[i].content = content;
+          posts[i].youtubeLink = youtubeLink;
+          posts[i].tags = tags;
+        }
+      } else {
+        // Add new post
+        posts.push({
+          id: Date.now(),
+          section,
+          title,
+          content,
+          youtubeLink,
+          tags
         });
       }
+
+      savePosts();
+      renderRecentPosts();
+      clearPostForm();
+      editingPostId = null;
+      alert('पोष्ट सफलतापूर्वक थपियो।');
     });
-
-    // Check if user is already logged in
-    if (localStorage.getItem("loggedIn") === "true") {
-      document.getElementById("loginForm").style.display = "none";
-      document.getElementById("postForm").style.display = "block";
-      displayRecentPosts();
-    }
-
-    document.getElementById("toggleSidebar").addEventListener("click", () => {
-      document.getElementById("sidebar").classList.toggle("show");
-    });
-
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
-      event.preventDefault(); // Prevent the form from submitting
-
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-
-      // Validate with provided credentials
-      if (username === "bhandarinarayan300@gmail.com" && password === "9846874405n@") {
-        // Set session in localStorage
-        localStorage.setItem("loggedIn", "true");
-        // Hide login form and show post form
-        document.getElementById("loginForm").style.display = "none";
-        document.getElementById("postForm").style.display = "block";
-        displayRecentPosts();
-      } else {
-        alert("इमेल वा पासवर्ड गलत छ।");
-      }
-    });
-
-    document.getElementById("logoutButton").addEventListener("click", function() {
-      // Clear session
-      localStorage.removeItem("loggedIn");
-      document.getElementById("loginForm").style.display = "block";
-      document.getElementById("postForm").style.display = "none";
-    });
-
-    document.getElementById("postForm").addEventListener("submit", function(event) {
-      event.preventDefault(); // Prevent the form from submitting
-
-      const section = document.getElementById("postSection").value;
-      const title = document.getElementById("postTitle").value;
-      const content = tinymce.get("postContent").getContent(); // Get content from TinyMCE
-      const youtubeLink = document.getElementById("youtubeLink").value;
-      const pdfFile = document.getElementById("pdfFile").files[0];
-      const tags = document.getElementById("postTags").value;
-
-      // Create a new post object
-      const newPost = {
-        id: Date.now(), // Unique ID based on timestamp
-        section,
-        title,
-        content,
-        youtubeLink,
-        pdfFile,
-        tags
-      };
-
-      // Add the new post to the posts array
-      posts.push(newPost);
-      displayRecentPosts();
-
-      // Send the post to the main website (replace with your actual API endpoint)
-      sendPostToMainWebsite(newPost);
-
-      // Clear the form after submission
-      document.getElementById("postForm").reset();
-      tinymce.get("postContent").setContent(''); // Clear TinyMCE content
-    });
-
-    function sendPostToMainWebsite(post) {
-      // Example API call to send the post to the main website
-      fetch(`https://your-main-website.com/api/posts`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${GITHUB_TOKEN}` // Use your actual token or authentication method
-        },
-        body: JSON.stringify(post)
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log('Post successfully sent to main website:', data);
-      })
-      .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-      });
-    }
-
-    function displayRecentPosts() {
-      const recentPostsList = document.getElementById("recentPostsList");
-      recentPostsList.innerHTML = ''; // Clear existing posts
-
-      posts.forEach(post => {
-        const listItem = document.createElement("li");
-        listItem.innerHTML = `
-          <span>${post.title}</span>
-          <div>
-            <button onclick="editPost(${post.id})">Edit</button>
-            <button onclick="deletePost(${post.id})">Delete</button>
-          </div>
-        `;
-        recentPostsList.appendChild(listItem);
-      });
-    }
-
-    function editPost(postId) {
-      const post = posts.find(p => p.id === postId);
-      if (post) {
-        document.getElementById("postSection").value = post.section;
-        document.getElementById("postTitle").value = post.title;
-        tinymce.get("postContent").setContent(post.content);
-        document.getElementById("youtubeLink").value = post.youtubeLink;
-        document.getElementById("postTags").value = post.tags;
-
-        // Remove the post from the array for editing
-        posts = posts.filter(p => p.id !== postId);
-        displayRecentPosts();
-      }
-    }
-
-    function deletePost(postId) {
-      posts = posts.filter(p => p.id !== postId);
-      displayRecentPosts();
-    }
   </script>
 </body>
 </html>
+
