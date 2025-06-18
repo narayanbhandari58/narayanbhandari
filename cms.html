@@ -161,6 +161,31 @@
       <button type="submit" id="submitPostButton">पोष्ट थप्नुहोस्</button>
     </form>
   </div>
+  // CMS प्यानलमा सामग्री थप्ने प्रक्रिया
+postForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const section = document.getElementById('postSection').value;
+    const title = document.getElementById('postTitle').value.trim();
+    const content = tinymce.get('postContent').getContent().trim();
+
+    if (!section || !title || !content) {
+        alert('कृपया सबै आवश्यक क्षेत्रहरू भर्नुहोस्।');
+        return;
+    }
+
+    const newPost = {
+        id: Date.now(),
+        section,
+        title,
+        content
+    };
+
+    // Save post to localStorage
+    savePostToLocalStorage(newPost);
+    alert('पोष्ट सफलतापूर्वक थपियो।');
+    clearPostForm();
+});
   <script src="https://cdn.jsdelivr.net/npm/tinymce@6.8.3/tinymce.min.js" referrerpolicy="origin"></script>
   <script>
     // Read and write posts to localStorage key
