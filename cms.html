@@ -13,25 +13,11 @@
       background: #f8f9fa;
       color: #1a1a1a;
       margin: 0;
+      overflow-x: hidden;
       height: 100vh;
-      overflow: hidden;
+      display: flex;
     }
-    #menuToggle {
-      position: fixed;
-      top: 15px;
-      left: 15px;
-      z-index: 1100;
-      background: transparent;
-      border: none;
-      font-size: 30px;
-      cursor: pointer;
-      color: #8f0e04;
-      user-select: none;
-      transition: color 0.3s ease;
-    }
-    #menuToggle:hover {
-      color: #660c02;
-    }
+    /* Sidebar */
     .sidebar {
       position: fixed;
       top: 0;
@@ -40,13 +26,12 @@
       height: 100vh;
       background: #8f0e04;
       color: white;
-      padding: 20px;
+      padding: 20px 60px 20px 40px; /* right padding for 3 dots */
       display: flex;
       flex-direction: column;
-      transform: translateX(0);
+      overflow-y: auto;
       transition: transform 0.3s ease;
       z-index: 1000;
-      overflow-y: auto;
     }
     .sidebar.hide {
       transform: translateX(-250px);
@@ -70,23 +55,52 @@
     .recent-posts ul {
       list-style: none;
       padding: 0;
-      margin: 0;
     }
     .recent-posts li a {
       color: white;
       text-decoration: underline;
       cursor: pointer;
     }
+
+    /* 3 dots button */
+    #menuToggle {
+      position: fixed;
+      top: 20px;
+      left: 250px; /* Sidebar right edge */
+      width: 40px;
+      height: 40px;
+      background: #8f0e04;
+      border: none;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      user-select: none;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+      transition: background 0.3s, left 0.3s, border-radius 0.3s;
+    }
+    #menuToggle:hover {
+      background: #660c02;
+    }
+
+    /* Content */
     .content {
-      margin-left: 250px;
+      flex-grow: 1;
       padding: 20px;
-      height: 100vh;
+      margin-left: 250px;
       overflow-y: auto;
       transition: margin-left 0.3s ease;
+      height: 100vh;
     }
     .content.expanded {
       margin-left: 0;
     }
+
     h1, h2 {
       color: #8f0e04;
       text-align: center;
@@ -148,16 +162,23 @@
     }
     @media (max-width: 768px) {
       .sidebar {
-        width: 200px;
+        height: auto;
+        position: fixed;
+        z-index: 1000;
       }
       .content {
-        margin-left: 200px;
+        margin-left: 0;
+      }
+      #menuToggle {
+        left: 0;
       }
     }
   </style>
 </head>
 <body>
+
   <button id="menuToggle">&#8942;</button>
+
   <div class="sidebar" id="sidebar">
     <h2>CMS प्यानल</h2>
     <a href="#" id="logoutButton">लगआउट गर्नुहोस्</a>
@@ -166,6 +187,7 @@
       <ul id="recentPostsList"></ul>
     </div>
   </div>
+
   <div class="content" id="content">
     <h1>CMS प्यानल</h1>
     <form id="loginForm">
@@ -209,21 +231,27 @@
     const loginForm = document.getElementById("loginForm");
     const postForm = document.getElementById("postForm");
     const sidebar = document.getElementById("sidebar");
-    const content = document.getElementById("content");
     const postsList = document.getElementById("postsList");
     const recentPostsList = document.getElementById("recentPostsList");
     const pagination = document.getElementById("pagination");
-    const menuToggle = document.getElementById("menuToggle");
+    const menuToggle = document.getElementById('menuToggle');
+    const content = document.getElementById('content');
 
-    menuToggle.addEventListener("click", () => {
-      sidebar.classList.toggle("hide");
-      content.classList.toggle("expanded");
+    menuToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('hide');
+      content.classList.toggle('expanded');
+
+      if (sidebar.classList.contains('hide')) {
+        menuToggle.style.left = '0px';
+        menuToggle.style.borderRadius = '0 5px 5px 0';
+      } else {
+        menuToggle.style.left = '250px';
+        menuToggle.style.borderRadius = '5px 0 0 5px';
+      }
     });
 
-    let currentPage = 1;
-    const postsPerPage = 10;
-
     function paginatePosts(posts) {
+      const postsPerPage = 10;
       const start = (currentPage - 1) * postsPerPage;
       const end = start + postsPerPage;
       return posts.slice(start, end);
@@ -231,6 +259,7 @@
 
     function renderPagination(totalPosts) {
       pagination.innerHTML = '';
+      const postsPerPage = 10;
       const totalPages = Math.ceil(totalPosts / postsPerPage);
       for (let i = 1; i <= totalPages; i++) {
         const btn = document.createElement("button");
@@ -254,8 +283,8 @@
         div.className = "post-item";
         div.innerHTML = `<span><strong>${post.title}</strong></span>
         <span>
-          <button onclick="editPost(${(currentPage - 1) * postsPerPage + i})">Edit</button>
-          <button onclick="deletePost(${(currentPage - 1) * postsPerPage + i})">Delete</button>
+          <button onclick="editPost(${(currentPage - 1) * 10 + i})">Edit</button>
+          <button onclick="deletePost(${(currentPage - 1) * 10 + i})">Delete</button>
         </span>`;
         postsList.appendChild(div);
       });
@@ -276,8 +305,8 @@
       if (email === ADMIN_EMAIL && pass === ADMIN_PASSWORD) {
         loginForm.style.display = "none";
         postForm.style.display = "block";
-        sidebar.classList.remove("hide");
-        content.classList.remove("expanded");
+        sidebar.classList.remove('hide');
+        content.classList.remove('expanded');
         loadPosts();
         startSessionTimeout();
         localStorage.setItem("isLoggedIn", "true");
@@ -294,11 +323,13 @@
     function logout() {
       loginForm.style.display = "block";
       postForm.style.display = "none";
-      sidebar.classList.add("hide");
-      content.classList.add("expanded");
+      sidebar.classList.add('hide');
+      content.classList.add('expanded');
       postsList.innerHTML = "";
       clearTimeout(sessionTimeout);
       localStorage.removeItem("isLoggedIn");
+      menuToggle.style.left = '0px';
+      menuToggle.style.borderRadius = '0 5px 5px 0';
     }
 
     function startSessionTimeout() {
@@ -348,13 +379,21 @@
       }
     }
 
+    let currentPage = 1;
+
+    // Auto-login check
     if (localStorage.getItem("isLoggedIn") === "true") {
       loginForm.style.display = "none";
       postForm.style.display = "block";
-      sidebar.classList.remove("hide");
-      content.classList.remove("expanded");
+      sidebar.classList.remove('hide');
+      content.classList.remove('expanded');
       loadPosts();
       startSessionTimeout();
+    } else {
+      sidebar.classList.add('hide');
+      content.classList.add('expanded');
+      menuToggle.style.left = '0px';
+      menuToggle.style.borderRadius = '0 5px 5px 0';
     }
   </script>
 </body>
