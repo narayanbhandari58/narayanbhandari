@@ -179,7 +179,7 @@
           }
         });
         if (!res.ok) {
-          throw new Error(`GitHub API error: ${res.status} ${res.statusText}`);
+          throw new Error(\`GitHub API error: \${res.status} \${res.statusText}\`);
         }
         const files = await res.json();
         allPosts = [];
@@ -201,24 +201,24 @@
     // GitHub मा नयाँ पोस्ट थप्ने function
     async function addPostToGitHub(post) {
       try {
-        const filename = `${post.title.replace(/\s+/g, '_')}_${Date.now()}.json`;
+        const filename = \`\${post.title.replace(/\s+/g, '_')}_\${Date.now()}.json\`;
         const contentEncoded = btoa(unescape(encodeURIComponent(JSON.stringify(post))));
 
-        const res = await fetch(`${API_BASE}/${filename}`, {
+        const res = await fetch(\`\${API_BASE}/\${filename}\`, {
           method: 'PUT',
           headers: {
-            Authorization: `token ${GITHUB_TOKEN}`,
+            Authorization: \`token \${GITHUB_TOKEN}\`,
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            message: `Add post: ${post.title}`,
+            message: \`Add post: \${post.title}\`,
             content: contentEncoded,
             branch: "main"
           })
         });
 
         if (!res.ok) {
-          throw new Error(`GitHub API error: ${res.status} ${res.statusText}`);
+          throw new Error(\`GitHub API error: \${res.status} \${res.statusText}\`);
         }
         const data = await res.json();
         shaCache[filename] = data.content.sha;
@@ -235,21 +235,21 @@
         const sha = shaCache[filename];
         if (!sha) throw new Error("SHA not found for file.");
 
-        const res = await fetch(`${API_BASE}/${filename}`, {
+        const res = await fetch(\`\${API_BASE}/\${filename}\`, {
           method: 'DELETE',
           headers: {
-            Authorization: `token ${GITHUB_TOKEN}`,
+            Authorization: \`token \${GITHUB_TOKEN}\`,
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            message: `Delete post: ${filename}`,
+            message: \`Delete post: \${filename}\`,
             sha: sha,
             branch: "main"
           })
         });
 
         if (!res.ok) {
-          throw new Error(`GitHub API error: ${res.status} ${res.statusText}`);
+          throw new Error(\`GitHub API error: \${res.status} \${res.statusText}\`);
         }
         delete shaCache[filename];
         return true;
@@ -295,7 +295,7 @@
     window.deletePost = async function(index) {
       const post = allPosts[index];
       if (!post) return alert("पोष्ट भेटिएन");
-      if (!confirm(`"${post.title}" पोष्ट पक्कै हटाउने?`)) return;
+      if (!confirm(\`"\${post.title}" पोष्ट पक्कै हटाउने?\`)) return;
 
       const filename = Object.keys(shaCache).find(fn => fn.includes(post.title.replace(/\s+/g, '_')));
       if (filename) {
@@ -315,3 +315,4 @@
   </script>
 </body>
 </html>
+
