@@ -480,6 +480,146 @@
     renderHomePage();
 
 })();
+    <script>
+(async () => {
+    const mainContentDiv = document.getElementById('mainContent');
+    const navLinks = document.querySelectorAll('nav.desktop-nav a');
+    const logo = document.querySelector('.logo');
+
+    const GITHUB_USERNAME = "narayanbhandari58";
+    const GITHUB_REPO = "narayanbhandari";
+    const POSTS_FOLDER = "posts";
+    const API_BASE = `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${POSTS_FOLDER}`;
+
+    // Fetch all JSON posts from GitHub repo
+    async function fetchPostsFromGitHub() {
+        try {
+            const res = await fetch(API_BASE);
+            if (!res.ok) throw new Error("GitHub बाट डेटा लिन सकिएन");
+            const files = await res.json();
+            const posts = [];
+            for (const file of files) {
+                if (file.name.endsWith(".json")) {
+                    const f = await fetch(file.download_url);
+                    const content = await f.json();
+                    posts.push(content);
+                }
+            }
+            localStorage.setItem("nv_posts", JSON.stringify(posts));
+        } catch (err) {
+            console.error("पोस्ट लोड गर्दा समस्या:", err);
+        }
+    }
+
+    // --- बाकी तपाईंको स्क्रिप्ट जस्तै ---
+
+    // Escape HTML utility
+    function escapeHtml(text) {
+        return text.replace(/[&<>"']/g, function(m) {
+            switch (m) {
+                case '&': return '&amp;';
+                case '<': return '&lt;';
+                case '>': return '&gt;';
+                case '"': return '&quot;';
+                case "'": return '&#39;';
+                default: return m;
+            }
+        });
+    }
+
+    const sectionTitles = {
+        lekha: 'लेख/रचना',
+        sahitya: 'साहित्य',
+        loksewa: 'लोकसेवा',
+        patrapatrika: 'पत्रपत्रिका'
+    };
+
+    function renderHomePage() {
+        let posts = JSON.parse(localStorage.getItem('nv_posts')) || [];
+        if(posts.length === 0) {
+            mainContentDiv.innerHTML = '<p>अहिले सम्म कुनै सामग्री उपलब्ध छैन।</p>';
+            return;
+        }
+
+        const grouped = {};
+        posts.forEach(post => {
+            if(!grouped[post.section]) grouped[post.section] = [];
+            grouped[post.section].push(post.content);
+        });
+
+        let html = '';
+        for(const secKey of Object.keys(sectionTitles)) {
+            if(grouped[secKey] && grouped[secKey].length > 0) {
+                html += `<section class="section-posts" aria-label="${sectionTitles[secKey]}">
+                    <h2>${sectionTitles[secKey]}</h2>`;
+                grouped[secKey].forEach((content, idx) => {
+                    html += `<article class="post-item">
+                        <p>${escapeHtml(content)}</p>
+                    </article>`;
+                });
+                html += '</section>';
+            }
+        }
+
+        mainContentDiv.innerHTML = html;
+    }
+
+    function renderSectionPage(sectionKey) {
+        let posts = JSON.parse(localStorage.getItem('nv_posts')) || [];
+        posts = posts.filter(post => post.section === sectionKey);
+
+        let html = `<section class="section-posts"><h2>${sectionTitles[sectionKey]}</h2>`;
+        posts.forEach((post, idx) => {
+            html += `<article class="post-item">
+                <p>${escapeHtml(post.content)}</p>
+            </article>`;
+        });
+        html += '</section>';
+        mainContentDiv.innerHTML = html;
+    }
+
+    let currentSection = 'home';
+
+    function setActiveNav(section) {
+        navLinks.forEach(l => {
+            if(l.dataset.section === section) {
+                l.setAttribute('aria-current', 'page');
+            } else {
+                l.removeAttribute('aria-current');
+            }
+        });
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const section = e.currentTarget.dataset.section;
+            if(!section) {
+                mainContentDiv.innerHTML = '<p>यो खण्ड विकासाधीन छ।</p>';
+                setActiveNav(null);
+                currentSection = null;
+                mainContentDiv.focus();
+                return;
+            }
+            currentSection = section;
+            setActiveNav(section);
+            renderSectionPage(section);
+            mainContentDiv.focus();
+        });
+    });
+
+    logo.addEventListener('click', () => {
+        currentSection = 'home';
+        setActiveNav(null);
+        renderHomePage();
+        mainContentDiv.focus();
+    });
+
+    // Start: Fetch GitHub → load → render
+    await fetchPostsFromGitHub();
+    renderHomePage();
+})();
+</script>
 </script>
 </body>
 </html>
