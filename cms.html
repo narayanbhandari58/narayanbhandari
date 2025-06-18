@@ -1,422 +1,197 @@
 <!DOCTYPE html>
 <html lang="ne">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CMS - My Website</title>
-<style>
-  body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0; background: #f4f4f4; color: #333;
-  }
-  header {
-    background: #8f0e04; color: white; padding: 15px 20px;
-    font-size: 1.5rem; font-weight: bold;
-  }
-  #loginOverlay {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.5);
-    display: flex; align-items: center; justify-content: center;
-    z-index: 10000;
-  }
-  #loginBox {
-    background: white; padding: 30px; border-radius: 8px;
-    width: 320px; box-shadow: 0 0 10px #00000055;
-  }
-  #loginBox label {
-    display: block; margin: 12px 0 6px;
-  }
-  #loginBox input {
-    width: 100%; padding: 8px; font-size: 16px;
-    box-sizing: border-box;
-  }
-  #loginBox button {
-    margin-top: 15px; width: 100%; padding: 10px;
-    background: #8f0e04; color: white; border: none;
-    font-weight: bold; cursor: pointer; font-size: 16px;
-  }
-  #loginError {
-    color: red; margin-top: 10px; min-height: 20px; font-weight: 600;
-  }
-  #cmsContent {
-    max-width: 900px;
-    margin: 20px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 0 8px #8888;
-  }
-  #messageBox {
-    background: #fdecea;
-    color: #9f3a38;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 4px;
-    font-weight: 600;
-    display: none;
-  }
-  #postsList {
-    list-style: none;
-    padding-left: 0;
-  }
-  #postsList li {
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  #postsList li:last-child {
-    border-bottom: none;
-  }
-  #postsList .postTitle {
-    font-weight: 600;
-    cursor: pointer;
-    flex-grow: 1;
-  }
-  #postsList button {
-    background: #8f0e04;
-    border: none;
-    color: white;
-    padding: 6px 12px;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-left: 8px;
-    font-size: 14px;
-  }
-  #postsList button.deleteBtn {
-    background: #cc0000;
-  }
-  #editorSection {
-    margin-top: 30px;
-  }
-  #editorSection input, #editorSection textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 8px;
-    font-size: 16px;
-    box-sizing: border-box;
-  }
-  #editorSection textarea {
-    resize: vertical;
-    min-height: 120px;
-  }
-  #editorSection button {
-    margin-top: 12px;
-    background: #8f0e04;
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMS - नारायण भण्डारी</title>
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+  <style>
+    body {
+      font-family: 'Noto Sans Devanagari', sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background: #bb1919;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    input, textarea, select, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0 1rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #bb1919;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #8a1515;
+    }
+    .post-item {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+    .post-item button {
+      width: auto;
+      margin-top: 0.5rem;
+      background: #444;
+    }
+  </style>
 </head>
 <body>
-<header>मेरो CMS</header>
+  <header>
+    <h1>CMS - नारायण भण्डारी</h1>
+  </header>
+  <main>
+    <div id="loginSection">
+      <h2>लगिन गर्नुहोस्</h2>
+      <input type="text" id="username" placeholder="प्रयोगकर्ता नाम">
+      <input type="password" id="password" placeholder="पासवर्ड">
+      <button onclick="login()">लगिन</button>
+    </div>
 
-<div id="messageBox" role="alert" aria-live="polite"></div>
+    <div id="cmsSection" style="display:none">
+      <h2>नयाँ सामग्री थप्नुहोस्</h2>
+      <input type="text" id="title" placeholder="शीर्षक">
+      <select id="section">
+        <option value="lekha">लेख/रचना</option>
+        <option value="sahitya">साहित्य</option>
+        <option value="loksewa">लोकसेवा</option>
+        <option value="patrapatrika">पत्रपत्रिका</option>
+        <option value="mero-barema">मेरो बारेमा</option>
+      </select>
+      <textarea id="content"></textarea>
+      <input type="url" id="youtube" placeholder="Youtube लिंक (यदि छ भने)">
+      <input type="file" id="pdf" accept="application/pdf">
+      <input type="file" id="image" accept="image/*">
+      <button onclick="savePost()">सेभ गर्नुहोस्</button>
 
-<div id="cmsContent" style="display:none;">
-  <h2>लेख/रचना व्यवस्थापन</h2>
-  <ul id="postsList" aria-label="Post List"></ul>
-
-  <section id="editorSection" aria-label="Post Editor">
-    <h3 id="editorTitle">नयाँ पोस्ट थप्नुहोस्</h3>
-    <input type="text" id="postTitle" placeholder="शीर्षक लेख्नुहोस्" aria-describedby="titleHelp" />
-    <textarea id="postContent" placeholder="यहाँ सामग्री लेख्नुहोस्" aria-describedby="contentHelp"></textarea>
-    <button id="savePostBtn">सेभ गर्नुहोस्</button>
-    <button id="cancelEditBtn" style="display:none; margin-left:10px; background:#777;">रद्द गर्नुहोस्</button>
-  </section>
-</div>
-
-<!-- Login Overlay -->
-<div id="loginOverlay" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
-  <div id="loginBox">
-    <h2 id="loginTitle">लगइन गर्नुहोस्</h2>
-    <label for="usernameInput">प्रयोगकर्ता नाम</label>
-    <input id="usernameInput" type="text" autocomplete="username" />
-    <label for="passwordInput">पासवर्ड</label>
-    <input id="passwordInput" type="password" autocomplete="current-password" />
-    <button id="loginSubmitBtn">लगइन</button>
-    <div id="loginError" role="alert" aria-live="assertive"></div>
-  </div>
-</div>
-
-<script>
-(() => {
-  const ADMIN_USER = "Narayan";
-  const ADMIN_PASS = "9846";
-
-  const repoOwner = "narayanbhandari58";
-  const repoName = "narayanbhandari";
-  const postsFolder = "posts";
-
-  const token = "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";
-
-  // DOM Elements
-  const loginOverlay = document.getElementById("loginOverlay");
-  const usernameInput = document.getElementById("usernameInput");
-  const passwordInput = document.getElementById("passwordInput");
-  const loginSubmitBtn = document.getElementById("loginSubmitBtn");
-  const loginError = document.getElementById("loginError");
-
-  const cmsContent = document.getElementById("cmsContent");
-  const messageBox = document.getElementById("messageBox");
-  const postsList = document.getElementById("postsList");
-
-  const postTitle = document.getElementById("postTitle");
-  const postContent = document.getElementById("postContent");
-  const savePostBtn = document.getElementById("savePostBtn");
-  const cancelEditBtn = document.getElementById("cancelEditBtn");
-  const editorTitle = document.getElementById("editorTitle");
-
-  let editingPostFilename = null;
-
-  // Utility to show messages
-  function showMessage(msg, duration = 4000) {
-    messageBox.style.display = "block";
-    messageBox.textContent = msg;
-    setTimeout(() => {
-      messageBox.style.display = "none";
-      messageBox.textContent = "";
-    }, duration);
-  }
-
-  // Login Logic
-  function handleLogin() {
-    const user = usernameInput.value.trim();
-    const pass = passwordInput.value.trim();
-
-    if (user === ADMIN_USER && pass === ADMIN_PASS) {
-      localStorage.setItem("cmsLoggedIn", "true");
-      loginOverlay.style.display = "none";
-      cmsContent.style.display = "block";
-      loadPosts();
-    } else {
-      loginError.textContent = "गलत प्रयोगकर्ता नाम वा पासवर्ड।";
-    }
-  }
-
-  loginSubmitBtn.addEventListener("click", handleLogin);
-  passwordInput.addEventListener("keyup", e => {
-    if (e.key === "Enter") handleLogin();
-  });
-
-  // Check login on page load
-  if (localStorage.getItem("cmsLoggedIn") === "true") {
-    loginOverlay.style.display = "none";
-    cmsContent.style.display = "block";
-    loadPosts();
-  }
-
-  // Fetch list of posts filenames
-  async function fetchPostFiles() {
-    const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${postsFolder}`;
-    const res = await fetch(apiUrl, {
-      headers: { Authorization: `token ${token}` }
+      <h2>हालसालका सामग्रीहरू</h2>
+      <div id="recentPosts"></div>
+    </div>
+  </main>
+  <script>
+    tinymce.init({
+      selector: '#content',
+      plugins: 'link image lists media table code',
+      toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image media | code',
+      height: 300
     });
-    if (!res.ok) throw new Error("GitHub बाट फाइल लोड गर्न सकेन");
-    const data = await res.json();
-    return data.filter(f => f.name.endsWith(".json"));
-  }
 
-  // Fetch a single post JSON by download_url
-  async function fetchPostJson(downloadUrl) {
-    const res = await fetch(downloadUrl);
-    if (!res.ok) throw new Error("पोस्ट लोड गर्न सकेन");
-    return await res.json();
-  }
+    const token = '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';
+    const repo = 'narayanbhandari58/narayanbhandari';
+    const branch = 'main';
 
-  // Render posts list UI
-  async function loadPosts() {
-    postsList.innerHTML = "";
-    try {
-      showMessage("पोस्टहरू लोड हुँदैछन्...");
-      const files = await fetchPostFiles();
-      if (files.length === 0) {
-        postsList.innerHTML = "<li>पोस्टहरू उपलब्ध छैनन्।</li>";
-        showMessage("पोस्टहरू उपलब्ध छैनन्।");
-        return;
-      }
-      // Fetch and show each post title
-      for (const file of files) {
-        try {
-          const post = await fetchPostJson(file.download_url);
-          addPostToList(file.name, post.title || "शीर्षक छैन");
-        } catch {
-          // Skip broken files silently
-        }
-      }
-      showMessage("पोस्टहरू लोड भए।");
-    } catch (e) {
-      showMessage("डेटा ल्याउन असफल!");
-    }
-  }
+    const loginData = {
+      username: 'Narayan',
+      password: '9846'
+    };
 
-  function addPostToList(filename, title) {
-    const li = document.createElement("li");
-    const span = document.createElement("span");
-    span.textContent = title;
-    span.classList.add("postTitle");
-    span.tabIndex = 0;
-    span.setAttribute("role", "button");
-    span.addEventListener("click", () => editPost(filename));
-    span.addEventListener("keypress", e => {
-      if (e.key === "Enter") editPost(filename);
-    });
-    li.appendChild(span);
-
-    const delBtn = document.createElement("button");
-    delBtn.textContent = "मेटाउनुहोस्";
-    delBtn.classList.add("deleteBtn");
-    delBtn.addEventListener("click", () => deletePost(filename));
-    li.appendChild(delBtn);
-
-    postsList.appendChild(li);
-  }
-
-  // Clear editor inputs
-  function clearEditor() {
-    postTitle.value = "";
-    postContent.value = "";
-    editingPostFilename = null;
-    editorTitle.textContent = "नयाँ पोस्ट थप्नुहोस्";
-    cancelEditBtn.style.display = "none";
-  }
-
-  cancelEditBtn.addEventListener("click", () => {
-    clearEditor();
-  });
-
-  // Load post to editor for editing
-  async function editPost(filename) {
-    try {
-      showMessage("पोस्ट लोड हुँदैछ...");
-      const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${postsFolder}/${filename}`;
-      const res = await fetch(apiUrl, {
-        headers: { Authorization: `token ${token}` }
-      });
-      if (!res.ok) throw new Error("पोस्ट फाइल लोड गर्न सकेन");
-      const data = await res.json();
-      const content = atob(data.content);
-      const post = JSON.parse(content);
-      postTitle.value = post.title || "";
-      postContent.value = post.content || "";
-      editingPostFilename = filename;
-      editorTitle.textContent = "पोस्ट सम्पादन गर्नुहोस्";
-      cancelEditBtn.style.display = "inline-block";
-      showMessage("");
-    } catch {
-      showMessage("पोस्ट लोड गर्न सकेन।");
-    }
-  }
-
-  // Delete post (GitHub API requires sha of the file)
-  async function deletePost(filename) {
-    if (!confirm("के तपाइँ साँच्चिकै यो पोस्ट मेटाउन चाहनुहुन्छ?")) return;
-
-    try {
-      showMessage("पोस्ट मेटाउँदै...");
-      // Get SHA
-      const getUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${postsFolder}/${filename}`;
-      let res = await fetch(getUrl, { headers: { Authorization: `token ${token}` } });
-      if (!res.ok) throw new Error("फाइलको जानकारी प्राप्त गर्न सकेन");
-      let data = await res.json();
-      let sha = data.sha;
-
-      // Delete request
-      const deleteUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${postsFolder}/${filename}`;
-      res = await fetch(deleteUrl, {
-        method: "DELETE",
-        headers: { Authorization: `token ${token}` },
-        body: JSON.stringify({
-          message: `Delete post ${filename}`,
-          sha: sha
-        }),
-      });
-      if (!res.ok) throw new Error("पोस्ट मेटाउन सकेन");
-      showMessage("पोस्ट मेटाइयो।");
+    if (localStorage.getItem('cms_logged_in') === 'yes') {
+      document.getElementById('loginSection').style.display = 'none';
+      document.getElementById('cmsSection').style.display = 'block';
       loadPosts();
-      clearEditor();
-    } catch {
-      showMessage("पोस्ट मेटाउन असफल!");
-    }
-  }
-
-  // Save (create or update) post
-  async function savePost() {
-    const title = postTitle.value.trim();
-    const content = postContent.value.trim();
-
-    if (!title || !content) {
-      showMessage("शीर्षक र सामग्री दुवै भर्नुहोस्।");
-      return;
     }
 
-    showMessage("सेभ हुँदैछ...");
-
-    try {
-      // Prepare JSON content base64 encoded
-      const postData = { title, content };
-      const postJson = JSON.stringify(postData, null, 2);
-      const b64content = btoa(unescape(encodeURIComponent(postJson)));
-
-      let path = postsFolder + "/";
-      let filename;
-      let sha = null;
-
-      if (editingPostFilename) {
-        filename = editingPostFilename;
-        // Get SHA of existing file
-        const getUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${path}${filename}`;
-        let res = await fetch(getUrl, { headers: { Authorization: `token ${token}` } });
-        if (!res.ok) throw new Error("अस्तित्वमा रहेको फाइलको जानकारी ल्याउन सकेन");
-        let data = await res.json();
-        sha = data.sha;
+    function login() {
+      const u = document.getElementById('username').value;
+      const p = document.getElementById('password').value;
+      if (u === loginData.username && p === loginData.password) {
+        localStorage.setItem('cms_logged_in', 'yes');
+        document.getElementById('loginSection').style.display = 'none';
+        document.getElementById('cmsSection').style.display = 'block';
+        loadPosts();
       } else {
-        // नयाँ पोस्ट filename: title slug + timestamp
-        const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-        filename = `${slug}-${Date.now()}.json`;
+        alert('गलत लगिन विवरण');
       }
+    }
 
-      const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${path}${filename}`;
+    async function savePost() {
+      const title = document.getElementById('title').value;
+      const section = document.getElementById('section').value;
+      const content = tinymce.get('content').getContent();
+      const youtube = document.getElementById('youtube').value;
+      const pdf = document.getElementById('pdf').files[0];
+      const image = document.getElementById('image').files[0];
+      const filename = 'posts/' + Date.now() + '.json';
 
-      // Create or update file
-      const res = await fetch(url, {
-        method: "PUT",
+      const post = {
+        title,
+        section,
+        content,
+        youtube,
+        pdf: pdf ? pdf.name : '',
+        image: image ? image.name : ''
+      };
+
+      const encodedContent = btoa(unescape(encodeURIComponent(JSON.stringify(post, null, 2))));
+
+      const res = await fetch(`https://api.github.com/repos/${repo}/contents/${filename}`, {
+        method: 'PUT',
         headers: {
-          Authorization: `token ${token}`,
-          "Content-Type": "application/json",
+          'Authorization': `token ${token}`,
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          message: editingPostFilename ? `Update post ${filename}` : `Create post ${filename}`,
-          content: b64content,
-          sha: sha
-        }),
+          message: 'New post added',
+          content: encodedContent,
+          branch: branch
+        })
       });
-      if (!res.ok) throw new Error("पोस्ट सेभ गर्न सकेन");
-      showMessage("पोस्ट सेभ भयो।");
-      clearEditor();
-      loadPosts();
 
-    } catch (e) {
-      console.error(e);
-      showMessage("सेभ गर्न असफल!");
+      if (res.ok) {
+        alert('पोस्ट सेभ भयो');
+        loadPosts();
+      } else {
+        alert('सेभ गर्न सकिएन');
+      }
     }
-  }
 
-  savePostBtn.addEventListener("click", savePost);
+    async function loadPosts() {
+      const container = document.getElementById('recentPosts');
+      container.innerHTML = '<p>लोड हुँदैछ...</p>';
+      try {
+        const res = await fetch(`https://api.github.com/repos/${repo}/contents/posts`);
+        const data = await res.json();
 
-  // Logout function (optional)
-  /*
-  function logout() {
-    localStorage.removeItem("cmsLoggedIn");
-    location.reload();
-  }
-  */
-
-})();
-</script>
-
+        let html = '';
+        for (const file of data.reverse()) {
+          if (file.name.endsWith('.json')) {
+            const fr = await fetch(file.download_url);
+            const post = await fr.json();
+            html += `<div class="post-item">
+              <strong>${post.title}</strong>
+              <div><em>${post.section}</em></div>
+              <div>${post.content}</div>
+              ${post.youtube ? `<iframe width="100%" height="200" src="${post.youtube.replace('watch?v=', 'embed/')}" frameborder="0" allowfullscreen></iframe>` : ''}
+              ${post.image ? `<p>Image: ${post.image}</p>` : ''}
+              ${post.pdf ? `<p>PDF: ${post.pdf}</p>` : ''}
+            </div>`;
+          }
+        }
+        container.innerHTML = html;
+      } catch (e) {
+        container.innerHTML = '<p>लोड गर्न सकिएन।</p>';
+      }
+    }
+  </script>
 </body>
 </html>
