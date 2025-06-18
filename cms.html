@@ -44,13 +44,37 @@
     .sidebar a:hover {
       background: #660c02;
     }
+    .recent-posts {
+      margin-top: 20px;
+    }
     .recent-posts ul {
       list-style: none;
       padding: 0;
     }
-    .recent-posts li a {
+    .recent-posts li {
+      background: white;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .recent-posts li span {
+      color: #1a1a1a;
+    }
+    .recent-posts li button {
+      margin-left: 5px;
+      background: #8f0e04;
       color: white;
-      text-decoration: underline;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .recent-posts li button:hover {
+      background: #660c02;
     }
     .toggle-sidebar {
       position: absolute;
@@ -83,16 +107,12 @@
       max-width: 600px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    input, select, textarea {
+    input, select {
       width: 100%;
       padding: 10px;
       margin-top: 10px;
       border: 1px solid #ccc;
       border-radius: 4px;
-    }
-    textarea {
-      display: block; /* Ensure textarea is displayed */
-      height: 150px; /* Set a height for the textarea */
     }
     button {
       margin-top: 10px;
@@ -103,20 +123,6 @@
       padding: 10px;
       border-radius: 4px;
       cursor: pointer;
-    }
-    .post-item {
-      background: white;
-      margin: 10px auto;
-      max-width: 600px;
-      padding: 10px;
-      border-radius: 4px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .post-item button {
-      margin-left: 5px;
     }
     .pagination {
       text-align: center;
@@ -174,6 +180,29 @@
     const GITHUB_USERNAME = "narayanbhandari58";
     const GITHUB_REPO = "narayanbhandari";
 
+    let posts = []; // Array to store posts
+
+    // Initialize TinyMCE
+    tinymce.init({
+      selector: '#postContent',
+      plugins: 'lists link image charmap print preview anchor',
+      toolbar: 'undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | outdent indent | link image',
+      menubar: false,
+      height: 300,
+      setup: function (editor) {
+        editor.on('change', function () {
+          editor.save();
+        });
+      }
+    });
+
+    // Check if user is already logged in
+    if (localStorage.getItem("loggedIn") === "true") {
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("postForm").style.display = "block";
+      displayRecentPosts();
+    }
+
     document.getElementById("toggleSidebar").addEventListener("click", () => {
       document.getElementById("sidebar").classList.toggle("show");
     });
@@ -186,15 +215,117 @@
 
       // Validate with provided credentials
       if (username === "bhandarinarayan300@gmail.com" && password === "9846874405n@") {
+        // Set session in localStorage
+        localStorage.setItem("loggedIn", "true");
         // Hide login form and show post form
         document.getElementById("loginForm").style.display = "none";
         document.getElementById("postForm").style.display = "block";
+        displayRecentPosts();
       } else {
         alert("इमेल वा पासवर्ड गलत छ।");
       }
     });
 
-    // ... rest of existing script (post saving, editing, deleting) remains unchanged
+    document.getElementById("logoutButton").addEventListener("click", function() {
+      // Clear session
+      localStorage.removeItem("loggedIn");
+      document.getElementById("loginForm").style.display = "block";
+      document.getElementById("postForm").style.display = "none";
+    });
+
+    document.getElementById("postForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent the form from submitting
+
+      const section = document.getElementById("postSection").value;
+      const title = document.getElementById("postTitle").value;
+      const content = tinymce.get("postContent").getContent(); // Get content from TinyMCE
+      const youtubeLink = document.getElementById("youtubeLink").value;
+      const pdfFile = document.getElementById("pdfFile").files[0];
+      const tags = document.getElementById("postTags").value;
+
+      // Create a new post object
+      const newPost = {
+        id: Date.now(), // Unique ID based on timestamp
+        section,
+        title,
+        content,
+        youtubeLink,
+        pdfFile,
+        tags
+      };
+
+      // Add the new post to the posts array
+      posts.push(newPost);
+      displayRecentPosts();
+
+      // Send the post to the main website (narayan-bhandari.com.np)
+      sendPostToMainWebsite(newPost);
+
+      // Clear the form after submission
+      document.getElementById("postForm").reset();
+      tinymce.get("postContent").setContent(''); // Clear TinyMCE content
+    });
+
+    function sendPostToMainWebsite(post) {
+      // Example API call to send the post to the main website
+      fetch(`https://narayan-bhandari.com.np/api/posts`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${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}` // Use your actual token or authentication method
+        },
+        body: JSON.stringify(post)
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Post successfully sent to main website:', data);
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
+    }
+
+    function displayRecentPosts() {
+      const recentPostsList = document.getElementById("recentPostsList");
+      recentPostsList.innerHTML = ''; // Clear existing posts
+
+      posts.forEach(post => {
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `
+          <span>${post.title}</span>
+          <div>
+            <button onclick="editPost(${post.id})">Edit</button>
+            <button onclick="deletePost(${post.id})">Delete</button>
+          </div>
+        `;
+        recentPostsList.appendChild(listItem);
+      });
+    }
+
+    function editPost(postId) {
+      const post = posts.find(p => p.id === postId);
+      if (post) {
+        document.getElementById("postSection").value = post.section;
+        document.getElementById("postTitle").value = post.title;
+        tinymce.get("postContent").setContent(post.content);
+        document.getElementById("youtubeLink").value = post.youtubeLink;
+        document.getElementById("postTags").value = post.tags;
+
+        // Remove the post from the array for editing
+        posts = posts.filter(p => p.id !== postId);
+        displayRecentPosts();
+      }
+    }
+
+    function deletePost(postId) {
+      posts = posts.filter(p => p.id !== postId);
+      displayRecentPosts();
+    }
   </script>
 </body>
 </html>
