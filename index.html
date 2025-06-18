@@ -92,15 +92,13 @@
     main {
       flex-grow: 1;
       max-width: 960px;
-      width: 100%;
       margin: 24px auto 48px auto;
-      padding: 16px 20px;
+      padding: 0 16px;
       min-height: 60vh;
       background: white;
       border-radius: 12px;
       box-shadow: 0 3px 12px rgba(187,25,25,0.15);
       outline: none;
-      box-sizing: border-box;
     }
     .section-posts {
       margin-bottom: 48px;
@@ -190,7 +188,6 @@
       main, #subscriptionSection {
         margin: 24px 12px 48px 12px;
         max-width: 100%;
-        padding: 14px 16px;
       }
     }
   </style>
@@ -226,7 +223,9 @@
 
   <script>
     (() => {
-      const GITHUB_REPO_API = "https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/posts";
+      // यहाँ तपाईँको GitHub repo बाट post.json लोड हुन्छ
+      const POSTS_JSON_URL = "https://raw.githubusercontent.com/narayanbhandari58/narayanbhandari/main/posts/post.json";
+
       const sectionTitles = {
         lekha: "लेख/रचना",
         sahitya: "साहित्य",
@@ -238,17 +237,9 @@
 
       async function loadPosts() {
         try {
-          const res = await fetch(GITHUB_REPO_API);
-          const files = await res.json();
-          const posts = [];
-
-          for (const file of files) {
-            if (file.name.endsWith(".json")) {
-              const fileRes = await fetch(file.download_url);
-              const post = await fileRes.json();
-              posts.push(post);
-            }
-          }
+          const res = await fetch(POSTS_JSON_URL);
+          if (!res.ok) throw new Error("Failed to fetch posts");
+          const posts = await res.json();
           return posts;
         } catch (e) {
           mainContentDiv.innerHTML = "<p>पोस्ट लोड गर्न सकिएन।</p>";
