@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ne">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CMS - नारायण भण्डारी</title>
-  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+  <script src="https://cdn.tiny.cloud/1/6e6xtpdwc0ug66rd8xy3d1ul08810zzu2m6brcy6phfx75xw/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
   <style>
     body {
       font-family: 'Noto Sans Devanagari', sans-serif;
@@ -18,7 +18,7 @@
       text-align: center;
     }
     main {
-      max-width: 800px;
+      max-width: 900px;
       margin: 2rem auto;
       background: white;
       padding: 2rem;
@@ -32,6 +32,7 @@
       font-size: 1rem;
       border-radius: 6px;
       border: 1px solid #ccc;
+      box-sizing: border-box;
     }
     button {
       background: #bb1919;
@@ -48,12 +49,26 @@
       margin-bottom: 1rem;
       border-radius: 8px;
       background: #fafafa;
+      position: relative;
     }
     .post-item button {
       width: auto;
-      margin-top: 0.5rem;
-      margin-right: 0.5rem;
+      margin: 0.25rem 0.5rem 0 0;
       background: #444;
+    }
+    .post-buttons {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    label.file-label {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-weight: bold;
+    }
+    .file-info {
+      font-size: 0.9rem;
+      color: #555;
     }
   </style>
 </head>
@@ -64,14 +79,15 @@
   <main>
     <div id="loginSection">
       <h2>लगिन गर्नुहोस्</h2>
-      <input type="text" id="username" placeholder="प्रयोगकर्ता नाम">
-      <input type="password" id="password" placeholder="पासवर्ड">
+      <input type="text" id="username" placeholder="प्रयोगकर्ता नाम" />
+      <input type="password" id="password" placeholder="पासवर्ड" />
       <button onclick="login()">लगिन</button>
     </div>
 
-    <div id="cmsSection" style="display:none">
-      <h2>नयाँ सामग्री थप्नुहोस्</h2>
-      <input type="text" id="title" placeholder="शीर्षक">
+    <div id="cmsSection" style="display:none;">
+      <h2>सामग्री थप्नुहोस् / सम्पादन गर्नुहोस्</h2>
+      <input type="hidden" id="editFilename" value="" />
+      <input type="text" id="title" placeholder="शीर्षक" />
       <select id="section">
         <option value="lekha">लेख/रचना</option>
         <option value="sahitya">साहित्य</option>
@@ -80,181 +96,273 @@
         <option value="mero-barema">मेरो बारेमा</option>
       </select>
       <textarea id="content"></textarea>
-      <input type="url" id="youtube" placeholder="Youtube लिंक (यदि छ भने)">
-      <input type="file" id="pdf" accept="application/pdf">
-      <input type="file" id="image" accept="image/*">
+      <input type="url" id="youtube" placeholder="Youtube लिंक (यदि छ भने)" />
+      <label class="file-label" for="pdf">PDF फाइल (Optional)</label>
+      <input type="file" id="pdf" accept="application/pdf" />
+      <label class="file-label" for="image">छवि (Optional)</label>
+      <input type="file" id="image" accept="image/*" />
       <button onclick="savePost()">सेभ गर्नुहोस्</button>
 
       <h2>हालसालका सामग्रीहरू</h2>
       <div id="recentPosts"></div>
     </div>
   </main>
-  <script>
-    tinymce.init({
-      selector: '#content',
-      plugins: 'link image lists media table code',
-      toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image media | code',
-      height: 300
-    });
 
-    const token = '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';
-    const repo = 'narayanbhandari58/narayanbhandari';
-    const branch = 'main';
+<script>
+  tinymce.init({
+    selector: '#content',
+    plugins: 'link image lists media table code',
+    toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image media | code',
+    height: 300
+  });
 
-    const loginData = {
-      username: 'Narayan',
-      password: '9846'
-    };
+  const token = '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'; // GitHub Token (replace with yours)
+  const repo = 'narayanbhandari58/narayanbhandari';
+  const branch = 'main';
 
-    if (localStorage.getItem('cms_logged_in') === 'yes') {
+  const loginData = {
+    username: 'Narayan',
+    password: '9846'
+  };
+
+  // Login check and session persistence
+  if (localStorage.getItem('cms_logged_in') === 'yes') {
+    document.getElementById('loginSection').style.display = 'none';
+    document.getElementById('cmsSection').style.display = 'block';
+    loadPosts();
+  }
+
+  function login() {
+    const u = document.getElementById('username').value;
+    const p = document.getElementById('password').value;
+    if (u === loginData.username && p === loginData.password) {
+      localStorage.setItem('cms_logged_in', 'yes');
       document.getElementById('loginSection').style.display = 'none';
       document.getElementById('cmsSection').style.display = 'block';
       loadPosts();
+    } else {
+      alert('गलत लगिन विवरण');
+    }
+  }
+
+  async function savePost() {
+    const title = document.getElementById('title').value.trim();
+    const section = document.getElementById('section').value;
+    const content = tinymce.get('content').getContent();
+    const youtube = document.getElementById('youtube').value.trim();
+    const pdfFile = document.getElementById('pdf').files[0];
+    const imageFile = document.getElementById('image').files[0];
+    let filename = document.getElementById('editFilename').value;
+
+    if (!title) {
+      alert('शीर्षक आवश्यक छ');
+      return;
     }
 
-    function login() {
-      const u = document.getElementById('username').value;
-      const p = document.getElementById('password').value;
-      if (u === loginData.username && p === loginData.password) {
-        localStorage.setItem('cms_logged_in', 'yes');
-        document.getElementById('loginSection').style.display = 'none';
-        document.getElementById('cmsSection').style.display = 'block';
-        loadPosts();
-      } else {
-        alert('गलत लगिन विवरण');
-      }
-    }
+    // Function to upload files (pdf/image) to repo
+    async function uploadFile(file) {
+      const path = 'uploads/' + Date.now() + '-' + file.name;
+      const arrayBuffer = await file.arrayBuffer();
+      const base64Content = btoa(
+        new Uint8Array(arrayBuffer)
+          .reduce((data, byte) => data + String.fromCharCode(byte), '')
+      );
 
-    async function savePost(filename = '') {
-      const title = document.getElementById('title').value;
-      const section = document.getElementById('section').value;
-      const content = tinymce.get('content').getContent();
-      const youtube = document.getElementById('youtube').value;
-      const pdf = document.getElementById('pdf').files[0];
-      const image = document.getElementById('image').files[0];
-      if (!filename) filename = 'posts/' + Date.now() + '.json';
-
-      const post = {
-        title,
-        section,
-        content,
-        youtube,
-        pdf: pdf ? pdf.name : '',
-        image: image ? image.name : ''
-      };
-
-      const encodedContent = btoa(unescape(encodeURIComponent(JSON.stringify(post, null, 2))));
-
-      const res = await fetch(`https://api.github.com/repos/${repo}/contents/${filename}`, {
+      const res = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
         method: 'PUT',
         headers: {
-          'Authorization': `token ${token}`,
+          Authorization: `token ${token}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          message: 'पोस्ट अद्यावधिक',
-          content: encodedContent,
-          branch: branch,
-          sha: await getFileSha(filename)
-        })
-      });
-
-      if (res.ok) {
-        alert('पोस्ट सेभ भयो');
-        loadPosts();
-      } else {
-        alert('सेभ गर्न सकिएन');
-      }
-    }
-
-    async function getFileSha(path) {
-      const res = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
-        headers: { 'Authorization': `token ${token}` }
-      });
-      if (res.ok) {
-        const json = await res.json();
-        return json.sha;
-      }
-      return undefined;
-    }
-
-    async function loadPosts() {
-      const container = document.getElementById('recentPosts');
-      container.innerHTML = '<p>लोड हुँदैछ...</p>';
-      try {
-        const res = await fetch(`https://api.github.com/repos/${repo}/contents/posts`, {
-          headers: { 'Authorization': `token ${token}` }
-        });
-        const data = await res.json();
-
-        let html = '';
-        for (const file of data.reverse()) {
-          if (file.name.endsWith('.json')) {
-            const fr = await fetch(file.download_url);
-            const post = await fr.json();
-            html += `<div class="post-item">
-              <strong>${post.title}</strong>
-              <div><em>${post.section}</em></div>
-              <div>${post.content}</div>
-              ${post.youtube ? `<iframe width="100%" height="200" src="${post.youtube.replace('watch?v=', 'embed/')}" frameborder="0" allowfullscreen></iframe>` : ''}
-              ${post.image ? `<p>Image: ${post.image}</p>` : ''}
-              ${post.pdf ? `<p>PDF: ${post.pdf}</p>` : ''}
-              <button onclick="editPost('${file.name}')">Edit</button>
-              <button onclick="deletePost('${file.name}')">Delete</button>
-            </div>`;
-          }
-        }
-        container.innerHTML = html;
-      } catch (e) {
-        container.innerHTML = '<p>लोड गर्न सकिएन।</p>';
-      }
-    }
-
-    async function editPost(filename) {
-      const res = await fetch(`https://api.github.com/repos/${repo}/contents/posts/${filename}`, {
-        headers: { 'Authorization': `token ${token}` }
-      });
-      const json = await res.json();
-      const post = JSON.parse(atob(json.content));
-
-      document.getElementById('title').value = post.title;
-      document.getElementById('section').value = post.section;
-      tinymce.get('content').setContent(post.content);
-      document.getElementById('youtube').value = post.youtube;
-
-      document.getElementById('pdf').value = '';
-      document.getElementById('image').value = '';
-
-      window.scrollTo(0, 0);
-
-      document.querySelector('button[onclick="savePost()"]').onclick = function () {
-        savePost(`posts/${filename}`);
-      };
-    }
-
-    async function deletePost(filename) {
-      const sha = await getFileSha(`posts/${filename}`);
-      if (!confirm('हटाउने निश्चित हो?')) return;
-      const res = await fetch(`https://api.github.com/repos/${repo}/contents/posts/${filename}`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization': `token ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          message: 'पोस्ट मेटाइयो',
-          sha: sha,
+          message: `Upload ${file.name}`,
+          content: base64Content,
           branch: branch
         })
       });
 
-      if (res.ok) {
-        alert('मेटाइयो');
+      if (!res.ok) {
+        alert(`फाइल अपलोड गर्न सकिएन: ${file.name}`);
+        throw new Error('File upload failed');
+      }
+      const data = await res.json();
+      return data.content.download_url;
+    }
+
+    // Upload files if exist
+    let pdfUrl = '';
+    let imageUrl = '';
+    try {
+      if (pdfFile) pdfUrl = await uploadFile(pdfFile);
+      if (imageFile) imageUrl = await uploadFile(imageFile);
+    } catch (e) {
+      return;
+    }
+
+    // Create or update post JSON content
+    const post = {
+      title,
+      section,
+      content,
+      youtube,
+      pdf: pdfUrl,
+      image: imageUrl
+    };
+
+    // Create filename if new post
+    if (!filename) {
+      filename = 'posts/' + Date.now() + '.json';
+    }
+
+    // To update existing file, need sha - fetch sha first
+    let sha = null;
+    if (filename) {
+      try {
+        const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${filename}?ref=${branch}`, {
+          headers: {
+            Authorization: `token ${token}`
+          }
+        });
+        if (getRes.ok) {
+          const fileData = await getRes.json();
+          sha = fileData.sha;
+        }
+      } catch {}
+    }
+
+    const encodedContent = btoa(unescape(encodeURIComponent(JSON.stringify(post, null, 2))));
+
+    const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${filename}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `token ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: sha ? 'Update post' : 'New post added',
+        content: encodedContent,
+        branch,
+        sha: sha || undefined
+      })
+    });
+
+    if (putRes.ok) {
+      alert('पोस्ट सफलतापूर्वक सेभ भयो।');
+      clearForm();
+      loadPosts();
+    } else {
+      alert('पोस्ट सेभ गर्न समस्या भयो।');
+    }
+  }
+
+  function clearForm() {
+    document.getElementById('title').value = '';
+    document.getElementById('section').value = 'lekha';
+    tinymce.get('content').setContent('');
+    document.getElementById('youtube').value = '';
+    document.getElementById('pdf').value = '';
+    document.getElementById('image').value = '';
+    document.getElementById('editFilename').value = '';
+  }
+
+  async function loadPosts() {
+    const container = document.getElementById('recentPosts');
+    container.innerHTML = '<p>लोड हुँदैछ...</p>';
+    try {
+      const res = await fetch(`https://api.github.com/repos/${repo}/contents/posts?ref=${branch}`, {
+        headers: {
+          Authorization: `token ${token}`
+        }
+      });
+      if (!res.ok) throw new Error('Error fetching posts');
+      const data = await res.json();
+
+      let html = '';
+      for (const file of data.reverse()) {
+        if (file.name.endsWith('.json')) {
+          const fr = await fetch(file.download_url);
+          const post = await fr.json();
+
+          html += `<div class="post-item">
+            <strong>${post.title}</strong>
+            <div><em>${post.section}</em></div>
+            <div>${post.content}</div>
+            ${post.youtube ? `<iframe width="100%" height="200" src="${post.youtube.replace('watch?v=', 'embed/')}" frameborder="0" allowfullscreen></iframe>` : ''}
+            ${post.image ? `<p><img src="${post.image}" alt="image" style="max-width: 100%;height:auto;"></p>` : ''}
+            ${post.pdf ? `<p><a href="${post.pdf}" target="_blank">PDF हेर्नुहोस्</a></p>` : ''}
+            <div class="post-buttons">
+              <button onclick="editPost('${file.name}')">सम्पादन गर्नुहोस्</button>
+              <button onclick="deletePost('${file.name}')">मेटाउनुहोस्</button>
+            </div>
+          </div>`;
+        }
+      }
+      container.innerHTML = html;
+    } catch (e) {
+      container.innerHTML = '<p>लोड गर्न सकिएन। कृपया नेटवर्क जाँच गर्नुहोस्।</p>';
+    }
+  }
+
+  async function editPost(filename) {
+    try {
+      const res = await fetch(`https://api.github.com/repos/${repo}/contents/${filename}?ref=${branch}`, {
+        headers: {
+          Authorization: `token ${token}`
+        }
+      });
+      if (!res.ok) throw new Error('फाइल पढ्न सकिएन');
+      const data = await res.json();
+      const contentJson = JSON.parse(atob(data.content));
+
+      document.getElementById('editFilename').value = filename;
+      document.getElementById('title').value = contentJson.title;
+      document.getElementById('section').value = contentJson.section;
+      tinymce.get('content').setContent(contentJson.content);
+      document.getElementById('youtube').value = contentJson.youtube || '';
+      // Cannot prefill file inputs for security reasons, so let user upload again if needed
+
+      window.scrollTo(0, 0);
+    } catch (err) {
+      alert('सम्पादन गर्न समस्या भयो।');
+    }
+  }
+
+  async function deletePost(filename) {
+    if (!confirm('के तपाईँ साँच्चिकै यो सामग्री मेटाउन चाहानुहुन्छ?')) return;
+    try {
+      // Get the sha of the file first
+      const res = await fetch(`https://api.github.com/repos/${repo}/contents/${filename}?ref=${branch}`, {
+        headers: {
+          Authorization: `token ${token}`
+        }
+      });
+      if (!res.ok) throw new Error('फाइल प्राप्त गर्न सकिएन');
+      const data = await res.json();
+
+      // Delete file
+      const delRes = await fetch(`https://api.github.com/repos/${repo}/contents/${filename}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `token ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: 'Delete post',
+          sha: data.sha,
+          branch: branch
+        })
+      });
+
+      if (delRes.ok) {
+        alert('पोस्ट सफलतापूर्वक मेटाइयो।');
         loadPosts();
       } else {
-        alert('मेटाउन सकिएन');
+        alert('पोस्ट मेटाउन असफल।');
       }
+    } catch (e) {
+      alert('मेटाउन समस्या भयो।');
     }
-  </script>
+  }
+</script>
 </body>
 </html>
