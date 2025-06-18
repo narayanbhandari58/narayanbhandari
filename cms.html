@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ne">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CMS प्यानल - नारायण भण्डारी</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&family=Poppins&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/tinymce@6.8.3/tinymce.min.js" referrerpolicy="origin"></script>
@@ -16,6 +16,17 @@
       display: flex;
       height: 100vh;
     }
+    #menuToggle {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 999;
+      background: transparent;
+      border: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: #8f0e04;
+    }
     .sidebar {
       width: 250px;
       background: #8f0e04;
@@ -23,6 +34,9 @@
       padding: 20px;
       display: none;
       flex-direction: column;
+    }
+    .sidebar.show {
+      display: flex !important;
     }
     .sidebar h2 {
       font-size: 1.5rem;
@@ -117,12 +131,12 @@
         position: absolute;
         z-index: 100;
         height: 100vh;
-        display: none;
       }
     }
   </style>
 </head>
 <body>
+  <button id="menuToggle">&#9776;</button>
   <div class="sidebar" id="sidebar">
     <h2>CMS प्यानल</h2>
     <a href="#" id="logoutButton">लगआउट गर्नुहोस्</a>
@@ -157,6 +171,7 @@
     <div id="postsList"></div>
     <div class="pagination" id="pagination"></div>
   </div>
+
   <script>
     tinymce.init({
       selector: '#postContent',
@@ -176,6 +191,10 @@
     const postsList = document.getElementById("postsList");
     const recentPostsList = document.getElementById("recentPostsList");
     const pagination = document.getElementById("pagination");
+
+    document.getElementById("menuToggle").addEventListener("click", () => {
+      sidebar.classList.toggle("show");
+    });
 
     let currentPage = 1;
     const postsPerPage = 10;
@@ -233,7 +252,7 @@
       if (email === ADMIN_EMAIL && pass === ADMIN_PASSWORD) {
         loginForm.style.display = "none";
         postForm.style.display = "block";
-        sidebar.style.display = "flex";
+        sidebar.classList.add("show");
         loadPosts();
         startSessionTimeout();
         localStorage.setItem("isLoggedIn", "true");
@@ -250,7 +269,7 @@
     function logout() {
       loginForm.style.display = "block";
       postForm.style.display = "none";
-      sidebar.style.display = "none";
+      sidebar.classList.remove("show");
       postsList.innerHTML = "";
       clearTimeout(sessionTimeout);
       localStorage.removeItem("isLoggedIn");
@@ -306,7 +325,7 @@
     if (localStorage.getItem("isLoggedIn") === "true") {
       loginForm.style.display = "none";
       postForm.style.display = "block";
-      sidebar.style.display = "flex";
+      sidebar.classList.add("show");
       loadPosts();
       startSessionTimeout();
     }
