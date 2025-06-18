@@ -3,326 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>नारायण भण्डारी - व्यक्तिगत वेवसाइट</title>
-  <meta name="description" content="नारायण भण्डारीको व्यक्तिगत वेवसाइट" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&family=Poppins&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <title>नारायण भण्डारी - मुख्य पृष्ठ</title>
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
     body {
-      margin: 0;
-      font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
-      background-color: #f8f9fa;
-      color: #1a1a1a;
-      line-height: 1.6;
-      font-size: 16px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    a {
-      color: #bb1919;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    a:hover, a:focus {
-      text-decoration: underline;
-    }
-    h1, h2, h3, h4 {
-      margin-top: 0;
-      color: #bb1919;
-      font-weight: 700;
-    }
-    h1 {
-      font-size: 2.75rem;
-      letter-spacing: 0.05em;
-    }
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 0.75rem;
-    }
-    h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
-    p {
-      margin-bottom: 1em;
-      color: #444444;
+      font-family: 'Noto Sans Devanagari', sans-serif;
+      margin: 0; background: #fff;
+      max-width: 900px; margin: 2rem auto;
+      padding: 0 1rem;
+      color: #222;
     }
     header {
-      background-color: #bb1919;
-      color: white;
-      padding: 16px 24px;
-      position: sticky;
-      top: 0;
-      z-index: 110;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      font-weight: 900;
-      font-size: 1.75rem;
-      color: white;
-      cursor: pointer;
-      user-select: none;
-    }
-    nav.desktop-nav {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
-    nav.desktop-nav a {
-      background: white;
-      color: #bb1919;
-      border-radius: 6px;
-      padding: 8px 14px;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-    }
-    nav.desktop-nav a[aria-current="page"],
-    nav.desktop-nav a:hover,
-    nav.desktop-nav a:focus {
-      background-color: #e63946;
-      color: white;
-    }
-    main {
-      flex-grow: 1;
-      max-width: 960px;
-      margin: 24px auto 48px auto;
-      padding: 0 16px;
-      min-height: 60vh;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 3px 12px rgba(187,25,25,0.15);
-      outline: none;
-    }
-    .section-posts {
-      margin-bottom: 48px;
-    }
-    .section-posts h2 {
-      border-bottom: 3px solid #bb1919;
-      padding-bottom: 6px;
-      margin-bottom: 16px;
-    }
-    .post-item {
-      border: 1px solid #bb1919;
-      border-radius: 10px;
-      padding: 12px 18px;
-      margin-bottom: 12px;
-      background-color: #fff4f4;
-      position: relative;
-      box-shadow: 0 2px 4px rgba(187,25,25,0.15);
-    }
-    .post-item p {
-      margin: 0 0 8px 0;
-      white-space: pre-wrap;
-    }
-    #subscriptionSection {
-      margin-top: 48px;
-      padding: 24px;
-      background: #fef0f0;
-      border: 1.5px solid #bb1919;
-      border-radius: 12px;
-      max-width: 960px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    #subscriptionSection h3 {
-      margin-top: 0;
-    }
-    #subscriptionSection input[type="email"] {
-      width: 100%;
-      padding: 10px 12px;
-      font-size: 1rem;
-      border-radius: 8px;
-      border: 1.5px solid #bb1919;
-    }
-    #subscriptionSection button {
-      margin-top: 12px;
-      width: 100%;
-      background-color: #bb1919;
-      color: white;
-      font-weight: 700;
-      border-radius: 8px;
-      padding: 12px;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    #subscriptionSection button:hover,
-    #subscriptionSection button:focus {
-      background-color: #8a1515;
-    }
-    #subscriptionMessage {
-      margin-top: 12px;
-      font-weight: 600;
-    }
-    #subscriptionMessage.success {
-      color: green;
-    }
-    #subscriptionMessage.error {
-      color: #b00020;
-    }
-    footer {
-      background-color: #bb1919;
-      color: white;
       text-align: center;
-      padding: 12px 0;
-      margin-top: auto;
+      border-bottom: 3px solid #bb1919;
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
     }
-    @media (max-width: 768px) {
-      header {
-        flex-wrap: wrap;
-        gap: 12px;
-        justify-content: center;
-        text-align: center;
-      }
-      nav.desktop-nav {
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-      main, #subscriptionSection {
-        margin: 24px 12px 48px 12px;
-        max-width: 100%;
-      }
+    header h1 {
+      margin: 0;
+      color: #bb1919;
+    }
+    article {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 1rem;
+    }
+    article h2 {
+      margin: 0 0 0.5rem 0;
+      color: #8a1212;
+    }
+    article .section {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 0.8rem;
+    }
+    article iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+      margin-top: 0.5rem;
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
-  <header role="banner">
-    <h1 class="logo" tabindex="0">नारायण भण्डारी</h1>
-    <nav class="desktop-nav" role="navigation">
-      <a href="javascript:void(0);" data-section="lekha">लेख/रचना</a>
-      <a href="javascript:void(0);" data-section="sahitya">साहित्य</a>
-      <a href="javascript:void(0);" data-section="loksewa">लोकसेवा</a>
-      <a href="javascript:void(0);" data-section="patrapatrika">पत्रपत्रिका</a>
-      <a href="javascript:void(0);" data-section="mero-barema">मेरो बारेमा</a>
-    </nav>
+  <header>
+    <h1>नारायण भण्डारी</h1>
+    <p>लेख/रचना, साहित्य, लोकसेवा तयारी सामग्री र पत्रपत्रिका</p>
   </header>
 
-  <main id="mainContent">
-    <p>सामग्री लोड हुँदैछ...</p>
-  </main>
-
-  <section id="subscriptionSection">
-    <h3>समाचारपत्र सदस्यता लिनुहोस्</h3>
-    <form id="subscriptionForm">
-      <input type="email" id="subscriptionEmail" placeholder="इमेल ठेगाना" required />
-      <button type="submit">सब्स्क्राइब गर्नुहोस्</button>
-    </form>
-    <div id="subscriptionMessage"></div>
+  <section id="posts">
+    <p>पोस्टहरू लोड हुँदैछ...</p>
   </section>
 
-  <footer>
-    सर्वाधिकार © नारायण भण्डारी, <span id="footerYear"></span>
-  </footer>
-
   <script>
-    (() => {
-      // यहाँ तपाईँको GitHub repo बाट post.json लोड हुन्छ
-      const POSTS_JSON_URL = "https://raw.githubusercontent.com/narayanbhandari58/narayanbhandari/main/posts/post.json";
+    const repo = 'narayanbhandari58/narayanbhandari';
 
-      const sectionTitles = {
-        lekha: "लेख/रचना",
-        sahitya: "साहित्य",
-        loksewa: "लोकसेवा",
-        patrapatrika: "पत्रपत्रिका",
-        "mero-barema": "मेरो बारेमा"
-      };
-      const mainContentDiv = document.getElementById("mainContent");
+    async function loadPosts() {
+      const container = document.getElementById('posts');
+      container.innerHTML = '<p>लोड हुँदैछ...</p>';
 
-      async function loadPosts() {
-        try {
-          const res = await fetch(POSTS_JSON_URL);
-          if (!res.ok) throw new Error("Failed to fetch posts");
-          const posts = await res.json();
-          return posts;
-        } catch (e) {
-          mainContentDiv.innerHTML = "<p>पोस्ट लोड गर्न सकिएन।</p>";
-          return [];
-        }
-      }
+      try {
+        const res = await fetch(`https://api.github.com/repos/${repo}/contents/posts`);
+        if (!res.ok) throw new Error('पोस्टहरू GitHub बाट ल्याउन सकिएन');
+        const files = await res.json();
 
-      function renderPosts(posts, filterSection = null) {
-        if (!posts.length) {
-          mainContentDiv.innerHTML = "<p>अहिले सम्म कुनै सामग्री उपलब्ध छैन।</p>";
+        // सबै JSON फाइलहरू छान्ने र नयाँदेखि पुरानो क्रम मिलाउने
+        const postFiles = files.filter(f => f.name.endsWith('.json')).sort((a,b) => b.name.localeCompare(a.name));
+
+        if (postFiles.length === 0) {
+          container.innerHTML = '<p>कुनै पोस्ट उपलब्ध छैन।</p>';
           return;
         }
 
-        const grouped = {};
-        posts.forEach(post => {
-          const sec = post.section || "अन्य";
-          if (!grouped[sec]) grouped[sec] = [];
-          grouped[sec].push(post);
-        });
+        let html = '';
+        for (const file of postFiles) {
+          const fr = await fetch(file.download_url);
+          const post = await fr.json();
 
-        let html = "";
-
-        for (const key in sectionTitles) {
-          if (filterSection && key !== filterSection) continue;
-          if (!grouped[key]) continue;
-
-          html += `<section class="section-posts"><h2>${sectionTitles[key]}</h2>`;
-          grouped[key].forEach(post => {
-            html += `<article class="post-item"><h3>${post.title}</h3><div>${post.content}</div>`;
-            if (post.youtube) {
-              html += `<div style="margin-top:10px;"><iframe width="100%" height="315" src="${post.youtube.replace("watch?v=", "embed/")}" frameborder="0" allowfullscreen></iframe></div>`;
-            }
-            html += `</article>`;
-          });
-          html += `</section>`;
+          html += `
+          <article>
+            <h2>${post.title}</h2>
+            <div class="section">[${post.section}]</div>
+            <div>${post.content}</div>
+            ${post.youtube ? `<iframe src="${post.youtube.replace('watch?v=', 'embed/')}" allowfullscreen></iframe>` : ''}
+          </article>`;
         }
 
-        mainContentDiv.innerHTML = html;
+        container.innerHTML = html;
+      } catch (e) {
+        container.innerHTML = `<p style="color:red;">${e.message}</p>`;
       }
+    }
 
-      document.querySelector(".logo").addEventListener("click", async () => {
-        const posts = await loadPosts();
-        renderPosts(posts);
-      });
-
-      document.querySelectorAll("nav.desktop-nav a").forEach(link => {
-        link.addEventListener("click", async e => {
-          e.preventDefault();
-          const sec = e.currentTarget.dataset.section;
-          const posts = await loadPosts();
-          renderPosts(posts, sec);
-        });
-      });
-
-      document.getElementById("subscriptionForm").addEventListener("submit", e => {
-        e.preventDefault();
-        const email = document.getElementById("subscriptionEmail").value.trim();
-        const msg = document.getElementById("subscriptionMessage");
-        const subs = JSON.parse(localStorage.getItem("nv_subscriptions") || "[]");
-
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-          msg.textContent = "मान्य इमेल ठेगाना लेख्नुहोस्।";
-          msg.className = "error";
-          return;
-        }
-
-        if (subs.includes(email.toLowerCase())) {
-          msg.textContent = "पहिले नै सदस्यता लिइसक्नु भयो।";
-          msg.className = "error";
-        } else {
-          subs.push(email.toLowerCase());
-          localStorage.setItem("nv_subscriptions", JSON.stringify(subs));
-          msg.textContent = "सफलतापूर्वक सदस्यता लिइयो!";
-          msg.className = "success";
-          document.getElementById("subscriptionEmail").value = "";
-        }
-      });
-
-      document.getElementById("footerYear").textContent = new Date().getFullYear();
-
-      // Load posts on page load
-      loadPosts().then(renderPosts);
-    })();
+    loadPosts();
   </script>
 </body>
 </html>
