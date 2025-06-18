@@ -15,48 +15,46 @@
       margin: 0;
       display: flex;
       height: 100vh;
-      overflow: hidden;
     }
-
-    /* Menu toggle button - fixed and always visible */
     #menuToggle {
       position: fixed;
       top: 15px;
       left: 15px;
-      z-index: 1001;
+      z-index: 1100; /* sidebar भन्दा माथि */
       background: transparent;
       border: none;
-      font-size: 28px;
+      font-size: 30px; /* थोरै ठूलो */
       cursor: pointer;
       color: #8f0e04;
       user-select: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
     }
-
-    /* Sidebar styling */
+    #menuToggle:hover {
+      background-color: rgba(143,14,4,0.1);
+    }
     .sidebar {
       width: 250px;
       background: #8f0e04;
       color: white;
       padding: 20px;
-      display: flex;
+      display: none;
       flex-direction: column;
-      
-      /* Hide sidebar by sliding it left */
-      position: fixed;
+      position: fixed; /* fix गरियो */
       top: 0;
       left: 0;
       height: 100vh;
-      transform: translateX(-260px);
+      z-index: 1050; /* toggle button भन्दा तल */
+      overflow-y: auto;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
-      z-index: 1000;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+      transform: translateX(-260px);
     }
-
-    /* Show sidebar by sliding to 0 */
     .sidebar.show {
+      display: flex !important;
       transform: translateX(0);
     }
-
     .sidebar h2 {
       font-size: 1.5rem;
       margin-bottom: 20px;
@@ -76,28 +74,21 @@
     .recent-posts ul {
       list-style: none;
       padding: 0;
+      max-height: 300px;
+      overflow-y: auto;
     }
     .recent-posts li a {
       color: white;
       text-decoration: underline;
       cursor: pointer;
     }
-
-    /* Content area */
     .content {
       flex-grow: 1;
       padding: 20px;
-      margin-left: 0;
+      margin-left: 0; /* sidebar fixed भएकाले margin-left हटाइयो */
+      width: 100%;
       overflow-y: auto;
-      transition: margin-left 0.3s ease;
-      height: 100vh;
     }
-
-    /* Shift content when sidebar visible */
-    .content.shift {
-      margin-left: 250px;
-    }
-
     h1, h2 {
       color: #8f0e04;
       text-align: center;
@@ -159,28 +150,30 @@
     }
     @media (max-width: 768px) {
       .sidebar {
-        width: 200px;
-        transform: translateX(-210px);
+        position: fixed;
+        height: 100vh;
+        transform: translateX(-260px);
       }
-      .content.shift {
-        margin-left: 200px;
+      .sidebar.show {
+        transform: translateX(0);
+      }
+      .content {
+        padding: 20px 10px;
       }
     }
   </style>
 </head>
 <body>
-  <button id="menuToggle" aria-label="Toggle Menu">&#9776;</button>
-
-  <div class="sidebar" id="sidebar" role="navigation" aria-label="Sidebar Navigation">
+  <button id="menuToggle" aria-label="मेनु खोल्नुहोस्">&#9776;</button>
+  <div class="sidebar" id="sidebar" aria-label="साइडबार मेनु">
     <h2>CMS प्यानल</h2>
     <a href="#" id="logoutButton">लगआउट गर्नुहोस्</a>
     <div class="recent-posts">
-      <h3>Recent Posts</h3>
+      <h3>हालका पोष्टहरू</h3>
       <ul id="recentPostsList"></ul>
     </div>
   </div>
-
-  <div class="content" id="contentArea">
+  <div class="content">
     <h1>CMS प्यानल</h1>
     <form id="loginForm">
       <input type="email" id="username" placeholder="इमेल" required />
@@ -220,20 +213,15 @@
     const ADMIN_PASSWORD = "9846874405n@";
     const SESSION_TIMEOUT = 10 * 60 * 1000;
     let sessionTimeout;
-
     const loginForm = document.getElementById("loginForm");
     const postForm = document.getElementById("postForm");
     const sidebar = document.getElementById("sidebar");
     const postsList = document.getElementById("postsList");
     const recentPostsList = document.getElementById("recentPostsList");
     const pagination = document.getElementById("pagination");
-    const menuToggle = document.getElementById("menuToggle");
-    const contentArea = document.getElementById("contentArea");
 
-    // Toggle sidebar show/hide and content margin
-    menuToggle.addEventListener("click", () => {
+    document.getElementById("menuToggle").addEventListener("click", () => {
       sidebar.classList.toggle("show");
-      contentArea.classList.toggle("shift");
     });
 
     let currentPage = 1;
@@ -293,7 +281,6 @@
         loginForm.style.display = "none";
         postForm.style.display = "block";
         sidebar.classList.add("show");
-        contentArea.classList.add("shift");
         loadPosts();
         startSessionTimeout();
         localStorage.setItem("isLoggedIn", "true");
@@ -311,7 +298,6 @@
       loginForm.style.display = "block";
       postForm.style.display = "none";
       sidebar.classList.remove("show");
-      contentArea.classList.remove("shift");
       postsList.innerHTML = "";
       clearTimeout(sessionTimeout);
       localStorage.removeItem("isLoggedIn");
@@ -364,12 +350,10 @@
       }
     }
 
-    // On page load, if already logged in restore session
     if (localStorage.getItem("isLoggedIn") === "true") {
       loginForm.style.display = "none";
       postForm.style.display = "block";
       sidebar.classList.add("show");
-      contentArea.classList.add("shift");
       loadPosts();
       startSessionTimeout();
     }
