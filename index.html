@@ -3,116 +3,209 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="नारायण भण्डारीको व्यक्तिगत वेबसाइट - लेख, साहित्य, लोकसेवा र पत्रपत्रिका">
+  <meta name="theme-color" content="#8f0e04">
   <title>नारायण भण्डारी - मेरो वेबसाइट</title>
   <style>
-    /* तपाइँले दिएको CSS यस्तै छ, मैले कुनै परिवर्तन गरेको छैन */
-    body {
-      font-family: "Noto Sans Devanagari", sans-serif;
-      margin: 0;
-      background: #f9f9f9;
-      color: #222;
+    :root {
+      --primary-color: #8f0e04;
+      --secondary-color: #c62828;
+      --dark-color: #5b0402;
+      --light-color: #f9f9f9;
+      --text-color: #222;
+      --text-light: #666;
     }
+    
+    body {
+      font-family: "Noto Sans Devanagari", "Poppins", sans-serif;
+      margin: 0;
+      background: var(--light-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    
     header {
-      background-color: #8f0e04;
+      background-color: var(--primary-color);
       color: white;
-      padding: 1rem 1.5rem;
+      padding: 1.5rem 1.5rem;
       text-align: center;
       font-size: 1.8rem;
       font-weight: bold;
       letter-spacing: 1px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+    
     nav {
-      background: #c62828;
+      background: var(--secondary-color);
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 10px;
-      padding: 0.5rem 0;
+      padding: 0.8rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+    
     nav a {
       color: white;
       text-decoration: none;
-      padding: 0.6rem 1rem;
+      padding: 0.6rem 1.2rem;
       font-weight: 600;
       border-radius: 4px;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
     }
+    
     nav a:hover, nav a.active {
-      background-color: #5b0402;
+      background-color: var(--dark-color);
+      transform: translateY(-2px);
     }
+    
     main {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 2rem auto;
-      padding: 0 1rem;
+      padding: 0 1.5rem;
     }
+    
     section {
       margin-bottom: 3rem;
+      scroll-margin-top: 90px;
     }
+    
     section h2 {
-      color: #8f0e04;
-      border-bottom: 3px solid #8f0e04;
-      padding-bottom: 0.3rem;
-      margin-bottom: 1rem;
+      color: var(--primary-color);
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
       font-weight: 700;
+      font-size: 1.8rem;
     }
+    
     .posts-section {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 25px;
       justify-content: center;
     }
+    
     .post-box {
       background: white;
       border: 1px solid #ddd;
-      border-radius: 6px;
-      box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
-      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      padding: 20px;
       width: 90%;
       max-width: 700px;
       box-sizing: border-box;
-      transition: box-shadow 0.3s ease;
+      transition: all 0.3s ease;
       overflow-wrap: break-word;
     }
+    
+    .post-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .post-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+      color: var(--dark-color);
+    }
+    
+    .post-content {
+      font-size: 1.05rem;
+      margin-bottom: 0.8rem;
+      color: #333;
+    }
+    
+    iframe {
+      width: 100%;
+      height: 250px;
+      border: none;
+      margin-top: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .post-extra {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-top: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .post-extra a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .post-extra a:hover {
+      text-decoration: underline;
+    }
+    
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top-color: var(--primary-color);
+      animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--primary-color);
+      color: white;
+      font-size: 1rem;
+      margin-top: 3rem;
+    }
+    
     @media (min-width: 600px) {
       .post-box {
         width: 48%;
       }
+      
+      header {
+        font-size: 2rem;
+      }
     }
+    
     @media (min-width: 900px) {
       .post-box {
         width: 30%;
       }
+      
+      nav {
+        padding: 0.8rem 2rem;
+      }
+      
+      nav a {
+        padding: 0.7rem 1.5rem;
+      }
     }
-    .post-title {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-      color: #5a0c02;
-    }
-    .post-content {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-      color: #333;
-    }
-    iframe {
-      width: 100%;
-      height: 200px;
-      border: none;
-      margin-top: 0.5rem;
-      border-radius: 5px;
-    }
-    .post-extra {
-      font-size: 0.9rem;
-      color: #666;
-      margin-top: 0.3rem;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #8f0e04;
-      color: white;
-      font-size: 0.9rem;
-      margin-top: 3rem;
+    
+    @media (min-width: 1200px) {
+      main {
+        padding: 0 2rem;
+      }
     }
   </style>
 </head>
@@ -130,27 +223,47 @@
   <main>
     <section id="lekha">
       <h2>लेख/रचना</h2>
-      <div class="posts-section" id="posts-lekha"></div>
+      <div class="posts-section" id="posts-lekha">
+        <div class="loading">
+          <div class="spinner"></div>
+        </div>
+      </div>
     </section>
     <section id="sahitya">
       <h2>साहित्य</h2>
-      <div class="posts-section" id="posts-sahitya"></div>
+      <div class="posts-section" id="posts-sahitya">
+        <div class="loading">
+          <div class="spinner"></div>
+        </div>
+      </div>
     </section>
     <section id="loksewa">
       <h2>लोकसेवा</h2>
-      <div class="posts-section" id="posts-loksewa"></div>
+      <div class="posts-section" id="posts-loksewa">
+        <div class="loading">
+          <div class="spinner"></div>
+        </div>
+      </div>
     </section>
     <section id="patrapatrika">
       <h2>पत्रपत्रिका</h2>
-      <div class="posts-section" id="posts-patrapatrika"></div>
+      <div class="posts-section" id="posts-patrapatrika">
+        <div class="loading">
+          <div class="spinner"></div>
+        </div>
+      </div>
     </section>
     <section id="mero-barema">
       <h2>मेरो बारेमा</h2>
-      <div class="posts-section" id="posts-mero-barema"></div>
+      <div class="posts-section" id="posts-mero-barema">
+        <div class="loading">
+          <div class="spinner"></div>
+        </div>
+      </div>
     </section>
   </main>
   <footer>
-    © २०८२ नारायण भण्डारी | Developed by ChatGPT
+    © २०८२ नारायण भण्डारी | Developed by Narayan Bhandari
   </footer>
 
   <script>
@@ -166,14 +279,20 @@
     };
 
     async function loadPosts() {
-      for (const containerId of Object.values(sectionMap)) {
-        document.getElementById(containerId).innerHTML = '<p>लोड हुँदैछ...</p>';
-      }
       try {
-        const res = await fetch(`https://api.github.com/repos/${repo}/contents/posts?ref=${branch}`);
-        if (!res.ok) throw new Error('GitHub बाट पोस्ट फोल्डर फेला परेन');
-        const files = await res.json();
+        // Show loading spinners
+        for (const containerId of Object.values(sectionMap)) {
+          document.getElementById(containerId).innerHTML = `
+            <div class="loading">
+              <div class="spinner"></div>
+            </div>
+          `;
+        }
 
+        const res = await fetch(`https://api.github.com/repos/${repo}/contents/posts?ref=${branch}`);
+        if (!res.ok) throw new Error('GitHub API बाट डेटा ल्याउन असफल');
+        
+        const files = await res.json();
         const sections = {
           'lekha': [],
           'sahitya': [],
@@ -182,54 +301,139 @@
           'mero-barema': []
         };
 
-        for (const file of files.reverse()) {
+        // Process all files in parallel
+        const promises = files.reverse().map(async file => {
           if (file.name.endsWith('.json')) {
-            const postRes = await fetch(file.download_url);
-            if (!postRes.ok) continue;
-            const post = await postRes.json();
-            if (sections[post.section]) {
-              sections[post.section].push(post);
+            try {
+              const postRes = await fetch(file.download_url);
+              if (!postRes.ok) return null;
+              const post = await postRes.json();
+              if (sections[post.section]) {
+                sections[post.section].push(post);
+              }
+            } catch (e) {
+              console.error(`Error loading ${file.name}:`, e);
+              return null;
             }
           }
-        }
+        });
 
+        await Promise.all(promises);
+
+        // Render posts for each section
         for (const [section, posts] of Object.entries(sections)) {
           let html = '';
-          for (const post of posts) {
-            let youtubeEmbed = '';
-            if (post.youtube) {
-              const ytUrl = post.youtube.replace('watch?v=', 'embed/');
-              youtubeEmbed = `<iframe src="${ytUrl}" allowfullscreen></iframe>`;
+          
+          if (posts.length === 0) {
+            html = '<p class="no-posts">कुनै पोस्ट उपलब्ध छैन।</p>';
+          } else {
+            for (const post of posts) {
+              let youtubeEmbed = '';
+              if (post.youtube) {
+                const ytUrl = post.youtube.includes('embed') ? 
+                  post.youtube : 
+                  `https://www.youtube.com/embed/${post.youtube.split('v=')[1].split('&')[0]}`;
+                youtubeEmbed = `
+                  <div class="video-container">
+                    <iframe 
+                      src="${ytUrl}" 
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                `;
+              }
+
+              html += `
+                <article class="post-box" aria-labelledby="post-${post.id || post.title}">
+                  <h3 class="post-title" id="post-${post.id || post.title}">${post.title}</h3>
+                  <div class="post-content">${post.content}</div>
+                  ${youtubeEmbed}
+                  ${post.image ? `
+                    <p class="post-extra">
+                      <span>📷</span>
+                      <a href="${post.image}" target="_blank" rel="noopener">तस्वीर हेर्नुहोस्</a>
+                    </p>
+                  ` : ''}
+                  ${post.pdf ? `
+                    <p class="post-extra">
+                      <span>📄</span>
+                      <a href="${post.pdf}" target="_blank" rel="noopener">PDF डाउनलोड गर्नुहोस्</a>
+                    </p>
+                  ` : ''}
+                </article>
+              `;
             }
-            html += `
-              <article class="post-box">
-                <h3 class="post-title">${post.title}</h3>
-                <div class="post-content">${post.content}</div>
-                ${youtubeEmbed}
-                ${post.image ? `<p class="post-extra"><strong>Image:</strong> ${post.image}</p>` : ''}
-                ${post.pdf ? `<p class="post-extra"><strong>PDF:</strong> ${post.pdf}</p>` : ''}
-              </article>
-            `;
           }
-          document.getElementById(sectionMap[section]).innerHTML = html || '<p>कुनै पोस्ट उपलब्ध छैन।</p>';
+          
+          document.getElementById(sectionMap[section]).innerHTML = html;
         }
 
       } catch (error) {
+        console.error('Error:', error);
+        const errorHtml = `
+          <div class="error-message">
+            <p>डेटा लोड गर्दा समस्या आयो। कृपया पछि फेरि प्रयास गर्नुहोस्।</p>
+            <button onclick="loadPosts()" class="retry-btn">फेरि प्रयास गर्नुहोस्</button>
+          </div>
+        `;
+        
         for (const containerId of Object.values(sectionMap)) {
-          document.getElementById(containerId).innerHTML = '<p>डेटा ल्याउन असफल भयो। कृपया पछि प्रयास गर्नुहोस्।</p>';
+          document.getElementById(containerId).innerHTML = errorHtml;
         }
-        console.error(error);
       }
     }
 
-    window.onload = loadPosts;
-
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
-        navLinks.forEach(l => l.classList.remove('active'));
-        this.classList.add('active');
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
       });
+    });
+
+    // Highlight active nav link while scrolling
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY + 100;
+      
+      document.querySelectorAll('section').forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          document.querySelectorAll('nav a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${sectionId}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    });
+
+    // Initialize on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      loadPosts();
+      
+      // Set initial active nav link based on hash
+      if (window.location.hash) {
+        const activeLink = document.querySelector(`nav a[href="${window.location.hash}"]`);
+        if (activeLink) {
+          document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+          activeLink.classList.add('active');
+        }
+      }
     });
   </script>
 </body>
