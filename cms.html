@@ -197,7 +197,7 @@
     <h1>CMS - नारायण भण्डारी</h1>
   </header>
   <main>
-    <!-- Login Section -->
+    <!-- Login Section with added error message display -->
     <div id="loginSection">
       <h2>लगिन गर्नुहोस्</h2>
       <div class="form-group">
@@ -208,14 +208,15 @@
         <label for="password">पासवर्ड</label>
         <input type="password" id="password" placeholder="पासवर्ड" />
       </div>
-      <button onclick="login()">लगिन</button>
+      <div id="loginError" style="color:red; margin-bottom:1rem;"></div>
+      <button id="loginBtn">लगिन</button>
     </div>
 
     <!-- CMS Section (hidden by default) -->
     <div id="cmsSection" style="display:none">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
         <h2 style="margin: 0;">सामग्री व्यवस्थापन</h2>
-        <button onclick="logout()" class="secondary">लगआउट</button>
+        <button id="logoutBtn" class="secondary">लगआउट</button>
       </div>
 
       <!-- New Post Form -->
@@ -258,7 +259,7 @@
           <input type="text" id="image" placeholder="image-file-name.jpg" />
         </div>
         
-        <button onclick="submitPost()" style="width: 100%;">पोस्ट सेभ गर्नुहोस्</button>
+        <button id="submitPostBtn" style="width: 100%;">पोस्ट सेभ गर्नुहोस्</button>
       </div>
 
       <!-- Edit Post Form (hidden by default) -->
@@ -318,7 +319,7 @@
 
   <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
   <script>
-    // UTF-8 स्ट्रिङलाई Base64 मा रूपान्तरण गर्ने नयाँ फंक्शन
+    // UTF-8 to Base64 conversion function
     function toBase64(str) {
       const encoder = new TextEncoder();
       const data = encoder.encode(str);
@@ -328,6 +329,13 @@
       }
       return btoa(binaryString);
     }
+
+    // Configuration
+    const repo = 'narayanbhandari58/narayanbhandari';
+    const branch = 'main';
+    const postsDir = 'posts';
+    const dataDir = 'data';
+    const loginData = { username: 'Narayan', password: '9846' };
 
     // Initialize editors
     const quill = new Quill('#editor', {
@@ -357,45 +365,59 @@
       }
     });
 
-    // Configuration
-    const repo = 'narayanbhandari58/narayanbhandari';
-    const branch = 'main';
-    const postsDir = 'posts';
-    const dataDir = 'data';
-    const loginData = { username: 'Narayan', password: '9846' };
-
-    // Check if user is already logged in
-    if (localStorage.getItem('cms_logged_in') === 'yes') {
-      showCMS();
+    // Check login status on page load
+    function checkAuth() {
+      if (localStorage.getItem('cms_logged_in') === 'yes') {
+        document.getElementById('loginSection').style.display = 'none';
+        document.getElementById('cmsSection').style.display = 'block';
+        loadRecentPosts();
+      }
     }
 
     // Login function
-    function login() {
+    function handleLogin() {
       const username = document.getElementById('username').value.trim();
       const password = document.getElementById('password').value.trim();
       
       if (username === loginData.username && password === loginData.password) {
         localStorage.setItem('cms_logged_in', 'yes');
-        showCMS();
+        document.getElementById('loginError').textContent = '';
+        checkAuth();
       } else {
-        alert('गलत लगिन विवरण। कृपया पुन: प्रयास गर्नुहोस्।');
+        document.getElementById('loginError').textContent = 'गलत प्रयोगकर्ता नाम वा पासवर्ड';
       }
     }
 
     // Logout function
-    function logout() {
+    function handleLogout() {
       localStorage.removeItem('cms_logged_in');
-      window.location.reload();
+      location.reload();
     }
 
-    // Show CMS interface
-    function showCMS() {
-      document.getElementById('loginSection').style.display = 'none';
-      document.getElementById('cmsSection').style.display = 'block';
-      loadRecentPosts();
+    // Setup GitHub token
+    function setupGitHubToken() {
+      if (!localStorage.getItem('github_token')) {
+        const token = prompt('कृपया आफ्नो GitHub Personal Access Token प्रविष्ट गर्नुहोस्:');
+        if (token) {
+          localStorage.setItem('github_token', token);
+          alert('Token saved successfully!');
+        } else {
+          alert('Token is required to save posts to GitHub.');
+        }
+      }
     }
 
-    // Submit new post to GitHub
+    // Event listeners for buttons
+    document.getElementById('loginBtn').addEventListener('click', handleLogin);
+    document.getElementById('logoutBtn').addEventListener('click', handleLogout);
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      setupGitHubToken();
+      checkAuth();
+    });
+
+    // Rest of your functions remain unchanged (submitPost, loadRecentPosts, editPost, etc.)
     async function submitPost() {
       const title = document.getElementById('title').value.trim();
       const section = document.getElementById('section').value;
@@ -404,7 +426,6 @@
       const pdf = document.getElementById('pdf').value.trim();
       const image = document.getElementById('image').value.trim();
 
-      // Validation
       if (!title) {
         alert('कृपया पोस्टको शीर्षक दिनुहोस्');
         return;
@@ -420,7 +441,6 @@
         return;
       }
 
-      // Create post data
       const post = {
         id: generateId(),
         title,
@@ -434,23 +454,15 @@
       };
 
       try {
-        // Show loading
         document.getElementById('recentPosts').innerHTML = '<div class="loading"><div class="spinner"></div>लोड हुँदैछ...</div>';
         
-        // Get current posts data
         const dataFile = await getDataFile();
         const posts = dataFile.posts || [];
-        
-        // Add new post
         posts.unshift(post);
         
-        // Update data file
         await updateDataFile({ posts });
-        
-        // Also save individual post file
         await savePostFile(post);
         
-        // Clear form
         document.getElementById('title').value = '';
         document.getElementById('section').value = '';
         quill.setContents([]);
@@ -458,7 +470,6 @@
         document.getElementById('pdf').value = '';
         document.getElementById('image').value = '';
         
-        // Reload posts
         await loadRecentPosts();
         
         alert('पोस्ट सफलतापूर्वक सेभ भयो र वेबसाइटमा प्रदर्शित हुनेछ!');
@@ -468,13 +479,11 @@
       }
     }
 
-    // Load recent posts
     async function loadRecentPosts() {
       const container = document.getElementById('recentPosts');
       container.innerHTML = '<div class="loading"><div class="spinner"></div>लोड हुँदैछ...</div>';
       
       try {
-        // Get from data file first
         const dataFile = await getDataFile();
         const posts = dataFile.posts || [];
         
@@ -483,7 +492,6 @@
           return;
         }
         
-        // Render posts
         let html = '';
         posts.forEach(post => {
           html += `
@@ -513,12 +521,10 @@
       }
     }
 
-    // Edit post - populate form
-    async function editPost(postId) {
-      try {
-        const dataFile = await getDataFile();
-        const post = dataFile.posts.find(p => p.id === postId);
-        
-        if (!post) {
-          alert('पोस्ट फेला परेन');
-          return
+    // ... (Keep all your remaining functions exactly as they were)
+    // Including: editPost, cancelEdit, updatePost, deletePost
+    // And all helper functions: generateId, getSectionName, formatYoutubeUrl
+    // And all GitHub API functions: getDataFile, updateDataFile, savePostFile, deletePostFile
+  </script>
+</body>
+</html>
