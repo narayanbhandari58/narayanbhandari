@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="ne">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CMS - नारायण भण्डारी</title>
-  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
   <style>
     body {
-      font-family: 'Noto Sans Devanagari', sans-serif;
+      font-family: "Noto Sans Devanagari", sans-serif;
       margin: 0;
-      background: #f5f5f5;
+      background: #f9f9f9;
+      color: #222;
     }
     header {
-      background: #bb1919;
+      background-color: #8f0e04; /* BBC Nepali primary red */
       color: white;
-      padding: 1rem;
+      padding: 1rem 1.5rem;
       text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
     }
     main {
       max-width: 90%;
@@ -79,15 +83,15 @@
   <main>
     <div id="loginSection">
       <h2>लगिन गर्नुहोस्</h2>
-      <input type="text" id="username" placeholder="प्रयोगकर्ता नाम">
-      <input type="password" id="password" placeholder="पासवर्ड">
+      <input type="text" id="username" placeholder="प्रयोगकर्ता नाम" />
+      <input type="password" id="password" placeholder="पासवर्ड" />
       <button onclick="login()">लगिन</button>
     </div>
 
     <div id="cmsSection" style="display:none">
       <button id="logoutBtn" onclick="logout()">लगआउट</button>
       <h2>नयाँ सामग्री थप्नुहोस्</h2>
-      <input type="text" id="title" placeholder="शीर्षक">
+      <input type="text" id="title" placeholder="शीर्षक" />
       <select id="section">
         <option value="lekha">लेख/रचना</option>
         <option value="sahitya">साहित्य</option>
@@ -96,9 +100,9 @@
         <option value="mero-barema">मेरो बारेमा</option>
       </select>
       <div id="editor"></div>
-      <input type="url" id="youtube" placeholder="Youtube लिंक (यदि छ भने)">
-      <input type="file" id="pdf" accept="application/pdf">
-      <input type="file" id="image" accept="image/*">
+      <input type="url" id="youtube" placeholder="Youtube लिंक (यदि छ भने)" />
+      <input type="file" id="pdf" accept="application/pdf" />
+      <input type="file" id="image" accept="image/*" />
       <button onclick="submitToGitHubAction()">GitHub मा सेभ गर्नुहोस्</button>
 
       <h2>हालसालका सामग्रीहरू</h2>
@@ -111,7 +115,7 @@
     const quill = new Quill('#editor', { theme: 'snow' });
     const loginData = { username: 'Narayan', password: '9846' };
 
-    const fixedToken = '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';
+    const fixedToken = 'https://ghp_uitq579kgroenzfjbwvrwygw179nnf2ykui5'; // यहाँ आफ्नो GitHub टोकन राख्नुहोस्
     localStorage.setItem('github_token', fixedToken);
 
     if (localStorage.getItem('cms_logged_in') === 'yes') {
