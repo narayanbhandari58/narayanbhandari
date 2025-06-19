@@ -134,11 +134,14 @@
         date: new Date().toISOString()
       };
 
+      const token = localStorage.getItem('github_token') || prompt('GitHub PAT (Personal Access Token) हाल्नुहोस्:');
+      if (!localStorage.getItem('github_token')) localStorage.setItem('github_token', token);
+
       try {
         const res = await fetch('https://api.github.com/repos/narayanbhandari58/narayanbhandari/dispatches', {
           method: 'POST',
           headers: {
-            'Authorization': `Bearer ${prompt('GitHub PAT (Personal Access Token) हाल्नुहोस्:')}`,
+            'Authorization': `Bearer ${token}`,
             'Accept': 'application/vnd.github+json',
             'Content-Type': 'application/json'
           },
@@ -189,7 +192,9 @@
     }
 
     function deletePost(filename) {
-      const token = prompt('GitHub PAT टोकन पुन: हाल्नुहोस्:');
+      const token = localStorage.getItem('github_token') || prompt('GitHub PAT टोकन हाल्नुहोस्:');
+      if (!localStorage.getItem('github_token')) localStorage.setItem('github_token', token);
+
       fetch(`https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/posts/${filename}`)
         .then(res => res.json())
         .then(file => {
