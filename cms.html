@@ -410,6 +410,7 @@
     // Event listeners for buttons
     document.getElementById('loginBtn').addEventListener('click', handleLogin);
     document.getElementById('logoutBtn').addEventListener('click', handleLogout);
+    document.getElementById('submitPostBtn').addEventListener('click', submitPost);
 
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', function() {
@@ -417,7 +418,7 @@
       checkAuth();
     });
 
-    // Rest of your functions remain unchanged (submitPost, loadRecentPosts, editPost, etc.)
+    // Submit Post Function
     async function submitPost() {
       const title = document.getElementById('title').value.trim();
       const section = document.getElementById('section').value;
@@ -515,16 +516,4 @@
         });
         
         container.innerHTML = html;
-      } catch (error) {
-        console.error('Failed to load posts:', error);
-        container.innerHTML = `<p>पोस्ट लोड गर्न सकिएन। कृपया पुन: प्रयास गर्नुहोस्। (${error.message})</p>`;
-      }
-    }
-
-    // ... (Keep all your remaining functions exactly as they were)
-    // Including: editPost, cancelEdit, updatePost, deletePost
-    // And all helper functions: generateId, getSectionName, formatYoutubeUrl
-    // And all GitHub API functions: getDataFile, updateDataFile, savePostFile, deletePostFile
-  </script>
-</body>
-</html>
+      } catch (
