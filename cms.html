@@ -64,6 +64,12 @@
       font-size: 0.9rem;
       background: #444;
     }
+    #logoutBtn {
+      width: auto;
+      float: right;
+      margin-top: -2rem;
+      background: #444;
+    }
   </style>
 </head>
 <body>
@@ -79,6 +85,7 @@
     </div>
 
     <div id="cmsSection" style="display:none">
+      <button id="logoutBtn" onclick="logout()">लगआउट</button>
       <h2>नयाँ सामग्री थप्नुहोस्</h2>
       <input type="text" id="title" placeholder="शीर्षक">
       <select id="section">
@@ -104,10 +111,11 @@
     const quill = new Quill('#editor', { theme: 'snow' });
     const loginData = { username: 'Narayan', password: '9846' };
 
+    const fixedToken = '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';
+    localStorage.setItem('github_token', fixedToken);
+
     if (localStorage.getItem('cms_logged_in') === 'yes') {
-      document.getElementById('loginSection').style.display = 'none';
-      document.getElementById('cmsSection').style.display = 'block';
-      loadRecentPosts();
+      showCMS();
     }
 
     function login() {
@@ -115,12 +123,21 @@
       const p = document.getElementById('password').value;
       if (u === loginData.username && p === loginData.password) {
         localStorage.setItem('cms_logged_in', 'yes');
-        document.getElementById('loginSection').style.display = 'none';
-        document.getElementById('cmsSection').style.display = 'block';
-        loadRecentPosts();
+        showCMS();
       } else {
         alert('गलत लगिन विवरण');
       }
+    }
+
+    function logout() {
+      localStorage.removeItem('cms_logged_in');
+      location.reload();
+    }
+
+    function showCMS() {
+      document.getElementById('loginSection').style.display = 'none';
+      document.getElementById('cmsSection').style.display = 'block';
+      loadRecentPosts();
     }
 
     async function submitToGitHubAction() {
@@ -134,8 +151,7 @@
         date: new Date().toISOString()
       };
 
-      const token = localStorage.getItem('github_token') || prompt('GitHub PAT (Personal Access Token) हाल्नुहोस्:');
-      if (!localStorage.getItem('github_token')) localStorage.setItem('github_token', token);
+      const token = localStorage.getItem('github_token');
 
       try {
         const res = await fetch('https://api.github.com/repos/narayanbhandari58/narayanbhandari/dispatches', {
@@ -192,8 +208,7 @@
     }
 
     function deletePost(filename) {
-      const token = localStorage.getItem('github_token') || prompt('GitHub PAT टोकन हाल्नुहोस्:');
-      if (!localStorage.getItem('github_token')) localStorage.setItem('github_token', token);
+      const token = localStorage.getItem('github_token');
 
       fetch(`https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/posts/${filename}`)
         .then(res => res.json())
