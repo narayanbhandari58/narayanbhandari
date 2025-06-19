@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>नारायण भण्डारी - मेरो वेबसाइट</title>
   <style>
-    /* BBC Nepali Inspired Color Scheme */
+    /* तपाइँले दिएको CSS यस्तै छ, मैले कुनै परिवर्तन गरेको छैन */
     body {
       font-family: "Noto Sans Devanagari", sans-serif;
       margin: 0;
@@ -13,7 +13,7 @@
       color: #222;
     }
     header {
-      background-color: #8f0e04; /* BBC Nepali primary red */
+      background-color: #8f0e04;
       color: white;
       padding: 1rem 1.5rem;
       text-align: center;
@@ -154,11 +154,9 @@
   </footer>
 
   <script>
-    // GitHub Details
     const repo = 'narayanbhandari58/narayanbhandari';
     const branch = 'main';
 
-    // सेक्सनहरूको id र नाम मिलाउने म्याप
     const sectionMap = {
       'lekha': 'posts-lekha',
       'sahitya': 'posts-sahitya',
@@ -176,7 +174,6 @@
         if (!res.ok) throw new Error('GitHub बाट पोस्ट फोल्डर फेला परेन');
         const files = await res.json();
 
-        // सबै सेक्सनका लागि खाली array
         const sections = {
           'lekha': [],
           'sahitya': [],
@@ -185,7 +182,6 @@
           'mero-barema': []
         };
 
-        // सबै JSON फाइलहरू पढेर सेक्सन अनुसार राख्ने
         for (const file of files.reverse()) {
           if (file.name.endsWith('.json')) {
             const postRes = await fetch(file.download_url);
@@ -197,7 +193,6 @@
           }
         }
 
-        // प्रत्येक सेक्सनमा HTML बनाउने
         for (const [section, posts] of Object.entries(sections)) {
           let html = '';
           for (const post of posts) {
@@ -227,10 +222,8 @@
       }
     }
 
-    // पेज लोड हुँदा पोस्ट लोड गर
     window.onload = loadPosts;
 
-    // नेभिगेसन लिंक एक्टिभ क्लास ह्यान्डल (सजिलो स्क्रोलिंगका लागि)
     const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach(link => {
       link.addEventListener('click', function(e) {
