@@ -1,57 +1,46 @@
 <!DOCTYPE html>
 <html lang="ne">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CMS - नारायण भण्डारी</title>
-  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
+  <script src="https://cdn.tiny.cloud/1/6e6xtpdwc0ug66rd8xy3d1ul08810zzu2m6brcy6phfx75xw/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
   <style>
     body {
       font-family: 'Noto Sans Devanagari', sans-serif;
-      margin: 0; background: #f5f5f5;
+      margin: 0;
+      background: #f5f5f5;
     }
     header {
       background: #bb1919;
       color: white;
       padding: 1rem;
       text-align: center;
-      font-weight: bold;
     }
     main {
-      max-width: 900px;
+      max-width: 90%;
       margin: 2rem auto;
       background: white;
       padding: 2rem;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    #loginSection, #cmsSection {
-      margin-top: 1rem;
-    }
-    input, select, button {
+    input, textarea, select, button {
       width: 100%;
-      padding: 0.7rem;
+      padding: 0.75rem;
       margin: 0.5rem 0 1rem;
       font-size: 1rem;
       border-radius: 6px;
       border: 1px solid #ccc;
-      box-sizing: border-box;
     }
     button {
       background: #bb1919;
       color: white;
       font-weight: bold;
       cursor: pointer;
-      border: none;
-      transition: background 0.3s ease;
     }
     button:hover {
       background: #8a1515;
-    }
-    #editor {
-      height: 300px;
-      background: white;
-      margin-bottom: 1rem;
     }
     .post-item {
       border: 1px solid #ccc;
@@ -59,52 +48,29 @@
       margin-bottom: 1rem;
       border-radius: 8px;
       background: #fafafa;
-      position: relative;
-    }
-    .post-item h3 {
-      margin: 0 0 0.3rem 0;
-    }
-    .post-item .buttons {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
     }
     .post-item button {
       width: auto;
-      margin-left: 0.5rem;
-      background: #444;
-      color: white;
-      padding: 0.3rem 0.7rem;
-      border-radius: 4px;
-      border: none;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-    .post-item button:hover {
-      background: #222;
-    }
-    iframe {
       margin-top: 0.5rem;
-      width: 100%;
-      height: 200px;
-      border: none;
-      border-radius: 6px;
+      background: #444;
     }
   </style>
 </head>
 <body>
-  <header>CMS - नारायण भण्डारी</header>
+  <header>
+    <h1>CMS - नारायण भण्डारी</h1>
+  </header>
   <main>
-    <section id="loginSection">
+    <div id="loginSection">
       <h2>लगिन गर्नुहोस्</h2>
-      <input type="text" id="username" placeholder="प्रयोगकर्ता नाम" autocomplete="off" />
-      <input type="password" id="password" placeholder="पासवर्ड" autocomplete="off" />
+      <input type="text" id="username" placeholder="प्रयोगकर्ता नाम">
+      <input type="password" id="password" placeholder="पासवर्ड">
       <button onclick="login()">लगिन</button>
-    </section>
+    </div>
 
-    <section id="cmsSection" style="display:none;">
-      <h2>नयाँ सामग्री थप्नुहोस् / सम्पादन गर्नुहोस्</h2>
-      <input type="text" id="title" placeholder="शीर्षक" autocomplete="off" />
+    <div id="cmsSection" style="display:none">
+      <h2>नयाँ सामग्री थप्नुहोस्</h2>
+      <input type="text" id="title" placeholder="शीर्षक">
       <select id="section">
         <option value="lekha">लेख/रचना</option>
         <option value="sahitya">साहित्य</option>
@@ -112,217 +78,111 @@
         <option value="patrapatrika">पत्रपत्रिका</option>
         <option value="mero-barema">मेरो बारेमा</option>
       </select>
-      <div id="editor"></div>
-      <input type="url" id="youtube" placeholder="Youtube लिंक (यदि छ भने)" autocomplete="off" />
-      <button onclick="savePost()">सेभ गर्नुहोस्</button>
+      <textarea id="content"></textarea>
+      <input type="url" id="youtube" placeholder="Youtube लिंक (यदि छ भने)">
+      <input type="file" id="pdf" accept="application/pdf">
+      <input type="file" id="image" accept="image/*">
+      <button onclick="submitToGitHubAction()">GitHub मा सेभ गर्नुहोस्</button>
 
       <h2>हालसालका सामग्रीहरू</h2>
-      <div id="recentPosts"><p>लोड हुँदैछ...</p></div>
-    </section>
+      <div id="recentPosts"></div>
+    </div>
   </main>
 
-  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
   <script>
-    // GitHub repo settings
-    const token = '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'; // GitHub token राख्नोस्
-    const repo = 'narayanbhandari58/narayanbhandari';
-    const branch = 'main';
+    tinymce.init({
+      selector: '#content',
+      plugins: 'link image lists media table code',
+      toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image media | code',
+      height: 300
+    });
 
     const loginData = {
       username: 'Narayan',
       password: '9846'
     };
 
-    let editingFilePath = null;
-
-    // Quill Editor initialization
-    var quill = new Quill('#editor', {
-      theme: 'snow',
-      placeholder: 'यहाँ सामग्री लेख्नुहोस्...',
-      modules: {
-        toolbar: [
-          [{ header: [1, 2, 3, false] }],
-          ['bold', 'italic', 'underline', 'strike'],
-          [{ list: 'ordered' }, { list: 'bullet' }],
-          ['link', 'image'],
-          ['clean']
-        ]
-      }
-    });
-
-    // Check if already logged in
     if (localStorage.getItem('cms_logged_in') === 'yes') {
-      showCMS();
+      document.getElementById('loginSection').style.display = 'none';
+      document.getElementById('cmsSection').style.display = 'block';
+      loadRecentPosts();
     }
 
     function login() {
-      const u = document.getElementById('username').value.trim();
-      const p = document.getElementById('password').value.trim();
+      const u = document.getElementById('username').value;
+      const p = document.getElementById('password').value;
       if (u === loginData.username && p === loginData.password) {
         localStorage.setItem('cms_logged_in', 'yes');
-        showCMS();
+        document.getElementById('loginSection').style.display = 'none';
+        document.getElementById('cmsSection').style.display = 'block';
+        loadRecentPosts();
       } else {
         alert('गलत लगिन विवरण');
       }
     }
 
-    function showCMS() {
-      document.getElementById('loginSection').style.display = 'none';
-      document.getElementById('cmsSection').style.display = 'block';
-      loadPosts();
-    }
-
-    async function savePost() {
-      const title = document.getElementById('title').value.trim();
-      const section = document.getElementById('section').value;
-      const content = quill.root.innerHTML.trim();
-      const youtube = document.getElementById('youtube').value.trim();
-
-      if (!title) {
-        alert('शीर्षक आवश्यक छ');
-        return;
-      }
-      if (!content || content === '<p><br></p>') {
-        alert('सामग्री आवश्यक छ');
-        return;
-      }
-
-      let filename = editingFilePath;
-      if (!filename) {
-        filename = `posts/${Date.now()}.json`;
-      }
-
-      const post = { title, section, content, youtube };
-      const encodedContent = btoa(unescape(encodeURIComponent(JSON.stringify(post, null, 2))));
-
-      // get sha if update
-      let sha = null;
-      if (editingFilePath) {
-        try {
-          const resp = await fetch(`https://api.github.com/repos/${repo}/contents/${filename}`);
-          if (resp.ok) {
-            const data = await resp.json();
-            sha = data.sha;
-          }
-        } catch (e) {
-          console.error('Update fetch error:', e);
-        }
-      }
+    async function submitToGitHubAction() {
+      const post = {
+        title: document.getElementById('title').value,
+        section: document.getElementById('section').value,
+        content: tinymce.get('content').getContent(),
+        youtube: document.getElementById('youtube').value,
+        pdf: document.getElementById('pdf').files[0]?.name || '',
+        image: document.getElementById('image').files[0]?.name || '',
+        date: new Date().toISOString()
+      };
 
       try {
-        const res = await fetch(`https://api.github.com/repos/${repo}/contents/${filename}`, {
-          method: 'PUT',
+        const res = await fetch('https://api.github.com/repos/narayanbhandari58/narayanbhandari/dispatches', {
+          method: 'POST',
           headers: {
-            'Authorization': `token ${token}`,
+            'Authorization': `Bearer ${prompt('GitHub PAT (Personal Access Token) हाल्नुहोस्:')}`,
+            'Accept': 'application/vnd.github+json',
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            message: editingFilePath ? `Update post: ${title}` : `New post: ${title}`,
-            content: encodedContent,
-            branch: branch,
-            sha: sha
+            event_type: 'new-post',
+            client_payload: post
           })
         });
 
-        if (!res.ok) {
-          const errorText = await res.text();
-          throw new Error(errorText);
+        if (res.ok) {
+          alert('GitHub Action लाई सफलतापूर्वक ट्रिगर गरियो।');
+        } else {
+          const error = await res.json();
+          alert('सेभ गर्न सकिएन: ' + JSON.stringify(error));
         }
-
-        alert('पोस्ट सेभ भयो');
-        resetForm();
-        loadPosts();
       } catch (e) {
-        alert('सेभ गर्न सकिएन: ' + e.message);
+        alert('त्रुटि: ' + e.message);
       }
     }
 
-    function resetForm() {
-      document.getElementById('title').value = '';
-      document.getElementById('youtube').value = '';
-      quill.setContents([]);
-      editingFilePath = null;
-    }
-
-    async function loadPosts() {
+    function loadRecentPosts() {
       const container = document.getElementById('recentPosts');
       container.innerHTML = '<p>लोड हुँदैछ...</p>';
-      try {
-        const res = await fetch(`https://api.github.com/repos/${repo}/contents/posts`);
-        if (!res.ok) throw new Error('GitHub बाट डाटा ल्याउन सकिएन');
-        const data = await res.json();
-
-        let html = '';
-        // latest first
-        const files = data.filter(f => f.name.endsWith('.json')).sort((a,b) => b.name.localeCompare(a.name));
-
-        for (const file of files) {
-          const fr = await fetch(file.download_url);
-          const post = await fr.json();
-          html += `<div class="post-item">
-            <h3>${post.title}</h3>
-            <div><em>(${post.section})</em></div>
-            <div>${post.content}</div>
-            ${post.youtube ? `<iframe src="${post.youtube.replace('watch?v=', 'embed/')}" allowfullscreen></iframe>` : ''}
-            <div class="buttons">
-              <button onclick="editPost('${file.path}')">सम्पादन गर्नुहोस्</button>
-              <button onclick="deletePost('${file.path}', '${file.sha}')">हटाउनुहोस्</button>
-            </div>
-          </div>`;
-        }
-        container.innerHTML = html || '<p>सामग्री फेला परेन।</p>';
-      } catch (e) {
-        container.innerHTML = `<p style="color:red;">${e.message}</p>`;
-      }
-    }
-
-    async function editPost(path) {
-      try {
-        const res = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`);
-        if (!res.ok) throw new Error('पोस्ट लोड गर्न सकिएन');
-        const data = await res.json();
-        const contentStr = decodeURIComponent(escape(atob(data.content)));
-        const post = JSON.parse(contentStr);
-
-        document.getElementById('title').value = post.title || '';
-        document.getElementById('section').value = post.section || 'lekha';
-        quill.root.innerHTML = post.content || '';
-        document.getElementById('youtube').value = post.youtube || '';
-
-        editingFilePath = path;
-        window.scrollTo({top:0, behavior:'smooth'});
-      } catch (e) {
-        alert('सम्पादन गर्न सकिएन: ' + e.message);
-      }
-    }
-
-    async function deletePost(path, sha) {
-      if (!confirm('के तपाईँ यो पोस्ट हटाउन निश्चित हुनुहुन्छ?')) return;
-
-      try {
-        const res = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
-          method: 'DELETE',
-          headers: {
-            'Authorization': `token ${token}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            message: `Delete post: ${path}`,
-            branch: branch,
-            sha: sha
-          })
+      fetch('https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/posts')
+        .then(res => res.json())
+        .then(async files => {
+          let html = '';
+          for (const file of files.reverse()) {
+            if (file.name.endsWith('.json')) {
+              const fr = await fetch(file.download_url);
+              const post = await fr.json();
+              html += `<div class="post-item">
+                <strong>${post.title}</strong>
+                <div><em>${post.section}</em></div>
+                <div>${post.content}</div>
+                ${post.youtube ? `<iframe width="100%" height="200" src="${post.youtube.replace('watch?v=', 'embed/')}" frameborder="0" allowfullscreen></iframe>` : ''}
+                ${post.image ? `<p>Image: ${post.image}</p>` : ''}
+                ${post.pdf ? `<p>PDF: ${post.pdf}</p>` : ''}
+              </div>`;
+            }
+          }
+          container.innerHTML = html;
+        })
+        .catch(() => {
+          container.innerHTML = '<p>लोड गर्न सकिएन।</p>';
         });
-
-        if (!res.ok) {
-          const errorText = await res.text();
-          throw new Error(errorText);
-        }
-
-        alert('पोस्ट हटाइयो');
-        loadPosts();
-      } catch (e) {
-        alert('हटाउन सकिएन: ' + e.message);
-      }
     }
   </script>
 </body>
