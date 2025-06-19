@@ -6,86 +6,189 @@
   <title>CMS - नारायण भण्डारी</title>
   <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
   <style>
+    :root {
+      --primary-color: #8f0e04;
+      --secondary-color: #bb1919;
+      --dark-color: #5b0402;
+      --light-color: #f9f9f9;
+      --text-color: #222;
+      --text-light: #666;
+      --border-color: #ddd;
+    }
+    
     body {
       font-family: "Noto Sans Devanagari", sans-serif;
       margin: 0;
-      background: #f9f9f9;
-      color: #222;
+      background: var(--light-color);
+      color: var(--text-color);
+      line-height: 1.6;
     }
+    
     header {
-      background-color: #8f0e04;
+      background-color: var(--primary-color);
       color: white;
-      padding: 1rem 1.5rem;
+      padding: 1.5rem;
       text-align: center;
       font-size: 1.8rem;
       font-weight: bold;
       letter-spacing: 1px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+    
     main {
-      max-width: 90%;
+      max-width: 900px;
       margin: 2rem auto;
       background: white;
       padding: 2rem;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    input, select, button {
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    input, select, textarea {
       width: 100%;
       padding: 0.75rem;
-      margin: 0.5rem 0 1rem;
       font-size: 1rem;
       border-radius: 6px;
-      border: 1px solid #ccc;
+      border: 1px solid var(--border-color);
     }
+    
     button {
-      background: #bb1919;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: none;
+      background: var(--secondary-color);
       color: white;
       font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
     }
+    
     button:hover {
-      background: #8a1515;
+      background: var(--dark-color);
+      transform: translateY(-2px);
     }
+    
+    button.secondary {
+      background: #444;
+    }
+    
+    button.secondary:hover {
+      background: #222;
+    }
+    
     #editor {
       height: 300px;
       margin-bottom: 1rem;
-      background: white;
     }
+    
     .post-item {
-      border: 1px solid #ccc;
-      padding: 1rem;
-      margin-bottom: 1rem;
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
       border-radius: 8px;
-      background: #fafafa;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
+    
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .post-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark-color);
+      margin: 0;
+    }
+    
+    .post-section {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      background: #e0e0e0;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-left: 0.5rem;
+    }
+    
+    .post-content {
+      margin-bottom: 1rem;
+    }
+    
     .post-actions {
-      margin-top: 0.5rem;
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
     }
-    .post-actions button {
-      width: auto;
-      margin-right: 0.5rem;
-      padding: 0.5rem 1rem;
-      font-size: 0.9rem;
-      background: #444;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+    
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      font-size: 1.2rem;
+      color: var(--text-light);
     }
-    .post-actions button:hover {
-      background: #222;
+    
+    .spinner {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      border: 3px solid rgba(0,0,0,0.1);
+      border-radius: 50%;
+      border-top-color: var(--primary-color);
+      animation: spin 1s ease-in-out infinite;
+      margin: 0 auto;
     }
-    #logoutBtn {
-      width: auto;
-      float: right;
-      margin-top: -2rem;
-      background: #444;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Login section */
+    #loginSection {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    /* Editor toggle */
+    .editor-toggle {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .editor-toggle button {
+      flex: 1;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      main {
+        padding: 1rem;
+        max-width: 95%;
+      }
+      
+      .post-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .post-section {
+        margin-left: 0;
+        margin-top: 0.5rem;
+      }
     }
   </style>
 </head>
@@ -94,72 +197,195 @@
     <h1>CMS - नारायण भण्डारी</h1>
   </header>
   <main>
+    <!-- Login Section -->
     <div id="loginSection">
       <h2>लगिन गर्नुहोस्</h2>
-      <input type="text" id="username" placeholder="प्रयोगकर्ता नाम" />
-      <input type="password" id="password" placeholder="पासवर्ड" />
+      <div class="form-group">
+        <label for="username">प्रयोगकर्ता नाम</label>
+        <input type="text" id="username" placeholder="प्रयोगकर्ता नाम" />
+      </div>
+      <div class="form-group">
+        <label for="password">पासवर्ड</label>
+        <input type="password" id="password" placeholder="पासवर्ड" />
+      </div>
       <button onclick="login()">लगिन</button>
     </div>
 
+    <!-- CMS Section (hidden by default) -->
     <div id="cmsSection" style="display:none">
-      <button id="logoutBtn" onclick="logout()">लगआउट</button>
-      <h2>नयाँ सामग्री थप्नुहोस्</h2>
-      <input type="text" id="title" placeholder="शीर्षक" />
-      <select id="section">
-        <option value="lekha">लेख/रचना</option>
-        <option value="sahitya">साहित्य</option>
-        <option value="loksewa">लोकसेवा</option>
-        <option value="patrapatrika">पत्रपत्रिका</option>
-        <option value="mero-barema">मेरो बारेमा</option>
-      </select>
-      <div id="editor"></div>
-      <input type="url" id="youtube" placeholder="Youtube लिंक (यदि छ भने)" />
-      <!-- फाइलहरू गितहबमा यसरी अपलोड हुँदैनन्, त्यसैले नाम मात्र लिन्छौं -->
-      <input type="text" id="pdf" placeholder="PDF फाइलको नाम (यदि छ भने)" />
-      <input type="text" id="image" placeholder="Image फाइलको नाम (यदि छ भने)" />
-      <button onclick="submitToGitHubAction()">GitHub मा सेभ गर्नुहोस्</button>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <h2 style="margin: 0;">सामग्री व्यवस्थापन</h2>
+        <button onclick="logout()" class="secondary">लगआउट</button>
+      </div>
 
-      <h2>हालसालका सामग्रीहरू</h2>
-      <div id="recentPosts"></div>
+      <!-- New Post Form -->
+      <div id="newPostForm">
+        <h3>नयाँ सामग्री थप्नुहोस्</h3>
+        <div class="form-group">
+          <label for="title">शीर्षक</label>
+          <input type="text" id="title" placeholder="पोस्टको शीर्षक" required />
+        </div>
+        
+        <div class="form-group">
+          <label for="section">श्रेणी</label>
+          <select id="section" required>
+            <option value="">प्रकार रोज्नुहोस्</option>
+            <option value="lekha">लेख/रचना</option>
+            <option value="sahitya">साहित्य</option>
+            <option value="loksewa">लोकसेवा</option>
+            <option value="patrapatrika">पत्रपत्रिका</option>
+            <option value="mero-barema">मेरो बारेमा</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>सामग्री</label>
+          <div id="editor"></div>
+        </div>
+        
+        <div class="form-group">
+          <label for="youtube">YouTube लिङ्क (वैकल्पिक)</label>
+          <input type="url" id="youtube" placeholder="https://youtube.com/watch?v=..." pattern="https?://.*" />
+        </div>
+        
+        <div class="form-group">
+          <label for="pdf">PDF फाइल (वैकल्पिक)</label>
+          <input type="text" id="pdf" placeholder="pdf-file-name.pdf" />
+        </div>
+        
+        <div class="form-group">
+          <label for="image">तस्विर फाइल (वैकल्पिक)</label>
+          <input type="text" id="image" placeholder="image-file-name.jpg" />
+        </div>
+        
+        <button onclick="submitPost()" style="width: 100%;">पोस्ट सेभ गर्नुहोस्</button>
+      </div>
+
+      <!-- Edit Post Form (hidden by default) -->
+      <div id="editPostForm" style="display: none;">
+        <h3>पोस्ट सम्पादन गर्नुहोस्</h3>
+        <input type="hidden" id="editPostId" />
+        
+        <div class="form-group">
+          <label for="editTitle">शीर्षक</label>
+          <input type="text" id="editTitle" placeholder="पोस्टको शीर्षक" required />
+        </div>
+        
+        <div class="form-group">
+          <label for="editSection">श्रेणी</label>
+          <select id="editSection" required>
+            <option value="lekha">लेख/रचना</option>
+            <option value="sahitya">साहित्य</option>
+            <option value="loksewa">लोकसेवा</option>
+            <option value="patrapatrika">पत्रपत्रिका</option>
+            <option value="mero-barema">मेरो बारेमा</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>सामग्री</label>
+          <div id="editEditor"></div>
+        </div>
+        
+        <div class="form-group">
+          <label for="editYoutube">YouTube लिङ्क (वैकल्पिक)</label>
+          <input type="url" id="editYoutube" placeholder="https://youtube.com/watch?v=..." pattern="https?://.*" />
+        </div>
+        
+        <div class="form-group">
+          <label for="editPdf">PDF फाइल (वैकल्पिक)</label>
+          <input type="text" id="editPdf" placeholder="pdf-file-name.pdf" />
+        </div>
+        
+        <div class="form-group">
+          <label for="editImage">तस्विर फाइल (वैकल्पिक)</label>
+          <input type="text" id="editImage" placeholder="image-file-name.jpg" />
+        </div>
+        
+        <div class="form-group" style="display: flex; gap: 1rem;">
+          <button onclick="cancelEdit()" class="secondary" style="flex: 1;">रद्द गर्नुहोस्</button>
+          <button onclick="updatePost()" style="flex: 1;">अपडेट गर्नुहोस्</button>
+        </div>
+      </div>
+
+      <!-- Recent Posts -->
+      <h3 style="margin-top: 2rem;">हालका पोस्टहरू</h3>
+      <div id="recentPosts" class="loading">
+        <div class="spinner"></div>
+      </div>
     </div>
   </main>
 
   <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
   <script>
-    const quill = new Quill('#editor', { theme: 'snow' });
+    // Initialize editors
+    const quill = new Quill('#editor', {
+      theme: 'snow',
+      placeholder: 'तपाईंको सामग्री यहाँ लेख्नुहोस्...',
+      modules: {
+        toolbar: [
+          [{ 'header': [1, 2, 3, false] }],
+          ['bold', 'italic', 'underline', 'strike'],
+          ['link'],
+          [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+          ['clean']
+        ]
+      }
+    });
+    
+    const editQuill = new Quill('#editEditor', {
+      theme: 'snow',
+      modules: {
+        toolbar: [
+          [{ 'header': [1, 2, 3, false] }],
+          ['bold', 'italic', 'underline', 'strike'],
+          ['link'],
+          [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+          ['clean']
+        ]
+      }
+    });
+
+    // Configuration
+    const repo = 'narayanbhandari58/narayanbhandari';
+    const branch = 'main';
+    const postsDir = 'posts';
+    const dataDir = 'data';
     const loginData = { username: 'Narayan', password: '9846' };
 
-    // तपाइँको टोकन यहाँ राख्नुहोस्, तर यो गोप्य हुनुपर्छ (यो CMS client-side मा भए पनि)
-    const fixedToken = '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'; 
-    localStorage.setItem('github_token', fixedToken);
-
+    // Check if user is already logged in
     if (localStorage.getItem('cms_logged_in') === 'yes') {
       showCMS();
     }
 
+    // Login function
     function login() {
-      const u = document.getElementById('username').value.trim();
-      const p = document.getElementById('password').value.trim();
-      if (u === loginData.username && p === loginData.password) {
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      
+      if (username === loginData.username && password === loginData.password) {
         localStorage.setItem('cms_logged_in', 'yes');
         showCMS();
       } else {
-        alert('गलत लगिन विवरण');
+        alert('गलत लगिन विवरण। कृपया पुन: प्रयास गर्नुहोस्।');
       }
     }
 
+    // Logout function
     function logout() {
       localStorage.removeItem('cms_logged_in');
-      location.reload();
+      window.location.reload();
     }
 
+    // Show CMS interface
     function showCMS() {
       document.getElementById('loginSection').style.display = 'none';
       document.getElementById('cmsSection').style.display = 'block';
       loadRecentPosts();
     }
 
-    async function submitToGitHubAction() {
+    // Submit new post to GitHub
+    async function submitPost() {
       const title = document.getElementById('title').value.trim();
       const section = document.getElementById('section').value;
       const content = quill.root.innerHTML.trim();
@@ -167,125 +393,417 @@
       const pdf = document.getElementById('pdf').value.trim();
       const image = document.getElementById('image').value.trim();
 
+      // Validation
       if (!title) {
-        alert('शीर्षक आवश्यक छ');
+        alert('कृपया पोस्टको शीर्षक दिनुहोस्');
         return;
       }
+      
+      if (!section) {
+        alert('कृपया पोस्टको श्रेणी चयन गर्नुहोस्');
+        return;
+      }
+      
       if (!content || content === '<p><br></p>') {
-        alert('सामग्री खाली हुन सक्दैन');
+        alert('कृपया पोस्टको सामग्री दिनुहोस्');
         return;
       }
 
+      // Create post data
       const post = {
+        id: generateId(),
         title,
         section,
         content,
-        youtube,
+        youtube: formatYoutubeUrl(youtube),
         pdf,
         image,
-        date: new Date().toISOString()
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
       };
 
-      const token = localStorage.getItem('github_token');
-
       try {
-        const res = await fetch('https://api.github.com/repos/narayanbhandari58/narayanbhandari/dispatches', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Accept': 'application/vnd.github+json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ event_type: 'new-post', client_payload: post })
-        });
-
-        if (res.ok) {
-          alert('GitHub Action लाई सफलतापूर्वक ट्रिगर गरियो।');
-          // फर्म खाली गरौँ
-          document.getElementById('title').value = '';
-          quill.setContents([]);
-          document.getElementById('youtube').value = '';
-          document.getElementById('pdf').value = '';
-          document.getElementById('image').value = '';
-          loadRecentPosts();
-        } else {
-          const error = await res.json();
-          alert('सेभ गर्न सकिएन: ' + JSON.stringify(error));
-        }
-      } catch (e) {
-        alert('त्रुटि: ' + e.message);
+        // Show loading
+        document.getElementById('recentPosts').innerHTML = '<div class="loading"><div class="spinner"></div>लोड हुँदैछ...</div>';
+        
+        // Get current posts data
+        const dataFile = await getDataFile();
+        const posts = dataFile.posts || [];
+        
+        // Add new post
+        posts.unshift(post);
+        
+        // Update data file
+        await updateDataFile({ posts });
+        
+        // Also save individual post file
+        await savePostFile(post);
+        
+        // Clear form
+        document.getElementById('title').value = '';
+        document.getElementById('section').value = '';
+        quill.setContents([]);
+        document.getElementById('youtube').value = '';
+        document.getElementById('pdf').value = '';
+        document.getElementById('image').value = '';
+        
+        // Reload posts
+        await loadRecentPosts();
+        
+        alert('पोस्ट सफलतापूर्वक सेभ भयो र वेबसाइटमा प्रदर्शित हुनेछ!');
+      } catch (error) {
+        console.error('Error:', error);
+        alert('पोस्ट सेभ गर्दा त्रुटि: ' + error.message);
       }
     }
 
+    // Load recent posts
     async function loadRecentPosts() {
       const container = document.getElementById('recentPosts');
-      container.innerHTML = '<p>लोड हुँदैछ...</p>';
+      container.innerHTML = '<div class="loading"><div class="spinner"></div>लोड हुँदैछ...</div>';
+      
       try {
-        const res = await fetch('https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/posts');
-        if (!res.ok) throw new Error('पोस्ट फोल्डर फेला परेन');
-        const files = await res.json();
-
-        let html = '';
-        for (const file of files.reverse()) {
-          if (file.name.endsWith('.json')) {
-            const fr = await fetch(file.download_url);
-            if (!fr.ok) continue;
-            const post = await fr.json();
-
-            let ytEmbed = '';
-            if (post.youtube) {
-              const url = post.youtube.replace('watch?v=', 'embed/');
-              ytEmbed = `<iframe width="100%" height="200" src="${url}" frameborder="0" allowfullscreen></iframe>`;
-            }
-
-            html += `<div class="post-item">
-              <strong>${post.title}</strong>
-              <div><em>${post.section}</em></div>
-              <div>${post.content}</div>
-              ${ytEmbed}
-              ${post.image ? `<p>Image: ${post.image}</p>` : ''}
-              ${post.pdf ? `<p>PDF: ${post.pdf}</p>` : ''}
-              <div class="post-actions">
-                <button onclick="alert('सम्पादन सुविधा पछि थपिनेछ')">सम्पादन गर्नुहोस्</button>
-                <button onclick="deletePost('${file.name}')">हटाउनुहोस्</button>
-              </div>
-            </div>`;
-          }
+        // Get from data file first
+        const dataFile = await getDataFile();
+        const posts = dataFile.posts || [];
+        
+        if (posts.length === 0) {
+          container.innerHTML = '<p>कुनै पोस्ट उपलब्ध छैन।</p>';
+          return;
         }
-        container.innerHTML = html || '<p>कुनै पोस्ट उपलब्ध छैन।</p>';
-      } catch (e) {
-        container.innerHTML = '<p>लोड गर्न सकिएन।</p>';
+        
+        // Render posts
+        let html = '';
+        posts.forEach(post => {
+          html += `
+            <div class="post-item" id="post-${post.id}">
+              <div class="post-header">
+                <h4 class="post-title">${post.title}</h4>
+                <span class="post-section">${getSectionName(post.section)}</span>
+              </div>
+              <div class="post-content">
+                ${post.content.substring(0, 200)}${post.content.length > 200 ? '...' : ''}
+              </div>
+              ${post.youtube ? `<p>YouTube: ${post.youtube}</p>` : ''}
+              ${post.pdf ? `<p>PDF: ${post.pdf}</p>` : ''}
+              ${post.image ? `<p>Image: ${post.image}</p>` : ''}
+              <div class="post-actions">
+                <button onclick="editPost('${post.id}')">सम्पादन गर्नुहोस्</button>
+                <button onclick="deletePost('${post.id}', '${post.section}')" class="secondary">हटाउनुहोस्</button>
+              </div>
+            </div>
+          `;
+        });
+        
+        container.innerHTML = html;
+      } catch (error) {
+        console.error('Failed to load posts:', error);
+        container.innerHTML = `<p>पोस्ट लोड गर्न सकिएन। कृपया पुन: प्रयास गर्नुहोस्। (${error.message})</p>`;
       }
     }
 
-    async function deletePost(filename) {
-      if (!confirm('के तपाइँ यो पोस्ट हटाउन निश्चित हुनुहुन्छ?')) return;
+    // Edit post - populate form
+    async function editPost(postId) {
+      try {
+        const dataFile = await getDataFile();
+        const post = dataFile.posts.find(p => p.id === postId);
+        
+        if (!post) {
+          alert('पोस्ट फेला परेन');
+          return;
+        }
+        
+        // Hide new post form, show edit form
+        document.getElementById('newPostForm').style.display = 'none';
+        document.getElementById('editPostForm').style.display = 'block';
+        
+        // Scroll to edit form
+        document.getElementById('editPostForm').scrollIntoView({ behavior: 'smooth' });
+        
+        // Populate form
+        document.getElementById('editPostId').value = post.id;
+        document.getElementById('editTitle').value = post.title;
+        document.getElementById('editSection').value = post.section;
+        
+        // Set editor content
+        editQuill.clipboard.dangerouslyPasteHTML(post.content);
+        
+        document.getElementById('editYoutube').value = post.youtube || '';
+        document.getElementById('editPdf').value = post.pdf || '';
+        document.getElementById('editImage').value = post.image || '';
+      } catch (error) {
+        console.error('Error loading post for edit:', error);
+        alert('सम्पादन गर्न सकिएन: ' + error.message);
+      }
+    }
 
-      const token = localStorage.getItem('github_token');
+    // Cancel edit
+    function cancelEdit() {
+      document.getElementById('newPostForm').style.display = 'block';
+      document.getElementById('editPostForm').style.display = 'none';
+      editQuill.setContents([]);
+    }
+
+    // Update post
+    async function updatePost() {
+      const postId = document.getElementById('editPostId').value;
+      const title = document.getElementById('editTitle').value.trim();
+      const section = document.getElementById('editSection').value;
+      const content = editQuill.root.innerHTML.trim();
+      const youtube = document.getElementById('editYoutube').value.trim();
+      const pdf = document.getElementById('editPdf').value.trim();
+      const image = document.getElementById('editImage').value.trim();
+
+      // Validation
+      if (!postId) {
+        alert('पोस्ट ID अमान्य');
+        return;
+      }
+      
+      if (!title) {
+        alert('कृपया पोस्टको शीर्षक दिनुहोस्');
+        return;
+      }
+      
+      if (!section) {
+        alert('कृपया पोस्टको श्रेणी चयन गर्नुहोस्');
+        return;
+      }
+      
+      if (!content || content === '<p><br></p>') {
+        alert('कृपया पोस्टको सामग्री दिनुहोस्');
+        return;
+      }
 
       try {
-        const resMeta = await fetch(`https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/posts/${filename}`);
-        if (!resMeta.ok) throw new Error('फाइल प्राप्त गर्न सकिएन');
-        const fileMeta = await resMeta.json();
-
-        const resDel = await fetch(`https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/posts/${filename}`, {
-          method: 'DELETE',
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Accept': 'application/vnd.github+json'
-          },
-          body: JSON.stringify({ message: `Deleted ${filename}`, sha: fileMeta.sha })
-        });
-
-        if (resDel.ok) {
-          alert('पोस्ट हटाइयो।');
-          loadRecentPosts();
-        } else {
-          const errorData = await resDel.json();
-          alert('त्रुटि: ' + JSON.stringify(errorData));
+        // Show loading
+        document.getElementById('recentPosts').innerHTML = '<div class="loading"><div class="spinner"></div>लोड हुँदैछ...</div>';
+        
+        // Get current data
+        const dataFile = await getDataFile();
+        const posts = dataFile.posts || [];
+        
+        // Find and update post
+        const postIndex = posts.findIndex(p => p.id === postId);
+        if (postIndex === -1) {
+          throw new Error('पोस्ट फेला परेन');
         }
-      } catch (e) {
-        alert('त्रुटि: ' + e.message);
+        
+        // Update post data
+        posts[postIndex] = {
+          ...posts[postIndex],
+          title,
+          section,
+          content,
+          youtube: formatYoutubeUrl(youtube),
+          pdf,
+          image,
+          updated_at: new Date().toISOString()
+        };
+        
+        // Update data file
+        await updateDataFile({ posts });
+        
+        // Also update individual post file
+        await savePostFile(posts[postIndex], true);
+        
+        // Go back to new post view
+        cancelEdit();
+        
+        // Reload posts
+        await loadRecentPosts();
+        
+        alert('पोस्ट सफलतापूर्वक अपडेट भयो!');
+      } catch (error) {
+        console.error('Error updating post:', error);
+        alert('पोस्ट अपडेट गर्दा त्रुटि: ' + error.message);
+      }
+    }
+
+    // Delete post
+    async function deletePost(postId, section) {
+      if (!confirm('के तपाईं यो पोस्ट हटाउन निश्चित हुनुहुन्छ? यो कार्य पछि पूर्ववत गर्न सकिँदैन।')) {
+        return;
+      }
+      
+      try {
+        // Show loading
+        document.getElementById('recentPosts').innerHTML = '<div class="loading"><div class="spinner"></div>लोड हुँदैछ...</div>';
+        
+        // Get current data
+        const dataFile = await getDataFile();
+        let posts = dataFile.posts || [];
+        
+        // Find post
+        const postIndex = posts.findIndex(p => p.id === postId);
+        if (postIndex === -1) {
+          alert('पोस्ट फेला परेन');
+          return;
+        }
+        
+        // Delete from array
+        const [deletedPost] = posts.splice(postIndex, 1);
+        
+        // Update data file
+        await updateDataFile({ posts });
+        
+        // Also delete individual post file
+        await deletePostFile(deletedPost);
+        
+        // Reload posts
+        await loadRecentPosts();
+        
+        alert('पोस्ट सफलतापूर्वक हटाइयो!');
+      } catch (error) {
+        console.error('Error deleting post:', error);
+        alert('पोस्ट हटाउँदा त्रुटि: ' + error.message);
+      }
+    }
+
+    // Helper functions
+    function generateId() {
+      return Date.now().toString(36) + Math.random().toString(36).substring(2);
+    }
+    
+    function getSectionName(section) {
+      const sections = {
+        'lekha': 'लेख/रचना',
+        'sahitya': 'साहित्य',
+        'loksewa': 'लोकसेवा',
+        'patrapatrika': 'पत्रपत्रिका',
+        'mero-barema': 'मेरो बारेमा'
+      };
+      return sections[section] || section;
+    }
+    
+    function formatYoutubeUrl(url) {
+      if (!url) return '';
+      if (url.includes('youtu.be/')) {
+        const id = url.split('youtu.be/')[1];
+        return `https://www.youtube.com/watch?v=${id}`;
+      }
+      if (url.includes('youtube.com/embed/')) {
+        const id = url.split('youtube.com/embed/')[1];
+        return `https://www.youtube.com/watch?v=${id}`;
+      }
+      return url;
+    }
+
+    // GitHub API functions
+    async function getDataFile() {
+      try {
+        const response = await fetch(`https://api.github.com/repos/${repo}/contents/${dataDir}/posts.json?ref=${branch}`);
+        if (!response.ok) {
+          // If file doesn't exist, return empty object
+          if (response.status === 404) {
+            return { posts: [] };
+          }
+          throw new Error(`API error: ${response.status}`);
+        }
+        
+        const fileData = await response.json();
+        const content = atob(fileData.content);
+        return JSON.parse(content);
+      } catch (error) {
+        console.error('Error getting data file:', error);
+        return { posts: [] };
+      }
+    }
+    
+    async function updateDataFile(data) {
+      // First get the current SHA to update the file
+      const currentFile = await fetch(`https://api.github.com/repos/${repo}/contents/${dataDir}/posts.json?ref=${branch}`);
+      let sha = null;
+      
+      if (currentFile.ok) {
+        const fileData = await currentFile.json();
+        sha = fileData.sha;
+      }
+      
+      // Update the file
+      const response = await fetch(`https://api.github.com/repos/${repo}/contents/${dataDir}/posts.json`, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('github_token')}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: 'Update posts data',
+          content: btoa(JSON.stringify(data, null, 2)),
+          sha: sha,
+          branch: branch
+        })
+      });
+      
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message);
+      }
+    }
+    
+    async function savePostFile(post, isUpdate = false) {
+      const filename = `${post.id}.json`;
+      const filePath = `${postsDir}/${filename}`;
+      
+      // For updates, get the current SHA
+      let sha = null;
+      if (isUpdate) {
+        const currentFile = await fetch(`https://api.github.com/repos/${repo}/contents/${filePath}?ref=${branch}`);
+        if (currentFile.ok) {
+          const fileData = await currentFile.json();
+          sha = fileData.sha;
+        }
+      }
+      
+      const response = await fetch(`https://api.github.com/repos/${repo}/contents/${filePath}`, {
+        method: isUpdate ? 'PUT' : 'POST',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('github_token')}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: isUpdate ? `Update post ${post.id}` : `Add new post ${post.id}`,
+          content: btoa(JSON.stringify(post, null, 2)),
+          sha: isUpdate ? sha : undefined,
+          branch: branch
+        })
+      });
+      
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message);
+      }
+    }
+    
+    async function deletePostFile(post) {
+      const filename = `${post.id}.json`;
+      const filePath = `${postsDir}/${filename}`;
+      
+      // First get the SHA
+      const currentFile = await fetch(`https://api.github.com/repos/${repo}/contents/${filePath}?ref=${branch}`);
+      if (!currentFile.ok) {
+        throw new Error('File not found');
+      }
+      
+      const fileData = await currentFile.json();
+      
+      // Delete the file
+      const response = await fetch(`https://api.github.com/repos/${repo}/contents/${filePath}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('github_token')}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: `Delete post ${post.id}`,
+          sha: fileData.sha,
+          branch: branch
+        })
+      });
+      
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message);
       }
     }
   </script>
