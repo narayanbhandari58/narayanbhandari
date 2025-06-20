@@ -265,6 +265,65 @@
   <footer>
     © २०८२ नारायण भण्डारी | Developed by Narayan Bhandari
   </footer>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+  import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAeMBVRnouOkMIInTYUjysb1f3lflhxxYM",
+    authDomain: "narayan-cms.firebaseapp.com",
+    projectId: "narayan-cms",
+    storageBucket: "narayan-cms.firebasestorage.app",
+    messagingSenderId: "877625098183",
+    appId: "1:877625098183:web:c13d46fbb662de2aa0e3e2",
+    measurementId: "G-TDQ2PKZXWT"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const postsContainer = document.getElementById('posts-lekha'); // या अन्य section id हरू
+
+  async function loadPosts() {
+    const sections = {
+      lekha: document.getElementById('posts-lekha'),
+      sahitya: document.getElementById('posts-sahitya'),
+      loksewa: document.getElementById('posts-loksewa'),
+      patrapatrika: document.getElementById('posts-patrapatrika'),
+      'mero-barema': document.getElementById('posts-mero-barema')
+    };
+
+    // Clear all first
+    Object.values(sections).forEach(sec => sec.innerHTML = '');
+
+    try {
+      const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
+      const querySnapshot = await getDocs(q);
+      if (querySnapshot.empty) {
+        Object.values(sections).forEach(sec => sec.innerHTML = "<p>कुनै पोस्ट उपलब्ध छैन।</p>");
+        return;
+      }
+
+      querySnapshot.forEach(doc => {
+        const post = doc.data();
+        const div = document.createElement('article');
+        div.className = 'post-box';
+        div.innerHTML = `
+          <h3 class="post-title">${post.title}</h3>
+          <div class="post-content">${post.content}</div>
+          ${post.youtube ? `<iframe src="${post.youtube}" frameborder="0" allowfullscreen></iframe>` : ''}
+        `;
+        if(sections[post.section]) {
+          sections[post.section].appendChild(div);
+        }
+      });
+    } catch (e) {
+      console.error('पोस्ट लोड गर्न समस्या:', e);
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', loadPosts);
+</script>
 
   <script>
     const repo = 'narayanbhandari58/narayanbhandari';
