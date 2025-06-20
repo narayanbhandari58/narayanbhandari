@@ -251,12 +251,12 @@
         
         <div class="form-group">
           <label for="pdf">PDF फाइल (वैकल्पिक)</label>
-          <input type="text" id="pdf" placeholder="pdf-file-name.pdf" />
+          <input type="file" id="pdf" accept=".pdf" />
         </div>
         
         <div class="form-group">
           <label for="image">तस्विर फाइल (वैकल्पिक)</label>
-          <input type="text" id="image" placeholder="image-file-name.jpg" />
+          <input type="file" id="image" accept="image/*" />
         </div>
         
         <button id="submitPostBtn" style="width: 100%;">पोस्ट सेभ गर्नुहोस्</button>
@@ -295,12 +295,12 @@
         
         <div class="form-group">
           <label for="editPdf">PDF फाइल (वैकल्पिक)</label>
-          <input type="text" id="editPdf" placeholder="pdf-file-name.pdf" />
+          <input type="file" id="editPdf" accept=".pdf" />
         </div>
         
         <div class="form-group">
           <label for="editImage">तस्विर फाइल (वैकल्पिक)</label>
-          <input type="text" id="editImage" placeholder="image-file-name.jpg" />
+          <input type="file" id="editImage" accept="image/*" />
         </div>
         
         <div class="form-group" style="display: flex; gap: 1rem;">
@@ -361,6 +361,7 @@
 
     // Login function
     function handleLogin() {
+      console.log("Login button clicked"); // Debugging line
       const username = document.getElementById('username').value.trim();
       const password = document.getElementById('password').value.trim();
       
@@ -391,12 +392,13 @@
 
     // Submit Post Function
     async function submitPost() {
+      console.log("Submit Post button clicked"); // Debugging line
       const title = document.getElementById('title').value.trim();
       const section = document.getElementById('section').value;
       const content = quill.root.innerHTML.trim();
       const youtube = document.getElementById('youtube').value.trim();
-      const pdf = document.getElementById('pdf').value.trim();
-      const image = document.getElementById('image').value.trim();
+      const pdfFile = document.getElementById('pdf').files[0];
+      const imageFile = document.getElementById('image').files[0];
 
       if (!title) {
         alert('कृपया पोस्टको शीर्षक दिनुहोस्');
@@ -419,8 +421,8 @@
         section,
         content,
         youtube,
-        pdf,
-        image,
+        pdf: pdfFile ? pdfFile.name : null,
+        image: imageFile ? imageFile.name : null,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString()
       };
@@ -433,8 +435,9 @@
         posts.unshift(post);
         
         await updateDataFile({ posts });
-        await savePostFile(post);
+        await savePostFile(post, pdfFile, imageFile);
         
+        // Reset form fields
         document.getElementById('title').value = '';
         document.getElementById('section').value = '';
         quill.setContents([]);
@@ -480,7 +483,7 @@
               ${post.image ? `<p>Image: ${post.image}</p>` : ''}
               <div class="post-actions">
                 <button onclick="editPost('${post.id}')">सम्पादन गर्नुहोस्</button>
-                <button onclick="deletePost('${post.id}', '${post.section}')" class="secondary">हटाउनुहोस्</button>
+                <button onclick="deletePost('${post.id}')" class="secondary">हटाउनुहोस्</button>
               </div>
             </div>
           `;
@@ -492,6 +495,19 @@
         container.innerHTML = '<p>पोस्ट लोड गर्न त्रुटि।</p>';
       }
     }
-  </script>
-</body>
-</html>
+
+    async function savePostFile(post, pdfFile, imageFile) {
+      // Save the post data to the server or local storage
+      // Implement your logic to save the post data
+      // If you are using GitHub or any other backend, implement the API call here
+      console.log("Saving post:", post);
+      if (pdfFile) {
+        // Logic to upload PDF file
+        console.log("Uploading PDF:", pdfFile.name);
+      }
+      if (imageFile) {
+        // Logic to upload image file
+        console.log("Uploading Image:", imageFile.name);
+      }
+    }
+</Html>
