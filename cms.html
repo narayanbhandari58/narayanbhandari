@@ -15,25 +15,109 @@
       --text-light: #666;
       --border-color: #ddd;
     }
-    body { font-family: "Noto Sans Devanagari", sans-serif; margin: 0; background: var(--light-color); color: var(--text-color); line-height: 1.6; }
-    header { background-color: var(--primary-color); color: white; padding: 1.5rem; text-align: center; font-size: 1.8rem; font-weight: bold; letter-spacing: 1px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    main { max-width: 900px; margin: 2rem auto; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    body {
+      font-family: "Noto Sans Devanagari", sans-serif;
+      margin: 0;
+      background: var(--light-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
     .form-group { margin-bottom: 1.5rem; }
-    label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
-    input, select, textarea { width: 100%; padding: 0.75rem; font-size: 1rem; border-radius: 6px; border: 1px solid var(--border-color); }
-    button { padding: 0.75rem 1.5rem; font-size: 1rem; border-radius: 6px; border: none; background: var(--secondary-color); color: white; font-weight: bold; cursor: pointer; transition: all 0.3s ease; }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+    }
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: none;
+      background: var(--secondary-color);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
     button:hover { background: var(--dark-color); transform: translateY(-2px); }
     button.secondary { background: #444; }
     button.secondary:hover { background: #222; }
     #editor { height: 300px; margin-bottom: 1rem; }
-    .post-item { border: 1px solid var(--border-color); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-    .post-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-    .post-title { font-size: 1.3rem; font-weight: 700; color: var(--dark-color); margin: 0; }
-    .post-section { display: inline-block; padding: 0.2rem 0.5rem; background: #e0e0e0; border-radius: 4px; font-size: 0.8rem; margin-left: 0.5rem; }
+    .post-item {
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .post-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark-color);
+      margin: 0;
+    }
+    .post-section {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      background: #e0e0e0;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-left: 0.5rem;
+    }
     .post-content { margin-bottom: 1rem; }
-    .post-actions { display: flex; gap: 0.5rem; margin-top: 1rem; }
-    .loading { text-align: center; padding: 2rem; font-size: 1.2rem; color: var(--text-light); }
-    .spinner { display: inline-block; width: 2rem; height: 2rem; border: 3px solid rgba(0,0,0,0.1); border-radius: 50%; border-top-color: var(--primary-color); animation: spin 1s ease-in-out infinite; margin: 0 auto; }
+    .post-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      font-size: 1.2rem;
+      color: var(--text-light);
+    }
+    .spinner {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      border: 3px solid rgba(0,0,0,0.1);
+      border-radius: 50%;
+      border-top-color: var(--primary-color);
+      animation: spin 1s ease-in-out infinite;
+      margin: 0 auto;
+    }
     @keyframes spin { to { transform: rotate(360deg); } }
     @media (max-width: 768px) {
       main { padding: 1rem; max-width: 95%; }
@@ -110,6 +194,9 @@
     });
 
     const loginData = { username: 'Narayan', password: '9846' };
+    const token = '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';
+    const repo = 'narayanbhandari58/narayanbhandari';
+    const branch = 'main';
 
     function login() {
       const u = document.getElementById('username').value.trim();
@@ -134,30 +221,51 @@
       if (isLoggedIn) loadPosts();
     }
 
-    async function uploadFile(file, filename, token) {
-      const reader = new FileReader();
-      return new Promise((resolve, reject) => {
-        reader.onload = async () => {
-          const contentEncoded = btoa(reader.result);
-          const url = `https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/files/${filename}`;
-          const res = await fetch(url, {
-            method: 'PUT',
-            headers: {
-              'Authorization': `token ${token}`,
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              message: `Upload file ${filename}`,
-              content: contentEncoded,
-              branch: 'main'
-            })
-          });
-          if (!res.ok) reject(await res.text());
-          else resolve(`https://narayanbhandari58.github.io/narayanbhandari/files/${filename}`);
-        };
-        reader.onerror = reject;
-        reader.readAsBinaryString(file);
+    // फाइल अपलोड गर्ने function (pdf, image)
+    async function uploadFile(file, folder) {
+      if (!file) return '';
+
+      const path = `${folder}/${file.name}`;
+      const url = `https://api.github.com/repos/${repo}/contents/${path}`;
+
+      // पहिले SHA खोजौं update को लागि
+      let sha = null;
+      try {
+        const res = await fetch(url, {
+          headers: { Authorization: `token ${token}` },
+        });
+        if (res.ok) {
+          const data = await res.json();
+          sha = data.sha;
+        }
+      } catch {}
+
+      const base64 = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = error => reject(error);
+        reader.readAsDataURL(file);
       });
+
+      const res = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          Authorization: `token ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: `Add/update file ${file.name}`,
+          content: base64,
+          branch,
+          sha,
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error(`File upload failed: ${file.name}`);
+      }
+
+      return `https://raw.githubusercontent.com/${repo}/${branch}/${path}`;
     }
 
     async function submitPost() {
@@ -169,56 +277,81 @@
       const image = document.getElementById('image').files[0];
       const id = Date.now().toString();
 
-      const token = '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';
-      let pdfUrl = '', imageUrl = '';
       try {
-        if (pdf) pdfUrl = await uploadFile(pdf, pdf.name, token);
-        if (image) imageUrl = await uploadFile(image, image.name, token);
-      } catch (err) {
-        alert('फाइल अपलोड गर्न सकिएन: ' + err);
-        return;
+        const pdfUrl = await uploadFile(pdf, 'files');
+        const imageUrl = await uploadFile(image, 'files');
+
+        const post = {
+          id, title, section, content,
+          youtube,
+          pdf: pdfUrl,
+          image: imageUrl,
+          created: new Date().toISOString()
+        };
+
+        const postPath = `posts/${id}.json`;
+        const postUrl = `https://api.github.com/repos/${repo}/contents/${postPath}`;
+
+        // पोस्टको SHA लिएर update को लागि
+        let postSha = null;
+        try {
+          const res = await fetch(postUrl, {
+            headers: { Authorization: `token ${token}` },
+          });
+          if (res.ok) {
+            const data = await res.json();
+            postSha = data.sha;
+          }
+        } catch {}
+
+        const contentEncoded = btoa(unescape(encodeURIComponent(JSON.stringify(post, null, 2))));
+
+        const postRes = await fetch(postUrl, {
+          method: 'PUT',
+          headers: {
+            Authorization: `token ${token}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            message: `Add/update post ${title}`,
+            content: contentEncoded,
+            branch,
+            sha: postSha,
+          }),
+        });
+
+        if (postRes.ok) {
+          alert('पोस्ट सफलतापूर्वक GitHub मा सेभ भयो।');
+          clearForm();
+          loadPosts();
+        } else {
+          const errorText = await postRes.text();
+          alert('पोस्ट GitHub मा सेभ हुन सकेन: ' + errorText);
+        }
+      } catch (e) {
+        alert('एरर: ' + e.message);
       }
+    }
 
-      const post = {
-        id, title, section, content,
-        youtube,
-        pdf: pdfUrl,
-        image: imageUrl,
-        created: new Date().toISOString()
-      };
-
-      const path = `posts/${id}.json`;
-      const url = `https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/${path}`;
-      const contentEncoded = btoa(unescape(encodeURIComponent(JSON.stringify(post, null, 2))));
-
-      const res = await fetch(url, {
-        method: 'PUT',
-        headers: {
-          'Authorization': `token ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          message: `Add post ${title}`,
-          content: contentEncoded,
-          branch: 'main'
-        })
-      });
-
-      if (res.ok) {
-        alert('पोस्ट सफलतापूर्वक GitHub मा सेभ भयो।');
-        loadPosts();
-      } else {
-        alert('पोस्ट GitHub मा सेभ हुन सकेन।');
-        console.error(await res.text());
-      }
+    function clearForm() {
+      document.getElementById('title').value = '';
+      document.getElementById('youtube').value = '';
+      document.getElementById('pdf').value = '';
+      document.getElementById('image').value = '';
+      quill.setContents([]);
     }
 
     async function loadPosts() {
       const container = document.getElementById('recentPosts');
       container.innerHTML = '<div class="spinner"></div>';
       try {
-        const res = await fetch('https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/posts');
+        const res = await fetch(`https://api.github.com/repos/${repo}/contents/posts?ref=${branch}`);
+        if (!res.ok) throw new Error('पोस्ट फोल्डर भेटिएन');
         const files = await res.json();
+        if (!Array.isArray(files) || files.length === 0) {
+          container.innerHTML = '<p>पोस्टहरू उपलब्ध छैनन्।</p>';
+          return;
+        }
         const posts = await Promise.all(files.reverse().map(async file => {
           const r = await fetch(file.download_url);
           return await r.json();
@@ -231,8 +364,8 @@
             </div>
             <div class="post-content">${post.content}</div>
             ${post.youtube ? `<iframe width="100%" height="250" src="${post.youtube}" frameborder="0" allowfullscreen></iframe>` : ''}
-            ${post.pdf ? `<p><strong>PDF:</strong> <a href="${post.pdf}" target="_blank">डाउनलोड</a></p>` : ''}
-            ${post.image ? `<p><strong>Image:</strong> <a href="${post.image}" target="_blank">हेर्नुहोस्</a></p>` : ''}
+            ${post.pdf ? `<p><strong>PDF:</strong> <a href="${post.pdf}" target="_blank" rel="noopener">डाउनलोड</a></p>` : ''}
+            ${post.image ? `<p><strong>Image:</strong> <a href="${post.image}" target="_blank" rel="noopener">हेर्नुहोस्</a></p>` : ''}
           </div>
         `).join('');
       } catch (e) {
