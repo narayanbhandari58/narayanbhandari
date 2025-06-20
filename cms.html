@@ -15,7 +15,6 @@
       --text-light: #666;
       --border-color: #ddd;
     }
-    
     body {
       font-family: "Noto Sans Devanagari", sans-serif;
       margin: 0;
@@ -23,7 +22,6 @@
       color: var(--text-color);
       line-height: 1.6;
     }
-    
     header {
       background-color: var(--primary-color);
       color: white;
@@ -34,7 +32,6 @@
       letter-spacing: 1px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    
     main {
       max-width: 900px;
       margin: 2rem auto;
@@ -43,17 +40,12 @@
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-    
+    .form-group { margin-bottom: 1.5rem; }
     label {
       display: block;
       margin-bottom: 0.5rem;
       font-weight: 600;
     }
-    
     input, select, textarea {
       width: 100%;
       padding: 0.75rem;
@@ -61,7 +53,6 @@
       border-radius: 6px;
       border: 1px solid var(--border-color);
     }
-    
     button {
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
@@ -73,25 +64,10 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-    
-    button:hover {
-      background: var(--dark-color);
-      transform: translateY(-2px);
-    }
-    
-    button.secondary {
-      background: #444;
-    }
-    
-    button.secondary:hover {
-      background: #222;
-    }
-    
-    #editor {
-      height: 300px;
-      margin-bottom: 1rem;
-    }
-    
+    button:hover { background: var(--dark-color); transform: translateY(-2px); }
+    button.secondary { background: #444; }
+    button.secondary:hover { background: #222; }
+    #editor { height: 300px; margin-bottom: 1rem; }
     .post-item {
       border: 1px solid var(--border-color);
       padding: 1.5rem;
@@ -100,21 +76,18 @@
       background: white;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
-    
     .post-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 1rem;
     }
-    
     .post-title {
       font-size: 1.3rem;
       font-weight: 700;
       color: var(--dark-color);
       margin: 0;
     }
-    
     .post-section {
       display: inline-block;
       padding: 0.2rem 0.5rem;
@@ -123,24 +96,18 @@
       font-size: 0.8rem;
       margin-left: 0.5rem;
     }
-    
-    .post-content {
-      margin-bottom: 1rem;
-    }
-    
+    .post-content { margin-bottom: 1rem; }
     .post-actions {
       display: flex;
       gap: 0.5rem;
       margin-top: 1rem;
     }
-    
     .loading {
       text-align: center;
       padding: 2rem;
       font-size: 1.2rem;
       color: var(--text-light);
     }
-    
     .spinner {
       display: inline-block;
       width: 2rem;
@@ -151,44 +118,11 @@
       animation: spin 1s ease-in-out infinite;
       margin: 0 auto;
     }
-    
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    
-    /* Login section */
-    #loginSection {
-      max-width: 400px;
-      margin: 0 auto;
-    }
-    
-    /* Editor toggle */
-    .editor-toggle {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    
-    .editor-toggle button {
-      flex: 1;
-    }
-    
-    /* Responsive */
+    @keyframes spin { to { transform: rotate(360deg); } }
     @media (max-width: 768px) {
-      main {
-        padding: 1rem;
-        max-width: 95%;
-      }
-      
-      .post-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      
-      .post-section {
-        margin-left: 0;
-        margin-top: 0.5rem;
-      }
+      main { padding: 1rem; max-width: 95%; }
+      .post-header { flex-direction: column; align-items: flex-start; }
+      .post-section { margin-left: 0; margin-top: 0.5rem; }
     }
   </style>
 </head>
@@ -197,317 +131,136 @@
     <h1>CMS - नारायण भण्डारी</h1>
   </header>
   <main>
-    <!-- Login Section with added error message display -->
     <div id="loginSection">
       <h2>लगिन गर्नुहोस्</h2>
       <div class="form-group">
         <label for="username">प्रयोगकर्ता नाम</label>
-        <input type="text" id="username" placeholder="प्रयोगकर्ता नाम" />
+        <input type="text" id="username" placeholder="Narayan" />
       </div>
       <div class="form-group">
         <label for="password">पासवर्ड</label>
-        <input type="password" id="password" placeholder="पासवर्ड" />
+        <input type="password" id="password" placeholder="9846" />
       </div>
-      <div id="loginError" style="color:red; margin-bottom:1rem;"></div>
-      <button id="loginBtn">लगिन</button>
+      <div id="loginError" style="color:red;"></div>
+      <button onclick="login()">लगिन</button>
     </div>
 
-    <!-- CMS Section (hidden by default) -->
     <div id="cmsSection" style="display:none">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-        <h2 style="margin: 0;">सामग्री व्यवस्थापन</h2>
-        <button id="logoutBtn" class="secondary">लगआउट</button>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2>सामग्री व्यवस्थापन</h2>
+        <button onclick="logout()" class="secondary">लगआउट</button>
       </div>
 
-      <!-- New Post Form -->
-      <div id="newPostForm">
-        <h3>नयाँ सामग्री थप्नुहोस्</h3>
-        <div class="form-group">
-          <label for="title">शीर्षक</label>
-          <input type="text" id="title" placeholder="पोस्टको शीर्षक" required />
-        </div>
-        
-        <div class="form-group">
-          <label for="section">श्रेणी</label>
-          <select id="section" required>
-            <option value="">प्रकार रोज्नुहोस्</option>
-            <option value="lekha">लेख/रचना</option>
-            <option value="sahitya">साहित्य</option>
-            <option value="loksewa">लोकसेवा</option>
-            <option value="patrapatrika">पत्रपत्रिका</option>
-            <option value="mero-barema">मेरो बारेमा</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label>सामग्री</label>
-          <div id="editor"></div>
-        </div>
-        
-        <div class="form-group">
-          <label for="youtube">YouTube लिङ्क (वैकल्पिक)</label>
-          <input type="url" id="youtube" placeholder="https://youtube.com/watch?v=..." pattern="https?://.*" />
-        </div>
-        
-        <div class="form-group">
-          <label for="pdf">PDF फाइल (वैकल्पिक)</label>
-          <input type="file" id="pdf" accept=".pdf" />
-        </div>
-        
-        <div class="form-group">
-          <label for="image">तस्विर फाइल (वैकल्पिक)</label>
-          <input type="file" id="image" accept="image/*" />
-        </div>
-        
-        <button id="submitPostBtn" style="width: 100%;">पोस्ट सेभ गर्नुहोस्</button>
+      <div class="form-group">
+        <label for="title">शीर्षक</label>
+        <input type="text" id="title" placeholder="शीर्षक" />
       </div>
-
-      <!-- Edit Post Form (hidden by default) -->
-      <div id="editPostForm" style="display: none;">
-        <h3>पोस्ट सम्पादन गर्नुहोस्</h3>
-        <input type="hidden" id="editPostId" />
-        
-        <div class="form-group">
-          <label for="editTitle">शीर्षक</label>
-          <input type="text" id="editTitle" placeholder="पोस्टको शीर्षक" required />
-        </div>
-        
-        <div class="form-group">
-          <label for="editSection">श्रेणी</label>
-          <select id="editSection" required>
-            <option value="lekha">लेख/रचना</option>
-            <option value="sahitya">साहित्य</option>
-            <option value="loksewa">लोकसेवा</option>
-            <option value="patrapatrika">पत्रपत्रिका</option>
-            <option value="mero-barema">मेरो बारेमा</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label>सामग्री</label>
-          <div id="editEditor"></div>
-        </div>
-        
-        <div class="form-group">
-          <label for="editYoutube">YouTube लिङ्क (वैकल्पिक)</label>
-          <input type="url" id="editYoutube" placeholder="https://youtube.com/watch?v=..." pattern="https?://.*" />
-        </div>
-        
-        <div class="form-group">
-          <label for="editPdf">PDF फाइल (वैकल्पिक)</label>
-          <input type="file" id="editPdf" accept=".pdf" />
-        </div>
-        
-        <div class="form-group">
-          <label for="editImage">तस्विर फाइल (वैकल्पिक)</label>
-          <input type="file" id="editImage" accept="image/*" />
-        </div>
-        
-        <div class="form-group" style="display: flex; gap: 1rem;">
-          <button onclick="cancelEdit()" class="secondary" style="flex: 1;">रद्द गर्नुहोस्</button>
-          <button onclick="updatePost()" style="flex: 1;">अपडेट गर्नुहोस्</button>
-        </div>
+      <div class="form-group">
+        <label for="section">श्रेणी</label>
+        <select id="section">
+          <option value="lekha">लेख/रचना</option>
+          <option value="sahitya">साहित्य</option>
+          <option value="loksewa">लोकसेवा</option>
+          <option value="patrapatrika">पत्रपत्रिका</option>
+          <option value="mero-barema">मेरो बारेमा</option>
+        </select>
       </div>
-
-      <!-- Recent Posts -->
-      <h3 style="margin-top: 2rem;">हालका पोस्टहरू</h3>
-      <div id="recentPosts" class="loading">
-        <div class="spinner"></div>
+      <div class="form-group">
+        <label>सामग्री</label>
+        <div id="editor"></div>
       </div>
+      <div class="form-group">
+        <label for="youtube">YouTube लिङ्क (Embed)</label>
+        <input type="url" id="youtube" placeholder="https://youtube.com/embed/..." />
+      </div>
+      <div class="form-group">
+        <label for="pdf">PDF फाइल</label>
+        <input type="file" id="pdf" accept="application/pdf" />
+      </div>
+      <div class="form-group">
+        <label for="image">तस्बिर</label>
+        <input type="file" id="image" accept="image/*" />
+      </div>
+      <button onclick="submitPost()">पोस्ट सेभ गर्नुहोस्</button>
+      <h3 style="margin-top:2rem;">हालका पोस्टहरू</h3>
+      <div id="recentPosts" class="loading"><div class="spinner"></div></div>
     </div>
   </main>
-
   <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
   <script>
-    // Configuration
-    const loginData = { username: 'Narayan', password: '9846' };
-
-    // Initialize editors
     const quill = new Quill('#editor', {
       theme: 'snow',
-      placeholder: 'तपाईंको सामग्री यहाँ लेख्नुहोस्...',
-      modules: {
-        toolbar: [
-          [{ 'header': [1, 2, 3, false] }],
-          ['bold', 'italic', 'underline', 'strike'],
-          ['link'],
-          [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-          ['clean']
-        ]
-      }
-    });
-    
-    const editQuill = new Quill('#editEditor', {
-      theme: 'snow',
-      modules: {
-        toolbar: [
-          [{ 'header': [1, 2, 3, false] }],
-          ['bold', 'italic', 'underline', 'strike'],
-          ['link'],
-          [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-          ['clean']
-        ]
-      }
+      placeholder: 'सामग्री यहाँ लेख्नुहोस्...'
     });
 
-    // Check login status on page load
-    function checkAuth() {
-      if (localStorage.getItem('cms_logged_in') === 'yes') {
-        document.getElementById('loginSection').style.display = 'none';
-        document.getElementById('cmsSection').style.display = 'block';
-        loadRecentPosts();
-      }
-    }
+    const loginData = { username: 'Narayan', password: '9846' };
 
-    // Login function
-    function handleLogin() {
-      console.log("Login button clicked"); // Debugging line
-      const username = document.getElementById('username').value.trim();
-      const password = document.getElementById('password').value.trim();
-      
-      if (username === loginData.username && password === loginData.password) {
+    function login() {
+      const u = document.getElementById('username').value.trim();
+      const p = document.getElementById('password').value.trim();
+      if (u === loginData.username && p === loginData.password) {
         localStorage.setItem('cms_logged_in', 'yes');
-        document.getElementById('loginError').textContent = '';
-        checkAuth();
+        checkLogin();
       } else {
-        document.getElementById('loginError').textContent = 'गलत प्रयोगकर्ता नाम वा पासवर्ड';
+        document.getElementById('loginError').innerText = 'गलत प्रयोगकर्ता नाम वा पासवर्ड';
       }
     }
 
-    // Logout function
-    function handleLogout() {
+    function logout() {
       localStorage.removeItem('cms_logged_in');
       location.reload();
     }
 
-    // Event listeners for buttons
-    document.getElementById('loginBtn').addEventListener('click', handleLogin);
-    document.getElementById('logoutBtn').addEventListener('click', handleLogout);
-    document.getElementById('submitPostBtn').addEventListener('click', submitPost);
+    function checkLogin() {
+      const isLoggedIn = localStorage.getItem('cms_logged_in') === 'yes';
+      document.getElementById('loginSection').style.display = isLoggedIn ? 'none' : 'block';
+      document.getElementById('cmsSection').style.display = isLoggedIn ? 'block' : 'none';
+      if (isLoggedIn) loadPosts();
+    }
 
-    // Initialize on page load
-    document.addEventListener('DOMContentLoaded', function() {
-      checkAuth();
-    });
-
-    // Submit Post Function
     async function submitPost() {
-      console.log("Submit Post button clicked"); // Debugging line
       const title = document.getElementById('title').value.trim();
       const section = document.getElementById('section').value;
       const content = quill.root.innerHTML.trim();
       const youtube = document.getElementById('youtube').value.trim();
-      const pdfFile = document.getElementById('pdf').files[0];
-      const imageFile = document.getElementById('image').files[0];
-
-      if (!title) {
-        alert('कृपया पोस्टको शीर्षक दिनुहोस्');
-        return;
-      }
-      
-      if (!section) {
-        alert('कृपया पोस्टको श्रेणी चयन गर्नुहोस्');
-        return;
-      }
-      
-      if (!content || content === '<p><br></p>') {
-        alert('कृपया पोस्टको सामग्री दिनुहोस्');
-        return;
-      }
+      const pdf = document.getElementById('pdf').files[0];
+      const image = document.getElementById('image').files[0];
+      const id = Date.now().toString();
 
       const post = {
-        id: generateId(),
-        title,
-        section,
-        content,
-        youtube,
-        pdf: pdfFile ? pdfFile.name : null,
-        image: imageFile ? imageFile.name : null,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString()
+        id, title, section, content,
+        youtube, pdf: pdf?.name || '', image: image?.name || '',
+        created: new Date().toISOString()
       };
 
-      try {
-        document.getElementById('recentPosts').innerHTML = '<div class="loading"><div class="spinner"></div>लोड हुँदैछ...</div>';
-        
-        const dataFile = await getDataFile();
-        const posts = dataFile.posts || [];
-        posts.unshift(post);
-        
-        await updateDataFile({ posts });
-        await savePostFile(post, pdfFile, imageFile);
-        
-        // Reset form fields
-        document.getElementById('title').value = '';
-        document.getElementById('section').value = '';
-        quill.setContents([]);
-        document.getElementById('youtube').value = '';
-        document.getElementById('pdf').value = '';
-        document.getElementById('image').value = '';
-        
-        await loadRecentPosts();
-        
-        alert('पोस्ट सफलतापूर्वक सेभ भयो र वेबसाइटमा प्रदर्शित हुनेछ!');
-      } catch (error) {
-        console.error('Error:', error);
-        alert('पोस्ट सेभ गर्दा त्रुटि: ' + error.message);
-      }
+      const stored = JSON.parse(localStorage.getItem('posts') || '[]');
+      stored.unshift(post);
+      localStorage.setItem('posts', JSON.stringify(stored));
+      loadPosts();
     }
 
-    async function loadRecentPosts() {
+    function loadPosts() {
       const container = document.getElementById('recentPosts');
-      container.innerHTML = '<div class="loading"><div class="spinner"></div>लोड हुँदैछ...</div>';
-      
-      try {
-        const dataFile = await getDataFile();
-        const posts = dataFile.posts || [];
-        
-        if (posts.length === 0) {
-          container.innerHTML = '<p>कुनै पोस्ट उपलब्ध छैन।</p>';
-          return;
-        }
-        
-        let html = '';
-        posts.forEach(post => {
-          html += `
-            <div class="post-item" id="post-${post.id}">
-              <div class="post-header">
-                <h4 class="post-title">${post.title}</h4>
-                <span class="post-section">${getSectionName(post.section)}</span>
-              </div>
-              <div class="post-content">
-                ${post.content.substring(0, 200)}${post.content.length > 200 ? '...' : ''}
-              </div>
-              ${post.youtube ? `<p>YouTube: ${post.youtube}</p>` : ''}
-              ${post.pdf ? `<p>PDF: ${post.pdf}</p>` : ''}
-              ${post.image ? `<p>Image: ${post.image}</p>` : ''}
-              <div class="post-actions">
-                <button onclick="editPost('${post.id}')">सम्पादन गर्नुहोस्</button>
-                <button onclick="deletePost('${post.id}')" class="secondary">हटाउनुहोस्</button>
-              </div>
-            </div>
-          `;
-        });
-        
-        container.innerHTML = html;
-      } catch (error) {
-        console.error('Error:', error);
-        container.innerHTML = '<p>पोस्ट लोड गर्न त्रुटि।</p>';
+      const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+      if (posts.length === 0) {
+        container.innerHTML = '<p>कुनै पोस्ट छैन।</p>';
+        return;
       }
+      container.innerHTML = posts.map(post => `
+        <div class="post-item">
+          <div class="post-header">
+            <h4 class="post-title">${post.title}</h4>
+            <span class="post-section">${post.section}</span>
+          </div>
+          <div class="post-content">${post.content}</div>
+          ${post.youtube ? `<iframe width="100%" height="250" src="${post.youtube}" frameborder="0" allowfullscreen></iframe>` : ''}
+          ${post.pdf ? `<p><strong>PDF:</strong> ${post.pdf}</p>` : ''}
+          ${post.image ? `<p><strong>Image:</strong> ${post.image}</p>` : ''}
+        </div>
+      `).join('');
     }
 
-    async function savePostFile(post, pdfFile, imageFile) {
-      // Save the post data to the server or local storage
-      // Implement your logic to save the post data
-      // If you are using GitHub or any other backend, implement the API call here
-      console.log("Saving post:", post);
-      if (pdfFile) {
-        // Logic to upload PDF file
-        console.log("Uploading PDF:", pdfFile.name);
-      }
-      if (imageFile) {
-        // Logic to upload image file
-        console.log("Uploading Image:", imageFile.name);
-      }
-    }
-</Html>
+    document.addEventListener('DOMContentLoaded', checkLogin);
+  </script>
+</body>
+</html>
