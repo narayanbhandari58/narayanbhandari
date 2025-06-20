@@ -6,220 +6,141 @@
   <title>CMS - नारायण भण्डारी</title>
   <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
   <style>
-    :root {
-      --primary-color: #8f0e04;
-      --secondary-color: #bb1919;
-      --dark-color: #5b0402;
-      --light-color: #f9f9f9;
-      --text-color: #222;
-      --text-light: #666;
-      --border-color: #ddd;
-    }
-    body { font-family: "Noto Sans Devanagari", sans-serif; margin: 0; background: var(--light-color); color: var(--text-color); line-height: 1.6; }
-    header { background-color: var(--primary-color); color: white; padding: 1.5rem; text-align: center; font-size: 1.8rem; font-weight: bold; letter-spacing: 1px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    main { max-width: 900px; margin: 2rem auto; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-    .form-group { margin-bottom: 1.5rem; }
-    label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
-    input, select, textarea { width: 100%; padding: 0.75rem; font-size: 1rem; border-radius: 6px; border: 1px solid var(--border-color); }
-    button { padding: 0.75rem 1.5rem; font-size: 1rem; border-radius: 6px; border: none; background: var(--secondary-color); color: white; font-weight: bold; cursor: pointer; transition: all 0.3s ease; }
-    button:hover { background: var(--dark-color); transform: translateY(-2px); }
-    button.secondary { background: #444; }
-    button.secondary:hover { background: #222; }
-    #editor { height: 300px; margin-bottom: 1rem; }
-    .post-item { border: 1px solid var(--border-color); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-    .post-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-    .post-title { font-size: 1.3rem; font-weight: 700; color: var(--dark-color); margin: 0; }
-    .post-section { display: inline-block; padding: 0.2rem 0.5rem; background: #e0e0e0; border-radius: 4px; font-size: 0.8rem; margin-left: 0.5rem; }
-    .post-content { margin-bottom: 1rem; }
-    .post-actions { display: flex; gap: 0.5rem; margin-top: 1rem; }
-    .loading { text-align: center; padding: 2rem; font-size: 1.2rem; color: var(--text-light); }
-    .spinner { display: inline-block; width: 2rem; height: 2rem; border: 3px solid rgba(0,0,0,0.1); border-radius: 50%; border-top-color: var(--primary-color); animation: spin 1s ease-in-out infinite; margin: 0 auto; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    @media (max-width: 768px) {
-      main { padding: 1rem; max-width: 95%; }
-      .post-header { flex-direction: column; align-items: flex-start; }
-      .post-section { margin-left: 0; margin-top: 0.5rem; }
-    }
+    /* Basic styling */
+    body { font-family: "Noto Sans Devanagari", sans-serif; background: #f9f9f9; color: #222; padding: 1rem; max-width: 700px; margin: auto; }
+    header { background: #8f0e04; color: white; padding: 1rem; text-align: center; font-weight: bold; margin-bottom: 1rem; }
+    label { display: block; margin: 0.5rem 0 0.2rem; font-weight: 600; }
+    input, select { width: 100%; padding: 0.5rem; margin-bottom: 1rem; border-radius: 5px; border: 1px solid #ccc; font-size: 1rem; }
+    #editor { height: 250px; background: white; margin-bottom: 1rem; }
+    button { background: #bb1919; color: white; padding: 0.7rem 1.2rem; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; }
+    button:hover { background: #8f0e04; }
+    #loginSection, #cmsSection { max-width: 700px; margin: auto; }
+    #loginSection { margin-top: 4rem; }
+    #loginError { color: red; margin-bottom: 1rem; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>CMS - नारायण भण्डारी</h1>
-  </header>
-  <main>
-    <div id="loginSection">
-      <h2>लगिन गर्नुहोस्</h2>
-      <div class="form-group">
-        <label for="username">प्रयोगकर्ता नाम</label>
-        <input type="text" id="username" placeholder="Narayan" />
-      </div>
-      <div class="form-group">
-        <label for="password">पासवर्ड</label>
-        <input type="password" id="password" placeholder="9846" />
-      </div>
-      <div id="loginError" style="color:red;"></div>
-      <button onclick="login()">लगिन</button>
-    </div>
 
-    <div id="cmsSection" style="display:none">
-      <div style="display: flex; justify-content: space-between; align-items: center;">
-        <h2>सामग्री व्यवस्थापन</h2>
-        <button onclick="logout()" class="secondary">लगआउट</button>
-      </div>
-      <div class="form-group">
-        <label for="title">शीर्षक</label>
-        <input type="text" id="title" placeholder="शीर्षक" />
-      </div>
-      <div class="form-group">
-        <label for="section">श्रेणी</label>
-        <select id="section">
-          <option value="lekha">लेख/रचना</option>
-          <option value="sahitya">साहित्य</option>
-          <option value="loksewa">लोकसेवा</option>
-          <option value="patrapatrika">पत्रपत्रिका</option>
-          <option value="mero-barema">मेरो बारेमा</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>सामग्री</label>
-        <div id="editor"></div>
-      </div>
-      <div class="form-group">
-        <label for="youtube">YouTube लिङ्क (Embed)</label>
-        <input type="url" id="youtube" placeholder="https://youtube.com/embed/..." />
-      </div>
-      <button onclick="submitPost()">पोस्ट सेभ गर्नुहोस्</button>
+<header>CMS - नारायण भण्डारी</header>
 
-      <h3 style="margin-top:2rem;">हालका पोस्टहरू</h3>
-      <div id="recentPosts" class="loading"><div class="spinner"></div></div>
-    </div>
-  </main>
+<div id="loginSection">
+  <h2>लगिन गर्नुहोस्</h2>
+  <label for="username">प्रयोगकर्ता नाम</label>
+  <input type="text" id="username" placeholder="Narayan" />
+  <label for="password">पासवर्ड</label>
+  <input type="password" id="password" placeholder="9846" />
+  <div id="loginError"></div>
+  <button onclick="login()">लगिन</button>
+</div>
 
-  <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+<div id="cmsSection" style="display:none;">
+  <h2>पोस्ट थप्नुहोस्</h2>
+  <label for="title">शीर्षक</label>
+  <input type="text" id="title" placeholder="शीर्षक लेख्नुहोस्" />
+  <label for="section">श्रेणी</label>
+  <select id="section">
+    <option value="lekha">लेख/रचना</option>
+    <option value="sahitya">साहित्य</option>
+    <option value="loksewa">लोकसेवा</option>
+    <option value="patrapatrika">पत्रपत्रिका</option>
+    <option value="mero-barema">मेरो बारेमा</option>
+  </select>
+  <label>सामग्री</label>
+  <div id="editor"></div>
+  <label for="youtube">YouTube Embed Link (optional)</label>
+  <input type="url" id="youtube" placeholder="https://www.youtube.com/embed/..." />
+  <button onclick="submitPost()">पोस्ट सेभ गर्नुहोस्</button>
+  <button onclick="logout()" style="margin-top:1rem; background:#444;">लगआउट</button>
+  <div id="statusMessage" style="margin-top:1rem; color: green;"></div>
+</div>
 
-  <script type="module">
-    // Firebase Modular SDK Import
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-analytics.js";
-    import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
-    // Firebase Config
-    const firebaseConfig = {
-      apiKey: "AIzaSyAeMBVRnouOkMIInTYUjysb1f3lflhxxYM",
-      authDomain: "narayan-cms.firebaseapp.com",
-      projectId: "narayan-cms",
-      storageBucket: "narayan-cms.firebasestorage.app",
-      messagingSenderId: "877625098183",
-      appId: "1:877625098183:web:c13d46fbb662de2aa0e3e2",
-      measurementId: "G-TDQ2PKZXWT"
-    };
+  // Firebase Config (तिम्रो Firebase Project को config राख्नु)
+  const firebaseConfig = {
+    apiKey: "AIzaSyAeMBVRnouOkMIInTYUjysb1f3lflhxxYM",
+    authDomain: "narayan-cms.firebaseapp.com",
+    projectId: "narayan-cms",
+    storageBucket: "narayan-cms.firebasestorage.app",
+    messagingSenderId: "877625098183",
+    appId: "1:877625098183:web:c13d46fbb662de2aa0e3e2",
+    measurementId: "G-TDQ2PKZXWT"
+  };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const db = getFirestore(app);
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
-    const quill = new Quill('#editor', {
-      theme: 'snow',
-      placeholder: 'सामग्री यहाँ लेख्नुहोस्...'
-    });
+  const quill = new Quill('#editor', {
+    theme: 'snow',
+    placeholder: 'सामग्री यहाँ लेख्नुहोस्...'
+  });
 
-    const loginData = { username: 'Narayan', password: '9846' };
+  const loginData = { username: "Narayan", password: "9846" };
 
-    function login() {
-      const u = document.getElementById('username').value.trim();
-      const p = document.getElementById('password').value.trim();
-      if (u === loginData.username && p === loginData.password) {
-        localStorage.setItem('cms_logged_in', 'yes');
-        showCMS();
-      } else {
-        document.getElementById('loginError').innerText = 'गलत प्रयोगकर्ता नाम वा पासवर्ड';
-      }
-    }
-
-    function logout() {
-      localStorage.removeItem('cms_logged_in');
-      location.reload();
-    }
-
-    function showCMS() {
-      document.getElementById('loginSection').style.display = 'none';
-      document.getElementById('cmsSection').style.display = 'block';
-      loadPosts();
-    }
-
-    async function submitPost() {
-      const title = document.getElementById('title').value.trim();
-      const section = document.getElementById('section').value;
-      const content = quill.root.innerHTML.trim();
-      const youtube = document.getElementById('youtube').value.trim();
-
-      if (!title || !content) {
-        alert('शीर्षक र सामग्री अनिवार्य छन्।');
-        return;
-      }
-
-      try {
-        await addDoc(collection(db, "posts"), {
-          title,
-          section,
-          content,
-          youtube,
-          createdAt: new Date()
-        });
-        alert('पोस्ट सफलतापूर्वक सुरक्षित भयो।');
-        clearForm();
-        loadPosts();
-      } catch (e) {
-        alert('पोस्ट सेभ गर्न समस्या भयो: ' + e.message);
-      }
-    }
-
-    async function loadPosts() {
-      const container = document.getElementById('recentPosts');
-      container.innerHTML = '<div class="spinner"></div>';
-      try {
-        const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
-        const querySnapshot = await getDocs(q);
-        if (querySnapshot.empty) {
-          container.innerHTML = '<p>कुनै पोस्ट उपलब्ध छैन।</p>';
-          return;
-        }
-        container.innerHTML = '';
-        querySnapshot.forEach(doc => {
-          const post = doc.data();
-          const div = document.createElement('div');
-          div.className = 'post-item';
-          div.innerHTML = `
-            <div class="post-header">
-              <h4 class="post-title">${post.title}</h4>
-              <span class="post-section">${post.section}</span>
-            </div>
-            <div class="post-content">${post.content}</div>
-            ${post.youtube ? `<iframe width="100%" height="250" src="${post.youtube}" frameborder="0" allowfullscreen></iframe>` : ''}
-          `;
-          container.appendChild(div);
-        });
-      } catch (e) {
-        container.innerHTML = '<p>पोस्ट लोड गर्न सकिएन।</p>';
-        console.error(e);
-      }
-    }
-
-    function clearForm() {
-      document.getElementById('title').value = '';
-      document.getElementById('youtube').value = '';
-      quill.setContents([]);
-    }
-
-    // On page load check login
-    if (localStorage.getItem('cms_logged_in') === 'yes') {
+  function login() {
+    const u = document.getElementById("username").value.trim();
+    const p = document.getElementById("password").value.trim();
+    if (u === loginData.username && p === loginData.password) {
+      localStorage.setItem("cms_logged_in", "yes");
       showCMS();
+    } else {
+      document.getElementById("loginError").innerText = "गलत प्रयोगकर्ता नाम वा पासवर्ड";
     }
-  </script>
+  }
 
-  <footer style="text-align:center; padding: 1rem; color: var(--primary-color);">
-    Developed by नारायण भण्डारी
-  </footer>
+  function logout() {
+    localStorage.removeItem("cms_logged_in");
+    location.reload();
+  }
+
+  function showCMS() {
+    document.getElementById("loginSection").style.display = "none";
+    document.getElementById("cmsSection").style.display = "block";
+    document.getElementById("loginError").innerText = "";
+    document.getElementById("statusMessage").innerText = "";
+    clearForm();
+  }
+
+  async function submitPost() {
+    const title = document.getElementById("title").value.trim();
+    const section = document.getElementById("section").value;
+    const content = quill.root.innerHTML.trim();
+    const youtube = document.getElementById("youtube").value.trim();
+
+    if (!title || !content) {
+      alert("शीर्षक र सामग्री अनिवार्य छन्।");
+      return;
+    }
+
+    try {
+      await addDoc(collection(db, "posts"), {
+        title,
+        section,
+        content,
+        youtube,
+        createdAt: new Date()
+      });
+      document.getElementById("statusMessage").innerText = "पोस्ट सफलतापूर्वक सुरक्षित भयो।";
+      clearForm();
+    } catch (e) {
+      alert("पोस्ट सेभ गर्न समस्या भयो: " + e.message);
+    }
+  }
+
+  function clearForm() {
+    document.getElementById("title").value = "";
+    document.getElementById("youtube").value = "";
+    quill.setContents([]);
+  }
+
+  // Load CMS if already logged in
+  if (localStorage.getItem("cms_logged_in") === "yes") {
+    showCMS();
+  }
+</script>
+
 </body>
 </html>
