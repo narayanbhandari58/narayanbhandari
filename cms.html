@@ -15,118 +15,30 @@
       --text-light: #666;
       --border-color: #ddd;
     }
-    body {
-      font-family: "Noto Sans Devanagari", sans-serif;
-      margin: 0;
-      background: var(--light-color);
-      color: var(--text-color);
-      line-height: 1.6;
-    }
-    header {
-      background-color: var(--primary-color);
-      color: white;
-      padding: 1.5rem;
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
+    body { font-family: "Noto Sans Devanagari", sans-serif; margin: 0; background: var(--light-color); color: var(--text-color); line-height: 1.6; }
+    header { background-color: var(--primary-color); color: white; padding: 1.5rem; text-align: center; font-size: 1.8rem; font-weight: bold; letter-spacing: 1px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    main { max-width: 900px; margin: 2rem auto; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
     .form-group { margin-bottom: 1.5rem; }
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-    input, select, textarea {
-      width: 100%;
-      padding: 0.75rem;
-      font-size: 1rem;
-      border-radius: 6px;
-      border: 1px solid var(--border-color);
-      box-sizing: border-box;
-    }
-    button {
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 6px;
-      border: none;
-      background: var(--secondary-color);
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+    label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+    input, select, textarea { width: 100%; padding: 0.75rem; font-size: 1rem; border-radius: 6px; border: 1px solid var(--border-color); }
+    button { padding: 0.75rem 1.5rem; font-size: 1rem; border-radius: 6px; border: none; background: var(--secondary-color); color: white; font-weight: bold; cursor: pointer; transition: all 0.3s ease; }
     button:hover { background: var(--dark-color); transform: translateY(-2px); }
     button.secondary { background: #444; }
     button.secondary:hover { background: #222; }
     #editor { height: 300px; margin-bottom: 1rem; }
-    .post-item {
-      border: 1px solid var(--border-color);
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
-      background: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-    .post-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .post-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--dark-color);
-      margin: 0;
-    }
-    .post-section {
-      display: inline-block;
-      padding: 0.2rem 0.5rem;
-      background: #e0e0e0;
-      border-radius: 4px;
-      font-size: 0.8rem;
-    }
+    .post-item { border: 1px solid var(--border-color); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .post-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+    .post-title { font-size: 1.3rem; font-weight: 700; color: var(--dark-color); margin: 0; }
+    .post-section { display: inline-block; padding: 0.2rem 0.5rem; background: #e0e0e0; border-radius: 4px; font-size: 0.8rem; margin-left: 0.5rem; }
     .post-content { margin-bottom: 1rem; }
-    .post-actions {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 1rem;
-      flex-wrap: wrap;
-    }
-    .loading {
-      text-align: center;
-      padding: 2rem;
-      font-size: 1.2rem;
-      color: var(--text-light);
-    }
-    .spinner {
-      display: inline-block;
-      width: 2rem;
-      height: 2rem;
-      border: 3px solid rgba(0,0,0,0.1);
-      border-radius: 50%;
-      border-top-color: var(--primary-color);
-      animation: spin 1s ease-in-out infinite;
-      margin: 0 auto;
-    }
+    .post-actions { display: flex; gap: 0.5rem; margin-top: 1rem; }
+    .loading { text-align: center; padding: 2rem; font-size: 1.2rem; color: var(--text-light); }
+    .spinner { display: inline-block; width: 2rem; height: 2rem; border: 3px solid rgba(0,0,0,0.1); border-radius: 50%; border-top-color: var(--primary-color); animation: spin 1s ease-in-out infinite; margin: 0 auto; }
     @keyframes spin { to { transform: rotate(360deg); } }
     @media (max-width: 768px) {
       main { padding: 1rem; max-width: 95%; }
       .post-header { flex-direction: column; align-items: flex-start; }
-      .post-section { margin-top: 0.5rem; }
-      .post-actions { flex-direction: column; }
+      .post-section { margin-left: 0; margin-top: 0.5rem; }
     }
   </style>
 </head>
@@ -135,6 +47,14 @@
     <h1>CMS - नारायण भण्डारी</h1>
   </header>
   <main>
+    <div id="tokenPrompt" style="display:none">
+      <h2>GitHub Token प्रविष्ट गर्नुहोस्</h2>
+      <div class="form-group">
+        <label for="tokenInput">Token</label>
+        <input type="password" id="tokenInput" placeholder="ghp_..." />
+      </div>
+      <button onclick="saveToken()">सेभ गर्नुहोस्</button>
+    </div>
     <div id="loginSection">
       <h2>लगिन गर्नुहोस्</h2>
       <div class="form-group">
@@ -150,11 +70,10 @@
     </div>
 
     <div id="cmsSection" style="display:none">
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
         <h2>सामग्री व्यवस्थापन</h2>
         <button onclick="logout()" class="secondary">लगआउट</button>
       </div>
-
       <div class="form-group">
         <label for="title">शीर्षक</label>
         <input type="text" id="title" placeholder="शीर्षक" />
@@ -178,20 +97,18 @@
         <input type="url" id="youtube" placeholder="https://youtube.com/embed/..." />
       </div>
       <div class="form-group">
-        <label for="pdf">PDF फाइल (optional)</label>
+        <label for="pdf">PDF फाइल</label>
         <input type="file" id="pdf" accept="application/pdf" />
       </div>
       <div class="form-group">
-        <label for="image">तस्बिर (optional)</label>
+        <label for="image">तस्बिर</label>
         <input type="file" id="image" accept="image/*" />
       </div>
       <button onclick="submitPost()">पोस्ट सेभ गर्नुहोस्</button>
-
       <h3 style="margin-top:2rem;">हालका पोस्टहरू</h3>
       <div id="recentPosts" class="loading"><div class="spinner"></div></div>
     </div>
   </main>
-
   <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
   <script>
     const quill = new Quill('#editor', {
@@ -200,6 +117,21 @@
     });
 
     const loginData = { username: 'Narayan', password: '9846' };
+
+    function getToken() {
+      return localStorage.getItem('github_token');
+    }
+
+    function saveToken() {
+      const token = document.getElementById('tokenInput').value.trim();
+      if (token.startsWith('ghp_')) {
+        localStorage.setItem('github_token', token);
+        document.getElementById('tokenPrompt').style.display = 'none';
+        checkLogin();
+      } else {
+        alert('सही GitHub टोकन प्रविष्ट गर्नुहोस्।');
+      }
+    }
 
     function login() {
       const u = document.getElementById('username').value.trim();
@@ -219,39 +151,43 @@
 
     function checkLogin() {
       const isLoggedIn = localStorage.getItem('cms_logged_in') === 'yes';
+      const token = getToken();
+      if (!token) {
+        document.getElementById('tokenPrompt').style.display = 'block';
+        document.getElementById('loginSection').style.display = 'none';
+        document.getElementById('cmsSection').style.display = 'none';
+        return;
+      }
+      document.getElementById('tokenPrompt').style.display = 'none';
       document.getElementById('loginSection').style.display = isLoggedIn ? 'none' : 'block';
       document.getElementById('cmsSection').style.display = isLoggedIn ? 'block' : 'none';
       if (isLoggedIn) loadPosts();
     }
 
-    // GitHub details
-    const token = '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';  // तपाईँले दिएको टोकन यहाँ हाल्नुहोस्
-    const repo = 'narayanbhandari58/narayanbhandari';
-    const branch = 'main';
-
-    async function githubPutFile(path, contentBase64, message, sha = null) {
-      const url = `https://api.github.com/repos/${repo}/contents/${path}`;
-      const body = {
-        message,
-        content: contentBase64,
-        branch,
-      };
-      if (sha) body.sha = sha;
-
-      const res = await fetch(url, {
-        method: 'PUT',
-        headers: {
-          'Authorization': `token ${token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(body),
+    async function uploadFile(file, filename, token) {
+      const reader = new FileReader();
+      return new Promise((resolve, reject) => {
+        reader.onload = async () => {
+          const contentEncoded = btoa(reader.result);
+          const url = `https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/files/${filename}`;
+          const res = await fetch(url, {
+            method: 'PUT',
+            headers: {
+              'Authorization': `token ${token}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              message: `Upload file ${filename}`,
+              content: contentEncoded,
+              branch: 'main'
+            })
+          });
+          if (!res.ok) reject(await res.text());
+          else resolve(`https://narayanbhandari58.github.io/narayanbhandari/files/${filename}`);
+        };
+        reader.onerror = reject;
+        reader.readAsBinaryString(file);
       });
-
-      if (!res.ok) {
-        const error = await res.json();
-        throw new Error(error.message || 'GitHub API error');
-      }
-      return await res.json();
     }
 
     async function submitPost() {
@@ -259,50 +195,44 @@
       const section = document.getElementById('section').value;
       const content = quill.root.innerHTML.trim();
       const youtube = document.getElementById('youtube').value.trim();
-
-      if (!title) {
-        alert('कृपया शीर्षक लेख्नुहोस्।');
-        return;
-      }
-      if (!content || content === '<p><br></p>') {
-        alert('कृपया सामग्री लेख्नुहोस्।');
-        return;
-      }
-
-      // Handle file uploads to GitHub using separate API (GitHub doesn't allow direct upload of binary files in this method)
-      // For simplicity, here we do not handle file upload, but in production you'd use GitHub release assets or another file host.
-
-      // For now, just save JSON post with URLs as empty strings or placeholders.
+      const pdf = document.getElementById('pdf').files[0];
+      const image = document.getElementById('image').files[0];
       const id = Date.now().toString();
 
-      const post = {
-        id,
-        title,
-        section,
-        content,
-        youtube,
-        pdf: '',     // Files not supported in this version
-        image: '',
-        created: new Date().toISOString()
-      };
-
+      const token = getToken();
+      let pdfUrl = '', imageUrl = '';
       try {
-        const path = `posts/${id}.json`;
-        const contentEncoded = btoa(unescape(encodeURIComponent(JSON.stringify(post, null, 2))));
-        await githubPutFile(path, contentEncoded, `Add post ${title}`);
+        if (pdf) pdfUrl = await uploadFile(pdf, pdf.name, token);
+        if (image) imageUrl = await uploadFile(image, image.name, token);
+      } catch (err) {
+        alert('फाइल अपलोड गर्न सकिएन: ' + err);
+        return;
+      }
+
+      const post = { id, title, section, content, youtube, pdf: pdfUrl, image: imageUrl, created: new Date().toISOString() };
+      const path = `posts/${id}.json`;
+      const url = `https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/${path}`;
+      const contentEncoded = btoa(unescape(encodeURIComponent(JSON.stringify(post, null, 2))));
+
+      const res = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `token ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: `Add post ${title}`,
+          content: contentEncoded,
+          branch: 'main'
+        })
+      });
+
+      if (res.ok) {
         alert('पोस्ट सफलतापूर्वक GitHub मा सेभ भयो।');
-
-        // Clear form
-        document.getElementById('title').value = '';
-        quill.setContents([]);
-        document.getElementById('youtube').value = '';
-        document.getElementById('pdf').value = '';
-        document.getElementById('image').value = '';
-
         loadPosts();
-      } catch (e) {
-        alert('पोस्ट GitHub मा सेभ हुन सकेन: ' + e.message);
-        console.error(e);
+      } else {
+        alert('पोस्ट GitHub मा सेभ हुन सकेन।');
+        console.error(await res.text());
       }
     }
 
@@ -310,13 +240,8 @@
       const container = document.getElementById('recentPosts');
       container.innerHTML = '<div class="spinner"></div>';
       try {
-        const res = await fetch(`https://api.github.com/repos/${repo}/contents/posts?ref=${branch}`);
-        if (!res.ok) throw new Error('पोस्ट लोड गर्न सकेन।');
+        const res = await fetch('https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/posts');
         const files = await res.json();
-        if (!Array.isArray(files) || files.length === 0) {
-          container.innerHTML = '<p>कुनै पोस्ट उपलब्ध छैन।</p>';
-          return;
-        }
         const posts = await Promise.all(files.reverse().map(async file => {
           const r = await fetch(file.download_url);
           return await r.json();
