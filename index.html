@@ -282,14 +282,14 @@
       try {
         // Show loading spinners
         for (const containerId of Object.values(sectionMap)) {
-          document.getElementById(containerId).innerHTML = 
+          document.getElementById(containerId).innerHTML = `
             <div class="loading">
               <div class="spinner"></div>
             </div>
-          ;
+          `;
         }
 
-        const res = await fetch(https://api.github.com/repos/${repo}/contents/posts?ref=${branch});
+        const res = await fetch(`https://api.github.com/repos/${repo}/contents/posts?ref=${branch}`);
         if (!res.ok) throw new Error('GitHub API बाट डेटा ल्याउन असफल');
         
         const files = await res.json();
@@ -312,7 +312,7 @@
                 sections[post.section].push(post);
               }
             } catch (e) {
-              console.error(Error loading ${file.name}:, e);
+              console.error(`Error loading ${file.name}:`, e);
               return null;
             }
           }
@@ -332,8 +332,8 @@
               if (post.youtube) {
                 const ytUrl = post.youtube.includes('embed') ? 
                   post.youtube : 
-                  https://www.youtube.com/embed/${post.youtube.split('v=')[1].split('&')[0]};
-                youtubeEmbed = 
+                  `https://www.youtube.com/embed/${post.youtube.split('v=')[1].split('&')[0]}`;
+                youtubeEmbed = `
                   <div class="video-container">
                     <iframe 
                       src="${ytUrl}" 
@@ -342,28 +342,28 @@
                       allowfullscreen>
                     </iframe>
                   </div>
-                ;
+                `;
               }
 
-              html += 
+              html += `
                 <article class="post-box" aria-labelledby="post-${post.id || post.title}">
                   <h3 class="post-title" id="post-${post.id || post.title}">${post.title}</h3>
                   <div class="post-content">${post.content}</div>
                   ${youtubeEmbed}
                   ${post.image ? 
-                    <p class="post-extra">
+                    `<p class="post-extra">
                       <span>📷</span>
                       <a href="${post.image}" target="_blank" rel="noopener">तस्वीर हेर्नुहोस्</a>
-                    </p>
+                    </p>`
                    : ''}
                   ${post.pdf ? 
-                    <p class="post-extra">
+                    `<p class="post-extra">
                       <span>📄</span>
                       <a href="${post.pdf}" target="_blank" rel="noopener">PDF डाउनलोड गर्नुहोस्</a>
-                    </p>
+                    </p>`
                    : ''}
                 </article>
-              ;
+              `;
             }
           }
           
@@ -372,12 +372,12 @@
 
       } catch (error) {
         console.error('Error:', error);
-        const errorHtml = 
+        const errorHtml = `
           <div class="error-message">
             <p>डेटा लोड गर्दा समस्या आयो। कृपया पछि फेरि प्रयास गर्नुहोस्।</p>
             <button onclick="loadPosts()" class="retry-btn">फेरि प्रयास गर्नुहोस्</button>
           </div>
-        ;
+        `;
         
         for (const containerId of Object.values(sectionMap)) {
           document.getElementById(containerId).innerHTML = errorHtml;
@@ -386,7 +386,7 @@
     }
 
     // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
         
@@ -414,7 +414,7 @@
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
           document.querySelectorAll('nav a').forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === #${sectionId}) {
+            if (link.getAttribute('href') === `#${sectionId}`) {
               link.classList.add('active');
             }
           });
@@ -428,7 +428,7 @@
       
       // Set initial active nav link based on hash
       if (window.location.hash) {
-        const activeLink = document.querySelector(nav a[href="${window.location.hash}"]);
+        const activeLink = document.querySelector(`nav a[href="${window.location.hash}"]`);
         if (activeLink) {
           document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
           activeLink.classList.add('active');
