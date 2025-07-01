@@ -15,81 +15,60 @@
       --text-color: #222;
       --text-light: #666;
     }
-    
     body {
-      font-family: "Noto Sans Devanagari", "Poppins", sans-serif;
+      font-family: "Noto Sans Devanagari", sans-serif;
       margin: 0;
       background: var(--light-color);
       color: var(--text-color);
-      line-height: 1.6;
     }
-    
     header {
-      background-color: var(--primary-color);
+      background: var(--primary-color);
       color: white;
-      padding: 1.5rem 1.5rem;
+      padding: 1.5rem;
       text-align: center;
       font-size: 1.8rem;
       font-weight: bold;
-      letter-spacing: 1px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    
     nav {
       background: var(--secondary-color);
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 10px;
       padding: 0.8rem 0;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    
     nav a {
       color: white;
       text-decoration: none;
       padding: 0.6rem 1.2rem;
-      font-weight: 600;
       border-radius: 4px;
-      transition: all 0.3s ease;
-      font-size: 1.1rem;
+      font-weight: bold;
     }
-    
     nav a:hover, nav a.active {
-      background-color: var(--dark-color);
-      transform: translateY(-2px);
+      background: var(--dark-color);
     }
-    
     main {
       max-width: 1200px;
       margin: 2rem auto;
       padding: 0 1.5rem;
     }
-    
     section {
       margin-bottom: 3rem;
-      scroll-margin-top: 90px;
     }
-    
     section h2 {
       color: var(--primary-color);
       border-bottom: 3px solid var(--primary-color);
       padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
-      font-weight: 700;
-      font-size: 1.8rem;
     }
-    
     .posts-section {
       display: flex;
       flex-wrap: wrap;
       gap: 25px;
       justify-content: center;
     }
-    
     .post-box {
       background: white;
       border: 1px solid #ddd;
@@ -98,123 +77,41 @@
       padding: 20px;
       width: 90%;
       max-width: 700px;
-      box-sizing: border-box;
       transition: all 0.3s ease;
-      overflow-wrap: break-word;
     }
-    
-    .post-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-    
     .post-title {
       font-size: 1.3rem;
-      margin-bottom: 0.8rem;
-      font-weight: 700;
       color: var(--dark-color);
+      margin-bottom: 0.5rem;
+      font-weight: bold;
     }
-    
     .post-content {
       font-size: 1.05rem;
-      margin-bottom: 0.8rem;
-      color: #333;
     }
-    
     iframe {
       width: 100%;
       height: 250px;
       border: none;
       margin-top: 1rem;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    
     .post-extra {
       font-size: 0.9rem;
       color: var(--text-light);
       margin-top: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 5px;
     }
-    
-    .post-extra a {
-      color: var(--primary-color);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    
-    .post-extra a:hover {
-      text-decoration: underline;
-    }
-    
-    .loading {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-    }
-    
-    .spinner {
-      width: 40px;
-      height: 40px;
-      border: 4px solid rgba(0, 0, 0, 0.1);
-      border-radius: 50%;
-      border-top-color: var(--primary-color);
-      animation: spin 1s ease-in-out infinite;
-    }
-    
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    
     footer {
       text-align: center;
       padding: 1.5rem;
       background: var(--primary-color);
       color: white;
-      font-size: 1rem;
-      margin-top: 3rem;
-    }
-    
-    @media (min-width: 600px) {
-      .post-box {
-        width: 48%;
-      }
-      
-      header {
-        font-size: 2rem;
-      }
-    }
-    
-    @media (min-width: 900px) {
-      .post-box {
-        width: 30%;
-      }
-      
-      nav {
-        padding: 0.8rem 2rem;
-      }
-      
-      nav a {
-        padding: 0.7rem 1.5rem;
-      }
-    }
-    
-    @media (min-width: 1200px) {
-      main {
-        padding: 0 2rem;
-      }
     }
   </style>
 </head>
 <body>
-  <header>
-    नारायण भण्डारी
-  </header>
+  <header>नारायण भण्डारी</header>
   <nav>
-    <a href="#lekha" class="active">लेख/रचना</a>
+    <a href="#lekha">लेख/रचना</a>
     <a href="#sahitya">साहित्य</a>
     <a href="#loksewa">लोकसेवा</a>
     <a href="#patrapatrika">पत्रपत्रिका</a>
@@ -223,277 +120,66 @@
   <main>
     <section id="lekha">
       <h2>लेख/रचना</h2>
-      <div class="posts-section" id="posts-lekha">
-        <div class="loading">
-          <div class="spinner"></div>
-        </div>
-      </div>
+      <div class="posts-section" id="posts-lekha"></div>
     </section>
     <section id="sahitya">
       <h2>साहित्य</h2>
-      <div class="posts-section" id="posts-sahitya">
-        <div class="loading">
-          <div class="spinner"></div>
-        </div>
-      </div>
+      <div class="posts-section" id="posts-sahitya"></div>
     </section>
     <section id="loksewa">
       <h2>लोकसेवा</h2>
-      <div class="posts-section" id="posts-loksewa">
-        <div class="loading">
-          <div class="spinner"></div>
-        </div>
-      </div>
+      <div class="posts-section" id="posts-loksewa"></div>
     </section>
     <section id="patrapatrika">
       <h2>पत्रपत्रिका</h2>
-      <div class="posts-section" id="posts-patrapatrika">
-        <div class="loading">
-          <div class="spinner"></div>
-        </div>
-      </div>
+      <div class="posts-section" id="posts-patrapatrika"></div>
     </section>
     <section id="mero-barema">
       <h2>मेरो बारेमा</h2>
-      <div class="posts-section" id="posts-mero-barema">
-        <div class="loading">
-          <div class="spinner"></div>
-        </div>
-      </div>
+      <div class="posts-section" id="posts-mero-barema"></div>
     </section>
   </main>
-  <footer>
-    © २०८२ नारायण भण्डारी | Developed by Narayan Bhandari
-  </footer>
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-  import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+  <footer>© २०८२ नारायण भण्डारी | Developed by Narayan Bhandari</footer>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAeMBVRnouOkMIInTYUjysb1f3lflhxxYM",
-    authDomain: "narayan-cms.firebaseapp.com",
-    projectId: "narayan-cms",
-    storageBucket: "narayan-cms.firebasestorage.app",
-    messagingSenderId: "877625098183",
-    appId: "1:877625098183:web:c13d46fbb662de2aa0e3e2",
-    measurementId: "G-TDQ2PKZXWT"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  const postsContainer = document.getElementById('posts-lekha'); // या अन्य section id हरू
-
-  async function loadPosts() {
-    const sections = {
-      lekha: document.getElementById('posts-lekha'),
-      sahitya: document.getElementById('posts-sahitya'),
-      loksewa: document.getElementById('posts-loksewa'),
-      patrapatrika: document.getElementById('posts-patrapatrika'),
-      'mero-barema': document.getElementById('posts-mero-barema')
+    const firebaseConfig = {
+      apiKey: "AIzaSyAeMBVRnouOkMIInTYUjysb1f3lflhxxYM",
+      authDomain: "narayan-cms.firebaseapp.com",
+      projectId: "narayan-cms",
+      storageBucket: "narayan-cms.appspot.com",
+      messagingSenderId: "877625098183",
+      appId: "1:877625098183:web:c13d46fbb662de2aa0e3e2",
+      measurementId: "G-TDQ2PKZXWT"
     };
 
-    // Clear all first
-    Object.values(sections).forEach(sec => sec.innerHTML = '');
-
-    try {
-      const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
-      const querySnapshot = await getDocs(q);
-      if (querySnapshot.empty) {
-        Object.values(sections).forEach(sec => sec.innerHTML = "<p>कुनै पोस्ट उपलब्ध छैन।</p>");
-        return;
-      }
-
-      querySnapshot.forEach(doc => {
-        const post = doc.data();
-        const div = document.createElement('article');
-        div.className = 'post-box';
-        div.innerHTML = `
-          <h3 class="post-title">${post.title}</h3>
-          <div class="post-content">${post.content}</div>
-          ${post.youtube ? `<iframe src="${post.youtube}" frameborder="0" allowfullscreen></iframe>` : ''}
-        `;
-        if(sections[post.section]) {
-          sections[post.section].appendChild(div);
-        }
-      });
-    } catch (e) {
-      console.error('पोस्ट लोड गर्न समस्या:', e);
-    }
-  }
-
-  window.addEventListener('DOMContentLoaded', loadPosts);
-</script>
-
-  <script>
-    const repo = 'narayanbhandari58/narayanbhandari';
-    const branch = 'main';
-
-    const sectionMap = {
-      'lekha': 'posts-lekha',
-      'sahitya': 'posts-sahitya',
-      'loksewa': 'posts-loksewa',
-      'patrapatrika': 'posts-patrapatrika',
-      'mero-barema': 'posts-mero-barema'
-    };
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
     async function loadPosts() {
-      try {
-        // Show loading spinners
-        for (const containerId of Object.values(sectionMap)) {
-          document.getElementById(containerId).innerHTML = `
-            <div class="loading">
-              <div class="spinner"></div>
+      const sections = ['lekha', 'sahitya', 'loksewa', 'patrapatrika', 'mero-barema'];
+      const postsSnapshot = await getDocs(collection(db, "posts"));
+      const posts = [];
+      postsSnapshot.forEach(doc => posts.push(doc.data()));
+      sections.forEach(section => {
+        const container = document.getElementById('posts-' + section);
+        const filtered = posts.filter(p => p.section === section);
+        if (filtered.length === 0) {
+          container.innerHTML = '<p>कुनै पोस्ट छैन।</p>';
+        } else {
+          container.innerHTML = filtered.map(post => `
+            <div class="post-box">
+              <h3 class="post-title">${post.title}</h3>
+              <div class="post-content">${post.content}</div>
+              ${post.youtube ? `<iframe src="${post.youtube}" allowfullscreen></iframe>` : ''}
             </div>
-          `;
+          `).join('');
         }
-
-        const res = await fetch(`https://api.github.com/repos/${repo}/contents/posts?ref=${branch}`);
-        if (!res.ok) throw new Error('GitHub API बाट डेटा ल्याउन असफल');
-        
-        const files = await res.json();
-        const sections = {
-          'lekha': [],
-          'sahitya': [],
-          'loksewa': [],
-          'patrapatrika': [],
-          'mero-barema': []
-        };
-
-        // Process all files in parallel
-        const promises = files.reverse().map(async file => {
-          if (file.name.endsWith('.json')) {
-            try {
-              const postRes = await fetch(file.download_url);
-              if (!postRes.ok) return null;
-              const post = await postRes.json();
-              if (sections[post.section]) {
-                sections[post.section].push(post);
-              }
-            } catch (e) {
-              console.error(`Error loading ${file.name}:`, e);
-              return null;
-            }
-          }
-        });
-
-        await Promise.all(promises);
-
-        // Render posts for each section
-        for (const [section, posts] of Object.entries(sections)) {
-          let html = '';
-          
-          if (posts.length === 0) {
-            html = '<p class="no-posts">कुनै पोस्ट उपलब्ध छैन।</p>';
-          } else {
-            for (const post of posts) {
-              let youtubeEmbed = '';
-              if (post.youtube) {
-                const ytUrl = post.youtube.includes('embed') ? 
-                  post.youtube : 
-                  `https://www.youtube.com/embed/${post.youtube.split('v=')[1].split('&')[0]}`;
-                youtubeEmbed = `
-                  <div class="video-container">
-                    <iframe 
-                      src="${ytUrl}" 
-                      frameborder="0" 
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                      allowfullscreen>
-                    </iframe>
-                  </div>
-                `;
-              }
-
-              html += `
-                <article class="post-box" aria-labelledby="post-${post.id || post.title}">
-                  <h3 class="post-title" id="post-${post.id || post.title}">${post.title}</h3>
-                  <div class="post-content">${post.content}</div>
-                  ${youtubeEmbed}
-                  ${post.image ? 
-                    `<p class="post-extra">
-                      <span>📷</span>
-                      <a href="${post.image}" target="_blank" rel="noopener">तस्वीर हेर्नुहोस्</a>
-                    </p>`
-                   : ''}
-                  ${post.pdf ? 
-                    `<p class="post-extra">
-                      <span>📄</span>
-                      <a href="${post.pdf}" target="_blank" rel="noopener">PDF डाउनलोड गर्नुहोस्</a>
-                    </p>`
-                   : ''}
-                </article>
-              `;
-            }
-          }
-          
-          document.getElementById(sectionMap[section]).innerHTML = html;
-        }
-
-      } catch (error) {
-        console.error('Error:', error);
-        const errorHtml = `
-          <div class="error-message">
-            <p>डेटा लोड गर्दा समस्या आयो। कृपया पछि फेरि प्रयास गर्नुहोस्।</p>
-            <button onclick="loadPosts()" class="retry-btn">फेरि प्रयास गर्नुहोस्</button>
-          </div>
-        `;
-        
-        for (const containerId of Object.values(sectionMap)) {
-          document.getElementById(containerId).innerHTML = errorHtml;
-        }
-      }
+      });
     }
 
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // Highlight active nav link while scrolling
-    window.addEventListener('scroll', () => {
-      const scrollPosition = window.scrollY + 100;
-      
-      document.querySelectorAll('section').forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-        
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          document.querySelectorAll('nav a').forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${sectionId}`) {
-              link.classList.add('active');
-            }
-          });
-        }
-      });
-    });
-
-    // Initialize on page load
-    window.addEventListener('DOMContentLoaded', () => {
-      loadPosts();
-      
-      // Set initial active nav link based on hash
-      if (window.location.hash) {
-        const activeLink = document.querySelector(`nav a[href="${window.location.hash}"]`);
-        if (activeLink) {
-          document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
-          activeLink.classList.add('active');
-        }
-      }
-    });
+    window.addEventListener('DOMContentLoaded', loadPosts);
   </script>
 </body>
 </html>
