@@ -1099,855 +1099,441 @@
         </div>
     </div>
 
-    <script>
-        // Admin Panel JavaScript
-        document.getElementById('postForm').addEventListener('submit', function(e){
-  e.preventDefault();
+<script>
+    // Admin Panel JavaScript
+    class AdminPanel {
+        constructor() {
+            this.currentUser = null;
+            this.currentTab = 'dashboard';
+            this.editingPostId = null;
+            this.init();
+        }
 
-  // Form data read
-  const title = document.getElementById('title').value;
-  const body = document.getElementById('body').value;
-  const date = new Date().toISOString().split('T')[0];
+        init() {
+            document.addEventListener('DOMContentLoaded', () => {
+                this.setupEventListeners();
+                this.checkAuth();
+                this.initTinyMCE();
+            });
+        }
 
-  // JSON object बनाउने
-  const content = {
-    title: title,
-    date: date,
-    body: body
-  };
+        setupEventListeners() {
+            // Login form
+            document.getElementById('loginForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.handleLogin();
+            });
 
-  // File name बनाउने (unique)
-  const fileName = `posts/post-${Date.now()}.json`;
+            // Logout button
+            document.getElementById('logoutBtn').addEventListener('click', () => {
+                this.handleLogout();
+            });
 
-  // JSON लाई base64 encode गर्ने (GitHub API लागि)
-  const base64Content = btoa(JSON.stringify(content, null, 2));
+            // Change password buttons
+            document.getElementById('changePasswordBtn').addEventListener('click', () => {
+                this.showChangePasswordForm();
+            });
 
-  // GitHub API मार्फत upload
-  fetch(`https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/${fileName}`, {
-    method: 'PUT',
-    headers: {
-      'Authorization': 'token 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',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      message: `Add ${fileName}`,
-      content: base64Content,
-      branch: 'main'
-    })
-  })
-  .then(res => res.json())
-  .then(data => alert('Content uploaded to GitHub!'))
-  .catch(err => console.error(err));
-});
-fetch(`https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/${fileName}`, {
-  method: 'PUT',
-  headers: {
-    'Authorization': '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',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    message: `Add ${fileName}`,
-    content: btoa(JSON.stringify(content, null, 2)), // JSON को लागि
-    // content: btoa(markdownContent), // Markdown को लागि
-    branch: 'main'
-  })
-})
-.then(res => res.json())
-.then(data => alert('Content uploaded successfully!'))
-.catch(err => console.error(err));
+            document.getElementById('changePasswordHeaderBtn').addEventListener('click', () => {
+                this.showChangePasswordForm();
+            });
 
-        class AdminPanel {
-            constructor() {
-                this.currentUser = null;
-                this.currentTab = 'dashboard';
-                this.editingPostId = null;
-                this.init();
-            }
+            document.getElementById('closePasswordModal').addEventListener('click', () => {
+                this.hideChangePasswordForm();
+            });
 
-            init() {
-                document.addEventListener('DOMContentLoaded', () => {
-                    this.setupEventListeners();
-                    this.checkAuth();
-                    this.initTinyMCE();
-                });
-            }
+            document.getElementById('cancelPasswordChange').addEventListener('click', () => {
+                this.hideChangePasswordForm();
+            });
 
-            setupEventListeners() {
-                // Login form
-                document.getElementById('loginForm').addEventListener('submit', (e) => {
+            // Change password form
+            document.getElementById('changePasswordForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.handleChangePassword();
+            });
+
+            // Navigation tabs
+            document.querySelectorAll('.nav-item[data-tab]').forEach(tab => {
+                tab.addEventListener('click', (e) => {
                     e.preventDefault();
-                    this.handleLogin();
+                    this.switchTab(tab.dataset.tab);
                 });
+            });
 
-                // Logout button
-                document.getElementById('logoutBtn').addEventListener('click', () => {
-                    this.handleLogout();
-                });
+            // New post button
+            document.getElementById('newPostBtn').addEventListener('click', () => {
+                this.switchTab('new-post');
+            });
 
-                // Change password buttons
-                document.getElementById('changePasswordBtn').addEventListener('click', () => {
-                    this.showChangePasswordForm();
-                });
+            // Post form
+            document.getElementById('postForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.savePost();
+            });
 
-                document.getElementById('changePasswordHeaderBtn').addEventListener('click', () => {
-                    this.showChangePasswordForm();
-                });
+            // Save draft
+            document.getElementById('saveDraft').addEventListener('click', () => {
+                this.savePost(true);
+            });
 
-                document.getElementById('closePasswordModal').addEventListener('click', () => {
-                    this.hideChangePasswordForm();
-                });
+            // Media upload
+            document.getElementById('uploadMedia').addEventListener('click', () => {
+                this.openMediaUpload();
+            });
 
-                document.getElementById('cancelPasswordChange').addEventListener('click', () => {
-                    this.hideChangePasswordForm();
-                });
+            // Featured image selection
+            document.getElementById('selectFeaturedImage').addEventListener('click', () => {
+                document.getElementById('featuredImage').click();
+            });
 
-                // Change password form
-                document.getElementById('changePasswordForm').addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    this.handleChangePassword();
-                });
-
-                // Navigation tabs
-                document.querySelectorAll('.nav-item[data-tab]').forEach(tab => {
-                    tab.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        this.switchTab(tab.dataset.tab);
-                    });
-                });
-
-                // New post button
-                document.getElementById('newPostBtn').addEventListener('click', () => {
-                    this.switchTab('new-post');
-                });
-
-                // Post form
-                document.getElementById('postForm').addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    this.savePost();
-                });
-
-                // Save draft
-                document.getElementById('saveDraft').addEventListener('click', () => {
-                    this.savePost(true);
-                });
-
-                // Media upload
-                document.getElementById('uploadMedia').addEventListener('click', () => {
-                    this.openMediaUpload();
-                });
-
-                // Featured image selection
-                document.getElementById('selectFeaturedImage').addEventListener('click', () => {
-                    document.getElementById('featuredImage').click();
-                });
-
-                // Media library
-                document.getElementById('openMediaLibrary').addEventListener('click', () => {
-                    this.openMediaLibrary();
-                });
-
-                document.getElementById('closeMediaModal').addEventListener('click', () => {
-                    this.closeMediaLibrary();
-                });
-
-                // Featured image change
-                document.getElementById('featuredImage').addEventListener('change', (e) => {
-                    this.handleFeaturedImageSelect(e.target.files[0]);
-                });
-            }
-            cont content={
-                title:title,
-                date:date,
-                body:body
-            };
-            //example markdown
-            const markdownContent=# $ {title}\n\n${body}\n\n*${date}*';
-            const filename= 'posts/post-$
-        {Date.now()}.json';
-
-            initTinyMCE() {
-                if (typeof tinymce !== 'undefined') {
-                    tinymce.init({
-                        selector: '#postContent',
-                        height: 500,
-                        menubar: 'file edit view insert format tools table',
-                        plugins: [
-                            'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview', 'anchor',
-                            'searchreplace', 'visualblocks', 'code', 'fullscreen', 'emoticons',
-                            'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount', 'emoticons'
-                        ],
-                        toolbar: 'undo redo | blocks | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | emoticons | code | fullscreen',
-                        content_style: 'body { font-family: Inter, Arial, sans-serif; font-size: 14px; }',
-                        language: 'ne',
-                        images_upload_handler: (blobInfo, progress) => new Promise((resolve, reject) => {
-                            this.uploadImageToStorage(blobInfo.blob()).then(resolve).catch(reject);
-                        }),
-                        file_picker_types: 'image media',
-                        file_picker_callback: (callback, value, meta) => {
-                            this.openMediaLibraryForTinyMCE(callback, meta.filetype);
-                        },
-                        paste_data_images: true,
-                        setup: (editor) => {
-                            editor.on('change', () => {
-                                editor.save();
-                            });
-                        }
-                    });
-                }
-            }
-
-            openMediaLibraryForTinyMCE(callback, filetype) {
+            // Media library
+            document.getElementById('openMediaLibrary').addEventListener('click', () => {
                 this.openMediaLibrary();
-                this.mediaCallback = callback;
-                this.mediaFiletype = filetype;
-            }
+            });
 
-            checkAuth() {
-                const isLoggedIn = localStorage.getItem('admin_logged_in') === 'true';
-                if (isLoggedIn) {
-                    this.showDashboard();
-                } else {
-                    this.showLogin();
+            document.getElementById('closeMediaModal').addEventListener('click', () => {
+                this.closeMediaLibrary();
+            });
+
+            // Featured image change
+            document.getElementById('featuredImage').addEventListener('change', (e) => {
+                this.handleFeaturedImageSelect(e.target.files[0]);
+            });
+        }
+
+        // GitHub Integration for saving posts
+        savePostToGitHub(postData) {
+            const fileName = `posts/post-${Date.now()}.json`;
+            const content = {
+                title: postData.title,
+                date: new Date().toISOString().split('T')[0],
+                body: postData.content,
+                category: postData.category,
+                tags: postData.tags
+            };
+
+            // Base64 encode the content
+            const base64Content = btoa(JSON.stringify(content, null, 2));
+
+            // IMPORTANT: Replace with your actual GitHub token
+            // For security, you should handle tokens on the server side
+            const githubToken = 'YOUR_GITHUB_TOKEN_HERE';
+
+            return fetch(`https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/${fileName}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${githubToken}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: `Add new post: ${postData.title}`,
+                    content: base64Content,
+                    branch: 'main'
+                })
+            })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('GitHub API request failed');
                 }
-            }
+                return res.json();
+            });
+        }
 
-            handleLogin() {
-                const username = document.getElementById('username').value;
-                const password = document.getElementById('password').value;
-                const messageEl = document.getElementById('loginMessage');
-                const savedPassword = localStorage.getItem('admin_password') || '9846';
-
-                if (username === 'Narayan' && password === savedPassword) {
-                    localStorage.setItem('admin_logged_in', 'true');
-                    this.currentUser = username;
-                    this.showDashboard();
-                    this.showNotification('सफलतापूर्वक लगइन भयो!', 'success');
-                } else {
-                    messageEl.textContent = 'गलत यूजरनाम वा पासवर्ड';
-                    messageEl.className = 'login-message error';
-                }
-            }
-
-            handleLogout() {
-                localStorage.removeItem('admin_logged_in');
-                this.currentUser = null;
-                this.showLogin();
-                this.showNotification('लगआउट भयो', 'info');
-            }
-
-            showLogin() {
-                document.getElementById('loginScreen').style.display = 'flex';
-                document.getElementById('adminDashboard').style.display = 'none';
-                document.getElementById('loginForm').reset();
-                document.getElementById('loginMessage').textContent = '';
-                document.getElementById('loginMessage').className = 'login-message';
-            }
-
-            showDashboard() {
-                document.getElementById('loginScreen').style.display = 'none';
-                document.getElementById('adminDashboard').style.display = 'block';
-                this.loadDashboardStats();
-                this.loadPostsTable();
-                this.loadMediaLibrary();
-            }
-
-            switchTab(tabName) {
-                document.querySelectorAll('.nav-item').forEach(tab => {
-                    tab.classList.remove('active');
-                });
-                document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
-
-                document.querySelectorAll('.tab-content').forEach(content => {
-                    content.classList.remove('active');
-                });
-                document.getElementById(tabName).classList.add('active');
-
-                this.currentTab = tabName;
-
-                if (tabName === 'posts') {
-                    this.loadPostsTable();
-                } else if (tabName === 'dashboard') {
-                    this.loadDashboardStats();
-                } else if (tabName === 'new-post') {
-                    this.resetPostForm();
-                } else if (tabName === 'comments') {
-                    this.loadComments();
-                } else if (tabName === 'messages') {
-                    this.loadMessages();
-                } else if (tabName === 'media') {
-                    this.loadMediaLibrary();
-                }
-            }
-
-            loadDashboardStats() {
-                const posts = this.getPosts();
-                document.getElementById('totalPosts').textContent = posts.length;
-                
-                const totalLikes = posts.reduce((sum, post) => sum + (post.likes || 0), 0);
-                document.getElementById('totalLikes').textContent = totalLikes;
-                
-                const totalComments = posts.reduce((sum, post) => sum + (post.comments?.length || 0), 0);
-                document.getElementById('totalComments').textContent = totalComments;
-
-                const messages = this.getContactMessages();
-                document.getElementById('totalMessages').textContent = messages.length;
-            }
-
-            loadPostsTable() {
-                const posts = this.getPosts();
-                const tbody = document.getElementById('postsTableBody');
-                
-                if (posts.length === 0) {
-                    tbody.innerHTML = `
-                        <tr>
-                            <td colspan="5" class="text-center">
-                                <p>कुनै पोस्ट छैन</p>
-                                <button onclick="admin.switchTab('new-post')" class="btn btn-primary" style="margin-top: 10px;">
-                                    पहिलो पोस्ट सिर्जना गर्नुहोस्
-                                </button>
-                            </td>
-                        </tr>
-                    `;
-                    return;
-                }
-
-                tbody.innerHTML = posts.map((post, index) => `
-                    <tr>
-                        <td>
-                            <strong>${this.escapeHTML(post.title)}</strong>
-                            ${post.tags ? `<br><small>${post.tags}</small>` : ''}
-                        </td>
-                        <td><span class="post-category">${post.category}</span></td>
-                        <td>${post.created ? new Date(post.created).toLocaleDateString('ne-NP') : 'हालै'}</td>
-                        <td>
-                            <small>👍 ${post.likes || 0}</small>
-                            <small>💬 ${post.comments?.length || 0}</small>
-                        </td>
-                        <td>
-                            <button onclick="admin.editPost(${index})" class="btn-action btn-edit">सम्पादन</button>
-                            <button onclick="admin.deletePost(${index})" class="btn-action btn-delete">मेटाउन</button>
-                        </td>
-                    </tr>
-                `).join('');
-            }
-
-            loadComments() {
-                const posts = this.getPosts();
-                const commentsList = document.getElementById('commentsList');
-                
-                const allComments = [];
-                posts.forEach(post => {
-                    if (post.comments && post.comments.length > 0) {
-                        post.comments.forEach(comment => {
-                            allComments.push({
-                                ...comment,
-                                postTitle: post.title,
-                                postId: post.id
-                            });
+        initTinyMCE() {
+            if (typeof tinymce !== 'undefined') {
+                tinymce.init({
+                    selector: '#postContent',
+                    height: 500,
+                    menubar: 'file edit view insert format tools table',
+                    plugins: [
+                        'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview', 'anchor',
+                        'searchreplace', 'visualblocks', 'code', 'fullscreen', 'emoticons',
+                        'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount', 'emoticons'
+                    ],
+                    toolbar: 'undo redo | blocks | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | emoticons | code | fullscreen',
+                    content_style: 'body { font-family: Inter, Arial, sans-serif; font-size: 14px; }',
+                    language: 'ne',
+                    images_upload_handler: (blobInfo, progress) => new Promise((resolve, reject) => {
+                        this.uploadImageToStorage(blobInfo.blob()).then(resolve).catch(reject);
+                    }),
+                    file_picker_types: 'image media',
+                    file_picker_callback: (callback, value, meta) => {
+                        this.openMediaLibraryForTinyMCE(callback, meta.filetype);
+                    },
+                    paste_data_images: true,
+                    setup: (editor) => {
+                        editor.on('change', () => {
+                            editor.save();
                         });
                     }
                 });
-
-                if (allComments.length === 0) {
-                    commentsList.innerHTML = '<p class="empty-state">कुनै टिप्पणी छैन</p>';
-                    return;
-                }
-
-                // Sort by date (newest first)
-                allComments.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-                commentsList.innerHTML = allComments.map(comment => `
-                    <div class="comment-item">
-                        <div class="comment-header">
-                            <div class="comment-author">${this.escapeHTML(comment.author || 'अज्ञात')}</div>
-                            <div class="comment-date">${new Date(comment.date).toLocaleDateString('ne-NP')}</div>
-                        </div>
-                        <div class="comment-content">${this.escapeHTML(comment.text)}</div>
-                        <div class="comment-post">पोस्ट: ${this.escapeHTML(comment.postTitle)}</div>
-                    </div>
-                `).join('');
-            }
-
-            loadMessages() {
-                const messages = this.getContactMessages();
-                const messagesList = document.getElementById('messagesList');
-                
-                if (messages.length === 0) {
-                    messagesList.innerHTML = '<p class="empty-state">कुनै सन्देश छैन</p>';
-                    return;
-                }
-
-                // Sort by date (newest first)
-                messages.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-                messagesList.innerHTML = messages.map((message, index) => `
-                    <div class="message-item ${message.read ? '' : 'unread'}">
-                        <div class="message-header">
-                            <div class="message-author">${this.escapeHTML(message.name)}</div>
-                            <div class="message-date">${new Date(message.date).toLocaleDateString('ne-NP')}</div>
-                        </div>
-                        <div class="message-email">${this.escapeHTML(message.email)}</div>
-                        <div class="message-content">${this.escapeHTML(message.message)}</div>
-                        ${!message.read ? `<button onclick="admin.markMessageAsRead(${index})" class="mark-read-btn">पढियो को रूपमा चिन्ह लगाउनुहोस्</button>` : ''}
-                    </div>
-                `).join('');
-            }
-
-            markMessageAsRead(index) {
-                const messages = this.getContactMessages();
-                if (messages[index]) {
-                    messages[index].read = true;
-                    this.saveContactMessages(messages);
-                    this.loadMessages();
-                    this.loadDashboardStats();
-                    this.showNotification('सन्देश पढियो को रूपमा चिन्ह लगाइयो', 'success');
-                }
-            }
-
-            savePost(isDraft = false) {
-                const title = document.getElementById('postTitle').value.trim();
-                const category = document.getElementById('postCategory').value;
-                const tags = document.getElementById('postTags').value.trim();
-                const content = tinymce.get('postContent').getContent();
-                const featuredImage = document.getElementById('featuredImage').files[0];
-
-                if (!title) {
-                    this.showNotification('कृपया पोस्टको शीर्षक लेख्नुहोस्', 'error');
-                    return;
-                }
-
-                if (!content || content === '<p><br data-mce-bogus="1"></p>') {
-                    this.showNotification('कृपया पोस्टको सामग्री लेख्नुहोस्', 'error');
-                    return;
-                }
-
-                const posts = this.getPosts();
-                const postData = {
-                    id: this.editingPostId || Date.now().toString(),
-                    title,
-                    category,
-                    tags,
-                    content,
-                    likes: 0,
-                    comments: [],
-                    created: new Date().toISOString(),
-                    updated: new Date().toISOString(),
-                    status: isDraft ? 'draft' : 'published'
-                };
-
-                if (featuredImage) {
-                    this.uploadImageToStorage(featuredImage).then(imageUrl => {
-                        postData.featuredImage = imageUrl;
-                        this.finalizePostSave(posts, postData, isDraft);
-                    }).catch(error => {
-                        console.error('Image upload failed:', error);
-                        this.finalizePostSave(posts, postData, isDraft);
-                    });
-                } else {
-                    this.finalizePostSave(posts, postData, isDraft);
-                }
-            }
-
-            finalizePostSave(posts, postData, isDraft) {
-                if (this.editingPostId) {
-                    const index = posts.findIndex(p => p.id === this.editingPostId);
-                    if (index !== -1) {
-                        posts[index] = { ...posts[index], ...postData };
-                        this.showNotification('पोस्ट सफलतापूर्वक अपडेट गरियो', 'success');
-                    }
-                } else {
-                    posts.unshift(postData);
-                    this.showNotification(
-                        isDraft ? 'पोस्ट ड्राफ्टको रूपमा सेभ गरियो' : 'पोस्ट सफलतापूर्वक प्रकाशित गरियो',
-                        'success'
-                    );
-                }
-
-                this.savePosts(posts);
-                this.resetPostForm();
-                this.loadPostsTable();
-                this.loadDashboardStats();
-                
-                if (!isDraft) {
-                    this.switchTab('posts');
-                }
-            }
-
-            editPost(index) {
-                const posts = this.getPosts();
-                const post = posts[index];
-                
-                if (!post) {
-                    this.showNotification('पोस्ट फेला परेन', 'error');
-                    return;
-                }
-
-                this.editingPostId = post.id;
-                
-                document.getElementById('postTitle').value = post.title;
-                document.getElementById('postCategory').value = post.category;
-                document.getElementById('postTags').value = post.tags || '';
-                
-                if (typeof tinymce !== 'undefined') {
-                    tinymce.get('postContent').setContent(post.content);
-                }
-                
-                if (post.featuredImage) {
-                    document.getElementById('featuredImagePreview').innerHTML = 
-                        `<img src="${post.featuredImage}" alt="Featured Image">`;
-                    document.getElementById('featuredImageName').textContent = 'पहिले अपलोड गरिएको फोटो';
-                }
-                
-                document.querySelector('[data-tab="new-post"]').textContent = 'पोस्ट सम्पादन गर्नुहोस्';
-                this.switchTab('new-post');
-            }
-
-            deletePost(index) {
-                if (!confirm('के तपाईं यो पोस्ट मेटाउन निश्चित हुनुहुन्छ? यो कार्य पूर्ववत गर्न सकिँदैन।')) {
-                    return;
-                }
-
-                const posts = this.getPosts();
-                posts.splice(index, 1);
-                this.savePosts(posts);
-                
-                this.loadPostsTable();
-                this.loadDashboardStats();
-                this.showNotification('पोस्ट सफलतापूर्वक मेटाइयो', 'success');
-            }
-
-            resetPostForm() {
-                this.editingPostId = null;
-                document.getElementById('postForm').reset();
-                document.getElementById('featuredImagePreview').innerHTML = '';
-                document.getElementById('featuredImageName').textContent = 'कुनै फाइल छानिएको छैन';
-                
-                if (typeof tinymce !== 'undefined') {
-                    tinymce.get('postContent').setContent('');
-                }
-                
-                document.querySelector('[data-tab="new-post"]').textContent = 'नयाँ पोस्ट';
-            }
-
-            handleFeaturedImageSelect(file) {
-                if (!file) return;
-
-                const fileName = document.getElementById('featuredImageName');
-                const preview = document.getElementById('featuredImagePreview');
-
-                fileName.textContent = file.name;
-
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    preview.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
-                };
-                reader.readAsDataURL(file);
-            }
-
-            openMediaUpload() {
-                const fileInput = document.createElement('input');
-                fileInput.type = 'file';
-                fileInput.accept = 'image/*,video/*,.pdf,.doc,.docx';
-                fileInput.multiple = true;
-                
-                fileInput.onchange = (e) => {
-                    const files = Array.from(e.target.files);
-                    files.forEach(file => {
-                        this.handleFileUpload(file);
-                    });
-                };
-                
-                fileInput.click();
-            }
-
-            openMediaLibrary() {
-                this.loadMediaLibraryModal();
-                document.getElementById('mediaLibraryModal').style.display = 'block';
-            }
-
-            closeMediaLibrary() {
-                document.getElementById('mediaLibraryModal').style.display = 'none';
-                this.mediaCallback = null;
-            }
-
-            loadMediaLibraryModal() {
-                const media = this.getMedia();
-                const mediaGrid = document.getElementById('mediaLibraryGrid');
-                
-                if (media.length === 0) {
-                    mediaGrid.innerHTML = '<p class="empty-state">कुनै मिडिया फाइल छैन</p>';
-                    return;
-                }
-
-                mediaGrid.innerHTML = media.map(item => `
-                    <div class="media-item">
-                        ${item.type.startsWith('image/') ? 
-                            `<img src="${item.url}" alt="${item.name}">` :
-                            item.type.startsWith('video/') ?
-                            `<video controls><source src="${item.url}" type="${item.type}"></video>` :
-                            `<div style="height: 150px; display: flex; align-items: center; justify-content: center; background: #f8f9fa;">
-                                <span style="font-size: 3rem;">📄</span>
-                            </div>`
-                        }
-                        <div class="media-info">
-                            <div class="media-name">${this.escapeHTML(item.name)}</div>
-                            <div class="media-size">${this.formatFileSize(item.size)}</div>
-                        </div>
-                        ${item.type.startsWith('image/') ? 
-                            `<button class="media-select-btn" onclick="admin.selectMedia('${item.url}')">छान्नुहोस्</button>` : 
-                            ''
-                        }
-                    </div>
-                `).join('');
-            }
-
-            selectMedia(url) {
-                if (this.mediaCallback) {
-                    // For TinyMCE
-                    this.mediaCallback(url, { alt: 'Image' });
-                    this.closeMediaLibrary();
-                } else {
-                    // For featured image
-                    document.getElementById('featuredImagePreview').innerHTML = `<img src="${url}" alt="Featured Image">`;
-                    document.getElementById('featuredImageName').textContent = 'मिडिया लाइब्रेरीबाट छानिएको';
-                    this.closeMediaLibrary();
-                }
-            }
-
-            handleFileUpload(file) {
-                const media = this.getMedia();
-                const fileId = Date.now().toString();
-                
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const mediaItem = {
-                        id: fileId,
-                        name: file.name,
-                        type: file.type,
-                        size: file.size,
-                        url: e.target.result,
-                        uploaded: new Date().toISOString()
-                    };
-                    
-                    media.push(mediaItem);
-                    this.saveMedia(media);
-                    this.loadMediaLibrary();
-                    this.loadMediaLibraryModal();
-                    this.showNotification(`"${file.name}" सफलतापूर्वक अपलोड गरियो`, 'success');
-                };
-                
-                reader.readAsDataURL(file);
-            }
-
-            uploadImageToStorage(file) {
-                return new Promise((resolve, reject) => {
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        resolve(e.target.result);
-                    };
-                    reader.onerror = reject;
-                    reader.readAsDataURL(file);
-                });
-            }
-
-            loadMediaLibrary() {
-                const media = this.getMedia();
-                const mediaGrid = document.getElementById('mediaGrid');
-                
-                if (!mediaGrid) return;
-
-                if (media.length === 0) {
-                    mediaGrid.innerHTML = `
-                        <div class="media-upload-area" onclick="admin.openMediaUpload()">
-                            <div class="upload-placeholder">
-                                <span>📁</span>
-                                <p>फाइलहरू यहाँ ड्रप गर्नुहोस् वा अपलोड बटन थिच्नुहोस्</p>
-                            </div>
-                        </div>
-                    `;
-                    return;
-                }
-
-                const mediaItems = media.map(item => `
-                    <div class="media-item">
-                        ${item.type.startsWith('image/') ? 
-                            `<img src="${item.url}" alt="${item.name}">` :
-                            item.type.startsWith('video/') ?
-                            `<video controls><source src="${item.url}" type="${item.type}"></video>` :
-                            `<div style="height: 150px; display: flex; align-items: center; justify-content: center; background: #f8f9fa;">
-                                <span style="font-size: 3rem;">📄</span>
-                            </div>`
-                        }
-                        <div class="media-info">
-                            <div class="media-name">${this.escapeHTML(item.name)}</div>
-                            <div class="media-size">${this.formatFileSize(item.size)}</div>
-                        </div>
-                        <button class="media-select-btn" onclick="admin.deleteMedia('${item.id}')">मेटाउनुहोस्</button>
-                    </div>
-                `).join('');
-
-                mediaGrid.innerHTML = mediaItems + `
-                    <div class="media-upload-area" onclick="admin.openMediaUpload()">
-                        <div class="upload-placeholder">
-                            <span>📁</span>
-                            <p>थप फाइलहरू अपलोड गर्नुहोस्</p>
-                        </div>
-                    </div>
-                `;
-            }
-
-            deleteMedia(mediaId) {
-                if (!confirm('के तपाईं यो मिडिया फाइल मेटाउन निश्चित हुनुहुन्छ?')) {
-                    return;
-                }
-
-                const media = this.getMedia();
-                const updatedMedia = media.filter(item => item.id !== mediaId);
-                this.saveMedia(updatedMedia);
-                this.loadMediaLibrary();
-                this.loadMediaLibraryModal();
-                this.showNotification('मिडिया फाइल सफलतापूर्वक मेटाइयो', 'success');
-            }
-
-            showChangePasswordForm() {
-                document.getElementById('changePasswordModal').style.display = 'block';
-            }
-
-            hideChangePasswordForm() {
-                document.getElementById('changePasswordModal').style.display = 'none';
-                document.getElementById('changePasswordForm').reset();
-            }
-
-            handleChangePassword() {
-                const currentPassword = document.getElementById('currentPassword').value;
-                const newPassword = document.getElementById('newPassword').value;
-                const confirmPassword = document.getElementById('confirmPassword').value;
-                
-                const savedPassword = localStorage.getItem('admin_password') || '9846';
-
-                if (currentPassword !== savedPassword) {
-                    this.showNotification('हालको पासवर्ड गलत छ', 'error');
-                    return;
-                }
-
-                if (newPassword !== confirmPassword) {
-                    this.showNotification('नयाँ पासवर्ड र पुष्टि पासवर्ड मेल खाँदैन', 'error');
-                    return;
-                }
-
-                if (newPassword.length < 4) {
-                    this.showNotification('पासवर्ड कम्तिमा ४ अक्षरको हुनुपर्छ', 'error');
-                    return;
-                }
-
-                localStorage.setItem('admin_password', newPassword);
-                this.hideChangePasswordForm();
-                this.showNotification('पासवर्ड सफलतापूर्वक परिवर्तन गरियो', 'success');
-            }
-
-            getPosts() {
-                try {
-                    const posts = JSON.parse(localStorage.getItem('nb_posts') || '[]');
-                    return Array.isArray(posts) ? posts : [];
-                } catch (error) {
-                    console.error('Error loading posts:', error);
-                    return [];
-                }
-            }
-
-            savePosts(posts) {
-                try {
-                    localStorage.setItem('nb_posts', JSON.stringify(posts));
-                // Also update for main website
-                    localStorage.setItem('nb_posts', JSON.stringify(posts));
-                } catch (error) {
-                    console.error('Error saving posts:', error);
-                    this.showNotification('पोस्टहरू सेभ गर्दा त्रुटि भयो', 'error');
-                }
-            }
-
-            getMedia() {
-                try {
-                    const media = JSON.parse(localStorage.getItem('nb_media') || '[]');
-                    return Array.isArray(media) ? media : [];
-                } catch (error) {
-                    console.error('Error loading media:', error);
-                    return [];
-                }
-            }
-
-            saveMedia(media) {
-                try {
-                    localStorage.setItem('nb_media', JSON.stringify(media));
-                } catch (error) {
-                    console.error('Error saving media:', error);
-                    this.showNotification('मिडिया सेभ गर्दा त्रुटि भयो', 'error');
-                }
-            }
-
-            getContactMessages() {
-                try {
-                    const messages = JSON.parse(localStorage.getItem('nb_contact_messages') || '[]');
-                    return Array.isArray(messages) ? messages : [];
-                } catch (error) {
-                    console.error('Error loading contact messages:', error);
-                    return [];
-                }
-            }
-
-            saveContactMessages(messages) {
-                try {
-                    localStorage.setItem('nb_contact_messages', JSON.stringify(messages));
-                } catch (error) {
-                    console.error('Error saving contact messages:', error);
-                }
-            }
-
-            showNotification(message, type = 'info') {
-                const notification = document.createElement('div');
-                notification.className = `notification notification-${type}`;
-                notification.innerHTML = `
-                    <div class="notification-content">
-                        <span class="notification-message">${message}</span>
-                        <button class="notification-close">&times;</button>
-                    </div>
-                `;
-
-                const adminContent = document.querySelector('.admin-content');
-                if (adminContent) {
-                    adminContent.appendChild(notification);
-                } else {
-                    document.body.appendChild(notification);
-                }
-
-                notification.querySelector('.notification-close').addEventListener('click', () => {
-                    notification.remove();
-                });
-
-                setTimeout(() => {
-                    if (notification.parentNode) {
-                        notification.remove();
-                    }
-                }, 5000);
-            }
-
-            formatFileSize(bytes) {
-                if (bytes === 0) return '0 Bytes';
-                const k = 1024;
-                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-                const i = Math.floor(Math.log(bytes) / Math.log(k));
-                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-            }
-
-            escapeHTML(text) {
-                const div = document.createElement('div');
-                div.textContent = text;
-                return div.innerHTML;
             }
         }
 
-        // Initialize the admin panel
-        const admin = new AdminPanel();
-    </script>
+        openMediaLibraryForTinyMCE(callback, filetype) {
+            this.openMediaLibrary();
+            this.mediaCallback = callback;
+            this.mediaFiletype = filetype;
+        }
+
+        checkAuth() {
+            const isLoggedIn = localStorage.getItem('admin_logged_in') === 'true';
+            if (isLoggedIn) {
+                this.showDashboard();
+            } else {
+                this.showLogin();
+            }
+        }
+
+        handleLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const messageEl = document.getElementById('loginMessage');
+            const savedPassword = localStorage.getItem('admin_password') || '9846';
+
+            if (username === 'Narayan' && password === savedPassword) {
+                localStorage.setItem('admin_logged_in', 'true');
+                this.currentUser = username;
+                this.showDashboard();
+                this.showNotification('सफलतापूर्वक लगइन भयो!', 'success');
+            } else {
+                messageEl.textContent = 'गलत यूजरनाम वा पासवर्ड';
+                messageEl.className = 'login-message error';
+            }
+        }
+
+        handleLogout() {
+            localStorage.removeItem('admin_logged_in');
+            this.currentUser = null;
+            this.showLogin();
+            this.showNotification('लगआउट भयो', 'info');
+        }
+
+        showLogin() {
+            document.getElementById('loginScreen').style.display = 'flex';
+            document.getElementById('adminDashboard').style.display = 'none';
+            document.getElementById('loginForm').reset();
+            document.getElementById('loginMessage').textContent = '';
+            document.getElementById('loginMessage').className = 'login-message';
+        }
+
+        showDashboard() {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('adminDashboard').style.display = 'block';
+            this.loadDashboardStats();
+            this.loadPostsTable();
+            this.loadMediaLibrary();
+        }
+
+        switchTab(tabName) {
+            document.querySelectorAll('.nav-item').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+
+            this.currentTab = tabName;
+
+            if (tabName === 'posts') {
+                this.loadPostsTable();
+            } else if (tabName === 'dashboard') {
+                this.loadDashboardStats();
+            } else if (tabName === 'new-post') {
+                this.resetPostForm();
+            } else if (tabName === 'comments') {
+                this.loadComments();
+            } else if (tabName === 'messages') {
+                this.loadMessages();
+            } else if (tabName === 'media') {
+                this.loadMediaLibrary();
+            }
+        }
+
+        loadDashboardStats() {
+            const posts = this.getPosts();
+            document.getElementById('totalPosts').textContent = posts.length;
+            
+            const totalLikes = posts.reduce((sum, post) => sum + (post.likes || 0), 0);
+            document.getElementById('totalLikes').textContent = totalLikes;
+            
+            const totalComments = posts.reduce((sum, post) => sum + (post.comments?.length || 0), 0);
+            document.getElementById('totalComments').textContent = totalComments;
+
+            const messages = this.getContactMessages();
+            document.getElementById('totalMessages').textContent = messages.length;
+        }
+
+        loadPostsTable() {
+            const posts = this.getPosts();
+            const tbody = document.getElementById('postsTableBody');
+            
+            if (posts.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="5" class="text-center">
+                            <p>कुनै पोस्ट छैन</p>
+                            <button onclick="admin.switchTab('new-post')" class="btn btn-primary" style="margin-top: 10px;">
+                                पहिलो पोस्ट सिर्जना गर्नुहोस्
+                            </button>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = posts.map((post, index) => `
+                <tr>
+                    <td>
+                        <strong>${this.escapeHTML(post.title)}</strong>
+                        ${post.tags ? `<br><small>${post.tags}</small>` : ''}
+                    </td>
+                    <td><span class="post-category">${post.category}</span></td>
+                    <td>${post.created ? new Date(post.created).toLocaleDateString('ne-NP') : 'हालै'}</td>
+                    <td>
+                        <small>👍 ${post.likes || 0}</small>
+                        <small>💬 ${post.comments?.length || 0}</small>
+                    </td>
+                    <td>
+                        <button onclick="admin.editPost(${index})" class="btn-action btn-edit">सम्पादन</button>
+                        <button onclick="admin.deletePost(${index})" class="btn-action btn-delete">मेटाउन</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        savePost(isDraft = false) {
+            const title = document.getElementById('postTitle').value.trim();
+            const category = document.getElementById('postCategory').value;
+            const tags = document.getElementById('postTags').value.trim();
+            const content = tinymce.get('postContent').getContent();
+            const featuredImage = document.getElementById('featuredImage').files[0];
+
+            if (!title) {
+                this.showNotification('कृपया पोस्टको शीर्षक लेख्नुहोस्', 'error');
+                return;
+            }
+
+            if (!content || content === '<p><br data-mce-bogus="1"></p>') {
+                this.showNotification('कृपया पोस्टको सामग्री लेख्नुहोस्', 'error');
+                return;
+            }
+
+            const posts = this.getPosts();
+            const postData = {
+                id: this.editingPostId || Date.now().toString(),
+                title,
+                category,
+                tags,
+                content,
+                likes: 0,
+                comments: [],
+                created: new Date().toISOString(),
+                updated: new Date().toISOString(),
+                status: isDraft ? 'draft' : 'published'
+            };
+
+            // Try to save to GitHub first, then fallback to localStorage
+            this.savePostToGitHub(postData)
+                .then(() => {
+                    this.showNotification('पोस्ट GitHub मा सेभ गरियो!', 'success');
+                    this.finalizePostSave(posts, postData, isDraft);
+                })
+                .catch(error => {
+                    console.error('GitHub save failed, using localStorage:', error);
+                    this.showNotification('GitHub मा सेभ गर्न असफल, स्थानीय भण्डारमा सेभ गरिँदै...', 'warning');
+                    this.finalizePostSave(posts, postData, isDraft);
+                });
+        }
+
+        finalizePostSave(posts, postData, isDraft) {
+            if (this.editingPostId) {
+                const index = posts.findIndex(p => p.id === this.editingPostId);
+                if (index !== -1) {
+                    posts[index] = { ...posts[index], ...postData };
+                    this.showNotification('पोस्ट सफलतापूर्वक अपडेट गरियो', 'success');
+                }
+            } else {
+                posts.unshift(postData);
+                this.showNotification(
+                    isDraft ? 'पोस्ट ड्राफ्टको रूपमा सेभ गरियो' : 'पोस्ट सफलतापूर्वक प्रकाशित गरियो',
+                    'success'
+                );
+            }
+
+            this.savePosts(posts);
+            this.resetPostForm();
+            this.loadPostsTable();
+            this.loadDashboardStats();
+            
+            if (!isDraft) {
+                this.switchTab('posts');
+            }
+        }
+
+        // ... rest of your methods remain the same (editPost, deletePost, resetPostForm, etc.)
+
+        getPosts() {
+            try {
+                const posts = JSON.parse(localStorage.getItem('nb_posts') || '[]');
+                return Array.isArray(posts) ? posts : [];
+            } catch (error) {
+                console.error('Error loading posts:', error);
+                return [];
+            }
+        }
+
+        savePosts(posts) {
+            try {
+                localStorage.setItem('nb_posts', JSON.stringify(posts));
+                // Also update for main website
+                localStorage.setItem('nb_posts', JSON.stringify(posts));
+            } catch (error) {
+                console.error('Error saving posts:', error);
+                this.showNotification('पोस्टहरू सेभ गर्दा त्रुटि भयो', 'error');
+            }
+        }
+
+        showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <span class="notification-message">${message}</span>
+                    <button class="notification-close">&times;</button>
+                </div>
+            `;
+
+            const adminContent = document.querySelector('.admin-content');
+            if (adminContent) {
+                adminContent.appendChild(notification);
+            } else {
+                document.body.appendChild(notification);
+            }
+
+            notification.querySelector('.notification-close').addEventListener('click', () => {
+                notification.remove();
+            });
+
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        escapeHTML(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    }
+
+    // Initialize the admin panel
+    const admin = new AdminPanel();
+</script>
 </body>
 </html>
