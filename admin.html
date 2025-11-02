@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - नारायण भण्डारी</title>
+    <base href="/">
+    <script src="https://cdn.tiny.cloud/1/6e6xtpdwc0ug66rd8xy3d1ul08810zzu2m6brcy6phfx75xw/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #8f0e04;
+            --primary-dark: #6f0b03;
+            --secondary-color: #ffcc00;
+            --text-color: #333333;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+            --border-color: #e9ecef;
+            --white: #ffffff;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        /* Admin Specific Styles */
+        .admin-body {
+            background: #f8f9fa;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Login Screen */
+        .login-screen {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        .login-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .login-header {
+            margin-bottom: 30px;
+        }
+
+        .login-logo {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .login-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .login-header p {
+            color: var(--text-light);
+        }
+
+        .login-form {
+            text-align: left;
+        }
+
+        .btn-block {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .login-message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: var(--radius);
+            text-align: center;
+        }
+
+        .login-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .login-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .login-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .login-links .btn-link {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .login-links .btn-link:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .login-links a {
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .login-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Admin Dashboard */
+        .admin-dashboard {
+            min-height: 100vh;
+        }
+
+        .admin-header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .admin-header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .admin-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary-color);
+        }
+
+        .admin-logo {
+            width: 32px;
+            height: 32px;
+        }
+
+        .admin-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .admin-welcome {
+            color: var(--text-light);
+        }
+
+        /* Admin Main Layout */
+        .admin-main {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: calc(100vh - 70px);
+        }
+
+        .admin-sidebar {
+            width: 250px;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            padding: 20px 0;
+        }
+
+        .admin-nav ul {
+            list-style: none;
+        }
+
+        .admin-nav .nav-item {
+            display: block;
+            padding: 12px 25px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: var(--transition);
+            border-left: 3px solid transparent;
+            cursor: pointer;
+        }
+
+        .admin-nav .nav-item:hover,
+        .admin-nav .nav-item.active {
+            background: var(--bg-light);
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+
+        .admin-content {
+            flex: 1;
+            padding: 30px;
+            background: var(--white);
+            margin: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow-x: auto;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .content-header {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .content-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .content-header p {
+            color: var(--text-light);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .stat-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .stat-info p {
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* Posts Table */
+        .posts-table-container {
+            overflow-x: auto;
+        }
+
+        .posts-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            margin-top: 20px;
+        }
+
+        .posts-table th,
+        .posts-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .posts-table th {
+            background: var(--bg-light);
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .posts-table tr:hover {
+            background: var(--bg-light);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--secondary-color);
+            color: var(--text-color);
+        }
+
+        .btn-primary:hover {
+            background: #e6b800;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Post Form */
+        .post-form {
+            max-width: 800px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(143, 14, 4, 0.1);
+        }
+
+        /* Image Upload Styles */
+        .image-upload-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .file-name {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .image-preview {
+            margin-top: 10px;
+        }
+
+        .image-preview img {
+            max-width: 200px;
+            max-height: 150px;
+            border-radius: var(--radius);
+            border: 2px solid var(--border-color);
+        }
+
+        /* Form Actions */
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* Media Grid */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .media-upload-area {
+            border: 2px dashed var(--border-color);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .media-upload-area:hover {
+            border-color: var(--primary-color);
+            background: var(--bg-light);
+        }
+
+        .upload-placeholder span {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+            color: var(--text-light);
+        }
+
+        .upload-placeholder p {
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .media-item {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .media-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .media-item img,
+        .media-item video {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .media-info {
+            padding: 10px;
+            background: var(--bg-light);
+        }
+
+        .media-name {
+            font-size: 0.875rem;
+            color: var(--text-color);
+            margin-bottom: 5px;
+            word-break: break-all;
+        }
+
+        .media-size {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .media-select-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .media-item:hover .media-select-btn {
+            opacity: 1;
+        }
+
+        /* Action Buttons */
+        .btn-action {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: var(--transition);
+            margin: 2px;
+        }
+
+        .btn-edit {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-edit:hover {
+            background: #218838;
+        }
+
+        .btn-delete {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background: #c82333;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: var(--white);
+            margin: 50px auto;
+            border-radius: var(--radius);
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--text-light);
+            background: none;
+            border: none;
+            z-index: 1;
+        }
+
+        .close-modal:hover {
+            color: var(--primary-color);
+        }
+
+        .modal-body {
+            padding: 40px;
+        }
+
+        .modal-body h2 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Password Change Modal */
+        #changePasswordModal .modal-content {
+            max-width: 500px;
+        }
+
+        #changePasswordModal .form-actions {
+            margin-top: 20px;
+        }
+
+        /* Comments and Messages Styles */
+        .comments-list, .messages-list {
+            margin-top: 20px;
+        }
+
+        .comment-item, .message-item {
+            background: var(--bg-light);
+            padding: 15px;
+            border-radius: var(--radius);
+            margin-bottom: 15px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .comment-header, .message-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .comment-author, .message-author {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .comment-date, .message-date {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .comment-content, .message-content {
+            margin-bottom: 10px;
+        }
+
+        .comment-post, .message-email {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .unread {
+            background: #e3f2fd;
+            border-left-color: #2196f3;
+        }
+
+        .mark-read-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+        }
+
+        /* Notifications */
+        .notification {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            z-index: 3000;
+            min-width: 300px;
+            animation: slideInRight 0.3s ease;
+        }
+
+        .notification-content {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .notification-success .notification-content {
+            border-left: 4px solid #28a745;
+        }
+
+        .notification-error .notification-content {
+            border-left: 4px solid #dc3545;
+        }
+
+        .notification-info .notification-content {
+            border-left: 4px solid #17a2b8;
+        }
+
+        .notification-close {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            margin-left: 10px;
+            color: var(--text-light);
+        }
+
+        .notification-close:hover {
+            color: var(--primary-color);
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .admin-main {
+                flex-direction: column;
+            }
+
+            .admin-sidebar {
+                width: 100%;
+                order: 2;
+            }
+
+            .admin-content {
+                margin: 10px;
+                padding: 20px;
+            }
+
+            .content-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .admin-header-content {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 20px;
+                gap: 10px;
+            }
+
+            .admin-actions {
+                width: 100%;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
+            .posts-table {
+                font-size: 0.875rem;
+            }
+
+            .posts-table th,
+            .posts-table td {
+                padding: 8px 4px;
+            }
+
+            .media-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 10px;
+            }
+
+            .login-card {
+                padding: 25px;
+            }
+
+            .admin-content {
+                margin: 5px;
+                padding: 15px;
+            }
+
+            .posts-table {
+                font-size: 0.75rem;
+            }
+
+            .btn-action {
+                padding: 4px 8px;
+                font-size: 0.75rem;
+            }
+
+            .notification {
+                min-width: 250px;
+                right: 10px;
+            }
+        }
+
+        /* TinyMCE Customization */
+        .tox-tinymce {
+            border-radius: var(--radius) !important;
+            border: 1px solid var(--border-color) !important;
+        }
+    </style>
+</head>
+<body class="admin-body">
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <svg class="login-logo" viewBox="0 0 100 100">
+                        <rect width="100" height="100" fill="#8f0e04" rx="10"/>
+                        <text x="50" y="60" fill="#ffffff" font-size="48" font-family="Arial" text-anchor="middle" dominant-baseline="middle">NB</text>
+                    </svg>
+                    <h1>Admin Login</h1>
+                    <p>Welcome To CMS</p>
+                </div>
+                <form id="loginForm" class="login-form" method="post" action="#" autocomplete="off">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="username" required autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Password" required autocomplete="new-password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+                <div class="login-links">
+                    <button type="button" id="changePasswordBtn" class="btn-link">Change Password</button>
+                    <p><a href="mailto:bhandarinarayan300@gmail.com">Forgot Password ?</a></p>
+                </div>
+                <div id="loginMessage" class="login-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div id="changePasswordModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal" id="closePasswordModal">&times;</span>
+            <div class="modal-body">
+                <h2>Change Your Password</h2>
+                <form id="changePasswordForm">
+                    <div class="form-group">
+                        <label for="currentPassword">Current Password</label>
+                        <input type="password" id="currentPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">New Password</label>
+                        <input type="password" id="newPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm New Password</label>
+                        <input type="password" id="confirmPassword" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Change Password</button>
+                        <button type="button" class="btn btn-secondary" id="cancelPasswordChange">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Media Library Modal -->
+    <div id="mediaLibraryModal" class="modal" style="display: none;">
+        <div class="modal-content" style="max-width: 900px;">
+            <span class="close-modal" id="closeMediaModal">&times;</span>
+            <div class="modal-body">
+                <h2>Media Library</h2>
+                <div id="mediaLibraryGrid" class="media-grid" style="max-height: 500px; overflow-y: auto;">
+                    <!-- Media items will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" class="admin-dashboard" style="display: none;">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="admin-header-content">
+                <div class="admin-brand">
+                    <svg class="admin-logo" viewBox="0 0 100 100">
+                        <rect width="100" height="100" fill="#8f0e04" rx="10"/>
+                        <text x="50" y="60" fill="#ffffff" font-size="48" font-family="Arial" text-anchor="middle" dominant-baseline="middle">NB</text>
+                    </svg>
+                    <span>Admin Panel</span>
+                </div>
+                <div class="admin-actions">
+                    <span class="admin-welcome">नमस्ते, नारायण!</span>
+                    <button id="changePasswordHeaderBtn" class="btn btn-secondary">Change Password</button>
+                    <button id="logoutBtn" class="btn btn-secondary">logout</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="admin-main">
+            <!-- Sidebar -->
+            <aside class="admin-sidebar">
+                <nav class="admin-nav">
+                    <ul>
+                        <li><a href="#dashboard" class="nav-item active" data-tab="dashboard">Dashboard</a></li>
+                        <li><a href="#posts" class="nav-item" data-tab="posts">Posts</a></li>
+                        <li><a href="#new-post" class="nav-item" data-tab="new-post">New post</a></li>
+                        <li><a href="#comments" class="nav-item" data-tab="comments">Comments</a></li>
+                        <li><a href="#messages" class="nav-item" data-tab="messages">Messages</a></li>
+                        <li><a href="#media" class="nav-item" data-tab="media">Media</a></li>
+                        <li><a href="index.html" class="nav-item">View Your Website</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="admin-content">
+                <!-- Dashboard Tab -->
+                <div id="dashboard" class="tab-content active">
+                    <div class="content-header">
+                        <h1>DASHBOARD</h1>
+                        <p>Manage Your Website</p>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">📝</div>
+                            <div class="stat-info">
+                                <h3 id="totalPosts">0</h3>
+                                <p>Total Posts</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">👍</div>
+                            <div class="stat-info">
+                                <h3 id="totalLikes">0</h3>
+                                <p>Total likes</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">💬</div>
+                            <div class="stat-info">
+                                <h3 id="totalComments">0</h3>
+                                <p>Total Comments</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📧</div>
+                            <div class="stat-info">
+                                <h3 id="totalMessages">0</h3>
+                                <p>All Messages</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Posts Tab -->
+                <div id="posts" class="tab-content">
+                    <div class="content-header">
+                        <h1>All Posts</h1>
+                        <button id="newPostBtn" class="btn btn-primary">New post</button>
+                    </div>
+                    <div class="posts-table-container">
+                        <table class="posts-table">
+                            <thead>
+                                <tr>
+                                    <th>शीर्षक</th>
+                                    <th>श्रेणी</th>
+                                    <th>मिति</th>
+                                    <th>लाइक/टिप्पणी</th>
+                                    <th>क्रियाहरू</th>
+                                </tr>
+                            </thead>
+                            <tbody id="postsTableBody">
+                                <!-- Posts will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- New Post Tab -->
+                <div id="new-post" class="tab-content">
+                    <div class="content-header">
+                        <h1>Create New post</h1>
+                    </div>
+                    <form id="postForm" class="post-form">
+                        <div class="form-group">
+                            <label for="postTitle">पोस्ट शीर्षक</label>
+                            <input type="text" id="postTitle" name="postTitle" placeholder="पोस्टको शीर्षक लेख्नुहोस्..." required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="postCategory">श्रेणी</label>
+                                <select id="postCategory" name="postCategory" required>
+                                    <option value="साहित्य">साहित्य</option>
+                                    <option value="लोकसेवा">लोकसेवा</option>
+                                    <option value="शिक्षा">शिक्षा</option>
+                                    <option value="विचार">विचार</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="postTags">ट्यागहरू</label>
+                                <input type="text" id="postTags" name="postTags" placeholder="ट्यागहरू (कमा द्वारा छुट्याइएको)">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="featuredImage">मुख्य फोटो</label>
+                            <div class="image-upload-container">
+                                <input type="file" id="featuredImage" accept="image/*" style="display: none;">
+                                <button type="button" id="selectFeaturedImage" class="btn btn-secondary">फोटो छान्नुहोस्</button>
+                                <button type="button" id="openMediaLibrary" class="btn btn-secondary">मिडिया लाइब्रेरी</button>
+                                <span id="featuredImageName" class="file-name">कुनै फाइल छानिएको छैन</span>
+                            </div>
+                            <div id="featuredImagePreview" class="image-preview"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="postContent">सामग्री</label>
+                            <textarea id="postContent" name="postContent"></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">पोस्ट प्रकाशित गर्नुहोस्</button>
+                            <button type="button" id="saveDraft" class="btn btn-secondary">ड्राफ्टको रूपमा सेभ गर्नुहोस्</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Comments Tab -->
+                <div id="comments" class="tab-content">
+                    <div class="content-header">
+                        <h1>टिप्पणीहरू</h1>
+                        <p>पोस्टहरूमा गरिएका टिप्पणीहरू</p>
+                    </div>
+                    <div id="commentsList" class="comments-list">
+                        <!-- Comments will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Messages Tab -->
+                <div id="messages" class="tab-content">
+                    <div class="content-header">
+                        <h1>सन्देशहरू</h1>
+                        <p>सम्पर्क फर्मबाट प्राप्त सन्देशहरू</p>
+                    </div>
+                    <div id="messagesList" class="messages-list">
+                        <!-- Messages will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Media Tab -->
+                <div id="media" class="tab-content">
+                    <div class="content-header">
+                        <h1>मिडिया लाइब्रेरी</h1>
+                        <button id="uploadMedia" class="btn btn-primary">मिडिया अपलोड गर्नुहोस्</button>
+                    </div>
+                    <div id="mediaGrid" class="media-grid">
+                        <div class="media-upload-area">
+                            <div class="upload-placeholder">
+                                <span>📁</span>
+                                <p>फाइलहरू यहाँ ड्रप गर्नुहोस् वा अपलोड बटन थिच्नुहोस्</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Admin Panel JavaScript
+        class AdminPanel {
+            constructor() {
+                this.currentUser = null;
+                this.currentTab = 'dashboard';
+                this.editingPostId = null;
+                this.init();
+            }
+
+            init() {
+                document.addEventListener('DOMContentLoaded', () => {
+                    this.setupEventListeners();
+                    this.checkAuth();
+                    this.initTinyMCE();
+                });
+            }
+
+            setupEventListeners() {
+                // Login form
+                document.getElementById('loginForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.handleLogin();
+                });
+
+                // Logout button
+                document.getElementById('logoutBtn').addEventListener('click', () => {
+                    this.handleLogout();
+                });
+
+                // Change password buttons
+                document.getElementById('changePasswordBtn').addEventListener('click', () => {
+                    this.showChangePasswordForm();
+                });
+
+                document.getElementById('changePasswordHeaderBtn').addEventListener('click', () => {
+                    this.showChangePasswordForm();
+                });
+
+                document.getElementById('closePasswordModal').addEventListener('click', () => {
+                    this.hideChangePasswordForm();
+                });
+
+                document.getElementById('cancelPasswordChange').addEventListener('click', () => {
+                    this.hideChangePasswordForm();
+                });
+
+                // Change password form
+                document.getElementById('changePasswordForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.handleChangePassword();
+                });
+
+                // Navigation tabs
+                document.querySelectorAll('.nav-item[data-tab]').forEach(tab => {
+                    tab.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.switchTab(tab.dataset.tab);
+                    });
+                });
+
+                // New post button
+                document.getElementById('newPostBtn').addEventListener('click', () => {
+                    this.switchTab('new-post');
+                });
+
+                // Post form
+                document.getElementById('postForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.savePost();
+                });
+
+                // Save draft
+                document.getElementById('saveDraft').addEventListener('click', () => {
+                    this.savePost(true);
+                });
+
+                // Media upload
+                document.getElementById('uploadMedia').addEventListener('click', () => {
+                    this.openMediaUpload();
+                });
+
+                // Featured image selection
+                document.getElementById('selectFeaturedImage').addEventListener('click', () => {
+                    document.getElementById('featuredImage').click();
+                });
+
+                // Media library
+                document.getElementById('openMediaLibrary').addEventListener('click', () => {
+                    this.openMediaLibrary();
+                });
+
+                document.getElementById('closeMediaModal').addEventListener('click', () => {
+                    this.closeMediaLibrary();
+                });
+
+                // Featured image change
+                document.getElementById('featuredImage').addEventListener('change', (e) => {
+                    this.handleFeaturedImageSelect(e.target.files[0]);
+                });
+            }
+
+            initTinyMCE() {
+                if (typeof tinymce !== 'undefined') {
+                    tinymce.init({
+                        selector: '#postContent',
+                        height: 500,
+                        menubar: 'file edit view insert format tools table',
+                        plugins: [
+                            'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview', 'anchor',
+                            'searchreplace', 'visualblocks', 'code', 'fullscreen', 'emoticons',
+                            'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount', 'emoticons'
+                        ],
+                        toolbar: 'undo redo | blocks | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | emoticons | code | fullscreen',
+                        content_style: 'body { font-family: Inter, Arial, sans-serif; font-size: 14px; }',
+                        language: 'ne',
+                        images_upload_handler: (blobInfo, progress) => new Promise((resolve, reject) => {
+                            this.uploadImageToStorage(blobInfo.blob()).then(resolve).catch(reject);
+                        }),
+                        file_picker_types: 'image media',
+                        file_picker_callback: (callback, value, meta) => {
+                            this.openMediaLibraryForTinyMCE(callback, meta.filetype);
+                        },
+                        paste_data_images: true,
+                        setup: (editor) => {
+                            editor.on('change', () => {
+                                editor.save();
+                            });
+                        }
+                    });
+                }
+            }
+
+            openMediaLibraryForTinyMCE(callback, filetype) {
+                this.openMediaLibrary();
+                this.mediaCallback = callback;
+                this.mediaFiletype = filetype;
+            }
+
+            checkAuth() {
+                const isLoggedIn = localStorage.getItem('admin_logged_in') === 'true';
+                if (isLoggedIn) {
+                    this.showDashboard();
+                } else {
+                    this.showLogin();
+                }
+            }
+
+            handleLogin() {
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                const messageEl = document.getElementById('loginMessage');
+                const savedPassword = localStorage.getItem('admin_password') || '9846';
+
+                if (username === 'Narayan' && password === savedPassword) {
+                    localStorage.setItem('admin_logged_in', 'true');
+                    this.currentUser = username;
+                    this.showDashboard();
+                    this.showNotification('सफलतापूर्वक लगइन भयो!', 'success');
+                } else {
+                    messageEl.textContent = 'गलत यूजरनाम वा पासवर्ड';
+                    messageEl.className = 'login-message error';
+                }
+            }
+
+            handleLogout() {
+                localStorage.removeItem('admin_logged_in');
+                this.currentUser = null;
+                this.showLogin();
+                this.showNotification('लगआउट भयो', 'info');
+            }
+
+            showLogin() {
+                document.getElementById('loginScreen').style.display = 'flex';
+                document.getElementById('adminDashboard').style.display = 'none';
+                document.getElementById('loginForm').reset();
+                document.getElementById('loginMessage').textContent = '';
+                document.getElementById('loginMessage').className = 'login-message';
+            }
+
+            showDashboard() {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('adminDashboard').style.display = 'block';
+                this.loadDashboardStats();
+                this.loadPostsTable();
+                this.loadMediaLibrary();
+            }
+
+            switchTab(tabName) {
+                document.querySelectorAll('.nav-item').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(tabName).classList.add('active');
+
+                this.currentTab = tabName;
+
+                if (tabName === 'posts') {
+                    this.loadPostsTable();
+                } else if (tabName === 'dashboard') {
+                    this.loadDashboardStats();
+                } else if (tabName === 'new-post') {
+                    this.resetPostForm();
+                } else if (tabName === 'comments') {
+                    this.loadComments();
+                } else if (tabName === 'messages') {
+                    this.loadMessages();
+                } else if (tabName === 'media') {
+                    this.loadMediaLibrary();
+                }
+            }
+
+            loadDashboardStats() {
+                const posts = this.getPosts();
+                document.getElementById('totalPosts').textContent = posts.length;
+                
+                const totalLikes = posts.reduce((sum, post) => sum + (post.likes || 0), 0);
+                document.getElementById('totalLikes').textContent = totalLikes;
+                
+                const totalComments = posts.reduce((sum, post) => sum + (post.comments?.length || 0), 0);
+                document.getElementById('totalComments').textContent = totalComments;
+
+                const messages = this.getContactMessages();
+                document.getElementById('totalMessages').textContent = messages.length;
+            }
+
+            loadPostsTable() {
+                const posts = this.getPosts();
+                const tbody = document.getElementById('postsTableBody');
+                
+                if (posts.length === 0) {
+                    tbody.innerHTML = `
+                        <tr>
+                            <td colspan="5" class="text-center">
+                                <p>कुनै पोस्ट छैन</p>
+                                <button onclick="admin.switchTab('new-post')" class="btn btn-primary" style="margin-top: 10px;">
+                                    पहिलो पोस्ट सिर्जना गर्नुहोस्
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+                    return;
+                }
+
+                tbody.innerHTML = posts.map((post, index) => `
+                    <tr>
+                        <td>
+                            <strong>${this.escapeHTML(post.title)}</strong>
+                            ${post.tags ? `<br><small>${post.tags}</small>` : ''}
+                        </td>
+                        <td><span class="post-category">${post.category}</span></td>
+                        <td>${post.created ? new Date(post.created).toLocaleDateString('ne-NP') : 'हालै'}</td>
+                        <td>
+                            <small>👍 ${post.likes || 0}</small>
+                            <small>💬 ${post.comments?.length || 0}</small>
+                        </td>
+                        <td>
+                            <button onclick="admin.editPost(${index})" class="btn-action btn-edit">सम्पादन</button>
+                            <button onclick="admin.deletePost(${index})" class="btn-action btn-delete">मेटाउन</button>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+
+            loadComments() {
+                const posts = this.getPosts();
+                const commentsList = document.getElementById('commentsList');
+                
+                const allComments = [];
+                posts.forEach(post => {
+                    if (post.comments && post.comments.length > 0) {
+                        post.comments.forEach(comment => {
+                            allComments.push({
+                                ...comment,
+                                postTitle: post.title,
+                                postId: post.id
+                            });
+                        });
+                    }
+                });
+
+                if (allComments.length === 0) {
+                    commentsList.innerHTML = '<p class="empty-state">कुनै टिप्पणी छैन</p>';
+                    return;
+                }
+
+                // Sort by date (newest first)
+                allComments.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                commentsList.innerHTML = allComments.map(comment => `
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-author">${this.escapeHTML(comment.author || 'अज्ञात')}</div>
+                            <div class="comment-date">${new Date(comment.date).toLocaleDateString('ne-NP')}</div>
+                        </div>
+                        <div class="comment-content">${this.escapeHTML(comment.text)}</div>
+                        <div class="comment-post">पोस्ट: ${this.escapeHTML(comment.postTitle)}</div>
+                    </div>
+                `).join('');
+            }
+
+            loadMessages() {
+                const messages = this.getContactMessages();
+                const messagesList = document.getElementById('messagesList');
+                
+                if (messages.length === 0) {
+                    messagesList.innerHTML = '<p class="empty-state">कुनै सन्देश छैन</p>';
+                    return;
+                }
+
+                // Sort by date (newest first)
+                messages.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                messagesList.innerHTML = messages.map((message, index) => `
+                    <div class="message-item ${message.read ? '' : 'unread'}">
+                        <div class="message-header">
+                            <div class="message-author">${this.escapeHTML(message.name)}</div>
+                            <div class="message-date">${new Date(message.date).toLocaleDateString('ne-NP')}</div>
+                        </div>
+                        <div class="message-email">${this.escapeHTML(message.email)}</div>
+                        <div class="message-content">${this.escapeHTML(message.message)}</div>
+                        ${!message.read ? `<button onclick="admin.markMessageAsRead(${index})" class="mark-read-btn">पढियो को रूपमा चिन्ह लगाउनुहोस्</button>` : ''}
+                    </div>
+                `).join('');
+            }
+
+            markMessageAsRead(index) {
+                const messages = this.getContactMessages();
+                if (messages[index]) {
+                    messages[index].read = true;
+                    this.saveContactMessages(messages);
+                    this.loadMessages();
+                    this.loadDashboardStats();
+                    this.showNotification('सन्देश पढियो को रूपमा चिन्ह लगाइयो', 'success');
+                }
+            }
+
+            savePost(isDraft = false) {
+                const title = document.getElementById('postTitle').value.trim();
+                const category = document.getElementById('postCategory').value;
+                const tags = document.getElementById('postTags').value.trim();
+                const content = tinymce.get('postContent').getContent();
+                const featuredImage = document.getElementById('featuredImage').files[0];
+
+                if (!title) {
+                    this.showNotification('कृपया पोस्टको शीर्षक लेख्नुहोस्', 'error');
+                    return;
+                }
+
+                if (!content || content === '<p><br data-mce-bogus="1"></p>') {
+                    this.showNotification('कृपया पोस्टको सामग्री लेख्नुहोस्', 'error');
+                    return;
+                }
+
+                const posts = this.getPosts();
+                const postData = {
+                    id: this.editingPostId || Date.now().toString(),
+                    title,
+                    category,
+                    tags,
+                    content,
+                    likes: 0,
+                    comments: [],
+                    created: new Date().toISOString(),
+                    updated: new Date().toISOString(),
+                    status: isDraft ? 'draft' : 'published'
+                };
+
+                if (featuredImage) {
+                    this.uploadImageToStorage(featuredImage).then(imageUrl => {
+                        postData.featuredImage = imageUrl;
+                        this.finalizePostSave(posts, postData, isDraft);
+                    }).catch(error => {
+                        console.error('Image upload failed:', error);
+                        this.finalizePostSave(posts, postData, isDraft);
+                    });
+                } else {
+                    this.finalizePostSave(posts, postData, isDraft);
+                }
+            }
+
+            finalizePostSave(posts, postData, isDraft) {
+                if (this.editingPostId) {
+                    const index = posts.findIndex(p => p.id === this.editingPostId);
+                    if (index !== -1) {
+                        posts[index] = { ...posts[index], ...postData };
+                        this.showNotification('पोस्ट सफलतापूर्वक अपडेट गरियो', 'success');
+                    }
+                } else {
+                    posts.unshift(postData);
+                    this.showNotification(
+                        isDraft ? 'पोस्ट ड्राफ्टको रूपमा सेभ गरियो' : 'पोस्ट सफलतापूर्वक प्रकाशित गरियो',
+                        'success'
+                    );
+                }
+
+                this.savePosts(posts);
+                this.resetPostForm();
+                this.loadPostsTable();
+                this.loadDashboardStats();
+                
+                if (!isDraft) {
+                    this.switchTab('posts');
+                }
+            }
+
+            editPost(index) {
+                const posts = this.getPosts();
+                const post = posts[index];
+                
+                if (!post) {
+                    this.showNotification('पोस्ट फेला परेन', 'error');
+                    return;
+                }
+
+                this.editingPostId = post.id;
+                
+                document.getElementById('postTitle').value = post.title;
+                document.getElementById('postCategory').value = post.category;
+                document.getElementById('postTags').value = post.tags || '';
+                
+                if (typeof tinymce !== 'undefined') {
+                    tinymce.get('postContent').setContent(post.content);
+                }
+                
+                if (post.featuredImage) {
+                    document.getElementById('featuredImagePreview').innerHTML = 
+                        `<img src="${post.featuredImage}" alt="Featured Image">`;
+                    document.getElementById('featuredImageName').textContent = 'पहिले अपलोड गरिएको फोटो';
+                }
+                
+                document.querySelector('[data-tab="new-post"]').textContent = 'पोस्ट सम्पादन गर्नुहोस्';
+                this.switchTab('new-post');
+            }
+
+            deletePost(index) {
+                if (!confirm('के तपाईं यो पोस्ट मेटाउन निश्चित हुनुहुन्छ? यो कार्य पूर्ववत गर्न सकिँदैन।')) {
+                    return;
+                }
+
+                const posts = this.getPosts();
+                posts.splice(index, 1);
+                this.savePosts(posts);
+                
+                this.loadPostsTable();
+                this.loadDashboardStats();
+                this.showNotification('पोस्ट सफलतापूर्वक मेटाइयो', 'success');
+            }
+
+            resetPostForm() {
+                this.editingPostId = null;
+                document.getElementById('postForm').reset();
+                document.getElementById('featuredImagePreview').innerHTML = '';
+                document.getElementById('featuredImageName').textContent = 'कुनै फाइल छानिएको छैन';
+                
+                if (typeof tinymce !== 'undefined') {
+                    tinymce.get('postContent').setContent('');
+                }
+                
+                document.querySelector('[data-tab="new-post"]').textContent = 'नयाँ पोस्ट';
+            }
+
+            handleFeaturedImageSelect(file) {
+                if (!file) return;
+
+                const fileName = document.getElementById('featuredImageName');
+                const preview = document.getElementById('featuredImagePreview');
+
+                fileName.textContent = file.name;
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    preview.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+                };
+                reader.readAsDataURL(file);
+            }
+
+            openMediaUpload() {
+                const fileInput = document.createElement('input');
+                fileInput.type = 'file';
+                fileInput.accept = 'image/*,video/*,.pdf,.doc,.docx';
+                fileInput.multiple = true;
+                
+                fileInput.onchange = (e) => {
+                    const files = Array.from(e.target.files);
+                    files.forEach(file => {
+                        this.handleFileUpload(file);
+                    });
+                };
+                
+                fileInput.click();
+            }
+
+            openMediaLibrary() {
+                this.loadMediaLibraryModal();
+                document.getElementById('mediaLibraryModal').style.display = 'block';
+            }
+
+            closeMediaLibrary() {
+                document.getElementById('mediaLibraryModal').style.display = 'none';
+                this.mediaCallback = null;
+            }
+
+            loadMediaLibraryModal() {
+                const media = this.getMedia();
+                const mediaGrid = document.getElementById('mediaLibraryGrid');
+                
+                if (media.length === 0) {
+                    mediaGrid.innerHTML = '<p class="empty-state">कुनै मिडिया फाइल छैन</p>';
+                    return;
+                }
+
+                mediaGrid.innerHTML = media.map(item => `
+                    <div class="media-item">
+                        ${item.type.startsWith('image/') ? 
+                            `<img src="${item.url}" alt="${item.name}">` :
+                            item.type.startsWith('video/') ?
+                            `<video controls><source src="${item.url}" type="${item.type}"></video>` :
+                            `<div style="height: 150px; display: flex; align-items: center; justify-content: center; background: #f8f9fa;">
+                                <span style="font-size: 3rem;">📄</span>
+                            </div>`
+                        }
+                        <div class="media-info">
+                            <div class="media-name">${this.escapeHTML(item.name)}</div>
+                            <div class="media-size">${this.formatFileSize(item.size)}</div>
+                        </div>
+                        ${item.type.startsWith('image/') ? 
+                            `<button class="media-select-btn" onclick="admin.selectMedia('${item.url}')">छान्नुहोस्</button>` : 
+                            ''
+                        }
+                    </div>
+                `).join('');
+            }
+
+            selectMedia(url) {
+                if (this.mediaCallback) {
+                    // For TinyMCE
+                    this.mediaCallback(url, { alt: 'Image' });
+                    this.closeMediaLibrary();
+                } else {
+                    // For featured image
+                    document.getElementById('featuredImagePreview').innerHTML = `<img src="${url}" alt="Featured Image">`;
+                    document.getElementById('featuredImageName').textContent = 'मिडिया लाइब्रेरीबाट छानिएको';
+                    this.closeMediaLibrary();
+                }
+            }
+
+            handleFileUpload(file) {
+                const media = this.getMedia();
+                const fileId = Date.now().toString();
+                
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const mediaItem = {
+                        id: fileId,
+                        name: file.name,
+                        type: file.type,
+                        size: file.size,
+                        url: e.target.result,
+                        uploaded: new Date().toISOString()
+                    };
+                    
+                    media.push(mediaItem);
+                    this.saveMedia(media);
+                    this.loadMediaLibrary();
+                    this.loadMediaLibraryModal();
+                    this.showNotification(`"${file.name}" सफलतापूर्वक अपलोड गरियो`, 'success');
+                };
+                
+                reader.readAsDataURL(file);
+            }
+
+            uploadImageToStorage(file) {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        resolve(e.target.result);
+                    };
+                    reader.onerror = reject;
+                    reader.readAsDataURL(file);
+                });
+            }
+
+            loadMediaLibrary() {
+                const media = this.getMedia();
+                const mediaGrid = document.getElementById('mediaGrid');
+                
+                if (!mediaGrid) return;
+
+                if (media.length === 0) {
+                    mediaGrid.innerHTML = `
+                        <div class="media-upload-area" onclick="admin.openMediaUpload()">
+                            <div class="upload-placeholder">
+                                <span>📁</span>
+                                <p>फाइलहरू यहाँ ड्रप गर्नुहोस् वा अपलोड बटन थिच्नुहोस्</p>
+                            </div>
+                        </div>
+                    `;
+                    return;
+                }
+
+                const mediaItems = media.map(item => `
+                    <div class="media-item">
+                        ${item.type.startsWith('image/') ? 
+                            `<img src="${item.url}" alt="${item.name}">` :
+                            item.type.startsWith('video/') ?
+                            `<video controls><source src="${item.url}" type="${item.type}"></video>` :
+                            `<div style="height: 150px; display: flex; align-items: center; justify-content: center; background: #f8f9fa;">
+                                <span style="font-size: 3rem;">📄</span>
+                            </div>`
+                        }
+                        <div class="media-info">
+                            <div class="media-name">${this.escapeHTML(item.name)}</div>
+                            <div class="media-size">${this.formatFileSize(item.size)}</div>
+                        </div>
+                        <button class="media-select-btn" onclick="admin.deleteMedia('${item.id}')">मेटाउनुहोस्</button>
+                    </div>
+                `).join('');
+
+                mediaGrid.innerHTML = mediaItems + `
+                    <div class="media-upload-area" onclick="admin.openMediaUpload()">
+                        <div class="upload-placeholder">
+                            <span>📁</span>
+                            <p>थप फाइलहरू अपलोड गर्नुहोस्</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            deleteMedia(mediaId) {
+                if (!confirm('के तपाईं यो मिडिया फाइल मेटाउन निश्चित हुनुहुन्छ?')) {
+                    return;
+                }
+
+                const media = this.getMedia();
+                const updatedMedia = media.filter(item => item.id !== mediaId);
+                this.saveMedia(updatedMedia);
+                this.loadMediaLibrary();
+                this.loadMediaLibraryModal();
+                this.showNotification('मिडिया फाइल सफलतापूर्वक मेटाइयो', 'success');
+            }
+
+            showChangePasswordForm() {
+                document.getElementById('changePasswordModal').style.display = 'block';
+            }
+
+            hideChangePasswordForm() {
+                document.getElementById('changePasswordModal').style.display = 'none';
+                document.getElementById('changePasswordForm').reset();
+            }
+
+            handleChangePassword() {
+                const currentPassword = document.getElementById('currentPassword').value;
+                const newPassword = document.getElementById('newPassword').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                
+                const savedPassword = localStorage.getItem('admin_password') || '9846';
+
+                if (currentPassword !== savedPassword) {
+                    this.showNotification('हालको पासवर्ड गलत छ', 'error');
+                    return;
+                }
+
+                if (newPassword !== confirmPassword) {
+                    this.showNotification('नयाँ पासवर्ड र पुष्टि पासवर्ड मेल खाँदैन', 'error');
+                    return;
+                }
+
+                if (newPassword.length < 4) {
+                    this.showNotification('पासवर्ड कम्तिमा ४ अक्षरको हुनुपर्छ', 'error');
+                    return;
+                }
+
+                localStorage.setItem('admin_password', newPassword);
+                this.hideChangePasswordForm();
+                this.showNotification('पासवर्ड सफलतापूर्वक परिवर्तन गरियो', 'success');
+            }
+
+            getPosts() {
+                try {
+                    const posts = JSON.parse(localStorage.getItem('nb_posts') || '[]');
+                    return Array.isArray(posts) ? posts : [];
+                } catch (error) {
+                    console.error('Error loading posts:', error);
+                    return [];
+                }
+            }
+
+            savePosts(posts) {
+                try {
+                    localStorage.setItem('nb_posts', JSON.stringify(posts));
+                // Also update for main website
+                    localStorage.setItem('nb_posts', JSON.stringify(posts));
+                } catch (error) {
+                    console.error('Error saving posts:', error);
+                    this.showNotification('पोस्टहरू सेभ गर्दा त्रुटि भयो', 'error');
+                }
+            }
+
+            getMedia() {
+                try {
+                    const media = JSON.parse(localStorage.getItem('nb_media') || '[]');
+                    return Array.isArray(media) ? media : [];
+                } catch (error) {
+                    console.error('Error loading media:', error);
+                    return [];
+                }
+            }
+
+            saveMedia(media) {
+                try {
+                    localStorage.setItem('nb_media', JSON.stringify(media));
+                } catch (error) {
+                    console.error('Error saving media:', error);
+                    this.showNotification('मिडिया सेभ गर्दा त्रुटि भयो', 'error');
+                }
+            }
+
+            getContactMessages() {
+                try {
+                    const messages = JSON.parse(localStorage.getItem('nb_contact_messages') || '[]');
+                    return Array.isArray(messages) ? messages : [];
+                } catch (error) {
+                    console.error('Error loading contact messages:', error);
+                    return [];
+                }
+            }
+
+            saveContactMessages(messages) {
+                try {
+                    localStorage.setItem('nb_contact_messages', JSON.stringify(messages));
+                } catch (error) {
+                    console.error('Error saving contact messages:', error);
+                }
+            }
+
+            showNotification(message, type = 'info') {
+                const notification = document.createElement('div');
+                notification.className = `notification notification-${type}`;
+                notification.innerHTML = `
+                    <div class="notification-content">
+                        <span class="notification-message">${message}</span>
+                        <button class="notification-close">&times;</button>
+                    </div>
+                `;
+
+                const adminContent = document.querySelector('.admin-content');
+                if (adminContent) {
+                    adminContent.appendChild(notification);
+                } else {
+                    document.body.appendChild(notification);
+                }
+
+                notification.querySelector('.notification-close').addEventListener('click', () => {
+                    notification.remove();
+                });
+
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.remove();
+                    }
+                }, 5000);
+            }
+
+            formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+
+            escapeHTML(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+        }
+
+        // Initialize the admin panel
+        const admin = new AdminPanel();
+    </script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>फोटो ग्यालरी | नारायण भण्डारी</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  body {
+    background: #f8f8f8;
+    color: #222;
+  }
+
+  /* ===== Header / Navbar ===== */
+  header {
+    background-color: #8f0e04;
+    color: #fff;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-brand img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .nav-brand a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* ===== Hamburger ===== */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    height: 3px;
+    width: 25px;
+    background: white;
+    margin: 4px;
+    border-radius: 5px;
+  }
+
+  @media (max-width: 768px) {
+    nav ul {
+      display: none;
+      flex-direction: column;
+      background: #8f0e04;
+      position: absolute;
+      top: 70px;
+      right: 0;
+      width: 200px;
+      padding: 15px;
+    }
+
+    nav ul.active {
+      display: flex;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+  }
+
+  /* ===== Gallery Section ===== */
+  .gallery-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .gallery-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #8f0e04;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+  }
+
+  .gallery-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  .gallery-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    background: #8f0e04;
+    color: #fff;
+    padding: 20px 0;
+    margin-top: 40px;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .social-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500;
+  }
+
+  .social-links a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="nav-container">
+      <div class="nav-brand">
+        <img src="profile.png" alt="Narayan Bhandari">
+        <a href="index.html">नारायण भण्डारी</a>
+      </div>
+      <nav>
+        <ul id="nav-links">
+          <li><a href="index.html">गृहपृष्ठ</a></li>
+          <li><a href="about_me.html">मेरो बारेमा</a></li>
+          <li><a href="index.html">लेखहरू</a></li>
+          <li><a href="index.html">लोकसेवा</a></li>
+          <li><a href="index.html">साहित्य</a></li>
+          <li><a href="gallery.html" class="active">फोटो ग्यालरी</a></li>
+          <li><a href="index.html">सम्पर्क</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Gallery Section ===== -->
+  <section class="gallery-section">
+    <h2>📸 मेरो फोटो ग्यालरी</h2>
+    <div class="gallery-grid">
+      <img src="profile.png" alt="Photo 1">
+      <img src="profile.png" alt="Photo 2">
+      <img src="logo.png" alt="Photo 3">
+      <img src="profile.png" alt="Photo 4">
+      <img src="profile.png" alt="Photo 5">
+      <img src="logo.png" alt="Photo 6">
+      <img src="logo.png" alt="Photo 7">
+      <img src="logo.png" alt="Photo 8">
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="footer-container">
+      <p>© 2025 नारायण भण्डारी | सर्वाधिकार सुरक्षित</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/narayanbhandari23" target="_blank">Facebook</a> |
+        <a href="https://youtube.com/@allinonefornepal" target="_blank">YouTube</a> |
+        <a href="gallery.html">Photo Gallery</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JavaScript ===== -->
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
+
+</body>
+</html>

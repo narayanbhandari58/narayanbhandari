@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Loksewa Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>नेपाल लोकसेवा Quiz</h1>
+
+  <div id="progress-text"></div>
+  <div id="quiz-wrapper">
+    <div id="quiz-container" class="slide"></div>
+  </div>
+
+  <div id="button-container">
+    <button id="prev-btn">⬅ Previous</button>
+    <button id="next-btn">Next ➡</button>
+    <button id="finish-btn" style="display:none;">Quiz सकियो! परिणाम हेर्नुहोस्</button>
+  </div>
+</div>
+
+<div id="popup-overlay">
+  <div id="popup-message">
+    <h2 id="popup-title"></h2>
+    <div id="popup-detail"></div>
+    <button onclick="closePopup()">Close</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
