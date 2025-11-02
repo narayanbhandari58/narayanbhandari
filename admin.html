@@ -1139,6 +1139,22 @@
   .then(data => alert('Content uploaded to GitHub!'))
   .catch(err => console.error(err));
 });
+fetch(`https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/${fileName}`, {
+  method: 'PUT',
+  headers: {
+    'Authorization': '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',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    message: `Add ${fileName}`,
+    content: btoa(JSON.stringify(content, null, 2)), // JSON को लागि
+    // content: btoa(markdownContent), // Markdown को लागि
+    branch: 'main'
+  })
+})
+.then(res => res.json())
+.then(data => alert('Content uploaded successfully!'))
+.catch(err => console.error(err));
 
         class AdminPanel {
             constructor() {
