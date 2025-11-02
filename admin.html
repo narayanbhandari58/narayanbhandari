@@ -1101,6 +1101,45 @@
 
     <script>
         // Admin Panel JavaScript
+        document.getElementById('postForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  // Form data read
+  const title = document.getElementById('title').value;
+  const body = document.getElementById('body').value;
+  const date = new Date().toISOString().split('T')[0];
+
+  // JSON object बनाउने
+  const content = {
+    title: title,
+    date: date,
+    body: body
+  };
+
+  // File name बनाउने (unique)
+  const fileName = `posts/post-${Date.now()}.json`;
+
+  // JSON लाई base64 encode गर्ने (GitHub API लागि)
+  const base64Content = btoa(JSON.stringify(content, null, 2));
+
+  // GitHub API मार्फत upload
+  fetch(`https://api.github.com/repos/narayanbhandari58/narayanbhandari/contents/${fileName}`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': 'token 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',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      message: `Add ${fileName}`,
+      content: base64Content,
+      branch: 'main'
+    })
+  })
+  .then(res => res.json())
+  .then(data => alert('Content uploaded to GitHub!'))
+  .catch(err => console.error(err));
+});
+
         class AdminPanel {
             constructor() {
                 this.currentUser = null;
