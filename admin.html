@@ -1239,6 +1239,15 @@
                     this.handleFeaturedImageSelect(e.target.files[0]);
                 });
             }
+            cont content={
+                title:title,
+                date:date,
+                body:body
+            };
+            //example markdown
+            const markdownContent=# $ {title}\n\n${body}\n\n*${date}*';
+            const filename= 'posts/post-$
+        {Date.now()}.json';
 
             initTinyMCE() {
                 if (typeof tinymce !== 'undefined') {
