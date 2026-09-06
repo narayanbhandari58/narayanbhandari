@@ -3,364 +3,717 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>मेरो बारेमा - नारायण भण्डारी</title>
+
+  <link rel="stylesheet" href="style.css">
+
   <style>
-    :root {
-      --primary-color: #8f0e04;
-      --text-color: #333;
-      --text-light: #666;
-      --bg-light: #f8f8f8;
-      --white: #fff;
-      --radius: 10px;
-      --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      --transition: all 0.3s ease;
+    /* =========================================
+       ABOUT PAGE
+    ========================================= */
+
+    .about-page{
+      background:#fff;
+      min-height:100vh;
     }
 
-    body {
-      font-family: "Noto Sans Devanagari", Arial, sans-serif;
-      background: #fff;
-      color: var(--text-color);
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      padding-top: 70px; /* fixed navbar को लागि space */
+    .about-section{
+      padding:75px 0 85px;
     }
 
-    /* 🔹 Navbar */
-  .navbar {
-      background: var(--white);
-      box-shadow: var(--shadow);
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
+    .about-heading{
+      text-align:center;
+      margin-bottom:55px;
     }
 
-  .nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 70px;
-}
-
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.photo {
-  width: 70px;
-  height: 70px;
-  margin-right: 10px;
-  border-radius: 50%; /* चाहे गोलो बनाउन सकिन्छ */
-  object-fit: cover;
-}
-
-.link {
-  text-decoration: none;
-  color: inherit;
-  font-weight: 700;
-  font-size: 1.25rem;
-}
-
-.nav-menu {
-      display: flex;
-      list-style: none;
-      gap: 20px;
+    .about-heading h1{
+      margin:0;
+      color:var(--primary);
+      font-size:clamp(1.9rem,4vw,2.7rem);
+      line-height:1.4;
+      font-weight:900;
     }
 
-    .nav-link {
-      text-decoration: none;
-      color: var(--text-color);
-      font-weight: 500;
-      transition: var(--transition);
-      padding: 8px 16px;
-      border-radius: var(--radius);
+    .about-heading .line{
+      width:60px;
+      height:4px;
+      background:var(--gold);
+      border-radius:10px;
+      margin:12px auto 0;
     }
 
-    .nav-link:hover {
-      color: var(--primary-color);
-      background: var(--bg-light);
+    /* Main About Card */
+
+    .about-card{
+      max-width:1050px;
+      margin:0 auto;
+
+      display:grid;
+      grid-template-columns:330px 1fr;
+
+      gap:55px;
+      align-items:center;
+
+      background:#fff;
+
+      padding:40px;
+
+      border:1px solid #e8e8e8;
+
+      border-radius:24px;
+
+      box-shadow:
+        0 12px 40px rgba(0,0,0,.08);
     }
 
-    .admin-btn {
-      background: var(--primary-color);
-      color: var(--white) !important;
+    /* Profile Image */
+
+    .about-image{
+      display:flex;
+      justify-content:center;
+      align-items:center;
     }
 
-    .admin-btn:hover {
-      background: #6b0b03;
+    .about-image img{
+      width:300px;
+      height:300px;
+
+      object-fit:cover;
+
+      border-radius:50%;
+
+      border:7px solid #fff;
+
+      box-shadow:
+        0 10px 35px rgba(0,0,0,.16);
     }
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
+    /* Content */
+
+    .about-content h2{
+      margin:0 0 25px;
+
+      color:var(--primary);
+
+      font-size:clamp(1.5rem,3vw,2rem);
+
+      font-weight:900;
     }
 
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background: var(--text-color);
-      margin: 3px 0;
-      transition: var(--transition);
+    .about-details{
+      margin-bottom:25px;
     }
 
-    /* 📱 Mobile responsive */
-    @media (max-width: 768px) {
-      .nav-menu {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: var(--white);
-        flex-direction: column;
-        align-items: center;
-        display: none;
+    .about-detail{
+      display:grid;
+      grid-template-columns:110px 1fr;
+
+      gap:15px;
+
+      padding:9px 0;
+
+      border-bottom:1px dashed #e8e8e8;
+    }
+
+    .about-detail:last-child{
+      border-bottom:0;
+    }
+
+    .about-detail strong{
+      color:#666;
+      font-weight:800;
+    }
+
+    .about-detail span{
+      color:#333;
+    }
+
+    .about-description{
+      color:#444;
+
+      font-size:1rem;
+
+      line-height:2;
+
+      margin:25px 0;
+    }
+
+    /* Social Buttons */
+
+    .about-actions{
+      display:flex;
+
+      flex-wrap:wrap;
+
+      gap:12px;
+    }
+
+    .about-actions a{
+      display:inline-flex;
+
+      align-items:center;
+      justify-content:center;
+
+      min-height:44px;
+
+      padding:10px 19px;
+
+      border-radius:11px;
+
+      background:var(--primary);
+
+      color:#fff;
+
+      text-decoration:none;
+
+      font-weight:700;
+
+      transition:
+        transform .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .about-actions a:hover{
+      background:var(--primary-dark);
+
+      transform:translateY(-2px);
+
+      box-shadow:
+        0 7px 20px rgba(143,14,4,.2);
+    }
+
+
+    /* =========================================
+       MOBILE NAVIGATION FIX
+    ========================================= */
+
+    @media(max-width:900px){
+
+      .navbar{
+        position:sticky;
+        top:0;
+        z-index:3000;
       }
 
-      .nav-menu.active {
-        display: flex;
+      .nav-container{
+        min-height:68px;
       }
 
-      .hamburger {
-        display: flex;
+      .nav-menu{
+        position:absolute;
+
+        top:68px;
+
+        left:12px;
+        right:12px;
+
+        width:auto;
+
+        display:none;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:3px;
+
+        padding:10px;
+
+        background:#fff;
+
+        border-radius:16px;
+
+        box-shadow:
+          0 15px 40px rgba(0,0,0,.18);
+
+        z-index:4000;
+      }
+
+      .nav-menu.open{
+        display:flex;
+      }
+
+      .nav-link{
+        width:100%;
+
+        text-align:center;
+
+        padding:12px 14px;
+
+        border-radius:10px;
+      }
+
+      .hamburger{
+        display:block;
+      }
+
+
+      /* About */
+
+      .about-section{
+        padding:50px 0 65px;
+      }
+
+      .about-heading{
+        margin-bottom:30px;
+      }
+
+      .about-card{
+        grid-template-columns:1fr;
+
+        gap:28px;
+
+        padding:25px 20px;
+
+        border-radius:20px;
+      }
+
+      .about-image img{
+        width:230px;
+        height:230px;
+      }
+
+      .about-content{
+        text-align:center;
+      }
+
+      .about-content h2{
+        margin-bottom:20px;
+      }
+
+      .about-detail{
+        grid-template-columns:1fr;
+
+        gap:2px;
+
+        text-align:center;
+
+        padding:10px 0;
+      }
+
+      .about-description{
+        font-size:.98rem;
+
+        line-height:1.9;
+
+        text-align:justify;
+      }
+
+      .about-actions{
+        justify-content:center;
+      }
+
+      .about-actions a{
+        min-width:125px;
       }
     }
 
-    /* 🔹 About Section */
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 60px 20px;
-    }
 
-    .section-title {
-      text-align: center;
-      font-size: 2.2rem;
-      color: var(--primary-color);
-      margin-bottom: 50px;
-    }
+    /* =========================================
+       SMALL MOBILE
+    ========================================= */
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 40px;
-      align-items: center;
-    }
+    @media(max-width:480px){
 
-    .about-image img {
-      width: 100%;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .about-content h3 {
-      font-size: 1.75rem;
-      margin-bottom: 20px;
-      color: var(--primary-color);
-    }
-
-    .about-details {
-      margin-bottom: 20px;
-    }
-
-    .detail-item {
-      display: flex;
-      margin-bottom: 10px;
-    }
-
-    .detail-item strong {
-      min-width: 120px;
-      color: var(--text-light);
-    }
-
-    .about-description {
-      margin-bottom: 30px;
-      line-height: 1.8;
-    }
-
-    /* 🔹 Social Links */
-    .social-links {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .social-link {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      background: var(--bg-light);
-      border-radius: var(--radius);
-      text-decoration: none;
-      color:white;
-      transition: var(--transition);
-      background: #6b0b03;
-    }
-
-    .social-link:hover {
-      background: var(--primary-color);
-      color: var(--white)
-      
-    }
-
-    /* 📱 Responsive grid */
-    @media (max-width: 768px) {
-      .about-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
+      .about-section{
+        padding-top:42px;
       }
 
-      .detail-item {
-        flex-direction: column;
-        align-items: center;
+      .about-card{
+        margin-left:4px;
+        margin-right:4px;
+
+        padding:22px 16px;
       }
 
-      .detail-item strong {
-        min-width: auto;
-        margin-bottom: 5px;
+      .about-image img{
+        width:200px;
+        height:200px;
+      }
+
+      .about-content h2{
+        font-size:1.5rem;
+      }
+
+      .about-detail span,
+      .about-detail strong{
+        font-size:.95rem;
+      }
+
+      .about-description{
+        font-size:.94rem;
+      }
+
+      .about-actions{
+        flex-direction:column;
+      }
+
+      .about-actions a{
+        width:100%;
       }
     }
-
-    /* 🔹 Footer */
-    .footer {
-      background: #2c2c2c;
-      color: var(--white);
-      padding: 50px 0 20px;
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-      margin-bottom: 30px;
-      color:white;
-    }
-
-    .footer-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-     
-    }
-
-    .footer-links a {
-      color: #ccc;
-      text-decoration: none;
-      transition: var(--transition);
-    }
-
-    .footer-links a:hover {
-      color: var(--primary-color);
-    }
-
-    .footer-bottom {
-      text-align: center;
-      padding-top: 20px;
-      border-top: 1px solid #444;
-      color: #999;
-    }
-     </style>
+  </style>
 </head>
 
-<body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-brand">
-        <img src="logo.png" class="photo" alt="Narayan Bhandari">
-        <span><a href="index.html" class="link">नारायण भण्डारी</a></span>
-      </div>
-      <ul class="nav-menu">
-        <li><a href="index.html" class="nav-link">गृहपृष्ठ</a></li>
-        <li><a href="about_me.html" class="nav-link">मेरो बारेमा</a></li>
-        <li><a href="index.html" class="nav-link">लेखहरू</a></li>
-        <li><a href="index.html" class="nav-link">लोकसेवा</a></li>
-        <li><a href="index.html" class="nav-link">साहित्य</a></li>
-        <li><a href="index.html" class="nav-link">सम्पर्क</a></li>
-        <li><a href="admin.html" class="nav-link admin-btn">Admin</a></li>
-      </ul>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </nav>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <div class="container">
-      <h2 class="section-title">मेरो बारेमा</h2>
-      <div class="about-grid">
-        <div class="about-image">
-          <img src="profile.png"alt="Narayan Bhandari">
-        </div>
-        <div class="about-content">
-          <h3>नारायण भण्डारी</h3>
-          <div class="about-details">
-            <div class="detail-item"><strong>जन्मस्थान:</strong><span>संखुवासभा, खाँदबारी-८ अर्चले</span></div>
-            <div class="detail-item"><strong>शिक्षा:</strong><span>लेखन, साहित्य र सार्वजनिक सेवामा संलग्न</span></div>
-            <div class="detail-item"><strong>ईमेल:</strong><span>narayanbhandari58@gmail.com</span></div>
-          </div>
-          <p class="about-description">
-            मैले लेखन, शिक्षा र सार्वजनिक सेवामा आफ्नो जीवन समर्पित गरेको छु। 
-            यस वेबसाइटमार्फत मेरा लेख रचना, लोकसेवा तयारी सामग्री, 
-            र अन्य साहित्यिक कार्यहरू हजुरहरूमाझ प्रस्तुत गर्दछु।
-          </p>
-          <div class="social-links">
-            <a href="https://www.facebook.com/narayanbhandari23" target="_blank" class="social-link">Facebook</a>
-            <a href="https://youtube.com/@allinonefornepal" target="_blank" class="social-link">YouTube</a>
-            <a href="gallery.html" class="social-link">Photo Gallery</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<body class="about-page">
 
-  <!-- Footer -->
+  <!-- =========================================
+       NAVBAR
+  ========================================== -->
+
+  <header class="navbar">
+
+    <div class="container nav-container">
+
+      <a href="index.html" class="brand">
+
+        <img
+          src="image/logo.png"
+          alt="नारायण भण्डारी"
+          onerror="this.style.display='none'"
+        >
+
+        <span>नारायण भण्डारी</span>
+
+      </a>
+
+
+      <button
+        class="hamburger"
+        id="hamburger"
+        aria-label="Menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+
+      <nav>
+
+        <ul class="nav-menu" id="navMenu">
+
+          <li>
+            <a href="index.html" class="nav-link">
+              गृहपृष्ठ
+            </a>
+          </li>
+
+          <li>
+            <a href="about_me.html" class="nav-link">
+              मेरो बारेमा
+            </a>
+          </li>
+
+          <li>
+            <a href="index.html#posts" class="nav-link">
+              लेखहरू
+            </a>
+          </li>
+
+          <li>
+            <a href="index.html#loksewa" class="nav-link">
+              लोकसेवा
+            </a>
+          </li>
+
+          <li>
+            <a href="index.html#literature" class="nav-link">
+              साहित्य
+            </a>
+          </li>
+
+          <li>
+            <a href="index.html#contact" class="nav-link">
+              सम्पर्क
+            </a>
+          </li>
+
+          <li>
+            <a href="admin.html" class="nav-link admin-btn">
+              Admin
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================================
+       ABOUT SECTION
+  ========================================== -->
+
+  <main>
+
+    <section class="about-section">
+
+      <div class="container">
+
+        <div class="about-heading">
+
+          <h1>मेरो बारेमा</h1>
+
+          <div class="line"></div>
+
+        </div>
+
+
+        <div class="about-card">
+
+
+          <!-- PROFILE PHOTO -->
+
+          <div class="about-image">
+
+            <img
+              src="image/profile.png"
+              alt="नारायण भण्डारी"
+              onerror="this.src='image/logo.png'"
+            >
+
+          </div>
+
+
+          <!-- INFORMATION -->
+
+          <div class="about-content">
+
+            <h2>नारायण भण्डारी</h2>
+
+
+            <div class="about-details">
+
+              <div class="about-detail">
+
+                <strong>जन्मस्थान:</strong>
+
+                <span>
+                  संखुवासभा, खाँदबारी-६ अर्चले
+                </span>
+
+              </div>
+
+
+              <div class="about-detail">
+
+                <strong>शिक्षा:</strong>
+
+                <span>
+                  लेखन, साहित्य र सार्वजनिक सेवामा संलग्न
+                </span>
+
+              </div>
+
+
+              <div class="about-detail">
+
+                <strong>इमेल:</strong>
+
+                <span>
+                  narayanbhandari58@gmail.com
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <p class="about-description">
+
+              मैले लेखन, शिक्षा र सार्वजनिक सेवामा आफ्नो जीवन समर्पित
+              गरेको छु। यस वेबसाइटमार्फत मेरा लेख, रचना, लोकसेवा तयारी
+              सामग्री तथा अन्य साहित्यिक कार्यहरू हजुरहरूसामु प्रस्तुत
+              गर्दछु।
+
+            </p>
+
+
+            <!-- SOCIAL LINKS -->
+
+            <div class="about-actions">
+
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener"
+              >
+                Facebook
+              </a>
+
+              <a
+                href="https://www.youtube.com/"
+                target="_blank"
+                rel="noopener"
+              >
+                YouTube
+              </a>
+
+              <a href="gallery.html">
+                Photo Gallery
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+
   <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>नारायण भण्डारी</h3>
-          <p>सर्जक, साधक र पाठक</p>
-        </div>
-        <div class="footer-section">
-          <h3>द्रुत लिंकहरू</h3>
-          <ul class="footer-links">
-            <li><a href="#home">गृहपृष्ठ</a></li>
-            <li><a href="#blog">लेखहरू</a></li>
-            <li><a href="#loksewa">लोकसेवा</a></li>
-            <li><a href="#contact">सम्पर्क</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>सामाजिक सञ्जाल</h3>
-          <div class="social-links">
-            <a href="https://www.facebook.com/narayanbhandari23" target="_blank">Facebook</a>
-            <a href="https://youtube.com/@allinonefornepal" target="_blank">YouTube</a>
-          </div>
-        </div>
+
+    <div class="container footer-grid">
+
+      <div>
+
+        <h3>नारायण भण्डारी</h3>
+
+        <p>
+          लेखन, साहित्य र पाठक
+        </p>
+
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 नारायण भण्डारी. सर्वाधिकार सुरक्षित.</p>
+
+
+      <div>
+
+        <h3>द्रुत लिंकहरू</h3>
+
+        <p>
+          <a href="index.html">गृहपृष्ठ</a><br>
+          <a href="about_me.html">मेरो बारेमा</a><br>
+          <a href="index.html#posts">लेखहरू</a><br>
+          <a href="index.html#loksewa">लोकसेवा</a><br>
+          <a href="index.html#contact">सम्पर्क</a>
+        </p>
+
       </div>
+
+
+      <div>
+
+        <h3>सामाजिक सञ्जाल</h3>
+
+        <p>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener">
+            Facebook
+          </a>
+          &nbsp;&nbsp;
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener">
+            YouTube
+          </a>
+        </p>
+
+      </div>
+
     </div>
+
+
+    <div class="container">
+
+      <div class="copyright">
+
+        © २०८३ नारायण भण्डारी। सर्वाधिकार सुरक्षित।
+
+      </div>
+
+    </div>
+
   </footer>
 
+
+  <!-- =========================================
+       MOBILE MENU SCRIPT
+  ========================================== -->
+
   <script>
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    hamburger.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
+
+    document.addEventListener("DOMContentLoaded", function(){
+
+      const hamburger = document.getElementById("hamburger");
+      const navMenu = document.getElementById("navMenu");
+
+      if(!hamburger || !navMenu) return;
+
+
+      /* Open / Close menu */
+
+      hamburger.addEventListener("click", function(e){
+
+        e.stopPropagation();
+
+        navMenu.classList.toggle("open");
+
+        const isOpen =
+          navMenu.classList.contains("open");
+
+        hamburger.setAttribute(
+          "aria-expanded",
+          isOpen ? "true" : "false"
+        );
+
+      });
+
+
+      /* Menu item click गर्दा तुरुन्त बन्द */
+
+      navMenu
+        .querySelectorAll(".nav-link")
+        .forEach(function(link){
+
+          link.addEventListener("click", function(){
+
+            navMenu.classList.remove("open");
+
+            hamburger.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+          });
+
+        });
+
+
+      /* बाहिर click गर्दा menu बन्द */
+
+      document.addEventListener("click", function(e){
+
+        if(
+          !navMenu.contains(e.target) &&
+          !hamburger.contains(e.target)
+        ){
+
+          navMenu.classList.remove("open");
+
+          hamburger.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        }
+
+      });
+
     });
+
   </script>
+
 </body>
 </html>
