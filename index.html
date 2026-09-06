@@ -1,36 +1,764 @@
 <!doctype html>
 <html lang="ne">
+
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>नारायण भण्डारी - आधिकारिक वेबसाइट</title>
-<link rel="stylesheet" href="style.css">
+
+<meta charset="utf-8">
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1"
+>
+
+<meta
+  name="description"
+  content="नारायण भण्डारी — लेख, साहित्य, लोकसेवा तयारी र शैक्षिक सामग्री"
+>
+
+<title>
+  नारायण भण्डारी - आधिकारिक वेबसाइट
+</title>
+
+<link
+  rel="stylesheet"
+  href="style.css"
+>
+
 </head>
+
+
 <body>
-<nav class="navbar"><div class="container nav-container">
-<a class="brand" href="#home"><img src="image/logo.png" alt="नारायण भण्डारी">नारायण भण्डारी</a>
-<button class="hamburger" id="hamburger">☰</button>
-<ul class="nav-menu" id="navMenu">
-<li><a class="nav-link" href="#home">गृहपृष्ठ</a></li><li><a class="nav-link" href="about_me.html">मेरो बारेमा</a></li>
-<li><a class="nav-link" href="#blog">लेखहरू</a></li><li><a class="nav-link" href="#loksewa">लोकसेवा</a></li><li><a class="nav-link" href="#literature">साहित्य</a></li><li><a class="nav-link" href="#contact">सम्पर्क</a></li><li><a class="nav-link admin-btn" href="admin.html">Admin</a></li>
-</ul></div></nav>
 
-<section id="home" class="hero"><div class="container"><h1>नारायण भण्डारी</h1><p>लेख, साहित्य, लोकसेवा तयारी, र शैक्षिक सामग्रीहरू</p><div class="actions"><a class="btn btn-primary" href="#blog">लेखहरू हेर्नुहोस्</a><a class="btn btn-secondary" href="about_me.html">मेरो बारेमा</a></div></div></section>
 
-<section id="blog" class="section"><div class="container"><h2 class="section-title">लेख र रचनाहरू</h2>
-<div class="filters" id="filters"><button class="filter active" data-filter="all">सबै</button><button class="filter" data-filter="साहित्य">साहित्य</button><button class="filter" data-filter="लोकसेवा">लोकसेवा</button><button class="filter" data-filter="शिक्षा">शिक्षा</button><button class="filter" data-filter="विचार">विचार</button></div>
-<div id="posts" class="grid"><div class="loading">सामग्री लोड हुँदैछ...</div></div></div></section>
+<!-- =========================
+     NAVIGATION
+========================= -->
 
-<section id="loksewa" class="section"><div class="container"><h2 class="section-title">लोकसेवा तयारी</h2><p class="description">लोकसेवा आयोगको तयारीका लागि उपयोगी सामग्री, नोट्स, र मार्गदर्शन</p><div id="loksewaPosts" class="grid"></div></div></section>
-<section id="literature" class="section"><div class="container"><h2 class="section-title">साहित्यिक रचनाहरू</h2><p class="description">कविता, कथा, निबन्ध र अन्य साहित्यिक रचनाहरू</p><div id="literaturePosts" class="grid"></div></div></section>
+<nav class="navbar">
 
-<section id="contact" class="section"><div class="container"><h2 class="section-title">सम्पर्क गर्नुहोस्</h2><div class="contact-grid">
-<div><h3>सम्पर्क जानकारी</h3><div class="contact-item"><b>ईमेल:</b> <a href="mailto:narayanbhandari58@gmail.com">narayanbhandari58@gmail.com</a></div><div class="contact-item"><b>फेसबुक:</b> <a href="https://www.facebook.com/narayanbhandari23" target="_blank" rel="noopener">narayanbhandari23</a></div><div class="contact-item"><b>युट्युब:</b> <a href="https://youtube.com/@allinonefornepal" target="_blank" rel="noopener">All in One for Nepal</a></div></div>
-<div><h3>सन्देश पठाउनुहोस्</h3><form name="contact" method="POST" data-netlify="true"><input type="hidden" name="form-name" value="contact"><div class="form-group"><input name="name" placeholder="तपाईंको नाम" required></div><div class="form-group"><input name="email" type="email" placeholder="तपाईंको ईमेल" required></div><div class="form-group"><textarea name="message" placeholder="तपाईंको सन्देश" required></textarea></div><button class="btn btn-primary" type="submit">सन्देश पठाउनुहोस्</button></form></div>
-</div></div></section>
+  <div class="container nav-container">
 
-<footer class="footer"><div class="container"><div class="footer-grid"><div><h3>नारायण भण्डारी</h3><p>सर्जक, साधक र पाठक</p></div><div><h3>द्रुत लिंकहरू</h3><p><a href="#home">गृहपृष्ठ</a> · <a href="#blog">लेखहरू</a> · <a href="#loksewa">लोकसेवा</a> · <a href="font.html">Nepali Unicode</a></p></div><div><h3>सामाजिक सञ्जाल</h3><p><a href="https://www.facebook.com/narayanbhandari23">Facebook</a> · <a href="https://youtube.com/@allinonefornepal">YouTube</a></p></div></div><div class="copyright">© 2026 नारायण भण्डारी. सर्वाधिकार सुरक्षित.</div></div></footer>
+    <a
+      class="brand"
+      href="#home"
+    >
 
-<div class="modal" id="postModal"><div class="modal-box"><button class="close" id="closeModal">×</button><h2 id="modalTitle"></h2><div class="meta"><span id="modalCategory"></span><span id="modalDate"></span></div><div id="modalContent" class="modal-content"></div><div class="post-actions"><button class="btn btn-outline" id="likeBtn">👍 LIKE (<span id="likeCount">0</span>)</button></div><h3>टिप्पणीहरू</h3><div id="comments"></div><form id="commentForm"><div class="form-group"><input id="commentAuthor" placeholder="तपाईंको नाम" required></div><div class="form-group"><textarea id="commentText" placeholder="आफ्नो टिप्पणी लेख्नुहोस्..." required></textarea></div><button class="btn btn-primary">टिप्पणी पेश गर्नुहोस्</button></form></div></div>
-<div class="toast" id="toast"></div>
+      <img
+        src="image/logo.png"
+        alt="नारायण भण्डारी"
+      >
+
+      <span>
+        नारायण भण्डारी
+      </span>
+
+    </a>
+
+
+    <button
+      class="hamburger"
+      id="hamburger"
+      type="button"
+      aria-label="Menu"
+    >
+      ☰
+    </button>
+
+
+    <ul
+      class="nav-menu"
+      id="navMenu"
+    >
+
+      <li>
+        <a
+          class="nav-link"
+          href="#home"
+        >
+          गृहपृष्ठ
+        </a>
+      </li>
+
+      <li>
+        <a
+          class="nav-link"
+          href="about_me.html"
+        >
+          मेरो बारेमा
+        </a>
+      </li>
+
+      <li>
+        <a
+          class="nav-link"
+          href="#blog"
+        >
+          लेखहरू
+        </a>
+      </li>
+
+      <li>
+        <a
+          class="nav-link"
+          href="#loksewa"
+        >
+          लोकसेवा
+        </a>
+      </li>
+
+      <li>
+        <a
+          class="nav-link"
+          href="#literature"
+        >
+          साहित्य
+        </a>
+      </li>
+
+      <li>
+        <a
+          class="nav-link"
+          href="#contact"
+        >
+          सम्पर्क
+        </a>
+      </li>
+
+      <li>
+        <a
+          class="nav-link admin-btn"
+          href="admin.html"
+        >
+          Admin
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section
+  id="home"
+  class="hero"
+>
+
+  <div class="container hero-inner">
+
+    <div class="hero-content">
+
+      <span class="hero-kicker">
+        विचार • साहित्य • ज्ञान
+      </span>
+
+      <h1>
+        नारायण भण्डारी
+      </h1>
+
+      <p>
+        लेख, साहित्य, लोकसेवा तयारी,
+        र शैक्षिक सामग्रीहरूको डिजिटल संसार
+      </p>
+
+      <div class="actions">
+
+        <a
+          class="btn btn-primary"
+          href="#blog"
+        >
+          लेखहरू हेर्नुहोस्
+        </a>
+
+        <a
+          class="btn btn-secondary"
+          href="about_me.html"
+        >
+          मेरो बारेमा
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     BLOG
+========================= -->
+
+<section
+  id="blog"
+  class="section blog-section"
+>
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span class="section-kicker">
+        नवीनतम सामग्री
+      </span>
+
+      <h2 class="section-title">
+        लेख र रचनाहरू
+      </h2>
+
+      <p class="description">
+        विचार, साहित्य, लोकसेवा र शिक्षासँग
+        सम्बन्धित सामग्रीहरू
+      </p>
+
+    </div>
+
+
+    <!-- FILTERS -->
+
+    <div
+      class="filters"
+      id="filters"
+    >
+
+      <button
+        class="filter active"
+        data-filter="all"
+        type="button"
+      >
+        सबै
+      </button>
+
+      <button
+        class="filter"
+        data-filter="साहित्य"
+        type="button"
+      >
+        साहित्य
+      </button>
+
+      <button
+        class="filter"
+        data-filter="लोकसेवा"
+        type="button"
+      >
+        लोकसेवा
+      </button>
+
+      <button
+        class="filter"
+        data-filter="शिक्षा"
+        type="button"
+      >
+        शिक्षा
+      </button>
+
+      <button
+        class="filter"
+        data-filter="विचार"
+        type="button"
+      >
+        विचार
+      </button>
+
+    </div>
+
+
+    <div
+      id="posts"
+      class="grid"
+    >
+
+      <div class="loading">
+        सामग्री लोड हुँदैछ...
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     LOKSEWA
+========================= -->
+
+<section
+  id="loksewa"
+  class="section soft-section"
+>
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span class="section-kicker">
+        तयारी सामग्री
+      </span>
+
+      <h2 class="section-title">
+        लोकसेवा तयारी
+      </h2>
+
+      <p class="description">
+        लोकसेवा आयोगको तयारीका लागि उपयोगी
+        सामग्री, नोट्स र मार्गदर्शन
+      </p>
+
+    </div>
+
+
+    <div
+      id="loksewaPosts"
+      class="grid"
+    ></div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     LITERATURE
+========================= -->
+
+<section
+  id="literature"
+  class="section"
+>
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span class="section-kicker">
+        सिर्जनाको संसार
+      </span>
+
+      <h2 class="section-title">
+        साहित्यिक रचनाहरू
+      </h2>
+
+      <p class="description">
+        कविता, कथा, निबन्ध र अन्य साहित्यिक रचनाहरू
+      </p>
+
+    </div>
+
+
+    <div
+      id="literaturePosts"
+      class="grid"
+    ></div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section
+  id="contact"
+  class="section contact-section"
+>
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span class="section-kicker">
+        सम्पर्क
+      </span>
+
+      <h2 class="section-title">
+        सम्पर्क गर्नुहोस्
+      </h2>
+
+    </div>
+
+
+    <div class="contact-grid">
+
+
+      <div class="contact-card">
+
+        <h3>
+          सम्पर्क जानकारी
+        </h3>
+
+        <div class="contact-item">
+
+          <b>
+            ईमेल
+          </b>
+
+          <a href="mailto:narayanbhandari58@gmail.com">
+            narayanbhandari58@gmail.com
+          </a>
+
+        </div>
+
+
+        <div class="contact-item">
+
+          <b>
+            फेसबुक
+          </b>
+
+          <a
+            href="https://www.facebook.com/narayanbhandari23"
+            target="_blank"
+            rel="noopener"
+          >
+            narayanbhandari23
+          </a>
+
+        </div>
+
+
+        <div class="contact-item">
+
+          <b>
+            युट्युब
+          </b>
+
+          <a
+            href="https://youtube.com/@allinonefornepal"
+            target="_blank"
+            rel="noopener"
+          >
+            All in One for Nepal
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="contact-card">
+
+        <h3>
+          सन्देश पठाउनुहोस्
+        </h3>
+
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+        >
+
+          <input
+            type="hidden"
+            name="form-name"
+            value="contact"
+          >
+
+
+          <div class="form-group">
+
+            <input
+              name="name"
+              placeholder="तपाईंको नाम"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <input
+              name="email"
+              type="email"
+              placeholder="तपाईंको ईमेल"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <textarea
+              name="message"
+              placeholder="तपाईंको सन्देश"
+              required
+            ></textarea>
+
+          </div>
+
+
+          <button
+            class="btn btn-primary"
+            type="submit"
+          >
+            सन्देश पठाउनुहोस्
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+
+      <div>
+
+        <h3>
+          नारायण भण्डारी
+        </h3>
+
+        <p>
+          सर्जक, साधक र पाठक
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          द्रुत लिंकहरू
+        </h3>
+
+        <p>
+
+          <a href="#home">
+            गृहपृष्ठ
+          </a>
+
+          ·
+
+          <a href="#blog">
+            लेखहरू
+          </a>
+
+          ·
+
+          <a href="#loksewa">
+            लोकसेवा
+          </a>
+
+          ·
+
+          <a href="font.html">
+            Nepali Unicode
+          </a>
+
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          सामाजिक सञ्जाल
+        </h3>
+
+        <p>
+
+          <a
+            href="https://www.facebook.com/narayanbhandari23"
+            target="_blank"
+            rel="noopener"
+          >
+            Facebook
+          </a>
+
+          ·
+
+          <a
+            href="https://youtube.com/@allinonefornepal"
+            target="_blank"
+            rel="noopener"
+          >
+            YouTube
+          </a>
+
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © 2026 नारायण भण्डारी.
+      सर्वाधिकार सुरक्षित.
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<!-- =========================
+     POST MODAL
+========================= -->
+
+<div
+  class="modal"
+  id="postModal"
+  aria-hidden="true"
+>
+
+  <div
+    class="modal-box"
+    role="dialog"
+    aria-modal="true"
+  >
+
+
+    <button
+      class="close"
+      id="closeModal"
+      type="button"
+      aria-label="Close"
+    >
+      ×
+    </button>
+
+
+    <div class="modal-header">
+
+      <span
+        class="modal-category"
+        id="modalCategory"
+      ></span>
+
+      <span
+        class="modal-date"
+        id="modalDate"
+      ></span>
+
+    </div>
+
+
+    <h2 id="modalTitle"></h2>
+
+
+    <div
+      id="modalContent"
+      class="modal-content"
+    ></div>
+
+
+    <div class="post-actions">
+
+      <button
+        class="like-button"
+        id="likeBtn"
+        type="button"
+      >
+
+        👍
+
+        <span>
+          मन पर्‍यो
+        </span>
+
+        <strong id="likeCount">
+          0
+        </strong>
+
+      </button>
+
+    </div>
+
+
+    <div class="comments-section">
+
+      <h3>
+        टिप्पणीहरू
+      </h3>
+
+      <div id="comments"></div>
+
+
+      <form id="commentForm">
+
+        <div class="form-group">
+
+          <input
+            id="commentAuthor"
+            placeholder="तपाईंको नाम"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <textarea
+            id="commentText"
+            placeholder="आफ्नो टिप्पणी लेख्नुहोस्..."
+            required
+          ></textarea>
+
+        </div>
+
+
+        <button
+          class="btn btn-primary"
+          type="submit"
+        >
+          टिप्पणी पेश गर्नुहोस्
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<div
+  class="toast"
+  id="toast"
+></div>
+
+
 <script src="app.js"></script>
-</body></html>
+
+</body>
+</html>
