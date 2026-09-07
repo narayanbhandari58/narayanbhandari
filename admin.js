@@ -164,6 +164,40 @@ async function save(status) {
   } catch(e) { msg(e.message); }
 }
 
+async function changePassword(event) {
+  event.preventDefault();
+  const btn = $("#changePasswordBtn");
+  const currentPassword = $("#currentPassword").value;
+  const newPassword = $("#newPassword").value;
+  const confirmPassword = $("#confirmPassword").value;
+
+  if (newPassword.length < 10) { msg("नयाँ password कम्तीमा 10 characters हुनुपर्छ"); return; }
+  if (newPassword !== confirmPassword) { msg("नयाँ password र confirmation मिलेन"); return; }
+
+  if (!confirm("Password परिवर्तन गरेपछि यो session logout हुनेछ। अगाडि बढ्ने?")) return;
+
+  try {
+    btn.disabled = true;
+    btn.textContent = "परिवर्तन हुँदैछ...";
+    const r = await fetch("/.netlify/functions/change-password", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token()}` },
+      body: JSON.stringify({ currentPassword, newPassword, confirmPassword })
+    });
+    const d = await r.json().catch(() => ({}));
+    if (!r.ok) throw Error(d.error || "Password परिवर्तन हुन सकेन");
+
+    localStorage.removeItem("nb_admin_token");
+    alert(d.message || "Password परिवर्तन भयो। अब नयाँ password बाट login गर्नुहोस्।");
+    location.reload();
+  } catch (e) {
+    msg(e.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Password परिवर्तन गर्नुहोस्";
+  }
+}
+
 function setupTagInput() {
   const input = $("#tags");
   input.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " " || e.key === ",") { e.preventDefault(); addTag(input.value); } });
@@ -177,6 +211,8 @@ function initEditor() {
 
 document.addEventListener("DOMContentLoaded", () => {
   setupTagInput(); setupImagePreview(); setupPostFilters();
+  const changePasswordForm = $("#changePasswordForm");
+  if (changePasswordForm) changePasswordForm.addEventListener("submit", changePassword);
   const accountUser = $("#accountUsername"); if (accountUser) accountUser.textContent = "Admin";
   $("#loginForm").onsubmit = async e => { e.preventDefault(); try { const r=await fetch("/.netlify/functions/api?action=login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({username:$("#username").value,password:$("#password").value})}); const d=await r.json(); if(!r.ok) throw Error(d.error||"Login failed"); localStorage.setItem("nb_admin_token",d.token); $("#login").style.display="none"; $("#dashboard").style.display="block"; initEditor(); await load(); } catch(e) { $("#loginMsg").textContent=e.message; } };
   const logout = () => { localStorage.removeItem("nb_admin_token"); location.reload(); };
