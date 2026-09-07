@@ -4,6 +4,7 @@
 
 let posts = [];
 let editing = null;
+let imageRemoved = false;
 
 const $ = s => document.querySelector(s);
 
@@ -165,9 +166,24 @@ function showImagePreview(src, label = "Featured Image preview") {
   preview.innerHTML = `
     <div class="image-preview-card">
       <img src="${esc(src)}" alt="${esc(label)}">
-      <small>${esc(label)}</small>
+      <div class="image-preview-info">
+        <small>${esc(label)}</small>
+        <button type="button" class="btn btn-danger image-remove-btn" id="removeImage">🗑 हटाउनुहोस्</button>
+      </div>
     </div>
   `;
+
+  const removeBtn = $("#removeImage");
+  if (removeBtn) {
+    removeBtn.onclick = () => {
+      const input = $("#image");
+      if (input) input.value = "";
+
+      imageRemoved = true;
+      clearImagePreview();
+      msg("Featured Image हटाइयो");
+    };
+  }
 }
 
 function setupImagePreview() {
@@ -177,10 +193,7 @@ function setupImagePreview() {
   input.addEventListener("change", () => {
     const file = input.files && input.files[0];
 
-    if (!file) {
-      clearImagePreview();
-      return;
-    }
+    if (!file) return;
 
     if (!file.type.startsWith("image/")) {
       clearImagePreview();
@@ -189,6 +202,7 @@ function setupImagePreview() {
       return;
     }
 
+    imageRemoved = false;
     const url = URL.createObjectURL(file);
     showImagePreview(url, file.name);
   });
@@ -201,6 +215,7 @@ function setupImagePreview() {
 
 function reset() {
   editing = null;
+  imageRemoved = false;
   $("#postForm").reset();
   $("#postId").value = "";
   $("#formHeading").textContent = "नयाँ पोस्ट";
@@ -271,6 +286,7 @@ window.editPost = id => {
   if (!p) return;
 
   editing = p;
+  imageRemoved = false;
   $("#postId").value = p.id;
   $("#title").value = p.title || "";
   $("#category").value = p.category || "";
@@ -348,6 +364,8 @@ async function save(status) {
       });
 
       featuredImage = d.url;
+    } else if (imageRemoved) {
+      featuredImage = "";
     }
 
     const d = await api("save", {
