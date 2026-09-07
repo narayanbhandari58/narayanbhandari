@@ -150,6 +150,52 @@ function setTags(value) {
 
 
 /* =========================================
+   IMAGE PREVIEW
+========================================= */
+
+function clearImagePreview() {
+  const preview = $("#imagePreview");
+  if (preview) preview.innerHTML = "";
+}
+
+function showImagePreview(src, label = "Featured Image preview") {
+  const preview = $("#imagePreview");
+  if (!preview || !src) return;
+
+  preview.innerHTML = `
+    <div class="image-preview-card">
+      <img src="${esc(src)}" alt="${esc(label)}">
+      <small>${esc(label)}</small>
+    </div>
+  `;
+}
+
+function setupImagePreview() {
+  const input = $("#image");
+  if (!input) return;
+
+  input.addEventListener("change", () => {
+    const file = input.files && input.files[0];
+
+    if (!file) {
+      clearImagePreview();
+      return;
+    }
+
+    if (!file.type.startsWith("image/")) {
+      clearImagePreview();
+      msg("कृपया image file मात्र छान्नुहोस्");
+      input.value = "";
+      return;
+    }
+
+    const url = URL.createObjectURL(file);
+    showImagePreview(url, file.name);
+  });
+}
+
+
+/* =========================================
    RESET FORM
 ========================================= */
 
@@ -158,7 +204,7 @@ function reset() {
   $("#postForm").reset();
   $("#postId").value = "";
   $("#formHeading").textContent = "नयाँ पोस्ट";
-  $("#imagePreview").innerHTML = "";
+  clearImagePreview();
   tagList = [];
   renderTags();
 }
@@ -174,19 +220,29 @@ function render() {
     return;
   }
 
-  $("#table").innerHTML = posts.map(p => `
-    <div class="post-row">
-      <b>${esc(p.title)}</b>
-      <br>
-      <small>
-        ${esc(p.category)} · ${p.status} · ${new Date(p.created || p.date).toLocaleDateString("ne-NP")}
-      </small>
-      <div class="post-actions">
-        <button class="btn btn-outline" onclick="editPost('${esc(p.id)}')" type="button">सम्पादन</button>
-        <button class="btn btn-danger" onclick="deletePost('${esc(p.id)}')" type="button">मेटाउनुहोस्</button>
-      </div>
-    </div>
-  `).join("");
+  $("#table").innerHTML = posts.map(p => {
+    const status = String(p.status || "").toLowerCase();
+    const statusLabel = status === "published" ? "प्रकाशित" : status === "draft" ? "ड्राफ्ट" : (p.status || "स्थिति छैन");
+    const statusClass = status === "published" ? "published" : status === "draft" ? "draft" : "other";
+
+    return `
+      <article class="post-row">
+        <div class="post-row-main">
+          <div class="post-row-title-wrap">
+            <b>${esc(p.title)}</b>
+            <span class="status status-${statusClass}">${esc(statusLabel)}</span>
+          </div>
+          <small>
+            ${esc(p.category)} · ${new Date(p.created || p.date).toLocaleDateString("ne-NP")}
+          </small>
+        </div>
+        <div class="post-actions">
+          <button class="btn btn-outline" onclick="editPost('${esc(p.id)}')" type="button">सम्पादन</button>
+          <button class="btn btn-danger" onclick="deletePost('${esc(p.id)}')" type="button">मेटाउनुहोस्</button>
+        </div>
+      </article>
+    `;
+  }).join("");
 }
 
 
@@ -221,6 +277,12 @@ window.editPost = id => {
   setTags(p.tags || "");
   $("#content").value = p.content || "";
   $("#formHeading").textContent = "पोस्ट सम्पादन";
+
+  if (p.featuredImage) {
+    showImagePreview(p.featuredImage, "हालको Featured Image");
+  } else {
+    clearImagePreview();
+  }
 
   if (window.tinymce && tinymce.get("content")) {
     tinymce.get("content").setContent(p.content || "");
@@ -385,6 +447,7 @@ function initEditor() {
 
 document.addEventListener("DOMContentLoaded", () => {
   setupTagInput();
+  setupImagePreview();
 
   $("#loginForm").onsubmit = async e => {
     e.preventDefault();
