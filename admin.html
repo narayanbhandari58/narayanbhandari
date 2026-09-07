@@ -1,268 +1,155 @@
 <!doctype html>
-
-<html lang="ne">  
-<head>  
-  <meta charset="utf-8">  
-  <meta name="viewport" content="width=device-width,initial-scale=1">    <title>Admin Panel - नारायण भण्डारी</title>    <link rel="stylesheet" href="style.css">  
-  <link rel="stylesheet" href="admin.css">    <script  
-    src="https://cdn.tiny.cloud/1/6e6xtpdwc0ug66rd8xy3d1ul08810zzu2m6brcy6phfx75xw/tinymce/7/tinymce.min.js"  
-    referrerpolicy="origin">  
-  </script>  </head>  <body>  <!-- =========================  
-     LOGIN  
-========================= -->  <div id="login" class="admin-wrap">    <div class="admin-card">  <h1>Admin Login</h1>  
-
-<form id="loginForm">  
-
-  <input  
-    id="username"  
-    placeholder="Username"  
-    required  
-  >  
-
-  <input  
-    id="password"  
-    type="password"  
-    placeholder="Password"  
-    required  
-  >  
-
-  <button class="btn btn-primary">  
-    Login  
-  </button>  
-
-</form>  
-
-<p id="loginMsg"></p>  
-
-<small>  
-  पासवर्ड GitHub code मा राखिएको छैन;  
-  Netlify Environment Variable बाट व्यवस्थापन हुन्छ।  
-</small>
-
-  </div>  </div>  <!-- =========================  
-     DASHBOARD  
-========================= -->  <div  
-  id="dashboard"  
-  class="admin-wrap"  
-  style="display:none"  
->    <header class="admin-head">  <h1>  
-  नारायण भण्डारी — Admin  
-</h1>  
-
-<div>  
-
-  <button  
-    class="btn btn-outline"  
-    id="logout"  
-    type="button"  
-  >  
-    Logout  
-  </button>  
-
-</div>
-
-  </header>    <main class="admin-main">  <!-- =========================  
-     POST FORM  
-========================= -->  
-
-<section class="admin-card">  
-
-  <h2 id="formHeading">  
-    नयाँ पोस्ट  
-  </h2>  
-
-
-  <form id="postForm">  
-
-    <input  
-      type="hidden"  
-      id="postId"  
-    >  
-
-
-    <!-- TITLE -->  
-
-    <div class="form-group">  
-
-      <label>  
-        शीर्षक  
-      </label>  
-
-      <input  
-        id="title"  
-        required  
-      >  
-
-    </div>  
-
-
-    <!-- CATEGORY -->  
-
-    <div class="form-group">  
-
-      <label>  
-        श्रेणी  
-      </label>  
-
-      <select id="category">  
-
-        <option>  
-          विचार  
-        </option>  
-
-        <option>  
-          साहित्य  
-        </option>  
-
-        <option>  
-          लोकसेवा  
-        </option>  
-
-        <option>  
-          शिक्षा  
-        </option>  
-
-      </select>  
-
-    </div>  
-
-
-    <!-- TAGS -->  
-
-    <div class="form-group">  
-
-      <label>  
-        Tags  
-      </label>  
-
-      <div  
-        id="tagBox"  
-        class="tag-box"  
-      >  
-
-        <input  
-          id="tags"  
-          type="text"  
-          placeholder="Tag लेख्नुहोस्..."  
-          autocomplete="off"  
-        >  
-
-      </div>  
-
-      <small>  
-        Tag लेखेर  
-        <b>Enter</b>,  
-        <b>Space</b>  
-        वा  
-        <b>,</b>  
-        थिच्नुहोस्।  
-      </small>  
-
-    </div>  
-
-
-    <!-- FEATURED IMAGE -->  
-
-    <div class="form-group">  
-
-      <label>  
-        Featured Image  
-      </label>  
-
-      <input  
-        id="image"  
-        type="file"  
-        accept="image/*"  
-      >  
-
-      <div id="imagePreview"></div>  
-
-    </div>  
-
-
-    <!-- CONTENT -->  
-
-    <div class="form-group">  
-
-      <label>  
-        सामग्री  
-      </label>  
-
-      <textarea  
-        id="content"  
-      ></textarea>  
-
-    </div>  
-
-
-    <!-- BUTTONS -->  
-
-    <button  
-      class="btn btn-primary"  
-      id="publish"  
-      type="button"  
-    >  
-      प्रकाशित गर्नुहोस्  
-    </button>  
-
-
-    <button  
-      type="button"  
-      class="btn btn-outline"  
-      id="draft"  
-    >  
-      ड्राफ्ट  
-    </button>  
-
-
-    <button  
-      type="button"  
-      class="btn"  
-      id="cancel"  
-    >  
-      रद्द  
-    </button>  
-
-  </form>  
-
-</section>  
-
-
-<!-- =========================  
-     POSTS  
-========================= -->  
-
-<section class="admin-card">  
-
-  <div class="row">  
-
-    <h2>  
-      पोस्टहरू  
-    </h2>  
-
-    <button  
-      class="btn btn-primary"  
-      id="newPost"  
-      type="button"  
-    >  
-      + नयाँ पोस्ट  
-    </button>  
-
-  </div>  
-
-  <div id="table"></div>  
-
-</section>  
-
-  <div id="table"></div>  
-
-</section>  
-
-
-   </main>
-
-</div>  <!-- TOAST -->  <div  
-  id="toast"  
-  class="toast">  
-</div>  <script src="admin.js"></script>  </body>  
+<html lang="ne">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin Panel - नारायण भण्डारी</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+  <script src="https://cdn.tiny.cloud/1/6e6xtpdwc0ug66rd8xy3d1ul08810zzu2m6brcy6phfx75xw/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+  <style>
+    .dashboard-summary{max-width:1100px;margin:0 auto 22px}
+    .dashboard-summary h2{color:var(--primary);margin-top:0}
+    .dashboard-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .stat-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
+    .stat-label{font-size:.9rem;color:var(--muted);margin-bottom:7px}
+    .stat-value{font-size:1.8rem;font-weight:700;color:var(--primary)}
+    @media(max-width:700px){.dashboard-stats{grid-template-columns:repeat(2,1fr)}}
+  </style>
+</head>
+<body>
+  <!-- =========================
+       LOGIN
+  ========================= -->
+  <div id="login" class="admin-wrap">
+    <div class="admin-card">
+      <h1>Admin Login</h1>
+      <form id="loginForm">
+        <input id="username" placeholder="Username" required>
+        <input id="password" type="password" placeholder="Password" required>
+        <button class="btn btn-primary">Login</button>
+      </form>
+      <p id="loginMsg"></p>
+      <small>पासवर्ड GitHub code मा राखिएको छैन; Netlify Environment Variable बाट व्यवस्थापन हुन्छ।</small>
+    </div>
+  </div>
+
+  <!-- =========================
+       DASHBOARD
+  ========================= -->
+  <div id="dashboard" class="admin-wrap" style="display:none">
+    <header class="admin-head">
+      <h1>नारायण भण्डारी — Admin</h1>
+      <div>
+        <button class="btn btn-outline" id="logout" type="button">Logout</button>
+      </div>
+    </header>
+
+    <section class="dashboard-summary">
+      <div class="admin-card">
+        <h2>Dashboard</h2>
+        <div class="dashboard-stats">
+          <div class="stat-card">
+            <div class="stat-label">Total Posts</div>
+            <div class="stat-value" id="totalPosts">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Published Posts</div>
+            <div class="stat-value" id="publishedPosts">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Drafts</div>
+            <div class="stat-value" id="draftPosts">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Categories</div>
+            <div class="stat-value" id="totalCategories">0</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main class="admin-main">
+      <!-- =========================
+           POST FORM
+      ========================= -->
+      <section class="admin-card">
+        <h2 id="formHeading">नयाँ पोस्ट</h2>
+        <form id="postForm">
+          <input type="hidden" id="postId">
+
+          <div class="form-group">
+            <label>शीर्षक</label>
+            <input id="title" required>
+          </div>
+
+          <div class="form-group">
+            <label>श्रेणी</label>
+            <select id="category">
+              <option>विचार</option>
+              <option>साहित्य</option>
+              <option>लोकसेवा</option>
+              <option>शिक्षा</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Tags</label>
+            <div id="tagBox" class="tag-box">
+              <input id="tags" type="text" placeholder="Tag लेख्नुहोस्..." autocomplete="off">
+            </div>
+            <small>Tag लेखेर <b>Enter</b>, <b>Space</b> वा <b>,</b> थिच्नुहोस्।</small>
+          </div>
+
+          <div class="form-group">
+            <label>Featured Image</label>
+            <input id="image" type="file" accept="image/*">
+            <div id="imagePreview"></div>
+          </div>
+
+          <div class="form-group">
+            <label>सामग्री</label>
+            <textarea id="content"></textarea>
+          </div>
+
+          <button class="btn btn-primary" id="publish" type="button">प्रकाशित गर्नुहोस्</button>
+          <button type="button" class="btn btn-outline" id="draft">ड्राफ्ट</button>
+          <button type="button" class="btn" id="cancel">रद्द</button>
+        </form>
+      </section>
+
+      <!-- =========================
+           POSTS
+      ========================= -->
+      <section class="admin-card">
+        <div class="row">
+          <h2>पोस्टहरू</h2>
+          <button class="btn btn-primary" id="newPost" type="button">+ नयाँ पोस्ट</button>
+        </div>
+        <div id="table"></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="admin.js"></script>
+  <script>
+    function updateDashboardStats(){
+      if(typeof posts === "undefined") return;
+      const published = posts.filter(p => String(p.status || "").toLowerCase() === "published").length;
+      const drafts = posts.filter(p => String(p.status || "").toLowerCase() === "draft").length;
+      const categories = new Set(posts.map(p => String(p.category || "").trim()).filter(Boolean)).size;
+      const total = document.getElementById("totalPosts");
+      const pub = document.getElementById("publishedPosts");
+      const draft = document.getElementById("draftPosts");
+      const cat = document.getElementById("totalCategories");
+      if(total) total.textContent = posts.length;
+      if(pub) pub.textContent = published;
+      if(draft) draft.textContent = drafts;
+      if(cat) cat.textContent = categories;
+    }
+    setInterval(updateDashboardStats,1000);
+  </script>
+</body>
 </html>
