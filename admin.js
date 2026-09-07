@@ -348,8 +348,16 @@ function initEditor() {
   tinymce.init({
     selector: "#content",
     height: 420,
-    plugins: "lists link image code table",
-    toolbar: "undo redo | blocks | fontfamily fontsize | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | link image table | code",
+    plugins: "lists link image media code table",
+    toolbar: "undo redo | blocks | fontfamily fontsize | bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media table | lineheight removeformat | code",
+    line_height_formats: "1 1.15 1.2 1.3 1.5 1.75 2 2.5 3",
+    image_caption: true,
+    image_advtab: true,
+    media_live_embeds: true,
+    toolbar_mode: "sliding",
+    contextmenu: "link image table",
+    quickbars_selection_toolbar: "bold italic | quicklink h2 h3 blockquote",
+    content_style: "body { font-family: Arial, 'Noto Sans Devanagari', sans-serif; font-size: 16px; line-height: 1.7; } figure.image { display: inline-block; } figure.image figcaption { text-align: center; font-size: 0.9em; opacity: 0.8; padding: 4px; }",
     images_upload_handler: async blobInfo => {
       const b = await blobInfo.blob().arrayBuffer();
       let binary = "";
