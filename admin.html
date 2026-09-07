@@ -18,7 +18,10 @@
     .post-tools input,.post-tools select{width:100%;box-sizing:border-box}
     .account-card{margin-top:22px}
     .account-info{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-    @media(max-width:700px){.dashboard-stats{grid-template-columns:repeat(2,1fr)}.post-tools{grid-template-columns:1fr}}
+    .password-card{margin-top:14px}
+    .password-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .password-note{color:var(--muted);margin:10px 0 0}
+    @media(max-width:700px){.dashboard-stats{grid-template-columns:repeat(2,1fr)}.post-tools{grid-template-columns:1fr}.password-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -128,7 +131,21 @@
         </div>
         <button class="btn btn-outline" id="accountLogout" type="button">Logout</button>
       </div>
-      <p class="account-note">Username र password अहिले Netlify Environment Variables बाट सुरक्षित रूपमा व्यवस्थापन भइरहेका छन्। Password परिवर्तन सुविधा backend बाट सुरक्षित रूपमा जोड्नुपर्ने भएकाले हाल यहाँबाट कुनै असुरक्षित local/browser password storage गरिएको छैन।</p>
+      <p class="account-note">Username र password Netlify Environment Variables बाट सुरक्षित रूपमा व्यवस्थापन हुन्छ। Browser वा GitHub मा password राखिँदैन।</p>
+
+      <div class="password-card">
+        <h3>Password परिवर्तन</h3>
+        <form id="changePasswordForm">
+          <div class="password-grid">
+            <div class="form-group"><label>हालको Password</label><input id="currentPassword" type="password" autocomplete="current-password" required></div>
+            <div></div>
+            <div class="form-group"><label>नयाँ Password</label><input id="newPassword" type="password" minlength="10" autocomplete="new-password" required></div>
+            <div class="form-group"><label>नयाँ Password फेरि</label><input id="confirmPassword" type="password" minlength="10" autocomplete="new-password" required></div>
+          </div>
+          <button class="btn btn-primary" id="changePasswordBtn" type="submit">Password परिवर्तन गर्नुहोस्</button>
+          <p class="password-note">सुरक्षाका लागि नयाँ password कम्तीमा 10 characters हुनुपर्छ। सफल परिवर्तनपछि पुरानो login session अमान्य गरिन्छ।</p>
+        </form>
+      </div>
     </section>
   </div>
 
