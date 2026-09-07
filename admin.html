@@ -1,743 +1,268 @@
 <!doctype html>
-<html lang="ne">
-<head>
 
-  <meta charset="utf-8">
-  <meta
-    name="viewport"
-    content="width=device-width,initial-scale=1"
-  >
+<html lang="ne">  
+<head>  
+  <meta charset="utf-8">  
+  <meta name="viewport" content="width=device-width,initial-scale=1">    <title>Admin Panel - नारायण भण्डारी</title>    <link rel="stylesheet" href="style.css">  
+  <link rel="stylesheet" href="admin.css">    <script  
+    src="https://cdn.tiny.cloud/1/6e6xtpdwc0ug66rd8xy3d1ul08810zzu2m6brcy6phfx75xw/tinymce/7/tinymce.min.js"  
+    referrerpolicy="origin">  
+  </script>  </head>  <body>  <!-- =========================  
+     LOGIN  
+========================= -->  <div id="login" class="admin-wrap">    <div class="admin-card">  <h1>Admin Login</h1>  
 
-  <title>Admin Panel - नारायण भण्डारी</title>
+<form id="loginForm">  
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="admin.css">
+  <input  
+    id="username"  
+    placeholder="Username"  
+    required  
+  >  
 
-  <script
-    src="https://cdn.tiny.cloud/1/6e6xtpdwc0ug66rd8xy3d1ul08810zzu2m6brcy6phfx75xw/tinymce/7/tinymce.min.js"
-    referrerpolicy="origin">
-  </script>
+  <input  
+    id="password"  
+    type="password"  
+    placeholder="Password"  
+    required  
+  >  
 
-</head>
+  <button class="btn btn-primary">  
+    Login  
+  </button>  
 
-<body>
+</form>  
 
+<p id="loginMsg"></p>  
 
-<!-- =====================================================
-     LOGIN
-===================================================== -->
+<small>  
+  पासवर्ड GitHub code मा राखिएको छैन;  
+  Netlify Environment Variable बाट व्यवस्थापन हुन्छ।  
+</small>
 
-<div id="login" class="admin-wrap">
+  </div>  </div>  <!-- =========================  
+     DASHBOARD  
+========================= -->  <div  
+  id="dashboard"  
+  class="admin-wrap"  
+  style="display:none"  
+>    <header class="admin-head">  <h1>  
+  नारायण भण्डारी — Admin  
+</h1>  
 
-  <div class="admin-card">
+<div>  
 
-    <h1>Admin Login</h1>
-
-    <form id="loginForm">
-
-      <input
-        id="username"
-        placeholder="Username"
-        required
-      >
-
-      <input
-        id="password"
-        type="password"
-        placeholder="Password"
-        required
-      >
-
-      <button
-        class="btn btn-primary"
-        type="submit"
-      >
-        Login
-      </button>
-
-    </form>
-
-    <p id="loginMsg"></p>
-
-    <small>
-      पासवर्ड GitHub code मा राखिएको छैन;
-      Netlify Environment Variable बाट व्यवस्थापन हुन्छ।
-    </small>
-
-  </div>
+  <button  
+    class="btn btn-outline"  
+    id="logout"  
+    type="button"  
+  >  
+    Logout  
+  </button>  
 
 </div>
 
+  </header>    <main class="admin-main">  <!-- =========================  
+     POST FORM  
+========================= -->  
 
+<section class="admin-card">  
 
-<!-- =====================================================
-     ADMIN DASHBOARD
-===================================================== -->
+  <h2 id="formHeading">  
+    नयाँ पोस्ट  
+  </h2>  
 
-<div
-  id="dashboard"
-  class="admin-layout"
-  style="display:none"
->
 
+  <form id="postForm">  
 
-  <!-- ===================================================
-       SIDEBAR
-  ==================================================== -->
+    <input  
+      type="hidden"  
+      id="postId"  
+    >  
 
-  <aside class="admin-sidebar">
 
-    <div class="admin-logo">
+    <!-- TITLE -->  
 
-      <div class="admin-logo-title">
-        नारायण भण्डारी
-      </div>
+    <div class="form-group">  
 
-      <div class="admin-logo-subtitle">
-        Admin Panel
-      </div>
+      <label>  
+        शीर्षक  
+      </label>  
 
-    </div>
+      <input  
+        id="title"  
+        required  
+      >  
 
+    </div>  
 
-    <nav class="admin-nav">
 
-      <button
-        class="nav-item active"
-        data-section="dashboardHome"
-        type="button"
-      >
-        🏠
-        <span>Dashboard</span>
-      </button>
+    <!-- CATEGORY -->  
 
+    <div class="form-group">  
 
-      <button
-        class="nav-item"
-        data-section="postsSection"
-        type="button"
-      >
-        📝
-        <span>Posts</span>
-      </button>
+      <label>  
+        श्रेणी  
+      </label>  
 
+      <select id="category">  
 
-      <button
-        class="nav-item"
-        data-section="mediaSection"
-        type="button"
-      >
-        🖼️
-        <span>Media Library</span>
-      </button>
+        <option>  
+          विचार  
+        </option>  
 
+        <option>  
+          साहित्य  
+        </option>  
 
-      <button
-        class="nav-item"
-        data-section="analyticsSection"
-        type="button"
-      >
-        📊
-        <span>Analytics</span>
-      </button>
+        <option>  
+          लोकसेवा  
+        </option>  
 
+        <option>  
+          शिक्षा  
+        </option>  
 
-      <button
-        class="nav-item"
-        data-section="settingsSection"
-        type="button"
-      >
-        ⚙️
-        <span>Settings</span>
-      </button>
+      </select>  
 
+    </div>  
 
-      <button
-        class="nav-item"
-        data-section="accountSection"
-        type="button"
-      >
-        🔐
-        <span>Account</span>
-      </button>
 
-    </nav>
+    <!-- TAGS -->  
 
+    <div class="form-group">  
 
-    <div class="sidebar-bottom">
+      <label>  
+        Tags  
+      </label>  
 
-      <button
-        class="btn btn-outline logout-btn"
-        id="logout"
-        type="button"
-      >
-        Logout
-      </button>
+      <div  
+        id="tagBox"  
+        class="tag-box"  
+      >  
 
-    </div>
+        <input  
+          id="tags"  
+          type="text"  
+          placeholder="Tag लेख्नुहोस्..."  
+          autocomplete="off"  
+        >  
 
-  </aside>
+      </div>  
 
+      <small>  
+        Tag लेखेर  
+        <b>Enter</b>,  
+        <b>Space</b>  
+        वा  
+        <b>,</b>  
+        थिच्नुहोस्।  
+      </small>  
 
+    </div>  
 
-  <!-- ===================================================
-       MAIN AREA
-  ==================================================== -->
 
-  <div class="admin-content">
+    <!-- FEATURED IMAGE -->  
 
+    <div class="form-group">  
 
-    <!-- =================================================
-         HEADER
-    ================================================== -->
+      <label>  
+        Featured Image  
+      </label>  
 
-    <header class="admin-head">
+      <input  
+        id="image"  
+        type="file"  
+        accept="image/*"  
+      >  
 
-      <div>
+      <div id="imagePreview"></div>  
 
-        <h1 id="pageTitle">
-          Dashboard
-        </h1>
+    </div>  
 
-        <p id="pageSubtitle">
-          वेबसाइटको प्रशासनिक नियन्त्रण केन्द्र
-        </p>
 
-      </div>
+    <!-- CONTENT -->  
 
-    </header>
+    <div class="form-group">  
 
+      <label>  
+        सामग्री  
+      </label>  
 
+      <textarea  
+        id="content"  
+      ></textarea>  
 
-    <!-- =================================================
-         DASHBOARD HOME
-    ================================================== -->
+    </div>  
 
-    <main
-      id="dashboardHome"
-      class="admin-section active-section"
-    >
 
-      <div class="dashboard-grid">
+    <!-- BUTTONS -->  
 
+    <button  
+      class="btn btn-primary"  
+      id="publish"  
+      type="button"  
+    >  
+      प्रकाशित गर्नुहोस्  
+    </button>  
 
-        <!-- TOTAL POSTS -->
 
-        <div class="stat-card">
+    <button  
+      type="button"  
+      class="btn btn-outline"  
+      id="draft"  
+    >  
+      ड्राफ्ट  
+    </button>  
 
-          <div class="stat-icon">
-            📝
-          </div>
 
-          <div>
+    <button  
+      type="button"  
+      class="btn"  
+      id="cancel"  
+    >  
+      रद्द  
+    </button>  
 
-            <div class="stat-label">
-              Total Posts
-            </div>
+  </form>  
 
-            <div
-              class="stat-value"
-              id="totalPosts"
-            >
-              0
-            </div>
+</section>  
 
-          </div>
 
-        </div>
+<!-- =========================  
+     POSTS  
+========================= -->  
 
+<section class="admin-card">  
 
-        <!-- PUBLISHED -->
+  <div class="row">  
 
-        <div class="stat-card">
+    <h2>  
+      पोस्टहरू  
+    </h2>  
 
-          <div class="stat-icon">
-            ✅
-          </div>
+    <button  
+      class="btn btn-primary"  
+      id="newPost"  
+      type="button"  
+    >  
+      + नयाँ पोस्ट  
+    </button>  
 
-          <div>
+  </div>  
 
-            <div class="stat-label">
-              Published
-            </div>
+  <div id="table"></div>  
 
-            <div
-              class="stat-value"
-              id="publishedPosts"
-            >
-              0
-            </div>
+</section>  
 
-          </div>
+  <div id="table"></div>  
 
-        </div>
+</section>  
 
 
-        <!-- DRAFTS -->
+   </main>
 
-        <div class="stat-card">
-
-          <div class="stat-icon">
-            📄
-          </div>
-
-          <div>
-
-            <div class="stat-label">
-              Drafts
-            </div>
-
-            <div
-              class="stat-value"
-              id="draftPosts"
-            >
-              0
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- CATEGORIES -->
-
-        <div class="stat-card">
-
-          <div class="stat-icon">
-            🗂️
-          </div>
-
-          <div>
-
-            <div class="stat-label">
-              Categories
-            </div>
-
-            <div
-              class="stat-value"
-              id="totalCategories"
-            >
-              0
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- =================================================
-           QUICK ACTIONS
-      ================================================== -->
-
-      <section class="admin-card">
-
-        <div class="row">
-
-          <h2>
-            Quick Actions
-          </h2>
-
-        </div>
-
-
-        <div class="quick-actions">
-
-          <button
-            class="btn btn-primary"
-            id="dashboardNewPost"
-            type="button"
-          >
-            + नयाँ पोस्ट
-          </button>
-
-
-          <button
-            class="btn btn-outline"
-            id="dashboardPosts"
-            type="button"
-          >
-            📝 पोस्टहरू हेर्नुहोस्
-          </button>
-
-        </div>
-
-      </section>
-
-
-
-      <!-- =================================================
-           RECENT POSTS
-      ================================================== -->
-
-      <section class="admin-card">
-
-        <div class="row">
-
-          <h2>
-            हालैका पोस्टहरू
-          </h2>
-
-        </div>
-
-        <div id="recentPosts">
-          <p>पोस्टहरू load हुँदैछन्...</p>
-        </div>
-
-      </section>
-
-    </main>
-
-
-
-    <!-- =================================================
-         POSTS SECTION
-    ================================================== -->
-
-    <main
-      id="postsSection"
-      class="admin-section"
-      style="display:none"
-    >
-
-
-      <!-- POST FORM -->
-
-      <section class="admin-card">
-
-        <h2 id="formHeading">
-          नयाँ पोस्ट
-        </h2>
-
-
-        <form id="postForm">
-
-          <input
-            type="hidden"
-            id="postId"
-          >
-
-
-          <!-- TITLE -->
-
-          <div class="form-group">
-
-            <label>
-              शीर्षक
-            </label>
-
-            <input
-              id="title"
-              required
-            >
-
-          </div>
-
-
-          <!-- CATEGORY -->
-
-          <div class="form-group">
-
-            <label>
-              श्रेणी
-            </label>
-
-            <select id="category">
-
-              <option value="विचार">
-                विचार
-              </option>
-
-              <option value="साहित्य">
-                साहित्य
-              </option>
-
-              <option value="लोकसेवा">
-                लोकसेवा
-              </option>
-
-              <option value="शिक्षा">
-                शिक्षा
-              </option>
-
-            </select>
-
-          </div>
-
-
-          <!-- TAGS -->
-
-          <div class="form-group">
-
-            <label>
-              Tags
-            </label>
-
-            <div
-              id="tagBox"
-              class="tag-box"
-            >
-
-              <input
-                id="tags"
-                type="text"
-                placeholder="Tag लेख्नुहोस्..."
-                autocomplete="off"
-              >
-
-            </div>
-
-            <small>
-              Tag लेखेर
-              <b>Enter</b>,
-              <b>Space</b>
-              वा
-              <b>,</b>
-              थिच्नुहोस्।
-            </small>
-
-          </div>
-
-
-          <!-- FEATURED IMAGE -->
-
-          <div class="form-group">
-
-            <label>
-              Featured Image
-            </label>
-
-            <input
-              id="image"
-              type="file"
-              accept="image/*"
-            >
-
-            <div id="imagePreview"></div>
-
-          </div>
-
-
-          <!-- CONTENT -->
-
-          <div class="form-group">
-
-            <label>
-              सामग्री
-            </label>
-
-            <textarea
-              id="content"
-            ></textarea>
-
-          </div>
-
-
-          <!-- BUTTONS -->
-
-          <button
-            class="btn btn-primary"
-            id="publish"
-            type="button"
-          >
-            प्रकाशित गर्नुहोस्
-          </button>
-
-
-          <button
-            type="button"
-            class="btn btn-outline"
-            id="draft"
-          >
-            ड्राफ्ट
-          </button>
-
-
-          <button
-            type="button"
-            class="btn"
-            id="cancel"
-          >
-            रद्द
-          </button>
-
-        </form>
-
-      </section>
-
-
-
-      <!-- POSTS TABLE -->
-
-      <section class="admin-card">
-
-        <div class="row">
-
-          <h2>
-            पोस्टहरू
-          </h2>
-
-          <button
-            class="btn btn-primary"
-            id="newPost"
-            type="button"
-          >
-            + नयाँ पोस्ट
-          </button>
-
-        </div>
-
-        <div id="table"></div>
-
-      </section>
-
-    </main>
-
-
-
-    <!-- =================================================
-         MEDIA LIBRARY
-    ================================================== -->
-
-    <main
-      id="mediaSection"
-      class="admin-section"
-      style="display:none"
-    >
-
-      <section class="admin-card">
-
-        <h2>
-          🖼️ Media Library
-        </h2>
-
-        <p>
-          फोटो तथा भिडियो व्यवस्थापन गर्ने सुविधा
-          यहाँ थपिनेछ।
-        </p>
-
-        <div class="coming-soon">
-          Media Library — Coming Soon
-        </div>
-
-      </section>
-
-    </main>
-
-
-
-    <!-- =================================================
-         ANALYTICS
-    ================================================== -->
-
-    <main
-      id="analyticsSection"
-      class="admin-section"
-      style="display:none"
-    >
-
-      <section class="admin-card">
-
-        <h2>
-          📊 Analytics
-        </h2>
-
-        <p>
-          वेबसाइटको visitor तथा traffic सम्बन्धी
-          तथ्याङ्क यहाँ देखाइनेछ।
-        </p>
-
-        <div class="coming-soon">
-          Analytics Dashboard — Coming Soon
-        </div>
-
-      </section>
-
-    </main>
-
-
-
-    <!-- =================================================
-         SETTINGS
-    ================================================== -->
-
-    <main
-      id="settingsSection"
-      class="admin-section"
-      style="display:none"
-    >
-
-      <section class="admin-card">
-
-        <h2>
-          ⚙️ Settings
-        </h2>
-
-        <p>
-          वेबसाइटका विभिन्न configuration
-          यहाँबाट व्यवस्थापन गरिनेछ।
-        </p>
-
-        <div class="coming-soon">
-          Settings — Coming Soon
-        </div>
-
-      </section>
-
-    </main>
-
-
-
-    <!-- =================================================
-         ACCOUNT
-    ================================================== -->
-
-    <main
-      id="accountSection"
-      class="admin-section"
-      style="display:none"
-    >
-
-      <section class="admin-card">
-
-        <h2>
-          🔐 Account
-        </h2>
-
-        <p>
-          Admin account सम्बन्धी व्यवस्थापन
-          यहाँ गरिनेछ।
-        </p>
-
-        <div class="coming-soon">
-          Account Management — Coming Soon
-        </div>
-
-      </section>
-
-    </main>
-
-
-  </div>
-
-</div>
-
-
-
-<!-- =====================================================
-     TOAST
-===================================================== -->
-
-<div
-  id="toast"
-  class="toast">
-</div>
-
-
-
-<script src="admin.js"></script>
-
-</body>
+</div>  <!-- TOAST -->  <div  
+  id="toast"  
+  class="toast">  
+</div>  <script src="admin.js"></script>  </body>  
 </html>
