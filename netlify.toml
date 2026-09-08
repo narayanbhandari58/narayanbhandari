@@ -6,3 +6,9 @@
   from = "/api/*"
   to = "/.netlify/functions/api"
   status = 200
+
+# Give each post a real server-rendered URL for Facebook/WhatsApp previews.
+[[redirects]]
+  from = "/post/*"
+  to = "/.netlify/functions/share?post=:splat"
+  status = 200
