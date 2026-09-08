@@ -1,12 +1,19 @@
 exports.handler = async (event) => {
-  const id = event.queryStringParameters?.post;
   const site = 'https://narayan-bhandari.com.np';
+  const qsId = event.queryStringParameters?.post;
+  const path = event.path || '';
+
+  // Support both Netlify's rewritten query parameter and direct /share/<id>
+  // requests. This makes the preview endpoint robust even if the rewrite
+  // passes the path differently than expected.
+  const pathMatch = path.match(/\/share\/([^/?#]+)\/?$/i);
+  const id = qsId || (pathMatch ? decodeURIComponent(pathMatch[1]) : '');
 
   if (!id) {
     return {
-      statusCode: 302,
-      headers: { Location: `${site}/` },
-      body: ''
+      statusCode: 400,
+      headers: { 'Content-Type': 'text/plain; charset=UTF-8', 'Cache-Control': 'no-store' },
+      body: 'Missing post id'
     };
   }
 
@@ -26,7 +33,7 @@ exports.handler = async (event) => {
     if (!post) {
       return {
         statusCode: 404,
-        headers: { 'Content-Type': 'text/plain; charset=UTF-8' },
+        headers: { 'Content-Type': 'text/plain; charset=UTF-8', 'Cache-Control': 'no-store' },
         body: 'Post not found'
       };
     }
@@ -46,8 +53,6 @@ exports.handler = async (event) => {
       ? new URL(post.featuredImage, site).toString()
       : `${site}/image/logo.png`;
 
-    // One stable, clean URL is used everywhere for social sharing.
-    // Netlify rewrites /share/<id> to this function.
     const shareUrl = `${site}/share/${encodeURIComponent(post.id)}`;
     const canonical = `${site}/?post=${encodeURIComponent(post.id)}`;
 
@@ -85,8 +90,6 @@ exports.handler = async (event) => {
       statusCode: 200,
       headers: {
         'Content-Type': 'text/html; charset=UTF-8',
-        // Keep preview data fresh after a post is edited while still allowing
-        // normal short-term CDN/browser caching.
         'Cache-Control': 'public, max-age=60, s-maxage=60'
       },
       body: html
