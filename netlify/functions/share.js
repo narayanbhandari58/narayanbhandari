@@ -10,19 +10,26 @@ exports.handler = async (event) => {
     };
   }
 
-  // Social crawlers need server-rendered metadata. The public API is used
-  // here only to read the already-published post data.
   try {
-    const apiUrl = `${site}/.netlify/functions/api?action=posts`;
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-    const post = (data.posts || []).find(p => String(p.id) === String(id) && p.status !== 'draft');
+    // Read the deployed post index directly. This avoids calling the public
+    // API from inside the function, which could fail and fall back to home.
+    const indexUrl = 'https://raw.githubusercontent.com/narayanbhandari58/narayanbhandari/main/posts/index.json';
+    const response = await fetch(indexUrl, {
+      headers: { 'User-Agent': 'narayan-bhandari-social-preview' }
+    });
+
+    if (!response.ok) throw new Error(`Post index request failed: ${response.status}`);
+
+    const posts = await response.json();
+    const post = (Array.isArray(posts) ? posts : []).find(
+      p => String(p.id) === String(id) && p.status !== 'draft'
+    );
 
     if (!post) {
       return {
-        statusCode: 302,
-        headers: { Location: `${site}/` },
-        body: ''
+        statusCode: 404,
+        headers: { 'Content-Type': 'text/plain; charset=UTF-8' },
+        body: 'Post not found'
       };
     }
 
@@ -30,51 +37,66 @@ exports.handler = async (event) => {
       '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#039;'
     }[m]));
 
-    const text = String(post.content || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-    const description = text.slice(0, 180) + (text.length > 180 ? '…' : '');
+    const text = String(post.content || '')
+      .replace(/<[^>]*>/g, ' ')
+      .replace(/&nbsp;/gi, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
 
-    // og:image must be an absolute URL for reliable social previews.
+    const description = text.slice(0, 180) + (text.length > 180 ? '…' : '');
     const image = post.featuredImage
       ? new URL(post.featuredImage, site).toString()
       : `${site}/image/logo.png`;
 
+    // Keep the social-preview URL as the og:url. Do not point Facebook to
+    // the homepage URL, otherwise crawlers can cache the homepage preview.
+    const shareUrl = `${site}/.netlify/functions/share?post=${encodeURIComponent(post.id)}`;
     const canonical = `${site}/?post=${encodeURIComponent(post.id)}`;
 
-    const html = `<!doctype html><html lang="ne"><head>
+    const html = `<!doctype html>
+<html lang="ne">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(post.title)} — नारायण भण्डारी</title>
 <meta name="description" content="${esc(description)}">
-<link rel="canonical" href="${esc(canonical)}">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="नारायण भण्डारी">
 <meta property="og:locale" content="ne_NP">
 <meta property="og:title" content="${esc(post.title)}">
 <meta property="og:description" content="${esc(description)}">
-<meta property="og:url" content="${esc(`${site}/post/${encodeURIComponent(post.id)}`)}">
+<meta property="og:url" content="${esc(shareUrl)}">
 <meta property="og:image" content="${esc(image)}">
 <meta property="og:image:alt" content="${esc(post.title)}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(post.title)}">
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${esc(image)}">
 <meta name="twitter:image:alt" content="${esc(post.title)}">
 <meta http-equiv="refresh" content="0;url=${esc(canonical)}">
-</head><body><p>पोस्ट खोलिँदैछ…</p><script>location.replace(${JSON.stringify(canonical)});</script></body></html>`;
+</head>
+<body>
+<p>पोस्ट खोलिँदैछ…</p>
+<script>location.replace(${JSON.stringify(canonical)});</script>
+</body>
+</html>`;
 
     return {
       statusCode: 200,
       headers: {
         'Content-Type': 'text/html; charset=UTF-8',
-        'Cache-Control': 'public, max-age=300'
+        'Cache-Control': 'public, max-age=60, s-maxage=60'
       },
       body: html
     };
   } catch (error) {
+    console.error('Share preview error:', error);
     return {
-      statusCode: 302,
-      headers: { Location: `${site}/?post=${encodeURIComponent(id)}` },
-      body: ''
+      statusCode: 500,
+      headers: { 'Content-Type': 'text/plain; charset=UTF-8' },
+      body: 'Share preview unavailable'
     };
   }
 };
