@@ -13,7 +13,22 @@ function sameSecret(a,b){const aa=Buffer.from(String(a||"")),bb=Buffer.from(Stri
 function signRecovery(username){const exp=Math.floor(Date.now()/1000)+600;const payload=Buffer.from(JSON.stringify({sub:username,exp})).toString("base64url");const sig=crypto.createHmac("sha256",RECOVERY).update(payload).digest("base64url");return `${payload}.${sig}`}
 function verifyRecoveryToken(token,username){try{const [payload,sig]=String(token||"").split(".");if(!payload||!sig)return false;const good=crypto.createHmac("sha256",RECOVERY).update(payload).digest("base64url")===sig;const o=JSON.parse(Buffer.from(payload,"base64url").toString());return good&&o.sub===username&&o.exp>Date.now()/1000}catch{return false}}
 async function netlify(path,options={}){const r=await fetch(`https://api.netlify.com/api/v1${path}`,{...options,headers:{Authorization:`Bearer ${NETLIFY_TOKEN}`,"Content-Type":"application/json",...(options.headers||{})}});const text=await r.text();let data={};try{data=text?JSON.parse(text):{}}catch{data={message:text}}if(!r.ok)throw Error(data.message||data.error||`Netlify API error (${r.status})`);return data}
-async function updateEnv(key,value){return netlify(`/accounts/${encodeURIComponent(NETLIFY_ACCOUNT_ID)}/env/${encodeURIComponent(key)}?site_id=${encodeURIComponent(SITE_ID)}`,{method:"PUT",body:JSON.stringify({key,values:[{value,context:"all"}],is_secret:true})})}
+
+// Password/JWT secrets are needed only by Netlify Functions.
+// Do not include the post-processing scope: Netlify does not allow
+// secret environment variables in post-processing scopes.
+async function updateEnv(key,value){
+  return netlify(`/accounts/${encodeURIComponent(NETLIFY_ACCOUNT_ID)}/env/${encodeURIComponent(key)}?site_id=${encodeURIComponent(SITE_ID)}`,{
+    method:"PUT",
+    body:JSON.stringify({
+      key,
+      scopes:["functions"],
+      values:[{value,context:"all"}],
+      is_secret:true
+    })
+  });
+}
+
 async function triggerDeploy(){const hook=await netlify(`/sites/${encodeURIComponent(SITE_ID)}/build_hooks`,{method:"POST",body:JSON.stringify({title:"Admin password recovery",branch:"main"})});if(!hook.url)throw Error("Netlify build hook बनाउन सकिएन");const r=await fetch(hook.url,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({reason:"admin-password-recovery"})});if(!r.ok)throw Error("नयाँ password लागू गर्न Netlify deploy सुरु हुन सकेन")}
 
 exports.handler=async event=>{
