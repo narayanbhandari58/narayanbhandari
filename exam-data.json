@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "exams": [
+    {"id":"kharidar","title":"खरिदार तयारी परीक्षा","description":"खरिदार तहका लागि पाठ्यक्रम/विषयअनुसार Mock Test","questionCount":50,"durationMinutes":60,"positiveMark":2,"negativeMark":0.2,"passPercent":40,"enabled":true},
+    {"id":"nasu","title":"नायब सुब्बा तयारी परीक्षा","description":"नायब सुब्बा तहका लागि पाठ्यक्रम/विषयअनुसार Mock Test","questionCount":50,"durationMinutes":60,"positiveMark":2,"negativeMark":0.2,"passPercent":40,"enabled":true},
+    {"id":"sakha-adhikrit","title":"शाखा अधिकृत तयारी परीक्षा","description":"शाखा अधिकृत तहका लागि पाठ्यक्रम/विषयअनुसार Mock Test","questionCount":100,"durationMinutes":120,"positiveMark":2,"negativeMark":0.2,"passPercent":40,"enabled":true}
+  ],
+  "questions": [
+    {"id":"demo-001","examIds":["kharidar","nasu","sakha-adhikrit"],"subject":"सामान्य ज्ञान","topic":"नेपाल","type":"gk","q":"नेपालको राष्ट्रिय फूल कुन हो?","options":["लालीगुराँस","सुनाखरी","कमल","गोदावरी"],"correct":0,"explanation":"लालीगुराँस नेपालको राष्ट्रिय फूल हो।","solution":""},
+    {"id":"demo-002","examIds":["kharidar","nasu","sakha-adhikrit"],"subject":"सामान्य ज्ञान","topic":"नेपाल","type":"gk","q":"नेपालमा कति प्रदेश छन्?","options":["५","६","७","८"],"correct":2,"explanation":"नेपालमा ७ प्रदेश छन्।","solution":""},
+    {"id":"demo-003","examIds":["kharidar","nasu","sakha-adhikrit"],"subject":"बौद्धिक परीक्षण","topic":"संख्या श्रेणी","type":"iq","q":"2, 6, 12, 20, ?","options":["28","30","32","34"],"correct":2,"explanation":"अन्तर 4, 6, 8, 10 हुँदै बढेको छ। अर्को अन्तर 12 हुन्छ।","solution":"अन्तरहरू 4, 6, 8, 10 छन्। अर्को अन्तर 12 हुने भएकाले 20 + 12 = 32। सही विकल्प C हो।"},
+    {"id":"demo-004","examIds":["kharidar","nasu","sakha-adhikrit"],"subject":"बौद्धिक परीक्षण","topic":"प्रतिशत","type":"iq","q":"200 को 15% कति हुन्छ?","options":["20","25","30","35"],"correct":2,"explanation":"15/100 × 200 = 30।","solution":"15% = 15/100; 200 × 15/100 = 30।"},
+    {"id":"demo-005","examIds":["kharidar","nasu","sakha-adhikrit"],"subject":"सामान्य ज्ञान","topic":"संविधान","type":"gk","q":"नेपालको संविधान २०७२ कहिले जारी भयो?","options":["असोज १","असोज २","असोज ३","असोज ४"],"correct":2,"explanation":"नेपालको संविधान २०७२ असोज ३ गते जारी भएको हो।","solution":""}
+  ]
+}
