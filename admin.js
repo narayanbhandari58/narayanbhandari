@@ -170,32 +170,20 @@ async function changePassword(event) {
   const currentPassword = $("#currentPassword").value;
   const newPassword = $("#newPassword").value;
   const confirmPassword = $("#confirmPassword").value;
-
   if (newPassword.length < 10) { msg("नयाँ password कम्तीमा 10 characters हुनुपर्छ"); return; }
   if (newPassword !== confirmPassword) { msg("नयाँ password र confirmation मिलेन"); return; }
-
   if (!confirm("Password परिवर्तन गरेपछि यो session logout हुनेछ। अगाडि बढ्ने?")) return;
-
   try {
     btn.disabled = true;
     btn.textContent = "परिवर्तन हुँदैछ...";
-    const r = await fetch("/.netlify/functions/change-password", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token()}` },
-      body: JSON.stringify({ currentPassword, newPassword, confirmPassword })
-    });
+    const r = await fetch("/.netlify/functions/change-password", {method:"POST",headers:{"Content-Type":"application/json","Authorization":`Bearer ${token()}`},body:JSON.stringify({currentPassword,newPassword,confirmPassword})});
     const d = await r.json().catch(() => ({}));
     if (!r.ok) throw Error(d.error || "Password परिवर्तन हुन सकेन");
-
     localStorage.removeItem("nb_admin_token");
     alert(d.message || "Password परिवर्तन भयो। अब नयाँ password बाट login गर्नुहोस्।");
     location.reload();
-  } catch (e) {
-    msg(e.message);
-  } finally {
-    btn.disabled = false;
-    btn.textContent = "Password परिवर्तन गर्नुहोस्";
-  }
+  } catch (e) { msg(e.message); }
+  finally { btn.disabled = false; btn.textContent = "Password परिवर्तन गर्नुहोस्"; }
 }
 
 function setupTagInput() {
@@ -211,6 +199,12 @@ function initEditor() {
 
 document.addEventListener("DOMContentLoaded", () => {
   setupTagInput(); setupImagePreview(); setupPostFilters();
+  const accountToggle = $("#accountToggle");
+  const accountCard = $("#accountCard");
+  if (accountToggle && accountCard) accountToggle.onclick = () => { const open = accountCard.classList.toggle("open"); accountToggle.setAttribute("aria-expanded", String(open)); };
+  const passwordToggle = $("#passwordToggle");
+  const passwordFormWrap = $("#passwordFormWrap");
+  if (passwordToggle && passwordFormWrap) passwordToggle.onclick = () => { const open = passwordFormWrap.classList.toggle("open"); passwordToggle.classList.toggle("open", open); passwordToggle.setAttribute("aria-expanded", String(open)); };
   const changePasswordForm = $("#changePasswordForm");
   if (changePasswordForm) changePasswordForm.addEventListener("submit", changePassword);
   const accountUser = $("#accountUsername"); if (accountUser) accountUser.textContent = "Admin";
