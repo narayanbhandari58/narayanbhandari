@@ -11,8 +11,6 @@ exports.handler = async (event) => {
   }
 
   try {
-    // Read the deployed post index directly. This avoids calling the public
-    // API from inside the function, which could fail and fall back to home.
     const indexUrl = 'https://raw.githubusercontent.com/narayanbhandari58/narayanbhandari/main/posts/index.json';
     const response = await fetch(indexUrl, {
       headers: { 'User-Agent': 'narayan-bhandari-social-preview' }
@@ -48,9 +46,8 @@ exports.handler = async (event) => {
       ? new URL(post.featuredImage, site).toString()
       : `${site}/image/logo.png`;
 
-    // Keep the social-preview URL as the og:url. Do not point Facebook to
-    // the homepage URL, otherwise crawlers can cache the homepage preview.
-    const shareUrl = `${site}/.netlify/functions/share?post=${encodeURIComponent(post.id)}`;
+    // This is the URL Facebook/WhatsApp should preview.
+    const shareUrl = `${site}/share/${encodeURIComponent(post.id)}`;
     const canonical = `${site}/?post=${encodeURIComponent(post.id)}`;
 
     const html = `<!doctype html>
@@ -87,7 +84,7 @@ exports.handler = async (event) => {
       statusCode: 200,
       headers: {
         'Content-Type': 'text/html; charset=UTF-8',
-        'Cache-Control': 'public, max-age=60, s-maxage=60'
+        'Cache-Control': 'public, max-age=300, s-maxage=300'
       },
       body: html
     };
