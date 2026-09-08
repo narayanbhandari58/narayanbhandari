@@ -46,7 +46,8 @@ exports.handler = async (event) => {
       ? new URL(post.featuredImage, site).toString()
       : `${site}/image/logo.png`;
 
-    // This is the URL Facebook/WhatsApp should preview.
+    // One stable, clean URL is used everywhere for social sharing.
+    // Netlify rewrites /share/<id> to this function.
     const shareUrl = `${site}/share/${encodeURIComponent(post.id)}`;
     const canonical = `${site}/?post=${encodeURIComponent(post.id)}`;
 
@@ -84,7 +85,9 @@ exports.handler = async (event) => {
       statusCode: 200,
       headers: {
         'Content-Type': 'text/html; charset=UTF-8',
-        'Cache-Control': 'public, max-age=300, s-maxage=300'
+        // Keep preview data fresh after a post is edited while still allowing
+        // normal short-term CDN/browser caching.
+        'Cache-Control': 'public, max-age=60, s-maxage=60'
       },
       body: html
     };
