@@ -22,11 +22,10 @@ function postUrl(id){
   return url.toString();
 }
 
-// Server-rendered URL used specifically for Facebook/WhatsApp previews.
-// Keep this direct instead of relying on a /post/* rewrite, so social crawlers
-// receive the server-rendered Open Graph metadata from the function itself.
+// Clean, dedicated URL for Facebook/WhatsApp previews.
+// Netlify rewrites /share/<id> to the server-rendered preview function.
 function socialShareUrl(id){
-  return `${window.location.origin}/.netlify/functions/share?post=${encodeURIComponent(id)}`;
+  return `${window.location.origin}/share/${encodeURIComponent(id)}`;
 }
 
 function toast(message){
@@ -94,7 +93,8 @@ async function shareCurrentPost(){
   const p = state.posts.find(x => String(x.id) === String(state.current));
   if(!p) return;
 
-  // Always share the server-rendered social-preview function URL.
+  // Share only the dedicated /share/<id> URL so Facebook/WhatsApp never
+  // preview the homepage metadata from /?post=<id>.
   const shareUrl = socialShareUrl(p.id);
   const shareData = {
     title: p.title,
