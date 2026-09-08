@@ -24,7 +24,8 @@ exports.handler=async event=>{
     if(!NETLIFY_TOKEN||!NETLIFY_ACCOUNT_ID||!SITE_ID)return json(500,{error:"Password recovery setup पूरा भएको छैन: Netlify environment variables आवश्यक छन्"});
     const body=event.body?JSON.parse(event.body):{};
     const mode=String(body.mode||"reset");
-    const username=String(body.username||"").trim();
+    const suppliedUsername=String(body.username||"").trim();
+    const username=suppliedUsername==="Admin"?USER:suppliedUsername;
     const recoveryKey=String(body.recoveryKey||"");
     if(!sameSecret(username,USER)||!sameSecret(recoveryKey,RECOVERY))return json(401,{error:"Username वा Recovery Key गलत छ"});
 
