@@ -22,12 +22,10 @@ function postUrl(id){
   return url.toString();
 }
 
-// Share directly through the Netlify Function endpoint.
-// This avoids relying on the /share/* rewrite being served by an old deploy/cache.
-// The function returns server-rendered Open Graph metadata for Facebook/WhatsApp,
-// then redirects normal visitors to the real ?post=<id> page.
+// Clean social URL. Netlify rewrites /share/<id> to the server-rendered
+// share function, which supplies post-specific Open Graph metadata.
 function socialShareUrl(id){
-  return `${window.location.origin}/.netlify/functions/share?post=${encodeURIComponent(id)}`;
+  return `${window.location.origin}/share/${encodeURIComponent(id)}`;
 }
 
 function toast(message){
@@ -95,9 +93,6 @@ async function shareCurrentPost(){
   const p = state.posts.find(x => String(x.id) === String(state.current));
   if(!p) return;
 
-  // IMPORTANT: never share /?post=<id> directly. That URL is rendered by the
-  // homepage HTML, so crawlers can see homepage metadata. The function endpoint
-  // generates post-specific Open Graph metadata before redirecting visitors.
   const shareUrl = socialShareUrl(p.id);
   const shareData = {
     title: p.title,
