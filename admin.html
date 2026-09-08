@@ -17,23 +17,25 @@
     .post-tools{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:10px;margin:14px 0 18px}
     .post-tools input,.post-tools select{width:100%;box-sizing:border-box}
     .account-card{margin-top:22px}
-    .account-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;border:0;background:transparent;padding:0;cursor:pointer;color:var(--primary);font:inherit;text-align:left}
+    .account-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;background:none;border:0;padding:0;text-align:left;cursor:pointer;color:var(--primary)}
     .account-toggle h2{margin:0}
-    .account-toggle-icon{font-size:1.2rem;transition:transform .2s ease}
-    .account-details[open] .account-toggle-icon{transform:rotate(180deg)}
-    .account-details > summary{list-style:none}
-    .account-details > summary::-webkit-details-marker{display:none}
-    .account-info{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .account-arrow{font-size:1.15rem;transition:transform .2s ease}
+    .account-card.open .account-arrow{transform:rotate(180deg)}
+    .account-body{display:none;margin-top:16px}
+    .account-card.open .account-body{display:block}
+    .account-info{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
     .password-card{margin-top:14px}
+    .password-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;background:var(--surface,#fff);border:1px solid var(--border);border-radius:10px;padding:13px 15px;cursor:pointer;text-align:left;color:var(--primary);font-weight:700}
+    .password-form-wrap{display:none;margin-top:14px}
+    .password-form-wrap.open{display:block}
+    .password-arrow{transition:transform .2s ease}
+    .password-toggle.open .password-arrow{transform:rotate(180deg)}
     .password-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .password-note{color:var(--muted);margin:10px 0 0}
     @media(max-width:700px){.dashboard-stats{grid-template-columns:repeat(2,1fr)}.post-tools{grid-template-columns:1fr}.password-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <!-- =========================
-       LOGIN
-  ========================= -->
   <div id="login" class="admin-wrap">
     <div class="admin-card">
       <h1>Admin Login</h1>
@@ -47,15 +49,10 @@
     </div>
   </div>
 
-  <!-- =========================
-       DASHBOARD
-  ========================= -->
   <div id="dashboard" class="admin-wrap" style="display:none">
     <header class="admin-head">
       <h1>नारायण भण्डारी — Admin</h1>
-      <div>
-        <button class="btn btn-outline" id="logout" type="button">Logout</button>
-      </div>
+      <div><button class="btn btn-outline" id="logout" type="button">Logout</button></div>
     </header>
 
     <section class="dashboard-summary">
@@ -71,108 +68,76 @@
     </section>
 
     <main class="admin-main">
-      <!-- =========================
-           POST FORM
-      ========================= -->
       <section class="admin-card">
         <h2 id="formHeading">नयाँ पोस्ट</h2>
         <form id="postForm">
           <input type="hidden" id="postId">
-
           <div class="form-group"><label>शीर्षक</label><input id="title" required></div>
-
-          <div class="form-group">
-            <label>श्रेणी</label>
-            <select id="category">
-              <option>विचार</option><option>साहित्य</option><option>लोकसेवा</option><option>शिक्षा</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label>Tags</label>
-            <div id="tagBox" class="tag-box"><input id="tags" type="text" placeholder="Tag लेख्नुहोस्..." autocomplete="off"></div>
-            <small>Tag लेखेर <b>Enter</b>, <b>Space</b> वा <b>,</b> थिच्नुहोस्।</small>
-          </div>
-
-          <div class="form-group">
-            <label>Featured Image</label>
-            <input id="image" type="file" accept="image/*">
-            <div id="imagePreview"></div>
-          </div>
-
+          <div class="form-group"><label>श्रेणी</label><select id="category"><option>विचार</option><option>साहित्य</option><option>लोकसेवा</option><option>शिक्षा</option></select></div>
+          <div class="form-group"><label>Tags</label><div id="tagBox" class="tag-box"><input id="tags" type="text" placeholder="Tag लेख्नुहोस्..." autocomplete="off"></div><small>Tag लेखेर <b>Enter</b>, <b>Space</b> वा <b>,</b> थिच्नुहोस्।</small></div>
+          <div class="form-group"><label>Featured Image</label><input id="image" type="file" accept="image/*"><div id="imagePreview"></div></div>
           <div class="form-group"><label>सामग्री</label><textarea id="content"></textarea></div>
-
           <button class="btn btn-primary" id="publish" type="button">प्रकाशित गर्नुहोस्</button>
           <button type="button" class="btn btn-outline" id="draft">ड्राफ्ट</button>
           <button type="button" class="btn" id="cancel">रद्द</button>
         </form>
       </section>
 
-      <!-- =========================
-           POSTS
-      ========================= -->
       <section class="admin-card">
         <div class="row"><h2>पोस्टहरू</h2><button class="btn btn-primary" id="newPost" type="button">+ नयाँ पोस्ट</button></div>
-
         <div class="post-tools">
           <input id="postSearch" type="search" placeholder="🔎 पोस्ट खोज्नुहोस्..." autocomplete="off">
           <select id="postCategoryFilter"><option value="">सबै श्रेणी</option></select>
           <select id="postStatusFilter"><option value="">सबै स्थिति</option><option value="published">प्रकाशित</option><option value="draft">ड्राफ्ट</option></select>
         </div>
-
         <div id="postResultCount" class="filter-result-count"></div>
         <div id="table"></div>
       </section>
     </main>
 
-    <!-- =========================
-         ACCOUNT MANAGEMENT
-    ========================= -->
-    <details class="admin-card account-card account-details">
-      <summary class="account-toggle">
-        <h2>Account Management</h2>
-        <span class="account-toggle-icon">▼</span>
-      </summary>
+    <section class="admin-card account-card" id="accountCard">
+      <button class="account-toggle" id="accountToggle" type="button" aria-expanded="false" aria-controls="accountBody">
+        <h2>Account Management</h2><span class="account-arrow">▼</span>
+      </button>
 
-      <div class="account-info">
-        <div>
-          <div class="stat-label">Logged in as</div>
-          <strong id="accountUsername">Admin</strong>
+      <div class="account-body" id="accountBody">
+        <div class="account-info">
+          <div><div class="stat-label">Logged in as</div><strong id="accountUsername">Admin</strong></div>
+          <button class="btn btn-outline" id="accountLogout" type="button">Logout</button>
         </div>
-        <button class="btn btn-outline" id="accountLogout" type="button">Logout</button>
-      </div>
-      <p class="account-note">Username र password Netlify Environment Variables बाट सुरक्षित रूपमा व्यवस्थापन हुन्छ। Browser वा GitHub मा password राखिँदैन।</p>
+        <p class="account-note">Username र password Netlify Environment Variables बाट सुरक्षित रूपमा व्यवस्थापन हुन्छ। Browser वा GitHub मा password राखिँदैन।</p>
 
-      <div class="password-card">
-        <h3>Password परिवर्तन</h3>
-        <form id="changePasswordForm">
-          <div class="password-grid">
-            <div class="form-group"><label>हालको Password</label><input id="currentPassword" type="password" autocomplete="current-password" required></div>
-            <div></div>
-            <div class="form-group"><label>नयाँ Password</label><input id="newPassword" type="password" minlength="10" autocomplete="new-password" required></div>
-            <div class="form-group"><label>नयाँ Password फेरि</label><input id="confirmPassword" type="password" minlength="10" autocomplete="new-password" required></div>
+        <div class="password-card">
+          <button class="password-toggle" id="passwordToggle" type="button" aria-expanded="false" aria-controls="passwordFormWrap">
+            <span>🔐 Change Password</span><span class="password-arrow">▼</span>
+          </button>
+          <div class="password-form-wrap" id="passwordFormWrap">
+            <form id="changePasswordForm">
+              <div class="password-grid">
+                <div class="form-group"><label>हालको Password</label><input id="currentPassword" type="password" autocomplete="current-password" required></div>
+                <div></div>
+                <div class="form-group"><label>नयाँ Password</label><input id="newPassword" type="password" minlength="10" autocomplete="new-password" required></div>
+                <div class="form-group"><label>नयाँ Password फेरि</label><input id="confirmPassword" type="password" minlength="10" autocomplete="new-password" required></div>
+              </div>
+              <button class="btn btn-primary" id="changePasswordBtn" type="submit">Password परिवर्तन गर्नुहोस्</button>
+              <p class="password-note">सुरक्षाका लागि नयाँ password कम्तीमा 10 characters हुनुपर्छ। सफल परिवर्तनपछि पुरानो login session अमान्य गरिन्छ।</p>
+            </form>
           </div>
-          <button class="btn btn-primary" id="changePasswordBtn" type="submit">Password परिवर्तन गर्नुहोस्</button>
-          <p class="password-note">सुरक्षाका लागि नयाँ password कम्तीमा 10 characters हुनुपर्छ। सफल परिवर्तनपछि पुरानो login session अमान्य गरिन्छ।</p>
-        </form>
+        </div>
       </div>
-    </details>
+    </section>
   </div>
 
   <div id="toast" class="toast"></div>
-
   <script src="admin.js"></script>
   <script>
     function updateDashboardStats(){
       if(typeof posts === "undefined") return;
-      const published = posts.filter(p => String(p.status || "").toLowerCase() === "published").length;
-      const drafts = posts.filter(p => String(p.status || "").toLowerCase() === "draft").length;
-      const categories = new Set(posts.map(p => String(p.category || "").trim()).filter(Boolean)).size;
-      const total = document.getElementById("totalPosts"), pub = document.getElementById("publishedPosts"), draft = document.getElementById("draftPosts"), cat = document.getElementById("totalCategories");
-      if(total) total.textContent = posts.length;
-      if(pub) pub.textContent = published;
-      if(draft) draft.textContent = drafts;
-      if(cat) cat.textContent = categories;
+      const published=posts.filter(p=>String(p.status||"").toLowerCase()==="published").length;
+      const drafts=posts.filter(p=>String(p.status||"").toLowerCase()==="draft").length;
+      const categories=new Set(posts.map(p=>String(p.category||"").trim()).filter(Boolean)).size;
+      const total=document.getElementById("totalPosts"),pub=document.getElementById("publishedPosts"),draft=document.getElementById("draftPosts"),cat=document.getElementById("totalCategories");
+      if(total)total.textContent=posts.length;if(pub)pub.textContent=published;if(draft)draft.textContent=drafts;if(cat)cat.textContent=categories;
     }
     setInterval(updateDashboardStats,1000);
   </script>
