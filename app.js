@@ -22,10 +22,11 @@ function postUrl(id){
   return url.toString();
 }
 
-// Clean social URL. Netlify rewrites /share/<id> to the server-rendered
-// share function, which supplies post-specific Open Graph metadata.
-function socialShareUrl(id){
-  return `${window.location.origin}/share/${encodeURIComponent(id)}`;
+// Version the social URL so Facebook/WhatsApp do not reuse an older
+// homepage preview cached for the same /share/<id> URL.
+function socialShareUrl(id, updated){
+  const version = updated ? encodeURIComponent(updated) : "1";
+  return `${window.location.origin}/share/${encodeURIComponent(id)}?v=${version}`;
 }
 
 function toast(message){
@@ -93,7 +94,7 @@ async function shareCurrentPost(){
   const p = state.posts.find(x => String(x.id) === String(state.current));
   if(!p) return;
 
-  const shareUrl = socialShareUrl(p.id);
+  const shareUrl = socialShareUrl(p.id, p.updated || p.created);
   const shareData = {
     title: p.title,
     text: cleanText(String(p.content || "").replace(/<[^>]*>/g, " ")).slice(0, 180),
