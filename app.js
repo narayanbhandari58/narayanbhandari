@@ -22,8 +22,9 @@ function postUrl(id){
   return url.toString();
 }
 
+// Server-rendered URL used specifically for Facebook/WhatsApp link previews.
 function socialShareUrl(id){
-  return `${window.location.origin}/.netlify/functions/share?post=${encodeURIComponent(id)}`;
+  return `${window.location.origin}/post/${encodeURIComponent(id)}`;
 }
 
 function toast(message){
@@ -91,9 +92,14 @@ async function shareCurrentPost(){
   const p = state.posts.find(x => String(x.id) === String(state.current));
   if(!p) return;
 
-  const normalUrl = postUrl(p.id);
-  const previewUrl = socialShareUrl(p.id);
-  const shareData = { title: p.title, text: cleanText(String(p.content || "").replace(/<[^>]*>/g, " ")).slice(0, 180), url: previewUrl };
+  // Always share the server-rendered /post/<id> URL so social crawlers receive
+  // the individual post title, description and featured image.
+  const shareUrl = socialShareUrl(p.id);
+  const shareData = {
+    title: p.title,
+    text: cleanText(String(p.content || "").replace(/<[^>]*>/g, " ")).slice(0, 180),
+    url: shareUrl
+  };
 
   try{
     if(navigator.share){
@@ -105,10 +111,10 @@ async function shareCurrentPost(){
   }
 
   try{
-    await navigator.clipboard.writeText(normalUrl);
-    toast("पोस्टको link copy भयो। अब Facebook/WhatsApp मा paste गर्न सक्नुहुन्छ।");
+    await navigator.clipboard.writeText(shareUrl);
+    toast("Facebook/WhatsApp का लागि post link copy भयो।");
   }catch{
-    window.prompt("पोस्ट link copy गर्नुहोस्:", normalUrl);
+    window.prompt("पोस्ट link copy गर्नुहोस्:", shareUrl);
   }
 }
 
