@@ -7,9 +7,11 @@
   to = "/.netlify/functions/api"
   status = 200
 
-# Dedicated server-rendered post URL for Facebook/WhatsApp previews.
-# The browser is then redirected by share.js to /?post=<id>.
 [[redirects]]
   from = "/share/*"
   to = "/.netlify/functions/share?post=:splat"
   status = 200
+
+[[edge_functions]]
+  path = "/share/*"
+  function = "share-preview"
