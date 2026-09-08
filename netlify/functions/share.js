@@ -3,19 +3,14 @@ exports.handler = async (event) => {
   const qsId = event.queryStringParameters?.post;
   const path = event.path || '';
 
-  // Support both Netlify's rewritten query parameter and direct /share/<id>
-  // requests. This keeps social crawlers and normal browsers on the same
-  // post-specific server-rendered endpoint.
+  // Support both the Netlify rewrite query parameter and direct /share/<id>.
   const pathMatch = path.match(/\/share\/([^/?#]+)\/?$/i);
   const id = qsId || (pathMatch ? decodeURIComponent(pathMatch[1]) : '');
 
   if (!id) {
     return {
       statusCode: 400,
-      headers: {
-        'Content-Type': 'text/plain; charset=UTF-8',
-        'Cache-Control': 'no-store'
-      },
+      headers: { 'Content-Type': 'text/plain; charset=UTF-8', 'Cache-Control': 'no-store' },
       body: 'Missing post id'
     };
   }
@@ -23,7 +18,7 @@ exports.handler = async (event) => {
   try {
     const indexUrl = 'https://raw.githubusercontent.com/narayanbhandari58/narayanbhandari/main/posts/index.json';
     const response = await fetch(indexUrl, {
-      headers: { 'User-Agent': 'narayan-bhandari-social-preview' }
+      headers: { 'User-Agent': 'narayan-bhandari-social-preview/2.0' }
     });
 
     if (!response.ok) throw new Error(`Post index request failed: ${response.status}`);
@@ -36,10 +31,7 @@ exports.handler = async (event) => {
     if (!post) {
       return {
         statusCode: 404,
-        headers: {
-          'Content-Type': 'text/plain; charset=UTF-8',
-          'Cache-Control': 'no-store'
-        },
+        headers: { 'Content-Type': 'text/plain; charset=UTF-8', 'Cache-Control': 'no-store' },
         body: 'Post not found'
       };
     }
@@ -59,8 +51,8 @@ exports.handler = async (event) => {
       ? new URL(post.featuredImage, site).toString()
       : `${site}/image/logo.png`;
 
-    // Keep /share/<id> as the crawler-facing URL. The actual app URL remains
-    // /?post=<id>, which app.js uses to open the post modal.
+    // IMPORTANT: social crawlers must receive this exact URL as og:url.
+    // The browser is redirected separately to the client-side post URL.
     const shareUrl = `${site}/share/${encodeURIComponent(post.id)}`;
     const canonical = `${site}/?post=${encodeURIComponent(post.id)}`;
 
@@ -71,7 +63,7 @@ exports.handler = async (event) => {
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(post.title)} — नारायण भण्डारी</title>
 <meta name="description" content="${esc(description)}">
-<meta name="robots" content="index,follow">
+<meta name="robots" content="noindex,follow">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="नारायण भण्डारी">
 <meta property="og:locale" content="ne_NP">
@@ -92,12 +84,22 @@ exports.handler = async (event) => {
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${esc(image)}">
 <meta name="twitter:image:alt" content="${esc(post.title)}">
-<link rel="canonical" href="${esc(canonical)}">
-<meta http-equiv="refresh" content="0;url=${esc(canonical)}">
 </head>
 <body>
-<p>पोस्ट खोलिँदैछ…</p>
-<script>location.replace(${JSON.stringify(canonical)});</script>
+<main>
+<h1>${esc(post.title)}</h1>
+<p>${esc(description)}</p>
+${post.featuredImage ? `<img src="${esc(image)}" alt="${esc(post.title)}">` : ''}
+<p><a href="${esc(canonical)}">पोस्ट पढ्नुहोस्</a></p>
+</main>
+<script>
+(function(){
+  var target = ${JSON.stringify(canonical)};
+  var ua = navigator.userAgent || '';
+  var crawler = /facebookexternalhit|Facebot|WhatsApp|Twitterbot|LinkedInBot|Googlebot|bingbot|Slackbot|TelegramBot|Discordbot/i.test(ua);
+  if (!crawler) window.location.replace(target);
+})();
+</script>
 </body>
 </html>`;
 
@@ -105,10 +107,7 @@ exports.handler = async (event) => {
       statusCode: 200,
       headers: {
         'Content-Type': 'text/html; charset=UTF-8',
-        // Do not let an old homepage preview remain cached at the edge.
-        'Cache-Control': 'no-cache, no-store, must-revalidate',
-        'Pragma': 'no-cache',
-        'Expires': '0'
+        'Cache-Control': 'public, max-age=300, s-maxage=300, stale-while-revalidate=60'
       },
       body: html
     };
