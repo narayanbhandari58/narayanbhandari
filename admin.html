@@ -17,7 +17,13 @@
     .post-tools{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:10px;margin:14px 0 18px}
     .post-tools input,.post-tools select{width:100%;box-sizing:border-box}
     .account-card{margin-top:22px}
-    .account-info{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+    .account-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;border:0;background:transparent;padding:0;cursor:pointer;color:var(--primary);font:inherit;text-align:left}
+    .account-toggle h2{margin:0}
+    .account-toggle-icon{font-size:1.2rem;transition:transform .2s ease}
+    .account-details[open] .account-toggle-icon{transform:rotate(180deg)}
+    .account-details > summary{list-style:none}
+    .account-details > summary::-webkit-details-marker{display:none}
+    .account-info{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:16px}
     .password-card{margin-top:14px}
     .password-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .password-note{color:var(--muted);margin:10px 0 0}
@@ -122,8 +128,12 @@
     <!-- =========================
          ACCOUNT MANAGEMENT
     ========================= -->
-    <section class="admin-card account-card">
-      <h2>Account Management</h2>
+    <details class="admin-card account-card account-details">
+      <summary class="account-toggle">
+        <h2>Account Management</h2>
+        <span class="account-toggle-icon">▼</span>
+      </summary>
+
       <div class="account-info">
         <div>
           <div class="stat-label">Logged in as</div>
@@ -146,7 +156,7 @@
           <p class="password-note">सुरक्षाका लागि नयाँ password कम्तीमा 10 characters हुनुपर्छ। सफल परिवर्तनपछि पुरानो login session अमान्य गरिन्छ।</p>
         </form>
       </div>
-    </section>
+    </details>
   </div>
 
   <div id="toast" class="toast"></div>
