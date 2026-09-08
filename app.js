@@ -2,53 +2,18 @@
    PUBLIC WEBSITE APP
 ========================================= */
 
-const state = {
-  posts: [],
-  filter: "all",
-  current: null
-};
-
+const state = { posts: [], filter: "all", current: null };
 const $ = s => document.querySelector(s);
 
-/* =========================================
-   ESCAPE HTML
-========================================= */
-const esc = s =>
-  String(s ?? "").replace(
-    /[&<>"']/g,
-    m => ({
-      "&":"&amp;",
-      "<":"&lt;",
-      ">":"&gt;",
-      '"':"&quot;",
-      "'":"&#039;"
-    }[m])
-  );
+const esc = s => String(s ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 
-/* =========================================
-   CLEAN TEXT
-========================================= */
 function cleanText(value){
-  return String(value ?? "")
-    .replace(/&nbsp;/gi, " ")
-    .replace(/\u00a0/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
+  return String(value ?? "").replace(/&nbsp;/gi, " ").replace(/\u00a0/g, " ").replace(/\s+/g, " ").trim();
 }
-
-/* =========================================
-   CLEAN HTML CONTENT
-========================================= */
 function cleanContent(value){
-  return String(value ?? "")
-    .replace(/&nbsp;/gi, " ")
-    .replace(/\u00a0/g, " ");
+  return String(value ?? "").replace(/&nbsp;/gi, " ").replace(/\u00a0/g, " ");
 }
 
-/* =========================================
-   POST URL
-   प्रत्येक पोस्टको छुट्टै shareable link
-========================================= */
 function postUrl(id){
   const url = new URL(window.location.href);
   url.search = "";
@@ -57,9 +22,10 @@ function postUrl(id){
   return url.toString();
 }
 
-/* =========================================
-   TOAST
-========================================= */
+function socialShareUrl(id){
+  return `${window.location.origin}/.netlify/functions/share?post=${encodeURIComponent(id)}`;
+}
+
 function toast(message){
   const t = $("#toast");
   if(!t) return;
@@ -68,96 +34,34 @@ function toast(message){
   setTimeout(() => { t.style.display = "none"; }, 3000);
 }
 
-/* =========================================
-   API
-========================================= */
 async function api(action, options = {}){
-  const r = await fetch(
-    `/.netlify/functions/api?action=${encodeURIComponent(action)}`,
-    {
-      ...options,
-      headers:{
-        "Content-Type":"application/json",
-        ...(options.headers || {})
-      }
-    }
-  );
-
+  const r = await fetch(`/.netlify/functions/api?action=${encodeURIComponent(action)}`, {
+    ...options,
+    headers:{"Content-Type":"application/json", ...(options.headers || {})}
+  });
   let d = {};
   try{ d = await r.json(); }catch{}
-
-  if(!r.ok){
-    throw Error(d.error || "Request failed");
-  }
-
+  if(!r.ok) throw Error(d.error || "Request failed");
   return d;
 }
 
-/* =========================================
-   POST CARD
-========================================= */
 function card(p){
-  const image = p.featuredImage
-    ? `<img src="${esc(p.featuredImage)}" alt="${esc(p.title)}" loading="lazy">`
-    : `<span>📝</span>`;
-
-  const plain = cleanText(
-    String(p.content || "").replace(/<[^>]*>/g, " ")
-  );
-
+  const image = p.featuredImage ? `<img src="${esc(p.featuredImage)}" alt="${esc(p.title)}" loading="lazy">` : `<span>📝</span>`;
+  const plain = cleanText(String(p.content || "").replace(/<[^>]*>/g, " "));
   const date = new Date(p.created || p.date).toLocaleDateString("ne-NP");
   const comments = Array.isArray(p.comments) ? p.comments.length : 0;
-
-  return `
-    <article
-      class="card"
-      data-id="${esc(p.id)}"
-      tabindex="0"
-      role="button"
-      aria-label="${esc(p.title)} पढ्नुहोस्"
-    >
-      <div class="card-img">${image}</div>
-      <div class="card-body">
-        <span class="badge">${esc(p.category)}</span>
-        <h3>${esc(p.title)}</h3>
-        <div class="excerpt">
-          ${esc(plain.slice(0,160))}${plain.length > 160 ? "…" : ""}
-        </div>
-        <div class="meta">
-          <span>${date}</span>
-          <span>👍 ${p.likes || 0} · 💬 ${comments}</span>
-        </div>
-      </div>
-    </article>
-  `;
+  return `<article class="card" data-id="${esc(p.id)}" tabindex="0" role="button" aria-label="${esc(p.title)} पढ्नुहोस्"><div class="card-img">${image}</div><div class="card-body"><span class="badge">${esc(p.category)}</span><h3>${esc(p.title)}</h3><div class="excerpt">${esc(plain.slice(0,160))}${plain.length > 160 ? "…" : ""}</div><div class="meta"><span>${date}</span><span>👍 ${p.likes || 0} · 💬 ${comments}</span></div></div></article>`;
 }
 
-/* =========================================
-   RENDER
-========================================= */
 function render(){
-  const filtered = state.filter === "all"
-    ? state.posts
-    : state.posts.filter(p => p.category === state.filter);
-
-  $("#posts").innerHTML = filtered.length
-    ? filtered.map(card).join("")
-    : `<div class="empty">कुनै सामग्री भेटिएन।</div>`;
-
+  const filtered = state.filter === "all" ? state.posts : state.posts.filter(p => p.category === state.filter);
+  $("#posts").innerHTML = filtered.length ? filtered.map(card).join("") : `<div class="empty">कुनै सामग्री भेटिएन।</div>`;
   const lok = state.posts.filter(p => p.category === "लोकसेवा").slice(0,3);
-  $("#loksewaPosts").innerHTML = lok.length
-    ? lok.map(card).join("")
-    : `<div class="empty">लोकसेवा सामग्री छिट्टै थपिनेछ।</div>`;
-
+  $("#loksewaPosts").innerHTML = lok.length ? lok.map(card).join("") : `<div class="empty">लोकसेवा सामग्री छिट्टै थपिनेछ।</div>`;
   const lit = state.posts.filter(p => p.category === "साहित्य").slice(0,3);
-  $("#literaturePosts").innerHTML = lit.length
-    ? lit.map(card).join("")
-    : `<div class="empty">साहित्यिक सामग्री छिट्टै थपिनेछ।</div>`;
+  $("#literaturePosts").innerHTML = lit.length ? lit.map(card).join("") : `<div class="empty">साहित्यिक सामग्री छिट्टै थपिनेछ।</div>`;
 }
 
-/* =========================================
-   LOAD POSTS
-========================================= */
 async function load(){
   try{
     const d = await api("posts");
@@ -170,69 +74,74 @@ async function load(){
   }
 }
 
-/* =========================================
-   SHOW MODAL
-========================================= */
-function showPostModal(id){
-  const p = state.posts.find(x => String(x.id) === String(id));
-  if(!p) return false;
-
-  state.current = p.id;
-
-  $("#modalTitle").textContent = p.title;
-  $("#modalCategory").textContent = p.category;
-  $("#modalDate").textContent = new Date(p.created || p.date).toLocaleDateString("ne-NP");
-
-  const image = p.featuredImage
-    ? `<img src="${esc(p.featuredImage)}" alt="${esc(p.title)}">`
-    : "";
-
-  $("#modalContent").innerHTML = image + cleanContent(p.content || "");
-  $("#likeCount").textContent = p.likes || 0;
-
-  const comments = Array.isArray(p.comments) ? p.comments : [];
-  $("#comments").innerHTML = comments.length
-    ? comments.map(c => `
-        <div class="comment">
-          <b>${esc(c.author)}</b>
-          <div>${esc(c.text)}</div>
-        </div>
-      `).join("")
-    : `<p>अहिलेसम्म टिप्पणी छैन।</p>`;
-
-  $("#postModal").classList.add("show");
-  $("#postModal").setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
-
-  return true;
+function ensureShareButton(){
+  const actions = $(".post-actions");
+  if(!actions || $("#shareBtn")) return;
+  const button = document.createElement("button");
+  button.className = "share-button";
+  button.id = "shareBtn";
+  button.type = "button";
+  button.setAttribute("aria-label", "पोस्ट शेयर गर्नुहोस्");
+  button.innerHTML = "<span>🔗</span><span>Share</span>";
+  actions.appendChild(button);
+  button.onclick = shareCurrentPost;
 }
 
-/* =========================================
-   OPEN POST
-   URL मा ?post=ID राख्ने
-========================================= */
-function openPost(id){
-  if(!showPostModal(id)) return;
+async function shareCurrentPost(){
+  const p = state.posts.find(x => String(x.id) === String(state.current));
+  if(!p) return;
 
-  const url = postUrl(id);
-  history.pushState({ postModal: id }, "", url);
-}
+  const normalUrl = postUrl(p.id);
+  const previewUrl = socialShareUrl(p.id);
+  const shareData = { title: p.title, text: cleanText(String(p.content || "").replace(/<[^>]*>/g, " ")).slice(0, 180), url: previewUrl };
 
-/* =========================================
-   OPEN POST FROM SHARED URL
-========================================= */
-function openPostFromUrl(){
-  const id = new URLSearchParams(window.location.search).get("post");
-  if(!id) return;
+  try{
+    if(navigator.share){
+      await navigator.share(shareData);
+      return;
+    }
+  }catch(e){
+    if(e && e.name === "AbortError") return;
+  }
 
-  if(showPostModal(id)){
-    history.replaceState({ postModal: id }, "", postUrl(id));
+  try{
+    await navigator.clipboard.writeText(normalUrl);
+    toast("पोस्टको link copy भयो। अब Facebook/WhatsApp मा paste गर्न सक्नुहुन्छ।");
+  }catch{
+    window.prompt("पोस्ट link copy गर्नुहोस्:", normalUrl);
   }
 }
 
-/* =========================================
-   HIDE MODAL
-========================================= */
+function showPostModal(id){
+  const p = state.posts.find(x => String(x.id) === String(id));
+  if(!p) return false;
+  state.current = p.id;
+  $("#modalTitle").textContent = p.title;
+  $("#modalCategory").textContent = p.category;
+  $("#modalDate").textContent = new Date(p.created || p.date).toLocaleDateString("ne-NP");
+  const image = p.featuredImage ? `<img src="${esc(p.featuredImage)}" alt="${esc(p.title)}">` : "";
+  $("#modalContent").innerHTML = image + cleanContent(p.content || "");
+  $("#likeCount").textContent = p.likes || 0;
+  const comments = Array.isArray(p.comments) ? p.comments : [];
+  $("#comments").innerHTML = comments.length ? comments.map(c => `<div class="comment"><b>${esc(c.author)}</b><div>${esc(c.text)}</div></div>`).join("") : `<p>अहिलेसम्म टिप्पणी छैन।</p>`;
+  ensureShareButton();
+  $("#postModal").classList.add("show");
+  $("#postModal").setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+  return true;
+}
+
+function openPost(id){
+  if(!showPostModal(id)) return;
+  history.pushState({ postModal: id }, "", postUrl(id));
+}
+
+function openPostFromUrl(){
+  const id = new URLSearchParams(window.location.search).get("post");
+  if(!id) return;
+  if(showPostModal(id)) history.replaceState({ postModal: id }, "", postUrl(id));
+}
+
 function hidePostModal(){
   state.current = null;
   $("#postModal").classList.remove("show");
@@ -240,9 +149,6 @@ function hidePostModal(){
   document.body.style.overflow = "";
 }
 
-/* =========================================
-   CLOSE MODAL
-========================================= */
 function closePostModal(){
   if(history.state && history.state.postModal){
     history.back();
@@ -254,9 +160,6 @@ function closePostModal(){
   }
 }
 
-/* =========================================
-   DOM READY
-========================================= */
 document.addEventListener("DOMContentLoaded", () => {
   load();
 
@@ -269,20 +172,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  $("#hamburger").onclick = () => {
-    $("#navMenu").classList.toggle("open");
-  };
-
-  document.querySelectorAll(".nav-link").forEach(a => {
-    a.onclick = () => {
-      $("#navMenu").classList.remove("open");
-    };
-  });
+  $("#hamburger").onclick = () => $("#navMenu").classList.toggle("open");
+  document.querySelectorAll(".nav-link").forEach(a => a.onclick = () => $("#navMenu").classList.remove("open"));
 
   $("#filters").onclick = e => {
     const b = e.target.closest(".filter");
     if(!b) return;
-
     document.querySelectorAll(".filter").forEach(x => x.classList.remove("active"));
     b.classList.add("active");
     state.filter = b.dataset.filter;
@@ -297,55 +192,31 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.onkeydown = e => {
     if(e.key !== "Enter" && e.key !== " ") return;
     const c = e.target.closest(".card");
-    if(c){
-      e.preventDefault();
-      openPost(c.dataset.id);
-    }
+    if(c){ e.preventDefault(); openPost(c.dataset.id); }
   };
 
   $("#closeModal").onclick = () => closePostModal();
-
-  $("#postModal").onclick = e => {
-    if(e.target.id === "postModal") closePostModal();
-  };
+  $("#postModal").onclick = e => { if(e.target.id === "postModal") closePostModal(); };
 
   $("#likeBtn").onclick = async () => {
     try{
-      const d = await api("like", {
-        method:"POST",
-        body: JSON.stringify({ id: state.current })
-      });
-
+      const d = await api("like", { method:"POST", body: JSON.stringify({ id: state.current }) });
       $("#likeCount").textContent = d.likes;
       const p = state.posts.find(x => x.id === state.current);
       if(p) p.likes = d.likes;
       render();
-    }catch(e){
-      toast(e.message);
-    }
+    }catch(e){ toast(e.message); }
   };
 
   $("#commentForm").onsubmit = async e => {
     e.preventDefault();
-
     try{
-      const d = await api("comment", {
-        method:"POST",
-        body: JSON.stringify({
-          id: state.current,
-          author: $("#commentAuthor").value.trim(),
-          text: $("#commentText").value.trim()
-        })
-      });
-
+      const d = await api("comment", { method:"POST", body: JSON.stringify({ id: state.current, author: $("#commentAuthor").value.trim(), text: $("#commentText").value.trim() }) });
       const p = state.posts.find(x => x.id === state.current);
       if(p) p.comments = d.comments || p.comments || [];
-
       $("#commentText").value = "";
       showPostModal(state.current);
       render();
-    }catch(e){
-      toast(e.message);
-    }
+    }catch(e){ toast(e.message); }
   };
 });
