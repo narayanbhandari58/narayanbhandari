@@ -132,8 +132,11 @@ textarea{min-height:135px;resize:vertical;}
   align-items:center;
   justify-content:center;
   gap:6px;
-  margin-left:auto;
-  margin-right:18px;
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  margin:0;
   padding:7px 13px;
   border-radius:999px;
   background:var(--primary);
@@ -142,6 +145,7 @@ textarea{min-height:135px;resize:vertical;}
   font-weight:850;
   font-size:.9rem;
   line-height:1.2;
+  white-space:nowrap;
   box-shadow:0 4px 14px rgba(143,14,4,.18);
   animation:loksewaBlink 1.25s ease-in-out infinite;
 }
@@ -157,6 +161,8 @@ textarea{min-height:135px;resize:vertical;}
 }
 
 @media(max-width:900px){
+  .exam-nav-link{position:relative;left:auto;top:auto;transform:none;margin-left:auto;margin-right:18px;}
+
   .nav-menu{display:none;position:absolute;left:12px;right:12px;top:70px;background:#fff;flex-direction:column;align-items:stretch;padding:10px;border-radius:14px;box-shadow:0 15px 40px rgba(0,0,0,.14);}
   .nav-menu.open{display:flex;}
   .nav-link{padding:11px 14px;}
