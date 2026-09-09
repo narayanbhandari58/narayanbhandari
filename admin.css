@@ -76,3 +76,19 @@
 .tag-item button:hover{
   opacity:.7;
 }
+
+/* Main Admin Question Bank */
+#mainQuestionBank{margin:22px 0}
+.exam-bank-note{margin:4px 0 0;color:var(--muted,#666)}
+.exam-bank-filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) 2fr;gap:10px;margin:16px 0}
+.exam-bank-filters input,.exam-bank-filters select{width:100%;box-sizing:border-box}
+.exam-qform{margin:14px 0;padding:18px;border:1px solid var(--border,#ddd);border-radius:14px;background:var(--surface,#fff)}
+.exam-qform label{display:block;margin:10px 0;font-weight:650}
+.exam-qform input,.exam-qform textarea,.exam-qform select{display:block;width:100%;box-sizing:border-box;margin-top:6px}
+.exam-qform select[multiple]{min-height:92px}
+.exam-qform small{display:block;margin-top:5px;font-weight:400;opacity:.75}
+.exam-qform .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.exam-admin-toast{position:fixed;right:18px;bottom:18px;padding:11px 15px;border-radius:10px;background:#222;color:#fff;opacity:0;pointer-events:none;transform:translateY(8px);transition:.2s;z-index:9999}
+.exam-admin-toast.show{opacity:1;transform:none}
+@media(max-width:900px){.exam-bank-filters{grid-template-columns:1fr 1fr}.exam-qform .two{grid-template-columns:1fr}}
+@media(max-width:600px){.exam-bank-filters{grid-template-columns:1fr}.exam-bank-filters input,.exam-bank-filters select{min-height:42px}}
