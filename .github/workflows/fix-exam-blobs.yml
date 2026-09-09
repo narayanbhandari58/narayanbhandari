@@ -1,0 +1,41 @@
+name: Fix exam storage handling
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-exam-blobs.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch exam management and blob configuration
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          p=Path('exam-management.js')
+          s=p.read_text(encoding='utf-8')
+          old="history=(await api('admin-history')).attempts||[];"
+          new="try{history=(await api('admin-history')).attempts||[]}catch(e){history=[];console.warn('Exam history storage unavailable:',e.message)}"
+          if old in s:
+              s=s.replace(old,new,1)
+          p.write_text(s,encoding='utf-8')
+
+          p=Path('netlify/functions/exam-api.js')
+          s=p.read_text(encoding='utf-8')
+          old="async function attempts(){const store=getStore('exam-attempts'),out=[];"
+          new="function blobStore(){const siteID=process.env.NETLIFY_SITE_ID||process.env.SITE_ID;const token=process.env.NETLIFY_API_TOKEN||process.env.NETLIFY_AUTH_TOKEN;return siteID&&token?getStore('exam-attempts',{siteID,token}):getStore('exam-attempts')}\nasync function attempts(){const store=blobStore(),out=[];"
+          if old in s:
+              s=s.replace(old,new,1)
+          s=s.replace("await getStore('exam-attempts').set(result.attemptId,JSON.stringify(result),{metadata:{examId:exam.id}})","await blobStore().set(result.attemptId,JSON.stringify(result),{metadata:{examId:exam.id}})",1)
+          p.write_text(s,encoding='utf-8')
+          PY
+          if git diff --quiet; then echo 'No changes'; exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add exam-management.js netlify/functions/exam-api.js
+          git commit -m 'Fix exam management storage handling'
+          git push
