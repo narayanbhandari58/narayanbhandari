@@ -1,1 +1,118 @@
-<!doctype html><html lang="ne"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=exam.html"><title>लोकसेवा परीक्षा — नारायण भण्डारी</title></head><body><p>लोकसेवा परीक्षा खोलिँदैछ… <a href="exam.html">यहाँ क्लिक गर्नुहोस्</a></p></body></html>
+<!doctype html>
+<html lang="ne">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="नारायण भण्डारी — लोकसेवा अनलाइन परीक्षा">
+  <title>लोकसेवा परीक्षा — नारायण भण्डारी</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="exam.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-container">
+    <a class="brand" href="index.html#home">
+      <img src="image/logo.png" alt="नारायण भण्डारी">
+      <span>नारायण भण्डारी</span>
+    </a>
+    <a class="exam-nav-link" href="loksewa.html" aria-label="लोकसेवा Online Exam">📝 Loksewa Exam</a>
+    <button class="hamburger" id="hamburger" type="button" aria-label="Menu">☰</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a class="nav-link" href="index.html#home">गृहपृष्ठ</a></li>
+      <li><a class="nav-link" href="about_me.html">मेरो बारेमा</a></li>
+      <li><a class="nav-link" href="index.html#blog">लेखहरू</a></li>
+      <li><a class="nav-link" href="loksewa.html">लोकसेवा</a></li>
+      <li><a class="nav-link" href="index.html#literature">साहित्य</a></li>
+      <li><a class="nav-link" href="index.html#contact">सम्पर्क</a></li>
+      <li><a class="nav-link admin-btn" href="admin.html">Admin</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="exam-shell">
+  <header class="exam-header">
+    <div>
+      <div class="eyebrow">लोकसेवा तयारी</div>
+      <h1>अनलाइन परीक्षा</h1>
+      <p>खरिदार · नायब सुब्बा · शाखा अधिकृत</p>
+    </div>
+    <div id="timer" class="timer" hidden>60:00</div>
+  </header>
+
+  <section id="chooser" class="panel">
+    <h2>परीक्षा रोज्नुहोस्</h2>
+    <div id="examList" class="exam-grid"></div>
+  </section>
+
+  <section id="candidate" class="panel" hidden>
+    <h2 id="candidateTitle">परीक्षा सुरु गर्नुहोस्</h2>
+    <div class="form-grid">
+      <label>नाम<input id="candidateName" required></label>
+      <label>Gmail<input id="candidateEmail" type="email" placeholder="तपाईंको Gmail"></label>
+      <label>WhatsApp नम्बर<input id="candidateWhatsapp" inputmode="tel" placeholder="+977... (वैकल्पिक)"></label>
+    </div>
+    <div id="candidateInfo" class="info"></div>
+    <button id="startBtn" class="btn btn-primary">परीक्षा सुरु गर्नुहोस्</button>
+  </section>
+
+  <section id="exam" hidden>
+    <div class="exam-top">
+      <div><strong id="examTitle"></strong><span id="progress"></span></div>
+      <button id="finishBtn" class="btn btn-primary">परीक्षा बुझाउनुहोस्</button>
+    </div>
+    <div id="questionNav" class="question-nav"></div>
+    <article id="questionCard" class="question-card"></article>
+  </section>
+
+  <section id="result" class="panel" hidden>
+    <div id="resultSummary"></div>
+    <div class="result-actions">
+      <button id="pdfBtn" class="btn btn-primary">📄 Feedback PDF बनाउनुहोस्</button>
+      <button id="shareBtn" class="btn btn-outline">📤 PDF Share गर्नुहोस्</button>
+      <a id="gmailBtn" class="btn btn-outline" href="#" hidden>Gmail</a>
+      <a id="whatsappBtn" class="btn btn-outline" href="#" hidden>WhatsApp</a>
+    </div>
+    <div id="review"></div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h3>नारायण भण्डारी</h3>
+        <p>सर्जक, साधक र पाठक</p>
+      </div>
+      <div>
+        <h3>द्रुत लिंकहरू</h3>
+        <p>
+          <a href="index.html#home">गृहपृष्ठ</a> ·
+          <a href="index.html#blog">लेखहरू</a> ·
+          <a href="loksewa.html">लोकसेवा</a> ·
+          <a href="font.html">Nepali Unicode</a>
+        </p>
+      </div>
+      <div>
+        <h3>सामाजिक सञ्जाल</h3>
+        <p>
+          <a href="https://www.facebook.com/narayanbhandari23" target="_blank" rel="noopener">Facebook</a> ·
+          <a href="https://youtube.com/@allinonefornepal" target="_blank" rel="noopener">YouTube</a>
+        </p>
+      </div>
+    </div>
+    <div class="copyright">© 2026 नारायण भण्डारी. सर्वाधिकार सुरक्षित.</div>
+  </div>
+</footer>
+
+<script src="exam.js"></script>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => navMenu.classList.toggle('open'));
+    navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMenu.classList.remove('open')));
+  }
+</script>
+</body>
+</html>
