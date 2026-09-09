@@ -132,11 +132,11 @@ textarea{min-height:135px;resize:vertical;}
   align-items:center;
   justify-content:center;
   gap:6px;
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  margin:0;
+  position:static;
+  flex-shrink:0;
+  transform:none;
+  margin-left:auto;
+  margin-right:auto;
   padding:7px 13px;
   border-radius:999px;
   background:var(--primary);
