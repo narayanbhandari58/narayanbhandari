@@ -1,0 +1,73 @@
+name: Fix exam navigation layout
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-exam-nav-layout.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix-layout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fix desktop exam link layout
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          p = Path('style.css')
+          css = p.read_text(encoding='utf-8')
+
+          old = re.compile(r'\.exam-nav-link\{\s*display:inline-flex;.*?animation:loksewaBlink 1\.25s ease-in-out infinite;\s*\}', re.S)
+          new = '''.exam-nav-link{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            gap:6px;
+            position:static;
+            flex-shrink:0;
+            transform:none;
+            margin-left:auto;
+            margin-right:auto;
+            padding:7px 13px;
+            border-radius:999px;
+            background:var(--primary);
+            color:#fff;
+            text-decoration:none;
+            font-weight:850;
+            font-size:.9rem;
+            line-height:1.2;
+            white-space:nowrap;
+            box-shadow:0 4px 14px rgba(143,14,4,.18);
+            animation:loksewaBlink 1.25s ease-in-out infinite;
+          }'''
+
+          css2, count = old.subn(new, css, count=1)
+          if count != 1:
+              raise SystemExit('Could not find exam-nav-link block')
+
+          css2 = css2.replace(
+              '.exam-nav-link{position:relative;left:auto;top:auto;transform:none;margin-left:auto;margin-right:18px;}',
+              '.exam-nav-link{position:relative;left:auto;top:auto;transform:none;margin-left:auto;margin-right:18px;}'
+          )
+
+          p.write_text(css2, encoding='utf-8')
+
+      - name: Commit CSS fix
+        shell: bash
+        run: |
+          if git diff --quiet -- style.css; then
+            echo 'No CSS change needed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add style.css
+          git commit -m 'Fix Loksewa Exam nav overlap on desktop'
+          git push
