@@ -92,3 +92,6 @@
 .exam-admin-toast.show{opacity:1;transform:none}
 @media(max-width:900px){.exam-bank-filters{grid-template-columns:1fr 1fr}.exam-qform .two{grid-template-columns:1fr}}
 @media(max-width:600px){.exam-bank-filters{grid-template-columns:1fr}.exam-bank-filters input,.exam-bank-filters select{min-height:42px}}
+
+#onlineExamManagementCard{margin:22px 0}
+#onlineExamManagementCard .exam-bank-note{margin:4px 0 0;color:var(--muted,#666)}
