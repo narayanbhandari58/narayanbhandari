@@ -1,4 +1,4 @@
-name: Add main Admin Question Bank
+name: Add main Admin Exam Management entry
 on:
   push:
     paths:
@@ -10,25 +10,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Add Question Bank script and styles to admin.html
+      - name: Add dedicated Exam Management entry to admin.html
         run: |
           python3 - <<'PY'
           from pathlib import Path
           p=Path('admin.html')
           s=p.read_text(encoding='utf-8')
-          tag='<script src="admin-exam.js"></script>'
-          if tag not in s:
-              s=s.replace('</body>', tag+'</body>')
+          old='<script src="admin-exam.js"></script>'
+          new='<script src="admin-exam-entry.js"></script>'
+          if old in s:
+              s=s.replace(old,new)
+          elif new not in s:
+              s=s.replace('</body>',new+'</body>')
           p.write_text(s,encoding='utf-8')
           css=Path('admin.css')
-          add='''\n/* Main Admin Question Bank */\n#mainQuestionBank{margin:22px 0}\n.exam-bank-note{margin:4px 0 0;color:var(--muted,#666)}\n.exam-bank-filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) 2fr;gap:10px;margin:16px 0}\n.exam-bank-filters input,.exam-bank-filters select{width:100%;box-sizing:border-box}\n.exam-qform{margin:14px 0;padding:18px;border:1px solid var(--border,#ddd);border-radius:14px;background:var(--surface,#fff)}\n.exam-qform label{display:block;margin:10px 0;font-weight:650}\n.exam-qform input,.exam-qform textarea,.exam-qform select{display:block;width:100%;box-sizing:border-box;margin-top:6px}\n.exam-qform select[multiple]{min-height:92px}\n.exam-qform small{display:block;margin-top:5px;font-weight:400;opacity:.75}\n.exam-qform .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}\n.exam-admin-toast{position:fixed;right:18px;bottom:18px;padding:11px 15px;border-radius:10px;background:#222;color:#fff;opacity:0;pointer-events:none;transform:translateY(8px);transition:.2s;z-index:9999}\n.exam-admin-toast.show{opacity:1;transform:none}\n@media(max-width:900px){.exam-bank-filters{grid-template-columns:1fr 1fr}.exam-qform .two{grid-template-columns:1fr}}\n@media(max-width:600px){.exam-bank-filters{grid-template-columns:1fr}.exam-bank-filters input,.exam-bank-filters select{min-height:42px}}\n'''
-          old=css.read_text(encoding='utf-8') if css.exists() else ''
-          if '/* Main Admin Question Bank */' not in old:
-              css.write_text(old+add,encoding='utf-8')
+          add='''\n#onlineExamManagementCard{margin:22px 0}\n#onlineExamManagementCard .exam-bank-note{margin:4px 0 0;color:var(--muted,#666)}\n'''
+          oldcss=css.read_text(encoding='utf-8') if css.exists() else ''
+          if '#onlineExamManagementCard{' not in oldcss: css.write_text(oldcss+add,encoding='utf-8')
           PY
           if git diff --quiet; then echo 'No changes'; exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add admin.html admin.css
-          git commit -m 'Add main Admin Question Bank UI'
+          git commit -m 'Add dedicated Online Exam Management entry'
           git push
