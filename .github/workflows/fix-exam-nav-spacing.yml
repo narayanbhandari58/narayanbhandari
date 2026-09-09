@@ -1,0 +1,76 @@
+name: Fix exam navigation spacing
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-exam-nav-spacing.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Adjust desktop exam navigation spacing
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('style.css')
+          s = p.read_text(encoding='utf-8')
+
+          pattern = r'\.exam-nav-link\{.*?\}\n\.exam-nav-link:hover\{'
+          replacement = '''.exam-nav-link{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            gap:6px;
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform:translate(-50%,-50%);
+            margin:0;
+            padding:7px 13px;
+            border-radius:999px;
+            background:var(--primary);
+            color:#fff;
+            text-decoration:none;
+            font-weight:850;
+            font-size:.9rem;
+            line-height:1.2;
+            white-space:nowrap;
+            box-shadow:0 4px 14px rgba(143,14,4,.18);
+            animation:loksewaBlink 1.25s ease-in-out infinite;
+          }
+          .exam-nav-link:hover{'''
+
+          s2, n = re.subn(pattern, replacement, s, count=1, flags=re.S)
+          if n != 1:
+              raise SystemExit('Expected exam navigation CSS block was not found')
+
+          marker = '@media(max-width:900px){'
+          if marker not in s2:
+              raise SystemExit('Responsive CSS marker not found')
+
+          s2 = s2.replace(
+              marker,
+              marker + '\n  .exam-nav-link{position:relative;left:auto;top:auto;transform:none;margin-left:auto;margin-right:18px;}\n',
+              1
+          )
+
+          p.write_text(s2, encoding='utf-8')
+          PY
+
+      - name: Commit change
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add style.css
+          git diff --cached --quiet && exit 0
+          git commit -m 'Fix desktop Loksewa Exam navigation spacing'
+          git push
