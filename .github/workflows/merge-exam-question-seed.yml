@@ -1,0 +1,51 @@
+name: Merge exam question seed
+
+on:
+  push:
+    paths:
+      - 'exam-question-seed/**'
+      - '.github/workflows/merge-exam-question-seed.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Merge seed questions into exam-data.json
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+
+          data_path = Path('exam-data.json')
+          data = json.loads(data_path.read_text(encoding='utf-8'))
+          questions = data.setdefault('questions', [])
+          existing = {q.get('id') for q in questions}
+
+          added = 0
+          for path in sorted(Path('exam-question-seed').glob('*.json')):
+              seed = json.loads(path.read_text(encoding='utf-8'))
+              for q in seed:
+                  if q.get('id') not in existing:
+                      questions.append(q)
+                      existing.add(q.get('id'))
+                      added += 1
+
+          if added:
+              data['version'] = max(int(data.get('version', 1)), 3)
+              data['questionBankUpdatedAt'] = __import__('datetime').datetime.utcnow().isoformat() + 'Z'
+              data_path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+              print(f'Added {added} questions; total={len(questions)}')
+          else:
+              print('No new questions to add.')
+      - name: Commit merged question bank
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add exam-data.json
+          git diff --cached --quiet || git commit -m 'Add Branch Officer Unit 1.1 geography questions'
+          git push
