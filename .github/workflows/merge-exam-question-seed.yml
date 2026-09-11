@@ -40,11 +40,40 @@ jobs:
                       questions.append(q)
                       added += 1
 
-          if added or updated:
+          # Keep answer positions balanced for the 1.3 question bank.
+          # This preserves the correct answer while rotating option order
+          # deterministically by question number, so answers are not clustered
+          # in option A. The same ID always receives the same position.
+          letters = ['A', 'B', 'C', 'D']
+          balanced = 0
+          for q in questions:
+              if q.get('unit') != '1.3':
+                  continue
+              options = q.get('options') or []
+              correct = q.get('correct')
+              if len(options) != 4 or not isinstance(correct, int) or not (0 <= correct < 4):
+                  continue
+              qid = str(q.get('id', ''))
+              try:
+                  number = int(qid.rsplit('-', 1)[1])
+              except (ValueError, IndexError):
+                  number = balanced + 1
+              target = (number - 1) % 4
+              if correct != target:
+                  answer = options[correct]
+                  distractors = [opt for i, opt in enumerate(options) if i != correct]
+                  new_options = distractors[:]
+                  new_options.insert(target, answer)
+                  q['options'] = new_options
+                  q['correct'] = target
+              q['solution'] = f"सही उत्तर: {letters[target]}।"
+              balanced += 1
+
+          if added or updated or balanced:
               data['version'] = max(int(data.get('version', 1)), 3)
               data['questionBankUpdatedAt'] = __import__('datetime').datetime.utcnow().isoformat() + 'Z'
               data_path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-              print(f'Added {added}, updated {updated}; total={len(questions)}')
+              print(f'Added {added}, updated {updated}; balanced 1.3={balanced}; total={len(questions)}')
           else:
               print('No question changes.')
       - name: Commit merged question bank
