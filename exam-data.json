@@ -19752,7 +19752,667 @@
       "correct": 1,
       "explanation": "The economic return of connectivity depends on quality, inclusion, skills and secure use. ",
       "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-edu-001",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा पूर्वाधार",
+      "level": "level1",
+      "type": "gk",
+      "q": "शिक्षालाई आर्थिक विकासको पूर्वाधार किन मानिन्छ?",
+      "options": [
+        "मानव पूँजी, सीप, उत्पादकत्व र नवप्रवर्तनको आधार भएकाले",
+        "केवल भवन निर्माण हुने भएकाले",
+        "रोजगारी घटाउने भएकाले",
+        "उत्पादनसँग सम्बन्ध नहुने भएकाले"
+      ],
+      "correct": 0,
+      "explanation": "Education raises human capital and supports productivity and innovation. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-edu-002",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "मानव पूँजी",
+      "level": "level1",
+      "type": "concept",
+      "q": "मानव पूँजीको मुख्य आधार कुन हो?",
+      "options": [
+        "केवल विद्यालय भवन",
+        "ज्ञान, सीप, स्वास्थ्य र कार्यक्षमता",
+        "केवल प्रमाणपत्र",
+        "केवल जनसंख्या"
+      ],
+      "correct": 1,
+      "explanation": "Human capital includes capabilities embodied in people. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-edu-003",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा र उत्पादकत्व",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "शिक्षाले उत्पादकत्व बढाउने मुख्य माध्यम कुन हो?",
+      "options": [
+        "केवल परीक्षा संख्या बढाउनु",
+        "सीपलाई उत्पादनबाट अलग गर्नु",
+        "कामका लागि आवश्यक ज्ञान, सीप र समस्या समाधान क्षमता विकास गर्नु",
+        "प्राविधिक शिक्षा घटाउनु"
+      ],
+      "correct": 2,
+      "explanation": "Relevant learning improves worker capabilities. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-edu-004",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा र रोजगारी",
+      "level": "level2",
+      "type": "matching",
+      "q": "शिक्षा/सीप र रोजगारीको सही जोडी कुन हो?",
+      "options": [
+        "साक्षरता — रोजगारी घटाउने",
+        "apprenticeship — उद्योगबाट अलग तालिम",
+        "career guidance — श्रम बजार सूचना घटाउने",
+        "TVET — श्रम बजारअनुकूल प्राविधिक तथा व्यावसायिक सीप"
+      ],
+      "correct": 3,
+      "explanation": "TVET and apprenticeship can connect training with workplace skills. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-edu-005",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा बजेट",
+      "level": "level2",
+      "type": "concept",
+      "q": "शिक्षा बजेटको प्रभावकारिता मापनमा कुन कुरा महत्त्वपूर्ण हुन्छ?",
+      "options": [
+        "खर्चसँगै learning outcomes, पहुँच, completion र equity हेर्नु",
+        "केवल भवन संख्या",
+        "केवल बजेट खर्च प्रतिशत",
+        "केवल विद्यार्थी संख्या"
+      ],
+      "correct": 0,
+      "explanation": "Inputs alone do not establish education quality or outcomes. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-edu-006",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा पूर्वाधार",
+      "level": "level1",
+      "type": "gk",
+      "q": "विद्यालय पूर्वाधारमा कुन समूह आधारभूत हुन्छ?",
+      "options": [
+        "केवल भवन",
+        "कक्षा, खानेपानी/सरसफाइ, सुरक्षित भवन, ICT र सिकाइ सामग्री",
+        "केवल खेल मैदान",
+        "केवल कार्यालय"
+      ],
+      "correct": 1,
+      "explanation": "Effective learning environments require physical and learning-support infrastructure. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-edu-007",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा गुणस्तर",
+      "level": "level2",
+      "type": "verification",
+      "q": "शिक्षा गुणस्तर सुधारमा कुन उपाय बढी प्रत्यक्ष छ?",
+      "options": [
+        "केवल भवन थप्नु",
+        "केवल परीक्षा शुल्क बढाउनु",
+        "शिक्षक क्षमता, पाठ्यक्रम, सिकाइ मूल्याङ्कन र remedial support सुधार",
+        "शिक्षक तालिम घटाउनु"
+      ],
+      "correct": 2,
+      "explanation": "Learning quality depends on teaching, curriculum and assessment as well as infrastructure. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-edu-008",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा र प्रविधि",
+      "level": "level2",
+      "type": "concept",
+      "q": "शिक्षामा ICT प्रयोगको सही उद्देश्य कुन हो?",
+      "options": [
+        "शिक्षकलाई पूर्ण रूपमा विस्थापित गर्नु",
+        "पाठ्यक्रम हटाउनु",
+        "विद्यार्थी पहुँच घटाउनु",
+        "सिकाइ स्रोत, शिक्षक सहयोग र पहुँच सुधार गर्नु"
+      ],
+      "correct": 3,
+      "explanation": "ICT should complement pedagogy and improve access and resources. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-edu-009",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा र समावेशिता",
+      "level": "level1",
+      "type": "gk",
+      "q": "समावेशी शिक्षा नीतिको प्रमुख उद्देश्य कुन हो?",
+      "options": [
+        "विभिन्न सामाजिक, भौगोलिक र क्षमतागत समूहलाई समान सिकाइ अवसर दिनु",
+        "केवल शहरका विद्यार्थीलाई प्राथमिकता",
+        "दुर्गम विद्यार्थी हटाउनु",
+        "विद्यालय पहुँच सीमित गर्नु"
+      ],
+      "correct": 0,
+      "explanation": "Inclusive education aims to reduce barriers to learning participation. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-edu-010",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा र आर्थिक वृद्धि",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "शिक्षा र दीर्घकालीन आर्थिक वृद्धिबीचको सम्बन्ध कुन हो?",
+      "options": [
+        "शिक्षाको वृद्धिसँग उत्पादकत्वको कुनै सम्बन्ध छैन",
+        "मानव पूँजीले श्रम उत्पादकत्व, नवप्रवर्तन र आय क्षमतामा योगदान गर्न सक्छ",
+        "शिक्षाले केवल सरकारी खर्च बढाउँछ",
+        "शिक्षा आर्थिक विकासबाट अलग हुन्छ"
+      ],
+      "correct": 1,
+      "explanation": "Human capital is a central long-run growth factor. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-edu-011",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "उच्च शिक्षा",
+      "level": "level1",
+      "type": "concept",
+      "q": "उच्च शिक्षाको आर्थिक भूमिका कुन हो?",
+      "options": [
+        "केवल प्रमाणपत्र वितरण",
+        "प्राविधिक अनुसन्धान रोक्नु",
+        "उन्नत सीप, अनुसन्धान र नवप्रवर्तनको क्षमता विकास गर्नु",
+        "उद्योगसँग सम्बन्ध हटाउनु"
+      ],
+      "correct": 2,
+      "explanation": "Higher education contributes to advanced skills and knowledge production. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-edu-012",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा र उद्योग",
+      "level": "level2",
+      "type": "matching",
+      "q": "शिक्षा–उद्योग सम्बन्धको सही जोडी कुन हो?",
+      "options": [
+        "विश्वविद्यालय–उद्योग सम्बन्ध — उद्योगबाट अलग हुने",
+        "apprenticeship — workplace learning हटाउने",
+        "R&D — नवप्रवर्तन रोक्ने",
+        "industry-academia linkage — पाठ्यक्रम र सीपलाई श्रम बजारसँग मिलाउने"
+      ],
+      "correct": 3,
+      "explanation": "Industry-academia links reduce skills mismatch and support innovation. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-edu-013",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "सीप विकास",
+      "level": "level2",
+      "type": "concept",
+      "q": "सीप mismatch घटाउन कुन उपाय बढी प्रभावकारी हुन्छ?",
+      "options": [
+        "श्रम बजारको मागअनुसार curriculum, apprenticeship र career information सुधार",
+        "केवल प्रमाणपत्र संख्या बढाउनु",
+        "उद्योगको माग नहेर्नु",
+        "प्राविधिक शिक्षा घटाउनु"
+      ],
+      "correct": 0,
+      "explanation": "Demand-driven skills systems align training with employers and workers. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-edu-014",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा तथ्याङ्क",
+      "level": "level2",
+      "type": "verification",
+      "q": "शिक्षा तथ्याङ्कमा enrollment मात्र पर्याप्त नहुनुको कारण कुन हो?",
+      "options": [
+        "enrollment नै सबै गुणस्तर हो",
+        "सिकाइ, completion, attendance र equity जस्ता परिणाम पनि जान्न आवश्यक हुन्छ",
+        "विद्यार्थी सिकाइ मापन आवश्यक छैन",
+        "dropout को कुनै अर्थ हुँदैन"
+      ],
+      "correct": 1,
+      "explanation": "Education policy needs outcome indicators beyond enrollment. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-edu-015",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा र डिजिटल विभाजन",
+      "level": "level2",
+      "type": "scenario",
+      "q": "दुर्गम विद्यालयमा online content उपलब्ध भए पनि विद्यार्थीले प्रयोग गर्न सकेनन् भने प्राथमिक समस्या कुन हुन सक्छ?",
+      "options": [
+        "content धेरै भएकाले मात्र",
+        "विद्यार्थी संख्या धेरै भएकाले मात्र",
+        "connectivity, device, electricity र digital skills को अभाव",
+        "पाठ्यक्रम नहुँदा मात्र"
+      ],
+      "correct": 2,
+      "explanation": "Digital learning requires complementary infrastructure and capabilities. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-edu-016",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "प्राविधिक शिक्षा",
+      "level": "level1",
+      "type": "gk",
+      "q": "TVET को आर्थिक उद्देश्य कुन हो?",
+      "options": [
+        "केवल सैद्धान्तिक शिक्षा बढाउनु",
+        "उद्योगसँग सम्बन्ध हटाउनु",
+        "श्रम बजारबाट सीप अलग गर्नु",
+        "रोजगारीयोग्य र उत्पादक प्राविधिक सीप विकास गर्नु"
+      ],
+      "correct": 3,
+      "explanation": "TVET is oriented toward occupational and technical competencies. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-edu-017",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा र उत्पादकता",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "कामदारको productivity सुधार्न education policy मा कुन कुरा महत्त्वपूर्ण हुन्छ?",
+      "options": [
+        "foundational learning + job-specific skills + lifelong learning",
+        "केवल प्रारम्भिक विद्यालय भवन",
+        "तालिम बन्द गर्नु",
+        "सीप अद्यावधिक नगर्नु"
+      ],
+      "correct": 0,
+      "explanation": "Productivity evolves with changing technology and job requirements. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-edu-018",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा र रोजगारी",
+      "level": "level2",
+      "type": "concept",
+      "q": "शिक्षित बेरोजगारी घटाउन कुन नीति बढी उपयुक्त हुन्छ?",
+      "options": [
+        "केवल डिग्री संख्या बढाउनु",
+        "career guidance, skills alignment, entrepreneurship र private-sector linkages",
+        "रोजगार सूचना रोक्नु",
+        "सीप तालिम हटाउनु"
+      ],
+      "correct": 1,
+      "explanation": "Education-to-work transition needs labour-market information and relevant skills. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-edu-019",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षामा लगानी",
+      "level": "level1",
+      "type": "gk",
+      "q": "शिक्षामा सार्वजनिक लगानीको व्यापक प्रतिफल कुन हुन सक्छ?",
+      "options": [
+        "केवल भवन निर्माण",
+        "केवल सरकारी रोजगारी",
+        "मानव पूँजी, आय, सामाजिक गतिशीलता र productivity मा दीर्घकालीन सुधार",
+        "उत्पादन घटाउने"
+      ],
+      "correct": 2,
+      "explanation": "Education generates private and wider social returns. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-edu-020",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा र नवप्रवर्तन",
+      "level": "level2",
+      "type": "matching",
+      "q": "शिक्षा र नवप्रवर्तनको सही जोडी कुन हो?",
+      "options": [
+        "अनुसन्धान — नवप्रवर्तन रोक्ने",
+        "विश्वविद्यालय — ज्ञान उत्पादन रोक्ने",
+        "R&D — productivity घटाउने मात्र",
+        "अनुसन्धान — नयाँ ज्ञान/प्रविधि विकासमा योगदान"
+      ],
+      "correct": 3,
+      "explanation": "Research is a source of new knowledge and innovation. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-edu-021",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा पूर्वाधार र ऊर्जा",
+      "level": "level2",
+      "type": "concept",
+      "q": "डिजिटल शिक्षा विस्तारमा विद्युत् पूर्वाधार किन आवश्यक हुन्छ?",
+      "options": [
+        "devices, connectivity र digital learning systems चलाउन",
+        "शिक्षाको सामग्री हटाउन",
+        "विद्यालय बन्द गर्न",
+        "केवल भवन तताउन"
+      ],
+      "correct": 0,
+      "explanation": "Electricity is a complementary infrastructure for digital learning. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-edu-022",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा र संघीयता",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "संघीय संरचनामा शिक्षा सेवा सुधारका लागि कुन कुरा महत्त्वपूर्ण हुन्छ?",
+      "options": [
+        "सबै निर्णय एउटै विद्यालयले गर्ने",
+        "तहगत जिम्मेवारी स्पष्ट गरी वित्त, मापदण्ड र स्थानीय कार्यान्वयनबीच समन्वय",
+        "तहबीच समन्वय नगर्ने",
+        "वित्तीय जिम्मेवारी अस्पष्ट राख्ने"
+      ],
+      "correct": 1,
+      "explanation": "Education is a shared governance field requiring role clarity and coordination. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-edu-023",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा र समानता",
+      "level": "level1",
+      "type": "gk",
+      "q": "शिक्षामा equity को अर्थ कुन हो?",
+      "options": [
+        "सबैलाई ठ्याक्कै समान स्रोत मात्र दिनु",
+        "दुर्गम क्षेत्रलाई हटाउनु",
+        "भिन्न आवश्यकता भएका समूहलाई उचित अवसर/सहयोग दिएर समान सिकाइ अवसरतर्फ लैजानु",
+        "केवल उच्च आय समूहलाई प्राथमिकता"
+      ],
+      "correct": 2,
+      "explanation": "Equity recognizes unequal starting conditions and barriers. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-edu-024",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा बजेट विश्लेषण",
+      "level": "level2",
+      "type": "scenario",
+      "q": "शिक्षा बजेट बढे पनि learning outcomes स्थिर छन् भने कुन विश्लेषण आवश्यक हुन्छ?",
+      "options": [
+        "केवल बजेट अझ बढाउने",
+        "केवल भवन थप्ने",
+        "विद्यार्थी संख्या मात्र हेर्ने",
+        "खर्चको संरचना, शिक्षक क्षमता, attendance, pedagogy र learning assessment समीक्षा"
+      ],
+      "correct": 3,
+      "explanation": "Spending effectiveness depends on how resources translate into learning. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-edu-025",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा र उद्यमशीलता",
+      "level": "level2",
+      "type": "concept",
+      "q": "उद्यमशीलता शिक्षाले आर्थिक विकासमा कसरी सहयोग गर्न सक्छ?",
+      "options": [
+        "समस्या पहिचान, innovation, risk management र business skills विकास गरेर",
+        "केवल प्रमाणपत्र बढाएर",
+        "उद्यम जोखिम हटाएर",
+        "बजार सूचना रोक्दै"
+      ],
+      "correct": 0,
+      "explanation": "Entrepreneurship education develops capabilities relevant to starting and growing enterprises. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-edu-026",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा र आप्रवासन",
+      "level": "level2",
+      "type": "verification",
+      "q": "सीप विकासले वैदेशिक रोजगारीमा कुन लाभ दिन सक्छ?",
+      "options": [
+        "सीपले रोजगारी घटाउँछ मात्र",
+        "कामदारको employability र earning potential सुधार्न सक्छ",
+        "सीपको विदेशी श्रम बजारसँग सम्बन्ध हुँदैन",
+        "प्रमाणिकरण आवश्यक हुँदैन"
+      ],
+      "correct": 1,
+      "explanation": "Recognized skills can improve labour-market matching and earnings. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-edu-027",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा र स्थानीय अर्थतन्त्र",
+      "level": "level1",
+      "type": "concept",
+      "q": "स्थानीय शिक्षा पूर्वाधारले स्थानीय अर्थतन्त्रमा कुन प्रभाव पार्न सक्छ?",
+      "options": [
+        "स्थानीय आय घटाउँछ मात्र",
+        "स्थानीय उत्पादन बन्द गर्छ",
+        "मानव पूँजी निर्माण र स्थानीय सेवा/रोजगारीलाई आधार दिन सक्छ",
+        "श्रम बजारसँग सम्बन्ध हुँदैन"
+      ],
+      "correct": 2,
+      "explanation": "Education is both a service and a long-term human-capital investment. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-edu-028",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा र बजेट प्राथमिकता",
+      "level": "level2",
+      "type": "matching",
+      "q": "शिक्षा लगानी र अपेक्षित परिणामको सही जोडी कुन हो?",
+      "options": [
+        "TVET — कृषि उत्पादन घटाउने",
+        "शिक्षक तालिम — learning quality घटाउने",
+        "ICT — digital access घटाउने",
+        "प्रारम्भिक सिकाइ — foundational skills सुधार"
+      ],
+      "correct": 3,
+      "explanation": "Different investments address different stages of the learning and skills pipeline. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-edu-029",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा संरचनागत रूपान्तरण",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "शिक्षालाई संरचनागत आर्थिक रूपान्तरणसँग जोड्ने सही दृष्टिकोण कुन हो?",
+      "options": [
+        "शिक्षा–सीपलाई कृषि, उद्योग, सेवा, प्रविधि र उद्यमशीलताको मागसँग जोड्नु",
+        "शिक्षालाई श्रम बजारबाट अलग गर्नु",
+        "केवल डिग्री बढाउनु",
+        "व्यावसायिक सीप घटाउनु"
+      ],
+      "correct": 0,
+      "explanation": "Human capital must evolve with the productive structure of the economy. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-edu-030",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "समेकित शिक्षा रणनीति",
+      "level": "level2",
+      "type": "scenario",
+      "q": "सोह्रौँ योजना र वार्षिक बजेटको विकास पूर्वाधार दृष्टिले शिक्षामा सबैभन्दा परिणाममुखी संयोजन कुन हो?",
+      "options": [
+        "केवल भवन निर्माण",
+        "access + learning quality + skills + digital inclusion + industry linkage",
+        "केवल विद्यार्थी संख्या",
+        "केवल परीक्षा संख्या"
+      ],
+      "correct": 1,
+      "explanation": "Education infrastructure should ultimately improve human capital and labour-market outcomes. ",
+      "solution": "सही उत्तर: B।"
     }
   ],
-  "questionBankUpdatedAt": "2026-09-11T12:37:17.348772Z"
+  "questionBankUpdatedAt": "2026-09-11T12:37:41.381486Z"
 }
