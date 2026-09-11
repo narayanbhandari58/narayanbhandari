@@ -21072,7 +21072,667 @@
       "correct": 1,
       "explanation": "A resilient health system needs service, prevention, financing and infrastructure together. ",
       "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-elec-001",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "विद्युत् पूर्वाधार",
+      "level": "level1",
+      "type": "gk",
+      "q": "विद्युत् पूर्वाधारलाई आर्थिक विकासको आधार किन मानिन्छ?",
+      "options": [
+        "उद्योग, कृषि, सेवा, घरपरिवार र डिजिटल अर्थतन्त्रको उत्पादन क्षमता बढाउने भएकाले",
+        "केवल घरमा बत्ती बाल्नका लागि",
+        "उद्योगसँग सम्बन्ध नभएकाले",
+        "ऊर्जा आयात बढाउन मात्र"
+      ],
+      "correct": 0,
+      "explanation": "Reliable electricity is a cross-sector productive infrastructure. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-elec-002",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "जलविद्युत्",
+      "level": "level1",
+      "type": "gk",
+      "q": "नेपालको विद्युत् विकासमा जलविद्युत्को प्रमुख महत्त्व कुन हो?",
+      "options": [
+        "केवल आयातमा निर्भरता बढाउनु",
+        "देशको प्रमुख घरेलु ऊर्जा स्रोतका रूपमा उत्पादन र निर्यात सम्भावना",
+        "विद्युत् खपत घटाउनु",
+        "उद्योग बन्द गर्नु"
+      ],
+      "correct": 1,
+      "explanation": "Nepal has substantial hydropower potential and electricity can support domestic use and exports. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-elec-003",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "विद्युत् पहुँच",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "विद्युत् पहुँच बढ्नुको आर्थिक प्रभाव कुन हो?",
+      "options": [
+        "विद्युत् पुगेपछि उद्योग घट्छ",
+        "शिक्षामा असर हुँदैन",
+        "घरेलु जीवनस्तरसँगै उत्पादनमूलक गतिविधि र सेवा पहुँच विस्तार हुन सक्छ",
+        "digital economy मा कुनै प्रभाव हुँदैन"
+      ],
+      "correct": 2,
+      "explanation": "Electricity access supports productive and social services. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-elec-004",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "ऊर्जा र उद्योग",
+      "level": "level2",
+      "type": "matching",
+      "q": "ऊर्जा पूर्वाधार र आर्थिक परिणामको सही जोडी कुन हो?",
+      "options": [
+        "विद्युत् अवरोध — उत्पादकत्व बढाउने",
+        "transmission bottleneck — आपूर्ति सुधार्ने",
+        "कम voltage — उद्योग क्षमता बढाउने",
+        "भरपर्दो विद्युत् — उद्योगको downtime र उत्पादन लागत घटाउन सहयोग"
+      ],
+      "correct": 3,
+      "explanation": "Reliable power is important for industrial operations. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-elec-005",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "ऊर्जा मिश्रण",
+      "level": "level1",
+      "type": "concept",
+      "q": "ऊर्जा मिश्रण विविधीकरणको प्रमुख उद्देश्य कुन हो?",
+      "options": [
+        "आपूर्ति जोखिम र एकै स्रोतमा निर्भरता घटाउनु",
+        "एकै स्रोतमा निर्भरता बढाउनु",
+        "ऊर्जा सुरक्षा घटाउनु",
+        "उत्पादन रोक्नु"
+      ],
+      "correct": 0,
+      "explanation": "A diversified energy mix can improve resilience. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-elec-006",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "विद्युत् प्रसारण",
+      "level": "level2",
+      "type": "concept",
+      "q": "उत्पादन क्षमता बढे पनि transmission कमजोर भएमा मुख्य समस्या के हुन सक्छ?",
+      "options": [
+        "उत्पादन स्वतः बढ्नु",
+        "उत्पादित विद्युत् माग केन्द्रसम्म पुर्‍याउन bottleneck सिर्जना हुनु",
+        "विद्युत् लागत शून्य हुनु",
+        "विद्युत् निर्यात स्वतः बढ्नु"
+      ],
+      "correct": 1,
+      "explanation": "Generation and transmission capacity must grow together. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-elec-007",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "विद्युत् वितरण",
+      "level": "level1",
+      "type": "verification",
+      "q": "विद्युत् वितरण प्रणालीबारे कुन कथन सही छ?",
+      "options": [
+        "distribution loss ले लागत घटाउँछ",
+        "voltage quality अप्रासंगिक हुन्छ",
+        "कम loss, भरपर्दो supply र voltage quality ले उपभोक्ता र उद्योग दुवैलाई लाभ दिन्छ",
+        "मर्मतसम्भार आवश्यक हुँदैन"
+      ],
+      "correct": 2,
+      "explanation": "Distribution quality determines reliability and efficiency at the user end. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-elec-008",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "ऊर्जा र कृषि",
+      "level": "level2",
+      "type": "matching",
+      "q": "विद्युत् र कृषि विकासको सही सम्बन्ध कुन हो?",
+      "options": [
+        "विद्युत् — कृषि बजार घटाउने",
+        "cold storage — post-harvest loss बढाउने",
+        "सिँचाइ — विद्युत् प्रयोग गर्न नसक्ने",
+        "विद्युतीकरण — सिँचाइ पम्प, cold storage र agro-processing सहज बनाउने"
+      ],
+      "correct": 3,
+      "explanation": "Electricity supports irrigation, storage and processing in agriculture. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-elec-009",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "विद्युत् र डिजिटल अर्थतन्त्र",
+      "level": "level1",
+      "type": "gk",
+      "q": "डिजिटल अर्थतन्त्रका लागि विद्युत् किन आधारभूत हुन्छ?",
+      "options": [
+        "data networks, devices, data centers र digital services सञ्चालनका लागि",
+        "केवल सडकका लागि",
+        "digital service बिना पनि समान रूपमा चल्ने भएकाले",
+        "उत्पादन घटाउन"
+      ],
+      "correct": 0,
+      "explanation": "Digital infrastructure ultimately depends on reliable power. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-elec-010",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "विद्युत् र रोजगारी",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "विद्युत् पहुँच विस्तारले रोजगारीमा कुन प्रभाव पार्न सक्छ?",
+      "options": [
+        "रोजगारी सधैं घटाउँछ",
+        "उत्पादनमूलक उद्यम र service activities का लागि operating conditions सुधार्न सक्छ",
+        "व्यवसायसँग कुनै सम्बन्ध छैन",
+        "उद्योगको समय बढाउँछ मात्र"
+      ],
+      "correct": 1,
+      "explanation": "Reliable electricity can enable enterprises to operate longer and more efficiently. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-elec-011",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "ऊर्जा दक्षता",
+      "level": "level2",
+      "type": "concept",
+      "q": "ऊर्जा दक्षताको आर्थिक लाभ कुन हो?",
+      "options": [
+        "ऊर्जा खपत बढाउनु",
+        "उत्पादन घटाउनु",
+        "प्रति एकाइ उत्पादन ऊर्जा लागत र स्रोत खपत घटाउनु",
+        "ऊर्जा पहुँच घटाउनु"
+      ],
+      "correct": 2,
+      "explanation": "Energy efficiency reduces energy intensity. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-elec-012",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "नवीकरणीय ऊर्जा",
+      "level": "level1",
+      "type": "gk",
+      "q": "नवीकरणीय ऊर्जाको दीर्घकालीन लाभ कुन हो?",
+      "options": [
+        "ऊर्जा आयात अनिवार्य बनाउनु",
+        "ऊर्जा सुरक्षा घटाउनु",
+        "उत्पादन रोक्नु",
+        "ऊर्जा सुरक्षा र कम-कार्बन विकासमा योगदान"
+      ],
+      "correct": 3,
+      "explanation": "Renewables can diversify energy supply and support low-carbon development. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-elec-013",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "विद्युत् बजार",
+      "level": "level2",
+      "type": "verification",
+      "q": "विद्युत् बजार विस्तारमा कुन कुरा महत्त्वपूर्ण हुन्छ?",
+      "options": [
+        "विश्वसनीय supply, demand growth, transmission capacity र उचित market arrangements",
+        "केवल उत्पादन capacity",
+        "transmission बिना export",
+        "माग घटाउनु"
+      ],
+      "correct": 0,
+      "explanation": "Power market development needs both supply and network capacity. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-elec-014",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "विद्युत् र उद्योग प्रतिस्पर्धा",
+      "level": "level2",
+      "type": "concept",
+      "q": "उद्योगको energy competitiveness सुधार्न कुन उपाय बढी प्रभावकारी हुन्छ?",
+      "options": [
+        "केवल tariff बढाउनु",
+        "भरपर्दो supply, उचित tariff, energy efficiency र grid quality सुधार",
+        "power outage बढाउनु",
+        "ऊर्जा efficiency घटाउनु"
+      ],
+      "correct": 1,
+      "explanation": "Industrial energy competitiveness depends on price and quality of supply. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-elec-015",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "विद्युत् पूर्वाधार लगानी",
+      "level": "level2",
+      "type": "scenario",
+      "q": "विद्युत् उत्पादन बढे पनि औद्योगिक demand कम छ भने कुन पक्षको समीक्षा गर्नुपर्छ?",
+      "options": [
+        "केवल थप generation",
+        "केवल transmission",
+        "industrial competitiveness, tariff, reliability, connection cost र productive demand",
+        "केवल household demand"
+      ],
+      "correct": 2,
+      "explanation": "Supply expansion must be matched with productive demand and competitive conditions. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-elec-016",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "जलविद्युत् आयोजना",
+      "level": "level1",
+      "type": "gk",
+      "q": "जलविद्युत् आयोजना विकासमा transmission line किन आवश्यक हुन्छ?",
+      "options": [
+        "जलविद्युत् उत्पादन रोक्न",
+        "केवल बाँध बनाउन",
+        "उत्पादन लागत बढाउन मात्र",
+        "उत्पादित ऊर्जा demand centres/market सम्म पुर्‍याउन"
+      ],
+      "correct": 3,
+      "explanation": "Transmission connects generation sites to consumers and markets. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-elec-017",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "ऊर्जा र व्यापार",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "विद्युत् निर्यातको दीर्घकालीन सम्भावना मूल्याङ्कन गर्दा कुन कुरा महत्त्वपूर्ण हुन्छ?",
+      "options": [
+        "घरेलु surplus, उत्पादन लागत, transmission interconnection र regional demand",
+        "केवल generation potential",
+        "बजार अध्ययन नगर्नु",
+        "transmission नबनाउनु"
+      ],
+      "correct": 0,
+      "explanation": "Export viability depends on surplus and cross-border transmission/market conditions. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-elec-018",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "विद्युत् र जलवायु",
+      "level": "level2",
+      "type": "concept",
+      "q": "ऊर्जा क्षेत्रको decarbonization मा जलविद्युत्को भूमिका कसरी बुझिन्छ?",
+      "options": [
+        "यसले सबै उत्सर्जन शून्य बनाउँछ",
+        "कम-कार्बन विद्युत् आपूर्ति बढाई जीवाश्म इन्धनमा निर्भरता घटाउन सहयोग गर्न सक्छ",
+        "यसको वातावरणीय प्रभाव हुँदैन",
+        "ऊर्जा माग घटाउँछ मात्र"
+      ],
+      "correct": 1,
+      "explanation": "Hydropower is generally low-carbon in operation but projects still require environmental and social safeguards. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-elec-019",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "ऊर्जा पहुँच र समावेशिता",
+      "level": "level1",
+      "type": "gk",
+      "q": "ऊर्जा पहुँचमा समावेशिता भन्नाले के बुझिन्छ?",
+      "options": [
+        "केवल शहरमा supply बढाउनु",
+        "उच्च आय समूहलाई मात्र सेवा दिनु",
+        "दुर्गम तथा कमजोर आय समूहलाई पनि भरपर्दो र वहनयोग्य ऊर्जा पहुँच दिलाउनु",
+        "ग्रामीण क्षेत्र हटाउनु"
+      ],
+      "correct": 2,
+      "explanation": "Energy inclusion concerns availability, affordability and reliability. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-elec-020",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "विद्युत् र शिक्षा",
+      "level": "level2",
+      "type": "matching",
+      "q": "विद्युत् र सामाजिक पूर्वाधारको सही जोडी कुन हो?",
+      "options": [
+        "विद्युत् — विद्यालय सेवा घटाउने",
+        "ICT — विद्युत् बिना समान रूपमा चल्ने",
+        "प्रयोगशाला — ऊर्जा आवश्यक नपर्ने",
+        "विद्यालय विद्युतीकरण — lighting, ICT र learning environment सुधार"
+      ],
+      "correct": 3,
+      "explanation": "Electricity supports lighting, ICT and equipment in education. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-elec-021",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "विद्युत् र स्वास्थ्य",
+      "level": "level1",
+      "type": "gk",
+      "q": "स्वास्थ्य संस्थामा भरपर्दो विद्युत् किन आवश्यक हुन्छ?",
+      "options": [
+        "diagnostics, refrigeration, surgery, lighting र digital systems सञ्चालनका लागि",
+        "केवल भवन सजावट",
+        "औषधि supply रोक्न",
+        "स्वास्थ्य सेवा घटाउन"
+      ],
+      "correct": 0,
+      "explanation": "Health facilities depend on reliable power for essential equipment and services. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-elec-022",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "विद्युत् र कृषि प्रशोधन",
+      "level": "level2",
+      "type": "concept",
+      "q": "कृषि मूल्य शृंखला विकासमा विद्युत्को भूमिका कुन हो?",
+      "options": [
+        "कृषि प्रशोधन रोक्नु",
+        "irrigation, milling, drying, cold storage र processing सम्भव बनाउनु",
+        "post-harvest loss बढाउनु",
+        "बजार पहुँच घटाउनु"
+      ],
+      "correct": 1,
+      "explanation": "Electricity enables multiple post-harvest and processing activities. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-elec-023",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "विद्युत् तथ्याङ्क",
+      "level": "level2",
+      "type": "verification",
+      "q": "ऊर्जा क्षेत्रको प्रगति मूल्याङ्कनमा कुन सूचक समूह बढी उपयुक्त हुन्छ?",
+      "options": [
+        "केवल installed capacity",
+        "केवल project संख्या",
+        "generation, access, reliability, losses, consumption र transmission capacity",
+        "केवल budget खर्च"
+      ],
+      "correct": 2,
+      "explanation": "Installed capacity alone does not measure service quality or access. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-elec-024",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "ऊर्जा आयोजना व्यवस्थापन",
+      "level": "level2",
+      "type": "scenario",
+      "q": "ठूला विद्युत् आयोजना बारम्बार ढिला हुँदा कुन पक्षको समीक्षा आवश्यक हुन्छ?",
+      "options": [
+        "केवल बजेट आकार",
+        "केवल उद्घाटन मिति",
+        "केवल installed capacity",
+        "survey/design, financing, procurement, land, transmission coordination र project governance"
+      ],
+      "correct": 3,
+      "explanation": "Energy projects face multiple implementation risks beyond financing. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-elec-025",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "विद्युत् र निजी लगानी",
+      "level": "level1",
+      "type": "concept",
+      "q": "भरपर्दो विद्युत् आपूर्तिले निजी लगानीलाई किन आकर्षित गर्न सक्छ?",
+      "options": [
+        "उत्पादन जोखिम र operating uncertainty घटाउन",
+        "उद्योगलाई बजारबाट अलग गर्न",
+        "उत्पादन लागत बढाउन",
+        "व्यवसाय बन्द गर्न"
+      ],
+      "correct": 0,
+      "explanation": "Power reliability is an important operating condition for firms. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-elec-026",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "विद्युत् प्रणाली resilience",
+      "level": "level2",
+      "type": "matching",
+      "q": "ऊर्जा resilience र उपायको सही जोडी कुन हो?",
+      "options": [
+        "backup system — resilience घटाउने",
+        "grid redundancy — outage को प्रभाव घटाउन सहयोग",
+        "maintenance — outage बढाउने",
+        "diversification — जोखिम बढाउने"
+      ],
+      "correct": 1,
+      "explanation": "Redundancy, maintenance and diversification improve system resilience. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-elec-027",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "ऊर्जा बजेट विश्लेषण",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "ऊर्जा बजेटलाई उत्पादनमूलक बनाउन कुन संयोजन महत्त्वपूर्ण हुन्छ?",
+      "options": [
+        "केवल generation",
+        "केवल project announcement",
+        "generation + transmission + distribution + maintenance + productive demand",
+        "transmission बिना generation"
+      ],
+      "correct": 2,
+      "explanation": "Energy investment must address the full value chain. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-elec-028",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "ऊर्जा र संरचनागत रूपान्तरण",
+      "level": "level2",
+      "type": "scenario",
+      "q": "विद्युत् surplus लाई आर्थिक विकासमा रूपान्तरण गर्न कुन नीति बढी प्रभावकारी हुन्छ?",
+      "options": [
+        "केवल surplus राख्नु",
+        "खपत घटाउनु",
+        "विद्युत् पहुँच घटाउनु",
+        "उद्योग, agro-processing, electric mobility र digital services मा productive electricity use बढाउनु"
+      ],
+      "correct": 3,
+      "explanation": "Surplus power creates value when used in productive activities or viable export markets. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-elec-029",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "ऊर्जा र सोह्रौँ योजना",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "सोह्रौँ योजनाको पूर्वाधार तथा उत्पादकत्व दृष्टिकोणसँग विद्युत् क्षेत्रको कुन रणनीति बढी मेल खान्छ?",
+      "options": [
+        "भरपर्दो पहुँच, grid expansion, productive use र energy efficiency सँग उत्पादन वृद्धि जोड्नु",
+        "केवल capacity संख्या बढाउनु",
+        "विद्युत् र उद्योग अलग राख्नु",
+        "मर्मतसम्भार घटाउनु"
+      ],
+      "correct": 0,
+      "explanation": "Infrastructure should translate into productive capacity and productivity gains. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-elec-030",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "समेकित ऊर्जा रणनीति",
+      "level": "level2",
+      "type": "scenario",
+      "q": "सोह्रौँ योजना, आर्थिक सर्वेक्षण र बजेटलाई समेटेर ऊर्जा पूर्वाधारको दीर्घकालीन प्राथमिकता कुन हो?",
+      "options": [
+        "केवल generation",
+        "access + reliability + transmission + productive demand + export readiness + resilience",
+        "केवल household connection",
+        "केवल आयोजना घोषणा"
+      ],
+      "correct": 1,
+      "explanation": "A mature power sector needs generation, networks, demand, markets and resilience together. ",
+      "solution": "सही उत्तर: B।"
     }
   ],
-  "questionBankUpdatedAt": "2026-09-11T12:38:07.840647Z"
+  "questionBankUpdatedAt": "2026-09-11T12:38:31.126770Z"
 }
