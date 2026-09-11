@@ -18432,7 +18432,667 @@
       "correct": 1,
       "explanation": "Modern tourism policy must combine physical and service infrastructure with sustainability and local value capture. ",
       "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-trans-001",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात पूर्वाधार",
+      "level": "level1",
+      "type": "gk",
+      "q": "यातायात पूर्वाधारको प्रमुख आर्थिक भूमिका कुन हो?",
+      "options": [
+        "वस्तु, सेवा र मानिसको आवागमन लागत घटाई बजार एकीकरण गर्नु",
+        "बजारलाई अलग गर्नु",
+        "उत्पादन घटाउनु",
+        "केवल शहर सजाउनु"
+      ],
+      "correct": 0,
+      "explanation": "Transport connectivity reduces spatial frictions and connects producers with markets. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-trans-002",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "सडक",
+      "level": "level1",
+      "type": "concept",
+      "q": "ग्रामीण सडकको आर्थिक लाभ कुन हो?",
+      "options": [
+        "केवल सरकारी कार्यालय जोड्नु",
+        "कृषि, शिक्षा, स्वास्थ्य र बजारसम्म पहुँच सुधार गर्नु",
+        "उत्पादन बजारबाट अलग गर्नु",
+        "ढुवानी लागत बढाउनु"
+      ],
+      "correct": 1,
+      "explanation": "Rural roads have broad access and market effects. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-trans-003",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "सडक मर्मत",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "नयाँ सडक निर्माणसँगै मर्मतसम्भार किन आवश्यक हुन्छ?",
+      "options": [
+        "नयाँ सडक सधैं आफैं टिक्ने भएकाले",
+        "मर्मतले सडकको उपयोगिता घटाउने भएकाले",
+        "सम्पत्तिको उपयोगी आयु र सेवा गुणस्तर जोगाउन",
+        "मर्मत केवल प्रशासनिक खर्च भएकाले"
+      ],
+      "correct": 2,
+      "explanation": "Asset maintenance protects public investment and service reliability. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-trans-004",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात र कृषि",
+      "level": "level2",
+      "type": "matching",
+      "q": "यातायात सुधार र कृषि परिणामको सही जोडी कुन हो?",
+      "options": [
+        "सडक — कृषि उत्पादन घटाउने",
+        "पुल — बजार पहुँच रोक्ने",
+        "ढुवानी — उत्पादन लागत सधैं बढाउने",
+        "ग्रामीण सडक — बजार पहुँच र post-harvest loss घटाउन सहयोग"
+      ],
+      "correct": 3,
+      "explanation": "Better connectivity can reduce travel time, spoilage and marketing costs. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-trans-005",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात र उद्योग",
+      "level": "level2",
+      "type": "concept",
+      "q": "उद्योगका लागि यातायात लागत घट्नुको प्रमुख प्रभाव कुन हो?",
+      "options": [
+        "input/output logistics सस्तो भई प्रतिस्पर्धात्मकता बढ्न सक्छ",
+        "उद्योगको बजार घट्छ",
+        "उत्पादन सधैं घट्छ",
+        "कच्चा पदार्थको आवश्यकता हट्छ"
+      ],
+      "correct": 0,
+      "explanation": "Logistics is a major component of industrial cost. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-trans-006",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "पुल",
+      "level": "level1",
+      "type": "gk",
+      "q": "पुलको विकासमा प्राथमिक आर्थिक तर्क कुन हो?",
+      "options": [
+        "सडक सञ्जाल काट्नु",
+        "सडक सञ्जालको continuity कायम गरी यात्रा र ढुवानी सहज बनाउनु",
+        "केवल नदी किनार सजाउनु",
+        "ढुवानी रोक्नु"
+      ],
+      "correct": 1,
+      "explanation": "Bridges remove network bottlenecks and improve connectivity. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-trans-007",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात र पर्यटन",
+      "level": "level2",
+      "type": "verification",
+      "q": "पर्यटन विकासमा यातायातबारे कुन कथन सही छ?",
+      "options": [
+        "यातायातको पर्यटनसँग सम्बन्ध हुँदैन",
+        "सडकले पर्यटन माग सधैं घटाउँछ",
+        "गन्तव्यको accessibility सुधार्दा पर्यटकको समय र यात्रा लागत घट्न सक्छ",
+        "हवाई पहुँचको कुनै भूमिका हुँदैन"
+      ],
+      "correct": 2,
+      "explanation": "Accessibility is central to destination competitiveness. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-trans-008",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात आयोजना छनोट",
+      "level": "level2",
+      "type": "concept",
+      "q": "ठूला यातायात आयोजना छनोटमा cost-benefit analysis किन उपयोगी हुन्छ?",
+      "options": [
+        "केवल बजेट खर्च बढाउन",
+        "आयोजना नतिजा नहेर्न",
+        "केवल निर्माण समय हेर्न",
+        "लागतको तुलनामा अपेक्षित सामाजिक/आर्थिक लाभ मूल्याङ्कन गर्न"
+      ],
+      "correct": 3,
+      "explanation": "CBA supports evidence-based prioritization where benefits and costs can be estimated. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-trans-009",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "सार्वजनिक यातायात",
+      "level": "level1",
+      "type": "gk",
+      "q": "शहरी सार्वजनिक यातायातको प्रमुख आर्थिक लाभ कुन हो?",
+      "options": [
+        "भीड, समय र व्यक्तिगत यातायात लागत घटाउन सहयोग",
+        "सडक क्षमता घटाउनु मात्र",
+        "उत्पादन घटाउनु",
+        "यात्रा अवसर घटाउनु"
+      ],
+      "correct": 0,
+      "explanation": "Efficient public transport can reduce congestion and improve urban productivity. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-trans-010",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात सुरक्षा",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "यातायात सुरक्षामा लगानीको आर्थिक औचित्य कुन हो?",
+      "options": [
+        "सडक प्रयोग घटाउन",
+        "दुर्घटना, मानव क्षति र आर्थिक हानि घटाउन",
+        "यात्रा समय बढाउन",
+        "उत्पादन रोक्न"
+      ],
+      "correct": 1,
+      "explanation": "Road safety has substantial social and economic benefits. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-trans-011",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "बहुमाध्यम यातायात",
+      "level": "level2",
+      "type": "concept",
+      "q": "Multimodal transport को मुख्य उद्देश्य कुन हो?",
+      "options": [
+        "सबै यातायात एउटै माध्यममा सीमित गर्नु",
+        "लजिस्टिक्स रोक्नु",
+        "सडक, रेल, हवाई तथा अन्य माध्यमलाई दक्ष रूपमा जोड्नु",
+        "ढुवानी लागत बढाउनु"
+      ],
+      "correct": 2,
+      "explanation": "Intermodal connectivity can improve efficiency and resilience. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-trans-012",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात र क्षेत्रीय विकास",
+      "level": "level1",
+      "type": "gk",
+      "q": "यातायात पहुँच सुधारले क्षेत्रीय विकासमा के प्रभाव पार्न सक्छ?",
+      "options": [
+        "क्षेत्रीय बजार बन्द गर्न",
+        "स्थानीय उत्पादन घटाउन मात्र",
+        "शहरी सेवा हटाउन",
+        "बजार, श्रम र सेवाको पहुँच विस्तार गरी क्षेत्रीय आर्थिक एकीकरण बढाउन"
+      ],
+      "correct": 3,
+      "explanation": "Connectivity reduces spatial isolation. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-trans-013",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात र शिक्षा",
+      "level": "level2",
+      "type": "matching",
+      "q": "यातायात र सामाजिक पूर्वाधारको सही सम्बन्ध कुन हो?",
+      "options": [
+        "विद्यालय पहुँच — विद्यार्थी र शिक्षकको आवागमन सहज बनाउने",
+        "सडक — विद्यालय पहुँच घटाउने",
+        "पुल — स्वास्थ्य सेवा रोक्ने",
+        "यातायात — सेवा पहुँचसँग असम्बन्धित"
+      ],
+      "correct": 0,
+      "explanation": "Transport improves access to social services including schools and health facilities. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-trans-014",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात र स्वास्थ्य",
+      "level": "level2",
+      "type": "verification",
+      "q": "स्वास्थ्य सेवामा यातायात पूर्वाधारको महत्त्व कुन हो?",
+      "options": [
+        "स्वास्थ्य पहुँच घटाउनु",
+        "आपत्कालीन तथा नियमित स्वास्थ्य सेवामा पहुँच र referral सहज बनाउनु",
+        "औषधि आपूर्ति रोक्नु",
+        "अस्पताललाई बजारबाट अलग गर्नु"
+      ],
+      "correct": 1,
+      "explanation": "Reliable transport supports patient access and medical supply chains. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-trans-015",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात र डिजिटल प्रणाली",
+      "level": "level1",
+      "type": "concept",
+      "q": "Intelligent transport systems को उपयोगिता कुन हो?",
+      "options": [
+        "सडक बन्द गर्न",
+        "यातायात सूचना हटाउन",
+        "traffic management, information र safety सुधार गर्न",
+        "यात्रा समय अनिवार्य रूपमा बढाउन"
+      ],
+      "correct": 2,
+      "explanation": "ITS uses data and technology to improve traffic operations and information. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-trans-016",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात र वातावरण",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "दिगो यातायात नीतिको प्रमुख तत्व कुन हो?",
+      "options": [
+        "केवल निजी सवारी बढाउनु",
+        "इन्धन खपत बढाउनु",
+        "सार्वजनिक यातायात घटाउनु",
+        "सार्वजनिक यातायात, स्वच्छ प्रविधि, पैदल/साइकल र दक्ष logistics"
+      ],
+      "correct": 3,
+      "explanation": "Sustainable transport combines mobility, efficiency and environmental considerations. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-trans-017",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात लागत",
+      "level": "level1",
+      "type": "gk",
+      "q": "यातायात लागतमा कुन पक्ष समावेश हुन्छ?",
+      "options": [
+        "इन्धन, समय, सवारी सञ्चालन, ढुवानी र पूर्वाधारसम्बन्धी लागत",
+        "केवल इन्धन",
+        "केवल चालकको तलब",
+        "केवल सडक निर्माण"
+      ],
+      "correct": 0,
+      "explanation": "Total transport cost includes vehicle operating cost and time costs. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-trans-018",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "आयोजना व्यवस्थापन",
+      "level": "level2",
+      "type": "scenario",
+      "q": "सडक आयोजना बारम्बार ढिला र महँगो भइरहेको छ भने कुन पक्षको समीक्षा प्राथमिक हुन्छ?",
+      "options": [
+        "केवल उद्घाटन कार्यक्रम",
+        "पूर्वतयारी, डिजाइन, land acquisition, procurement, contract management र risk",
+        "केवल सडकको रंग",
+        "केवल बजेट आकार"
+      ],
+      "correct": 1,
+      "explanation": "Project delivery depends on preparation, procurement, contracts and risk management. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-trans-019",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात र व्यापार",
+      "level": "level2",
+      "type": "concept",
+      "q": "व्यापारिक यातायातमा सीमा/ढुवानी समय घट्दा के लाभ हुन्छ?",
+      "options": [
+        "निर्यात घट्छ",
+        "बजार पहुँच घट्छ",
+        "inventory तथा delivery cost घटेर व्यापार प्रतिस्पर्धा सुधारिन सक्छ",
+        "उत्पादन बन्द हुन्छ"
+      ],
+      "correct": 2,
+      "explanation": "Lower lead times reduce logistics uncertainty and working capital needs. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-trans-020",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात र रोजगारी",
+      "level": "level1",
+      "type": "gk",
+      "q": "यातायात क्षेत्रमा प्रत्यक्ष रोजगारीबाहेक अप्रत्यक्ष प्रभाव कहाँ पर्न सक्छ?",
+      "options": [
+        "केवल सरकारी सेवामा",
+        "कुनै क्षेत्रमा होइन",
+        "केवल कृषिमा",
+        "निर्माण सामग्री, मर्मत, व्यापार, पर्यटन र logistics सेवामा"
+      ],
+      "correct": 3,
+      "explanation": "Transport infrastructure creates broad supply-chain and service linkages. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-trans-021",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "सडक सञ्जाल",
+      "level": "level2",
+      "type": "matching",
+      "q": "सडक सञ्जालको अवधारणा र लाभको सही जोडी कुन हो?",
+      "options": [
+        "Network connectivity — एक गन्तव्यबाट अर्को गन्तव्यमा निरन्तर पहुँच",
+        "Dead-end road — नेटवर्क प्रभाव अधिकतम बनाउने",
+        "बोटलनेक — यातायात सहज बनाउने",
+        "पुल अभाव — connectivity बढाउने"
+      ],
+      "correct": 0,
+      "explanation": "Network effects depend on connections between nodes and removal of bottlenecks. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-trans-022",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "जलवायु प्रतिरोधी यातायात",
+      "level": "level2",
+      "type": "concept",
+      "q": "जलवायु-प्रतिरोधी यातायात पूर्वाधारमा कुन उपाय उपयोगी हुन्छ?",
+      "options": [
+        "जोखिम बेवास्ता गर्नु",
+        "जोखिम नक्साङ्कन, उचित डिजाइन, drainage र resilient materials",
+        "बाढी क्षेत्रमै कमजोर संरचना बनाउनु",
+        "मर्मत बन्द गर्नु"
+      ],
+      "correct": 1,
+      "explanation": "Climate-resilient design reduces disruption and asset damage. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-trans-023",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात र संघीयता",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "संघीय संरचनामा यातायात योजना किन समन्वित हुनुपर्छ?",
+      "options": [
+        "हरेक तहले अलग सडक बनाए पुग्छ",
+        "सञ्जालको कुनै महत्त्व हुँदैन",
+        "एक तहको सडक अर्को तहको सञ्जालसँग जोडिने भएकाले network planning आवश्यक हुन्छ",
+        "स्थानीय सडक राष्ट्रिय अर्थतन्त्रसँग सम्बन्धित हुँदैन"
+      ],
+      "correct": 2,
+      "explanation": "Transport networks cross administrative boundaries. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-trans-024",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात र समावेशिता",
+      "level": "level1",
+      "type": "gk",
+      "q": "समावेशी यातायात पूर्वाधारको विशेषता कुन हो?",
+      "options": [
+        "केवल निजी सवारीलाई प्राथमिकता",
+        "सेवा केन्द्रबाट दुर्गम क्षेत्र हटाउनु",
+        "पैदल पहुँच रोक्नु",
+        "वृद्ध, अपाङ्गता भएका व्यक्ति, महिला र दुर्गम समुदायको पहुँचलाई पनि ध्यान दिनु"
+      ],
+      "correct": 3,
+      "explanation": "Inclusive mobility considers different users and accessibility needs. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-trans-025",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात आयोजना परिणाम",
+      "level": "level2",
+      "type": "verification",
+      "q": "यातायात आयोजनाको प्रभाव मूल्याङ्कनमा कुन सूचक बढी उपयोगी हुन्छ?",
+      "options": [
+        "यात्रा समय, ढुवानी लागत, यातायात मात्रा, दुर्घटना र आर्थिक गतिविधिको परिवर्तन",
+        "केवल खर्च भएको रकम",
+        "केवल सडकको लम्बाइ",
+        "केवल उद्घाटन संख्या"
+      ],
+      "correct": 0,
+      "explanation": "Outcome indicators reveal whether infrastructure actually improves services and economic activity. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-trans-026",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात र शहरीकरण",
+      "level": "level2",
+      "type": "concept",
+      "q": "अनियोजित शहरी यातायात विस्तारको प्रमुख आर्थिक समस्या कुन हो?",
+      "options": [
+        "उत्पादकत्व स्वतः बढ्नु",
+        "भीड, समय हानि, प्रदूषण र productivity loss",
+        "यात्रा समय घट्नु",
+        "सार्वजनिक सेवा लागत घट्नु"
+      ],
+      "correct": 1,
+      "explanation": "Congestion imposes significant time and external costs. ",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.4.1-trans-027",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात बजेट",
+      "level": "level2",
+      "type": "scenario",
+      "q": "सडकको बजेट बढे पनि कृषि बजार पहुँच नबढेमा कुन समीक्षा आवश्यक हुन्छ?",
+      "options": [
+        "केवल बजेट आकार",
+        "केवल कालोपत्रे मात्रा",
+        "सडकको स्थान, network connectivity, all-weather quality र बजार/संकलन केन्द्रसँगको सम्बन्ध",
+        "केवल सडक संख्या"
+      ],
+      "correct": 2,
+      "explanation": "Infrastructure location and network links determine actual economic impact. ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.4.1-trans-028",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात र लगानी",
+      "level": "level1",
+      "type": "gk",
+      "q": "भरपर्दो यातायात पूर्वाधारले निजी लगानीमा कसरी प्रभाव पार्न सक्छ?",
+      "options": [
+        "लगानी सधैं घटाउँछ",
+        "उद्योगलाई अलग गर्छ",
+        "उत्पादन लागत सधैं बढाउँछ",
+        "बजार र logistics uncertainty घटाएर लगानीको आकर्षण बढाउन सक्छ"
+      ],
+      "correct": 3,
+      "explanation": "Reliable connectivity is a location factor for productive investment. ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.4.1-trans-029",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात संरचनागत रूपान्तरण",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "यातायातलाई संरचनागत आर्थिक रूपान्तरणसँग जोड्ने सही दृष्टिकोण कुन हो?",
+      "options": [
+        "उत्पादन क्षेत्र, बजार, श्रम र सेवा केन्द्रलाई network मार्फत जोड्नु",
+        "सडकलाई उत्पादनबाट अलग राख्नु",
+        "केवल राजधानी जोड्नु",
+        "ग्रामीण क्षेत्रको पहुँच घटाउनु"
+      ],
+      "correct": 0,
+      "explanation": "Connectivity changes the spatial allocation of economic activity. ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.4.1-trans-030",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "समेकित यातायात रणनीति",
+      "level": "level2",
+      "type": "scenario",
+      "q": "सोह्रौँ योजना र बजेटको पूर्वाधार सोचअनुसार यातायात क्षेत्रमा उच्च प्राथमिकताको संयोजन कुन हो?",
+      "options": [
+        "केवल नयाँ सडक संख्या",
+        "network connectivity + quality maintenance + safety + logistics efficiency + climate resilience",
+        "केवल निर्माण खर्च",
+        "केवल शहरी सडक"
+      ],
+      "correct": 1,
+      "explanation": "Effective transport policy values network outcomes, maintenance, safety, logistics and resilience—not construction alone. ",
+      "solution": "सही उत्तर: B।"
     }
   ],
-  "questionBankUpdatedAt": "2026-09-11T12:36:25.452080Z"
+  "questionBankUpdatedAt": "2026-09-11T12:36:51.573534Z"
 }
