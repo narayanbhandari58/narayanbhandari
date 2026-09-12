@@ -75,16 +75,16 @@ qs=[]
 for unit,facts in [("1.7.1",facts171),("1.7.2",facts172)]:
     for i,(topic,question,answer) in enumerate(facts,1):
         n=2*i-1
-        distract=[x[2] for x in facts if x[2]!=answer][:3]
-        qs.append(make_q(unit,n,"I",question,answer,distr,"mcq"))
+        distractors=[x[2] for x in facts if x[2]!=answer][:3]
+        qs.append(make_q(unit,n,"I",question,answer,distractors,"mcq"))
         n2=2*i
         if unit=="1.7.1":
             text=f"'{topic}' सम्बन्धी माथिको तथ्यलाई नेपालको परराष्ट्र नीतिमा प्रयोग गर्दा कुन निष्कर्ष बढी उचित हुन्छ?"
         else:
             text=f"'{topic}' सम्बन्धी तथ्यले नेपालको बहुपक्षीय कूटनीतिमा कुन नीति–अर्थ देखाउँछ?"
         correct="अन्तर्राष्ट्रिय तथ्यलाई राष्ट्रिय हित, नियममा आधारित बहुपक्षीयता र दीर्घकालीन कूटनीतिक रणनीतिसँग जोडेर उपयोग गर्नु"
-        distract=["तथ्यलाई केवल औपचारिक स्मरणमा सीमित राख्नु","कुनै एक शक्ति राष्ट्रको स्थायी पक्ष लिनु","बहुपक्षीय मञ्चबाट अलग रहनु"]
-        qs.append(make_q(unit,n2,"L2",text,correct,distract,"analysis"))
+        distractors=["तथ्यलाई केवल औपचारिक स्मरणमा सीमित राख्नु","कुनै एक शक्ति राष्ट्रको स्थायी पक्ष लिनु","बहुपक्षीय मञ्चबाट अलग रहनु"]
+        qs.append(make_q(unit,n2,"L2",text,correct,distractors,"analysis"))
 assert len(qs)==120
 Path("exam-question-seed/generated-branch-officer-1.7.json").write_text(json.dumps(qs,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 print("generated",len(qs))
