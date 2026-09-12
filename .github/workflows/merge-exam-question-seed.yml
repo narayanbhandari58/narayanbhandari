@@ -103,3 +103,4 @@ jobs:
           git add exam-data.json
           git diff --cached --quiet || git commit -m 'Sync exam question bank from seeds'
           git push
+# Branch Officer 1.7 seed validation trigger
