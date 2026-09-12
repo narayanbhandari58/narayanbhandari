@@ -30,17 +30,11 @@ jobs:
           added = 0
           updated = 0
 
-          chunk_specs = [
-              ('1.6', 'branch-officer-1.6-data.part*.b64', 180),
-              ('1.7', 'branch-officer-1.7-data.part*.b64', 120),
-          ]
-          for label, pattern, expected in chunk_specs:
-              chunks = sorted(Path('exam-question-seed').glob(pattern))
-              if not chunks:
-                  continue
+          chunks = sorted(Path('exam-question-seed').glob('branch-officer-1.6-data.part*.b64'))
+          if chunks:
               payload = ''.join(p.read_text(encoding='utf-8').strip() for p in chunks)
               generated = json.loads(gzip.decompress(base64.b64decode(payload)).decode('utf-8'))
-              assert len(generated) == expected, f'Branch Officer {label} expected {expected} questions, got {len(generated)}'
+              assert len(generated) == 180, f'Branch Officer 1.6 expected 180 questions, got {len(generated)}'
               for q in generated:
                   qid = q.get('id')
                   if qid in by_id:
@@ -50,6 +44,10 @@ jobs:
                       by_id[qid] = len(questions)
                       questions.append(q)
                       added += 1
+
+          generator = Path('exam-question-seed/generate-branch-officer-1.7.py')
+          if generator.exists():
+              exec(compile(generator.read_text(encoding='utf-8'), str(generator), 'exec'))
 
           for path in sorted(Path('exam-question-seed').glob('*.json')):
               seed = json.loads(path.read_text(encoding='utf-8'))
@@ -103,4 +101,3 @@ jobs:
           git add exam-data.json
           git diff --cached --quiet || git commit -m 'Sync exam question bank from seeds'
           git push
-# Branch Officer 1.7 seed validation trigger
