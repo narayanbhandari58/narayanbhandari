@@ -48,7 +48,10 @@ jobs:
           for generator_name in ['generate-branch-officer-1.7.py', 'generate-branch-officer-1.8.py']:
               generator = Path('exam-question-seed') / generator_name
               if generator.exists():
-                  exec(compile(generator.read_text(encoding='utf-8'), str(generator), 'exec'))
+                  source = generator.read_text(encoding='utf-8')
+                  # Accept generators whose embedded base64 payload is missing trailing '=' padding.
+                  source = source.replace("base64.b64decode(DATA_B64)", "base64.b64decode(DATA_B64 + '=' * (-len(DATA_B64) % 4))")
+                  exec(compile(source, str(generator), 'exec'))
 
           for path in sorted(Path('exam-question-seed').glob('*.json')):
               seed = json.loads(path.read_text(encoding='utf-8'))
