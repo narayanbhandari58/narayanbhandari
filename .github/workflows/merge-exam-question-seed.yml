@@ -18,6 +18,8 @@ jobs:
       - name: Merge seed questions into exam-data.json
         shell: python
         run: |
+          import base64
+          import gzip
           import json
           from pathlib import Path
 
@@ -27,6 +29,22 @@ jobs:
           by_id = {q.get('id'): i for i, q in enumerate(questions)}
           added = 0
           updated = 0
+
+          # Branch Officer 1.6 is stored as compressed chunks because the
+          # question bank is large. Reassemble and load it before normal JSON seeds.
+          chunks = sorted(Path('exam-question-seed').glob('branch-officer-1.6-data.part*.b64'))
+          if chunks:
+              payload = ''.join(p.read_text(encoding='utf-8').strip() for p in chunks)
+              generated = json.loads(gzip.decompress(base64.b64decode(payload)).decode('utf-8'))
+              for q in generated:
+                  qid = q.get('id')
+                  if qid in by_id:
+                      questions[by_id[qid]] = q
+                      updated += 1
+                  else:
+                      by_id[qid] = len(questions)
+                      questions.append(q)
+                      added += 1
 
           for path in sorted(Path('exam-question-seed').glob('*.json')):
               seed = json.loads(path.read_text(encoding='utf-8'))
@@ -42,7 +60,7 @@ jobs:
 
           # Keep answer positions balanced for large question banks.
           letters = ['A', 'B', 'C', 'D']
-          balanced_units = {'1.3', '1.4.1', '1.4.2'}
+          balanced_units = {'1.3', '1.4.1', '1.4.2', '1.6.1', '1.6.2', '1.6.3'}
           balanced_by_unit = {}
           for q in questions:
               if q.get('unit') not in balanced_units:
