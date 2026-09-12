@@ -28731,16 +28731,4318 @@
       "type": "fact",
       "question": "२०२६ मा नेपालको प्रधानमन्त्री को हुनुहुन्छ?",
       "options": [
-        "वालेन्द्र शाह",
+        "बालेन्द्र शाह",
         "केपी शर्मा ओली",
-        "सुशीला कार्की",
-        "पुष्पकमल दाहाल"
+        "पुष्पकमल दाहाल",
+        "शेरबहादुर देउवा"
       ],
       "correct": 0,
-      "solution": "सही उत्तर: A। वालेन्द्र शाह।",
-      "source": "राष्ट्रपतिको कार्यालय/प्रधानमन्त्री तथा मन्त्रिपरिषद्को कार्यालय/संयुक्त राष्ट्रसंघ/Reuters",
-      "asOf": "2026-09-12"
+      "asOf": "2026-09-12",
+      "source": "प्रधानमन्त्री तथा मन्त्रिपरिषद्को कार्यालय",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-ART-01",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "I",
+      "type": "fact",
+      "question": "Venice Biennale Arte 2026 कुन संस्करण हो?",
+      "options": [
+        "६१औँ",
+        "६०औँ",
+        "५९औँ",
+        "६२औँ"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "La Biennale di Venezia",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-ART-02",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "I",
+      "type": "fact",
+      "question": "Venice Biennale Arte 2026 को शीर्षक के हो?",
+      "options": [
+        "Foreigners Everywhere",
+        "In Minor Keys",
+        "Milk of Dreams",
+        "Viva Arte Viva"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "La Biennale di Venezia",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-ART-03",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "I",
+      "type": "fact",
+      "question": "Venice Biennale Arte 2026 को क्युरेटर को हुन्?",
+      "options": [
+        "Adriano Pedrosa",
+        "Cecilia Alemani",
+        "Koyo Kouoh",
+        "Ralph Rugoff"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "La Biennale di Venezia",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-ART-04",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "I",
+      "type": "fact",
+      "question": "Venice Biennale Arte 2026 को प्रदर्शनी अवधि कुन हो?",
+      "options": [
+        "१ मार्च–३० जुन २०२६",
+        "१५ जुन–१५ अक्टोबर २०२६",
+        "१ जुलाई–३१ डिसेम्बर २०२६",
+        "९ मे–२२ नोभेम्बर २०२६"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "La Biennale di Venezia",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-ART-05",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "I",
+      "type": "fact",
+      "question": "Venice Biennale Arte 2026 मुख्यतः कुन दुई स्थानसँग जोडिएको छ?",
+      "options": [
+        "Giardini र Arsenale",
+        "Louvre र Orsay",
+        "Tate र V&A",
+        "MoMA र Guggenheim"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "La Biennale di Venezia",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-ART-06",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "I",
+      "type": "fact",
+      "question": "Koyo Kouoh को 2026 Biennale सम्बन्धी क्युरेटोरियल परियोजनाको नाम कुन हो?",
+      "options": [
+        "The Milk of Dreams",
+        "In Minor Keys",
+        "The Encyclopedic Palace",
+        "May You Live in Interesting Times"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "La Biennale di Venezia",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-ART-07",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "I",
+      "type": "fact",
+      "question": "नेपालको सांस्कृतिक सम्पदामध्ये UNESCO World Heritage सूचीमा रहेका सांस्कृतिक सम्पदा कति छन्?",
+      "options": [
+        "१",
+        "३",
+        "२",
+        "४"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "UNESCO World Heritage Centre",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-ART-08",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "I",
+      "type": "fact",
+      "question": "काठमाडौँ उपत्यकाको UNESCO सम्पदा क्षेत्रको संरक्षणमा कुन विषय प्रमुख हुन्छ?",
+      "options": [
+        "केवल आधुनिक भवन",
+        "केवल सडक विस्तार",
+        "केवल व्यावसायिक विज्ञापन",
+        "स्मारक र ऐतिहासिक सहरी संरचनाको संरक्षण"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-ART-09",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "I",
+      "type": "fact",
+      "question": "UNESCO का अनुसार नेपालका विश्व सम्पदा सम्पत्तिको कुल संख्या कति छ?",
+      "options": [
+        "४",
+        "२",
+        "६",
+        "८"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "UNESCO World Heritage Centre",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-ART-10",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "I",
+      "type": "fact",
+      "question": "विश्व सम्पदा संरक्षणमा 'living heritage' अवधारणाले के जोड दिन्छ?",
+      "options": [
+        "केवल पुराना ढुंगा",
+        "समुदायसँग जीवित रूपमा अभ्यास भइरहेका परम्परा र सम्पदामा",
+        "केवल संग्रहालय",
+        "केवल पर्यटन टिकट"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-ART-11",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "II",
+      "type": "analysis",
+      "question": "Biennale जस्ता अन्तर्राष्ट्रिय कला प्रदर्शनीको सांस्कृतिक महत्त्व के हो?",
+      "options": [
+        "कला बजार बन्द गर्नु",
+        "स्थानीय कला हटाउनु",
+        "कलाकार, विचार र संस्कृतिबीच अन्तर्राष्ट्रिय संवाद बढाउनु",
+        "संग्रहालय बन्द गर्नु"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "La Biennale di Venezia",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-ART-12",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "II",
+      "type": "analysis",
+      "question": "सांस्कृतिक सम्पदालाई समसामयिक कला नीतिसँग जोड्दा कुन दृष्टिकोण उचित हुन्छ?",
+      "options": [
+        "सम्पदा पूर्ण व्यावसायीकरण",
+        "स्थानीय कलाकार निषेध",
+        "परम्परा हटाउने",
+        "संरक्षणसँग सिर्जनात्मक प्रयोग र समुदाय सहभागिता"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-ART-13",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "II",
+      "type": "analysis",
+      "question": "अन्तर्राष्ट्रिय कला प्रदर्शनीमा क्युरेटरको मुख्य भूमिका के हो?",
+      "options": [
+        "कला कृतिहरूको अवधारणा, चयन र सन्दर्भ निर्माण गर्नु",
+        "केवल टिकट बेच्नु",
+        "भवन निर्माण गर्नु",
+        "पुरस्कार रकम तय गर्नु मात्र"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "La Biennale di Venezia",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-ART-14",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "II",
+      "type": "analysis",
+      "question": "विपद्पछि कला तथा सम्पदा संरक्षणमा डिजिटल अभिलेख किन उपयोगी हुन्छ?",
+      "options": [
+        "मौलिक कृति नष्ट गर्न",
+        "कृतिको अभिलेख र पुनर्स्थापना प्रक्रियामा आधार दिन",
+        "कलाकार हटाउन",
+        "प्रदर्शनी बन्द गर्न"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-ART-15",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "II",
+      "type": "analysis",
+      "question": "सार्वजनिक कला परियोजनामा समुदायको सहभागिताले कुन लाभ दिन्छ?",
+      "options": [
+        "कला हटाउँछ",
+        "लागत सधैँ दोब्बर गर्छ",
+        "स्थानीय स्वामित्व र सांस्कृतिक सान्दर्भिकता बढाउँछ",
+        "समुदायलाई अलग गर्छ"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "Cultural policy",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-ART-16",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "II",
+      "type": "analysis",
+      "question": "अन्तर्राष्ट्रिय कला कार्यक्रमको समसामयिक तथ्यमा मिति जाँच्नु किन आवश्यक हुन्छ?",
+      "options": [
+        "कलाकारको शैली बदल्न",
+        "कृतिको आकार नाप्न",
+        "टिकटको रंग छान्न",
+        "कार्यक्रमको संस्करण र सञ्चालन अवस्था सही पहिचान गर्न"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "La Biennale di Venezia",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-ART-17",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "II",
+      "type": "analysis",
+      "question": "नेपालको कला तथा सम्पदा संरक्षणमा संघ, प्रदेश र स्थानीय तहबीच समन्वय किन आवश्यक हुन्छ?",
+      "options": [
+        "कानुनी, प्राविधिक र स्थानीय व्यवस्थापनलाई जोड्न",
+        "जिम्मेवारी हटाउन",
+        "स्थानीय समुदाय हटाउन",
+        "सम्पदा बेच्न"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "UNESCO/नेपाल",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-ART-18",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "II",
+      "type": "analysis",
+      "question": "समसामयिक कलाको अध्ययनमा 'context' को अर्थ के हो?",
+      "options": [
+        "कृतिको मूल्य मात्र",
+        "कृति सिर्जना भएको सामाजिक, राजनीतिक र सांस्कृतिक सन्दर्भ",
+        "फ्रेमको आकार मात्र",
+        "कलाकारको पोशाक मात्र"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "Art studies",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-ART-19",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "II",
+      "type": "analysis",
+      "question": "कला र पर्यटनबीचको सम्बन्धलाई दिगो बनाउन कुन उपाय उपयुक्त हुन्छ?",
+      "options": [
+        "असीमित भीड",
+        "सम्पदा क्षेत्रमा विज्ञापन मात्र",
+        "स्थानीय लाभ, संरक्षण र पर्यटक व्यवस्थापनको सन्तुलन",
+        "स्थानीय समुदाय विस्थापन"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-ART-20",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "II",
+      "type": "analysis",
+      "question": "अन्तर्राष्ट्रिय कला गतिविधिको विश्वसनीय स्रोत कुन हो?",
+      "options": [
+        "अनाम पोस्ट",
+        "अफवाह",
+        "अपुष्ट फ्यान पेज",
+        "आयोजक संस्था वा आधिकारिक सांस्कृतिक निकाय"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "La Biennale di Venezia/UNESCO",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-AWD-01",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ Oscars मा Best Picture कुन चलचित्रले जित्यो?",
+      "options": [
+        "One Battle after Another",
+        "Sinners",
+        "Hamnet",
+        "Bugonia"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Academy Awards",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-AWD-02",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ Oscars मा Best Director को पुरस्कार कसले पाए?",
+      "options": [
+        "Ryan Coogler",
+        "Paul Thomas Anderson",
+        "Chloé Zhao",
+        "Yorgos Lanthimos"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "Academy Awards",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-AWD-03",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ Oscars मा Best Actor को विजेता को हुन्?",
+      "options": [
+        "Timothée Chalamet",
+        "Leonardo DiCaprio",
+        "Michael B. Jordan",
+        "Wagner Moura"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "Academy Awards",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-AWD-04",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ Oscars मा Best Actress को विजेता को हुन्?",
+      "options": [
+        "Emma Stone",
+        "Rose Byrne",
+        "Renate Reinsve",
+        "Jessie Buckley"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Academy Awards",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-AWD-05",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ Oscars मा Best Supporting Actor को पुरस्कार कसले पाए?",
+      "options": [
+        "Sean Penn",
+        "Jacob Elordi",
+        "Benicio del Toro",
+        "Paul Mescal"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Academy Awards",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-AWD-06",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ Oscars मा Best Supporting Actress को विजेता को हुन्?",
+      "options": [
+        "Teyana Taylor",
+        "Amy Madigan",
+        "Elle Fanning",
+        "Wunmi Mosaku"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "Academy Awards",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-AWD-07",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ Oscars मा Best Animated Feature कुन फिल्मले जित्यो?",
+      "options": [
+        "Elio",
+        "Zootopia 2",
+        "KPop Demon Hunters",
+        "The Bad Guys 2"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "Academy Awards",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-AWD-08",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ Grammy Awards मा Album of the Year कसले जिते?",
+      "options": [
+        "Lady Gaga",
+        "Kendrick Lamar",
+        "SZA",
+        "Bad Bunny"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-AWD-09",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ Grammys मा Record of the Year कुन कलाकार/गीतले जित्यो?",
+      "options": [
+        "Kendrick Lamar & SZA — luther",
+        "Bad Bunny — NUEVAYoL",
+        "Lady Gaga — MAYHEM",
+        "Olivia Dean — Man I Need"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-AWD-10",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ Grammys मा Best New Artist को विजेता को हुन्?",
+      "options": [
+        "Chappell Roan",
+        "Olivia Dean",
+        "Sabrina Carpenter",
+        "Doechii"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-AWD-11",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "II",
+      "type": "analysis",
+      "question": "Film award मा Best Picture र Best Director फरक श्रेणी हुनुको अर्थ के हो?",
+      "options": [
+        "दुवै एउटै पुरस्कार हुनु",
+        "केवल कलाकारलाई पुरस्कृत गर्नु",
+        "उत्कृष्ट चलचित्र र निर्देशनलाई छुट्टाछुट्टै मूल्याङ्कन गर्नु",
+        "निर्देशनको मूल्याङ्कन नगर्नु"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "Academy Awards",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-AWD-12",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "II",
+      "type": "analysis",
+      "question": "Grammy को Album of the Year र Record of the Year बीच मुख्य फरक के हो?",
+      "options": [
+        "दुवै अभिनय पुरस्कार हुन्",
+        "दुवै साहित्य पुरस्कार हुन्",
+        "दुवै चलचित्र पुरस्कार हुन्",
+        "एउटा सम्पूर्ण album र अर्को recording को समग्र उपलब्धितर्फ केन्द्रित हुन्छ"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-AWD-13",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "II",
+      "type": "analysis",
+      "question": "समसामयिक पुरस्कार विजेता सम्झँदा वर्षसँगै श्रेणी जोड्नु किन आवश्यक हुन्छ?",
+      "options": [
+        "एकै वर्षका धेरै पुरस्कार र विजेताबीच भ्रम घटाउन",
+        "प्रश्न छोटो बनाउन",
+        "नाम हटाउन",
+        "पुरस्कारको अर्थ बदल्न"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Academy Awards/Recording Academy",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-AWD-14",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "II",
+      "type": "analysis",
+      "question": "कलात्मक पुरस्कारको सामाजिक प्रभावमध्ये कुन बढी महत्त्वपूर्ण हुन सक्छ?",
+      "options": [
+        "सबै कला बन्द हुनु",
+        "नयाँ सिर्जना र कलाकारलाई सार्वजनिक पहिचान मिल्नु",
+        "दर्शक घट्नु",
+        "साहित्य हट्नु"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "Awards institutions",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-AWD-15",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "II",
+      "type": "analysis",
+      "question": "Best New Artist जस्तो पुरस्कारले मुख्यतः के पहिचान गर्छ?",
+      "options": [
+        "सबैभन्दा पुरानो कलाकार",
+        "सबैभन्दा महँगो गीत",
+        "नयाँ/उदीयमान कलाकारको उल्लेखनीय उपलब्धि",
+        "सबैभन्दा लामो album"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-AWD-16",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "II",
+      "type": "analysis",
+      "question": "पुरस्कारसम्बन्धी तथ्य जाँच्दा आधिकारिक award body उपयोगी किन हुन्छ?",
+      "options": [
+        "फ्यानको अनुमान मात्र भएकाले",
+        "विज्ञापनका कारण",
+        "अफवाहका कारण",
+        "विजेता र श्रेणीको प्रमाणित सूची उपलब्ध गराउने भएकाले"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Academy Awards/Recording Academy",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-AWD-17",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "II",
+      "type": "analysis",
+      "question": "२०२६ Oscars को Best Picture तथ्यबाट कुन कुरा प्रत्यक्ष पहिचान गर्न सकिन्छ?",
+      "options": [
+        "वर्षको सर्वोच्च चलचित्र पुरस्कारको विजेता",
+        "सबैभन्दा धेरै टिकट बिक्री भएको फिल्म",
+        "सबैभन्दा लामो फिल्म",
+        "सबैभन्दा ठूलो बजेटको फिल्म"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Academy Awards",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-AWD-18",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "II",
+      "type": "analysis",
+      "question": "संगीत पुरस्कारको समसामयिक अध्ययनमा गीतको नाम र कलाकार दुवै राख्नुको लाभ के हो?",
+      "options": [
+        "प्रश्न हटाउनु",
+        "उही कलाकारका फरक सिर्जनाबीच भ्रम घटाउनु",
+        "पुरस्कारको वर्ष बदल्नु",
+        "श्रेणी लुकाउनु"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-AWD-19",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "II",
+      "type": "analysis",
+      "question": "अन्तर्राष्ट्रिय पुरस्कारलाई राष्ट्रिय परीक्षा सामग्रीमा समावेश गर्दा कुन पक्ष महत्त्वपूर्ण हुन्छ?",
+      "options": [
+        "केवल कलाकारको फोटो",
+        "केवल प्रशंसकको प्रतिक्रिया",
+        "पुरस्कारको नाम, वर्ष, श्रेणी र विजेताको सही सम्बन्ध",
+        "केवल सामाजिक सञ्जालको ट्रेन्ड"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "Official award bodies",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-AWD-20",
+      "unit": "1.8",
+      "category": "पुरस्कार",
+      "level": "II",
+      "type": "analysis",
+      "question": "पुरस्कारलाई समसामयिक गतिविधिको सूचक मान्दा कुन सावधानी आवश्यक हुन्छ?",
+      "options": [
+        "अफवाहलाई तथ्य मान्नु",
+        "पुरानो सूचीलाई नयाँ मान्नु",
+        "श्रेणी अनुमान गर्नु",
+        "विजेता घोषणा भइसकेको वा नभएको मिति जाँच्नु"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Official award bodies",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-BOK-01",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ International Booker Prize विजेता पुस्तक कुन हो?",
+      "options": [
+        "Taiwan Travelogue",
+        "Heart Lamp",
+        "Kairos",
+        "The Witch"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-BOK-02",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "I",
+      "type": "fact",
+      "question": "Taiwan Travelogue का लेखक को हुन्?",
+      "options": [
+        "Banu Mushtaq",
+        "Yáng Shuāng-zǐ",
+        "Jenny Erpenbeck",
+        "Marie NDiaye"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-BOK-03",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "I",
+      "type": "fact",
+      "question": "Taiwan Travelogue को अंग्रेजी अनुवादक को हुन्?",
+      "options": [
+        "Deepa Bhasthi",
+        "Michael Hofmann",
+        "Lin King",
+        "Jordan Stump"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-BOK-04",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "I",
+      "type": "fact",
+      "question": "International Booker Prize 2026 को विजेता घोषणा कहिले भयो?",
+      "options": [
+        "२४ फेब्रुअरी २०२६",
+        "२२ सेप्टेम्बर २०२६",
+        "९ नोभेम्बर २०२६",
+        "१९ मे २०२६"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-BOK-05",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "I",
+      "type": "fact",
+      "question": "Taiwan Travelogue कुन भाषाबाट अंग्रेजीमा अनुवाद भएको हो?",
+      "options": [
+        "म्यान्डारिन चिनियाँ",
+        "जर्मन",
+        "फ्रान्सेली",
+        "पोर्तुगाली"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-BOK-06",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "I",
+      "type": "fact",
+      "question": "International Booker Prize 2026 को shortlist मा कति पुस्तक थिए?",
+      "options": [
+        "५",
+        "६",
+        "१०",
+        "१३"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-BOK-07",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "I",
+      "type": "fact",
+      "question": "International Booker Prize 2026 को longlist मा कति पुस्तक थिए?",
+      "options": [
+        "६",
+        "१०",
+        "१३",
+        "१६"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-BOK-08",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "I",
+      "type": "fact",
+      "question": "International Booker Prize को २०२६ पुरस्कार रकम लेखक र अनुवादकबीच कसरी बाँडिन्छ?",
+      "options": [
+        "लेखकले सबै पाउँछन्",
+        "अनुवादकले सबै पाउँछन्",
+        "प्रकाशकले सबै पाउँछन्",
+        "बराबर बाँडिन्छ"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-BOK-09",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "I",
+      "type": "fact",
+      "question": "Taiwan Travelogue ले International Booker मा कुन ऐतिहासिक उपलब्धि हासिल गर्‍यो?",
+      "options": [
+        "Mandarin Chinese बाट अनुवाद भएको पहिलो विजेता",
+        "पहिलो अंग्रेजी पुस्तक",
+        "पहिलो कविता संग्रह",
+        "पहिलो नाटक"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-BOK-10",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "I",
+      "type": "fact",
+      "question": "Booker Prize 2026 को shortlist घोषणा हुने मिति कुन हो?",
+      "options": [
+        "१९ मे २०२६",
+        "२२ सेप्टेम्बर २०२६",
+        "२४ फेब्रुअरी २०२६",
+        "९ नोभेम्बर २०२६"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-BOK-11",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "II",
+      "type": "analysis",
+      "question": "International Booker Prize ले अनुवादकलाई छुट्टै महत्त्व दिनुको मुख्य कारण के हो?",
+      "options": [
+        "अनुवादको आवश्यकता नहुने भएकाले",
+        "केवल प्रकाशकलाई पुरस्कार दिन",
+        "विश्व साहित्यलाई नयाँ भाषाका पाठकसम्म पुर्‍याउन अनुवाद निर्णायक हुने भएकाले",
+        "पुस्तक बिक्री रोक्न"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-BOK-12",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "II",
+      "type": "analysis",
+      "question": "Taiwan Travelogue को विषयगत महत्त्व कुनसँग बढी जोडिन्छ?",
+      "options": [
+        "केवल खेलकुद",
+        "केवल विज्ञान प्रयोग",
+        "केवल वित्तीय बजार",
+        "इतिहास, शक्ति, वर्ग, उपनिवेशवाद र सम्बन्ध"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-BOK-13",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "II",
+      "type": "analysis",
+      "question": "Longlist बाट shortlist हुँदै winner छनोट हुने प्रक्रियाको मुख्य उद्देश्य के हो?",
+      "options": [
+        "प्रतिस्पर्धात्मक साहित्यिक मूल्याङ्कनलाई क्रमशः संकुचित गर्नु",
+        "पुस्तकको मूल्य बढाउनु",
+        "लेखकको देश बदल्नु",
+        "अनुवाद हटाउनु"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-BOK-14",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "II",
+      "type": "analysis",
+      "question": "अनुवादित साहित्यले अन्तर्राष्ट्रिय सांस्कृतिक संवादमा के योगदान दिन्छ?",
+      "options": [
+        "स्थानीय संस्कृति हटाउँछ",
+        "भाषा र संस्कृतिबीच अनुभव आदानप्रदान गराउँछ",
+        "भाषा संख्या घटाउँछ",
+        "पठन रोक्छ"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-BOK-15",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "II",
+      "type": "analysis",
+      "question": "साहित्यिक पुरस्कारको समसामयिक अध्ययनमा shortlist र longlist फरक छुट्याउनु किन आवश्यक हुन्छ?",
+      "options": [
+        "लेखकको जन्मस्थान बदल्न",
+        "प्रकाशक हटाउन",
+        "छनोटको चरण र प्रतिस्पर्धाको अवस्थिति बुझ्न",
+        "पुस्तकको भाषा मेटाउन"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-BOK-16",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "II",
+      "type": "analysis",
+      "question": "अन्तर्राष्ट्रिय पुस्तक पुरस्कारको आधिकारिक वेबसाइटलाई तथ्य स्रोत बनाउनुको लाभ के हो?",
+      "options": [
+        "केवल समीक्षा पाइन्छ",
+        "अफवाह मात्र पाइन्छ",
+        "विज्ञापन मात्र पाइन्छ",
+        "विजेता, shortlist र निर्णायकसम्बन्धी प्रमाणित विवरण पाइन्छ"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-BOK-17",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "II",
+      "type": "analysis",
+      "question": "२०२६ International Booker को विजेताले ताइवानी लेखकका लागि के नयाँ अवस्था सिर्जना गर्‍यो?",
+      "options": [
+        "पहिलो Taiwanese winner को उपलब्धि",
+        "पहिलो European winner",
+        "पहिलो African winner",
+        "पहिलो Nepali winner"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-BOK-18",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "II",
+      "type": "analysis",
+      "question": "पुस्तकको समसामयिक तथ्यमा प्रकाशन मिति र पुरस्कार मिति अलग-अलग राख्नु किन उपयोगी हुन्छ?",
+      "options": [
+        "प्रश्नको उत्तर बदल्न",
+        "घटना र पुस्तकको प्रकाशनक्रम स्पष्ट गर्न",
+        "लेखकको नाम हटाउन",
+        "भाषा परिवर्तन गर्न"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-BOK-19",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "II",
+      "type": "analysis",
+      "question": "पठन संस्कृतिको विस्तारमा डिजिटल पुस्तकको एउटा समसामयिक लाभ के हो?",
+      "options": [
+        "सबै मुद्रित पुस्तक नष्ट गर्छ",
+        "लेखकको अधिकार हटाउँछ",
+        "पहुँच र वितरण सहज बनाउन सक्छ",
+        "भाषा विविधता समाप्त गर्छ"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "साहित्य अध्ययन",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-BOK-20",
+      "unit": "1.8",
+      "category": "पुस्तक",
+      "level": "II",
+      "type": "analysis",
+      "question": "समसामयिक पुस्तकसम्बन्धी MCQ बनाउँदा कुन कुरा अनिवार्य रूपमा जाँच्नुपर्छ?",
+      "options": [
+        "केवल आवरणको रंग",
+        "केवल सामाजिक सञ्जाल पोस्ट",
+        "केवल पुस्तकको मूल्य",
+        "वर्ष, शीर्षक, लेखक, अनुवादक र पुरस्कारको सही सम्बन्ध"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-CUL-01",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "काठमाडौँ उपत्यका UNESCO विश्व सम्पदा सूचीमा कहिले सूचीकृत भयो?",
+      "options": [
+        "१९७९",
+        "१९८५",
+        "१९९२",
+        "२००१"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "UNESCO World Heritage Centre",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-CUL-02",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "काठमाडौँ उपत्यका विश्व सम्पदा सम्पत्तिमा कति स्मारक क्षेत्र समावेश छन्?",
+      "options": [
+        "५",
+        "७",
+        "८",
+        "१०"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-CUL-03",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "नेपालमा अमूर्त सांस्कृतिक सम्पदा सूचीकरणको काममा कुन संस्थाले प्रमुख अन्तर्राष्ट्रिय सहयोग गरेको छ?",
+      "options": [
+        "FIFA",
+        "WTO",
+        "UNESCO",
+        "IAEA"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "UNESCO Nepal",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-CUL-04",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "नेपालले UNESCO को 2003 अमूर्त सांस्कृतिक सम्पदा महासन्धि कहिले अनुमोदन गर्‍यो?",
+      "options": [
+        "२००३",
+        "२००५",
+        "२०१५",
+        "२०१०"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-CUL-05",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "UNESCO का अनुसार नेपालमा २०२६ सम्म कति भन्दा बढी जातीय समूहको उल्लेख गरिएको छ?",
+      "options": [
+        "१२५ भन्दा बढी",
+        "५० भन्दा कम",
+        "७५",
+        "१००"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-CUL-06",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "नेपालमा २०२६ सम्म कति भन्दा बढी भाषाको उल्लेख UNESCO ले गरेको छ?",
+      "options": [
+        "५०",
+        "१२३ भन्दा बढी",
+        "७५",
+        "९०"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-CUL-07",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "थामे जीवित सम्पदा परियोजना कुन जोखिमपूर्ण घटनासँग पनि सम्बन्धित छ?",
+      "options": [
+        "मरुभूमीकरण",
+        "समुद्री आँधी",
+        "हिमताल विस्फोटजन्य बाढी",
+        "ज्वालामुखी खरानी"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-CUL-08",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "राम–जानकी मन्दिर परिसरसम्बन्धी UNESCO पहलको मुख्य विषय के हो?",
+      "options": [
+        "फुटबल विकास",
+        "जलविद्युत उत्पादन",
+        "कर सुधार",
+        "सांस्कृतिक सम्पदा व्यवस्थापन"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-CUL-09",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "नेपालका UNESCO विश्व सम्पदा सम्पत्तिको संख्या २०२६ मा कति छ?",
+      "options": [
+        "४",
+        "३",
+        "५",
+        "६"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "UNESCO World Heritage Centre",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-CUL-10",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "नेपालका चार UNESCO विश्व सम्पदामध्ये सांस्कृतिक सम्पदाको संख्या कति छ?",
+      "options": [
+        "१",
+        "२",
+        "३",
+        "४"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "UNESCO World Heritage Centre",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-CUL-11",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "काठमाडौँ उपत्यकाको सात स्मारक क्षेत्रलाई एउटै विश्व सम्पदा सम्पत्तिमा व्यवस्थापन गर्नुको मुख्य चुनौती के हो?",
+      "options": [
+        "सबै भवन भत्काउनु",
+        "पर्यटन पूर्ण बन्द गर्नु",
+        "समग्र संरक्षण र स्थानीय विकासबीच सन्तुलन",
+        "स्थानीय समुदाय हटाउनु"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-CUL-12",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "अमूर्त सांस्कृतिक सम्पदा सूचीकरणको मुख्य प्रशासनिक लाभ के हो?",
+      "options": [
+        "परम्परा हट्नु",
+        "पर्यटन रोक्नु",
+        "भाषा सीमित हुनु",
+        "सम्पदाको पहिचान, संरक्षण र पुस्तान्तरणमा आधार मिल्नु"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-CUL-13",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "जीवित सांस्कृतिक सम्पदा संरक्षणमा स्थानीय समुदायको भूमिका किन महत्त्वपूर्ण हुन्छ?",
+      "options": [
+        "परम्पराको वास्तविक अभ्यास र पुस्तान्तरण समुदायमै हुने भएकाले",
+        "सम्पदा केवल संग्रहालयमा हुने भएकाले",
+        "पर्यटन कर उठाउन",
+        "विदेशी भाषा सिकाउन"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-CUL-14",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "प्राकृतिक विपद्पछि सांस्कृतिक सम्पदा पुनर्स्थापनामा पहिलो प्राथमिकता के हुनुपर्छ?",
+      "options": [
+        "सम्पदा बेच्नु",
+        "सुरक्षा, अभिलेखीकरण र वैज्ञानिक संरक्षण",
+        "स्थल बन्द गरी बिर्सनु",
+        "मौलिक सामग्री हटाउनु"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-CUL-15",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "सांस्कृतिक सम्पदा संरक्षणमा पर्यटन र संरक्षणबीच सन्तुलन किन आवश्यक छ?",
+      "options": [
+        "पर्यटनले कहिल्यै प्रभाव नपार्ने भएकाले",
+        "संरक्षणको आवश्यकता नहुने भएकाले",
+        "अत्यधिक पर्यटनले सम्पदामा दबाब पार्न सक्ने भएकाले",
+        "स्थानीय समुदाय असम्बन्धित भएकाले"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-CUL-16",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "भाषिक विविधता संरक्षणको दीर्घकालीन लाभ के हो?",
+      "options": [
+        "भाषा संख्या घट्नु",
+        "स्थानीय ज्ञान हराउनु",
+        "एकभाषिकता बढ्नु",
+        "ज्ञान, पहिचान र सांस्कृतिक विविधता जोगिनु"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-CUL-17",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "UNESCO सूचीमा हुनु मात्रले सम्पदा संरक्षण पूरा हुन्छ भन्ने धारणा किन गलत हो?",
+      "options": [
+        "निरन्तर व्यवस्थापन, स्रोत र स्थानीय सहभागिता आवश्यक हुने भएकाले",
+        "सूचीपछि कानुन हट्ने भएकाले",
+        "सम्पदा स्वतः मर्मत हुने भएकाले",
+        "पर्यटन स्वतः बन्द हुने भएकाले"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-CUL-18",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "अमूर्त सम्पदा संरक्षणमा विद्यालयको भूमिका कुन हो?",
+      "options": [
+        "परम्परा निषेध गर्नु",
+        "स्थानीय ज्ञान र परम्परा नयाँ पुस्तासम्म पुर्‍याउनु",
+        "भाषा हटाउनु",
+        "सांस्कृतिक कार्यक्रम रोक्नु"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-CUL-19",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "सांस्कृतिक सम्पदा व्यवस्थापनमा डिजिटल अभिलेखको उपयोगिता के हो?",
+      "options": [
+        "मौलिक सम्पदा नष्ट गर्नु",
+        "स्थानीय ज्ञान हटाउनु",
+        "दस्तावेजीकरण, पहुँच र विपद्पछिको पुनर्स्थापनामा सहयोग",
+        "पर्यटन रोक्नु"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-CUL-20",
+      "unit": "1.8",
+      "category": "सांस्कृतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "नेपालको सांस्कृतिक विविधतालाई समसामयिक नीतिसँग जोड्दा कुन दृष्टिकोण उपयुक्त हुन्छ?",
+      "options": [
+        "एकरूप संस्कृति लागू गर्नु",
+        "स्थानीय भाषा निषेध गर्नु",
+        "सम्पदा केवल व्यापारिक वस्तु बनाउनु",
+        "समावेशी संरक्षण, समुदाय सहभागिता र दिगो उपयोग"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-ECO-01",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "I",
+      "type": "fact",
+      "question": "नेपालको आर्थिक वर्ष २०८३/८४ को बजेट कुन आर्थिक वर्षसँग मेल खान्छ?",
+      "options": [
+        "FY 2026/27",
+        "FY 2025/26",
+        "FY 2027/28",
+        "FY 2024/25"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "नेपाल अर्थ मन्त्रालय",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-ECO-02",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "I",
+      "type": "fact",
+      "question": "नेपालको २०८३/८४ बजेटको आधिकारिक प्रकाशन गर्ने निकाय कुन हो?",
+      "options": [
+        "नेपाल राष्ट्र बैंक",
+        "अर्थ मन्त्रालय",
+        "राष्ट्रिय योजना आयोग",
+        "नेपाल स्टक एक्सचेञ्ज"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "नेपाल अर्थ मन्त्रालय",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-ECO-03",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "I",
+      "type": "fact",
+      "question": "LDC स्तरोन्नति नेपालका लागि मुख्यतः कुन आर्थिक प्रक्रियासँग सम्बन्धित छ?",
+      "options": [
+        "UN सदस्यता समाप्ति",
+        "मुद्रा परिवर्तन",
+        "अल्पविकसित राष्ट्रको श्रेणीबाट स्तरोन्नति",
+        "संघीयता समाप्ति"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "UN/नेपाल सरकार",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-ECO-04",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "I",
+      "type": "fact",
+      "question": "BRICS को २०२६ शिखर सम्मेलन कहाँ आयोजना भयो?",
+      "options": [
+        "रियो द जेनेरियो",
+        "बेइजिङ",
+        "मस्को",
+        "नयाँ दिल्ली"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-ECO-05",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "I",
+      "type": "fact",
+      "question": "BRICS को विस्तारपछि २०२६ सम्मको सदस्य संरचनामा तलका मध्ये कुन देश समावेश छ?",
+      "options": [
+        "इन्डोनेसिया",
+        "नेपाल",
+        "जापान",
+        "दक्षिण कोरिया"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-ECO-06",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "I",
+      "type": "fact",
+      "question": "BRICS का नयाँ सदस्यहरूमध्ये २०२४ मा थपिएका देशको समूह कुन हो?",
+      "options": [
+        "नेपाल, भुटान, श्रीलंका र माल्दिभ्स",
+        "इजिप्ट, इथियोपिया, इरान र UAE",
+        "जापान, दक्षिण कोरिया, भियतनाम र थाइल्यान्ड",
+        "क्यानडा, मेक्सिको, चिली र पेरु"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-ECO-07",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "I",
+      "type": "fact",
+      "question": "BRICS को नयाँ विकास बैंकको संक्षिप्त नाम के हो?",
+      "options": [
+        "ADB",
+        "AIIB",
+        "NDB",
+        "IMF"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-ECO-08",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ को BRICS शिखर सम्मेलनको समयमा कुन वस्तुको विश्व बजारमा मूल्य चापबारे विशेष चर्चा भयो?",
+      "options": [
+        "कफी",
+        "चिया",
+        "ऊन",
+        "कच्चा तेल"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-ECO-09",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ को समसामयिक विश्व अर्थतन्त्रमा ऊर्जा बजारको अस्थिरताले कुन सूचकमा प्रत्यक्ष असर पार्न सक्छ?",
+      "options": [
+        "मुद्रास्फीति",
+        "साक्षरता दर",
+        "मतदाता संख्या",
+        "भाषाको संख्या"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-ECO-10",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "I",
+      "type": "fact",
+      "question": "सहज संक्रमण रणनीति नेपालको कुन समसामयिक आर्थिक अवस्थासँग जोडिएको छ?",
+      "options": [
+        "जनगणना",
+        "LDC स्तरोन्नति",
+        "स्थानीय निर्वाचन",
+        "विश्व सम्पदा सूची"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "UN/नेपाल सरकार",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-ECO-11",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "LDC स्तरोन्नतिपछि नेपालले कुन क्षेत्रमा विशेष तयारी गर्नुपर्छ?",
+      "options": [
+        "सबै निर्यात बन्द",
+        "विदेशी लगानी निषेध",
+        "व्यापार प्रतिस्पर्धा र संक्रमण व्यवस्थापन",
+        "UN बाट बाहिरिने"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "UN/नेपाल सरकार",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-ECO-12",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "ऊर्जा मूल्य बढ्दा आयातमा निर्भर अर्थतन्त्रमा सामान्यतया कुन प्रभाव पर्न सक्छ?",
+      "options": [
+        "साक्षरता स्वतः बढ्छ",
+        "बेरोजगारी शून्य हुन्छ",
+        "कर स्वतः घट्छ",
+        "मुद्रास्फीति र आयात बिल बढ्न सक्छ"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-ECO-13",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "BRICS विस्तारको आर्थिक महत्त्व कुन हो?",
+      "options": [
+        "उदीयमान अर्थतन्त्रहरूको समूहको जनसांख्यिक तथा आर्थिक वजन बढ्नु",
+        "विश्व बैंक बन्द हुनु",
+        "डलर तुरुन्त समाप्त हुनु",
+        "सबै व्यापारिक सम्झौता खारेज हुनु"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-ECO-14",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "नेपालको बजेट कार्यान्वयनको मूल्याङ्कनमा कुन सूचक बढी अर्थपूर्ण हुन्छ?",
+      "options": [
+        "बजेट भाषणको लम्बाइ",
+        "पूँजीगत खर्च, उपलब्धि र परिणाम",
+        "मन्त्रालयको भवन",
+        "समाचारको संख्या"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "नेपाल अर्थ मन्त्रालय",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-ECO-15",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "LDC स्तरोन्नतिपछि व्यापार सहुलियतमा सम्भावित परिवर्तनले नेपाललाई के गर्न प्रेरित गर्छ?",
+      "options": [
+        "आयात पूर्ण बन्द गर्न",
+        "निर्यात रोक्न",
+        "उत्पादन क्षमता र प्रतिस्पर्धात्मकता बढाउन",
+        "उद्योग हटाउन"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "UN/नेपाल सरकार",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-ECO-16",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "BRICS जस्ता बहुपक्षीय आर्थिक समूहको प्रभाव मूल्याङ्कन गर्दा कुन पक्ष हेर्नुपर्छ?",
+      "options": [
+        "केवल नामको लम्बाइ",
+        "केवल सदस्य देशको झण्डा",
+        "केवल शिखर सम्मेलनको फोटो",
+        "व्यापार, वित्त, जनसांख्यिक वजन र संस्थागत सहकार्य"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-ECO-17",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "आर्थिक समसामयिक तथ्यमा नाममात्र GDP भन्दा नीति विश्लेषणका लागि कुन कुरा पनि महत्त्वपूर्ण हुन्छ?",
+      "options": [
+        "प्रतिव्यक्ति आय, उत्पादकत्व, रोजगारी र समावेशिता",
+        "केवल जनसंख्या",
+        "केवल भूगोल",
+        "केवल मुद्रा डिजाइन"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "World Bank/नेपाल सरकार",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-ECO-18",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "विश्व बजारको तेल मूल्य बढ्दा नेपालजस्तो आयातकर्ता देशले कुन नीति संयोजन विचार गर्न सक्छ?",
+      "options": [
+        "इन्धन खपत असीमित बढाउने",
+        "ऊर्जा दक्षता, वैकल्पिक ऊर्जा र बाह्य क्षेत्र व्यवस्थापन",
+        "आयात तथ्यांक लुकाउने",
+        "ऊर्जा नीति हटाउने"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-ECO-19",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "सहज संक्रमण रणनीतिमा निजी क्षेत्रको भूमिका किन महत्त्वपूर्ण हुन्छ?",
+      "options": [
+        "सरकारको बजेट समाप्त गर्न",
+        "कर हटाउन मात्र",
+        "उत्पादन, निर्यात र रोजगारीको प्रतिस्पर्धात्मक क्षमता बढाउन",
+        "आयात रोक्न मात्र"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "UN/नेपाल सरकार",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-ECO-20",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "समसामयिक आर्थिक तथ्य प्रयोग गर्दा कुन स्रोत संयोजन बढी विश्वसनीय हुन्छ?",
+      "options": [
+        "अपुष्ट सामाजिक सञ्जाल",
+        "अनाम ब्लग",
+        "विज्ञापन मात्र",
+        "सरकारी तथ्यांक, केन्द्रीय बैंक तथा विश्वसनीय अन्तर्राष्ट्रिय संस्था"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "नेपाल सरकार/नेपाल राष्ट्र बैंक/विश्व बैंक",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-LIT-01",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ International Booker Prize को विजेता Taiwan Travelogue कुन विधासँग सम्बन्धित छ?",
+      "options": [
+        "उपन्यास/कथासाहित्य",
+        "जीवनी मात्र",
+        "कविता मात्र",
+        "वैज्ञानिक प्रतिवेदन"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-LIT-02",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "I",
+      "type": "fact",
+      "question": "Taiwan Travelogue का लेखक Yáng Shuāng-zǐ कुन देश/क्षेत्रसँग सम्बन्धित साहित्यकार हुन्?",
+      "options": [
+        "नेपाल",
+        "ताइवान",
+        "फ्रान्स",
+        "ब्राजिल"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-LIT-03",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "I",
+      "type": "fact",
+      "question": "Taiwan Travelogue को २०२६ International Booker उपलब्धि कुन भाषासँग विशेष रूपमा जोडिएको छ?",
+      "options": [
+        "German",
+        "French",
+        "Mandarin Chinese",
+        "Portuguese"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-LIT-04",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "I",
+      "type": "fact",
+      "question": "International Booker 2026 को निर्णायक समितिको अध्यक्ष को थिइन्?",
+      "options": [
+        "Mary Beard",
+        "Cecilia Alemani",
+        "Jessie Buckley",
+        "Natasha Brown"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-LIT-05",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "I",
+      "type": "fact",
+      "question": "International Booker 2026 shortlist मा The Witch का लेखक को हुन्?",
+      "options": [
+        "Marie NDiaye",
+        "Daniel Kehlmann",
+        "Shida Bazyar",
+        "Ana Paula Maia"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-LIT-06",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "I",
+      "type": "fact",
+      "question": "The Director का लेखक को हुन्?",
+      "options": [
+        "Rene Karabash",
+        "Daniel Kehlmann",
+        "Matteo Melchiorre",
+        "Olga Ravn"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-LIT-07",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "I",
+      "type": "fact",
+      "question": "The Nights Are Quiet in Tehran का लेखक को हुन्?",
+      "options": [
+        "Marie NDiaye",
+        "Ana Paula Maia",
+        "Shida Bazyar",
+        "Yáng Shuāng-zǐ"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-LIT-08",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "I",
+      "type": "fact",
+      "question": "On Earth As It Is Beneath का लेखक को हुन्?",
+      "options": [
+        "Daniel Kehlmann",
+        "Olga Ravn",
+        "Rene Karabash",
+        "Ana Paula Maia"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-LIT-09",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "I",
+      "type": "fact",
+      "question": "The Wax Child का लेखक को हुन्?",
+      "options": [
+        "Olga Ravn",
+        "Marie NDiaye",
+        "Shahrnush Parsipur",
+        "Ia Genberg"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-LIT-10",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "I",
+      "type": "fact",
+      "question": "Women Without Men का लेखक को हुन्?",
+      "options": [
+        "Olga Ravn",
+        "Shahrnush Parsipur",
+        "Ia Genberg",
+        "Gabriela Cabezón Cámara"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-LIT-11",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "II",
+      "type": "analysis",
+      "question": "International Booker जस्तो पुरस्कारले साहित्यिक अनुवादलाई प्रोत्साहन गर्नुको सांस्कृतिक लाभ के हो?",
+      "options": [
+        "स्थानीय साहित्य हराउनु",
+        "पठन बन्द हुनु",
+        "विभिन्न भाषाका साहित्यबीच संवाद बढ्नु",
+        "भाषा एकरूप हुनु"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-LIT-12",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "II",
+      "type": "analysis",
+      "question": "Taiwan Travelogue को 1930s Taiwan को पृष्ठभूमिले साहित्यमा कुन पक्षलाई जोड दिन्छ?",
+      "options": [
+        "केवल खेलकुद",
+        "केवल विज्ञान",
+        "केवल मौसम",
+        "इतिहास, सत्ता र उपनिवेशवादी सन्दर्भ"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-LIT-13",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "II",
+      "type": "analysis",
+      "question": "साहित्यिक कृतिको 'context' अध्ययन गर्दा कुन कुरा हेर्नुपर्छ?",
+      "options": [
+        "ऐतिहासिक, सामाजिक र सांस्कृतिक पृष्ठभूमि",
+        "केवल आवरण",
+        "केवल मूल्य",
+        "केवल पृष्ठ संख्या"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Literary studies",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-LIT-14",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "II",
+      "type": "analysis",
+      "question": "अनुवादकलाई सह-रचनात्मक महत्त्व दिनुको मुख्य कारण के हो?",
+      "options": [
+        "अनुवादमा कुनै निर्णय नहुने भएकाले",
+        "मूल कृतिको अर्थ अर्को भाषामा पुनःनिर्माण गर्नुपर्ने भएकाले",
+        "लेखकको भूमिका समाप्त हुने भएकाले",
+        "भाषा आवश्यक नहुने भएकाले"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-LIT-15",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "II",
+      "type": "analysis",
+      "question": "समसामयिक साहित्यिक पुरस्कारका shortlist र longlist फरक राख्नुको मूल्याङ्कनात्मक अर्थ के हो?",
+      "options": [
+        "लेखकको भाषा बदल्नु",
+        "पुस्तकको विषय हटाउनु",
+        "छनोटको चरण क्रमशः संकुचित हुँदै गएको देखाउनु",
+        "प्रकाशक बदल्नु"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-LIT-16",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "II",
+      "type": "analysis",
+      "question": "साहित्यमा उपनिवेशोत्तर दृष्टिकोणले प्रायः कुन विषयलाई प्रश्न गर्छ?",
+      "options": [
+        "केवल छन्द",
+        "केवल मुद्रण लागत",
+        "केवल पुस्तकको आकार",
+        "सत्ता, प्रतिनिधित्व र औपनिवेशिक इतिहास"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Literary studies",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-LIT-17",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "II",
+      "type": "analysis",
+      "question": "समसामयिक नेपाली साहित्यको अध्ययनमा स्थानीय भाषा र मौखिक परम्परा किन महत्त्वपूर्ण हुन्छ?",
+      "options": [
+        "स्थानीय अनुभव र सांस्कृतिक स्मृति अभिव्यक्त हुने भएकाले",
+        "साहित्य केवल विदेशी भाषामा हुने भएकाले",
+        "मौखिक परम्परा साहित्य नभएकाले",
+        "भाषिक विविधता असान्दर्भिक भएकाले"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Literary studies",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-LIT-18",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "II",
+      "type": "analysis",
+      "question": "साहित्यिक कृतिलाई पुरस्कार पाएको आधारमा मात्र उत्कृष्ट ठान्नु किन पर्याप्त हुँदैन?",
+      "options": [
+        "पुरस्कार कहिल्यै महत्त्वपूर्ण हुँदैन",
+        "कृतिको विषय, शैली, सन्दर्भ र आलोचनात्मक मूल्य पनि हेर्नुपर्छ",
+        "लेखकको नाम मात्र हेर्नुपर्छ",
+        "पुस्तकको मूल्य मात्र हेर्नुपर्छ"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "Literary studies",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-LIT-19",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "II",
+      "type": "analysis",
+      "question": "डिजिटल माध्यमले समसामयिक साहित्यमा कुन सम्भावना बढाएको छ?",
+      "options": [
+        "पुस्तक प्रकाशन अन्त्य",
+        "पठन पूर्ण बन्द",
+        "लेखन, प्रकाशन र पाठक पहुँचको विस्तार",
+        "लेखकको अधिकार समाप्त"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "Literary studies",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-LIT-20",
+      "unit": "1.8",
+      "category": "साहित्य",
+      "level": "II",
+      "type": "analysis",
+      "question": "समसामयिक साहित्यिक तथ्यलाई परीक्षामा राख्दा कुन कुरा जाँच्नुपर्छ?",
+      "options": [
+        "केवल शीर्षकको हिज्जे",
+        "केवल आवरण",
+        "केवल बिक्री संख्या",
+        "कृति, लेखक, अनुवादक, पुरस्कार र वर्षको सही सम्बन्ध"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "The Booker Prizes",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-MUS-01",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ Grammys मा Album of the Year कसले जिते?",
+      "options": [
+        "Bad Bunny",
+        "Kendrick Lamar",
+        "SZA",
+        "Lady Gaga"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-MUS-02",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ Grammys मा Record of the Year कसले जित्यो?",
+      "options": [
+        "Bad Bunny",
+        "Kendrick Lamar & SZA",
+        "Olivia Dean",
+        "Lady Gaga"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-MUS-03",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ Grammys मा Best New Artist को विजेता को हुन्?",
+      "options": [
+        "Bad Bunny",
+        "SZA",
+        "Olivia Dean",
+        "Kendrick Lamar"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-MUS-04",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ Grammys मा Song of the Year कुन गीतले जित्यो?",
+      "options": [
+        "luther",
+        "NUEVAYoL",
+        "Man I Need",
+        "WILDFLOWER"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-MUS-05",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ Grammys मा Pop Vocal Album को विजेता कुन हो?",
+      "options": [
+        "MAYHEM",
+        "DeBÍ TiRAR MáS FOToS",
+        "Man I Need",
+        "luther"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-MUS-06",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "I",
+      "type": "fact",
+      "question": "Bad Bunny ले २०२६ Grammys मा कुन प्रमुख पुरस्कार जिते?",
+      "options": [
+        "Best New Artist",
+        "Album of the Year",
+        "Best Rock Album",
+        "Best Classical Album"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-MUS-07",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "I",
+      "type": "fact",
+      "question": "Kendrick Lamar र SZA को २०२६ Grammy उपलब्धि कुन हो?",
+      "options": [
+        "Best New Artist",
+        "Album of the Year",
+        "Record of the Year",
+        "Best Country Album"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-MUS-08",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ Grammys को समारोह कुन शहरमा भएको थियो?",
+      "options": [
+        "New York",
+        "London",
+        "Nashville",
+        "Los Angeles"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-MUS-09",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ Grammys को समारोहको मिति कुन हो?",
+      "options": [
+        "१ फेब्रुअरी २०२६",
+        "१५ मार्च २०२६",
+        "१९ मे २०२६",
+        "२२ सेप्टेम्बर २०२६"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-MUS-10",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "I",
+      "type": "fact",
+      "question": "GRAMMY Awards आयोजना गर्ने संस्थाको नाम के हो?",
+      "options": [
+        "Academy of Motion Picture Arts and Sciences",
+        "Recording Academy",
+        "FIFA",
+        "UNESCO"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-MUS-11",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "II",
+      "type": "analysis",
+      "question": "Album of the Year र Song of the Year फरक श्रेणी हुनुको मुख्य अर्थ के हो?",
+      "options": [
+        "दुवै चलचित्र पुरस्कार हुनु",
+        "दुवै साहित्य पुरस्कार हुनु",
+        "album र गीतको छुट्टाछुट्टै उपलब्धि मूल्याङ्कन गर्नु",
+        "दुवै खेल पुरस्कार हुनु"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-MUS-12",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "II",
+      "type": "analysis",
+      "question": "Record of the Year जस्तो पुरस्कारले सामान्यतः के मूल्याङ्कन गर्छ?",
+      "options": [
+        "केवल गीतको शब्द संख्या",
+        "केवल album को मूल्य",
+        "केवल कलाकारको उमेर",
+        "recording को समग्र कलात्मक/उत्पादन उपलब्धि"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-MUS-13",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "II",
+      "type": "analysis",
+      "question": "Best New Artist जस्तो पुरस्कारले संगीत उद्योगमा कुन संकेत दिन्छ?",
+      "options": [
+        "उदीयमान प्रतिभालाई सार्वजनिक मान्यता",
+        "पुराना कलाकार हटाउनु",
+        "संगीत उत्पादन रोक्नु",
+        "श्रोताको संख्या घटाउनु"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-MUS-14",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "II",
+      "type": "analysis",
+      "question": "संगीत पुरस्कारको समसामयिक तथ्यमा गीतको शीर्षक र कलाकार दुवै जाँच्नु किन आवश्यक हुन्छ?",
+      "options": [
+        "पुरस्कारको मिति बदल्न",
+        "उही वर्षका फरक सिर्जनाबीच भ्रम घटाउन",
+        "गीतको भाषा हटाउन",
+        "श्रोता घटाउन"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-MUS-15",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "II",
+      "type": "analysis",
+      "question": "विश्वव्यापी संगीत पुरस्कारले सांस्कृतिक विविधतामा कुन योगदान दिन सक्छ?",
+      "options": [
+        "स्थानीय संगीत बन्द गर्न",
+        "एकै शैली मात्र राख्न",
+        "विभिन्न भाषा र संगीत शैलीलाई अन्तर्राष्ट्रिय मञ्च दिन",
+        "संगीत बजार समाप्त गर्न"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "Music studies",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-MUS-16",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "II",
+      "type": "analysis",
+      "question": "डिजिटल streaming ले समसामयिक संगीत उद्योगमा कुन परिवर्तन ल्याएको छ?",
+      "options": [
+        "संगीत प्रकाशन पूर्ण बन्द गरेको",
+        "कलाकारको भूमिका हटाएको",
+        "रेकर्डिङ असम्भव बनाएको",
+        "संगीत वितरण र श्रोताको पहुँचलाई डिजिटल बनाएको"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Music industry",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-MUS-17",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "II",
+      "type": "analysis",
+      "question": "AI र संगीतको सम्बन्धमा समसामयिक बहसको मुख्य विषय कुन हो?",
+      "options": [
+        "सिर्जनात्मकता, copyright र कलाकारको अधिकार",
+        "केवल स्टेज सजावट",
+        "केवल टिकट मूल्य",
+        "केवल संगीत वाद्ययन्त्र"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Music industry",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-MUS-18",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "II",
+      "type": "analysis",
+      "question": "संगीत संरक्षणमा डिजिटल अभिलेखको उपयोगिता के हो?",
+      "options": [
+        "पुराना गीत मेट्नु",
+        "रेकर्डिङ र सांस्कृतिक सामग्री दीर्घकालीन रूपमा सुरक्षित गर्नु",
+        "स्थानीय संगीत बन्द गर्नु",
+        "कलाकार हटाउनु"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "Music studies",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-MUS-19",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "II",
+      "type": "analysis",
+      "question": "नेपालको लोकसंगीतलाई समसामयिक पुस्तासम्म पुर्‍याउन कुन उपाय प्रभावकारी हुन्छ?",
+      "options": [
+        "लोकसंगीत निषेध",
+        "भाषा परिवर्तन मात्र",
+        "डिजिटल अभिलेख, शिक्षा र नयाँ प्रस्तुति माध्यमको संयोजन",
+        "वाद्ययन्त्र हटाउनु"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "Cultural policy",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-MUS-20",
+      "unit": "1.8",
+      "category": "संगीत",
+      "level": "II",
+      "type": "analysis",
+      "question": "समसामयिक संगीत पुरस्कारको तथ्य विश्वसनीय बनाउन कुन स्रोत प्राथमिक हुन्छ?",
+      "options": [
+        "अनाम फ्यान पेज",
+        "अपुष्ट पोस्ट",
+        "अफवाह",
+        "Recording Academy जस्ता आधिकारिक award body"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-OTH-01",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "I",
+      "type": "fact",
+      "question": "संयुक्त राष्ट्र महासभाको ८१औँ अधिवेशनको General Debate २०२६ मा कहिलेदेखि सुरु हुन्छ?",
+      "options": [
+        "२२ सेप्टेम्बर २०२६",
+        "१८ सेप्टेम्बर २०२६",
+        "२७ सेप्टेम्बर २०२६",
+        "३० सेप्टेम्बर २०२६"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "United Nations",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-OTH-02",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ UNGA 81 को theme के हो?",
+      "options": [
+        "Peace through prosperity",
+        "Restoring trust, managing transformation: A United Nations that delivers for all",
+        "Our common future",
+        "Building a better world"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "United Nations",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-OTH-03",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "I",
+      "type": "fact",
+      "question": "UNGA 81 का अध्यक्ष को हुन्?",
+      "options": [
+        "Dennis Francis",
+        "Abdulla Shahid",
+        "Khalilur Rahman",
+        "Philemon Yang"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "United Nations",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-OTH-04",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ मा International Day of Democracy कुन मितिमा मनाइन्छ?",
+      "options": [
+        "२१ सेप्टेम्बर",
+        "२७ सेप्टेम्बर",
+        "२८ सेप्टेम्बर",
+        "१५ सेप्टेम्बर"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "United Nations",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-OTH-05",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "I",
+      "type": "fact",
+      "question": "International Day of Peace २०२६ मा कुन मितिमा पर्छ?",
+      "options": [
+        "२१ सेप्टेम्बर",
+        "१५ सेप्टेम्बर",
+        "१६ सेप्टेम्बर",
+        "३० सेप्टेम्बर"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "United Nations",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-OTH-06",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "I",
+      "type": "fact",
+      "question": "World Tourism Day २०२६ मा कुन मितिमा पर्छ?",
+      "options": [
+        "२१ सेप्टेम्बर",
+        "२७ सेप्टेम्बर",
+        "२८ सेप्टेम्बर",
+        "३० सेप्टेम्बर"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "United Nations",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-OTH-07",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "I",
+      "type": "fact",
+      "question": "International Day for Universal Access to Information २०२६ मा कहिले मनाइन्छ?",
+      "options": [
+        "२७ सेप्टेम्बर",
+        "२१ सेप्टेम्बर",
+        "२८ सेप्टेम्बर",
+        "१५ सेप्टेम्बर"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "United Nations",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-OTH-08",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "I",
+      "type": "fact",
+      "question": "IAEA General Conference २०२६ मा कुन अवधिमा आयोजना हुँदैछ?",
+      "options": [
+        "१–५ सेप्टेम्बर",
+        "२२–२८ सेप्टेम्बर",
+        "२६–३० सेप्टेम्बर",
+        "१४–१८ सेप्टेम्बर"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "IAEA",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-OTH-09",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "I",
+      "type": "fact",
+      "question": "UN Crime Congress २०२६ कहाँ आयोजना हुने तय भएको छ?",
+      "options": [
+        "संयुक्त अरब इमिरेट्स",
+        "नेपाल",
+        "फ्रान्स",
+        "क्यानडा"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "United Nations",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-OTH-10",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "I",
+      "type": "fact",
+      "question": "UN Crime Congress २०२६ को अवधि कुन हो?",
+      "options": [
+        "१–५ सेप्टेम्बर २०२६",
+        "२६ सेप्टेम्बर–१ अक्टोबर २०२६",
+        "१०–१५ अक्टोबर २०२६",
+        "१५–२० नोभेम्बर २०२६"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "United Nations",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-OTH-11",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "II",
+      "type": "analysis",
+      "question": "UNGA को General Debate विश्व कूटनीतिका लागि किन महत्त्वपूर्ण हुन्छ?",
+      "options": [
+        "केवल खेलकुदका लागि",
+        "केवल व्यापार मेला भएकाले",
+        "राष्ट्रहरूले विश्वव्यापी मुद्दामा उच्चस्तरीय राजनीतिक धारणा प्रस्तुत गर्ने मञ्च भएकाले",
+        "केवल सांस्कृतिक कार्यक्रम भएकाले"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "United Nations",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-OTH-12",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "II",
+      "type": "analysis",
+      "question": "UN को Universal Access to Information दिवसको प्रशासनिक महत्त्व के हो?",
+      "options": [
+        "सूचना गोप्य बनाउनु",
+        "प्रेस बन्द गर्नु",
+        "सरकारी अभिलेख नष्ट गर्नु",
+        "सूचनामा पहुँच, पारदर्शिता र नागरिक अधिकारको महत्त्व उजागर गर्नु"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "United Nations",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-OTH-13",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "II",
+      "type": "analysis",
+      "question": "International Day of Peace जस्ता दिवसको नीति महत्त्व के हो?",
+      "options": [
+        "विश्व शान्ति र द्वन्द्व रोकथामबारे जनचेतना बढाउनु",
+        "सैन्य खर्च बढाउनु",
+        "द्वन्द्व बढाउनु",
+        "कूटनीति बन्द गर्नु"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "United Nations",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-OTH-14",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "II",
+      "type": "analysis",
+      "question": "विश्व पर्यटन दिवसको नीति सन्दर्भमा दिगो पर्यटन किन महत्त्वपूर्ण हुन्छ?",
+      "options": [
+        "पर्यटन पूर्ण बन्द गर्न",
+        "आर्थिक लाभसँग संस्कृति र वातावरण संरक्षण सन्तुलित गर्न",
+        "स्थानीय समुदाय हटाउन",
+        "प्राकृतिक सम्पदा बेच्न"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "United Nations",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-OTH-15",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "II",
+      "type": "analysis",
+      "question": "IAEA General Conference जस्तो बहुपक्षीय बैठकको मुख्य उद्देश्य के हो?",
+      "options": [
+        "फुटबल नियम बनाउनु",
+        "विश्व व्यापार सञ्चालन गर्नु",
+        "परमाणु ऊर्जा र सुरक्षासम्बन्धी अन्तर्राष्ट्रिय सहकार्य अघि बढाउनु",
+        "साहित्य पुरस्कार दिनु"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "IAEA",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-OTH-16",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "II",
+      "type": "analysis",
+      "question": "UN Crime Congress को विषयले प्रशासनिक रूपमा कुन क्षेत्रसँग सम्बन्ध राख्छ?",
+      "options": [
+        "पर्यटन मात्र",
+        "खेलकुद मात्र",
+        "कला मात्र",
+        "अपराध रोकथाम, फौजदारी न्याय र अन्तर्राष्ट्रिय सहकार्य"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "United Nations",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-OTH-17",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "II",
+      "type": "analysis",
+      "question": "समसामयिक अन्तर्राष्ट्रिय दिवसको परीक्षा प्रश्न बनाउँदा मिति किन जाँच्नुपर्छ?",
+      "options": [
+        "नजिकका धेरै दिवसबीच भ्रम घटाउन",
+        "दिवसको अर्थ बदल्न",
+        "संयुक्त राष्ट्र हटाउन",
+        "प्रश्नको उत्तर लुकाउन"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "United Nations",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-OTH-18",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "II",
+      "type": "analysis",
+      "question": "UNGA theme ले समसामयिक विश्व राजनीतिमा कुन प्राथमिकता देखाउँछ?",
+      "options": [
+        "केवल खेलकुद",
+        "विश्वास पुनर्स्थापना र परिवर्तन व्यवस्थापन",
+        "केवल पर्यटन",
+        "केवल कृषि"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "United Nations",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-OTH-19",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "II",
+      "type": "analysis",
+      "question": "समसामयिक अन्तर्राष्ट्रिय गतिविधिको तथ्य-जाँचमा कुन स्रोत प्राथमिक हुन्छ?",
+      "options": [
+        "अनाम ब्लग",
+        "अपुष्ट सामाजिक सञ्जाल",
+        "संयुक्त राष्ट्र वा सम्बन्धित अन्तर्राष्ट्रिय संस्थाको आधिकारिक क्यालेन्डर",
+        "फ्यान पेज"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "United Nations/IAEA",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-OTH-20",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "II",
+      "type": "analysis",
+      "question": "विभिन्न अन्तर्राष्ट्रिय कार्यक्रमको मिति, स्थान र उद्देश्य जोडेर पढ्नुको लाभ के हो?",
+      "options": [
+        "सबै घटना एउटै हुन्छन्",
+        "तथ्य-जाँच आवश्यक हुँदैन",
+        "संस्थाको भूमिका हट्छ",
+        "घटना, संस्था र नीतिगत सन्दर्भलाई एकसाथ सम्झन सजिलो हुन्छ"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "United Nations/IAEA",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-POL-02",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ को प्रतिनिधिसभा निर्वाचनपछि सबैभन्दा ठूलो दल कुन बन्यो?",
+      "options": [
+        "नेपाली कांग्रेस",
+        "राष्ट्रिय स्वतन्त्र पार्टी",
+        "नेकपा एमाले",
+        "नेकपा माओवादी केन्द्र"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "प्रधानमन्त्री तथा मन्त्रिपरिषद्को कार्यालय",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-POL-03",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "बालेन्द्र शाह प्रधानमन्त्रीमा कहिले नियुक्त भएका हुन्?",
+      "options": [
+        "५ मार्च २०२६",
+        "१५ मार्च २०२६",
+        "२७ मार्च २०२६",
+        "१ अप्रिल २०२६"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "राष्ट्रपतिको कार्यालय",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-POL-04",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ मा नेपालको अर्थमन्त्री को बने?",
+      "options": [
+        "विष्णु पौडेल",
+        "जनार्दन शर्मा",
+        "प्रकाशशरण महत",
+        "स्वर्णिम वाग्ले"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "राष्ट्रपतिको कार्यालय",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-POL-05",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ मा नेपालको परराष्ट्रमन्त्री को बने?",
+      "options": [
+        "शिशिर खनाल",
+        "नारायणकाजी श्रेष्ठ",
+        "रमेश लेखक",
+        "आरजु राणा देउवा"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "राष्ट्रपतिको कार्यालय",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-POL-06",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ मा विज्ञान, प्रविधि तथा नवप्रवर्तनसम्बन्धी मन्त्रालयको नेतृत्व कसले पाए?",
+      "options": [
+        "सुमना श्रेष्ठ",
+        "महावीर पुन",
+        "कुलमान घिसिङ",
+        "शिशिर खनाल"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "राष्ट्रपतिको कार्यालय",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-POL-07",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "नेपालले संयुक्त राष्ट्र महासभाको ८१औँ अधिवेशनमा कुन समितिको अध्यक्षता गर्नेछ?",
+      "options": [
+        "दोस्रो समिति",
+        "तेस्रो समिति",
+        "पहिलो समिति",
+        "पाँचौँ समिति"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "नेपाल परराष्ट्र मन्त्रालय/संयुक्त राष्ट्रसंघ",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-POL-08",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "संयुक्त राष्ट्र महासभाको ८१औँ अधिवेशनको उच्चस्तरीय सप्ताह २०२६ मा कहिले हुन्छ?",
+      "options": [
+        "१–१० सेप्टेम्बर २०२६",
+        "५–१५ अक्टोबर २०२६",
+        "२०–३० अक्टोबर २०२६",
+        "१८–२८ सेप्टेम्बर २०२६"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "संयुक्त राष्ट्रसंघ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-POL-09",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "नेपालले २०३७–३८ का लागि कुन UN निकायको गैर-स्थायी सदस्यको उम्मेदवारी दिएको छ?",
+      "options": [
+        "सुरक्षा परिषद्",
+        "आर्थिक तथा सामाजिक परिषद्",
+        "मानव अधिकार परिषद्",
+        "अन्तर्राष्ट्रिय न्यायालय"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "नेपाल परराष्ट्र मन्त्रालय",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-POL-10",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "नेपालको २०३७–३८ UNSC उम्मेदवारीको निर्वाचन कुन वर्ष हुने भनिएको छ?",
+      "options": [
+        "२०३४",
+        "२०३६",
+        "२०३५",
+        "२०३८"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "नेपाल परराष्ट्र मन्त्रालय",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-POL-11",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "नेपालको LDC स्तरोन्नतिलाई राजनीतिक–आर्थिक दृष्टिले हेर्दा मुख्य चुनौती कुन हो?",
+      "options": [
+        "UN सदस्यता गुमाउनु",
+        "सबै व्यापार बन्द गर्नु",
+        "स्तरोन्नतिपछिको सहज संक्रमण सुनिश्चित गर्नु",
+        "वैदेशिक सम्बन्ध समाप्त गर्नु"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "संयुक्त राष्ट्रसंघ/नेपाल सरकार",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-POL-12",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "UNGA को पहिलो समितिको अध्यक्षता नेपालले गर्नुको प्रमुख कूटनीतिक अर्थ के हो?",
+      "options": [
+        "नेपालले स्थायी UNSC सिट पाउनु",
+        "UN बाट नेपाल बाहिरिनु",
+        "नेपालको सबै दूतावास बन्द हुनु",
+        "बहुपक्षीय कूटनीतिमा नेपालको दृश्यता बढ्नु"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "संयुक्त राष्ट्रसंघ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-POL-13",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "ठूलो निर्वाचन जनादेशले सरकारको नीति कार्यान्वयनमा कुन सम्भावित प्रभाव पार्छ?",
+      "options": [
+        "कानुन तथा नीति पारित गर्ने राजनीतिक सहजता बढ्न सक्छ",
+        "न्यायपालिका स्वतः सरकारअन्तर्गत आउँछ",
+        "स्थानीय तह स्वतः खारेज हुन्छ",
+        "संविधान स्वतः परिवर्तन हुन्छ"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "निर्वाचन/संसदीय सन्दर्भ",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-POL-14",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "समसामयिक राजनीतिक घटनाको प्रशासनिक मूल्याङ्कन गर्दा सबैभन्दा उपयुक्त आधार कुन हो?",
+      "options": [
+        "पोस्टरको रंग",
+        "नीति कार्यान्वयन, सेवा प्रवाह र जवाफदेहिता",
+        "नेताको उमेर",
+        "कार्यालयको आकार"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "लोक प्रशासन दृष्टिकोण",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-POL-15",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "बहुपक्षीय संस्थामा नेपालको प्रभाव बढाउन कुन संयोजन बढी उपयोगी हुन्छ?",
+      "options": [
+        "अन्तर्राष्ट्रिय अलगाव",
+        "सबै विषयमा मौनता",
+        "राष्ट्रिय हित, नियममा आधारित कूटनीति र सहकार्य",
+        "एक देशमाथि मात्र निर्भरता"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "नेपाल परराष्ट्र नीति",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-POL-16",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "LDC स्तरोन्नतिपछि सहज संक्रमण रणनीतिको मुख्य उद्देश्य के हो?",
+      "options": [
+        "सबै वैदेशिक सहायता तुरुन्त बन्द गर्नु",
+        "व्यापार पूर्ण रोक्नु",
+        "UN सदस्यता त्याग्नु",
+        "स्तरोन्नतिका कारण आउन सक्ने आर्थिक झट्का व्यवस्थापन गर्नु"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "संयुक्त राष्ट्रसंघ",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-POL-17",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "नयाँ मन्त्रिपरिषद्को कार्यसम्पादन मूल्याङ्कनमा कुन सूचक सबैभन्दा उपयुक्त हुन्छ?",
+      "options": [
+        "नीति परिणाम र सार्वजनिक सेवा सुधार",
+        "मन्त्रीको व्यक्तिगत लोकप्रियता मात्र",
+        "सामाजिक सञ्जालका लाइक मात्र",
+        "मन्त्रालय भवनको आकार"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "लोक प्रशासन दृष्टिकोण",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-POL-18",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "समसामयिक राजनीतिक तथ्यमा आधिकारिक स्रोत जाँच्नुको मुख्य कारण के हो?",
+      "options": [
+        "प्रश्नलाई अनावश्यक कठिन बनाउनु",
+        "गलत सूचना र तथ्यगत त्रुटि घटाउनु",
+        "समाचारको संख्या घटाउनु",
+        "उत्तर लामो बनाउनु"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "तथ्य-जाँच पद्धति",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-POL-19",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "नेपालको UNSC उम्मेदवारीलाई सफल बनाउन कुन पक्ष महत्त्वपूर्ण हुन्छ?",
+      "options": [
+        "केवल घरेलु प्रचार",
+        "अन्तर्राष्ट्रिय संस्थाबाट दूरी",
+        "द्विपक्षीय तथा बहुपक्षीय समर्थन निर्माण",
+        "सबै देशसँग सम्बन्ध तोड्नु"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "नेपाल परराष्ट्र नीति",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-POL-20",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "राजनीतिक परिवर्तनपछि प्रशासनिक निरन्तरताको मुख्य अर्थ के हो?",
+      "options": [
+        "सबै कर्मचारी हटाउनु",
+        "सबै कानुन निलम्बन गर्नु",
+        "स्थानीय सेवा बन्द गर्नु",
+        "संस्थागत सेवा र वैधानिक प्रक्रिया निरन्तर राख्नु"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "लोक प्रशासन दृष्टिकोण",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-SCI-01",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "I",
+      "type": "fact",
+      "question": "NASA र IBM ले २०२६ मा चन्द्रमासम्बन्धी कुन AI मोडेल सार्वजनिक गरेका छन्?",
+      "options": [
+        "Lunar Foundation Model",
+        "Mars Language Model",
+        "Earth Climate Model",
+        "Solar Forecast Model"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "NASA/Reuters",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-SCI-02",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "I",
+      "type": "fact",
+      "question": "NASA-IBM Lunar Foundation Model मुख्यतः कुन विषयमा प्रयोग गर्न बनाइएको हो?",
+      "options": [
+        "समुद्री तापक्रम",
+        "चन्द्र सतहका विशेषता विश्लेषण",
+        "मानव जीनोम",
+        "कृषि उत्पादन"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "NASA/Reuters",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-SCI-03",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "I",
+      "type": "fact",
+      "question": "Lunar Foundation Model ले कुन प्रकारका चन्द्र विशेषता पहिचानमा सहयोग गर्न सक्छ?",
+      "options": [
+        "वन्यजन्तु",
+        "समुद्री चट्टान",
+        "बरफ, क्रेटर र ज्वालामुखीय संरचना",
+        "मानव रक्तकोष"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "NASA/Reuters",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-SCI-04",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "I",
+      "type": "fact",
+      "question": "NASA-IBM को चन्द्र AI मोडेलले अधिकतम करिब कति accuracy सुधार देखाएको रिपोर्ट छ?",
+      "options": [
+        "५ प्रतिशत",
+        "५० प्रतिशत",
+        "७५ प्रतिशत",
+        "२३ प्रतिशतसम्म"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-SCI-05",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "I",
+      "type": "fact",
+      "question": "NASA-IBM Lunar Foundation Model ले कति भन्दा बढी तह र NASA का कति मिसनका उपकरणसम्बन्धी डेटा प्रयोग गरेको रिपोर्ट छ?",
+      "options": [
+        "३० भन्दा बढी तह र ४ मिसन",
+        "१० तह र १ मिसन",
+        "५ तह र ८ मिसन",
+        "१०० तह र २० मिसन"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-SCI-06",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ मा Isar Aerospace को Spectrum rocket को उपलब्धि के थियो?",
+      "options": [
+        "पहिलो चन्द्र अवतरण",
+        "महादेशीय युरोपबाट पहिलो commercial orbital launch",
+        "पहिलो मानवयुक्त उडान",
+        "पहिलो मंगल अवतरण"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-SCI-07",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "I",
+      "type": "fact",
+      "question": "Spectrum rocket को उक्त orbital launch कुन देशबाट भएको थियो?",
+      "options": [
+        "फ्रान्स",
+        "जर्मनी",
+        "नर्वे",
+        "इटाली"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-SCI-08",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "I",
+      "type": "fact",
+      "question": "Spectrum को पहिलो commercial orbital launch मा कति साना satellites बोकिएको थियो?",
+      "options": [
+        "२",
+        "१०",
+        "१२",
+        "५"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-SCI-09",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "I",
+      "type": "fact",
+      "question": "NASA को Artemis कार्यक्रमको दीर्घकालीन लक्ष्यसँग चन्द्र AI अनुसन्धान कसरी सम्बन्धित छ?",
+      "options": [
+        "चन्द्र सतहको वैज्ञानिक जानकारी र भविष्यका मिशन तयारीमा सहयोग",
+        "पृथ्वीको मौसम मात्र अध्ययन",
+        "समुद्रको गहिराइ मापन",
+        "कृषि उत्पादन बढाउने"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "NASA",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-SCI-10",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ को अन्तरिक्ष विज्ञानमा AI प्रयोगको प्रमुख प्रवृत्ति कुन हो?",
+      "options": [
+        "AI पूर्ण रूपमा बन्द गर्नु",
+        "ठूलो वैज्ञानिक डेटाबाट संरचना पहिचान र विश्लेषण",
+        "केवल मानव गणना",
+        "अन्तरिक्ष अनुसन्धान रोक्नु"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "NASA/Reuters",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-SCI-11",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "चन्द्र सतहमा AI प्रयोगको मुख्य वैज्ञानिक लाभ कुन हुन सक्छ?",
+      "options": [
+        "डेटा संकलन बन्द गर्नु",
+        "उपग्रह हटाउनु",
+        "विशाल remote-sensing डेटाबाट विशेषता छिटो पहिचान गर्नु",
+        "चन्द्रमाको गुरुत्व बदल्नु"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "NASA/Reuters",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-SCI-12",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "वैज्ञानिक AI मोडेलमा accuracy सुधारको मूल्याङ्कन गर्दा के पनि जाँच्नुपर्छ?",
+      "options": [
+        "केवल प्रचार सामग्री",
+        "केवल मोडेलको नाम",
+        "केवल कम्प्युटरको आकार",
+        "डेटा, validation र प्रयोगको सन्दर्भ"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "NASA/Reuters",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-SCI-13",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "अन्तरिक्षमा commercial launch बढ्नुको आर्थिक प्रभाव कुन हुन सक्छ?",
+      "options": [
+        "निजी अन्तरिक्ष उद्योग र उपग्रह सेवाको बजार विस्तार",
+        "अन्तरिक्ष अनुसन्धान समाप्त",
+        "उपग्रह सेवा बन्द",
+        "वैज्ञानिक संस्थाको भूमिका शून्य"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-SCI-14",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "चन्द्रमामा बरफको सम्भावित स्थान पहिचान गर्नु भविष्यका मिशनका लागि किन उपयोगी हुन्छ?",
+      "options": [
+        "पृथ्वीको समुद्र बढाउन",
+        "भविष्यका स्रोत र बसोबाससम्बन्धी योजना बनाउन सहयोग हुन सक्छ",
+        "सौर्य विकिरण हटाउन",
+        "मंगलको कक्षा बदल्न"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "NASA",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-SCI-15",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "वैज्ञानिक डेटा र AI को संयोजनमा मानव विशेषज्ञता किन आवश्यक हुन्छ?",
+      "options": [
+        "AI लाई बन्द गर्न",
+        "डेटा हटाउन",
+        "मोडेलको नतिजालाई वैज्ञानिक सन्दर्भमा व्याख्या र प्रमाणीकरण गर्न",
+        "उपग्रह नष्ट गर्न"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "NASA",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-SCI-16",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "commercial orbital launch को सफलताले अन्तरिक्ष अनुसन्धानमा कुन परिवर्तनलाई गति दिन सक्छ?",
+      "options": [
+        "वैज्ञानिक सहकार्य समाप्त",
+        "उपग्रह निर्माण बन्द",
+        "अन्तरिक्ष बजेट शून्य",
+        "निजी क्षेत्रको सहभागिता र प्रक्षेपण सेवाको विस्तार"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-SCI-17",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "समसामयिक वैज्ञानिक समाचारमा संस्थाको नाम र परियोजनाको नाम दुवै सम्झनु किन उपयोगी हुन्छ?",
+      "options": [
+        "अनुसन्धानकर्ता, प्रविधि र उपलब्धिको सम्बन्ध स्पष्ट हुन्छ",
+        "उत्तर सधैँ एउटै हुन्छ",
+        "मिति आवश्यक हुँदैन",
+        "तथ्य-जाँच नचाहिने हुन्छ"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "NASA/Reuters",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-SCI-18",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "अन्तरिक्ष अनुसन्धानमा खुला डेटा वा साझा मोडेलको एउटा सम्भावित लाभ के हो?",
+      "options": [
+        "अनुसन्धान रोक्नु",
+        "वैज्ञानिक सहकार्य र पुनःप्रयोग बढ्नु",
+        "डेटा नष्ट हुनु",
+        "सहकार्य घट्नु"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "NASA",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-SCI-19",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "AI-आधारित वैज्ञानिक निष्कर्षमा reproducibility किन महत्त्वपूर्ण हुन्छ?",
+      "options": [
+        "परिणाम गोप्य राख्न",
+        "डेटा हटाउन",
+        "अरू अनुसन्धानकर्ताले परिणाम परीक्षण र पुनरुत्पादन गर्न सकून्",
+        "मोडेलको नाम बदल्न"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "Science methodology",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-SCI-20",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "समसामयिक विज्ञानका तथ्यलाई परीक्षा सामग्री बनाउँदा सबैभन्दा महत्त्वपूर्ण सावधानी कुन हो?",
+      "options": [
+        "शीर्षक मात्र पढ्नु",
+        "सामाजिक सञ्जाल अफवाह मान्नु",
+        "पुरानो समाचारलाई नयाँ मान्नु",
+        "घटना, संस्था, मिति र उपलब्धिको आधिकारिक पुष्टि गर्नु"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "NASA/Reuters",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-SOC-01",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "I",
+      "type": "fact",
+      "question": "२६ अगस्ट २०२६ को बाढीपछि WHO नेपालले कुन क्षेत्रमा निगरानी बढाएको बताएको छ?",
+      "options": [
+        "सार्वजनिक स्वास्थ्य तथा रोग निगरानी",
+        "पर्यटन प्रवर्द्धन",
+        "भन्सार प्रशासन",
+        "खेलकुद व्यवस्थापन"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "WHO Nepal",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-SOC-02",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "I",
+      "type": "fact",
+      "question": "नेपालमा SORMAS को विस्तार मुख्यतः कुन क्षेत्रसँग सम्बन्धित छ?",
+      "options": [
+        "कर संकलन",
+        "रोग निगरानी तथा सूचना व्यवस्थापन",
+        "पर्यटन टिकट",
+        "कृषि निर्यात"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "WHO Nepal",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-SOC-03",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "I",
+      "type": "fact",
+      "question": "नेपालको मानसिक स्वास्थ्य रणनीति २०२६–२०३० कुन विषयसँग सम्बन्धित छ?",
+      "options": [
+        "केवल खेलकुद",
+        "केवल कर प्रशासन",
+        "मानसिक स्वास्थ्य सेवाको सुदृढीकरण",
+        "केवल पर्यटन"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "WHO Nepal",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-SOC-04",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "I",
+      "type": "fact",
+      "question": "AMR को पूरा रूप के हो?",
+      "options": [
+        "Annual Medical Report",
+        "Advanced Migration Register",
+        "Asian Medicine Regulation",
+        "Antimicrobial Resistance"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "WHO",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-SOC-05",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "I",
+      "type": "fact",
+      "question": "बाढीपछिको स्वास्थ्य प्रतिक्रियामा WASH को महत्त्व किन हुन्छ?",
+      "options": [
+        "पानी, सरसफाइ र स्वच्छतासँग सम्बन्धित भएकाले",
+        "कर संकलनका लागि",
+        "निर्वाचनका लागि",
+        "खेलकुदका लागि"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "WHO Nepal",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-SOC-06",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "I",
+      "type": "fact",
+      "question": "GBV भन्नाले सामान्यतः के जनाउँछ?",
+      "options": [
+        "Global Budget Value",
+        "Gender-Based Violence",
+        "Government Benefit Voucher",
+        "General Biodiversity Vision"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "WHO/UN",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-SOC-07",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "I",
+      "type": "fact",
+      "question": "आपत्कालीन स्वास्थ्य प्रतिक्रियाको प्राथमिक उद्देश्य कुन हो?",
+      "options": [
+        "व्यापार बन्द गर्नु",
+        "कर बढाउनु",
+        "जीवन बचाउनु र आवश्यक स्वास्थ्य सेवा निरन्तर राख्नु",
+        "पर्यटन रोक्नु"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "WHO",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-SOC-08",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "I",
+      "type": "fact",
+      "question": "समुदायस्तरको रोग निगरानीको मुख्य लाभ के हो?",
+      "options": [
+        "विदेशी मुद्रा वृद्धि",
+        "निर्वाचन परिणाम बदल्नु",
+        "भन्सार घटाउनु",
+        "असामान्य स्वास्थ्य घटनाको छिटो पहिचान"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "WHO",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-SOC-09",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "I",
+      "type": "fact",
+      "question": "मानसिक स्वास्थ्य सेवाको पहुँच विस्तार गर्दा कुन समूहलाई प्राथमिकता दिनु उपयुक्त हुन्छ?",
+      "options": [
+        "जोखिममा रहेका तथा सेवा पहुँचबाट वञ्चित समुदाय",
+        "केवल उच्च आय समूह",
+        "केवल राजधानीका बासिन्दा",
+        "केवल पर्यटक"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "WHO Nepal",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-SOC-10",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "I",
+      "type": "fact",
+      "question": "समसामयिक सामाजिक तथ्यका लागि प्राथमिक स्रोत कुन हो?",
+      "options": [
+        "अपुष्ट सामाजिक सञ्जाल पोस्ट",
+        "सरकारी तथा अन्तर्राष्ट्रिय संस्थाका आधिकारिक प्रतिवेदन",
+        "अनाम ब्लग",
+        "विज्ञापन"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "WHO/UN",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-SOC-11",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "बाढीपछि पानी तथा सरसफाइ संरचना क्षतिग्रस्त हुँदा कुन जोखिम बढ्न सक्छ?",
+      "options": [
+        "संसदीय सीटको संख्या",
+        "विदेशी मुद्रा दर मात्र",
+        "पानीजन्य तथा संक्रामक रोगको जोखिम",
+        "खेलाडीको प्रदर्शन"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "WHO Nepal",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-SOC-12",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "SORMAS जस्तो डिजिटल रोग निगरानी प्रणालीको प्रशासनिक लाभ कुन हो?",
+      "options": [
+        "सबै रोग स्वतः निको पार्नु",
+        "अस्पताल बन्द गर्नु",
+        "औषधि स्वतः उत्पादन गर्नु",
+        "सूचना छिटो संकलन, विश्लेषण र समन्वय गर्न सक्नु"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "WHO Nepal",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-SOC-13",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "मानसिक स्वास्थ्यलाई प्राथमिक स्वास्थ्य सेवासँग जोड्नुको मुख्य लाभ के हो?",
+      "options": [
+        "प्रारम्भिक पहिचान र पहुँच सुधार हुनु",
+        "विशेषज्ञ सेवा हट्नु",
+        "सबै उपचार निःशुल्क स्वतः हुनु",
+        "समुदायको भूमिका समाप्त हुनु"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "WHO Nepal",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-SOC-14",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "AMR नियन्त्रणमा कुन उपाय सबैभन्दा उपयुक्त हुन्छ?",
+      "options": [
+        "जथाभावी एन्टिबायोटिक प्रयोग",
+        "उचित औषधि प्रयोग, संक्रमण रोकथाम र निगरानी",
+        "रोग परीक्षण बन्द गर्नु",
+        "सबैलाई एउटै औषधि दिनु"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "WHO",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-SOC-15",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "GBV प्रतिक्रियामा गोपनीयता किन महत्त्वपूर्ण हुन्छ?",
+      "options": [
+        "कर बढाउन",
+        "जनगणना गर्न",
+        "पीडितको सुरक्षा र सेवा लिन सक्ने वातावरणका लागि",
+        "विज्ञापन बढाउन"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "WHO/UN",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-SOC-16",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "आपत्कालीन अवस्थामा स्वास्थ्य सेवाको निरन्तरता भन्नाले के बुझिन्छ?",
+      "options": [
+        "सबै स्वास्थ्य सेवा बन्द गर्नु",
+        "केवल बैठक गर्नु",
+        "औषधि पसल हटाउनु",
+        "संकटमा पनि आवश्यक सेवा उपलब्ध भइरहनु"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "WHO",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-SOC-17",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "समुदाय र केन्द्रीय स्वास्थ्य निगरानीबीच समन्वय हुँदा के सुधारिन्छ?",
+      "options": [
+        "सूचना प्रवाह र प्रतिक्रिया गति",
+        "कर दर",
+        "संसद्को कार्यकाल",
+        "खेलकुदको अंक"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "WHO",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-SOC-18",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "मानसिक स्वास्थ्यमा समुदायको सहभागिताले कुन समस्या घटाउन मद्दत गर्छ?",
+      "options": [
+        "जलविद्युत लागत",
+        "कलंक र सेवा पहुँचसम्बन्धी अवरोध",
+        "भन्सार चोरी",
+        "निर्वाचन खर्च"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "WHO Nepal",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-SOC-19",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "बाढी प्रभावित परिवारका लागि स्वास्थ्य सेवामा प्राथमिकता निर्धारण गर्दा कुन आधार उपयुक्त हुन्छ?",
+      "options": [
+        "सामाजिक सञ्जालका लाइक",
+        "पर्यटकको संख्या",
+        "जोखिम, आवश्यकता र सेवा पहुँचको अवस्था",
+        "पोस्टरको आकार"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "WHO Nepal",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-SOC-20",
+      "unit": "1.8",
+      "category": "सामाजिक",
+      "level": "II",
+      "type": "analysis",
+      "question": "समसामयिक सामाजिक तथ्यलाई परीक्षामा प्रयोग गर्दा तथ्य-जाँच किन आवश्यक हुन्छ?",
+      "options": [
+        "प्रश्नको संख्या घटाउन",
+        "उत्तर लुकाउन",
+        "समाचार बन्द गर्न",
+        "गलत सूचना र पुरानो तथ्यबाट बच्न"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "WHO/UN",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-SPT-01",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ FIFA विश्वकपको विजेता कुन देश बन्यो?",
+      "options": [
+        "स्पेन",
+        "अर्जेन्टिना",
+        "फ्रान्स",
+        "ब्राजिल"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "FIFA",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-SPT-02",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ FIFA विश्वकपको फाइनलमा स्पेनले कुन टोलीलाई हरायो?",
+      "options": [
+        "फ्रान्स",
+        "अर्जेन्टिना",
+        "ब्राजिल",
+        "इंग्ल्यान्ड"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "FIFA",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-SPT-03",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ FIFA विश्वकपको फाइनलको अन्तिम स्कोर कति थियो?",
+      "options": [
+        "स्पेन २–१ अर्जेन्टिना",
+        "अर्जेन्टिना १–० स्पेन",
+        "स्पेन १–० अर्जेन्टिना",
+        "स्पेन ३–२ अर्जेन्टिना"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "FIFA",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-SPT-04",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ विश्वकप फाइनलमा निर्णायक गोल कसले गरे?",
+      "options": [
+        "लामिन यामाल",
+        "अल्भारो मोराटा",
+        "रोड्री",
+        "फेरान टोरेस"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "FIFA",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-SPT-05",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ FIFA विश्वकपमा कति टोली सहभागी थिए?",
+      "options": [
+        "४८",
+        "३२",
+        "४०",
+        "३६"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "FIFA",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-SPT-06",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ FIFA विश्वकपमा कुल कति खेल खेलिए?",
+      "options": [
+        "६४",
+        "१०४",
+        "८०",
+        "९६"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "FIFA",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-SPT-07",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ विश्वकपको उपस्थिति करिब कति पुगेको FIFA ले जनाएको छ?",
+      "options": [
+        "५,०००,०००",
+        "७,५००,०००",
+        "६,८१०,९६६",
+        "४,८००,०००"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "FIFA",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-SPT-08",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ मा पुरुष र महिला दुवै विश्वकपको उपाधि एकै समयमा राख्ने पहिलो राष्ट्र कुन बन्यो?",
+      "options": [
+        "अमेरिका",
+        "ब्राजिल",
+        "जर्मनी",
+        "स्पेन"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "FIFA",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-SPT-09",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ Australian Open पुरुष एकल विजेता को थिए?",
+      "options": [
+        "कार्लोस अल्काराज",
+        "ज्यानिक सिनर",
+        "नोभाक जोकोभिच",
+        "अलेक्जान्डर ज्वेरेभ"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Grand Slam records",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-SPT-10",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ Wimbledon पुरुष एकल विजेता को थिए?",
+      "options": [
+        "कार्लोस अल्काराज",
+        "ज्यानिक सिनर",
+        "अलेक्जान्डर ज्वेरेभ",
+        "दानील मेदभेदेभ"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "Wimbledon",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-SPT-11",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "II",
+      "type": "analysis",
+      "question": "४८ टोलीको विश्वकप विस्तारको मुख्य संरचनात्मक प्रभाव कुन हो?",
+      "options": [
+        "खेल संख्या घट्नु",
+        "केवल युरोपेली टोली सहभागी हुनु",
+        "प्रतियोगितामा सहभागी राष्ट्र र खेल संख्या बढ्नु",
+        "फाइनल हट्नु"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "FIFA",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-SPT-12",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "II",
+      "type": "analysis",
+      "question": "विश्वकपको ठूलो दर्शक उपस्थिति आयोजक देशका लागि कुन पक्षमा महत्त्वपूर्ण हुन्छ?",
+      "options": [
+        "केवल विद्यालय शिक्षा",
+        "कर प्रणाली समाप्त हुनु",
+        "कृषि उत्पादन घट्नु",
+        "पर्यटन, सेवा क्षेत्र र खेल अर्थतन्त्रमा प्रभाव"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "FIFA",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-SPT-13",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "II",
+      "type": "analysis",
+      "question": "स्पेनको २०२६ विश्वकप जितको समसामयिक महत्त्व कुन हो?",
+      "options": [
+        "स्पेनले आफ्नो पुरुष विश्वकप उपाधि संख्या दुई पुर्‍यायो",
+        "स्पेन पहिलोपटक विश्वकपमा आयो",
+        "स्पेनले महिला विश्वकप त्याग्यो",
+        "स्पेन FIFA बाट बाहिरियो"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "FIFA",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-SPT-14",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "II",
+      "type": "analysis",
+      "question": "अन्तर्राष्ट्रिय खेलकुदमा तथ्य-जाँच गर्दा आधिकारिक महासंघको तथ्यांक किन उपयोगी हुन्छ?",
+      "options": [
+        "अफवाह बढाउन",
+        "परिणाम, खेल संख्या र कीर्तिमानको विश्वसनीय अभिलेख भएकाले",
+        "खेलाडीको व्यक्तिगत जीवन बताउन",
+        "विज्ञापन बढाउन"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "FIFA/Grand Slam",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-SPT-15",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "II",
+      "type": "analysis",
+      "question": "ग्रान्ड स्लाम प्रतियोगिताको वर्षभरको नतिजा तुलना गर्दा कुन कुरा उपयोगी हुन्छ?",
+      "options": [
+        "केवल खेलाडीको उचाइ",
+        "केवल दर्शक संख्या",
+        "चार प्रमुख प्रतियोगिताको विजेता र सतहको सन्दर्भ",
+        "केवल प्रायोजक"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "Grand Slam records",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-SPT-16",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "II",
+      "type": "analysis",
+      "question": "खेलकुदले राष्ट्रिय कूटनीतिमा कुन सकारात्मक भूमिका खेल्न सक्छ?",
+      "options": [
+        "कूटनीतिक सम्बन्ध समाप्त गर्न",
+        "व्यापार रोक्न",
+        "संयुक्त राष्ट्र विघटन गर्न",
+        "जनस्तरको सम्पर्क र मैत्रीपूर्ण सम्बन्ध बढाउन"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Sports diplomacy",
+      "solution": "सही उत्तर: D।"
+    },
+    {
+      "id": "bo-1.8-SPT-17",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "II",
+      "type": "analysis",
+      "question": "ठूला खेल आयोजनामा दिगोपनको मुख्य प्रश्न कुन हो?",
+      "options": [
+        "पूर्वाधार, ऊर्जा, यातायात र फोहोर व्यवस्थापन",
+        "केवल टिकटको रंग",
+        "खेलाडीको राष्ट्रियता मात्र",
+        "पोस्टरको आकार"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Sports sustainability",
+      "solution": "सही उत्तर: A।"
+    },
+    {
+      "id": "bo-1.8-SPT-18",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "II",
+      "type": "analysis",
+      "question": "महिला र पुरुष दुवै विश्वकपमा सफलता पाउनुको सामाजिक अर्थ के हुन सक्छ?",
+      "options": [
+        "महिला खेल हटाउनु",
+        "महिला तथा पुरुष खेलकुदमा लगानी र सहभागिताको सम्भावना देखाउनु",
+        "खेलकुद बजेट घटाउनु",
+        "विद्यालय खेल बन्द गर्नु"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "FIFA",
+      "solution": "सही उत्तर: B।"
+    },
+    {
+      "id": "bo-1.8-SPT-19",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "II",
+      "type": "analysis",
+      "question": "विश्वकपजस्तो ठूलो प्रतियोगितामा १०४ खेल हुनुको व्यवस्थापकीय चुनौती के हो?",
+      "options": [
+        "केवल जर्सी उत्पादन",
+        "केवल उद्घाटन कार्यक्रम",
+        "तालिका, यातायात, सुरक्षा र खेलाडीको स्वास्थ्य व्यवस्थापन",
+        "केवल पुरस्कार वितरण"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "FIFA",
+      "solution": "सही उत्तर: C।"
+    },
+    {
+      "id": "bo-1.8-SPT-20",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "II",
+      "type": "analysis",
+      "question": "खेल समाचारलाई परीक्षा प्रश्नमा बदल्दा कुन कुरा प्राथमिकतामा राख्नुपर्छ?",
+      "options": [
+        "अपुष्ट सामाजिक सञ्जाल दाबी",
+        "फ्यानको अनुमान",
+        "अफवाह",
+        "आधिकारिक नतिजा, मिति, विजेता र प्रतियोगिताको संरचना"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "FIFA/Grand Slam",
+      "solution": "सही उत्तर: D।"
     }
   ],
-  "questionBankUpdatedAt": "2026-09-12T14:48:03.006265Z"
+  "questionBankUpdatedAt": "2026-09-12T15:19:00.138083Z"
 }
