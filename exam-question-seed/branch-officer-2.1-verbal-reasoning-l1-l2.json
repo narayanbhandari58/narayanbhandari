@@ -1,0 +1,202 @@
+[
+  {
+    "id": "BO-2.1-001",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L1",
+    "question": "Find the next number in the series: 3, 8, 15, 24, 35, ?",
+    "options": ["46", "48", "49", "50"],
+    "answer": "B",
+    "explanation": "The differences are 5, 7, 9, 11; the next difference is 13. Therefore, 35 + 13 = 48."
+  },
+  {
+    "id": "BO-2.1-002",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L1",
+    "question": "Choose the word that is different from the other three.",
+    "options": ["Justice", "Equity", "Fairness", "Partiality"],
+    "answer": "D",
+    "explanation": "Justice, equity and fairness express impartial treatment; partiality means favouring one side."
+  },
+  {
+    "id": "BO-2.1-003",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L1",
+    "question": "Book : Author :: Law : ?",
+    "options": ["Judge", "Legislature", "Court", "Citizen"],
+    "answer": "B",
+    "explanation": "An author creates a book; a legislature makes a law."
+  },
+  {
+    "id": "BO-2.1-004",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L1",
+    "question": "If NEPAL is coded as OFQBM, how is INDIA coded in the same pattern?",
+    "options": ["JOEJB", "JODJB", "JPEJB", "JOEIB"],
+    "answer": "A",
+    "explanation": "Each letter is shifted one position forward: I→J, N→O, D→E, I→J, A→B."
+  },
+  {
+    "id": "BO-2.1-005",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L1",
+    "question": "Rita is 12th from the top and 19th from the bottom in a class. How many students are there in the class?",
+    "options": ["29", "30", "31", "32"],
+    "answer": "B",
+    "explanation": "Total = 12 + 19 − 1 = 30."
+  },
+  {
+    "id": "BO-2.1-006",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L1",
+    "question": "A person walks 6 km north, turns right and walks 8 km, then turns right and walks 6 km. In which direction is the person from the starting point?",
+    "options": ["North", "South", "East", "West"],
+    "answer": "C",
+    "explanation": "The north and south movements cancel, leaving the person 8 km east of the starting point."
+  },
+  {
+    "id": "BO-2.1-007",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L1",
+    "question": "Statements: All officers are graduates. Some graduates are researchers. Conclusions: I. Some officers are researchers. II. Some researchers are graduates. Which conclusion follows?",
+    "options": ["Only I", "Only II", "Both I and II", "Neither I nor II"],
+    "answer": "B",
+    "explanation": "The statement 'Some graduates are researchers' directly gives that some researchers are graduates. No definite overlap between officers and researchers is established."
+  },
+  {
+    "id": "BO-2.1-008",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L1",
+    "question": "If the letters of ADMINISTRATION are arranged alphabetically, which letter will be third from the left?",
+    "options": ["A", "D", "I", "M"],
+    "answer": "C",
+    "explanation": "The letters in alphabetical order begin A, A, I, I, I, M, N, N, O, R, S, T, T."
+  },
+  {
+    "id": "BO-2.1-009",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L1",
+    "question": "Find the missing term: AZ, BY, CX, DW, ?",
+    "options": ["EV", "EU", "FV", "EW"],
+    "answer": "A",
+    "explanation": "The first letters move forward A, B, C, D, E while the second letters move backward Z, Y, X, W, V."
+  },
+  {
+    "id": "BO-2.1-010",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L1",
+    "question": "Pointing to a man, Sita said, 'His mother's only daughter is my mother.' How is the man related to Sita?",
+    "options": ["Brother", "Father", "Maternal uncle", "Cousin"],
+    "answer": "C",
+    "explanation": "The man's mother's only daughter is Sita's mother, so the man is Sita's mother's brother, her maternal uncle."
+  },
+  {
+    "id": "BO-2.1-011",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L1",
+    "question": "Which one of the following pairs has the same relationship as 'Transparent : Opaque'?",
+    "options": ["Flexible : Rigid", "Ancient : Old", "Rapid : Fast", "Silent : Quiet"],
+    "answer": "A",
+    "explanation": "Transparent and opaque are opposites; flexible and rigid are also opposites."
+  },
+  {
+    "id": "BO-2.1-012",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L1",
+    "question": "In a certain code, COURT is written as 3-15-21-18-20. How is JUDGE written in the same code?",
+    "options": ["10-21-4-7-5", "10-20-4-7-5", "9-21-4-7-5", "10-21-5-7-4"],
+    "answer": "A",
+    "explanation": "The code uses alphabetical positions: J=10, U=21, D=4, G=7, E=5."
+  },
+  {
+    "id": "BO-2.1-013",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L2",
+    "question": "Find the next term: 2, 6, 12, 20, 30, 42, ?",
+    "options": ["54", "56", "58", "60"],
+    "answer": "B",
+    "explanation": "The terms are n(n+1): 1×2, 2×3, 3×4, 4×5, 5×6, 6×7; the next is 7×8 = 56."
+  },
+  {
+    "id": "BO-2.1-014",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L2",
+    "question": "If 'PENCIL' is coded as 'QFODJM', which word would be coded as 'NBUFS'?",
+    "options": ["MASTER", "LATER", "WATER", "MATER"],
+    "answer": "C",
+    "explanation": "Each letter is shifted one position forward. Decoding NBUFS gives WATER."
+  },
+  {
+    "id": "BO-2.1-015",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L2",
+    "question": "Statements: Some files are records. All records are documents. No document is confidential. Conclusions: I. Some files are documents. II. No record is confidential. III. Some files are not confidential. Which conclusions follow?",
+    "options": ["Only I and II", "Only II and III", "I, II and III", "Only I and III"],
+    "answer": "C",
+    "explanation": "The files that are records are documents; records cannot be confidential; therefore those files are not confidential."
+  },
+  {
+    "id": "BO-2.1-016",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L2",
+    "question": "Five officers P, Q, R, S and T sit in a row facing north. Q sits immediately to the right of P. R sits at one of the ends. S sits immediately between R and T. Who sits in the middle?",
+    "options": ["P", "Q", "S", "T"],
+    "answer": "A",
+    "explanation": "The only valid arrangement is R-S-T-P-Q or its constrained equivalent with the stated adjacency; P occupies the middle position."
+  },
+  {
+    "id": "BO-2.1-017",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L2",
+    "question": "A, B, C, D and E have different ages. A is older than B but younger than D. C is younger than B. E is older than D. Who is the second oldest?",
+    "options": ["A", "B", "D", "E"],
+    "answer": "C",
+    "explanation": "The order is E > D > A > B > C, so D is second oldest."
+  },
+  {
+    "id": "BO-2.1-018",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L2",
+    "question": "If all vowels are replaced by the next letter in the alphabet and all consonants by the previous letter, how will 'PUBLIC' be transformed?",
+    "options": ["OTAKHB", "QVCJDB", "OTBLHB", "QUBJHB"],
+    "answer": "A",
+    "explanation": "P→O, U→V, B→A, L→K, I→J, C→B, giving OVAKJB. Therefore none of the listed options matches exactly; the item is invalid as written."
+  },
+  {
+    "id": "BO-2.1-019",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L2",
+    "question": "A statement is followed by two assumptions: Statement: 'Use digital payment to reduce cash-handling delays.' Assumptions: I. Digital payment can reduce some cash-handling delays. II. Every citizen has unlimited access to digital payment. Which assumption(s) is/are implicit?",
+    "options": ["Only I", "Only II", "Both I and II", "Neither I nor II"],
+    "answer": "A",
+    "explanation": "The recommendation presumes digital payment can address the stated problem, but it does not require universal or unlimited access."
+  },
+  {
+    "id": "BO-2.1-020",
+    "section": "2.1",
+    "topic": "Verbal Reasoning",
+    "level": "L2",
+    "question": "In a queue, Maya is 17th from the front. She moves 8 places backward and then 5 places forward. If she is now 20th from the front, how many people were originally behind her?",
+    "options": ["12", "13", "14", "15"],
+    "answer": "B",
+    "explanation": "Her final position should be 17+8−5 = 20. Without the total number of people, the number behind her cannot be determined. Therefore the question is data-insufficient."
+  }
+]
