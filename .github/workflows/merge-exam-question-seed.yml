@@ -30,7 +30,11 @@ jobs:
                   return json.loads(text)
               except json.JSONDecodeError:
                   repaired = re.sub(r'\\(?!["\\/bfnrtu])', r'\\\\', text)
-                  return json.loads(repaired)
+                  try:
+                      return json.loads(repaired)
+                  except json.JSONDecodeError as exc:
+                      print(f'Malformed seed: {path} at line {exc.lineno}, column {exc.colno}: {exc.msg}')
+                      raise
 
           data_path = Path('exam-data.json')
           data = json.loads(data_path.read_text(encoding='utf-8'))
