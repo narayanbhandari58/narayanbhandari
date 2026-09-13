@@ -29,9 +29,6 @@ jobs:
               try:
                   return json.loads(text)
               except json.JSONDecodeError:
-                  # A legacy non-verbal seed contains literal backslashes in figure
-                  # descriptions (for example diagonal line notation). Escape only
-                  # backslashes that are not valid JSON escape sequences.
                   repaired = re.sub(r'\\(?!["\\/bfnrtu])', r'\\\\', text)
                   return json.loads(repaired)
 
@@ -76,7 +73,6 @@ jobs:
                       questions.append(q)
                       added += 1
 
-          # 1.8 is a fully current 240-question module: 20 questions in each of 12 areas.
           q18 = [q for q in questions if q.get('unit') == '1.8']
           assert len(q18) == 240, f'1.8 expected 240 questions, got {len(q18)}'
           expected_categories = {'राजनीतिक','सामाजिक','सांस्कृतिक','आर्थिक','वैज्ञानिक','खेलकुद','पुस्तक','पुरस्कार','कला','साहित्य','संगीत','अन्य महत्त्वपूर्ण'}
