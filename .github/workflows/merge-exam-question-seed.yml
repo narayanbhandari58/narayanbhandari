@@ -21,7 +21,19 @@ jobs:
           import base64
           import gzip
           import json
+          import re
           from pathlib import Path
+
+          def load_seed(path):
+              text = path.read_text(encoding='utf-8')
+              try:
+                  return json.loads(text)
+              except json.JSONDecodeError:
+                  # A legacy non-verbal seed contains literal backslashes in figure
+                  # descriptions (for example diagonal line notation). Escape only
+                  # backslashes that are not valid JSON escape sequences.
+                  repaired = re.sub(r'\\(?!["\\/bfnrtu])', r'\\\\', text)
+                  return json.loads(repaired)
 
           data_path = Path('exam-data.json')
           data = json.loads(data_path.read_text(encoding='utf-8'))
@@ -52,9 +64,7 @@ jobs:
               exec(compile(source, str(generator), 'exec'))
 
           for path in sorted(Path('exam-question-seed').glob('*.json')):
-              if path.name == 'generated-branch-officer-1.7.json':
-                  pass
-              seed = json.loads(path.read_text(encoding='utf-8'))
+              seed = load_seed(path)
               assert isinstance(seed, list), f'{path} must contain a JSON array'
               for q in seed:
                   qid = q.get('id')
