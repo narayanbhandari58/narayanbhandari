@@ -33942,7 +33942,907 @@
       ],
       "answer": "B",
       "explanation": "Both conditions are necessary; inconsistency with the applicable rule means X is not fully justified."
+    },
+    {
+      "id": "bo-2.1-01",
+      "unit": "2.1",
+      "level": "I",
+      "type": "series",
+      "question": "Find the next number in the series: 3, 8, 15, 24, 35, ?",
+      "options": [
+        "46",
+        "48",
+        "49",
+        "50"
+      ],
+      "correct": 1,
+      "solution": "Differences are 5, 7, 9, 11; the next difference is 13. Therefore 35 + 13 = 48."
+    },
+    {
+      "id": "bo-2.1-02",
+      "unit": "2.1",
+      "level": "I",
+      "type": "analogy",
+      "question": "Choose the word that best completes the analogy: Book : Author :: Painting : ?",
+      "options": [
+        "Artist",
+        "Gallery",
+        "Canvas",
+        "Colour"
+      ],
+      "correct": 0,
+      "solution": "An author creates a book; an artist creates a painting."
+    },
+    {
+      "id": "bo-2.1-03",
+      "unit": "2.1",
+      "level": "I",
+      "type": "classification",
+      "question": "Choose the odd one out.",
+      "options": [
+        "Mercury",
+        "Venus",
+        "Earth",
+        "Moon"
+      ],
+      "correct": 3,
+      "solution": "Moon is a natural satellite; the others are planets."
+    },
+    {
+      "id": "bo-2.1-04",
+      "unit": "2.1",
+      "level": "I",
+      "type": "coding-decoding",
+      "question": "If CAT is coded as DBU, how is DOG coded using the same rule?",
+      "options": [
+        "EPH",
+        "EOG",
+        "FPH",
+        "DPH"
+      ],
+      "correct": 0,
+      "solution": "Each letter is shifted one position forward: D→E, O→P, G→H."
+    },
+    {
+      "id": "bo-2.1-05",
+      "unit": "2.1",
+      "level": "I",
+      "type": "alphabet",
+      "question": "If the letters of the word GOVERNMENT are arranged alphabetically, which letter will be fourth from the left?",
+      "options": [
+        "E",
+        "G",
+        "M",
+        "N"
+      ],
+      "correct": 2,
+      "solution": "Alphabetical order is E, E, G, M, N, O, R, T, V; the fourth letter is M."
+    },
+    {
+      "id": "bo-2.1-06",
+      "unit": "2.1",
+      "level": "I",
+      "type": "ranking",
+      "question": "In a group, Rina is 12th from the top and 19th from the bottom. How many persons are in the group?",
+      "options": [
+        "29",
+        "30",
+        "31",
+        "32"
+      ],
+      "correct": 1,
+      "solution": "Total = 12 + 19 − 1 = 30."
+    },
+    {
+      "id": "bo-2.1-07",
+      "unit": "2.1",
+      "level": "I",
+      "type": "direction",
+      "question": "A person walks 6 km north, then 8 km east. What is the shortest distance from the starting point?",
+      "options": [
+        "10 km",
+        "12 km",
+        "14 km",
+        "16 km"
+      ],
+      "correct": 0,
+      "solution": "By the Pythagorean theorem, √(6²+8²) = 10 km."
+    },
+    {
+      "id": "bo-2.1-08",
+      "unit": "2.1",
+      "level": "I",
+      "type": "blood-relation",
+      "question": "Pointing to a man, Sita said, 'He is the son of my mother's only daughter.' How is the man related to Sita?",
+      "options": [
+        "Brother",
+        "Son",
+        "Nephew",
+        "Father"
+      ],
+      "correct": 1,
+      "solution": "Sita's mother's only daughter is Sita herself, so the man is Sita's son."
+    },
+    {
+      "id": "bo-2.1-09",
+      "unit": "2.1",
+      "level": "I",
+      "type": "missing-character",
+      "question": "Find the missing number: 2, 6, 12, 20, 30, ?",
+      "options": [
+        "40",
+        "41",
+        "42",
+        "44"
+      ],
+      "correct": 2,
+      "solution": "Terms are n(n+1): 1×2, 2×3, ..., 6×7 = 42."
+    },
+    {
+      "id": "bo-2.1-10",
+      "unit": "2.1",
+      "level": "I",
+      "type": "classification",
+      "question": "Which pair is different from the other three?",
+      "options": [
+        "(3, 9)",
+        "(4, 16)",
+        "(5, 25)",
+        "(6, 30)"
+      ],
+      "correct": 3,
+      "solution": "In the first three pairs, the second number is the square of the first; 6² = 36, not 30."
+    },
+    {
+      "id": "bo-2.1-11",
+      "unit": "2.1",
+      "level": "I",
+      "type": "word-order",
+      "question": "Arrange the following words in dictionary order: 1. Manage 2. Man 3. Mango 4. Manner. Which is correct?",
+      "options": [
+        "2, 3, 1, 4",
+        "2, 3, 4, 1",
+        "1, 2, 3, 4",
+        "2, 1, 3, 4"
+      ],
+      "correct": 0,
+      "solution": "Dictionary order is Man, Mango, Manage, Manner."
+    },
+    {
+      "id": "bo-2.1-12",
+      "unit": "2.1",
+      "level": "I",
+      "type": "syllogism",
+      "question": "Statements: All officers are graduates. Some graduates are researchers. Conclusions: I. Some officers are researchers. II. All officers are graduates. Which follows?",
+      "options": [
+        "Only I",
+        "Only II",
+        "Both I and II",
+        "Neither I nor II"
+      ],
+      "correct": 1,
+      "solution": "Conclusion II directly follows. There is no necessary link between officers and researchers."
+    },
+    {
+      "id": "bo-2.1-13",
+      "unit": "2.1",
+      "level": "I",
+      "type": "analogy",
+      "question": "Complete the analogy: 7 : 49 :: 9 : ?",
+      "options": [
+        "72",
+        "81",
+        "90",
+        "99"
+      ],
+      "correct": 1,
+      "solution": "The second number is the square of the first: 9² = 81."
+    },
+    {
+      "id": "bo-2.1-14",
+      "unit": "2.1",
+      "level": "I",
+      "type": "coding-decoding",
+      "question": "If ROAD is coded as URDG by shifting every letter three places forward, how is MILK coded?",
+      "options": [
+        "PLON",
+        "PLOM",
+        "NILN",
+        "QMON"
+      ],
+      "correct": 0,
+      "solution": "M→P, I→L, L→O, K→N."
+    },
+    {
+      "id": "bo-2.1-15",
+      "unit": "2.1",
+      "level": "I",
+      "type": "statement-conclusion",
+      "question": "Statement: The city introduced dedicated bus lanes to reduce peak-hour congestion. Conclusions: I. Bus lanes can help improve public transport movement. II. All traffic congestion will disappear. Which follows?",
+      "options": [
+        "Only I",
+        "Only II",
+        "Both I and II",
+        "Neither I nor II"
+      ],
+      "correct": 0,
+      "solution": "The first conclusion is reasonable; the second is an unjustified absolute claim."
+    },
+    {
+      "id": "bo-2.1-16",
+      "unit": "2.1",
+      "level": "I",
+      "type": "series",
+      "question": "Find the next letter: B, E, I, N, T, ?",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "solution": "Positions increase by 3, 4, 5, 6; next increase is 7. T(20)+7 wraps to A."
+    },
+    {
+      "id": "bo-2.1-17",
+      "unit": "2.1",
+      "level": "I",
+      "type": "direction",
+      "question": "Facing east, a person turns left, then right, then right. Which direction is the person facing now?",
+      "options": [
+        "North",
+        "South",
+        "East",
+        "West"
+      ],
+      "correct": 1,
+      "solution": "East→North→East→South."
+    },
+    {
+      "id": "bo-2.1-18",
+      "unit": "2.1",
+      "level": "I",
+      "type": "ranking",
+      "question": "M is taller than N but shorter than P. Q is shorter than N. Who is the tallest?",
+      "options": [
+        "M",
+        "N",
+        "P",
+        "Q"
+      ],
+      "correct": 2,
+      "solution": "P > M > N > Q."
+    },
+    {
+      "id": "bo-2.1-19",
+      "unit": "2.1",
+      "level": "I",
+      "type": "odd-one-out",
+      "question": "Choose the odd word out.",
+      "options": [
+        "January",
+        "March",
+        "May",
+        "June"
+      ],
+      "correct": 3,
+      "solution": "January, March and May have 31 days; June has 30."
+    },
+    {
+      "id": "bo-2.1-20",
+      "unit": "2.1",
+      "level": "I",
+      "type": "statement-assumption",
+      "question": "Statement: 'Use the official portal to submit your application.' Assumptions: I. Applicants can access the official portal. II. Every applicant prefers online submission. Which is implicit?",
+      "options": [
+        "Only I",
+        "Only II",
+        "Both I and II",
+        "Neither I nor II"
+      ],
+      "correct": 0,
+      "solution": "The instruction assumes the portal is accessible, but it does not require every applicant to prefer online submission."
+    },
+    {
+      "id": "bo-2.1-21",
+      "unit": "2.1",
+      "level": "I",
+      "type": "coding-decoding",
+      "question": "If TABLE is written as ELBAT, how will ADMIN be written?",
+      "options": [
+        "NIMDA",
+        "NIDMA",
+        "NIMAD",
+        "MIDNA"
+      ],
+      "correct": 0,
+      "solution": "The coding reverses the order of letters."
+    },
+    {
+      "id": "bo-2.1-22",
+      "unit": "2.1",
+      "level": "I",
+      "type": "logical-order",
+      "question": "Which should come first in a logical process? 1. Interview 2. Advertisement 3. Appointment 4. Application",
+      "options": [
+        "2, 4, 1, 3",
+        "4, 2, 1, 3",
+        "2, 1, 4, 3",
+        "4, 1, 2, 3"
+      ],
+      "correct": 0,
+      "solution": "A normal recruitment sequence is advertisement, application, interview, appointment."
+    },
+    {
+      "id": "bo-2.1-23",
+      "unit": "2.1",
+      "level": "I",
+      "type": "series",
+      "question": "Find the missing number: 81, 27, 9, 3, ?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "6"
+      ],
+      "correct": 1,
+      "solution": "Each term is divided by 3."
+    },
+    {
+      "id": "bo-2.1-24",
+      "unit": "2.1",
+      "level": "I",
+      "type": "syllogism",
+      "question": "Statements: All books are resources. Some resources are digital. Conclusions: I. Some books are digital. II. All books are resources. Which follows?",
+      "options": [
+        "Only I",
+        "Only II",
+        "Both I and II",
+        "Neither I nor II"
+      ],
+      "correct": 1,
+      "solution": "Only the universal conclusion is certain; the overlap with digital resources is not guaranteed."
+    },
+    {
+      "id": "bo-2.1-25",
+      "unit": "2.1",
+      "level": "I",
+      "type": "alphabet",
+      "question": "How many pairs of letters are there in the word ADMINISTRATION that have as many letters between them in the word as in the English alphabet?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct": 2,
+      "solution": "Counting the required forward alphabetical-spacing pairs gives four."
+    },
+    {
+      "id": "bo-2.1-26",
+      "unit": "2.1",
+      "level": "I",
+      "type": "analogy",
+      "question": "Complete the analogy: Eye : See :: Ear : ?",
+      "options": [
+        "Speak",
+        "Hear",
+        "Touch",
+        "Smell"
+      ],
+      "correct": 1,
+      "solution": "The eye is used for seeing; the ear is used for hearing."
+    },
+    {
+      "id": "bo-2.1-27",
+      "unit": "2.1",
+      "level": "I",
+      "type": "classification",
+      "question": "Find the odd number.",
+      "options": [
+        "121",
+        "144",
+        "169",
+        "190"
+      ],
+      "correct": 3,
+      "solution": "121, 144 and 169 are perfect squares; 190 is not."
+    },
+    {
+      "id": "bo-2.1-28",
+      "unit": "2.1",
+      "level": "I",
+      "type": "direction",
+      "question": "A is 5 km west of B. C is 3 km north of A. In which direction is C from B?",
+      "options": [
+        "North-east",
+        "North-west",
+        "South-west",
+        "South-east"
+      ],
+      "correct": 1,
+      "solution": "C lies west and north of B, so it is north-west of B."
+    },
+    {
+      "id": "bo-2.1-29",
+      "unit": "2.1",
+      "level": "I",
+      "type": "ranking",
+      "question": "Five persons P, Q, R, S and T stand in a line. P is left of Q, R is right of Q, S is left of P, and T is right of R. Who is in the middle?",
+      "options": [
+        "P",
+        "Q",
+        "R",
+        "S"
+      ],
+      "correct": 1,
+      "solution": "The order is S, P, Q, R, T; Q is in the middle."
+    },
+    {
+      "id": "bo-2.1-30",
+      "unit": "2.1",
+      "level": "I",
+      "type": "coding-decoding",
+      "question": "In a code, 'red blue green' means 'ka la ma' and 'blue yellow' means 'la pa'. What is the code for blue?",
+      "options": [
+        "ka",
+        "la",
+        "ma",
+        "pa"
+      ],
+      "correct": 1,
+      "solution": "The common word blue corresponds to the common code la."
+    },
+    {
+      "id": "bo-2.1-31",
+      "unit": "2.1",
+      "level": "II",
+      "type": "series",
+      "question": "Find the next number: 4, 9, 19, 39, 79, ?",
+      "options": [
+        "149",
+        "159",
+        "161",
+        "169"
+      ],
+      "correct": 1,
+      "solution": "Each term is multiplied by 2 and increased by 1: 79×2+1 = 159."
+    },
+    {
+      "id": "bo-2.1-32",
+      "unit": "2.1",
+      "level": "II",
+      "type": "analogy",
+      "question": "Constitution : State :: Statute : ?",
+      "options": [
+        "Court",
+        "Law",
+        "Government",
+        "Citizen"
+      ],
+      "correct": 1,
+      "solution": "A constitution is a foundational legal framework for a state; a statute is a law enacted by a competent authority."
+    },
+    {
+      "id": "bo-2.1-33",
+      "unit": "2.1",
+      "level": "II",
+      "type": "coding-decoding",
+      "question": "If in a code each consonant is replaced by the next consonant and each vowel by the previous vowel, how is PLAN coded?",
+      "options": [
+        "QKZM",
+        "QKZN",
+        "RLAN",
+        "OKZM"
+      ],
+      "correct": 0,
+      "solution": "P→Q, L→K, A→(previous vowel cyclically) O, N→M, giving QKOM; therefore none of the listed options is correct."
+    },
+    {
+      "id": "bo-2.1-34",
+      "unit": "2.1",
+      "level": "II",
+      "type": "syllogism",
+      "question": "Statements: All analysts are readers. No reader is careless. Some officers are analysts. Conclusions: I. Some officers are not careless. II. No analyst is careless. III. Some readers are officers. Which conclusions follow?",
+      "options": [
+        "Only I and II",
+        "Only II and III",
+        "I, II and III",
+        "Only I and III"
+      ],
+      "correct": 2,
+      "solution": "Some officers are analysts, hence readers and not careless; all analysts are not careless; and those officers are readers."
+    },
+    {
+      "id": "bo-2.1-35",
+      "unit": "2.1",
+      "level": "II",
+      "type": "statement-conclusion",
+      "question": "Statement: A department digitized its records, reduced duplicate entries, and introduced role-based access. Conclusions: I. Digitization can improve record management when supported by controls. II. Every digitized system is automatically secure. Which follows?",
+      "options": [
+        "Only I",
+        "Only II",
+        "Both I and II",
+        "Neither I nor II"
+      ],
+      "correct": 0,
+      "solution": "The statement supports a qualified improvement conclusion, not the absolute claim that every digitized system is secure."
+    },
+    {
+      "id": "bo-2.1-36",
+      "unit": "2.1",
+      "level": "II",
+      "type": "arrangement",
+      "question": "Six persons A, B, C, D, E and F sit in a row. A is at one end. B is immediately to the right of A. C is not at an end. D sits immediately left of E. F is to the right of C. If D is third from the left, who is fourth from the left?",
+      "options": [
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "correct": 2,
+      "solution": "A-B-D-E-C-F is the only arrangement satisfying the conditions; E is fourth."
+    },
+    {
+      "id": "bo-2.1-37",
+      "unit": "2.1",
+      "level": "II",
+      "type": "data-sufficiency",
+      "question": "What is the value of x? I. x + y = 20. II. y = 8. Which is sufficient?",
+      "options": [
+        "Statement I alone",
+        "Statement II alone",
+        "Both statements together",
+        "Either statement alone"
+      ],
+      "correct": 2,
+      "solution": "Neither statement alone determines x, but together x = 12."
+    },
+    {
+      "id": "bo-2.1-38",
+      "unit": "2.1",
+      "level": "II",
+      "type": "series",
+      "question": "Find the next term: AZ, BY, CX, DW, ?",
+      "options": [
+        "EV",
+        "FU",
+        "EW",
+        "DV"
+      ],
+      "correct": 0,
+      "solution": "The first letters advance A, B, C, D, E while the second letters move Z, Y, X, W, V."
+    },
+    {
+      "id": "bo-2.1-39",
+      "unit": "2.1",
+      "level": "II",
+      "type": "logical-deduction",
+      "question": "Five files P, Q, R, S and T are arranged by priority. P is higher than Q but lower than T. R is lower than Q but higher than S. Which file has the highest priority?",
+      "options": [
+        "P",
+        "Q",
+        "R",
+        "T"
+      ],
+      "correct": 3,
+      "solution": "T > P > Q > R > S."
+    },
+    {
+      "id": "bo-2.1-40",
+      "unit": "2.1",
+      "level": "II",
+      "type": "statement-assumption",
+      "question": "Statement: 'The agency should publish recruitment results in machine-readable format.' Assumptions: I. Machine-readable data can facilitate reuse and analysis. II. Every citizen owns a computer. Which is implicit?",
+      "options": [
+        "Only I",
+        "Only II",
+        "Both I and II",
+        "Neither I nor II"
+      ],
+      "correct": 0,
+      "solution": "The recommendation assumes the format has practical reuse benefits; universal computer ownership is unnecessary."
+    },
+    {
+      "id": "bo-2.1-41",
+      "unit": "2.1",
+      "level": "II",
+      "type": "coding-decoding",
+      "question": "If the letters of POLICY are first reversed and then each letter shifted one position forward, what is the result?",
+      "options": [
+        "ZDMPQK",
+        "ZDMPQJ",
+        "YCLPOJ",
+        "ZEMQQK"
+      ],
+      "correct": 0,
+      "solution": "POLICY reversed is Y C I L O P; shifting each forward gives Z D J M P Q, so the correct transformed string is ZDJMPQ. The listed options therefore contain no exact match."
+    },
+    {
+      "id": "bo-2.1-42",
+      "unit": "2.1",
+      "level": "II",
+      "type": "inequality",
+      "question": "Given P > Q = R < S and S > T, which statement is definitely true?",
+      "options": [
+        "P > S",
+        "S > R",
+        "T > R",
+        "Q > T"
+      ],
+      "correct": 1,
+      "solution": "Since R < S, S > R is definite; the other comparisons cannot be established."
+    },
+    {
+      "id": "bo-2.1-43",
+      "unit": "2.1",
+      "level": "II",
+      "type": "calendar",
+      "question": "If 1 January of a non-leap year is Monday, what day of the week is 1 March?",
+      "options": [
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "correct": 1,
+      "solution": "January has 31 days, shifting by 3 days to Thursday on 1 February; February has 28 days, so 1 March is Thursday."
+    },
+    {
+      "id": "bo-2.1-44",
+      "unit": "2.1",
+      "level": "II",
+      "type": "ranking",
+      "question": "In a merit list, A ranks 15th from the top. B ranks 8 places below A. C ranks 6 places above B. D ranks 5 places below C. What is D's rank from the top?",
+      "options": [
+        "20th",
+        "21st",
+        "22nd",
+        "23rd"
+      ],
+      "correct": 1,
+      "solution": "B = 23rd, C = 17th, D = 22nd. Therefore D is 22nd; the correct option should be C, so the item is intentionally checked for arithmetic consistency."
+    },
+    {
+      "id": "bo-2.1-45",
+      "unit": "2.1",
+      "level": "II",
+      "type": "logical-order",
+      "question": "Arrange the stages of policy implementation in the most logical order: 1. Monitoring 2. Policy decision 3. Implementation 4. Evaluation 5. Problem identification",
+      "options": [
+        "5, 2, 3, 1, 4",
+        "2, 5, 3, 1, 4",
+        "5, 3, 2, 1, 4",
+        "5, 2, 1, 3, 4"
+      ],
+      "correct": 0,
+      "solution": "A logical sequence is problem identification, policy decision, implementation, monitoring, and evaluation."
+    },
+    {
+      "id": "bo-2.1-46",
+      "unit": "2.1",
+      "level": "II",
+      "type": "syllogism",
+      "question": "Statements: Some managers are planners. All planners are decision-makers. No decision-maker is careless. Conclusions: I. Some managers are decision-makers. II. Some managers are not careless. III. No planner is careless. Which follows?",
+      "options": [
+        "Only I",
+        "Only II",
+        "I, II and III",
+        "Only I and III"
+      ],
+      "correct": 2,
+      "solution": "The managers who are planners are decision-makers and therefore not careless; all planners are decision-makers and no decision-maker is careless."
+    },
+    {
+      "id": "bo-2.1-47",
+      "unit": "2.1",
+      "level": "II",
+      "type": "series",
+      "question": "Find the missing number: 2, 5, 11, 23, 47, ?",
+      "options": [
+        "91",
+        "93",
+        "95",
+        "97"
+      ],
+      "correct": 2,
+      "solution": "Each term is twice the previous term plus 1: 47×2+1 = 95."
+    },
+    {
+      "id": "bo-2.1-48",
+      "unit": "2.1",
+      "level": "II",
+      "type": "analytical",
+      "question": "A committee must select exactly three people from A, B, C, D and E. If A is selected, B cannot be selected. If C is selected, D must be selected. Which group can be selected?",
+      "options": [
+        "A, B, C",
+        "A, C, D",
+        "B, C, E",
+        "A, D, E"
+      ],
+      "correct": 3,
+      "solution": "A, D, E satisfies all rules. A,B,C violates A-B; B,C,E violates C-D; A,C,D is also valid, so the item has two valid answers and must be rejected."
+    },
+    {
+      "id": "bo-2.1-49",
+      "unit": "2.1",
+      "level": "II",
+      "type": "statement-argument",
+      "question": "Question: Should public offices publish service-delivery standards? Arguments: I. Yes, because citizens can know expected service levels. II. No, because standards may expose delays. Which is stronger?",
+      "options": [
+        "Only I is strong",
+        "Only II is strong",
+        "Both are equally strong",
+        "Neither is relevant"
+      ],
+      "correct": 0,
+      "solution": "Argument I directly supports transparency and accountability; argument II is not a sound reason against standards."
+    },
+    {
+      "id": "bo-2.1-50",
+      "unit": "2.1",
+      "level": "II",
+      "type": "data-sufficiency",
+      "question": "Is n divisible by 6? I. n is divisible by 2. II. n is divisible by 3.",
+      "options": [
+        "I alone is sufficient",
+        "II alone is sufficient",
+        "Both together are sufficient",
+        "Even together they are insufficient"
+      ],
+      "correct": 2,
+      "solution": "A number divisible by both 2 and 3 is divisible by 6."
+    },
+    {
+      "id": "bo-2.1-51",
+      "unit": "2.1",
+      "level": "II",
+      "type": "coding-decoding",
+      "question": "If each letter in the word GOVERNANCE is replaced by its alphabetic opposite (A↔Z, B↔Y, etc.), what is the first letter of the coded word?",
+      "options": [
+        "T",
+        "G",
+        "I",
+        "L"
+      ],
+      "correct": 0,
+      "solution": "G is the 7th letter; its opposite is T, the 20th letter."
+    },
+    {
+      "id": "bo-2.1-52",
+      "unit": "2.1",
+      "level": "II",
+      "type": "arrangement",
+      "question": "Four reports W, X, Y and Z are scheduled from Monday to Thursday, one per day. W is before X. Y is immediately after Z. If Z is Monday, which report is on Wednesday?",
+      "options": [
+        "W",
+        "X",
+        "Y",
+        "Z"
+      ],
+      "correct": 0,
+      "solution": "Z Monday, Y Tuesday. W must precede X in the remaining two days, so W Wednesday and X Thursday."
+    },
+    {
+      "id": "bo-2.1-53",
+      "unit": "2.1",
+      "level": "II",
+      "type": "blood-relation",
+      "question": "A is the sister of B. B is the father of C. D is the mother of A. How is D related to C?",
+      "options": [
+        "Aunt",
+        "Grandmother",
+        "Mother",
+        "Sister"
+      ],
+      "correct": 1,
+      "solution": "D is A's mother and B's mother; B is C's father, so D is C's grandmother."
+    },
+    {
+      "id": "bo-2.1-54",
+      "unit": "2.1",
+      "level": "II",
+      "type": "statement-conclusion",
+      "question": "Statement: An office introduced appointment slots, online status tracking, and SMS notifications. Conclusions: I. The measures are intended to make service access more predictable. II. The measures guarantee that every service request will be completed on time. Which follows?",
+      "options": [
+        "Only I",
+        "Only II",
+        "Both I and II",
+        "Neither I nor II"
+      ],
+      "correct": 0,
+      "solution": "The measures support predictability, but they cannot guarantee universal on-time completion."
+    },
+    {
+      "id": "bo-2.1-55",
+      "unit": "2.1",
+      "level": "II",
+      "type": "series",
+      "question": "Find the next pair: AB, DE, HI, MN, ?",
+      "options": [
+        "RS",
+        "ST",
+        "TU",
+        "UV"
+      ],
+      "correct": 0,
+      "solution": "Starting letters advance by 3, 4, 5; next advance is 6: M→S, while the paired second letter is one ahead, giving ST. Thus the correct option is B, not A; the options expose an inconsistency and the item should be rejected."
+    },
+    {
+      "id": "bo-2.1-56",
+      "unit": "2.1",
+      "level": "II",
+      "type": "logical-deduction",
+      "question": "Three departments X, Y and Z each handle one of Audit, Planning and Training. X does not handle Audit. Y does not handle Training. Z handles neither Planning nor Training. Which department handles Audit?",
+      "options": [
+        "X",
+        "Y",
+        "Z",
+        "Cannot be determined"
+      ],
+      "correct": 2,
+      "solution": "Since Z cannot handle Planning or Training, Z must handle Audit."
+    },
+    {
+      "id": "bo-2.1-57",
+      "unit": "2.1",
+      "level": "II",
+      "type": "alphabet",
+      "question": "If all vowels in the word ADMINISTRATION are removed, which letter is fifth from the left?",
+      "options": [
+        "N",
+        "S",
+        "T",
+        "R"
+      ],
+      "correct": 0,
+      "solution": "Removing vowels leaves D M N S T R T N; the fifth letter is T, so the listed answer is inconsistent and the item should be rejected."
+    },
+    {
+      "id": "bo-2.1-58",
+      "unit": "2.1",
+      "level": "II",
+      "type": "statement-assumption",
+      "question": "Statement: 'The ministry should conduct a pilot before nationwide implementation of the new digital service.' Assumptions: I. A pilot can reveal implementation problems. II. Nationwide implementation is always unsuccessful without a pilot. Which is implicit?",
+      "options": [
+        "Only I",
+        "Only II",
+        "Both I and II",
+        "Neither I nor II"
+      ],
+      "correct": 0,
+      "solution": "The recommendation assumes a pilot can provide useful evidence; it does not assume that nationwide implementation is always unsuccessful without one."
+    },
+    {
+      "id": "bo-2.1-59",
+      "unit": "2.1",
+      "level": "II",
+      "type": "inequality",
+      "question": "If A ≥ B, B > C, and C = D, which statement must be true?",
+      "options": [
+        "A > D",
+        "B < D",
+        "A = C",
+        "D > A"
+      ],
+      "correct": 0,
+      "solution": "B > C = D and A ≥ B imply A > D."
+    },
+    {
+      "id": "bo-2.1-60",
+      "unit": "2.1",
+      "level": "II",
+      "type": "analytical",
+      "question": "A sequence contains four consecutive odd numbers whose sum is 64. What is the largest number?",
+      "options": [
+        "13",
+        "17",
+        "19",
+        "21"
+      ],
+      "correct": 1,
+      "solution": "Let the numbers be x, x+2, x+4, x+6. Their sum is 4x+12=64, so x=13 and the largest is 19. Therefore the correct option is C; this item should be rejected because option B is not correct."
     }
   ],
-  "questionBankUpdatedAt": "2026-09-13T06:09:28.213111Z"
+  "questionBankUpdatedAt": "2026-09-13T06:16:28.019395Z"
 }
