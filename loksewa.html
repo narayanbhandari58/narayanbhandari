@@ -21,6 +21,6 @@
 const candidateName=document.getElementById('candidateName'),candidateEmail=document.getElementById('candidateEmail'),startBtn=document.getElementById('startBtn');
 function clearCandidateInvalid(){[candidateName,candidateEmail].forEach(x=>x&&x.classList.remove('candidate-field-invalid'))}
 [candidateName,candidateEmail].forEach(x=>x&&x.addEventListener('input',()=>x.classList.remove('candidate-field-invalid')));
-if(startBtn){startBtn.addEventListener('click',function(e){const nameOk=!!candidateName?.value.trim();const emailValue=candidateEmail?.value.trim()||'';const emailOk/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue);if(nameOk&&emailOk){clearCandidateInvalid();return}e.preventDefault();e.stopImmediatePropagation();if(!nameOk)candidateName?.classList.add('candidate-field-invalid');if(!emailOk)candidateEmail?.classList.add('candidate-field-invalid');(nameOk?candidateEmail:candidateName)?.focus()},true)}
+if(startBtn){startBtn.addEventListener('click',function(e){const nameOk=!!candidateName?.value.trim();const emailValue=candidateEmail?.value.trim()||'';const emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue);if(nameOk&&emailOk){clearCandidateInvalid();return}e.preventDefault();e.stopImmediatePropagation();if(!nameOk)candidateName?.classList.add('candidate-field-invalid');if(!emailOk)candidateEmail?.classList.add('candidate-field-invalid');(nameOk?candidateEmail:candidateName)?.focus()},true)}
 </script>
 </body></html>
