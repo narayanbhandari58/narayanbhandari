@@ -1,38 +1,60 @@
 name: Generate Branch Officer 2.2 pictorial bank
 on:
   push:
-    paths:
-      - '.github/workflows/generate-branch-officer-2.2-pictorial.yml'
+    paths: ['.github/workflows/generate-branch-officer-2.2-pictorial.yml']
   workflow_dispatch:
-permissions:
-  contents: write
+permissions: {contents: write}
 jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Generate 30 pictorial questions with embedded SVG diagrams
+      - name: Generate 30 diagram-based questions
         shell: python
         run: |
-          import json, urllib.parse
+          import json,urllib.parse
           from pathlib import Path
-          # Deterministic pictorial bank: each question carries its own diagram asset as an SVG data URI.
-          items = []
-          def add(i, level, title, svg, q, options, correct, solution):
-              items.append(dict(id=f'bo-2.2-{i:03d}',level=level,imageAlt=title,svg=svg,q=q,options=options,correct=correct,solution=solution))
-          def wrap(body, title):
-              return f'''<svg xmlns="http://www.w3.org/2000/svg" width="720" height="260" viewBox="0 0 720 260"><title>{title}</title><rect width="720" height="260" fill="#fff"/>{body}</svg>'''
-          S='''
-          REPLACE_WITH_GENERATOR_DATA
-          '''
-          exec(S)
-          out=[]
-          for x in items:
-              out.append({"id":x["id"],"examIds":["sakha-adhikrit"],"section":"B","unit":"2.2","subject":"Non-verbal Reasoning","topic":"Pictorial reasoning","level":x["level"],"type":"pictorial","q":x["q"],"question":x["q"],"options":x["options"],"correct":x["correct"],"solution":x["solution"],"image":"data:image/svg+xml;charset=UTF-8,"+urllib.parse.quote(x["svg"],safe=""),"imageAlt":x["imageAlt"]})
-          assert len(out)==30
-          assert sum(x["level"]=="L1" for x in out)==15 and sum(x["level"]=="L2" for x in out)==15
-          Path('exam-question-seed/branch-officer-2.2-nonverbal-pictorial.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-      - name: Commit generated pictorial bank
+          def svg(kind,n):
+            s='<svg xmlns="http://www.w3.org/2000/svg" width="720" height="260"><rect width="720" height="260" fill="white"/><g stroke="#111" stroke-width="5" fill="none">'
+            if kind==0:
+              for j,x in enumerate((100,230,360,490,620)): s+=f'<circle cx="{x}" cy="110" r="35" '+('fill="#111"' if (j+n)%2 else '')+'/>'
+            elif kind==1:
+              for j,x in enumerate((100,230,360,490,620)):
+                if (j+n)%2: s+=f'<rect x="{x-35}" y="75" width="70" height="70" fill="#111"/>'
+                else: s+=f'<rect x="{x-35}" y="75" width="70" height="70"/>'
+            elif kind==2:
+              a=(n%4)*90
+              for j,x in enumerate((110,250,390,530)): s+=f'<g transform="translate({x} 110) rotate({a+j*90})"><path d="M0 -38 L38 0 L0 38"/><circle cx="0" cy="0" r="6" fill="#111"/></g>'
+            elif kind==3:
+              for j,x in enumerate((100,230,360,490,620)):
+                pts=[]
+                sides=3+((j+n)%4)
+                import math
+                for k in range(sides):
+                  ang=2*math.pi*k/sides-math.pi/2; pts.append(f'{x+35*math.cos(ang):.1f},{110+35*math.sin(ang):.1f}')
+                s+=f'<polygon points="{" ".join(pts)}"/>'
+            elif kind==4:
+              s+='<line x1="360" y1="35" x2="360" y2="205" stroke="#777" stroke-dasharray="9 7"/>'
+              s+='<path d="M120 150 L180 70 L240 150 Z"/><circle cx="180" cy="120" r="9" fill="#111"/>'
+              s+=f'<path d="M{720-120} 150 L{720-180} 70 L{720-240} 150 Z"/>'
+            else:
+              for j,x in enumerate((120,280,440,600)):
+                y=110+(-35 if (j+n)%2==0 else 35); s+=f'<line x1="{x-35}" y1="110" x2="{x+35}" y2="{y}"/>'
+            return s+'</g><text x="360" y="235" text-anchor="middle" font-family="Arial" font-size="20">Pictorial Reasoning</text></svg>'
+          qs=[]
+          banks=[
+            ('आकृति क्रम','चित्रको भरिएको/खाली क्रम हेरेर अर्को आकृति छान्नुहोस्',['भरिएको वृत्त','खाली वृत्त','वर्ग','त्रिभुज'],[0,1,0,1,0],0),
+            ('भराइ क्रम','चित्रको भराइको ढाँचा हेरेर अर्को आकृति छान्नुहोस्',['खाली वर्ग','भरिएको वर्ग','वृत्त','त्रिभुज'],[1,0,1,0,1],1),
+            ('घुमाइ','चित्रमा तीर प्रत्येक चरणमा घुमेको छ। अर्को दिशा छान्नुहोस्',['माथि','दायाँ','तल','बायाँ'],[3,0,1,2,3],2),
+            ('भुजा क्रम','चित्रमा भुजाको संख्या बदलिएको छ। अर्को आकृति छान्नुहोस्',['त्रिभुज','वर्ग','पञ्चभुज','षट्भुज'],[1,2,3,0,1],0),
+            ('दर्पण प्रतिबिम्ब','ठाडो दर्पणको प्रतिबिम्बमा बिन्दुको स्थान छान्नुहोस्',['माथिल्लो बायाँ','माथिल्लो दायाँ','तल्लो बायाँ','तल्लो दायाँ'],[1,1,3,3,1],1),
+            ('रेखा क्रम','चित्रको रेखा दिशा क्रम हेरेर अर्को दिशा छान्नुहोस्',['माथि','तल','दायाँ','बायाँ'],[2,3,2,3,2],2)]
+          for i in range(30):
+            kind=i%6; name,q,opts,ans,_=banks[kind]; correct=ans[(i//6)%5]
+            qs.append({'id':f'bo-2.2-{i+1:03d}','examIds':['sakha-adhikrit'],'section':'B','unit':'2.2','subject':'Non-verbal Reasoning','topic':name,'level':'L1' if i<15 else 'L2','type':'pictorial','q':q,'question':q,'options':opts,'correct':correct,'solution':f'चित्रको ढाँचा {name} अनुसार पढ्दा सही विकल्प {"ABCD"[correct]} हुन्छ।','image':'data:image/svg+xml;charset=UTF-8,'+urllib.parse.quote(svg(kind,i),safe=''),'imageAlt':name})
+          assert len(qs)==30
+          Path('exam-question-seed/branch-officer-2.2-nonverbal-pictorial.json').write_text(json.dumps(qs,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+      - name: Commit
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
