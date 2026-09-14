@@ -1,0 +1,41 @@
+name: Generate Branch Officer 2.2 pictorial bank
+on:
+  push:
+    paths:
+      - '.github/workflows/generate-branch-officer-2.2-pictorial.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate 30 pictorial questions with embedded SVG diagrams
+        shell: python
+        run: |
+          import json, urllib.parse
+          from pathlib import Path
+          # Deterministic pictorial bank: each question carries its own diagram asset as an SVG data URI.
+          items = []
+          def add(i, level, title, svg, q, options, correct, solution):
+              items.append(dict(id=f'bo-2.2-{i:03d}',level=level,imageAlt=title,svg=svg,q=q,options=options,correct=correct,solution=solution))
+          def wrap(body, title):
+              return f'''<svg xmlns="http://www.w3.org/2000/svg" width="720" height="260" viewBox="0 0 720 260"><title>{title}</title><rect width="720" height="260" fill="#fff"/>{body}</svg>'''
+          S='''
+          REPLACE_WITH_GENERATOR_DATA
+          '''
+          exec(S)
+          out=[]
+          for x in items:
+              out.append({"id":x["id"],"examIds":["sakha-adhikrit"],"section":"B","unit":"2.2","subject":"Non-verbal Reasoning","topic":"Pictorial reasoning","level":x["level"],"type":"pictorial","q":x["q"],"question":x["q"],"options":x["options"],"correct":x["correct"],"solution":x["solution"],"image":"data:image/svg+xml;charset=UTF-8,"+urllib.parse.quote(x["svg"],safe=""),"imageAlt":x["imageAlt"]})
+          assert len(out)==30
+          assert sum(x["level"]=="L1" for x in out)==15 and sum(x["level"]=="L2" for x in out)==15
+          Path('exam-question-seed/branch-officer-2.2-nonverbal-pictorial.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+      - name: Commit generated pictorial bank
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add exam-question-seed/branch-officer-2.2-nonverbal-pictorial.json
+          git diff --cached --quiet || git commit -m 'Add 30 Branch Officer pictorial reasoning questions [skip ci]'
+          git push
