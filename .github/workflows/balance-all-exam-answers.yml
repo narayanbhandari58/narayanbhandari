@@ -1,0 +1,52 @@
+name: Balance all exam answer positions
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  balance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Balance correct-answer positions across the full bank
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          p=Path('exam-data.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          qs=d.get('questions', [])
+          assert len(qs)==2138, f'Expected 2138 questions, got {len(qs)}'
+          for i,q in enumerate(qs):
+              opts=q.get('options') or []
+              correct=q.get('correct')
+              assert len(opts)==4 and isinstance(correct,int) and 0<=correct<4, f'Invalid question {q.get("id")}'
+              target=i%4
+              if correct != target:
+                  answer=opts[correct]
+                  distractors=[o for j,o in enumerate(opts) if j!=correct]
+                  distractors.insert(target,answer)
+                  q['options']=distractors
+                  q['correct']=target
+          counts=[sum(q.get('correct')==i for q in qs) for i in range(4)]
+          assert counts==[535,535,534,534], f'Unexpected balance: {counts}'
+          max_streak=1; streak=1
+          for a,b in zip(qs,qs[1:]):
+              if a['correct']==b['correct']:
+                  streak+=1; max_streak=max(max_streak,streak)
+              else:
+                  streak=1
+          assert max_streak==1, f'Consecutive-answer streak found: {max_streak}'
+          d['questionBankUpdatedAt']=__import__('datetime').datetime.utcnow().isoformat()+'Z'
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(f'Balanced {len(qs)} questions: A={counts[0]}, B={counts[1]}, C={counts[2]}, D={counts[3]}; max consecutive streak={max_streak}')
+      - name: Commit balanced question bank
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add exam-data.json
+          git diff --cached --quiet || git commit -m 'Balance answer positions across full exam bank'
+          git push
