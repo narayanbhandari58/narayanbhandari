@@ -39752,7 +39752,1127 @@
       ],
       "correct": 0,
       "solution": "The passage centres on limited resources, priorities and opportunity cost."
+    },
+    {
+      "id": "bo-3.2-001",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "meaning",
+      "question": "In the sentence, “The minister’s remarks were deliberately measured,” what does “measured” mean?",
+      "options": [
+        "carefully controlled",
+        "measured by a device",
+        "delivered very quickly",
+        "emotionally exaggerated"
+      ],
+      "correct": 0,
+      "solution": "The context indicates that “carefully controlled” is the intended meaning."
+    },
+    {
+      "id": "bo-3.2-002",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "meaning",
+      "question": "In “The new evidence casts doubt on the claim,” what does “casts doubt on” mean?",
+      "options": [
+        "makes the claim less certain",
+        "proves the claim correct",
+        "removes the claim entirely",
+        "makes the claim official"
+      ],
+      "correct": 0,
+      "solution": "The context indicates that “makes the claim less certain” is the intended meaning."
+    },
+    {
+      "id": "bo-3.2-003",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "meaning",
+      "question": "In “The proposal gained traction after the consultation,” what does “gained traction” mean?",
+      "options": [
+        "began to receive increasing support",
+        "was legally rejected",
+        "became impossible to discuss",
+        "lost all public attention"
+      ],
+      "correct": 0,
+      "solution": "The context indicates that “began to receive increasing support” is the intended meaning."
+    },
+    {
+      "id": "bo-3.2-004",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "meaning",
+      "question": "In “The committee reached a consensus,” what does “consensus” mean?",
+      "options": [
+        "general agreement",
+        "complete secrecy",
+        "formal opposition",
+        "a legal judgment"
+      ],
+      "correct": 0,
+      "solution": "The context indicates that “general agreement” is the intended meaning."
+    },
+    {
+      "id": "bo-3.2-005",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "meaning",
+      "question": "In “The report gives a candid assessment,” what does “candid” mean?",
+      "options": [
+        "honest and frank",
+        "carefully hidden",
+        "highly technical",
+        "unusually emotional"
+      ],
+      "correct": 0,
+      "solution": "The context indicates that “honest and frank” is the intended meaning."
+    },
+    {
+      "id": "bo-3.2-006",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "meaning",
+      "question": "In “The policy may have unintended consequences,” what does “unintended” mean?",
+      "options": [
+        "not planned or intended",
+        "carefully scheduled",
+        "legally required",
+        "financially measured"
+      ],
+      "correct": 0,
+      "solution": "The context indicates that “not planned or intended” is the intended meaning."
+    },
+    {
+      "id": "bo-3.2-007",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "meaning",
+      "question": "In “The reform is likely to alleviate congestion,” what does “alleviate” mean?",
+      "options": [
+        "reduce the severity of",
+        "increase the frequency of",
+        "predict the outcome of",
+        "eliminate completely"
+      ],
+      "correct": 0,
+      "solution": "The context indicates that “reduce the severity of” is the intended meaning."
+    },
+    {
+      "id": "bo-3.2-008",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "meaning",
+      "question": "In “The witness gave a coherent account,” what does “coherent” mean?",
+      "options": [
+        "logical and consistent",
+        "long and detailed",
+        "emotionally persuasive",
+        "strictly confidential"
+      ],
+      "correct": 0,
+      "solution": "The context indicates that “logical and consistent” is the intended meaning."
+    },
+    {
+      "id": "bo-3.2-009",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "meaning",
+      "question": "In “The issue remains contentious,” what does “contentious” mean?",
+      "options": [
+        "likely to cause disagreement",
+        "easy to resolve",
+        "based on tradition",
+        "free from controversy"
+      ],
+      "correct": 0,
+      "solution": "The context indicates that “likely to cause disagreement” is the intended meaning."
+    },
+    {
+      "id": "bo-3.2-010",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "meaning",
+      "question": "In “The data are inconclusive,” what does “inconclusive” mean?",
+      "options": [
+        "not sufficient to prove a definite result",
+        "certainly proven",
+        "statistically impossible",
+        "legally binding"
+      ],
+      "correct": 0,
+      "solution": "The context indicates that “not sufficient to prove a definite result” is the intended meaning."
+    },
+    {
+      "id": "bo-3.2-011",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "meaning",
+      "question": "In “The organization faces a formidable challenge,” what does “formidable” mean?",
+      "options": [
+        "difficult and demanding",
+        "cheap and simple",
+        "temporary and minor",
+        "already completed"
+      ],
+      "correct": 0,
+      "solution": "The context indicates that “difficult and demanding” is the intended meaning."
+    },
+    {
+      "id": "bo-3.2-012",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "meaning",
+      "question": "In “The article offers a nuanced view,” what does “nuanced” mean?",
+      "options": [
+        "showing subtle distinctions",
+        "using only simple language",
+        "based on numerical data",
+        "strongly emotional"
+      ],
+      "correct": 0,
+      "solution": "The context indicates that “showing subtle distinctions” is the intended meaning."
+    },
+    {
+      "id": "bo-3.2-013",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "one-word",
+      "question": "A person who speaks many languages is called a",
+      "options": [
+        "polyglot",
+        "linguist",
+        "translator",
+        "bilingual"
+      ],
+      "correct": 0,
+      "solution": "The standard one-word term is “polyglot.”"
+    },
+    {
+      "id": "bo-3.2-014",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "one-word",
+      "question": "A government by officials or administrators is called",
+      "options": [
+        "bureaucracy",
+        "democracy",
+        "monarchy",
+        "federalism"
+      ],
+      "correct": 0,
+      "solution": "The standard one-word term is “bureaucracy.”"
+    },
+    {
+      "id": "bo-3.2-015",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "one-word",
+      "question": "A statement that contradicts itself is a",
+      "options": [
+        "paradox",
+        "hypothesis",
+        "synonym",
+        "euphemism"
+      ],
+      "correct": 0,
+      "solution": "The standard one-word term is “paradox.”"
+    },
+    {
+      "id": "bo-3.2-016",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "one-word",
+      "question": "A person who deliberately avoids society is a",
+      "options": [
+        "recluse",
+        "migrant",
+        "diplomat",
+        "philanthropist"
+      ],
+      "correct": 0,
+      "solution": "The standard one-word term is “recluse.”"
+    },
+    {
+      "id": "bo-3.2-017",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "one-word",
+      "question": "A speech delivered without preparation is",
+      "options": [
+        "extempore",
+        "memorandum",
+        "prologue",
+        "anonymous"
+      ],
+      "correct": 0,
+      "solution": "The standard one-word term is “extempore.”"
+    },
+    {
+      "id": "bo-3.2-018",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "one-word",
+      "question": "A place where aircraft are kept and maintained is a",
+      "options": [
+        "hangar",
+        "harbour",
+        "hostel",
+        "warehouse"
+      ],
+      "correct": 0,
+      "solution": "The standard one-word term is “hangar.”"
+    },
+    {
+      "id": "bo-3.2-019",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "one-word",
+      "question": "A person who studies the origin and development of words is an",
+      "options": [
+        "ornithologist",
+        "etymologist",
+        "archaeologist",
+        "lexicographer"
+      ],
+      "correct": 1,
+      "solution": "The standard one-word term is “etymologist.”"
+    },
+    {
+      "id": "bo-3.2-020",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "one-word",
+      "question": "A government ruled by a small group of powerful people is an",
+      "options": [
+        "theocracy",
+        "oligarchy",
+        "anarchy",
+        "plutocracy"
+      ],
+      "correct": 1,
+      "solution": "The standard one-word term is “oligarchy.”"
+    },
+    {
+      "id": "bo-3.2-021",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "one-word",
+      "question": "A person who cannot read or write is",
+      "options": [
+        "illegible",
+        "illiterate",
+        "inarticulate",
+        "immigrant"
+      ],
+      "correct": 1,
+      "solution": "The standard one-word term is “illiterate.”"
+    },
+    {
+      "id": "bo-3.2-022",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "one-word",
+      "question": "A period of ten years is a",
+      "options": [
+        "century",
+        "decade",
+        "millennium",
+        "biennium"
+      ],
+      "correct": 1,
+      "solution": "The standard one-word term is “decade.”"
+    },
+    {
+      "id": "bo-3.2-023",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "one-word",
+      "question": "A person who strongly opposes a particular policy is a",
+      "options": [
+        "mediator",
+        "dissenter",
+        "beneficiary",
+        "successor"
+      ],
+      "correct": 1,
+      "solution": "The standard one-word term is “dissenter.”"
+    },
+    {
+      "id": "bo-3.2-024",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "one-word",
+      "question": "A medicine or treatment used to prevent disease is",
+      "options": [
+        "antidote",
+        "prophylactic",
+        "sedative",
+        "diagnostic"
+      ],
+      "correct": 1,
+      "solution": "The standard one-word term is “prophylactic.”"
+    },
+    {
+      "id": "bo-3.2-025",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "synonym",
+      "question": "Choose the word closest in meaning to “prudent”.",
+      "options": [
+        "reckless",
+        "cautious",
+        "generous",
+        "rigid"
+      ],
+      "correct": 1,
+      "solution": "“cautious” is the closest synonym in this context."
+    },
+    {
+      "id": "bo-3.2-026",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "synonym",
+      "question": "Choose the word closest in meaning to “abundant”.",
+      "options": [
+        "limited",
+        "plentiful",
+        "fragile",
+        "remote"
+      ],
+      "correct": 1,
+      "solution": "“plentiful” is the closest synonym in this context."
+    },
+    {
+      "id": "bo-3.2-027",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "synonym",
+      "question": "Choose the word closest in meaning to “mitigate”.",
+      "options": [
+        "intensify",
+        "lessen",
+        "postpone",
+        "calculate"
+      ],
+      "correct": 1,
+      "solution": "“lessen” is the closest synonym in this context."
+    },
+    {
+      "id": "bo-3.2-028",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "synonym",
+      "question": "Choose the word closest in meaning to “obsolete”.",
+      "options": [
+        "innovative",
+        "outdated",
+        "uncertain",
+        "temporary"
+      ],
+      "correct": 1,
+      "solution": "“outdated” is the closest synonym in this context."
+    },
+    {
+      "id": "bo-3.2-029",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "synonym",
+      "question": "Choose the word closest in meaning to “explicit”.",
+      "options": [
+        "implicit",
+        "clear",
+        "ambiguous",
+        "conditional"
+      ],
+      "correct": 1,
+      "solution": "“clear” is the closest synonym in this context."
+    },
+    {
+      "id": "bo-3.2-030",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "synonym",
+      "question": "Choose the word closest in meaning to “rigorous”.",
+      "options": [
+        "casual",
+        "thorough",
+        "partial",
+        "superficial"
+      ],
+      "correct": 1,
+      "solution": "“thorough” is the closest synonym in this context."
+    },
+    {
+      "id": "bo-3.2-031",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "synonym",
+      "question": "Choose the word closest in meaning to “feasible”.",
+      "options": [
+        "theoretical",
+        "practicable",
+        "controversial",
+        "accidental"
+      ],
+      "correct": 1,
+      "solution": "“practicable” is the closest synonym in this context."
+    },
+    {
+      "id": "bo-3.2-032",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "synonym",
+      "question": "Choose the word closest in meaning to “resilient”.",
+      "options": [
+        "easy to replace",
+        "able to recover",
+        "slow to develop",
+        "difficult to measure"
+      ],
+      "correct": 1,
+      "solution": "“able to recover” is the closest synonym in this context."
+    },
+    {
+      "id": "bo-3.2-033",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "synonym",
+      "question": "Choose the word closest in meaning to “scrutinize”.",
+      "options": [
+        "summarize briefly",
+        "examine closely",
+        "approve formally",
+        "ignore completely"
+      ],
+      "correct": 1,
+      "solution": "“examine closely” is the closest synonym in this context."
+    },
+    {
+      "id": "bo-3.2-034",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "synonym",
+      "question": "Choose the word closest in meaning to “substantial”.",
+      "options": [
+        "negligible",
+        "considerable",
+        "uncertain",
+        "occasional"
+      ],
+      "correct": 1,
+      "solution": "“considerable” is the closest synonym in this context."
+    },
+    {
+      "id": "bo-3.2-035",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "synonym",
+      "question": "Choose the word closest in meaning to “concise”.",
+      "options": [
+        "complex",
+        "brief",
+        "repetitive",
+        "ornate"
+      ],
+      "correct": 1,
+      "solution": "“brief” is the closest synonym in this context."
+    },
+    {
+      "id": "bo-3.2-036",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "synonym",
+      "question": "Choose the word closest in meaning to “impartial”.",
+      "options": [
+        "emotional",
+        "unbiased",
+        "secretive",
+        "decisive"
+      ],
+      "correct": 1,
+      "solution": "“unbiased” is the closest synonym in this context."
+    },
+    {
+      "id": "bo-3.2-037",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "antonym",
+      "question": "Choose the word opposite in meaning to “transparent”.",
+      "options": [
+        "visible",
+        "explicit",
+        "opaque",
+        "accessible"
+      ],
+      "correct": 2,
+      "solution": "“opaque” expresses the opposite meaning."
+    },
+    {
+      "id": "bo-3.2-038",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "antonym",
+      "question": "Choose the word opposite in meaning to “scarce”.",
+      "options": [
+        "scarce",
+        "moderate",
+        "abundant",
+        "limited"
+      ],
+      "correct": 2,
+      "solution": "“abundant” expresses the opposite meaning."
+    },
+    {
+      "id": "bo-3.2-039",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "antonym",
+      "question": "Choose the word opposite in meaning to “rigid”.",
+      "options": [
+        "rigid",
+        "stable",
+        "flexible",
+        "fixed"
+      ],
+      "correct": 2,
+      "solution": "“flexible” expresses the opposite meaning."
+    },
+    {
+      "id": "bo-3.2-040",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "antonym",
+      "question": "Choose the word opposite in meaning to “expand”.",
+      "options": [
+        "expand",
+        "continue",
+        "contract",
+        "maintain"
+      ],
+      "correct": 2,
+      "solution": "“contract” expresses the opposite meaning."
+    },
+    {
+      "id": "bo-3.2-041",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "antonym",
+      "question": "Choose the word opposite in meaning to “deliberate” (as an adjective meaning intentional).",
+      "options": [
+        "deliberate",
+        "planned",
+        "accidental",
+        "intentional"
+      ],
+      "correct": 2,
+      "solution": "“accidental” expresses the opposite meaning."
+    },
+    {
+      "id": "bo-3.2-042",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "antonym",
+      "question": "Choose the word opposite in meaning to “hostile”.",
+      "options": [
+        "hostile",
+        "distant",
+        "friendly",
+        "formal"
+      ],
+      "correct": 2,
+      "solution": "“friendly” expresses the opposite meaning."
+    },
+    {
+      "id": "bo-3.2-043",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "antonym",
+      "question": "Choose the word opposite in meaning to “permanent”.",
+      "options": [
+        "permanent",
+        "regular",
+        "temporary",
+        "stable"
+      ],
+      "correct": 2,
+      "solution": "“temporary” expresses the opposite meaning."
+    },
+    {
+      "id": "bo-3.2-044",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "antonym",
+      "question": "Choose the word opposite in meaning to “inferior”.",
+      "options": [
+        "inferior",
+        "equal",
+        "superior",
+        "ordinary"
+      ],
+      "correct": 2,
+      "solution": "“superior” expresses the opposite meaning."
+    },
+    {
+      "id": "bo-3.2-045",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "antonym",
+      "question": "Choose the word opposite in meaning to “mandatory”.",
+      "options": [
+        "mandatory",
+        "necessary",
+        "optional",
+        "essential"
+      ],
+      "correct": 2,
+      "solution": "“optional” expresses the opposite meaning."
+    },
+    {
+      "id": "bo-3.2-046",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "antonym",
+      "question": "Choose the word opposite in meaning to “rational”.",
+      "options": [
+        "rational",
+        "logical",
+        "irrational",
+        "reasonable"
+      ],
+      "correct": 2,
+      "solution": "“irrational” expresses the opposite meaning."
+    },
+    {
+      "id": "bo-3.2-047",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "antonym",
+      "question": "Choose the word opposite in meaning to “inclusive”.",
+      "options": [
+        "inclusive",
+        "collective",
+        "exclusive",
+        "universal"
+      ],
+      "correct": 2,
+      "solution": "“exclusive” expresses the opposite meaning."
+    },
+    {
+      "id": "bo-3.2-048",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "antonym",
+      "question": "Choose the word opposite in meaning to “frequent”.",
+      "options": [
+        "frequent",
+        "regular",
+        "rare",
+        "common"
+      ],
+      "correct": 2,
+      "solution": "“rare” expresses the opposite meaning."
+    },
+    {
+      "id": "bo-3.2-049",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "derivative",
+      "question": "Choose the correct noun form of “accurate”.",
+      "options": [
+        "accurate",
+        "accurately",
+        "accuracy",
+        "accustom"
+      ],
+      "correct": 2,
+      "solution": "“accuracy” is the correct derived form required by the sentence."
+    },
+    {
+      "id": "bo-3.2-050",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "derivative",
+      "question": "Choose the correct adjective form of “economy” in “_____ growth”.",
+      "options": [
+        "economical",
+        "economics",
+        "economic",
+        "economize"
+      ],
+      "correct": 2,
+      "solution": "“economic” is the correct derived form required by the sentence."
+    },
+    {
+      "id": "bo-3.2-051",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "derivative",
+      "question": "Choose the correct noun form of “resilient”.",
+      "options": [
+        "resilient",
+        "resistant",
+        "resilience",
+        "resisting"
+      ],
+      "correct": 2,
+      "solution": "“resilience” is the correct derived form required by the sentence."
+    },
+    {
+      "id": "bo-3.2-052",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "derivative",
+      "question": "Choose the correct adjective form of “reason” in “a _____ decision”.",
+      "options": [
+        "reasoned",
+        "reasoning",
+        "reasonable",
+        "reasonably"
+      ],
+      "correct": 2,
+      "solution": "“reasonable” is the correct derived form required by the sentence."
+    },
+    {
+      "id": "bo-3.2-053",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "derivative",
+      "question": "Choose the correct noun form of “efficient”.",
+      "options": [
+        "efficient",
+        "effectiveness",
+        "efficiency",
+        "efficiently"
+      ],
+      "correct": 2,
+      "solution": "“efficiency” is the correct derived form required by the sentence."
+    },
+    {
+      "id": "bo-3.2-054",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "derivative",
+      "question": "Choose the correct adjective form of “benefit” in “a _____ arrangement”.",
+      "options": [
+        "benefited",
+        "beneficiary",
+        "benefit",
+        "beneficial"
+      ],
+      "correct": 3,
+      "solution": "“beneficial” is the correct derived form required by the sentence."
+    },
+    {
+      "id": "bo-3.2-055",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "derivative",
+      "question": "Choose the correct noun form of “demonstrate”.",
+      "options": [
+        "demonstrative",
+        "demonstrating",
+        "demonstrated",
+        "demonstration"
+      ],
+      "correct": 3,
+      "solution": "“demonstration” is the correct derived form required by the sentence."
+    },
+    {
+      "id": "bo-3.2-056",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "derivative",
+      "question": "Choose the correct adjective form of “rely” in “a _____ source”.",
+      "options": [
+        "reliance",
+        "reliably",
+        "reliability",
+        "reliable"
+      ],
+      "correct": 3,
+      "solution": "“reliable” is the correct derived form required by the sentence."
+    },
+    {
+      "id": "bo-3.2-057",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "derivative",
+      "question": "Choose the correct noun form of “permit”.",
+      "options": [
+        "permissive",
+        "permitted",
+        "permitter",
+        "permission"
+      ],
+      "correct": 3,
+      "solution": "“permission” is the correct derived form required by the sentence."
+    },
+    {
+      "id": "bo-3.2-058",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "derivative",
+      "question": "Choose the correct adjective form of “industry” in “an _____ process”.",
+      "options": [
+        "industry",
+        "industrious",
+        "industrialize",
+        "industrial"
+      ],
+      "correct": 3,
+      "solution": "“industrial” is the correct derived form required by the sentence."
+    },
+    {
+      "id": "bo-3.2-059",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "derivative",
+      "question": "Choose the correct noun form of “analyse”.",
+      "options": [
+        "analytical",
+        "analyse",
+        "analyst",
+        "analysis"
+      ],
+      "correct": 3,
+      "solution": "“analysis” is the correct derived form required by the sentence."
+    },
+    {
+      "id": "bo-3.2-060",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "homophone/homonym",
+      "question": "Choose the correct word: The committee will _____ the proposal tomorrow.",
+      "options": [
+        "revile",
+        "revise",
+        "reveal",
+        "review"
+      ],
+      "correct": 3,
+      "solution": "“review” is the correct word for the stated meaning or grammatical context."
+    },
+    {
+      "id": "bo-3.2-061",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "homophone/homonym",
+      "question": "Choose the correct word: The medicine may _____ the pain.",
+      "options": [
+        "relive",
+        "reveal",
+        "rely",
+        "relieve"
+      ],
+      "correct": 3,
+      "solution": "“relieve” is the correct word for the stated meaning or grammatical context."
+    },
+    {
+      "id": "bo-3.2-062",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "homophone/homonym",
+      "question": "Choose the correct word: The principal asked the students to remain in the _____ hall.",
+      "options": [
+        "principle",
+        "principally",
+        "principled",
+        "principal"
+      ],
+      "correct": 3,
+      "solution": "“principal” is the correct word for the stated meaning or grammatical context."
+    },
+    {
+      "id": "bo-3.2-063",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "homophone/homonym",
+      "question": "Choose the correct word: The workers refused to _____ the safety rules.",
+      "options": [
+        "violent",
+        "violet",
+        "validate",
+        "violate"
+      ],
+      "correct": 3,
+      "solution": "“violate” is the correct word for the stated meaning or grammatical context."
+    },
+    {
+      "id": "bo-3.2-064",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "homophone/homonym",
+      "question": "Choose the correct word: We need to _____ the findings before publication.",
+      "options": [
+        "verily",
+        "vary",
+        "very",
+        "verify"
+      ],
+      "correct": 3,
+      "solution": "“verify” is the correct word for the stated meaning or grammatical context."
+    },
+    {
+      "id": "bo-3.2-065",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "homophone/homonym",
+      "question": "Choose the correct word: The new law will _____ everyone equally.",
+      "options": [
+        "effect",
+        "infect",
+        "affects",
+        "affect"
+      ],
+      "correct": 3,
+      "solution": "“affect” is the correct word for the stated meaning or grammatical context."
+    },
+    {
+      "id": "bo-3.2-066",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "homophone/homonym",
+      "question": "Choose the correct word: The _____ objective of the study is to identify the main risk.",
+      "options": [
+        "principle",
+        "principally",
+        "principled",
+        "principal"
+      ],
+      "correct": 3,
+      "solution": "“principal” is the correct word for the stated meaning or grammatical context."
+    },
+    {
+      "id": "bo-3.2-067",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "homophone/homonym",
+      "question": "Choose the correct word: The company will _____ a new policy next month.",
+      "options": [
+        "adept",
+        "adapt",
+        "adopted",
+        "adopt"
+      ],
+      "correct": 3,
+      "solution": "“adopt” is the correct word for the stated meaning or grammatical context."
+    },
+    {
+      "id": "bo-3.2-068",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "homophone/homonym",
+      "question": "Choose the correct word: The river has _____ its banks after heavy rain.",
+      "options": [
+        "boast",
+        "bursed",
+        "brushed",
+        "burst"
+      ],
+      "correct": 3,
+      "solution": "“burst” is the correct word for the stated meaning or grammatical context."
+    },
+    {
+      "id": "bo-3.2-069",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "homophone/homonym",
+      "question": "Choose the correct word: The manager gave useful _____ on the draft.",
+      "options": [
+        "advise",
+        "device",
+        "advises",
+        "advice"
+      ],
+      "correct": 3,
+      "solution": "“advice” is the correct word for the stated meaning or grammatical context."
+    },
+    {
+      "id": "bo-3.2-070",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "homophone/homonym",
+      "question": "Choose the correct word: The committee must _____ whether the evidence is sufficient.",
+      "options": [
+        "deside",
+        "devised",
+        "divide",
+        "decide"
+      ],
+      "correct": 3,
+      "solution": "“decide” is the correct word for the stated meaning or grammatical context."
     }
   ],
-  "questionBankUpdatedAt": "2026-09-14T01:17:19.889850Z"
+  "questionBankUpdatedAt": "2026-09-14T01:18:42.184474Z"
 }
