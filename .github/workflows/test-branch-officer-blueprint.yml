@@ -35,11 +35,11 @@ jobs:
             if(sums[s.id]!==expected[s.id]) throw new Error(`FAIL: section ${s.id} quota=${sums[s.id]}, expected ${expected[s.id]}`);
             if(s.id==='B'){
               const got=Object.fromEntries((s.units||[]).map(u=>[u.id,Number(u.questionCount)]));
-              for(const [u,n] of Object.entries({'2.1':6,'2.2':6,'2.3':6,'2.4':6,'2.5':6})) if(got[u]!==n) throw new Error(`FAIL: ${u} quota=${got[u]}, expected ${n}`);
+              for(const [u,n] of Object.entries({'2.1':6,'2.2':6,'2.3':6,'2.4':6,'2.5':6}) if(got[u]!==n) throw new Error(`FAIL: ${u} quota=${got[u]}, expected ${n}`);
             }
             if(s.id==='C'){
               const got=Object.fromEntries((s.units||[]).map(u=>[u.id,Number(u.questionCount)]));
-              for(const [u,n] of Object.entries({'3.1':5,'3.2':7,'3.3':8})) if(got[u]!==n) throw new Error(`FAIL: ${u} quota=${got[u]}, expected ${n}`);
+              for(const [u,n] of Object.entries({'3.1':5,'3.2':7,'3.3':8}) if(got[u]!==n) throw new Error(`FAIL: ${u} quota=${got[u]}, expected ${n}`);
             }
           }
           if(JSON.stringify(sums)!==JSON.stringify(expected)) throw new Error(`FAIL: section totals ${JSON.stringify(sums)}`);
@@ -54,15 +54,22 @@ jobs:
               for(const u of (section.units||[])){
                 const pool=shuffle(sectionBank.filter(q=>q.unit===u.id));
                 if(!pool.length)continue;
-                const need=u.questionCount;
+                const need=Number(u.questionCount||0);
                 const l1=pool.filter(q=>levelOf(q)==='level1');
                 const l2=pool.filter(q=>levelOf(q)==='level2');
-                let take1=d?Math.max(0,Math.min(l1.length,remaining1,need)):0;
-                let take2=d?Math.max(0,Math.min(l2.length,remaining2,need-take1)):0;
-                if(d&&take1+take2<need){
-                  const rest=shuffle([...l1.slice(take1),...l2.slice(take2),...pool.filter(q=>!['level1','level2'].includes(levelOf(q))]).slice(0,need-take1-take2);
-                  selected.push(...shuffle([...l1.slice(0,take1),...l2.slice(0,take2),...rest]));
-                } else selected.push(...shuffle([...l1.slice(0,take1),...l2.slice(0,take2)]));
+                const take1=d?Math.max(0,Math.min(l1.length,remaining1,need)):0;
+                const take2=d?Math.max(0,Math.min(l2.length,remaining2,need-take1)):0;
+                const restCount=need-take1-take2;
+                const rest=restCount>0?shuffle([
+                  ...l1.slice(take1),
+                  ...l2.slice(take2),
+                  ...pool.filter(q=>!['level1','level2'].includes(levelOf(q)))
+                ]).slice(0,restCount):[];
+                selected.push(...shuffle([
+                  ...l1.slice(0,take1),
+                  ...l2.slice(0,take2),
+                  ...rest
+                ]));
                 remaining1-=take1; remaining2-=take2;
               }
             }
@@ -79,7 +86,11 @@ jobs:
             if(c.A!==50||c.B!==30||c.C!==20){failures.push(`trial ${t}: sections ${JSON.stringify(c)}`);break}
             for(const [sid,n] of Object.entries(expected)){
               const units=(exam.blueprint.sections.find(s=>s.id===sid).units||[]);
-              for(const u of units){const got=paper.filter(q=>q.section===sid&&q.unit===u.id).length;if(got!==Number(u.questionCount)) {failures.push(`trial ${t}: ${u.id}=${got}, expected ${u.questionCount}`);break}}
+              for(const u of units){
+                const got=paper.filter(q=>q.section===sid&&q.unit===u.id).length;
+                if(got!==Number(u.questionCount)) {failures.push(`trial ${t}: ${u.id}=${got}, expected ${u.questionCount}`);break}
+              }
+              if(failures.length)break;
             }
             if(failures.length)break;
           }
