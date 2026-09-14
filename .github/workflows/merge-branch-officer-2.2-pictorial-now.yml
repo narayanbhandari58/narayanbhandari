@@ -17,13 +17,13 @@ jobs:
           p=Path('exam-data.json'); d=json.loads(p.read_text(encoding='utf-8'))
           seed=json.loads(Path('exam-question-seed/branch-officer-2.2-nonverbal-pictorial.json').read_text(encoding='utf-8'))
           assert len(seed)==30
+          assert all(q.get('image') for q in seed)
           qs=d.setdefault('questions',[]); by={q.get('id'):i for i,q in enumerate(qs)}
           for q in seed:
             if q['id'] in by: qs[by[q['id']]]=q
             else: by[q['id']]=len(qs); qs.append(q)
           bank=[q for q in qs if q.get('unit')=='2.2']
           assert len(bank)>=30
-          assert all(q.get('image') for q in bank)
           d['questionBankUpdatedAt']=__import__('datetime').datetime.utcnow().isoformat()+'Z'
           p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           print('2.2 pictorial merged:',len(bank),'questions; total:',len(qs))
