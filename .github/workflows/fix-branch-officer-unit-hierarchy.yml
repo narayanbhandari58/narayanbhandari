@@ -2,54 +2,109 @@ name: Fix Branch Officer unit hierarchy
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - '.github/workflows/fix-branch-officer-unit-hierarchy.yml'
+  workflow_run:
+    workflows: ["Merge exam question seed"]
+    types: [completed]
 
 permissions:
   contents: write
 
 jobs:
   fix:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Normalize parent-child unit hierarchy
+        shell: python
+        run: |
+          from pathlib import Path
+          import json
+
+          p=Path('exam-data.json')
+          data=json.loads(p.read_text(encoding='utf-8'))
+          exams=data.get('exams',[])
+          changed=0
+
+          # Build a complete parent -> child map from every Branch Officer blueprint unit.
+          # A stored child such as 1.7.1 belongs to the blueprint parent 1.7.
+          exam=next((e for e in exams if e.get('id')=='sakha-adhikrit'),None)
+          if exam:
+              plans=[]
+              for section in exam.get('blueprint',{}).get('sections',[]):
+                  sid=section.get('id')
+                  for u in section.get('units',[]):
+                      uid=str(u.get('id',''))
+                      if uid:
+                          plans.append((sid,uid,u.get('title','')))
+
+              def parent_for(unit):
+                  unit=str(unit or '')
+                  matches=[x for x in plans if unit==x[1] or unit.startswith(x[1]+'.')]
+                  return max(matches,key=lambda x:len(x[1])) if matches else None
+
+              for q in data.get('questions',[]):
+                  unit=str(q.get('unit',''))
+                  hit=parent_for(unit)
+                  if not hit:
+                      continue
+                  sid,parent,title=hit
+                  if not q.get('section'):
+                      q['section']=sid; changed+=1
+                  if unit != parent:
+                      path=f'{parent} > {unit}'
+                      if q.get('parentUnit') != parent:
+                          q['parentUnit']=parent; changed+=1
+                      if q.get('unitPath') != path:
+                          q['unitPath']=path; changed+=1
+
+          # Remove the temporary manual 1.7 quota workaround added during debugging.
+          before=len(data.get('questions',[]))
+          data['questions']=[q for q in data.get('questions',[]) if not str(q.get('id','')).startswith('bo-1.7-00')]
+          removed=before-len(data['questions'])
+
+          p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(f'Hierarchy normalized: {changed} field changes; removed temporary questions: {removed}')
+
       - name: Patch runtime and validation for nested units
         shell: python
         run: |
           from pathlib import Path
-          import sys
 
           api=Path('netlify/functions/exam-api.js')
           s=api.read_text(encoding='utf-8')
-          old="function levelOf(q){const v=String(q.level??'').toLowerCase();if(v==='level1'||v==='l1'||v==='i'||v==='1')return 'level1';if(v==='level2'||v==='l2'||v==='ii'||v==='2')return 'level2';return v}\nfunction unitPlan(exam){"
-          new="function levelOf(q){const v=String(q.level??'').toLowerCase();if(v==='level1'||v==='l1'||v==='i'||v==='1')return 'level1';if(v==='level2'||v==='l2'||v==='ii'||v==='2')return 'level2';return v}\nfunction unitMatches(q,u){const a=String(q.unit??'');const b=String(u??'');return a===b||a.startsWith(b+'.')}\nfunction unitPlan(exam){"
-          if old in s:
+          if 'function unitMatches(q,u)' not in s:
+              old="function levelOf(q){const v=String(q.level??'').toLowerCase();if(v==='level1'||v==='l1'||v==='i'||v==='1')return 'level1';if(v==='level2'||v==='l2'||v==='ii'||v==='2')return 'level2';return v}\nfunction unitPlan(exam){"
+              new="function levelOf(q){const v=String(q.level??'').toLowerCase();if(v==='level1'||v==='l1'||v==='i'||v==='1')return 'level1';if(v==='level2'||v==='l2'||v==='ii'||v==='2')return 'level2';return v}\nfunction unitMatches(q,u){const a=String(q.unit??'');const b=String(u??'');return a===b||a.startsWith(b+'.')}\nfunction unitPlan(exam){"
+              if old not in s: raise SystemExit('API hierarchy insertion point not found')
               s=s.replace(old,new,1)
-          old2="q.section===u.sectionId&&q.unit===u.id"
-          new2="q.section===u.sectionId&&unitMatches(q,u.id)"
-          if old2 not in s: raise SystemExit('API blueprintReady pattern not found')
-          s=s.replace(old2,new2,1)
-          old3="sectionBank.filter(q=>q.unit===u.id)"
-          new3="sectionBank.filter(q=>unitMatches(q,u.id))"
-          if old3 not in s: raise SystemExit('API selectPaper pattern not found')
-          s=s.replace(old3,new3,1)
+          s=s.replace("q.section===u.sectionId&&q.unit===u.id","q.section===u.sectionId&&unitMatches(q,u.id)")
+          s=s.replace("sectionBank.filter(q=>q.unit===u.id)","sectionBank.filter(q=>unitMatches(q,u.id))")
           api.write_text(s,encoding='utf-8')
 
-          wf=Path('.github/workflows/test-branch-officer-blueprint.yml')
-          t=wf.read_text(encoding='utf-8')
-          marker="          def pick(pool, n):\n"
-          helper="          def unit_matches(q, unit):\n              a=str(q.get('unit',''))\n              b=str(unit)\n              return a==b or a.startswith(b+'.')\n\n"
-          if helper not in t:
-              if marker not in t: raise SystemExit('test helper insertion point not found')
-              t=t.replace(marker,helper+marker,1)
-          t=t.replace("q.get('section') == s['id'] and q.get('unit') == u['id']","q.get('section') == s['id'] and unit_matches(q,u['id'])")
-          wf.write_text(t,encoding='utf-8')
-      - name: Commit fixes
+      - name: Validate every parent unit against its descendants
+        shell: python
         run: |
+          import json
+          from collections import Counter
+          d=json.loads(open('exam-data.json',encoding='utf-8').read())
+          exam=next(e for e in d['exams'] if e.get('id')=='sakha-adhikrit')
+          bank=d['questions']
+          for s in exam['blueprint']['sections']:
+              for u in s.get('units',[]):
+                  uid=str(u['id'])
+                  pool=[q for q in bank if q.get('section')==s['id'] and (str(q.get('unit',''))==uid or str(q.get('unit','')).startswith(uid+'.'))]
+                  need=int(u.get('questionCount',0))
+                  assert len(pool)>=need, f'FAIL: {s["id"]}/{uid} has {len(pool)}, needs {need}'
+          print('PASS: all parent units are satisfied by their own or child units')
+
+      - name: Remove temporary seed workaround and commit fixes
+        run: |
+          rm -f exam-question-seed/branch-officer-1.7-fix.json
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add netlify/functions/exam-api.js .github/workflows/test-branch-officer-blueprint.yml
+          git add exam-data.json netlify/functions/exam-api.js .github/workflows/test-branch-officer-blueprint.yml exam-question-seed/branch-officer-1.7-fix.json
           if git diff --cached --quiet; then echo "No changes needed"; exit 0; fi
-          git commit -m "Fix Branch Officer nested unit selection"
+          git commit -m "Fix all Branch Officer parent-child unit hierarchy"
           git push
