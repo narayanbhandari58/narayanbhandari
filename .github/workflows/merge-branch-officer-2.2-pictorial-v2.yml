@@ -1,0 +1,36 @@
+name: Merge Branch Officer 2.2 pictorial bank v2
+on:
+  push:
+    paths: ['.github/workflows/merge-branch-officer-2.2-pictorial-v2.yml']
+  workflow_dispatch:
+permissions: {contents: write}
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Merge 30 pictorial questions
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          p=Path('exam-data.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          seed=json.loads(Path('exam-question-seed/branch-officer-2.2-nonverbal-pictorial.json').read_text(encoding='utf-8'))
+          assert len(seed)==30 and all(q.get('image') for q in seed)
+          qs=d.setdefault('questions',[])
+          by={q.get('id'):i for i,q in enumerate(qs)}
+          for q in seed:
+            if q['id'] in by: qs[by[q['id']]]=q
+            else: by[q['id']]=len(qs); qs.append(q)
+          assert sum(1 for q in qs if q.get('unit')=='2.2')>=30
+          d['questionBankUpdatedAt']=__import__('datetime').datetime.utcnow().isoformat()+'Z'
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print('Merged 30 pictorial questions; total bank',len(qs))
+      - name: Commit exam data
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add exam-data.json
+          git diff --cached --quiet || git commit -m 'Merge 30 Branch Officer pictorial questions into exam data'
+          git push
