@@ -1,6 +1,9 @@
 name: Balance all exam answer positions
 
 on:
+  push:
+    paths:
+      - '.github/workflows/balance-all-exam-answers.yml'
   workflow_dispatch:
 
 permissions:
