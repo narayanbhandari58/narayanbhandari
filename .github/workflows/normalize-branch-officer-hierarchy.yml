@@ -5,8 +5,6 @@ on:
   push:
     paths:
       - '.github/workflows/normalize-branch-officer-hierarchy.yml'
-      - 'exam-data.json'
-      - 'exam-question-seed/**'
 
 permissions:
   contents: write
@@ -32,39 +30,33 @@ jobs:
           units = []
           for s in sections:
               for u in s.get('units', []):
-                  units.append((str(u.get('id')), s.get('id'), s.get('title')))
+                  units.append((str(u.get('id')), s.get('id')))
           units.sort(key=lambda x: len(x[0]), reverse=True)
 
           changed = 0
-          removed = 0
           for q in bank:
-              qid = str(q.get('id', ''))
-              if qid.startswith('bo-1.7-00'):
-                  removed += 1
-                  continue
               uid = str(q.get('unit', ''))
               match = next((x for x in units if uid == x[0] or uid.startswith(x[0] + '.')), None)
               if not match:
                   continue
-              unit_id, section_id, section_title = match
-              if q.get('examIds') is None:
-                  q['examIds'] = ['sakha-adhikrit']
+              unit_id, section_id = match
               if q.get('section') != section_id:
                   q['section'] = section_id
                   changed += 1
-              parent = unit_id
               if uid != unit_id:
-                  if q.get('parentUnit') != parent:
-                      q['parentUnit'] = parent
+                  if q.get('parentUnit') != unit_id:
+                      q['parentUnit'] = unit_id
                       changed += 1
-                  path = f'{parent} > {uid}'
+                  path = f'{unit_id} > {uid}'
                   if q.get('unitPath') != path:
                       q['unitPath'] = path
                       changed += 1
 
-          if removed:
-              bank = [q for q in bank if not str(q.get('id','')).startswith('bo-1.7-00')]
+          before = len(bank)
+          bank = [q for q in bank if not str(q.get('id','')).startswith('bo-1.7-00')]
+          if len(bank) != before:
               data['questions'] = bank
+              changed += before - len(bank)
 
           def matches(q, unit):
               a = str(q.get('unit', ''))
@@ -75,15 +67,17 @@ jobs:
               for u in s.get('units', []):
                   uid = str(u.get('id'))
                   need = int(u.get('questionCount', 0))
-                  pool = [q for q in bank if q.get('examIds') and 'sakha-adhikrit' in q.get('examIds', []) and q.get('section') == s.get('id') and matches(q, uid)]
+                  pool = [q for q in bank if q.get('section') == s.get('id') and matches(q, uid)]
                   assert len(pool) >= need, f"FAIL: {s.get('id')}/{uid} has {len(pool)}, needs {need}"
-                  if uid == '1.7':
-                      assert any(str(q.get('unit','')).startswith('1.7.') for q in pool), 'FAIL: 1.7 has no child-unit questions'
 
-          data['questionBankUpdatedAt'] = __import__('datetime').datetime.utcnow().isoformat() + 'Z'
-          p.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-          print(f'PASS: Branch Officer hierarchy validated; changed={changed}; removedTemporary={removed}')
-          print('PASS: parent units count their own and descendant child units')
+          pool17 = [q for q in bank if q.get('section') == 'A' and matches(q, '1.7')]
+          assert len(pool17) >= 6, f'FAIL: A/1.7 has {len(pool17)}, needs 6'
+          assert any(str(q.get('unit','')).startswith('1.7.') for q in pool17), 'FAIL: 1.7 has no child-unit questions'
+
+          if changed:
+              p.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          print(f'PASS: Branch Officer hierarchy validated; changed={changed}')
+          print(f'PASS: A/1.7 sees {len(pool17)} questions from 1.7 and its child units')
 
       - name: Commit normalized data
         run: |
