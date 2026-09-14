@@ -38562,7 +38562,1197 @@
       ],
       "correct": 3,
       "solution": "648+592.8=1240.8k."
+    },
+    {
+      "id": "bo-3.1-001",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Public trust depends on fair procedures, evidence and accountability. Transparency helps citizens evaluate performance and makes mistakes easier to identify and correct. Trust does not require agreement with every decision.",
+      "question": "Public trust mainly depends on",
+      "options": [
+        "perfect decisions",
+        "fair procedures and accountability",
+        "unquestioning support",
+        "secrecy"
+      ],
+      "correct": 1,
+      "solution": "The passage links trust with fairness, evidence and accountability."
+    },
+    {
+      "id": "bo-3.1-002",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Public trust depends on fair procedures, evidence and accountability. Transparency helps citizens evaluate performance and makes mistakes easier to identify and correct. Trust does not require agreement with every decision.",
+      "question": "Transparency helps citizens",
+      "options": [
+        "avoid criticism",
+        "evaluate performance",
+        "replace officials",
+        "guarantee success"
+      ],
+      "correct": 1,
+      "solution": "Publishing information helps citizens evaluate performance."
+    },
+    {
+      "id": "bo-3.1-003",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Public trust depends on fair procedures, evidence and accountability. Transparency helps citizens evaluate performance and makes mistakes easier to identify and correct. Trust does not require agreement with every decision.",
+      "question": "Which inference is best supported?",
+      "options": [
+        "Open correction of mistakes can support trust",
+        "Transparency guarantees success",
+        "Citizens should never disagree",
+        "Accountability is unnecessary"
+      ],
+      "correct": 0,
+      "solution": "The passage says transparency makes correction easier and supports trust."
+    },
+    {
+      "id": "bo-3.1-004",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Public trust depends on fair procedures, evidence and accountability. Transparency helps citizens evaluate performance and makes mistakes easier to identify and correct. Trust does not require agreement with every decision.",
+      "question": "Transparency is presented as something that",
+      "options": [
+        "replaces responsibility",
+        "has no value",
+        "strengthens responsibility",
+        "works only after failure"
+      ],
+      "correct": 2,
+      "solution": "Transparency supports rather than replaces responsibility."
+    },
+    {
+      "id": "bo-3.1-005",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Public trust depends on fair procedures, evidence and accountability. Transparency helps citizens evaluate performance and makes mistakes easier to identify and correct. Trust does not require agreement with every decision.",
+      "question": "Which statement is FALSE?",
+      "options": [
+        "Trust requires agreement with every decision",
+        "Evidence supports evaluation",
+        "Mistakes can be corrected",
+        "Accountability matters"
+      ],
+      "correct": 0,
+      "solution": "The passage says trust does not require agreement with every decision."
+    },
+    {
+      "id": "bo-3.1-006",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Road widening can increase capacity, but extra private-vehicle trips may absorb it. Public transport, walking facilities and land-use planning can influence travel choices. Congestion policy should consider both infrastructure and demand.",
+      "question": "What is the central idea?",
+      "options": [
+        "Road widening always fails",
+        "Congestion needs attention to infrastructure and demand",
+        "Private vehicles must be banned",
+        "Land use is irrelevant"
+      ],
+      "correct": 1,
+      "solution": "The passage advocates considering both supply and demand."
+    },
+    {
+      "id": "bo-3.1-007",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Road widening can increase capacity, but extra private-vehicle trips may absorb it. Public transport, walking facilities and land-use planning can influence travel choices. Congestion policy should consider both infrastructure and demand.",
+      "question": "Why may congestion return after road widening?",
+      "options": [
+        "Roads become narrower",
+        "Extra trips may absorb capacity",
+        "Public transport always stops",
+        "Land use removes roads"
+      ],
+      "correct": 1,
+      "solution": "Additional private-vehicle demand may absorb new capacity."
+    },
+    {
+      "id": "bo-3.1-008",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Road widening can increase capacity, but extra private-vehicle trips may absorb it. Public transport, walking facilities and land-use planning can influence travel choices. Congestion policy should consider both infrastructure and demand.",
+      "question": "Which assumption supports the argument?",
+      "options": [
+        "Travel behaviour can respond to infrastructure",
+        "Everyone prefers walking",
+        "Roads have no benefit",
+        "Congestion has one cause"
+      ],
+      "correct": 0,
+      "solution": "The argument depends on infrastructure influencing travel choices."
+    },
+    {
+      "id": "bo-3.1-009",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Road widening can increase capacity, but extra private-vehicle trips may absorb it. Public transport, walking facilities and land-use planning can influence travel choices. Congestion policy should consider both infrastructure and demand.",
+      "question": "The author would most likely recommend",
+      "options": [
+        "measuring only road width",
+        "ignoring demand",
+        "combining infrastructure and demand measures",
+        "removing public transport"
+      ],
+      "correct": 2,
+      "solution": "The passage recommends a combined policy approach."
+    },
+    {
+      "id": "bo-3.1-010",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Road widening can increase capacity, but extra private-vehicle trips may absorb it. Public transport, walking facilities and land-use planning can influence travel choices. Congestion policy should consider both infrastructure and demand.",
+      "question": "Which statement is FALSE?",
+      "options": [
+        "Road capacity can increase",
+        "Demand can change",
+        "A single measure may be insufficient",
+        "Road construction is described as useless"
+      ],
+      "correct": 3,
+      "solution": "The passage does not say road construction is useless."
+    },
+    {
+      "id": "bo-3.1-011",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Putting a paper form online does not ensure good digital service. Users also need clear instructions, accessibility, privacy, mobile usability and reliable support. Success means completing a task accurately with reasonable effort.",
+      "question": "A successful digital service enables users to",
+      "options": [
+        "see many forms",
+        "complete tasks accurately with reasonable effort",
+        "avoid all offices",
+        "use advanced technology only"
+      ],
+      "correct": 1,
+      "solution": "The passage defines success through effective task completion."
+    },
+    {
+      "id": "bo-3.1-012",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Putting a paper form online does not ensure good digital service. Users also need clear instructions, accessibility, privacy, mobile usability and reliable support. Success means completing a task accurately with reasonable effort.",
+      "question": "Which problem is NOT mentioned?",
+      "options": [
+        "Unclear instructions",
+        "Repeated data entry",
+        "Poor mobile usability",
+        "High taxation"
+      ],
+      "correct": 3,
+      "solution": "Taxation is not discussed."
+    },
+    {
+      "id": "bo-3.1-013",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Putting a paper form online does not ensure good digital service. Users also need clear instructions, accessibility, privacy, mobile usability and reliable support. Success means completing a task accurately with reasonable effort.",
+      "question": "What can be inferred about technology?",
+      "options": [
+        "It is unnecessary",
+        "It is sufficient alone",
+        "It needs user-centred support",
+        "It should replace support"
+      ],
+      "correct": 2,
+      "solution": "Technology alone does not guarantee service quality."
+    },
+    {
+      "id": "bo-3.1-014",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Putting a paper form online does not ensure good digital service. Users also need clear instructions, accessibility, privacy, mobile usability and reliable support. Success means completing a task accurately with reasonable effort.",
+      "question": "Good digital service should consider",
+      "options": [
+        "only final submission",
+        "the whole user experience",
+        "only government budgets",
+        "internet history"
+      ],
+      "correct": 1,
+      "solution": "The passage says users need support across the service experience."
+    },
+    {
+      "id": "bo-3.1-015",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Putting a paper form online does not ensure good digital service. Users also need clear instructions, accessibility, privacy, mobile usability and reliable support. Success means completing a task accurately with reasonable effort.",
+      "question": "Which statement is TRUE?",
+      "options": [
+        "Online forms always work well",
+        "Privacy is irrelevant",
+        "Clear instructions matter",
+        "Mobile users do not count"
+      ],
+      "correct": 2,
+      "solution": "Clear instructions are explicitly identified as necessary."
+    },
+    {
+      "id": "bo-3.1-016",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Forests provide timber as well as carbon storage, water regulation, soil protection and habitat. Some benefits are shared without direct payment, so private incentives may differ from wider social benefits.",
+      "question": "What is the main issue?",
+      "options": [
+        "Timber has no value",
+        "Private and social incentives may differ",
+        "Forests have few species",
+        "Forest entry costs"
+      ],
+      "correct": 1,
+      "solution": "The passage contrasts private incentives with wider benefits."
+    },
+    {
+      "id": "bo-3.1-017",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Forests provide timber as well as carbon storage, water regulation, soil protection and habitat. Some benefits are shared without direct payment, so private incentives may differ from wider social benefits.",
+      "question": "Which benefit is NOT mentioned?",
+      "options": [
+        "Carbon storage",
+        "Water regulation",
+        "Soil protection",
+        "Road construction"
+      ],
+      "correct": 3,
+      "solution": "Road construction is not mentioned."
+    },
+    {
+      "id": "bo-3.1-018",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Forests provide timber as well as carbon storage, water regulation, soil protection and habitat. Some benefits are shared without direct payment, so private incentives may differ from wider social benefits.",
+      "question": "Why might markets underprovide conservation?",
+      "options": [
+        "Some benefits lack direct payment",
+        "Timber has no value",
+        "Forests cannot store carbon",
+        "Landowners never seek income"
+      ],
+      "correct": 0,
+      "solution": "Benefits without direct payment may not be fully reflected in private decisions."
+    },
+    {
+      "id": "bo-3.1-019",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Forests provide timber as well as carbon storage, water regulation, soil protection and habitat. Some benefits are shared without direct payment, so private incentives may differ from wider social benefits.",
+      "question": "Conservation policy should",
+      "options": [
+        "ignore landowners",
+        "consider only timber prices",
+        "align private and wider benefits",
+        "ban all forest use"
+      ],
+      "correct": 2,
+      "solution": "Policy should consider both private incentives and social benefits."
+    },
+    {
+      "id": "bo-3.1-020",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Forests provide timber as well as carbon storage, water regulation, soil protection and habitat. Some benefits are shared without direct payment, so private incentives may differ from wider social benefits.",
+      "question": "Which statement is TRUE?",
+      "options": [
+        "Forest value is only timber",
+        "Environmental benefits extend beyond direct users",
+        "Landowners always conserve",
+        "Standing forests have no social value"
+      ],
+      "correct": 1,
+      "solution": "The passage describes benefits shared by people without direct payment."
+    },
+    {
+      "id": "bo-3.1-021",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Education should combine foundational knowledge with independent thinking. Memorisation helps with basic facts, while application and evidence evaluation develop deeper learning. Assessment design can influence what students choose to study.",
+      "question": "Education should combine",
+      "options": [
+        "only memorisation",
+        "foundational knowledge and independent thinking",
+        "only examination practice",
+        "avoidance of evidence"
+      ],
+      "correct": 1,
+      "solution": "The passage explicitly advocates a balance."
+    },
+    {
+      "id": "bo-3.1-022",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Education should combine foundational knowledge with independent thinking. Memorisation helps with basic facts, while application and evidence evaluation develop deeper learning. Assessment design can influence what students choose to study.",
+      "question": "What remains useful?",
+      "options": [
+        "Memorisation of basic facts",
+        "Ignoring evidence",
+        "Avoiding application",
+        "Eliminating assessment"
+      ],
+      "correct": 0,
+      "solution": "Memorisation is useful for foundational facts."
+    },
+    {
+      "id": "bo-3.1-023",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Education should combine foundational knowledge with independent thinking. Memorisation helps with basic facts, while application and evidence evaluation develop deeper learning. Assessment design can influence what students choose to study.",
+      "question": "What can be inferred about examinations?",
+      "options": [
+        "They never influence study",
+        "Their design can influence study priorities",
+        "They always promote analysis",
+        "They should test no facts"
+      ],
+      "correct": 1,
+      "solution": "Assessment incentives can affect student effort."
+    },
+    {
+      "id": "bo-3.1-024",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Education should combine foundational knowledge with independent thinking. Memorisation helps with basic facts, while application and evidence evaluation develop deeper learning. Assessment design can influence what students choose to study.",
+      "question": "Students may change effort because they",
+      "options": [
+        "respond to assessment incentives",
+        "reject all facts",
+        "avoid all exams",
+        "learn more when analysis is ignored"
+      ],
+      "correct": 0,
+      "solution": "The passage says assessment design influences study choices."
+    },
+    {
+      "id": "bo-3.1-025",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Education should combine foundational knowledge with independent thinking. Memorisation helps with basic facts, while application and evidence evaluation develop deeper learning. Assessment design can influence what students choose to study.",
+      "question": "Which statement is FALSE?",
+      "options": [
+        "Facts can be applied",
+        "Assessment can influence learning",
+        "Memorisation has no value",
+        "Independent thinking matters"
+      ],
+      "correct": 2,
+      "solution": "The passage says memorisation remains useful."
+    },
+    {
+      "id": "bo-3.1-026",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Large firms often have records, assets and borrowing histories that help lenders assess risk. Young firms may lack collateral and financial history. Better credit information and risk tools can reduce this information gap.",
+      "question": "Why may young firms struggle to borrow?",
+      "options": [
+        "They always lose money",
+        "They may lack collateral and history",
+        "Banks cannot lend to large firms",
+        "They have excessive records"
+      ],
+      "correct": 1,
+      "solution": "Limited collateral and financial history make risk assessment harder."
+    },
+    {
+      "id": "bo-3.1-027",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Large firms often have records, assets and borrowing histories that help lenders assess risk. Young firms may lack collateral and financial history. Better credit information and risk tools can reduce this information gap.",
+      "question": "Which factor helps assess a large firm?",
+      "options": [
+        "Lack of records",
+        "Established assets and borrowing history",
+        "No collateral",
+        "Untested ideas"
+      ],
+      "correct": 1,
+      "solution": "These factors are identified as useful to lenders."
+    },
+    {
+      "id": "bo-3.1-028",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Large firms often have records, assets and borrowing histories that help lenders assess risk. Young firms may lack collateral and financial history. Better credit information and risk tools can reduce this information gap.",
+      "question": "What is the information gap?",
+      "options": [
+        "Shortage of ideas",
+        "Difficulty judging borrower risk accurately",
+        "Difference between banks and governments",
+        "Lack of customers"
+      ],
+      "correct": 1,
+      "solution": "It refers to uncertainty about borrower risk."
+    },
+    {
+      "id": "bo-3.1-029",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Large firms often have records, assets and borrowing histories that help lenders assess risk. Young firms may lack collateral and financial history. Better credit information and risk tools can reduce this information gap.",
+      "question": "Which measure would most directly help?",
+      "options": [
+        "Removing records",
+        "Improving credit information",
+        "Charging everyone equally",
+        "Discouraging new firms"
+      ],
+      "correct": 1,
+      "solution": "Better information directly reduces uncertainty."
+    },
+    {
+      "id": "bo-3.1-030",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Large firms often have records, assets and borrowing histories that help lenders assess risk. Young firms may lack collateral and financial history. Better credit information and risk tools can reduce this information gap.",
+      "question": "Which statement is NOT supported?",
+      "options": [
+        "Large firms may be easier to assess",
+        "Young firms can have good ideas",
+        "Better information can help lending",
+        "Banks always know exact risk"
+      ],
+      "correct": 3,
+      "solution": "The passage describes uncertainty rather than perfect knowledge."
+    },
+    {
+      "id": "bo-3.1-031",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Urban parks provide shade, absorb some rainwater and support recreation. Their benefits depend on location, maintenance, accessibility and safety, not merely on the amount of green space.",
+      "question": "Which practical function is mentioned?",
+      "options": [
+        "Increasing congestion",
+        "Absorbing rainwater",
+        "Eliminating pollution",
+        "Replacing transport"
+      ],
+      "correct": 1,
+      "solution": "Rainwater absorption is explicitly mentioned."
+    },
+    {
+      "id": "bo-3.1-032",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Urban parks provide shade, absorb some rainwater and support recreation. Their benefits depend on location, maintenance, accessibility and safety, not merely on the amount of green space.",
+      "question": "Why might a park be underused?",
+      "options": [
+        "It has trees",
+        "It provides shade",
+        "It may be inaccessible or unsafe",
+        "It has open space"
+      ],
+      "correct": 2,
+      "solution": "Accessibility and safety affect use."
+    },
+    {
+      "id": "bo-3.1-033",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Urban parks provide shade, absorb some rainwater and support recreation. Their benefits depend on location, maintenance, accessibility and safety, not merely on the amount of green space.",
+      "question": "What broader conclusion follows?",
+      "options": [
+        "Quantity alone determines benefits",
+        "Design affects whether benefits are realised",
+        "Parks have no social value",
+        "Maintenance is unrelated"
+      ],
+      "correct": 1,
+      "solution": "The passage stresses planning and design."
+    },
+    {
+      "id": "bo-3.1-034",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Urban parks provide shade, absorb some rainwater and support recreation. Their benefits depend on location, maintenance, accessibility and safety, not merely on the amount of green space.",
+      "question": "Which factor is NOT listed?",
+      "options": [
+        "Location",
+        "Maintenance",
+        "Accessibility",
+        "Export earnings"
+      ],
+      "correct": 3,
+      "solution": "Export earnings are not discussed."
+    },
+    {
+      "id": "bo-3.1-035",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Urban parks provide shade, absorb some rainwater and support recreation. Their benefits depend on location, maintenance, accessibility and safety, not merely on the amount of green space.",
+      "question": "The author's purpose is mainly to",
+      "options": [
+        "show why park planning matters",
+        "argue parks are decorative",
+        "deny practical value",
+        "oppose recreation"
+      ],
+      "correct": 0,
+      "solution": "The passage explains benefits and planning conditions."
+    },
+    {
+      "id": "bo-3.1-036",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "A percentage can mislead if its denominator or comparison period is unclear. Readers should examine what was measured, how it was measured and the baseline. Graphs communicate trends but do not replace underlying data.",
+      "question": "What should a reader check when interpreting a percentage?",
+      "options": [
+        "Font size",
+        "Denominator and comparison basis",
+        "Author's age",
+        "Graph colour"
+      ],
+      "correct": 1,
+      "solution": "The passage warns about denominator and comparison period."
+    },
+    {
+      "id": "bo-3.1-037",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "A percentage can mislead if its denominator or comparison period is unclear. Readers should examine what was measured, how it was measured and the baseline. Graphs communicate trends but do not replace underlying data.",
+      "question": "Which statement is TRUE?",
+      "options": [
+        "Every correct percentage is informative",
+        "Graphs make raw data unnecessary",
+        "A correct figure can still mislead",
+        "Only researchers need statistical literacy"
+      ],
+      "correct": 2,
+      "solution": "A technically correct percentage can mislead without context."
+    },
+    {
+      "id": "bo-3.1-038",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "A percentage can mislead if its denominator or comparison period is unclear. Readers should examine what was measured, how it was measured and the baseline. Graphs communicate trends but do not replace underlying data.",
+      "question": "Why is a baseline important?",
+      "options": [
+        "It determines colour",
+        "It provides a basis for comparison",
+        "It removes measurement",
+        "It guarantees agreement"
+      ],
+      "correct": 1,
+      "solution": "A baseline is the reference point for judging change."
+    },
+    {
+      "id": "bo-3.1-039",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "A percentage can mislead if its denominator or comparison period is unclear. Readers should examine what was measured, how it was measured and the baseline. Graphs communicate trends but do not replace underlying data.",
+      "question": "Graphs should be used to",
+      "options": [
+        "communicate trends while checking data",
+        "replace all analysis",
+        "hide complexity",
+        "avoid comparisons"
+      ],
+      "correct": 0,
+      "solution": "Graphs help communicate trends but underlying data still matter."
+    },
+    {
+      "id": "bo-3.1-040",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "A percentage can mislead if its denominator or comparison period is unclear. Readers should examine what was measured, how it was measured and the baseline. Graphs communicate trends but do not replace underlying data.",
+      "question": "Which issue is NOT raised?",
+      "options": [
+        "Measurement methods",
+        "Comparison baselines",
+        "Underlying data",
+        "Employee salaries"
+      ],
+      "correct": 3,
+      "solution": "Employee salaries are not discussed."
+    },
+    {
+      "id": "bo-3.1-041",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Meaningful community participation requires accessible information, enough time and a genuine opportunity to influence decisions. Residents can provide local knowledge, while feedback shows how their suggestions were considered.",
+      "question": "What can residents contribute?",
+      "options": [
+        "Foreign credentials",
+        "Local knowledge",
+        "Guaranteed funding",
+        "Authority over every agency"
+      ],
+      "correct": 1,
+      "solution": "Residents may contribute local knowledge."
+    },
+    {
+      "id": "bo-3.1-042",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Meaningful community participation requires accessible information, enough time and a genuine opportunity to influence decisions. Residents can provide local knowledge, while feedback shows how their suggestions were considered.",
+      "question": "What is necessary for meaningful participation?",
+      "options": [
+        "No information",
+        "A genuine opportunity to influence decisions",
+        "One-way communication",
+        "Very little response time"
+      ],
+      "correct": 1,
+      "solution": "Genuine influence is a key condition."
+    },
+    {
+      "id": "bo-3.1-043",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Meaningful community participation requires accessible information, enough time and a genuine opportunity to influence decisions. Residents can provide local knowledge, while feedback shows how their suggestions were considered.",
+      "question": "What does the passage imply about meetings?",
+      "options": [
+        "Every meeting is meaningful",
+        "Meetings alone do not prove participation",
+        "Meetings should never occur",
+        "Residents cannot contribute"
+      ],
+      "correct": 1,
+      "solution": "A meeting alone does not ensure meaningful participation."
+    },
+    {
+      "id": "bo-3.1-044",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Meaningful community participation requires accessible information, enough time and a genuine opportunity to influence decisions. Residents can provide local knowledge, while feedback shows how their suggestions were considered.",
+      "question": "Why is feedback important?",
+      "options": [
+        "It shows how suggestions were considered",
+        "It prevents residents speaking",
+        "It eliminates planning",
+        "It guarantees acceptance"
+      ],
+      "correct": 0,
+      "solution": "Feedback demonstrates that suggestions were considered."
+    },
+    {
+      "id": "bo-3.1-045",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Meaningful community participation requires accessible information, enough time and a genuine opportunity to influence decisions. Residents can provide local knowledge, while feedback shows how their suggestions were considered.",
+      "question": "Which statement is FALSE?",
+      "options": [
+        "Residents may have local knowledge",
+        "Information should be accessible",
+        "Every suggestion must be accepted",
+        "Feedback supports participation"
+      ],
+      "correct": 2,
+      "solution": "The passage requires consideration, not acceptance of every suggestion."
+    },
+    {
+      "id": "bo-3.1-046",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Energy efficiency can reduce resource use without reducing services. Insulation, efficient appliances and sensible operating practices can cut waste. Small improvements can have a large combined effect across many buildings.",
+      "question": "What is the main point?",
+      "options": [
+        "Efficiency reduces comfort",
+        "Small measures can create large combined benefits",
+        "Only appliances matter",
+        "Demand is irrelevant"
+      ],
+      "correct": 1,
+      "solution": "The passage stresses cumulative benefits."
+    },
+    {
+      "id": "bo-3.1-047",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Energy efficiency can reduce resource use without reducing services. Insulation, efficient appliances and sensible operating practices can cut waste. Small improvements can have a large combined effect across many buildings.",
+      "question": "Which measure is mentioned?",
+      "options": [
+        "Removing insulation",
+        "Using inefficient appliances",
+        "Improving insulation",
+        "Increasing waste"
+      ],
+      "correct": 2,
+      "solution": "Improved insulation is explicitly mentioned."
+    },
+    {
+      "id": "bo-3.1-048",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Energy efficiency can reduce resource use without reducing services. Insulation, efficient appliances and sensible operating practices can cut waste. Small improvements can have a large combined effect across many buildings.",
+      "question": "What can be inferred?",
+      "options": [
+        "Efficiency can preserve services while reducing resource use",
+        "All appliances should be removed",
+        "Efficiency matters only at low demand",
+        "It has no household relevance"
+      ],
+      "correct": 0,
+      "solution": "The passage says services need not decline when resource use falls."
+    },
+    {
+      "id": "bo-3.1-049",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Energy efficiency can reduce resource use without reducing services. Insulation, efficient appliances and sensible operating practices can cut waste. Small improvements can have a large combined effect across many buildings.",
+      "question": "Why can small improvements matter?",
+      "options": [
+        "They are always expensive",
+        "Their combined effect can be substantial",
+        "They eliminate energy systems",
+        "They increase waste"
+      ],
+      "correct": 1,
+      "solution": "Many small improvements can add up to substantial savings."
+    },
+    {
+      "id": "bo-3.1-050",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Energy efficiency can reduce resource use without reducing services. Insulation, efficient appliances and sensible operating practices can cut waste. Small improvements can have a large combined effect across many buildings.",
+      "question": "Which statement is TRUE?",
+      "options": [
+        "Efficiency can reduce resource use",
+        "Efficiency requires removing insulation",
+        "Efficiency increases waste",
+        "Efficiency concerns only engineers"
+      ],
+      "correct": 0,
+      "solution": "Reducing resource use is the central benefit described."
+    },
+    {
+      "id": "bo-3.1-051",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Good leadership includes priorities, communication and safe reporting of problems. Fear can cause employees to hide mistakes. Constructive accountability keeps responsibility while encouraging learning and correction.",
+      "question": "Why should staff report problems safely?",
+      "options": [
+        "To avoid responsibility",
+        "So managers receive reliable information",
+        "To remove standards",
+        "To hide mistakes"
+      ],
+      "correct": 1,
+      "solution": "Safe reporting improves the reliability of information."
+    },
+    {
+      "id": "bo-3.1-052",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Good leadership includes priorities, communication and safe reporting of problems. Fear can cause employees to hide mistakes. Constructive accountability keeps responsibility while encouraging learning and correction.",
+      "question": "What may fear of punishment cause?",
+      "options": [
+        "Employees may hide mistakes",
+        "Automatic improvement",
+        "Earlier reporting",
+        "Removal of consequences"
+      ],
+      "correct": 0,
+      "solution": "The passage explicitly says fear can cause mistakes to be hidden."
+    },
+    {
+      "id": "bo-3.1-053",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Good leadership includes priorities, communication and safe reporting of problems. Fear can cause employees to hide mistakes. Constructive accountability keeps responsibility while encouraging learning and correction.",
+      "question": "Constructive accountability differs from pure punishment because it",
+      "options": [
+        "combines responsibility with learning",
+        "removes consequences",
+        "ignores mistakes",
+        "avoids priorities"
+      ],
+      "correct": 0,
+      "solution": "It keeps responsibility while encouraging learning and correction."
+    },
+    {
+      "id": "bo-3.1-054",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Good leadership includes priorities, communication and safe reporting of problems. Fear can cause employees to hide mistakes. Constructive accountability keeps responsibility while encouraging learning and correction.",
+      "question": "An artificially positive picture means",
+      "options": [
+        "Performance may appear better than reality",
+        "Performance objectively improved",
+        "Everyone succeeds",
+        "Managers know everything"
+      ],
+      "correct": 0,
+      "solution": "Hidden problems can make reported performance look better than it is."
+    },
+    {
+      "id": "bo-3.1-055",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Good leadership includes priorities, communication and safe reporting of problems. Fear can cause employees to hide mistakes. Constructive accountability keeps responsibility while encouraging learning and correction.",
+      "question": "Which statement is FALSE?",
+      "options": [
+        "Leaders communicate expectations",
+        "Accountability can encourage learning",
+        "Consequences should disappear",
+        "Reliable information helps action"
+      ],
+      "correct": 2,
+      "solution": "The passage does not argue that consequences should disappear."
+    },
+    {
+      "id": "bo-3.1-056",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Disaster preparedness begins before a crisis through risk identification, communication, evacuation practice and supplies. Plans may fail under unexpected conditions, so post-event review should improve future planning.",
+      "question": "What is the main idea?",
+      "options": [
+        "Disasters can always be prevented",
+        "Preparedness is an ongoing process",
+        "Plans start after disasters",
+        "Supplies are unnecessary"
+      ],
+      "correct": 1,
+      "solution": "Preparedness includes planning, practice and review over time."
+    },
+    {
+      "id": "bo-3.1-057",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Disaster preparedness begins before a crisis through risk identification, communication, evacuation practice and supplies. Plans may fail under unexpected conditions, so post-event review should improve future planning.",
+      "question": "Which activity is mentioned?",
+      "options": [
+        "Practising evacuation",
+        "Ignoring risks",
+        "Removing communication",
+        "Waiting for crisis"
+      ],
+      "correct": 0,
+      "solution": "Evacuation practice is explicitly mentioned."
+    },
+    {
+      "id": "bo-3.1-058",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Disaster preparedness begins before a crisis through risk identification, communication, evacuation practice and supplies. Plans may fail under unexpected conditions, so post-event review should improve future planning.",
+      "question": "Why review plans after an event?",
+      "options": [
+        "To make them longer",
+        "To learn from what worked and failed",
+        "To prove disasters impossible",
+        "To avoid communication"
+      ],
+      "correct": 1,
+      "solution": "Review is intended to improve future planning."
+    },
+    {
+      "id": "bo-3.1-059",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Disaster preparedness begins before a crisis through risk identification, communication, evacuation practice and supplies. Plans may fail under unexpected conditions, so post-event review should improve future planning.",
+      "question": "What limitation is acknowledged?",
+      "options": [
+        "Plans guarantee no disaster",
+        "Plans may fail under unexpected conditions",
+        "Preparedness increases confusion",
+        "Review prevents learning"
+      ],
+      "correct": 1,
+      "solution": "Unexpected conditions can make plans fail."
+    },
+    {
+      "id": "bo-3.1-060",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Disaster preparedness begins before a crisis through risk identification, communication, evacuation practice and supplies. Plans may fail under unexpected conditions, so post-event review should improve future planning.",
+      "question": "Which statement is TRUE?",
+      "options": [
+        "Preparedness guarantees perfection",
+        "Prior planning can improve response",
+        "Plans should never change",
+        "Preparedness begins after crisis"
+      ],
+      "correct": 1,
+      "solution": "Prior planning and review can improve response."
+    },
+    {
+      "id": "bo-3.1-061",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "One scientific study rarely settles a complex question. Replication, comparison with other evidence and careful interpretation increase confidence. Good science communication requires both accuracy and clarity.",
+      "question": "Why is replication important?",
+      "options": [
+        "It guarantees correctness",
+        "It helps assess confidence",
+        "It replaces all evidence",
+        "It makes communication unnecessary"
+      ],
+      "correct": 1,
+      "solution": "Replication contributes to confidence in findings."
+    },
+    {
+      "id": "bo-3.1-062",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "One scientific study rarely settles a complex question. Replication, comparison with other evidence and careful interpretation increase confidence. Good science communication requires both accuracy and clarity.",
+      "question": "What can excessive technical language do?",
+      "options": [
+        "Improve understanding for everyone",
+        "Prevent understanding",
+        "Guarantee accuracy",
+        "Replace replication"
+      ],
+      "correct": 1,
+      "solution": "The passage emphasises clarity as well as accuracy."
+    },
+    {
+      "id": "bo-3.1-063",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "One scientific study rarely settles a complex question. Replication, comparison with other evidence and careful interpretation increase confidence. Good science communication requires both accuracy and clarity.",
+      "question": "Which inference is most reasonable?",
+      "options": [
+        "Uncertainty should be communicated honestly",
+        "All findings have equal uncertainty",
+        "Communication has no scientific role",
+        "Clarity requires inaccuracy"
+      ],
+      "correct": 0,
+      "solution": "Careful interpretation and accurate communication imply honest treatment of uncertainty."
+    },
+    {
+      "id": "bo-3.1-064",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "One scientific study rarely settles a complex question. Replication, comparison with other evidence and careful interpretation increase confidence. Good science communication requires both accuracy and clarity.",
+      "question": "The author would reject the idea that",
+      "options": [
+        "one study always settles a complex question",
+        "replication helps evaluation",
+        "clear communication is valuable",
+        "interpretation matters"
+      ],
+      "correct": 0,
+      "solution": "The passage says one study rarely settles a complex question."
+    },
+    {
+      "id": "bo-3.1-065",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "One scientific study rarely settles a complex question. Replication, comparison with other evidence and careful interpretation increase confidence. Good science communication requires both accuracy and clarity.",
+      "question": "Good science communication requires",
+      "options": [
+        "accuracy and clarity",
+        "speed and secrecy",
+        "complexity and exaggeration",
+        "certainty and silence"
+      ],
+      "correct": 0,
+      "solution": "The final sentence explicitly identifies accuracy and clarity."
+    },
+    {
+      "id": "bo-3.1-066",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Budgets allocate limited resources among competing priorities. Spending more on one programme can constrain another, although productive investment may create future benefits. Opportunity cost is the alternative use of funds that is forgone.",
+      "question": "What is opportunity cost?",
+      "options": [
+        "Total budget size",
+        "The alternative use of resources forgone",
+        "A tax collected",
+        "Administrative structure"
+      ],
+      "correct": 1,
+      "solution": "Opportunity cost is the alternative use given up."
+    },
+    {
+      "id": "bo-3.1-067",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Budgets allocate limited resources among competing priorities. Spending more on one programme can constrain another, although productive investment may create future benefits. Opportunity cost is the alternative use of funds that is forgone.",
+      "question": "What may happen when spending rises on one programme?",
+      "options": [
+        "Other resources may become constrained",
+        "Revenue must always fall",
+        "All programmes expand",
+        "Opportunity cost disappears"
+      ],
+      "correct": 0,
+      "solution": "Limited resources can constrain alternative programmes."
+    },
+    {
+      "id": "bo-3.1-068",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Budgets allocate limited resources among competing priorities. Spending more on one programme can constrain another, although productive investment may create future benefits. Opportunity cost is the alternative use of funds that is forgone.",
+      "question": "Why is not every budget decision zero-sum?",
+      "options": [
+        "Some investments can create future benefits",
+        "Governments never face limits",
+        "Opportunity costs do not exist",
+        "Revenue cannot change"
+      ],
+      "correct": 0,
+      "solution": "Productive investment may create future benefits."
+    },
+    {
+      "id": "bo-3.1-069",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "Budgets allocate limited resources among competing priorities. Spending more on one programme can constrain another, although productive investment may create future benefits. Opportunity cost is the alternative use of funds that is forgone.",
+      "question": "Which question reflects the passage?",
+      "options": [
+        "Who designed the logo?",
+        "What alternative use of funds is forgone?",
+        "How can funds become unlimited?",
+        "Why should revenue never change?"
+      ],
+      "correct": 1,
+      "solution": "The passage defines opportunity cost through the alternative use forgone."
+    },
+    {
+      "id": "bo-3.1-070",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Budgets allocate limited resources among competing priorities. Spending more on one programme can constrain another, although productive investment may create future benefits. Opportunity cost is the alternative use of funds that is forgone.",
+      "question": "What is the core theme?",
+      "options": [
+        "Budgeting requires comparing competing uses of limited resources",
+        "All public spending is wasteful",
+        "Revenue is irrelevant",
+        "Only investment matters"
+      ],
+      "correct": 0,
+      "solution": "The passage centres on limited resources, priorities and opportunity cost."
     }
   ],
-  "questionBankUpdatedAt": "2026-09-13T08:33:23.935238Z"
+  "questionBankUpdatedAt": "2026-09-14T01:14:39.389572Z"
 }
