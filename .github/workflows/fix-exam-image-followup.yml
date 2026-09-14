@@ -1,0 +1,35 @@
+name: Fix exam image follow-up
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-exam-image-followup.yml'
+  workflow_dispatch:
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix image rendering and submit review
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          p=Path('exam.js'); s=p.read_text(encoding='utf-8')
+          # Fix the template boundary introduced by the image block.
+          s=s.replace("</h2>`<div class=\"options\">", "</h2><div class=\"options\">")
+          # Include image metadata in submitted result review so PDF can render it.
+          old="review.push({id:q.id,q:q.q||q.question,options:q.options,selected,correct:q.correct,type:q.type,section:q.section||'',unit:q.unit||'',subject:q.subject,topic:q.topic,level:q.level||'',explanation:q.explanation||'',solution:q.solution||''})"
+          new="review.push({id:q.id,q:q.q||q.question,options:q.options,selected,correct:q.correct,type:q.type,section:q.section||'',unit:q.unit||'',subject:q.subject,topic:q.topic,level:q.level||'',image:q.image||q.imageUrl||q.image_url||'',imageAlt:q.imageAlt||q.image_alt||q.topic||'प्रश्नचित्र',explanation:q.explanation||'',solution:q.solution||''})"
+          if old in s:
+              s=s.replace(old,new,1)
+          p.write_text(s,encoding='utf-8')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add exam.js
+          git diff --cached --quiet || git commit -m 'Fix exam image rendering and PDF review data'
+          git push
