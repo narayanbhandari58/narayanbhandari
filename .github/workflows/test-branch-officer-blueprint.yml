@@ -1,5 +1,6 @@
 name: Test Branch Officer 100-question blueprint
 
+# Parent units include their descendant child units in the validation pool.
 on:
   workflow_dispatch:
   push:
@@ -64,7 +65,6 @@ jobs:
                   raise AssertionError(f'pool too small: {len(pool)} < {n}')
               return random.sample(pool, n)
 
-          # Parent units such as 1.4 are satisfied by stored child units 1.4.1, 1.4.2, etc.
           for s in sections:
               for u in s.get('units', []):
                   pool = [q for q in bank if q.get('section') == s['id'] and unit_matches(q, u['id'])]
