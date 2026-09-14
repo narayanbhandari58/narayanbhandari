@@ -13,91 +13,81 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Run real 2,138-question Branch Officer paper test
-        shell: python
+      - name: Test exact runtime selection against main dataset
+        shell: bash
         run: |
-          import json, random
-          from collections import Counter
-
-          with open('exam-data.json', encoding='utf-8') as f:
-              data=json.load(f)
-          qs=data.get('questions', [])
-          assert len(qs)==2138, f'FAIL: expected 2138 questions, got {len(qs)}'
-
-          def level(q):
-              v=str(q.get('level','')).strip().lower()
-              return {'i':'level1','l1':'level1','1':'level1','level1':'level1',
-                      'ii':'level2','l2':'level2','2':'level2','level2':'level2'}.get(v,v)
-
-          def unit(q):
-              return str(q.get('unit') or q.get('section') or q.get('topic') or '').strip()
-
-          # Match the runtime's Branch Officer blueprint.
-          blueprint = {
-              'A': {'count':50, 'units': [('1.1',5),('1.2',5),('1.3',5),('1.4.1',5),('1.4.2',5),('1.5',5),('1.6',5),('1.7',5),('1.8',5)]},
-              'B': {'count':30, 'units': [('2.1',6),('2.2',6),('2.3',6),('2.4',6),('2.5',6)]},
-              'C': {'count':20, 'units': [('3.1',5),('3.2',7),('3.3',8)]}
+          node <<'NODE'
+          const fs=require('fs');
+          const data=JSON.parse(fs.readFileSync('exam-data.json','utf8'));
+          const all=data.questions||[];
+          if(all.length!==2138) throw new Error(`FAIL: main dataset has ${all.length}, expected 2138`);
+          const exam=(data.exams||[]).find(x=>x.id==='sakha-adhikrit'&&x.enabled!==false);
+          if(!exam) throw new Error('FAIL: sakha-adhikrit exam config missing');
+          if(exam.questionCount!==100) throw new Error(`FAIL: questionCount=${exam.questionCount}`);
+          if(exam.durationMinutes!==90) throw new Error(`FAIL: durationMinutes=${exam.durationMinutes}`);
+          if(Number(exam.positiveMark||1)!==1) throw new Error('FAIL: positiveMark is not 1');
+          if(Number(exam.negativeMark||.2)!==.2) throw new Error('FAIL: negativeMark is not 0.2');
+          const sections=exam.blueprint?.sections||[];
+          const expected={A:50,B:30,C:20};
+          const sums={};
+          for(const s of sections){
+            sums[s.id]=(s.units||[]).reduce((n,u)=>n+Number(u.questionCount||0),0);
+            if(sums[s.id]!==expected[s.id]) throw new Error(`FAIL: section ${s.id} quota=${sums[s.id]}, expected ${expected[s.id]}`);
+            if(s.id==='B'){
+              const got=Object.fromEntries((s.units||[]).map(u=>[u.id,Number(u.questionCount)]));
+              for(const [u,n] of Object.entries({'2.1':6,'2.2':6,'2.3':6,'2.4':6,'2.5':6})) if(got[u]!==n) throw new Error(`FAIL: ${u} quota=${got[u]}, expected ${n}`);
+            }
+            if(s.id==='C'){
+              const got=Object.fromEntries((s.units||[]).map(u=>[u.id,Number(u.questionCount)]));
+              for(const [u,n] of Object.entries({'3.1':5,'3.2':7,'3.3':8})) if(got[u]!==n) throw new Error(`FAIL: ${u} quota=${got[u]}, expected ${n}`);
+            }
           }
-
-          # The A blueprint has 9 listed units with 5 each, while the official
-          # section total is 50.  The runtime therefore uses its actual unitPlan
-          # (the same quota logic in exam-api.js), so first verify the runtime
-          # source contains the expected 50/30/20 plan.
-          api=open('netlify/functions/exam-api.js',encoding='utf-8').read()
-          assert 'questionCount: 100' in api or 'questionCount:100' in api, 'FAIL: 100-question exam config not found'
-          assert 'durationMinutes: 90' in api or 'durationMinutes:90' in api, 'FAIL: 90-minute config not found'
-
-          # Discover all units in the real dataset.
-          by={}
-          for q in qs:
-              u=unit(q)
-              by.setdefault(u,[]).append(q)
-
-          def find(unit_prefix):
-              return [q for q in qs if unit(q)==unit_prefix or unit(q).startswith(unit_prefix+'.')]
-
-          # Verify every blueprint unit has enough questions at each requested level.
-          for u,n in blueprint['A']['units']+blueprint['B']['units']+blueprint['C']['units']:
-              pool=find(u)
-              assert len(pool)>=n, f'FAIL: {u} has only {len(pool)}, needs {n}'
-
-          # 100 randomized paper simulations. Section A is capped to 50 from
-          # its available units; B and C use their exact per-unit quotas.
-          for trial in range(100):
-              rng=random.Random(20260914+trial)
-              selected=[]
-
-              # A: take 50 total using proportional shuffled unit selection,
-              # preserving the official section total even though the bank has
-              # multiple A sub-units.
-              a_pool=[]
-              for u,n in blueprint['A']['units']:
-                  pool=find(u)
-                  rng.shuffle(pool)
-                  a_pool.extend(pool[:n])
-              rng.shuffle(a_pool)
-              selected.extend(a_pool[:50])
-
-              for u,n in blueprint['B']['units']:
-                  pool=find(u); rng.shuffle(pool); selected.extend(pool[:n])
-              for u,n in blueprint['C']['units']:
-                  pool=find(u); rng.shuffle(pool); selected.extend(pool[:n])
-
-              assert len(selected)==100, f'FAIL trial {trial+1}: selected {len(selected)}'
-              ids=[q.get('id') for q in selected]
-              assert len(ids)==len(set(ids)), f'FAIL trial {trial+1}: duplicate IDs'
-
-              sec=Counter()
-              for q in selected:
-                  u=unit(q)
-                  if u.startswith('1.') : sec['A']+=1
-                  elif u.startswith('2.') : sec['B']+=1
-                  elif u.startswith('3.') : sec['C']+=1
-                  else: raise AssertionError(f'FAIL trial {trial+1}: unknown unit {u}')
-              assert sec==Counter({'A':50,'B':30,'C':20}), f'FAIL trial {trial+1}: sections {sec}'
-
-          print('PASS: real main dataset contains 2,138 questions and 100/100 randomized Branch Officer paper simulations selected exactly 50 + 30 + 20 questions with no duplicates.')
-          print('PASS: Section B quotas = 2.1:6, 2.2:6, 2.3:6, 2.4:6, 2.5:6.')
-          print('PASS: Section C quotas = 3.1:5, 3.2:7, 3.3:8.')
-          print('PASS: Branch Officer runtime config checked for 100 questions and 90 minutes.')
+          if(JSON.stringify(sums)!==JSON.stringify(expected)) throw new Error(`FAIL: section totals ${JSON.stringify(sums)}`);
+          const levelOf=q=>{const v=String(q.level??'').toLowerCase();if(['level1','l1','i','1'].includes(v))return 'level1';if(['level2','l2','ii','2'].includes(v))return 'level2';return v};
+          const shuffle=a=>{const x=[...a];for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]]}return x};
+          const selectPaper=(exam,bank)=>{
+            const selected=[];
+            for(const section of (exam.blueprint?.sections||[])){
+              const sectionBank=shuffle(bank.filter(q=>q.section===section.id));
+              const d=section.levelDistribution;
+              let remaining1=d?.level1||0,remaining2=d?.level2||0;
+              for(const u of (section.units||[])){
+                const pool=shuffle(sectionBank.filter(q=>q.unit===u.id));
+                if(!pool.length)continue;
+                const need=u.questionCount;
+                const l1=pool.filter(q=>levelOf(q)==='level1');
+                const l2=pool.filter(q=>levelOf(q)==='level2');
+                let take1=d?Math.max(0,Math.min(l1.length,remaining1,need)):0;
+                let take2=d?Math.max(0,Math.min(l2.length,remaining2,need-take1)):0;
+                if(d&&take1+take2<need){
+                  const rest=shuffle([...l1.slice(take1),...l2.slice(take2),...pool.filter(q=>!['level1','level2'].includes(levelOf(q))]).slice(0,need-take1-take2);
+                  selected.push(...shuffle([...l1.slice(0,take1),...l2.slice(0,take2),...rest]));
+                } else selected.push(...shuffle([...l1.slice(0,take1),...l2.slice(0,take2)]));
+                remaining1-=take1; remaining2-=take2;
+              }
+            }
+            return shuffle(selected).slice(0,exam.questionCount);
+          };
+          const pool=all; const failures=[];
+          for(let t=1;t<=1000;t++){
+            const paper=selectPaper(exam,pool);
+            if(paper.length!==100){failures.push(`trial ${t}: selected ${paper.length}`);break}
+            const ids=paper.map(q=>q.id);
+            if(new Set(ids).size!==100){failures.push(`trial ${t}: duplicate IDs`);break}
+            const c={A:0,B:0,C:0};
+            for(const q of paper){if(c[q.section]!==undefined)c[q.section]++;else failures.push(`trial ${t}: unexpected section ${q.section}`)}
+            if(c.A!==50||c.B!==30||c.C!==20){failures.push(`trial ${t}: sections ${JSON.stringify(c)}`);break}
+            for(const [sid,n] of Object.entries(expected)){
+              const units=(exam.blueprint.sections.find(s=>s.id===sid).units||[]);
+              for(const u of units){const got=paper.filter(q=>q.section===sid&&q.unit===u.id).length;if(got!==Number(u.questionCount)) {failures.push(`trial ${t}: ${u.id}=${got}, expected ${u.questionCount}`);break}}
+            }
+            if(failures.length)break;
+          }
+          if(failures.length) throw new Error('FAIL: '+failures[0]);
+          console.log('PASS: main dataset = 2,138 questions');
+          console.log('PASS: Branch Officer config = 100 questions, 90 minutes, +1 / -0.2');
+          console.log('PASS: blueprint = A50 + B30 + C20');
+          console.log('PASS: B quotas = 2.1/2.2/2.3/2.4/2.5 = 6/6/6/6/6');
+          console.log('PASS: C quotas = 3.1/3.2/3.3 = 5/7/8');
+          console.log('PASS: 1,000 randomized papers selected exactly 100 questions with no duplicates and exact unit quotas');
+          NODE
