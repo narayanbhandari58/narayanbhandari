@@ -87,7 +87,6 @@ jobs:
           assert sum(1 for q in q18 if q.get('level') == 'II') == 120
 
           balanced_units = {'1.3','1.4.1','1.4.2','1.6.1','1.6.2','1.6.3','1.7.1','1.7.2','1.8','2.4'}
-          letters = ['A','B','C','D']
           for unit in balanced_units:
               unit_questions = [q for q in questions if q.get('unit') == unit]
               for q in unit_questions:
@@ -115,10 +114,51 @@ jobs:
           data['questionBankUpdatedAt'] = __import__('datetime').datetime.utcnow().isoformat() + 'Z'
           data_path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
           print(f'Added {added}, updated {updated}; 2.4 balance={counts}; total={len(questions)}')
-      - name: Commit merged question bank
+      - name: Audit question bank and harden exam runtime
+        shell: python
+        run: |
+          import json, re
+          from pathlib import Path
+          p=Path('exam-data.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          qs=d.get('questions',[])
+          assert qs, 'Question bank is empty'
+          ids=[q.get('id') for q in qs]
+          assert None not in ids, 'Question without id found'
+          assert len(ids)==len(set(ids)), 'Duplicate question IDs found'
+          bad=[]
+          for q in qs:
+              text=q.get('q') or q.get('question')
+              opts=q.get('options')
+              c=q.get('correct')
+              if not text or not isinstance(opts,list) or len(opts)!=4 or not isinstance(c,int) or not 0<=c<4:
+                  bad.append(q.get('id'))
+          assert not bad, f'Invalid question schema: {bad[:20]}'
+          for q in qs:
+              if q.get('unit')=='3.3' and q.get('id')=='bo-3.3-024':
+                  q['category']='Syntactic Ability'; q['level']='L2'
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          api=Path('netlify/functions/exam-api.js')
+          s=api.read_text(encoding='utf-8')
+          old="function publicQuestion(q){return{id:q.id,examIds:q.examIds,section:q.section,unit:q.unit,subject:q.subject,topic:q.topic,level:q.level,type:q.type,q:q.q,options:q.options}}"
+          new="function publicQuestion(q){return{id:q.id,examIds:q.examIds,section:q.section,unit:q.unit,subject:q.subject,topic:q.topic,level:q.level,type:q.type,q:q.q||q.question,options:q.options}}"
+          assert old in s, 'Expected publicQuestion function not found'
+          s=s.replace(old,new)
+          old="function unitPlan(exam){return (exam.blueprint?.sections||[]).flatMap(s=>(s.units||[]).map(u=>({...u,sectionId:s.id,sectionTitle:s.title,sectionLevelDistribution:s.levelDistribution||null})))}"
+          new="function levelOf(q){const v=String(q.level??'').toLowerCase();if(v==='level1'||v==='l1'||v==='i'||v==='1')return 'level1';if(v==='level2'||v==='l2'||v==='ii'||v==='2')return 'level2';return v}\nfunction unitPlan(exam){return (exam.blueprint?.sections||[]).flatMap(s=>(s.units||[]).map(u=>({...u,sectionId:s.id,sectionTitle:s.title,sectionLevelDistribution:s.levelDistribution||null})))}"
+          assert old in s, 'Expected unitPlan function not found'
+          s=s.replace(old,new)
+          s=s.replace("q.filter(x=>x.level==='level1').length", "q.filter(x=>levelOf(x)==='level1').length")
+          s=s.replace("q.filter(x=>x.level==='level2').length", "q.filter(x=>levelOf(x)==='level2').length")
+          s=s.replace("pool.filter(q=>q.level==='level1')", "pool.filter(q=>levelOf(q)==='level1')")
+          s=s.replace("pool.filter(q=>q.level==='level2')", "pool.filter(q=>levelOf(q)==='level2')")
+          s=s.replace("pool.filter(q=>q.level!=='level1'&&q.level!=='level2')", "pool.filter(q=>levelOf(q)!=='level1'&&levelOf(q)!=='level2')")
+          api.write_text(s,encoding='utf-8')
+          print(f'Audit passed: {len(qs)} questions; duplicate IDs=0; schema errors=0')
+      - name: Commit merged question bank and runtime fixes
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add exam-data.json
-          git diff --cached --quiet || git commit -m 'Sync and validate exam question bank'
+          git add exam-data.json netlify/functions/exam-api.js
+          git diff --cached --quiet || git commit -m 'Audit question bank and fix exam runtime'
           git push
