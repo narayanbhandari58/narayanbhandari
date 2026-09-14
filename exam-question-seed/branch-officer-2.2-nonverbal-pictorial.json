@@ -20,7 +20,7 @@
     ],
     "correct": 0,
     "solution": "चित्रको ढाँचा आकृति क्रम अनुसार पढ्दा सही विकल्प A हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22230%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22360%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22490%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22620%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-001.png",
     "imageAlt": "आकृति क्रम"
   },
   {
@@ -44,7 +44,7 @@
     ],
     "correct": 1,
     "solution": "चित्रको ढाँचा भराइ क्रम अनुसार पढ्दा सही विकल्प B हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Crect%20x%3D%2265%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22195%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22325%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22455%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22585%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-002.png",
     "imageAlt": "भराइ क्रम"
   },
   {
@@ -68,7 +68,7 @@
     ],
     "correct": 3,
     "solution": "चित्रको ढाँचा घुमाइ अनुसार पढ्दा सही विकल्प D हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cg%20transform%3D%22translate%28110%20110%29%20rotate%28180%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28250%20110%29%20rotate%28270%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28390%20110%29%20rotate%28360%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28530%20110%29%20rotate%28450%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-003.png",
     "imageAlt": "घुमाइ"
   },
   {
@@ -92,7 +92,7 @@
     ],
     "correct": 1,
     "solution": "चित्रको ढाँचा भुजा क्रम अनुसार पढ्दा सही विकल्प B हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cpolygon%20points%3D%22100.0%2C75.0%20130.3%2C92.5%20130.3%2C127.5%20100.0%2C145.0%2069.7%2C127.5%2069.7%2C92.5%22%2F%3E%3Cpolygon%20points%3D%22230.0%2C75.0%20260.3%2C127.5%20199.7%2C127.5%22%2F%3E%3Cpolygon%20points%3D%22360.0%2C75.0%20395.0%2C110.0%20360.0%2C145.0%20325.0%2C110.0%22%2F%3E%3Cpolygon%20points%3D%22490.0%2C75.0%20523.3%2C99.2%20510.6%2C138.3%20469.4%2C138.3%20456.7%2C99.2%22%2F%3E%3Cpolygon%20points%3D%22620.0%2C75.0%20650.3%2C92.5%20650.3%2C127.5%20620.0%2C145.0%20589.7%2C127.5%20589.7%2C92.5%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-004.png",
     "imageAlt": "भुजा क्रम"
   },
   {
@@ -116,7 +116,7 @@
     ],
     "correct": 1,
     "solution": "चित्रको ढाँचा दर्पण प्रतिबिम्ब अनुसार पढ्दा सही विकल्प B हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%22360%22%20y1%3D%2235%22%20x2%3D%22360%22%20y2%3D%22205%22%20stroke%3D%22%23777%22%20stroke-dasharray%3D%229%207%22%2F%3E%3Cpath%20d%3D%22M120%20150%20L180%2070%20L240%20150%20Z%22%2F%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22120%22%20r%3D%229%22%20fill%3D%22%23111%22%2F%3E%3Cpath%20d%3D%22M600%20150%20L540%2070%20L480%20150%20Z%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-005.png",
     "imageAlt": "दर्पण प्रतिबिम्ब"
   },
   {
@@ -140,7 +140,7 @@
     ],
     "correct": 2,
     "solution": "चित्रको ढाँचा रेखा क्रम अनुसार पढ्दा सही विकल्प C हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%2285%22%20y1%3D%22110%22%20x2%3D%22155%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22245%22%20y1%3D%22110%22%20x2%3D%22315%22%20y2%3D%2275%22%2F%3E%3Cline%20x1%3D%22405%22%20y1%3D%22110%22%20x2%3D%22475%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22565%22%20y1%3D%22110%22%20x2%3D%22635%22%20y2%3D%2275%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-006.png",
     "imageAlt": "रेखा क्रम"
   },
   {
@@ -164,7 +164,7 @@
     ],
     "correct": 1,
     "solution": "चित्रको ढाँचा आकृति क्रम अनुसार पढ्दा सही विकल्प B हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22230%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22360%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22490%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22620%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-007.png",
     "imageAlt": "आकृति क्रम"
   },
   {
@@ -188,7 +188,7 @@
     ],
     "correct": 0,
     "solution": "चित्रको ढाँचा भराइ क्रम अनुसार पढ्दा सही विकल्प A हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Crect%20x%3D%2265%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22195%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22325%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22455%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22585%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-008.png",
     "imageAlt": "भराइ क्रम"
   },
   {
@@ -212,7 +212,7 @@
     ],
     "correct": 0,
     "solution": "चित्रको ढाँचा घुमाइ अनुसार पढ्दा सही विकल्प A हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cg%20transform%3D%22translate%28110%20110%29%20rotate%280%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28250%20110%29%20rotate%2890%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28390%20110%29%20rotate%28180%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28530%20110%29%20rotate%28270%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-009.png",
     "imageAlt": "घुमाइ"
   },
   {
@@ -236,7 +236,7 @@
     ],
     "correct": 2,
     "solution": "चित्रको ढाँचा भुजा क्रम अनुसार पढ्दा सही विकल्प C हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cpolygon%20points%3D%22100.0%2C75.0%20135.0%2C110.0%20100.0%2C145.0%2065.0%2C110.0%22%2F%3E%3Cpolygon%20points%3D%22230.0%2C75.0%20263.3%2C99.2%20250.6%2C138.3%20209.4%2C138.3%20196.7%2C99.2%22%2F%3E%3Cpolygon%20points%3D%22360.0%2C75.0%20390.3%2C92.5%20390.3%2C127.5%20360.0%2C145.0%20329.7%2C127.5%20329.7%2C92.5%22%2F%3E%3Cpolygon%20points%3D%22490.0%2C75.0%20520.3%2C127.5%20459.7%2C127.5%22%2F%3E%3Cpolygon%20points%3D%22620.0%2C75.0%20655.0%2C110.0%20620.0%2C145.0%20585.0%2C110.0%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-010.png",
     "imageAlt": "भुजा क्रम"
   },
   {
@@ -260,7 +260,7 @@
     ],
     "correct": 1,
     "solution": "चित्रको ढाँचा दर्पण प्रतिबिम्ब अनुसार पढ्दा सही विकल्प B हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%22360%22%20y1%3D%2235%22%20x2%3D%22360%22%20y2%3D%22205%22%20stroke%3D%22%23777%22%20stroke-dasharray%3D%229%207%22%2F%3E%3Cpath%20d%3D%22M120%20150%20L180%2070%20L240%20150%20Z%22%2F%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22120%22%20r%3D%229%22%20fill%3D%22%23111%22%2F%3E%3Cpath%20d%3D%22M600%20150%20L540%2070%20L480%20150%20Z%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-011.png",
     "imageAlt": "दर्पण प्रतिबिम्ब"
   },
   {
@@ -284,7 +284,7 @@
     ],
     "correct": 3,
     "solution": "चित्रको ढाँचा रेखा क्रम अनुसार पढ्दा सही विकल्प D हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%2285%22%20y1%3D%22110%22%20x2%3D%22155%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22245%22%20y1%3D%22110%22%20x2%3D%22315%22%20y2%3D%2275%22%2F%3E%3Cline%20x1%3D%22405%22%20y1%3D%22110%22%20x2%3D%22475%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22565%22%20y1%3D%22110%22%20x2%3D%22635%22%20y2%3D%2275%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-012.png",
     "imageAlt": "रेखा क्रम"
   },
   {
@@ -308,7 +308,7 @@
     ],
     "correct": 0,
     "solution": "चित्रको ढाँचा आकृति क्रम अनुसार पढ्दा सही विकल्प A हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22230%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22360%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22490%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22620%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-013.png",
     "imageAlt": "आकृति क्रम"
   },
   {
@@ -332,7 +332,7 @@
     ],
     "correct": 1,
     "solution": "चित्रको ढाँचा भराइ क्रम अनुसार पढ्दा सही विकल्प B हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Crect%20x%3D%2265%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22195%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22325%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22455%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22585%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-014.png",
     "imageAlt": "भराइ क्रम"
   },
   {
@@ -356,7 +356,7 @@
     ],
     "correct": 1,
     "solution": "चित्रको ढाँचा घुमाइ अनुसार पढ्दा सही विकल्प B हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cg%20transform%3D%22translate%28110%20110%29%20rotate%28180%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28250%20110%29%20rotate%28270%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28390%20110%29%20rotate%28360%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28530%20110%29%20rotate%28450%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-015.png",
     "imageAlt": "घुमाइ"
   },
   {
@@ -380,7 +380,7 @@
     ],
     "correct": 3,
     "solution": "चित्रको ढाँचा भुजा क्रम अनुसार पढ्दा सही विकल्प D हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cpolygon%20points%3D%22100.0%2C75.0%20130.3%2C92.5%20130.3%2C127.5%20100.0%2C145.0%2069.7%2C127.5%2069.7%2C92.5%22%2F%3E%3Cpolygon%20points%3D%22230.0%2C75.0%20260.3%2C127.5%20199.7%2C127.5%22%2F%3E%3Cpolygon%20points%3D%22360.0%2C75.0%20395.0%2C110.0%20360.0%2C145.0%20325.0%2C110.0%22%2F%3E%3Cpolygon%20points%3D%22490.0%2C75.0%20523.3%2C99.2%20510.6%2C138.3%20469.4%2C138.3%20456.7%2C99.2%22%2F%3E%3Cpolygon%20points%3D%22620.0%2C75.0%20650.3%2C92.5%20650.3%2C127.5%20620.0%2C145.0%20589.7%2C127.5%20589.7%2C92.5%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-016.png",
     "imageAlt": "भुजा क्रम"
   },
   {
@@ -404,7 +404,7 @@
     ],
     "correct": 3,
     "solution": "चित्रको ढाँचा दर्पण प्रतिबिम्ब अनुसार पढ्दा सही विकल्प D हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%22360%22%20y1%3D%2235%22%20x2%3D%22360%22%20y2%3D%22205%22%20stroke%3D%22%23777%22%20stroke-dasharray%3D%229%207%22%2F%3E%3Cpath%20d%3D%22M120%20150%20L180%2070%20L240%20150%20Z%22%2F%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22120%22%20r%3D%229%22%20fill%3D%22%23111%22%2F%3E%3Cpath%20d%3D%22M600%20150%20L540%2070%20L480%20150%20Z%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-017.png",
     "imageAlt": "दर्पण प्रतिबिम्ब"
   },
   {
@@ -428,7 +428,7 @@
     ],
     "correct": 2,
     "solution": "चित्रको ढाँचा रेखा क्रम अनुसार पढ्दा सही विकल्प C हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%2285%22%20y1%3D%22110%22%20x2%3D%22155%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22245%22%20y1%3D%22110%22%20x2%3D%22315%22%20y2%3D%2275%22%2F%3E%3Cline%20x1%3D%22405%22%20y1%3D%22110%22%20x2%3D%22475%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22565%22%20y1%3D%22110%22%20x2%3D%22635%22%20y2%3D%2275%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-018.png",
     "imageAlt": "रेखा क्रम"
   },
   {
@@ -452,7 +452,7 @@
     ],
     "correct": 1,
     "solution": "चित्रको ढाँचा आकृति क्रम अनुसार पढ्दा सही विकल्प B हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22230%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22360%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22490%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22620%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-019.png",
     "imageAlt": "आकृति क्रम"
   },
   {
@@ -476,7 +476,7 @@
     ],
     "correct": 0,
     "solution": "चित्रको ढाँचा भराइ क्रम अनुसार पढ्दा सही विकल्प A हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Crect%20x%3D%2265%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22195%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22325%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22455%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22585%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-020.png",
     "imageAlt": "भराइ क्रम"
   },
   {
@@ -500,7 +500,7 @@
     ],
     "correct": 2,
     "solution": "चित्रको ढाँचा घुमाइ अनुसार पढ्दा सही विकल्प C हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cg%20transform%3D%22translate%28110%20110%29%20rotate%280%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28250%20110%29%20rotate%2890%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28390%20110%29%20rotate%28180%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28530%20110%29%20rotate%28270%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-021.png",
     "imageAlt": "घुमाइ"
   },
   {
@@ -524,7 +524,7 @@
     ],
     "correct": 0,
     "solution": "चित्रको ढाँचा भुजा क्रम अनुसार पढ्दा सही विकल्प A हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cpolygon%20points%3D%22100.0%2C75.0%20135.0%2C110.0%20100.0%2C145.0%2065.0%2C110.0%22%2F%3E%3Cpolygon%20points%3D%22230.0%2C75.0%20263.3%2C99.2%20250.6%2C138.3%20209.4%2C138.3%20196.7%2C99.2%22%2F%3E%3Cpolygon%20points%3D%22360.0%2C75.0%20390.3%2C92.5%20390.3%2C127.5%20360.0%2C145.0%20329.7%2C127.5%20329.7%2C92.5%22%2F%3E%3Cpolygon%20points%3D%22490.0%2C75.0%20520.3%2C127.5%20459.7%2C127.5%22%2F%3E%3Cpolygon%20points%3D%22620.0%2C75.0%20655.0%2C110.0%20620.0%2C145.0%20585.0%2C110.0%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-022.png",
     "imageAlt": "भुजा क्रम"
   },
   {
@@ -548,7 +548,7 @@
     ],
     "correct": 3,
     "solution": "चित्रको ढाँचा दर्पण प्रतिबिम्ब अनुसार पढ्दा सही विकल्प D हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%22360%22%20y1%3D%2235%22%20x2%3D%22360%22%20y2%3D%22205%22%20stroke%3D%22%23777%22%20stroke-dasharray%3D%229%207%22%2F%3E%3Cpath%20d%3D%22M120%20150%20L180%2070%20L240%20150%20Z%22%2F%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22120%22%20r%3D%229%22%20fill%3D%22%23111%22%2F%3E%3Cpath%20d%3D%22M600%20150%20L540%2070%20L480%20150%20Z%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-023.png",
     "imageAlt": "दर्पण प्रतिबिम्ब"
   },
   {
@@ -572,7 +572,7 @@
     ],
     "correct": 3,
     "solution": "चित्रको ढाँचा रेखा क्रम अनुसार पढ्दा सही विकल्प D हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%2285%22%20y1%3D%22110%22%20x2%3D%22155%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22245%22%20y1%3D%22110%22%20x2%3D%22315%22%20y2%3D%2275%22%2F%3E%3Cline%20x1%3D%22405%22%20y1%3D%22110%22%20x2%3D%22475%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22565%22%20y1%3D%22110%22%20x2%3D%22635%22%20y2%3D%2275%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-024.png",
     "imageAlt": "रेखा क्रम"
   },
   {
@@ -596,7 +596,7 @@
     ],
     "correct": 0,
     "solution": "चित्रको ढाँचा आकृति क्रम अनुसार पढ्दा सही विकल्प A हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22230%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22360%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22490%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22620%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-025.png",
     "imageAlt": "आकृति क्रम"
   },
   {
@@ -620,7 +620,7 @@
     ],
     "correct": 1,
     "solution": "चित्रको ढाँचा भराइ क्रम अनुसार पढ्दा सही विकल्प B हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Crect%20x%3D%2265%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22195%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22325%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22455%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22585%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-026.png",
     "imageAlt": "भराइ क्रम"
   },
   {
@@ -644,7 +644,7 @@
     ],
     "correct": 3,
     "solution": "चित्रको ढाँचा घुमाइ अनुसार पढ्दा सही विकल्प D हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cg%20transform%3D%22translate%28110%20110%29%20rotate%28180%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28250%20110%29%20rotate%28270%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28390%20110%29%20rotate%28360%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28530%20110%29%20rotate%28450%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-027.png",
     "imageAlt": "घुमाइ"
   },
   {
@@ -668,7 +668,7 @@
     ],
     "correct": 1,
     "solution": "चित्रको ढाँचा भुजा क्रम अनुसार पढ्दा सही विकल्प B हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cpolygon%20points%3D%22100.0%2C75.0%20130.3%2C92.5%20130.3%2C127.5%20100.0%2C145.0%2069.7%2C127.5%2069.7%2C92.5%22%2F%3E%3Cpolygon%20points%3D%22230.0%2C75.0%20260.3%2C127.5%20199.7%2C127.5%22%2F%3E%3Cpolygon%20points%3D%22360.0%2C75.0%20395.0%2C110.0%20360.0%2C145.0%20325.0%2C110.0%22%2F%3E%3Cpolygon%20points%3D%22490.0%2C75.0%20523.3%2C99.2%20510.6%2C138.3%20469.4%2C138.3%20456.7%2C99.2%22%2F%3E%3Cpolygon%20points%3D%22620.0%2C75.0%20650.3%2C92.5%20650.3%2C127.5%20620.0%2C145.0%20589.7%2C127.5%20589.7%2C92.5%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-028.png",
     "imageAlt": "भुजा क्रम"
   },
   {
@@ -692,7 +692,7 @@
     ],
     "correct": 1,
     "solution": "चित्रको ढाँचा दर्पण प्रतिबिम्ब अनुसार पढ्दा सही विकल्प B हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%22360%22%20y1%3D%2235%22%20x2%3D%22360%22%20y2%3D%22205%22%20stroke%3D%22%23777%22%20stroke-dasharray%3D%229%207%22%2F%3E%3Cpath%20d%3D%22M120%20150%20L180%2070%20L240%20150%20Z%22%2F%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22120%22%20r%3D%229%22%20fill%3D%22%23111%22%2F%3E%3Cpath%20d%3D%22M600%20150%20L540%2070%20L480%20150%20Z%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-029.png",
     "imageAlt": "दर्पण प्रतिबिम्ब"
   },
   {
@@ -716,7 +716,7 @@
     ],
     "correct": 2,
     "solution": "चित्रको ढाँचा रेखा क्रम अनुसार पढ्दा सही विकल्प C हुन्छ।",
-    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%2285%22%20y1%3D%22110%22%20x2%3D%22155%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22245%22%20y1%3D%22110%22%20x2%3D%22315%22%20y2%3D%2275%22%2F%3E%3Cline%20x1%3D%22405%22%20y1%3D%22110%22%20x2%3D%22475%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22565%22%20y1%3D%22110%22%20x2%3D%22635%22%20y2%3D%2275%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-030.png",
     "imageAlt": "रेखा क्रम"
   }
 ]
