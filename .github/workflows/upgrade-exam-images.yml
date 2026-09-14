@@ -1,0 +1,101 @@
+name: Upgrade exam question images
+
+on:
+  push:
+    paths:
+      - 'exam.js'
+      - 'exam.css'
+      - 'netlify/functions/exam-api.js'
+      - 'exam-management.js'
+      - '.github/workflows/upgrade-exam-images.yml'
+  workflow_dispatch:
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Patch exam image pipeline
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          # API: expose image metadata to the candidate UI and result review.
+          p=Path('netlify/functions/exam-api.js')
+          s=p.read_text(encoding='utf-8')
+          old="subject:q.subject,topic:q.topic,level:q.level,type:q.type,q:q.q||q.question,options:q.options"
+          new="subject:q.subject,topic:q.topic,level:q.level,type:q.type,q:q.q||q.question,options:q.options,image:q.image||q.imageUrl||q.image_url||'',imageAlt:q.imageAlt||q.image_alt||q.topic||'प्रश्नचित्र'"
+          if old in s and new not in s:
+              s=s.replace(old,new,1)
+              p.write_text(s,encoding='utf-8')
+
+          # Candidate UI: show question images and keep them in generated PDFs.
+          p=Path('exam.js'); s=p.read_text(encoding='utf-8')
+          old="$('#questionCard').innerHTML=`<div class=\"qmeta\">${esc(q.subject||'')} ${q.topic?`· ${esc(q.topic)}`:''} ${q.type==='iq'?'<span>IQ</span>':''}</div><h2>${current+1}. ${esc(q.q)}</h2>"
+          new="$('#questionCard').innerHTML=`<div class=\"qmeta\">${esc(q.subject||'')} ${q.topic?`· ${esc(q.topic)}`:''} ${q.type==='iq'?'<span>IQ</span>':''}</div>${q.image?`<figure class=\"question-image-wrap\"><img class=\"question-image\" src=\"${esc(q.image)}\" alt=\"${esc(q.imageAlt||q.topic||'प्रश्नचित्र')}\" loading=\"eager\" crossorigin=\"anonymous\"><figcaption>${esc(q.imageAlt||q.topic||'प्रश्नचित्र')}</figcaption></figure>`:''}<h2>${current+1}. ${esc(q.q)}</h2>`"
+          if old in s and 'question-image-wrap' not in s:
+              s=s.replace(old,new,1)
+
+          old="${r.review.map((q,i)=>`<section style=\"border:1px solid #ddd;border-radius:10px;padding:14px;margin:12px 0\"><h3>${i+1}. ${esc(q.q)}</h3>"
+          new="${r.review.map((q,i)=>`<section style=\"border:1px solid #ddd;border-radius:10px;padding:14px;margin:12px 0\">${q.image?`<img src=\"${esc(q.image)}\" alt=\"${esc(q.imageAlt||q.topic||'प्रश्नचित्र')}\" style=\"display:block;max-width:100%;max-height:320px;object-fit:contain;margin:0 auto 12px\">`:''}<h3>${i+1}. ${esc(q.q)}</h3>"
+          if old in s and 'q.image?`<img' not in s:
+              s=s.replace(old,new,1)
+
+          # Result review currently gets image only if submit API returns it.
+          old="review.push({id:q.id,q:q.q||q.question,options:q.options,selected,correct:q.correct,type:q.type,section:q.section||'',unit:q.unit||'',subject:q.subject,topic:q.topic,level:q.level||'',explanation:q.explanation||'',solution:q.solution||''})"
+          new="review.push({id:q.id,q:q.q||q.question,options:q.options,selected,correct:q.correct,type:q.type,section:q.section||'',unit:q.unit||'',subject:q.subject,topic:q.topic,level:q.level||'',image:q.image||q.imageUrl||q.image_url||'',imageAlt:q.imageAlt||q.image_alt||q.topic||'प्रश्नचित्र',explanation:q.explanation||'',solution:q.solution||''})"
+          if old in s and 'image:q.image||q.imageUrl' not in s:
+              s=s.replace(old,new,1)
+          p.write_text(s,encoding='utf-8')
+
+          # Styling for diagrams on phones and desktops.
+          p=Path('exam.css'); s=p.read_text(encoding='utf-8')
+          addition='.question-image-wrap{margin:16px auto;text-align:center;padding:10px;border:1px solid var(--border);border-radius:14px;background:#fafbfc}.question-image{display:block;max-width:100%;max-height:360px;width:auto;height:auto;margin:auto;object-fit:contain}.question-image-wrap figcaption{font-size:.8rem;opacity:.65;margin-top:7px}.image-field{margin-top:8px}.image-preview{display:block;max-width:100%;max-height:260px;margin-top:8px;border:1px solid var(--border);border-radius:10px;object-fit:contain}@media(max-width:800px){.question-image{max-height:280px}}'
+          if '.question-image-wrap' not in s:
+              s += addition
+          p.write_text(s,encoding='utf-8')
+          PY
+
+      - name: Patch CMS question editor for image URLs
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          p=Path('exam-management.js')
+          s=p.read_text(encoding='utf-8')
+
+          # Default question object.
+          s=s.replace("solution:''}){", "solution:'',image:'',imageAlt:''}){", 1)
+
+          # Add image controls after the question textarea.
+          needle="<label>प्रश्न<textarea id=fQ rows=3>${esc(q.q||q.question||'')}</textarea></label>"
+          repl=needle+"<label class=\"image-field\">प्रश्नको चित्र (Image URL)<input id=fImage value=\"${esc(q.image||q.imageUrl||q.image_url||'')}\" placeholder=\"https://... वा GitHub image URL\"><small>चित्र URL राखेपछि तल preview देखिन्छ।</small><img id=fImagePreview class=\"image-preview\" src=\"${esc(q.image||q.imageUrl||q.image_url||'')}\" alt=\"\" style=\"${q.image||q.imageUrl||q.image_url?'':'display:none'}\"></label><label>चित्रको वैकल्पिक विवरण<input id=fImageAlt value=\"${esc(q.imageAlt||q.image_alt||q.topic||'प्रश्नचित्र')}\"></label>"
+          if needle in s and 'id=fImage' not in s:
+              s=s.replace(needle,repl,1)
+
+          # Save image fields with the question.
+          needle="solution:$('#fSol').value.trim()};"
+          repl="solution:$('#fSol').value.trim(),image:$('#fImage')?.value.trim()||'',imageAlt:$('#fImageAlt')?.value.trim()||''};"
+          if needle in s:
+              s=s.replace(needle,repl,1)
+
+          # Live preview.
+          marker="$('#saveQ').onclick=async()=>{"
+          inject="$('#fImage')?.addEventListener('input',()=>{const v=$('#fImage').value.trim(),im=$('#fImagePreview');if(im){im.src=v;im.style.display=v?'block':'none'}});\n    "
+          if marker in s and 'fImagePreview' in s and "fImage')?.addEventListener" not in s:
+              s=s.replace(marker,inject+marker,1)
+
+          p.write_text(s,encoding='utf-8')
+          PY
+
+      - name: Commit changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add exam.js exam.css netlify/functions/exam-api.js exam-management.js
+          git diff --cached --quiet || git commit -m 'Add image support to exam questions and CMS'
+          git push
