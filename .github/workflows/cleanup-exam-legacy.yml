@@ -1,6 +1,9 @@
 name: Cleanup legacy exam question IDs
 
 on:
+  push:
+    paths:
+      - '.github/workflows/cleanup-exam-legacy.yml'
   workflow_dispatch:
 
 permissions:
