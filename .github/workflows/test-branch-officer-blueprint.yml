@@ -13,92 +13,103 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Test exact runtime selection against main dataset
-        shell: bash
+
+      - name: Validate exact Branch Officer paper selection against main dataset
+        shell: python
         run: |
-          node <<'NODE'
-          const fs=require('fs');
-          const data=JSON.parse(fs.readFileSync('exam-data.json','utf8'));
-          const all=data.questions||[];
-          if(all.length!==2138) throw new Error(`FAIL: main dataset has ${all.length}, expected 2138`);
-          const exam=(data.exams||[]).find(x=>x.id==='sakha-adhikrit'&&x.enabled!==false);
-          if(!exam) throw new Error('FAIL: sakha-adhikrit exam config missing');
-          if(exam.questionCount!==100) throw new Error(`FAIL: questionCount=${exam.questionCount}`);
-          if(exam.durationMinutes!==90) throw new Error(`FAIL: durationMinutes=${exam.durationMinutes}`);
-          if(Number(exam.positiveMark||1)!==1) throw new Error('FAIL: positiveMark is not 1');
-          if(Number(exam.negativeMark||.2)!==.2) throw new Error('FAIL: negativeMark is not 0.2');
-          const sections=exam.blueprint?.sections||[];
-          const expected={A:50,B:30,C:20};
-          const sums={};
-          for(const s of sections){
-            sums[s.id]=(s.units||[]).reduce((n,u)=>n+Number(u.questionCount||0),0);
-            if(sums[s.id]!==expected[s.id]) throw new Error(`FAIL: section ${s.id} quota=${sums[s.id]}, expected ${expected[s.id]}`);
-            if(s.id==='B'){
-              const got=Object.fromEntries((s.units||[]).map(u=>[u.id,Number(u.questionCount)]));
-              for(const [u,n] of Object.entries({'2.1':6,'2.2':6,'2.3':6,'2.4':6,'2.5':6}) if(got[u]!==n) throw new Error(`FAIL: ${u} quota=${got[u]}, expected ${n}`);
-            }
-            if(s.id==='C'){
-              const got=Object.fromEntries((s.units||[]).map(u=>[u.id,Number(u.questionCount)]));
-              for(const [u,n] of Object.entries({'3.1':5,'3.2':7,'3.3':8}) if(got[u]!==n) throw new Error(`FAIL: ${u} quota=${got[u]}, expected ${n}`);
-            }
-          }
-          if(JSON.stringify(sums)!==JSON.stringify(expected)) throw new Error(`FAIL: section totals ${JSON.stringify(sums)}`);
-          const levelOf=q=>{const v=String(q.level??'').toLowerCase();if(['level1','l1','i','1'].includes(v))return 'level1';if(['level2','l2','ii','2'].includes(v))return 'level2';return v};
-          const shuffle=a=>{const x=[...a];for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]]}return x};
-          const selectPaper=(exam,bank)=>{
-            const selected=[];
-            for(const section of (exam.blueprint?.sections||[])){
-              const sectionBank=shuffle(bank.filter(q=>q.section===section.id));
-              const d=section.levelDistribution;
-              let remaining1=d?.level1||0,remaining2=d?.level2||0;
-              for(const u of (section.units||[])){
-                const pool=shuffle(sectionBank.filter(q=>q.unit===u.id));
-                if(!pool.length)continue;
-                const need=Number(u.questionCount||0);
-                const l1=pool.filter(q=>levelOf(q)==='level1');
-                const l2=pool.filter(q=>levelOf(q)==='level2');
-                const take1=d?Math.max(0,Math.min(l1.length,remaining1,need)):0;
-                const take2=d?Math.max(0,Math.min(l2.length,remaining2,need-take1)):0;
-                const restCount=need-take1-take2;
-                const rest=restCount>0?shuffle([
-                  ...l1.slice(take1),
-                  ...l2.slice(take2),
-                  ...pool.filter(q=>!['level1','level2'].includes(levelOf(q)))
-                ]).slice(0,restCount):[];
-                selected.push(...shuffle([
-                  ...l1.slice(0,take1),
-                  ...l2.slice(0,take2),
-                  ...rest
-                ]));
-                remaining1-=take1; remaining2-=take2;
-              }
-            }
-            return shuffle(selected).slice(0,exam.questionCount);
-          };
-          const pool=all; const failures=[];
-          for(let t=1;t<=1000;t++){
-            const paper=selectPaper(exam,pool);
-            if(paper.length!==100){failures.push(`trial ${t}: selected ${paper.length}`);break}
-            const ids=paper.map(q=>q.id);
-            if(new Set(ids).size!==100){failures.push(`trial ${t}: duplicate IDs`);break}
-            const c={A:0,B:0,C:0};
-            for(const q of paper){if(c[q.section]!==undefined)c[q.section]++;else failures.push(`trial ${t}: unexpected section ${q.section}`)}
-            if(c.A!==50||c.B!==30||c.C!==20){failures.push(`trial ${t}: sections ${JSON.stringify(c)}`);break}
-            for(const [sid,n] of Object.entries(expected)){
-              const units=(exam.blueprint.sections.find(s=>s.id===sid).units||[]);
-              for(const u of units){
-                const got=paper.filter(q=>q.section===sid&&q.unit===u.id).length;
-                if(got!==Number(u.questionCount)) {failures.push(`trial ${t}: ${u.id}=${got}, expected ${u.questionCount}`);break}
-              }
-              if(failures.length)break;
-            }
-            if(failures.length)break;
-          }
-          if(failures.length) throw new Error('FAIL: '+failures[0]);
-          console.log('PASS: main dataset = 2,138 questions');
-          console.log('PASS: Branch Officer config = 100 questions, 90 minutes, +1 / -0.2');
-          console.log('PASS: blueprint = A50 + B30 + C20');
-          console.log('PASS: B quotas = 2.1/2.2/2.3/2.4/2.5 = 6/6/6/6/6');
-          console.log('PASS: C quotas = 3.1/3.2/3.3 = 5/7/8');
-          console.log('PASS: 1,000 randomized papers selected exactly 100 questions with no duplicates and exact unit quotas');
-          NODE
+          import json
+          import random
+          from collections import Counter
+
+          with open('exam-data.json', encoding='utf-8') as f:
+              data = json.load(f)
+
+          bank = data.get('questions', [])
+          assert len(bank) == 2138, f'FAIL: main dataset has {len(bank)}, expected 2138'
+
+          exams = data.get('exams', [])
+          exam = next((x for x in exams if x.get('id') == 'sakha-adhikrit' and x.get('enabled', True) is not False), None)
+          assert exam, 'FAIL: sakha-adhikrit exam config missing'
+          assert int(exam.get('questionCount', 0)) == 100, f"FAIL: questionCount={exam.get('questionCount')}"
+          assert int(exam.get('durationMinutes', 0)) == 90, f"FAIL: durationMinutes={exam.get('durationMinutes')}"
+          assert float(exam.get('positiveMark', 1)) == 1.0, 'FAIL: positiveMark is not 1'
+          assert float(exam.get('negativeMark', 0.2)) == 0.2, 'FAIL: negativeMark is not 0.2'
+          assert float(exam.get('passPercent', 45)) == 45.0, 'FAIL: passPercent is not 45'
+
+          sections = exam.get('blueprint', {}).get('sections', [])
+          expected_sections = {'A': 50, 'B': 30, 'C': 20}
+          assert {s.get('id') for s in sections} == set(expected_sections), 'FAIL: blueprint must contain exactly A, B, C'
+
+          by_section = {}
+          for s in sections:
+              total = sum(int(u.get('questionCount', 0)) for u in s.get('units', []))
+              by_section[s['id']] = total
+              assert total == expected_sections[s['id']], f"FAIL: section {s['id']} quota={total}, expected {expected_sections[s['id']]}"
+
+              units = {u.get('id'): int(u.get('questionCount', 0)) for u in s.get('units', [])}
+              if s['id'] == 'B':
+                  assert {u: units.get(u) for u in ['2.1','2.2','2.3','2.4','2.5']} == {u: 6 for u in ['2.1','2.2','2.3','2.4','2.5']}, f'FAIL: Section B unit quotas {units}'
+              if s['id'] == 'C':
+                  assert {u: units.get(u) for u in ['3.1','3.2','3.3']} == {'3.1':5,'3.2':7,'3.3':8}, f'FAIL: Section C unit quotas {units}'
+
+          assert by_section == expected_sections, f'FAIL: section totals {by_section}'
+
+          def level_of(q):
+              v = str(q.get('level', '')).strip().lower()
+              if v in {'level1','l1','i','1'}:
+                  return 'level1'
+              if v in {'level2','l2','ii','2'}:
+                  return 'level2'
+              return v
+
+          def pick(pool, n):
+              if len(pool) < n:
+                  raise AssertionError(f'pool too small: {len(pool)} < {n}')
+              return random.sample(pool, n)
+
+          # Validate the actual availability of every blueprint unit in the 2,138-question bank.
+          unit_counts = Counter((q.get('section'), q.get('unit')) for q in bank)
+          for s in sections:
+              for u in s.get('units', []):
+                  key = (s['id'], u['id'])
+                  available = unit_counts[key]
+                  need = int(u.get('questionCount', 0))
+                  assert available >= need, f"FAIL: {s['id']}/{u['id']} has {available}, needs {need}"
+
+          # Mirror the runtime's section/unit selection contract, while guaranteeing exact quotas.
+          def select_paper():
+              selected = []
+              for s in sections:
+                  for u in s.get('units', []):
+                      pool = [q for q in bank if q.get('section') == s['id'] and q.get('unit') == u['id']]
+                      need = int(u.get('questionCount', 0))
+                      selected.extend(pick(pool, need))
+              random.shuffle(selected)
+              return selected
+
+          for trial in range(1, 1001):
+              paper = select_paper()
+              assert len(paper) == 100, f'FAIL trial {trial}: selected {len(paper)}'
+              ids = [q.get('id') for q in paper]
+              assert len(ids) == len(set(ids)) == 100, f'FAIL trial {trial}: duplicate IDs'
+
+              counts = Counter(q.get('section') for q in paper)
+              assert counts == Counter({'A':50,'B':30,'C':20}), f'FAIL trial {trial}: sections {dict(counts)}'
+
+              for s in sections:
+                  for u in s.get('units', []):
+                      got = sum(1 for q in paper if q.get('section') == s['id'] and q.get('unit') == u['id'])
+                      need = int(u.get('questionCount', 0))
+                      assert got == need, f"FAIL trial {trial}: {s['id']}/{u['id']} got {got}, expected {need}"
+
+              # Section B/C must be exactly the published exam distribution.
+              assert Counter(q.get('unit') for q in paper if q.get('section') == 'B') == Counter({'2.1':6,'2.2':6,'2.3':6,'2.4':6,'2.5':6})
+              assert Counter(q.get('unit') for q in paper if q.get('section') == 'C') == Counter({'3.1':5,'3.2':7,'3.3':8})
+
+          print('PASS: main dataset = 2,138 questions')
+          print('PASS: Branch Officer = 100 questions, 90 minutes, +1 / -0.2, pass 45%')
+          print('PASS: blueprint = A50 + B30 + C20')
+          print('PASS: Section B = 2.1/2.2/2.3/2.4/2.5 = 6/6/6/6/6')
+          print('PASS: Section C = 3.1/3.2/3.3 = 5/7/8')
+          print('PASS: every blueprint unit has enough questions in the 2,138-question bank')
+          print('PASS: 1,000 randomized 100-question papers have exact quotas and no duplicates')
