@@ -1,4 +1,722 @@
 [
-  {"id":"bo-2.2-001","examIds":["sakha-adhikrit"],"section":"B","unit":"2.2","subject":"Non-verbal Reasoning","topic":"Pictorial reasoning","level":"L1","type":"pictorial","q":"दिइएको क्रम हेर्दा अर्को आकृति कुन प्रकारको हुनुपर्छ?","options":["वृत्त","त्रिभुज","वर्ग","हीरा"],"correct":3,"solution":"दिइएका आकृतिहरूको क्रमलाई हेर्दा अर्को आकृति हीरा हुने विकल्पसँग मिल्छ।","image":"data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22%23fff%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22110%22%20r%3D%2242%22%2F%3E%3Crect%20x%3D%22220%22%20y%3D%2268%22%20width%3D%2284%22%20height%3D%2284%22%2F%3E%3Cpolygon%20points%3D%22420%2C68%20462%2C152%20378%2C152%22%2F%3E%3Cpolygon%20points%3D%22570%2C68%20612%2C110%20570%2C152%20528%2C110%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E","imageAlt":"आकृति क्रम"},
-  {"id":"bo-2.2-002","examIds":["sakha-adhikrit"],"section":"B","unit":"2.2","subject":"Non-verbal Reasoning","topic":"Pictorial reasoning","level":"L1","type":"pictorial","q":"दुई–दुईको ढाँचामा खाली/भरिएको आकृति दोहोरिएमा अर्को कुन हुनेछ?","options":["भरिएको वृत्त","खाली वर्ग","भरिएको वर्ग","खाली वृत्त"],"correct":1,"solution":"वृत्तपछि वर्ग र प्रत्येक आकृतिमा खाली/भरिएको अवस्था जोडीमा दोहोरिएको छ; अर्को खाली वर्ग हुन्छ।","image":"data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22%23fff%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%224%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22110%22%20r%3D%2242%22%20fill%3D%22none%22%2F%3E%3Ccircle%20cx%3D%22230%22%20cy%3D%22110%22%20r%3D%2242%22%2F%3E%3Crect%20x%3D%22340%22%20y%3D%2268%22%20width%3D%2284%22%20height%3D%2284%22%20fill%3D%22none%22%2F%3E%3Crect%20x%3D%22480%22%20y%3D%2268%22%20width%3D%2284%22%20height%3D%2284%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E","imageAlt":"कालो–सेतो क्रम"}
+  {
+    "id": "bo-2.2-001",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "आकृति क्रम",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "चित्रको भरिएको/खाली क्रम हेरेर अर्को आकृति छान्नुहोस्",
+    "question": "चित्रको भरिएको/खाली क्रम हेरेर अर्को आकृति छान्नुहोस्",
+    "options": [
+      "भरिएको वृत्त",
+      "खाली वृत्त",
+      "वर्ग",
+      "त्रिभुज"
+    ],
+    "correct": 0,
+    "solution": "चित्रको ढाँचा आकृति क्रम अनुसार पढ्दा सही विकल्प A हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22230%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22360%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22490%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22620%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "आकृति क्रम"
+  },
+  {
+    "id": "bo-2.2-002",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "भराइ क्रम",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "चित्रको भराइको ढाँचा हेरेर अर्को आकृति छान्नुहोस्",
+    "question": "चित्रको भराइको ढाँचा हेरेर अर्को आकृति छान्नुहोस्",
+    "options": [
+      "खाली वर्ग",
+      "भरिएको वर्ग",
+      "वृत्त",
+      "त्रिभुज"
+    ],
+    "correct": 1,
+    "solution": "चित्रको ढाँचा भराइ क्रम अनुसार पढ्दा सही विकल्प B हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Crect%20x%3D%2265%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22195%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22325%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22455%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22585%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "भराइ क्रम"
+  },
+  {
+    "id": "bo-2.2-003",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "घुमाइ",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "चित्रमा तीर प्रत्येक चरणमा घुमेको छ। अर्को दिशा छान्नुहोस्",
+    "question": "चित्रमा तीर प्रत्येक चरणमा घुमेको छ। अर्को दिशा छान्नुहोस्",
+    "options": [
+      "माथि",
+      "दायाँ",
+      "तल",
+      "बायाँ"
+    ],
+    "correct": 3,
+    "solution": "चित्रको ढाँचा घुमाइ अनुसार पढ्दा सही विकल्प D हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cg%20transform%3D%22translate%28110%20110%29%20rotate%28180%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28250%20110%29%20rotate%28270%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28390%20110%29%20rotate%28360%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28530%20110%29%20rotate%28450%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "घुमाइ"
+  },
+  {
+    "id": "bo-2.2-004",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "भुजा क्रम",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "चित्रमा भुजाको संख्या बदलिएको छ। अर्को आकृति छान्नुहोस्",
+    "question": "चित्रमा भुजाको संख्या बदलिएको छ। अर्को आकृति छान्नुहोस्",
+    "options": [
+      "त्रिभुज",
+      "वर्ग",
+      "पञ्चभुज",
+      "षट्भुज"
+    ],
+    "correct": 1,
+    "solution": "चित्रको ढाँचा भुजा क्रम अनुसार पढ्दा सही विकल्प B हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cpolygon%20points%3D%22100.0%2C75.0%20130.3%2C92.5%20130.3%2C127.5%20100.0%2C145.0%2069.7%2C127.5%2069.7%2C92.5%22%2F%3E%3Cpolygon%20points%3D%22230.0%2C75.0%20260.3%2C127.5%20199.7%2C127.5%22%2F%3E%3Cpolygon%20points%3D%22360.0%2C75.0%20395.0%2C110.0%20360.0%2C145.0%20325.0%2C110.0%22%2F%3E%3Cpolygon%20points%3D%22490.0%2C75.0%20523.3%2C99.2%20510.6%2C138.3%20469.4%2C138.3%20456.7%2C99.2%22%2F%3E%3Cpolygon%20points%3D%22620.0%2C75.0%20650.3%2C92.5%20650.3%2C127.5%20620.0%2C145.0%20589.7%2C127.5%20589.7%2C92.5%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "भुजा क्रम"
+  },
+  {
+    "id": "bo-2.2-005",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "दर्पण प्रतिबिम्ब",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "ठाडो दर्पणको प्रतिबिम्बमा बिन्दुको स्थान छान्नुहोस्",
+    "question": "ठाडो दर्पणको प्रतिबिम्बमा बिन्दुको स्थान छान्नुहोस्",
+    "options": [
+      "माथिल्लो बायाँ",
+      "माथिल्लो दायाँ",
+      "तल्लो बायाँ",
+      "तल्लो दायाँ"
+    ],
+    "correct": 1,
+    "solution": "चित्रको ढाँचा दर्पण प्रतिबिम्ब अनुसार पढ्दा सही विकल्प B हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%22360%22%20y1%3D%2235%22%20x2%3D%22360%22%20y2%3D%22205%22%20stroke%3D%22%23777%22%20stroke-dasharray%3D%229%207%22%2F%3E%3Cpath%20d%3D%22M120%20150%20L180%2070%20L240%20150%20Z%22%2F%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22120%22%20r%3D%229%22%20fill%3D%22%23111%22%2F%3E%3Cpath%20d%3D%22M600%20150%20L540%2070%20L480%20150%20Z%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "दर्पण प्रतिबिम्ब"
+  },
+  {
+    "id": "bo-2.2-006",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "रेखा क्रम",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "चित्रको रेखा दिशा क्रम हेरेर अर्को दिशा छान्नुहोस्",
+    "question": "चित्रको रेखा दिशा क्रम हेरेर अर्को दिशा छान्नुहोस्",
+    "options": [
+      "माथि",
+      "तल",
+      "दायाँ",
+      "बायाँ"
+    ],
+    "correct": 2,
+    "solution": "चित्रको ढाँचा रेखा क्रम अनुसार पढ्दा सही विकल्प C हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%2285%22%20y1%3D%22110%22%20x2%3D%22155%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22245%22%20y1%3D%22110%22%20x2%3D%22315%22%20y2%3D%2275%22%2F%3E%3Cline%20x1%3D%22405%22%20y1%3D%22110%22%20x2%3D%22475%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22565%22%20y1%3D%22110%22%20x2%3D%22635%22%20y2%3D%2275%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "रेखा क्रम"
+  },
+  {
+    "id": "bo-2.2-007",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "आकृति क्रम",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "चित्रको भरिएको/खाली क्रम हेरेर अर्को आकृति छान्नुहोस्",
+    "question": "चित्रको भरिएको/खाली क्रम हेरेर अर्को आकृति छान्नुहोस्",
+    "options": [
+      "भरिएको वृत्त",
+      "खाली वृत्त",
+      "वर्ग",
+      "त्रिभुज"
+    ],
+    "correct": 1,
+    "solution": "चित्रको ढाँचा आकृति क्रम अनुसार पढ्दा सही विकल्प B हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22230%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22360%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22490%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22620%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "आकृति क्रम"
+  },
+  {
+    "id": "bo-2.2-008",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "भराइ क्रम",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "चित्रको भराइको ढाँचा हेरेर अर्को आकृति छान्नुहोस्",
+    "question": "चित्रको भराइको ढाँचा हेरेर अर्को आकृति छान्नुहोस्",
+    "options": [
+      "खाली वर्ग",
+      "भरिएको वर्ग",
+      "वृत्त",
+      "त्रिभुज"
+    ],
+    "correct": 0,
+    "solution": "चित्रको ढाँचा भराइ क्रम अनुसार पढ्दा सही विकल्प A हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Crect%20x%3D%2265%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22195%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22325%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22455%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22585%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "भराइ क्रम"
+  },
+  {
+    "id": "bo-2.2-009",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "घुमाइ",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "चित्रमा तीर प्रत्येक चरणमा घुमेको छ। अर्को दिशा छान्नुहोस्",
+    "question": "चित्रमा तीर प्रत्येक चरणमा घुमेको छ। अर्को दिशा छान्नुहोस्",
+    "options": [
+      "माथि",
+      "दायाँ",
+      "तल",
+      "बायाँ"
+    ],
+    "correct": 0,
+    "solution": "चित्रको ढाँचा घुमाइ अनुसार पढ्दा सही विकल्प A हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cg%20transform%3D%22translate%28110%20110%29%20rotate%280%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28250%20110%29%20rotate%2890%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28390%20110%29%20rotate%28180%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28530%20110%29%20rotate%28270%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "घुमाइ"
+  },
+  {
+    "id": "bo-2.2-010",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "भुजा क्रम",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "चित्रमा भुजाको संख्या बदलिएको छ। अर्को आकृति छान्नुहोस्",
+    "question": "चित्रमा भुजाको संख्या बदलिएको छ। अर्को आकृति छान्नुहोस्",
+    "options": [
+      "त्रिभुज",
+      "वर्ग",
+      "पञ्चभुज",
+      "षट्भुज"
+    ],
+    "correct": 2,
+    "solution": "चित्रको ढाँचा भुजा क्रम अनुसार पढ्दा सही विकल्प C हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cpolygon%20points%3D%22100.0%2C75.0%20135.0%2C110.0%20100.0%2C145.0%2065.0%2C110.0%22%2F%3E%3Cpolygon%20points%3D%22230.0%2C75.0%20263.3%2C99.2%20250.6%2C138.3%20209.4%2C138.3%20196.7%2C99.2%22%2F%3E%3Cpolygon%20points%3D%22360.0%2C75.0%20390.3%2C92.5%20390.3%2C127.5%20360.0%2C145.0%20329.7%2C127.5%20329.7%2C92.5%22%2F%3E%3Cpolygon%20points%3D%22490.0%2C75.0%20520.3%2C127.5%20459.7%2C127.5%22%2F%3E%3Cpolygon%20points%3D%22620.0%2C75.0%20655.0%2C110.0%20620.0%2C145.0%20585.0%2C110.0%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "भुजा क्रम"
+  },
+  {
+    "id": "bo-2.2-011",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "दर्पण प्रतिबिम्ब",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "ठाडो दर्पणको प्रतिबिम्बमा बिन्दुको स्थान छान्नुहोस्",
+    "question": "ठाडो दर्पणको प्रतिबिम्बमा बिन्दुको स्थान छान्नुहोस्",
+    "options": [
+      "माथिल्लो बायाँ",
+      "माथिल्लो दायाँ",
+      "तल्लो बायाँ",
+      "तल्लो दायाँ"
+    ],
+    "correct": 1,
+    "solution": "चित्रको ढाँचा दर्पण प्रतिबिम्ब अनुसार पढ्दा सही विकल्प B हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%22360%22%20y1%3D%2235%22%20x2%3D%22360%22%20y2%3D%22205%22%20stroke%3D%22%23777%22%20stroke-dasharray%3D%229%207%22%2F%3E%3Cpath%20d%3D%22M120%20150%20L180%2070%20L240%20150%20Z%22%2F%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22120%22%20r%3D%229%22%20fill%3D%22%23111%22%2F%3E%3Cpath%20d%3D%22M600%20150%20L540%2070%20L480%20150%20Z%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "दर्पण प्रतिबिम्ब"
+  },
+  {
+    "id": "bo-2.2-012",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "रेखा क्रम",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "चित्रको रेखा दिशा क्रम हेरेर अर्को दिशा छान्नुहोस्",
+    "question": "चित्रको रेखा दिशा क्रम हेरेर अर्को दिशा छान्नुहोस्",
+    "options": [
+      "माथि",
+      "तल",
+      "दायाँ",
+      "बायाँ"
+    ],
+    "correct": 3,
+    "solution": "चित्रको ढाँचा रेखा क्रम अनुसार पढ्दा सही विकल्प D हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%2285%22%20y1%3D%22110%22%20x2%3D%22155%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22245%22%20y1%3D%22110%22%20x2%3D%22315%22%20y2%3D%2275%22%2F%3E%3Cline%20x1%3D%22405%22%20y1%3D%22110%22%20x2%3D%22475%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22565%22%20y1%3D%22110%22%20x2%3D%22635%22%20y2%3D%2275%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "रेखा क्रम"
+  },
+  {
+    "id": "bo-2.2-013",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "आकृति क्रम",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "चित्रको भरिएको/खाली क्रम हेरेर अर्को आकृति छान्नुहोस्",
+    "question": "चित्रको भरिएको/खाली क्रम हेरेर अर्को आकृति छान्नुहोस्",
+    "options": [
+      "भरिएको वृत्त",
+      "खाली वृत्त",
+      "वर्ग",
+      "त्रिभुज"
+    ],
+    "correct": 0,
+    "solution": "चित्रको ढाँचा आकृति क्रम अनुसार पढ्दा सही विकल्प A हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22230%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22360%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22490%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22620%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "आकृति क्रम"
+  },
+  {
+    "id": "bo-2.2-014",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "भराइ क्रम",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "चित्रको भराइको ढाँचा हेरेर अर्को आकृति छान्नुहोस्",
+    "question": "चित्रको भराइको ढाँचा हेरेर अर्को आकृति छान्नुहोस्",
+    "options": [
+      "खाली वर्ग",
+      "भरिएको वर्ग",
+      "वृत्त",
+      "त्रिभुज"
+    ],
+    "correct": 1,
+    "solution": "चित्रको ढाँचा भराइ क्रम अनुसार पढ्दा सही विकल्प B हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Crect%20x%3D%2265%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22195%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22325%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22455%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22585%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "भराइ क्रम"
+  },
+  {
+    "id": "bo-2.2-015",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "घुमाइ",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "चित्रमा तीर प्रत्येक चरणमा घुमेको छ। अर्को दिशा छान्नुहोस्",
+    "question": "चित्रमा तीर प्रत्येक चरणमा घुमेको छ। अर्को दिशा छान्नुहोस्",
+    "options": [
+      "माथि",
+      "दायाँ",
+      "तल",
+      "बायाँ"
+    ],
+    "correct": 1,
+    "solution": "चित्रको ढाँचा घुमाइ अनुसार पढ्दा सही विकल्प B हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cg%20transform%3D%22translate%28110%20110%29%20rotate%28180%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28250%20110%29%20rotate%28270%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28390%20110%29%20rotate%28360%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28530%20110%29%20rotate%28450%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "घुमाइ"
+  },
+  {
+    "id": "bo-2.2-016",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "भुजा क्रम",
+    "level": "L2",
+    "type": "pictorial",
+    "q": "चित्रमा भुजाको संख्या बदलिएको छ। अर्को आकृति छान्नुहोस्",
+    "question": "चित्रमा भुजाको संख्या बदलिएको छ। अर्को आकृति छान्नुहोस्",
+    "options": [
+      "त्रिभुज",
+      "वर्ग",
+      "पञ्चभुज",
+      "षट्भुज"
+    ],
+    "correct": 3,
+    "solution": "चित्रको ढाँचा भुजा क्रम अनुसार पढ्दा सही विकल्प D हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cpolygon%20points%3D%22100.0%2C75.0%20130.3%2C92.5%20130.3%2C127.5%20100.0%2C145.0%2069.7%2C127.5%2069.7%2C92.5%22%2F%3E%3Cpolygon%20points%3D%22230.0%2C75.0%20260.3%2C127.5%20199.7%2C127.5%22%2F%3E%3Cpolygon%20points%3D%22360.0%2C75.0%20395.0%2C110.0%20360.0%2C145.0%20325.0%2C110.0%22%2F%3E%3Cpolygon%20points%3D%22490.0%2C75.0%20523.3%2C99.2%20510.6%2C138.3%20469.4%2C138.3%20456.7%2C99.2%22%2F%3E%3Cpolygon%20points%3D%22620.0%2C75.0%20650.3%2C92.5%20650.3%2C127.5%20620.0%2C145.0%20589.7%2C127.5%20589.7%2C92.5%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "भुजा क्रम"
+  },
+  {
+    "id": "bo-2.2-017",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "दर्पण प्रतिबिम्ब",
+    "level": "L2",
+    "type": "pictorial",
+    "q": "ठाडो दर्पणको प्रतिबिम्बमा बिन्दुको स्थान छान्नुहोस्",
+    "question": "ठाडो दर्पणको प्रतिबिम्बमा बिन्दुको स्थान छान्नुहोस्",
+    "options": [
+      "माथिल्लो बायाँ",
+      "माथिल्लो दायाँ",
+      "तल्लो बायाँ",
+      "तल्लो दायाँ"
+    ],
+    "correct": 3,
+    "solution": "चित्रको ढाँचा दर्पण प्रतिबिम्ब अनुसार पढ्दा सही विकल्प D हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%22360%22%20y1%3D%2235%22%20x2%3D%22360%22%20y2%3D%22205%22%20stroke%3D%22%23777%22%20stroke-dasharray%3D%229%207%22%2F%3E%3Cpath%20d%3D%22M120%20150%20L180%2070%20L240%20150%20Z%22%2F%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22120%22%20r%3D%229%22%20fill%3D%22%23111%22%2F%3E%3Cpath%20d%3D%22M600%20150%20L540%2070%20L480%20150%20Z%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "दर्पण प्रतिबिम्ब"
+  },
+  {
+    "id": "bo-2.2-018",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "रेखा क्रम",
+    "level": "L2",
+    "type": "pictorial",
+    "q": "चित्रको रेखा दिशा क्रम हेरेर अर्को दिशा छान्नुहोस्",
+    "question": "चित्रको रेखा दिशा क्रम हेरेर अर्को दिशा छान्नुहोस्",
+    "options": [
+      "माथि",
+      "तल",
+      "दायाँ",
+      "बायाँ"
+    ],
+    "correct": 2,
+    "solution": "चित्रको ढाँचा रेखा क्रम अनुसार पढ्दा सही विकल्प C हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%2285%22%20y1%3D%22110%22%20x2%3D%22155%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22245%22%20y1%3D%22110%22%20x2%3D%22315%22%20y2%3D%2275%22%2F%3E%3Cline%20x1%3D%22405%22%20y1%3D%22110%22%20x2%3D%22475%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22565%22%20y1%3D%22110%22%20x2%3D%22635%22%20y2%3D%2275%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "रेखा क्रम"
+  },
+  {
+    "id": "bo-2.2-019",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "आकृति क्रम",
+    "level": "L2",
+    "type": "pictorial",
+    "q": "चित्रको भरिएको/खाली क्रम हेरेर अर्को आकृति छान्नुहोस्",
+    "question": "चित्रको भरिएको/खाली क्रम हेरेर अर्को आकृति छान्नुहोस्",
+    "options": [
+      "भरिएको वृत्त",
+      "खाली वृत्त",
+      "वर्ग",
+      "त्रिभुज"
+    ],
+    "correct": 1,
+    "solution": "चित्रको ढाँचा आकृति क्रम अनुसार पढ्दा सही विकल्प B हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22230%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22360%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22490%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22620%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "आकृति क्रम"
+  },
+  {
+    "id": "bo-2.2-020",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "भराइ क्रम",
+    "level": "L2",
+    "type": "pictorial",
+    "q": "चित्रको भराइको ढाँचा हेरेर अर्को आकृति छान्नुहोस्",
+    "question": "चित्रको भराइको ढाँचा हेरेर अर्को आकृति छान्नुहोस्",
+    "options": [
+      "खाली वर्ग",
+      "भरिएको वर्ग",
+      "वृत्त",
+      "त्रिभुज"
+    ],
+    "correct": 0,
+    "solution": "चित्रको ढाँचा भराइ क्रम अनुसार पढ्दा सही विकल्प A हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Crect%20x%3D%2265%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22195%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22325%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22455%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22585%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "भराइ क्रम"
+  },
+  {
+    "id": "bo-2.2-021",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "घुमाइ",
+    "level": "L2",
+    "type": "pictorial",
+    "q": "चित्रमा तीर प्रत्येक चरणमा घुमेको छ। अर्को दिशा छान्नुहोस्",
+    "question": "चित्रमा तीर प्रत्येक चरणमा घुमेको छ। अर्को दिशा छान्नुहोस्",
+    "options": [
+      "माथि",
+      "दायाँ",
+      "तल",
+      "बायाँ"
+    ],
+    "correct": 2,
+    "solution": "चित्रको ढाँचा घुमाइ अनुसार पढ्दा सही विकल्प C हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cg%20transform%3D%22translate%28110%20110%29%20rotate%280%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28250%20110%29%20rotate%2890%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28390%20110%29%20rotate%28180%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28530%20110%29%20rotate%28270%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "घुमाइ"
+  },
+  {
+    "id": "bo-2.2-022",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "भुजा क्रम",
+    "level": "L2",
+    "type": "pictorial",
+    "q": "चित्रमा भुजाको संख्या बदलिएको छ। अर्को आकृति छान्नुहोस्",
+    "question": "चित्रमा भुजाको संख्या बदलिएको छ। अर्को आकृति छान्नुहोस्",
+    "options": [
+      "त्रिभुज",
+      "वर्ग",
+      "पञ्चभुज",
+      "षट्भुज"
+    ],
+    "correct": 0,
+    "solution": "चित्रको ढाँचा भुजा क्रम अनुसार पढ्दा सही विकल्प A हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cpolygon%20points%3D%22100.0%2C75.0%20135.0%2C110.0%20100.0%2C145.0%2065.0%2C110.0%22%2F%3E%3Cpolygon%20points%3D%22230.0%2C75.0%20263.3%2C99.2%20250.6%2C138.3%20209.4%2C138.3%20196.7%2C99.2%22%2F%3E%3Cpolygon%20points%3D%22360.0%2C75.0%20390.3%2C92.5%20390.3%2C127.5%20360.0%2C145.0%20329.7%2C127.5%20329.7%2C92.5%22%2F%3E%3Cpolygon%20points%3D%22490.0%2C75.0%20520.3%2C127.5%20459.7%2C127.5%22%2F%3E%3Cpolygon%20points%3D%22620.0%2C75.0%20655.0%2C110.0%20620.0%2C145.0%20585.0%2C110.0%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "भुजा क्रम"
+  },
+  {
+    "id": "bo-2.2-023",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "दर्पण प्रतिबिम्ब",
+    "level": "L2",
+    "type": "pictorial",
+    "q": "ठाडो दर्पणको प्रतिबिम्बमा बिन्दुको स्थान छान्नुहोस्",
+    "question": "ठाडो दर्पणको प्रतिबिम्बमा बिन्दुको स्थान छान्नुहोस्",
+    "options": [
+      "माथिल्लो बायाँ",
+      "माथिल्लो दायाँ",
+      "तल्लो बायाँ",
+      "तल्लो दायाँ"
+    ],
+    "correct": 3,
+    "solution": "चित्रको ढाँचा दर्पण प्रतिबिम्ब अनुसार पढ्दा सही विकल्प D हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%22360%22%20y1%3D%2235%22%20x2%3D%22360%22%20y2%3D%22205%22%20stroke%3D%22%23777%22%20stroke-dasharray%3D%229%207%22%2F%3E%3Cpath%20d%3D%22M120%20150%20L180%2070%20L240%20150%20Z%22%2F%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22120%22%20r%3D%229%22%20fill%3D%22%23111%22%2F%3E%3Cpath%20d%3D%22M600%20150%20L540%2070%20L480%20150%20Z%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "दर्पण प्रतिबिम्ब"
+  },
+  {
+    "id": "bo-2.2-024",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "रेखा क्रम",
+    "level": "L2",
+    "type": "pictorial",
+    "q": "चित्रको रेखा दिशा क्रम हेरेर अर्को दिशा छान्नुहोस्",
+    "question": "चित्रको रेखा दिशा क्रम हेरेर अर्को दिशा छान्नुहोस्",
+    "options": [
+      "माथि",
+      "तल",
+      "दायाँ",
+      "बायाँ"
+    ],
+    "correct": 3,
+    "solution": "चित्रको ढाँचा रेखा क्रम अनुसार पढ्दा सही विकल्प D हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%2285%22%20y1%3D%22110%22%20x2%3D%22155%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22245%22%20y1%3D%22110%22%20x2%3D%22315%22%20y2%3D%2275%22%2F%3E%3Cline%20x1%3D%22405%22%20y1%3D%22110%22%20x2%3D%22475%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22565%22%20y1%3D%22110%22%20x2%3D%22635%22%20y2%3D%2275%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "रेखा क्रम"
+  },
+  {
+    "id": "bo-2.2-025",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "आकृति क्रम",
+    "level": "L2",
+    "type": "pictorial",
+    "q": "चित्रको भरिएको/खाली क्रम हेरेर अर्को आकृति छान्नुहोस्",
+    "question": "चित्रको भरिएको/खाली क्रम हेरेर अर्को आकृति छान्नुहोस्",
+    "options": [
+      "भरिएको वृत्त",
+      "खाली वृत्त",
+      "वर्ग",
+      "त्रिभुज"
+    ],
+    "correct": 0,
+    "solution": "चित्रको ढाँचा आकृति क्रम अनुसार पढ्दा सही विकल्प A हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22230%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22360%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3Ccircle%20cx%3D%22490%22%20cy%3D%22110%22%20r%3D%2235%22%20fill%3D%22%23111%22%2F%3E%3Ccircle%20cx%3D%22620%22%20cy%3D%22110%22%20r%3D%2235%22%20%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "आकृति क्रम"
+  },
+  {
+    "id": "bo-2.2-026",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "भराइ क्रम",
+    "level": "L2",
+    "type": "pictorial",
+    "q": "चित्रको भराइको ढाँचा हेरेर अर्को आकृति छान्नुहोस्",
+    "question": "चित्रको भराइको ढाँचा हेरेर अर्को आकृति छान्नुहोस्",
+    "options": [
+      "खाली वर्ग",
+      "भरिएको वर्ग",
+      "वृत्त",
+      "त्रिभुज"
+    ],
+    "correct": 1,
+    "solution": "चित्रको ढाँचा भराइ क्रम अनुसार पढ्दा सही विकल्प B हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Crect%20x%3D%2265%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22195%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22325%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3Crect%20x%3D%22455%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%2F%3E%3Crect%20x%3D%22585%22%20y%3D%2275%22%20width%3D%2270%22%20height%3D%2270%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "भराइ क्रम"
+  },
+  {
+    "id": "bo-2.2-027",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "घुमाइ",
+    "level": "L2",
+    "type": "pictorial",
+    "q": "चित्रमा तीर प्रत्येक चरणमा घुमेको छ। अर्को दिशा छान्नुहोस्",
+    "question": "चित्रमा तीर प्रत्येक चरणमा घुमेको छ। अर्को दिशा छान्नुहोस्",
+    "options": [
+      "माथि",
+      "दायाँ",
+      "तल",
+      "बायाँ"
+    ],
+    "correct": 3,
+    "solution": "चित्रको ढाँचा घुमाइ अनुसार पढ्दा सही विकल्प D हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cg%20transform%3D%22translate%28110%20110%29%20rotate%28180%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28250%20110%29%20rotate%28270%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28390%20110%29%20rotate%28360%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%28530%20110%29%20rotate%28450%29%22%3E%3Cpath%20d%3D%22M0%20-38%20L38%200%20L0%2038%22%2F%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%226%22%20fill%3D%22%23111%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "घुमाइ"
+  },
+  {
+    "id": "bo-2.2-028",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "भुजा क्रम",
+    "level": "L2",
+    "type": "pictorial",
+    "q": "चित्रमा भुजाको संख्या बदलिएको छ। अर्को आकृति छान्नुहोस्",
+    "question": "चित्रमा भुजाको संख्या बदलिएको छ। अर्को आकृति छान्नुहोस्",
+    "options": [
+      "त्रिभुज",
+      "वर्ग",
+      "पञ्चभुज",
+      "षट्भुज"
+    ],
+    "correct": 1,
+    "solution": "चित्रको ढाँचा भुजा क्रम अनुसार पढ्दा सही विकल्प B हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cpolygon%20points%3D%22100.0%2C75.0%20130.3%2C92.5%20130.3%2C127.5%20100.0%2C145.0%2069.7%2C127.5%2069.7%2C92.5%22%2F%3E%3Cpolygon%20points%3D%22230.0%2C75.0%20260.3%2C127.5%20199.7%2C127.5%22%2F%3E%3Cpolygon%20points%3D%22360.0%2C75.0%20395.0%2C110.0%20360.0%2C145.0%20325.0%2C110.0%22%2F%3E%3Cpolygon%20points%3D%22490.0%2C75.0%20523.3%2C99.2%20510.6%2C138.3%20469.4%2C138.3%20456.7%2C99.2%22%2F%3E%3Cpolygon%20points%3D%22620.0%2C75.0%20650.3%2C92.5%20650.3%2C127.5%20620.0%2C145.0%20589.7%2C127.5%20589.7%2C92.5%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "भुजा क्रम"
+  },
+  {
+    "id": "bo-2.2-029",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "दर्पण प्रतिबिम्ब",
+    "level": "L2",
+    "type": "pictorial",
+    "q": "ठाडो दर्पणको प्रतिबिम्बमा बिन्दुको स्थान छान्नुहोस्",
+    "question": "ठाडो दर्पणको प्रतिबिम्बमा बिन्दुको स्थान छान्नुहोस्",
+    "options": [
+      "माथिल्लो बायाँ",
+      "माथिल्लो दायाँ",
+      "तल्लो बायाँ",
+      "तल्लो दायाँ"
+    ],
+    "correct": 1,
+    "solution": "चित्रको ढाँचा दर्पण प्रतिबिम्ब अनुसार पढ्दा सही विकल्प B हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%22360%22%20y1%3D%2235%22%20x2%3D%22360%22%20y2%3D%22205%22%20stroke%3D%22%23777%22%20stroke-dasharray%3D%229%207%22%2F%3E%3Cpath%20d%3D%22M120%20150%20L180%2070%20L240%20150%20Z%22%2F%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22120%22%20r%3D%229%22%20fill%3D%22%23111%22%2F%3E%3Cpath%20d%3D%22M600%20150%20L540%2070%20L480%20150%20Z%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "दर्पण प्रतिबिम्ब"
+  },
+  {
+    "id": "bo-2.2-030",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "रेखा क्रम",
+    "level": "L2",
+    "type": "pictorial",
+    "q": "चित्रको रेखा दिशा क्रम हेरेर अर्को दिशा छान्नुहोस्",
+    "question": "चित्रको रेखा दिशा क्रम हेरेर अर्को दिशा छान्नुहोस्",
+    "options": [
+      "माथि",
+      "तल",
+      "दायाँ",
+      "बायाँ"
+    ],
+    "correct": 2,
+    "solution": "चित्रको ढाँचा रेखा क्रम अनुसार पढ्दा सही विकल्प C हुन्छ।",
+    "image": "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22720%22%20height%3D%22260%22%3E%3Crect%20width%3D%22720%22%20height%3D%22260%22%20fill%3D%22white%22%2F%3E%3Cg%20stroke%3D%22%23111%22%20stroke-width%3D%225%22%20fill%3D%22none%22%3E%3Cline%20x1%3D%2285%22%20y1%3D%22110%22%20x2%3D%22155%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22245%22%20y1%3D%22110%22%20x2%3D%22315%22%20y2%3D%2275%22%2F%3E%3Cline%20x1%3D%22405%22%20y1%3D%22110%22%20x2%3D%22475%22%20y2%3D%22145%22%2F%3E%3Cline%20x1%3D%22565%22%20y1%3D%22110%22%20x2%3D%22635%22%20y2%3D%2275%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22360%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%3EPictorial%20Reasoning%3C%2Ftext%3E%3C%2Fsvg%3E",
+    "imageAlt": "रेखा क्रम"
+  }
 ]
