@@ -40705,9 +40705,9 @@
       "type": "homophone/homonym",
       "question": "Choose the correct word: The _____ of the school addressed the assembly.",
       "options": [
-        "principle",
         "principally",
         "principled",
+        "principle",
         "principal"
       ],
       "correct": 3,
@@ -40738,11 +40738,11 @@
       "question": "Choose the correct word: Please place the documents in the _____ cabinet, not the filing cabinet.",
       "options": [
         "stationary",
-        "stationery",
-        "stationed",
-        "stationing"
+        "stationing",
+        "station",
+        "stationery"
       ],
-      "correct": 1,
+      "correct": 3,
       "solution": "“stationery” means writing materials; “stationary” means not moving."
     },
     {
@@ -40754,11 +40754,11 @@
       "question": "Choose the correct word: The new lighting will _____ the modern design of the hall.",
       "options": [
         "compliment",
-        "complement",
         "complimentary",
-        "complemented"
+        "complemented",
+        "complement"
       ],
-      "correct": 1,
+      "correct": 3,
       "solution": "“complement” means to complete or enhance something; “compliment” means praise."
     },
     {
@@ -40770,11 +40770,11 @@
       "question": "Choose the correct word: The lawyer offered legal _____ to the client.",
       "options": [
         "council",
-        "counsel",
         "councillor",
-        "counselled"
+        "counselled",
+        "counsel"
       ],
-      "correct": 1,
+      "correct": 3,
       "solution": "“counsel” means legal advice; “council” refers to a deliberative or governing body."
     },
     {
@@ -40802,11 +40802,11 @@
       "question": "Choose the correct word: The training _____ covers ethics and public accountability.",
       "options": [
         "coarse",
-        "course",
         "caused",
-        "coursed"
+        "coursed",
+        "course"
       ],
-      "correct": 1,
+      "correct": 3,
       "solution": "“course” is the correct noun for a programme of study; “coarse” means rough."
     },
     {
@@ -40818,11 +40818,11 @@
       "question": "Choose the correct word: A short introduction will _____ the main lecture.",
       "options": [
         "proceed",
-        "precede",
         "procedure",
-        "preceded"
+        "preceded",
+        "precede"
       ],
-      "correct": 1,
+      "correct": 3,
       "solution": "“precede” means to come before; “proceed” means to continue or move forward."
     },
     {
@@ -40834,11 +40834,11 @@
       "question": "Choose the correct word: I am not sure _____ the revised rule applies to this case.",
       "options": [
         "weather",
-        "whether",
         "weathered",
-        "withers"
+        "withers",
+        "whether"
       ],
-      "correct": 1,
+      "correct": 3,
       "solution": "“whether” is used to introduce an alternative or uncertainty; “weather” refers to atmospheric conditions."
     },
     {
@@ -40847,14 +40847,14 @@
       "category": "Vocabulary",
       "level": "L2",
       "type": "homophone/homonym",
-      "question": "The authority may _____ the application fee in exceptional cases.",
+      "question": "Choose the correct word: The authority may _____ the application fee in exceptional cases.",
       "options": [
         "wave",
-        "waive",
         "waver",
-        "waved"
+        "waved",
+        "waive"
       ],
-      "correct": 1,
+      "correct": 3,
       "solution": "“waive” means to give up or refrain from enforcing a requirement; “wave” refers to a gesture or moving swell."
     },
     {
@@ -40863,16 +40863,16 @@
       "category": "Vocabulary",
       "level": "L2",
       "type": "homophone/homonym",
-      "question": "The instructions were read _____ so that everyone could hear them.",
+      "question": "Choose the correct word: The instructions were read _____ so that everyone could hear them.",
       "options": [
         "allowed",
         "allotted",
-        "aloud",
-        "allow"
+        "allow",
+        "aloud"
       ],
-      "correct": 2,
+      "correct": 3,
       "solution": "“aloud” means spoken audibly; “allowed” means permitted."
     }
   ],
-  "questionBankUpdatedAt": "2026-09-14T01:19:28.336431Z"
+  "questionBankUpdatedAt": "2026-09-14T01:20:10.737689Z"
 }
