@@ -2,6 +2,9 @@ name: Fix Branch Officer unit hierarchy
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/fix-branch-officer-unit-hierarchy.yml'
 
 permissions:
   contents: write
@@ -40,8 +43,6 @@ jobs:
           if helper not in t:
               if marker not in t: raise SystemExit('test helper insertion point not found')
               t=t.replace(marker,helper+marker,1)
-          t=t.replace("q.get('section') == s['id'] and q.get('unit') == u['id']","q.get('section') == s['id'] and unit_matches(q,u['id'])")
-          t=t.replace("q.get('section') == s['id'] and q.get('unit') == u['id']","q.get('section') == s['id'] and unit_matches(q,u['id'])")
           t=t.replace("q.get('section') == s['id'] and q.get('unit') == u['id']","q.get('section') == s['id'] and unit_matches(q,u['id'])")
           wf.write_text(t,encoding='utf-8')
       - name: Commit fixes
