@@ -1,0 +1,77 @@
+name: Test Branch Officer paper selection
+
+on:
+  push:
+    paths:
+      - 'exam-data.json'
+      - 'netlify/functions/exam-api.js'
+      - '.github/workflows/test-branch-officer-paper.yml'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate 2138-bank Branch Officer paper selection
+        run: |
+          python - <<'PY'
+          import json, random
+          d=json.load(open('exam-data.json',encoding='utf-8'))
+          qs=d['questions']
+          assert len(qs)==2138, len(qs)
+          exam=next(x for x in d['exams'] if x['id']=='sakha-adhikrit')
+          assert exam['questionCount']==100
+          plan=[]
+          for s in exam['blueprint']['sections']:
+            for u in s['units']:
+              plan.append((s,u))
+          def level(q):
+            v=str(q.get('level','')).lower()
+            return {'i':'level1','1':'level1','l1':'level1','level1':'level1','ii':'level2','2':'level2','l2':'level2','level2':'level2'}.get(v,v)
+          for s in exam['blueprint']['sections']:
+            sb=[q for q in qs if q.get('section')==s['id']]
+            for u in s['units']:
+              pool=[q for q in sb if q.get('unit')==u['id']]
+              assert len(pool)>=u['questionCount'], f"{s['id']}/{u['id']}: {len(pool)} < {u['questionCount']}"
+            dist=s.get('levelDistribution')
+            if dist:
+              assert sum(level(q)=='level1' for q in sb)>=dist.get('level1',0), f"{s['id']} L1 insufficient"
+              assert sum(level(q)=='level2' for q in sb)>=dist.get('level2',0), f"{s['id']} L2 insufficient"
+          def select():
+            selected=[]
+            for s in exam['blueprint']['sections']:
+              sb=qs[:]
+              random.shuffle(sb)
+              d=s.get('levelDistribution') or {}
+              r1=d.get('level1',0); r2=d.get('level2',0)
+              for u in s['units']:
+                pool=[q for q in sb if q.get('section')==s['id'] and q.get('unit')==u['id']]
+                random.shuffle(pool)
+                need=u['questionCount']
+                l1=[q for q in pool if level(q)=='level1']; l2=[q for q in pool if level(q)=='level2']
+                t1=min(len(l1),r1,need); t2=min(len(l2),r2,need-t1)
+                chosen=l1[:t1]+l2[:t2]
+                if len(chosen)<need:
+                  used={q['id'] for q in chosen}
+                  rest=[q for q in pool if q['id'] not in used]
+                  random.shuffle(rest); chosen += rest[:need-len(chosen)]
+                assert len(chosen)==need, f"selection failed {s['id']}/{u['id']}"
+                selected += chosen
+                r1-=t1; r2-=t2
+            random.shuffle(selected)
+            return selected
+          for i in range(100):
+            paper=select()
+            assert len(paper)==100
+            assert len({q['id'] for q in paper})==100
+            sec={s['id']:sum(q['section']==s['id'] for q in paper) for s in exam['blueprint']['sections']}
+            assert sec=={'A':50,'B':30,'C':20}, sec
+            units={u['id']:sum(q['unit']==u['id'] for q in paper) for s in exam['blueprint']['sections'] for u in s['units']}
+            expected={u['id']:u['questionCount'] for s in exam['blueprint']['sections'] for u in s['units']}
+            assert units==expected, (units,expected)
+            A=[q for q in paper if q['section']=='A']
+            assert sum(level(q)=='level1' for q in A)==30
+            assert sum(level(q)=='level2' for q in A)==20
+          print('PASS: 100/100 paper selections matched A=50, B=30, C=20; every unit quota and A L1/L2=30/20 passed across 100 randomized trials.')
+          PY
