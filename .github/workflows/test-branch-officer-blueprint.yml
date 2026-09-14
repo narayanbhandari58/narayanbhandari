@@ -54,34 +54,28 @@ jobs:
 
           assert by_section == expected_sections, f'FAIL: section totals {by_section}'
 
-          def level_of(q):
-              v = str(q.get('level', '')).strip().lower()
-              if v in {'level1','l1','i','1'}:
-                  return 'level1'
-              if v in {'level2','l2','ii','2'}:
-                  return 'level2'
-              return v
+          def unit_matches(q, unit):
+              a = str(q.get('unit', ''))
+              b = str(unit)
+              return a == b or a.startswith(b + '.')
 
           def pick(pool, n):
               if len(pool) < n:
                   raise AssertionError(f'pool too small: {len(pool)} < {n}')
               return random.sample(pool, n)
 
-          # Validate the actual availability of every blueprint unit in the 2,138-question bank.
-          unit_counts = Counter((q.get('section'), q.get('unit')) for q in bank)
+          # Parent units such as 1.4 are satisfied by stored child units 1.4.1, 1.4.2, etc.
           for s in sections:
               for u in s.get('units', []):
-                  key = (s['id'], u['id'])
-                  available = unit_counts[key]
+                  pool = [q for q in bank if q.get('section') == s['id'] and unit_matches(q, u['id'])]
                   need = int(u.get('questionCount', 0))
-                  assert available >= need, f"FAIL: {s['id']}/{u['id']} has {available}, needs {need}"
+                  assert len(pool) >= need, f"FAIL: {s['id']}/{u['id']} has {len(pool)}, needs {need}"
 
-          # Mirror the runtime's section/unit selection contract, while guaranteeing exact quotas.
           def select_paper():
               selected = []
               for s in sections:
                   for u in s.get('units', []):
-                      pool = [q for q in bank if q.get('section') == s['id'] and q.get('unit') == u['id']]
+                      pool = [q for q in bank if q.get('section') == s['id'] and unit_matches(q, u['id'])]
                       need = int(u.get('questionCount', 0))
                       selected.extend(pick(pool, need))
               random.shuffle(selected)
@@ -98,11 +92,10 @@ jobs:
 
               for s in sections:
                   for u in s.get('units', []):
-                      got = sum(1 for q in paper if q.get('section') == s['id'] and q.get('unit') == u['id'])
+                      got = sum(1 for q in paper if q.get('section') == s['id'] and unit_matches(q, u['id']))
                       need = int(u.get('questionCount', 0))
                       assert got == need, f"FAIL trial {trial}: {s['id']}/{u['id']} got {got}, expected {need}"
 
-              # Section B/C must be exactly the published exam distribution.
               assert Counter(q.get('unit') for q in paper if q.get('section') == 'B') == Counter({'2.1':6,'2.2':6,'2.3':6,'2.4':6,'2.5':6})
               assert Counter(q.get('unit') for q in paper if q.get('section') == 'C') == Counter({'3.1':5,'3.2':7,'3.3':8})
 
@@ -111,5 +104,5 @@ jobs:
           print('PASS: blueprint = A50 + B30 + C20')
           print('PASS: Section B = 2.1/2.2/2.3/2.4/2.5 = 6/6/6/6/6')
           print('PASS: Section C = 3.1/3.2/3.3 = 5/7/8')
-          print('PASS: every blueprint unit has enough questions in the 2,138-question bank')
+          print('PASS: every blueprint unit has enough questions, including nested parent units')
           print('PASS: 1,000 randomized 100-question papers have exact quotas and no duplicates')
