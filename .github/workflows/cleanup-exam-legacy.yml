@@ -1,0 +1,32 @@
+name: Cleanup legacy exam question IDs
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove obsolete uppercase 2.1 question IDs
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          p=Path('exam-data.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          before=len(d.get('questions',[]))
+          d['questions']=[q for q in d.get('questions',[]) if not (isinstance(q.get('id'),str) and q['id'].startswith('BO-2.1-'))]
+          removed=before-len(d['questions'])
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(f'Removed {removed} obsolete uppercase 2.1 questions; total={len(d["questions"])}')
+      - name: Commit cleanup
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add exam-data.json
+          git diff --cached --quiet || git commit -m 'Remove obsolete uppercase 2.1 question IDs'
+          git push
