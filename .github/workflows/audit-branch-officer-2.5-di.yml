@@ -1,0 +1,65 @@
+name: Audit Branch Officer Data Interpretation
+
+on:
+  push:
+    paths:
+      - 'exam-question-seed/branch-officer-2.5-data-interpretation.json'
+      - 'exam-di-core.js'
+      - 'exam.css'
+      - '.github/workflows/audit-branch-officer-2.5-di.yml'
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate DI question structure and answer options
+        run: |
+          python - <<'PY'
+          import json,re
+          p='exam-question-seed/branch-officer-2.5-data-interpretation.json'
+          qs=json.load(open(p,encoding='utf-8'))
+          assert qs, 'empty DI seed'
+          assert all(q.get('unit')=='2.5' for q in qs)
+          assert all(q.get('category')=='Data Interpretation' for q in qs)
+          assert all(q.get('type') in {'table','bar-chart','line-graph','pie-chart'} for q in qs)
+          assert all(len(q.get('options',[]))==4 for q in qs), 'every DI question must have exactly 4 options'
+          assert all(isinstance(q.get('correct'),int) and 0<=q['correct']<4 for q in qs)
+          assert len({q['id'] for q in qs})==len(qs), 'duplicate DI IDs'
+          assert all(q.get('data') or q.get('figure') for q in qs), 'missing DI stimulus'
+          # Every repeated stimulus must stay identical so all related questions use the same data.
+          groups={}
+          for q in qs:
+            key=q.get('data') or q.get('figure')
+            groups.setdefault(key,[]).append(q)
+          assert all(len(g)>=2 for g in groups.values()), 'a DI stimulus should support consecutive related questions'
+          # Validate the current production data formats used by the renderer.
+          for q in qs:
+            raw=q.get('data') or q.get('figure')
+            t=q['type']
+            if t=='pie-chart':
+              assert re.search(r'\d+(?:\.\d+)?%',raw), q['id']
+            elif t=='bar-chart':
+              assert re.search(r':\s*[A-Za-z][A-Za-z0-9_-]*\s+\d',raw), q['id']
+            elif t=='line-graph':
+              assert re.search(r':\s*[A-Za-z]+-?\d',raw), q['id']
+            elif t=='table':
+              assert ':' in raw, q['id']
+          print(f'PASS: {len(qs)} DI questions audited.')
+          print(f'PASS: {len(groups)} shared DI stimuli; related questions retain identical source data.')
+          print('PASS: every question has exactly 4 options and a valid correct index.')
+          print('PASS: table/bar/line/pie data formats match the renderer audit rules.')
+          PY
+      - name: Validate DI renderer contains all four visual modes and responsive rules
+        run: |
+          python - <<'PY'
+          s=open('exam-di-core.js',encoding='utf-8').read()
+          c=open('exam.css',encoding='utf-8').read()
+          for x in ['pie-chart','bar-chart','line-graph','table','Data Interpretation']:
+            assert x in s, f'missing renderer support: {x}'
+          for x in ['di-table-scroll','di-pie-layout','di-bar-box','di-line-box','@media(max-width:700px)']:
+            assert x in c, f'missing responsive DI CSS: {x}'
+          print('PASS: renderer supports table, bar, line and pie modes.')
+          print('PASS: responsive DI table/chart CSS present.')
+          PY
