@@ -24,27 +24,14 @@ jobs:
 
           files = [Path('index.html'), Path('about_me.html'), Path('font.html'), Path('loksewa.html')]
           changed = []
-
           for p in files:
               s = p.read_text(encoding='utf-8')
               original = s
-
-              # Remove the complete navigation <li> that points to admin.html.
-              s = re.sub(
-                  r'\s*<li\b[^>]*>\s*<a\b[^>]*href=["\']admin\.html(?:\?[^"\']*)?["\'][^>]*>.*?</a>\s*</li>\s*',
-                  '\n', s, flags=re.I | re.S
-              )
-
-              # Also handle any standalone Admin anchor left outside an li.
-              s = re.sub(
-                  r'\s*<a\b[^>]*href=["\']admin\.html(?:\?[^"\']*)?["\'][^>]*class=["\'][^"\']*admin-btn[^"\']*["\'][^>]*>.*?</a>\s*',
-                  '\n', s, flags=re.I | re.S
-              )
-
+              s = re.sub(r'\s*<li\b[^>]*>\s*<a\b[^>]*href=["\']admin\.html(?:\?[^"\']*)?["\'][^>]*>.*?</a>\s*</li>\s*', '\n', s, flags=re.I | re.S)
+              s = re.sub(r'\s*<a\b[^>]*href=["\']admin\.html(?:\?[^"\']*)?["\'][^>]*class=["\'][^"\']*admin-btn[^"\']*["\'][^>]*>.*?</a>\s*', '\n', s, flags=re.I | re.S)
               if s != original:
                   p.write_text(s, encoding='utf-8')
                   changed.append(str(p))
-
           if not changed:
               raise SystemExit('No public Admin links found to remove.')
           print('Updated:', ', '.join(changed))
@@ -65,3 +52,5 @@ jobs:
           git add index.html about_me.html font.html loksewa.html
           git commit -m 'Remove Admin links from public pages'
           git push
+
+# trigger
