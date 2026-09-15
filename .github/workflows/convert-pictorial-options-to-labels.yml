@@ -1,6 +1,10 @@
 name: Convert pictorial options to A B C D
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/convert-pictorial-options-to-labels.yml'
   workflow_dispatch:
 
 permissions:
@@ -8,6 +12,7 @@ permissions:
 
 jobs:
   migrate:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,11 +25,10 @@ jobs:
           p=Path('exam-question-seed/branch-officer-2.2-nonverbal-pictorial.json')
           data=json.loads(p.read_text(encoding='utf-8'))
           assert len(data)==30, f'Expected 30 pictorial questions, got {len(data)}'
-          for i,q in enumerate(data):
+          for q in data:
               assert q.get('type')=='pictorial', q.get('id')
               assert len(q.get('options',[]))==4, q.get('id')
-              c=q.get('correct')
-              assert isinstance(c,int) and 0<=c<4, q.get('id')
+              assert isinstance(q.get('correct'),int) and 0<=q['correct']<4, q.get('id')
               q['options']=['A','B','C','D']
           p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           print('Converted',len(data),'pictorial questions to A/B/C/D options')
