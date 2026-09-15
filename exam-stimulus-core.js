@@ -7,8 +7,8 @@
 (function(){
   if(window.__NB_STIMULUS_CORE_V1)return;
   window.__NB_STIMULUS_CORE_V1=true;
-  const KEY='nb_loksewa_exact_resume_v10';
-  const OLD=['nb_loksewa_exact_resume_v9','nb_loksewa_exact_resume_v8','nb_loksewa_exact_resume_v7','nb_loksewa_exact_resume_v6'];
+  const KEY='nb_loksewa_exact_resume_v11';
+  const OLD=['nb_loksewa_exact_resume_v10','nb_loksewa_exact_resume_v9','nb_loksewa_exact_resume_v8','nb_loksewa_exact_resume_v7','nb_loksewa_exact_resume_v6'];
   const esc=s=>String(s??'').replace(/[&<>\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[m]));
   const readState=()=>{try{for(const k of [KEY,...OLD]){const x=JSON.parse(localStorage.getItem(k)||'null');if(x?.started&&Array.isArray(x.paper)&&x.paper.length)return x}}catch(e){}return null};
   const card=()=>document.getElementById('questionCard');
