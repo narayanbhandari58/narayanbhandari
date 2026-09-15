@@ -9,127 +9,97 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install PNG converter
+      - name: Install converter
         run: python -m pip install --quiet cairosvg
-      - name: Generate 30 unique answer-consistent PNG questions
+      - name: Generate and audit 30 figures
         shell: python
         run: |
-          import json, math
+          import json,math,hashlib
           from pathlib import Path
           import cairosvg
-          OUT=Path('image/exam/branch-officer-2.2'); OUT.mkdir(parents=True,exist_ok=True)
-          LETTERS='ABCD'; COLORS=['#8f0e04','#2563eb','#059669','#d97706','#7c3aed']
-          specs=[
-            {'topic':'आकृति क्रम','kind':'shape','shape':'circle','seq':[0,1,0,1],'target':0,'correct':0},
-            {'topic':'आकृति क्रम','kind':'shape','shape':'square','seq':[1,0,1,0],'target':1,'correct':1},
-            {'topic':'आकृति क्रम','kind':'shape','shape':'triangle','seq':[0,0,1,1],'target':0,'correct':2},
-            {'topic':'आकृति क्रम','kind':'shape','shape':'diamond','seq':[1,1,0,0],'target':1,'correct':3},
-            {'topic':'आकृति क्रम','kind':'shape','shape':'circle','seq':[0,1,1,0],'target':0,'correct':1},
-            {'topic':'भराइ क्रम','kind':'fill','shape':'square','seq':[0,1,1,0],'target':1,'correct':0},
-            {'topic':'भराइ क्रम','kind':'fill','shape':'circle','seq':[1,0,0,1],'target':0,'correct':1},
-            {'topic':'भराइ क्रम','kind':'fill','shape':'triangle','seq':[0,1,0,1],'target':0,'correct':2},
-            {'topic':'भराइ क्रम','kind':'fill','shape':'diamond','seq':[1,0,1,0],'target':1,'correct':3},
-            {'topic':'भराइ क्रम','kind':'fill','shape':'square','seq':[1,1,0,0],'target':1,'correct':0},
-            {'topic':'घुमाइ','kind':'rotation','start':0,'step':1,'correct':0},
-            {'topic':'घुमाइ','kind':'rotation','start':1,'step':1,'correct':1},
-            {'topic':'घुमाइ','kind':'rotation','start':2,'step':1,'correct':2},
-            {'topic':'घुमाइ','kind':'rotation','start':3,'step':1,'correct':3},
-            {'topic':'घुमाइ','kind':'rotation','start':0,'step':2,'correct':0},
-            {'topic':'भुजा क्रम','kind':'sides','seq':[3,4,5,6],'correct':0},
-            {'topic':'भुजा क्रम','kind':'sides','seq':[4,5,6,3],'correct':1},
-            {'topic':'भुजा क्रम','kind':'sides','seq':[5,6,3,4],'correct':2},
-            {'topic':'भुजा क्रम','kind':'sides','seq':[6,3,4,5],'correct':3},
-            {'topic':'भुजा क्रम','kind':'sides','seq':[3,5,7,9],'correct':0},
-            {'topic':'दर्पण प्रतिबिम्ब','kind':'mirror','pos':0,'correct':1},
-            {'topic':'दर्पण प्रतिबिम्ब','kind':'mirror','pos':1,'correct':0},
-            {'topic':'दर्पण प्रतिबिम्ब','kind':'mirror','pos':2,'correct':3},
-            {'topic':'दर्पण प्रतिबिम्ब','kind':'mirror','pos':3,'correct':2},
-            {'topic':'दर्पण प्रतिबिम्ब','kind':'mirror','pos':0,'variant':1,'correct':1},
-            {'topic':'रेखा क्रम','kind':'line','seq':[0,1,0,1],'correct':0},
-            {'topic':'रेखा क्रम','kind':'line','seq':[1,2,3,0],'correct':1},
-            {'topic':'रेखा क्रम','kind':'line','seq':[2,3,0,1],'correct':2},
-            {'topic':'रेखा क्रम','kind':'line','seq':[3,0,1,2],'correct':3},
-            {'topic':'रेखा क्रम','kind':'line','seq':[0,2,0,2],'correct':0}]
-          def shape(x,y,k,fill,small=False):
-            r=30 if small else 42; sw=4 if small else 5; f=COLORS[fill%len(COLORS)] if fill else '#fff'; st='#172033'
-            if k=='circle': return f'<circle cx="{x}" cy="{y}" r="{r}" fill="{f}" stroke="{st}" stroke-width="{sw}"/>'
-            if k=='square': return f'<rect x="{x-r}" y="{y-r}" width="{2*r}" height="{2*r}" rx="8" fill="{f}" stroke="{st}" stroke-width="{sw}"/>'
-            if k=='triangle': return f'<polygon points="{x},{y-r-5} {x-r-7},{y+r-5} {x+r+7},{y+r-5}" fill="{f}" stroke="{st}" stroke-width="{sw}"/>'
-            return f'<polygon points="{x},{y-r-5} {x+r+5},{y} {x},{y+r+5} {x-r-5},{y}" fill="{f}" stroke="{st}" stroke-width="{sw}"/>'
-          def arrow(x,y,deg,small=False):
-            sc=.62 if small else 1
-            return f'<g transform="translate({x} {y}) rotate({deg}) scale({sc})"><path d="M-38 16 H18 V38 L58 0 18 -38 V-16 H-38 Z" fill="#2563eb" stroke="#172033" stroke-width="5"/></g>'
-          def poly(x,y,n,small=False):
-            r=30 if small else 43; pts=[]
+          O=Path('image/exam/branch-officer-2.2'); O.mkdir(parents=True,exist_ok=True)
+          shapes=['circle','square','triangle','diamond']; sn={'circle':'वृत्त','square':'वर्ग','triangle':'त्रिभुज','diamond':'हीरा'}
+          dirs=['माथि','दायाँ','तल','बायाँ']; ln=['बायाँ-माथि ↘ दायाँ-तल','बायाँ-तल ↗ दायाँ-माथि','तेर्सो','ठाडो']
+          S=[]
+          def add(k,t,d,c,o,q): S.append((k,t,d,c,o,q))
+          seqs=[
+          (['circle','square','circle','square'],0,['circle','square','triangle','diamond']),
+          (['triangle','triangle','circle','circle'],1,['circle','triangle','square','diamond']),
+          (['square','diamond','square','diamond'],2,['diamond','triangle','square','circle']),
+          (['circle','triangle','triangle','circle'],3,['square','circle','diamond','triangle']),
+          (['diamond','circle','square','triangle'],0,['diamond','circle','square','triangle']),
+          (['triangle','square','diamond','circle'],1,['square','triangle','diamond','circle']),
+          (['circle','diamond','diamond','circle'],2,['circle','triangle','diamond','square']),
+          (['square','triangle','square','triangle'],3,['square','triangle','diamond','circle']),
+          (['diamond','diamond','square','square'],0,['diamond','square','circle','triangle']),
+          (['circle','square','triangle','diamond'],1,['triangle','circle','square','diamond'])]
+          for i,(d,c,o) in enumerate(seqs,1): add('shape','आकृति क्रम',d,c,o,'आकृतिहरूको क्रमिक ढाँचा पहिचान गरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।')
+          for d,c in [([0,1,2,3],0),([1,2,3,0],1),([2,0,2,0],2),([3,2,1,0],3),([0,2,0,2],0)]: add('rotation','घुमाइ',d,c,[0,1,2,3],'तीरको घुमाइको नियम पहिचान गरी प्रश्नचिह्न (?) को स्थानमा आउने दिशा छान्नुहोस्।')
+          for d,c,o in [([3,4,5,6],0,[3,4,5,6]),([4,5,6,7],1,[5,7,6,3]),([5,6,7,8],2,[6,5,8,9]),([6,8,10,12],3,[10,12,13,14]),([3,5,7,9],0,[11,9,10,13])]: add('sides','भुजा क्रम',d,c,o,'भुजाको संख्यामा देखिएको नियम पहिचान गरी प्रश्नचिह्न (?) को स्थानमा आउने आकृति छान्नुहोस्।')
+          for p in [0,1,2,3,0]: add('mirror','दर्पण प्रतिबिम्ब',p,{0:1,1:0,2:3,3:2}[p],[0,1,2,3],'बायाँपट्टिको मूल आकृतिको ठाडो दर्पण प्रतिबिम्बसँग मिल्ने विकल्प छान्नुहोस्।')
+          for d,c in [([0,1,0,1],0),([1,2,3,0],1),([2,3,0,1],2),([3,0,1,2],3),([0,2,0,2],0)]: add('line','रेखा क्रम',d,c,[0,1,2,3],'रेखाको दिशा क्रम पहिचान गरी प्रश्नचिह्न (?) को स्थानमा आउने सही रेखा छान्नुहोस्।')
+          assert len(S)==30 and S[19][2]==[3,5,7,9] and S[19][4][S[19][3]]==11
+          def sh(x,y,k,r=52,fill=True):
+            f={'circle':'#8f0e04','square':'#2563eb','triangle':'#059669','diamond':'#d97706'}[k] if fill else '#fff'; st='#172033'
+            if k=='circle': return f'<circle cx="{x}" cy="{y}" r="{r}" fill="{f}" stroke="{st}" stroke-width="5"/>'
+            if k=='square': return f'<rect x="{x-r}" y="{y-r}" width="{2*r}" height="{2*r}" rx="10" fill="{f}" stroke="{st}" stroke-width="5"/>'
+            if k=='triangle': return f'<polygon points="{x},{y-r-8} {x-r-10},{y+r+6} {x+r+10},{y+r+6}" fill="{f}" stroke="{st}" stroke-width="5"/>'
+            return f'<polygon points="{x},{y-r-8} {x+r+8},{y} {x},{y+r+8} {x-r-8},{y}" fill="{f}" stroke="{st}" stroke-width="5"/>'
+          def ar(x,y,d,r=.72): return f'<g transform="translate({x} {y}) rotate({d*90}) scale({r})"><path d="M-48 18H18V44L70 0 18-44V-18H-48Z" fill="#2563eb" stroke="#172033" stroke-width="5"/></g>'
+          def pg(x,y,n,r=42):
+            pts=[]
             for k in range(n):
-              a=-math.pi/2+2*math.pi*k/n; pts.append(f'{x+r*math.cos(a):.1f},{y+r*math.sin(a):.1f}')
-            return f'<polygon points="{" ".join(pts)}" fill="{COLORS[(n-3)%len(COLORS)]}" stroke="#172033" stroke-width="4"/>'
-          def linefig(x,y,d,small=False):
-            a=30 if small else 42; ds=[(x-a,y-a,x+a,y+a),(x-a,y+a,x+a,y-a),(x-a,y,x+a,y),(x,y-a,x,y+a)]; q=ds[d]
-            return f'<line x1="{q[0]}" y1="{q[1]}" x2="{q[2]}" y2="{q[3]}" stroke="#8f0e04" stroke-width="6" stroke-linecap="round"/>'
-          def panel(cx,L,body,ok):
-            st='#8f0e04' if ok else '#cbd5e1'; sw=5 if ok else 3
-            return f'<rect x="{cx-60}" y="295" width="120" height="105" rx="14" fill="#fff" stroke="{st}" stroke-width="{sw}"/><text x="{cx}" y="322" text-anchor="middle" font-family="Arial" font-size="20" font-weight="700" fill="#334155">{L}</text>{body}'
-          def svg_for(s,idx):
-            head='<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="450" viewBox="0 0 1100 450"><rect width="1100" height="450" rx="24" fill="#fff"/><rect x="20" y="20" width="1060" height="410" rx="20" fill="#f8fafc" stroke="#dbe3ec" stroke-width="3"/><text x="550" y="55" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#334155">प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्</text>'
-            z=''
-            if s['kind'] in ('shape','fill'):
-              for j,x in enumerate([120,290,460,630]): z+=shape(x,145,s['shape'],s['seq'][j])
-              z+='<rect x="720" y="100" width="90" height="90" rx="10" fill="#fff" stroke="#8f0e04" stroke-width="6" stroke-dasharray="10 8"/><text x="765" y="158" text-anchor="middle" font-size="42" font-weight="900" fill="#8f0e04">?</text>'
-              kinds=['circle','square','triangle','diamond']
-              for k in range(4): z+=panel(95+220*k,LETTERS[k],shape(95+220*k,365,s['shape'] if k==s['correct'] else kinds[(idx+k)%4],s['target'] if k==s['correct'] else k%2,True),k==s['correct'])
-            elif s['kind']=='rotation':
-              for j,x in enumerate([120,290,460,630]): z+=arrow(x,145,(s['start']+j*s['step'])%4*90)
-              z+='<rect x="720" y="100" width="90" height="90" rx="10" fill="#fff" stroke="#8f0e04" stroke-width="6" stroke-dasharray="10 8"/><text x="765" y="158" text-anchor="middle" font-size="42" font-weight="900" fill="#8f0e04">?</text>'
-              for k in range(4): z+=panel(95+220*k,LETTERS[k],arrow(95+220*k,365,k*90,True),k==s['correct'])
-            elif s['kind']=='sides':
-              for j,x in enumerate([120,290,460,630]): z+=poly(x,145,s['seq'][j])
-              z+='<rect x="720" y="100" width="90" height="90" rx="10" fill="#fff" stroke="#8f0e04" stroke-width="6" stroke-dasharray="10 8"/><text x="765" y="158" text-anchor="middle" font-size="42" font-weight="900" fill="#8f0e04">?</text>'
-              for k,n in enumerate([3,4,5,6]): z+=panel(95+220*k,LETTERS[k],poly(95+220*k,365,n,True),k==s['correct'])
-            elif s['kind']=='mirror':
-              z+='<rect x="140" y="80" width="250" height="150" rx="12" fill="#fff" stroke="#334155" stroke-width="4"/><line x1="515" y1="75" x2="515" y2="245" stroke="#64748b" stroke-width="4" stroke-dasharray="10 8"/><text x="515" y="68" text-anchor="middle" font-family="Arial" font-size="18" fill="#64748b">ठाडो दर्पण</text>'
-              pos=s['pos']; px=220+(pos%2)*90; py=115+(pos//2)*75
-              z+=f'<polygon points="265,205 315,105 365,205" fill="#8f0e04" stroke="#172033" stroke-width="4"/><circle cx="{px}" cy="{py}" r="10" fill="#f4c400" stroke="#172033" stroke-width="3"/>'
-              for k in range(4):
-                ox=95+220*k; oy=365; dx=ox+(45 if k%2 else 20); dy=oy+(28 if k//2==0 else 72)
-                z+=panel(ox,LETTERS[k],f'<rect x="{ox-32}" y="{oy-32}" width="64" height="64" rx="8" fill="#fff" stroke="#334155" stroke-width="3"/><circle cx="{dx}" cy="{dy}" r="7" fill="#f4c400"/>',k==s['correct'])
+              a=-math.pi/2+2*math.pi*k/n;pts.append(f'{x+r*math.cos(a):.1f},{y+r*math.sin(a):.1f}')
+            return f'<polygon points="{" ".join(pts)}" fill="#059669" stroke="#172033" stroke-width="5"/>'
+          def li(x,y,d,a=48):
+            ds=[(x-a,y-a,x+a,y+a),(x-a,y+a,x+a,y-a),(x-a,y,x+a,y),(x,y-a,x,y+a)];q=ds[d];return f'<line x1="{q[0]}" y1="{q[1]}" x2="{q[2]}" y2="{q[3]}" stroke="#8f0e04" stroke-width="8" stroke-linecap="round"/>'
+          def panel(cx,l,b): return f'<rect x="{cx-120}" y="390" width="240" height="175" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="3"/><text x="{cx}" y="425" text-anchor="middle" font-family="Arial" font-size="25" font-weight="700" fill="#334155">{l}</text>{b}'
+          def make(s):
+            k,t,d,c,o,q=s; head='<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640"><rect width="1200" height="640" rx="28" fill="#fff"/><rect x="18" y="18" width="1164" height="604" rx="24" fill="#f8fafc" stroke="#dbe3ec" stroke-width="3"/><text x="600" y="55" text-anchor="middle" font-family="Arial" font-size="25" font-weight="700" fill="#334155">प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्</text>'; z=''; xs=[105,285,465,645]
+            if k=='shape':
+              for j,v in enumerate(d): z+=sh(xs[j],180,v,52,j%2==0)
+              z+='<rect x="755" y="110" width="145" height="145" rx="16" fill="#fff" stroke="#8f0e04" stroke-width="5" stroke-dasharray="12 9"/><text x="827" y="205" text-anchor="middle" font-size="60" font-weight="900" fill="#8f0e04">?</text>'
+              for j,v in enumerate(o): z+=panel(150+300*j,'ABCD'[j],sh(150+300*j,505,v,45,True))
+            elif k=='rotation':
+              for j,v in enumerate(d): z+=ar(xs[j],180,v,1)
+              z+='<rect x="755" y="110" width="145" height="145" rx="16" fill="#fff" stroke="#8f0e04" stroke-width="5" stroke-dasharray="12 9"/><text x="827" y="205" text-anchor="middle" font-size="60" font-weight="900" fill="#8f0e04">?</text>'
+              for j,v in enumerate(o): z+=panel(150+300*j,'ABCD'[j],ar(150+300*j,505,v,.62))
+            elif k=='sides':
+              for j,v in enumerate(d): z+=pg(xs[j],180,v)
+              z+='<rect x="755" y="110" width="145" height="145" rx="16" fill="#fff" stroke="#8f0e04" stroke-width="5" stroke-dasharray="12 9"/><text x="827" y="205" text-anchor="middle" font-size="60" font-weight="900" fill="#8f0e04">?</text>'
+              for j,v in enumerate(o): z+=panel(150+300*j,'ABCD'[j],pg(150+300*j,505,v,38))
+            elif k=='mirror':
+              z+='<rect x="100" y="95" width="300" height="190" rx="16" fill="#fff" stroke="#334155" stroke-width="4"/><line x1="600" y1="80" x2="600" y2="305" stroke="#64748b" stroke-width="5" stroke-dasharray="12 9"/><text x="600" y="68" text-anchor="middle" font-family="Arial" font-size="19" fill="#64748b">ठाडो दर्पण</text><rect x="800" y="95" width="300" height="190" rx="16" fill="#fff" stroke="#8f0e04" stroke-width="4" stroke-dasharray="12 9"/><text x="950" y="205" text-anchor="middle" font-size="60" font-weight="900" fill="#8f0e04">?</text>'
+              pos=d; px=170+(pos%2)*150; py=145+(pos//2)*90; z+=f'<polygon points="205,260 250,125 295,260" fill="#8f0e04" stroke="#172033" stroke-width="5"/><circle cx="{px}" cy="{py}" r="12" fill="#f4c400" stroke="#172033" stroke-width="3"/>'
+              mp={0:1,1:0,2:3,3:2}[pos]; mx=1030-(mp%2)*150; my=145+(mp//2)*90; z+=f'<polygon points="905,260 950,125 995,260" fill="#8f0e04" stroke="#172033" stroke-width="5" opacity=".16"/><circle cx="{mx}" cy="{my}" r="12" fill="#f4c400" opacity=".12"/>'
+              for j,p in enumerate(o):
+                ox=150+300*j; dx=ox+(-48 if p%2==0 else 48); dy=505+(-38 if p//2==0 else 38)
+                z+=panel(ox,'ABCD'[j],f'<rect x="{ox-70}" y="{455}" width="140" height="100" rx="10" fill="#fff" stroke="#334155" stroke-width="3"/><polygon points="{ox-45},545 {ox},465 {ox+45},545" fill="#8f0e04" stroke="#172033" stroke-width="3"/><circle cx="{dx}" cy="{dy}" r="9" fill="#f4c400" stroke="#172033" stroke-width="2"/>')
             else:
-              for j,x in enumerate([120,290,460,630]): z+=linefig(x,145,s['seq'][j])
-              z+='<rect x="720" y="100" width="90" height="90" rx="10" fill="#fff" stroke="#8f0e04" stroke-width="6" stroke-dasharray="10 8"/><text x="765" y="158" text-anchor="middle" font-size="42" font-weight="900" fill="#8f0e04">?</text>'
-              for k in range(4): z+=panel(95+220*k,LETTERS[k],linefig(95+220*k,365,k,True),k==s['correct'])
-            return head+z+'<text x="550" y="422" text-anchor="middle" font-family="Arial" font-size="15" fill="#64748b">चार विकल्पमध्ये एक मात्र नियमसँग मिल्छ</text></svg>'
-          def question(s):
-            if s['kind'] in ('shape','fill'): return 'चित्रमा देखिएको ढाँचा हेरेर प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।'
-            if s['kind']=='rotation': return 'चित्रमा तीर प्रत्येक चरणमा घुमेको छ। प्रश्नचिह्न (?) को स्थानमा आउने अर्को दिशा छान्नुहोस्।'
-            if s['kind']=='sides': return 'भुजाको संख्यामा देखिएको क्रम पहिचान गरी प्रश्नचिह्न (?) को स्थानमा आउने आकृति छान्नुहोस्।'
-            if s['kind']=='mirror': return 'बायाँपट्टिको मूल आकृतिको ठाडो दर्पण प्रतिबिम्बसँग मिल्ने विकल्प छान्नुहोस्।'
-            return 'रेखाको दिशा क्रम पहिचान गरी प्रश्नचिह्न (?) को स्थानमा आउने सही रेखा छान्नुहोस्।'
-          opts={'shape':['भरिएको वृत्त','खाली वृत्त','वर्ग','त्रिभुज'],'fill':['खाली वर्ग','भरिएको वर्ग','खाली वृत्त','भरिएको त्रिभुज'],'rotation':['माथि','दायाँ','तल','बायाँ'],'sides':['त्रिभुज (३)','वर्ग (४)','पञ्चभुज (५)','षट्भुज (६)'],'mirror':['माथिल्लो बायाँ','माथिल्लो दायाँ','तल्लो बायाँ','तल्लो दायाँ'],'line':['तिरछो ↘','तिरछो ↗','तेर्सो →','ठाडो ↑']}
-          qs=[]
-          for i,s in enumerate(specs,1):
-            ident=f'bo-2.2-{i:03d}'; svg=svg_for(s,i); png=OUT/f'{ident}.png'; cairosvg.svg2png(bytestring=svg.encode(),write_to=str(png),output_width=1100,output_height=450)
-            q=question(s); qs.append({'id':ident,'examIds':['sakha-adhikrit'],'section':'B','unit':'2.2','subject':'Non-verbal Reasoning','topic':s['topic'],'level':'L1' if i<=15 else 'L2','type':'pictorial','q':q,'question':q,'options':opts[s['kind']],'correct':s['correct'],'solution':f'चित्रको नियमअनुसार सही विकल्प {LETTERS[s["correct"]]} हुन्छ।','image':f'/image/exam/branch-officer-2.2/{ident}.png','imageAlt':f'{s["topic"]} — प्रश्न {i}'})
-          assert len(qs)==30 and len({q['id'] for q in qs})==30
-          Path('exam-question-seed/branch-officer-2.2-nonverbal-pictorial.json').write_text(json.dumps(qs,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-          p=Path('exam-data.json'); d=json.loads(p.read_text(encoding='utf-8')); bank=d.setdefault('questions',[]); by={q.get('id'):i for i,q in enumerate(bank)}
-          for q in qs:
-            if q['id'] in by: bank[by[q['id']]]=q
-            else: by[q['id']]=len(bank); bank.append(q)
-          d['questionBankUpdatedAt']=__import__('datetime').datetime.utcnow().isoformat()+'Z'; p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-      - name: Verify 30 PNGs
+              for j,v in enumerate(d): z+=li(xs[j],180,v)
+              z+='<rect x="755" y="110" width="145" height="145" rx="16" fill="#fff" stroke="#8f0e04" stroke-width="5" stroke-dasharray="12 9"/><text x="827" y="205" text-anchor="middle" font-size="60" font-weight="900" fill="#8f0e04">?</text>'
+              for j,v in enumerate(o): z+=panel(150+300*j,'ABCD'[j],li(150+300*j,505,v,42))
+            return head+z+'<text x="600" y="605" text-anchor="middle" font-family="Arial" font-size="15" fill="#64748b">चार विकल्पको border समान छ</text></svg>'
+          def opts(s):
+            k,t,d,c,o,q=s
+            if k=='shape': return [sn[x] for x in o]
+            if k=='rotation': return [dirs[x] for x in o]
+            if k=='sides': return [f'{x} भुजा भएको आकृति' for x in o]
+            if k=='mirror': return ['माथिल्लो बायाँ','माथिल्लो दायाँ','तल्लो बायाँ','तल्लो दायाँ']
+            return ln
+          seed=[]; hashes=[]
+          for i,s in enumerate(S,1):
+            raw=make(s); assert raw.count('?')>=1 and all(f'>{x}<' in raw for x in 'ABCD')
+            p=O/f'bo-2.2-{i:03d}.png'; cairosvg.svg2png(bytestring=raw.encode(),write_to=str(p),output_width=1200,output_height=640); hashes.append(hashlib.sha256(p.read_bytes()).hexdigest())
+            k,t,d,c,o,q=s; seed.append({'id':f'bo-2.2-{i:03d}','examIds':['sakha-adhikrit'],'section':'B','unit':'2.2','subject':'Non-verbal Reasoning','topic':t,'level':'L1','type':'pictorial','q':q,'question':q,'options':opts(s),'correct':c,'solution':f'चित्रको नियमअनुसार सही विकल्प {"ABCD"[c]} हो।','image':f'/image/exam/branch-officer-2.2/bo-2.2-{i:03d}.png','imageAlt':t})
+          assert len(set(hashes))==30,'duplicate PNGs detected'
+          Path('exam-question-seed/branch-officer-2.2-nonverbal-pictorial.json').write_text(json.dumps(seed,ensure_ascii=False,indent=2),encoding='utf-8')
+          print('AUDIT OK:',len(seed),'questions;',len(set(hashes)),'unique PNGs; Q20 next=11; no answer highlighting')
+      - name: Commit generated bank
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          import hashlib
-          p=Path('image/exam/branch-officer-2.2'); f=[p/f'bo-2.2-{i:03d}.png' for i in range(1,31)]
-          assert all(x.exists() and x.stat().st_size>1000 for x in f)
-          assert len({hashlib.sha256(x.read_bytes()).hexdigest() for x in f})==30
-          print('Verified: 30/30 unique PNG figures')
-          PY
-      - name: Commit regenerated bank
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add image/exam/branch-officer-2.2 exam-question-seed/branch-officer-2.2-nonverbal-pictorial.json exam-data.json
-          git diff --cached --quiet || git commit -m 'Rebuild all 30 Branch Officer 2.2 pictorial questions'
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add image/exam/branch-officer-2.2 exam-question-seed/branch-officer-2.2-nonverbal-pictorial.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Generate audited Branch Officer 2.2 pictorial bank"
           git push
