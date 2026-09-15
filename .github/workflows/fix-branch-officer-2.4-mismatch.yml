@@ -1,0 +1,43 @@
+name: Fix Branch Officer 2.4 mismatched answers
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-branch-officer-2.4-mismatch.yml'
+  workflow_dispatch:
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch incorrect question-answer pairs
+        run: |
+          python - <<'PY'
+          import json
+          p='exam-question-seed/branch-officer-2.4-general-mental-logical-analytical.json'
+          with open(p,encoding='utf-8') as f: qs=json.load(f)
+          by={q.get('id'):q for q in qs}
+          changed=[]
+          q=by['bo-2.4-023']
+          old=q['question']
+          q['question']='Four officers K, L, M and N have different ranks. K is senior to L. M is junior to N but senior to L. Who can be the most senior?'
+          if old!=q['question']: changed.append('bo-2.4-023')
+          q=by['bo-2.4-028']
+          if q.get('correct')!=0:
+              q['correct']=0
+              q['solution']='Statement I alone is sufficient because the only even integer strictly between 4 and 8 is 6.'
+              changed.append('bo-2.4-028')
+          assert by['bo-2.4-023']['correct']==3
+          assert by['bo-2.4-028']['correct']==0
+          with open(p,'w',encoding='utf-8') as f: json.dump(qs,f,ensure_ascii=False,indent=2); f.write('\n')
+          print('patched:', changed)
+          PY
+      - name: Commit patch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add exam-question-seed/branch-officer-2.4-general-mental-logical-analytical.json
+          if git diff --cached --quiet; then echo 'No changes needed'; exit 0; fi
+          git commit -m 'Fix Branch Officer 2.4 question-answer mismatches'
+          git push
