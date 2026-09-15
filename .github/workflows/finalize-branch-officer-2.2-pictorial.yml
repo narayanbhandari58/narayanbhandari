@@ -17,7 +17,7 @@ jobs:
           import json,math,hashlib
           from pathlib import Path
           import cairosvg
-          O=Path('image/exam/branch-officer-2.2');O.mkdir(parents=True,exist_ok=True)
+          O=Path('image/exam/branch-officer-2.2'); O.mkdir(parents=True,exist_ok=True)
           A='ABCD'; SH={'circle':'वृत्त','square':'वर्ग','triangle':'त्रिभुज','diamond':'हीरा'}; DIR=['माथि','दायाँ','तल','बायाँ']; LINE=['बायाँ-माथि ↘ दायाँ-तल','बायाँ-तल ↗ दायाँ-माथि','तेर्सो','ठाडो']
           Q=[]
           def add(k,t,seq,o,c,q,s): assert len(o)==4 and o[c] is not None; Q.append((k,t,seq,o,c,q,s))
@@ -44,7 +44,7 @@ jobs:
           ('sides','भुजा क्रम',[3,5,7,9],[11,9,10,13],0,'भुजाको संख्या हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही विकल्प छान्नुहोस्।','हरेक चरणमा २ थपिन्छ; ९ पछि ११।')]
           for x in data:add(*x)
           mm={0:1,1:0,2:3,3:2}
-          for p in [0,1,2,3,0]:add('mirror','दर्पण प्रतिबिम्ब', [p],[0,1,2,3],mm[p],'ठाडो दर्पण रेखापछाडिको सही प्रतिबिम्ब छान्नुहोस्।',f'ठाडो दर्पणमा बायाँ-दायाँ स्थान उल्टिन्छ; सही प्रतिबिम्ब {A[mm[p]]} विकल्प हो।')
+          for p in [0,1,2,3,0]:add('mirror','दर्पण प्रतिबिम्ब',[p],[0,1,2,3],mm[p],'ठाडो दर्पण रेखापछाडिको सही प्रतिबिम्ब छान्नुहोस्।',f'ठाडो दर्पणमा बायाँ-दायाँ स्थान उल्टिन्छ; सही प्रतिबिम्ब {A[mm[p]]} विकल्प हो।')
           lines=[([0,1,0,1],0,'पहिलो र दोस्रो विकर्ण पालैपालो दोहोरिन्छन्; अर्को पहिलो विकर्ण।'),([1,2,3,0],1,'चार दिशाको चक्र दोहोरिन्छ; अर्को दोस्रो विकर्ण।'),([2,3,0,1],2,'चार दिशाको चक्र दोहोरिन्छ; अर्को तेर्सो।'),([3,0,1,2],3,'चार दिशाको चक्र दोहोरिन्छ; अर्को ठाडो।'),([0,2,0,2],0,'० र २ पालैपालो छन्; अर्को पहिलो विकर्ण।')]
           for seq,c,s in lines:add('line','रेखा क्रम',seq,[0,1,2,3],c,'रेखाको दिशा क्रम पहिचान गरी प्रश्नचिह्न (?) को स्थानमा आउने सही रेखा छान्नुहोस्।',s)
           assert len(Q)==30
@@ -63,16 +63,23 @@ jobs:
           def ln(x,y,d,a=80):
             p=[(x-a,y-a,x+a,y+a),(x-a,y+a,x+a,y-a),(x-a,y,x+a,y),(x,y-a,x,y+a)][d];return f'<line x1="{p[0]}" y1="{p[1]}" x2="{p[2]}" y2="{p[3]}" stroke="#8f0e04" stroke-width="13" stroke-linecap="round"/>'
           def render(q):
-            k,t,seq,o,c,question,solution=q; z='<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900"><rect width="1600" height="900" fill="#fff"/><rect x="24" y="24" width="1552" height="852" rx="28" fill="#f8fafc" stroke="#dbe3ec" stroke-width="4"/><text x="800" y="70" text-anchor="middle" font-family="Arial,sans-serif" font-size="32" font-weight="800" fill="#172033">प्रश्नचिह्न (?) को स्थानमा आउने सही विकल्प छान्नुहोस्</text>'
-            xs=[150,430,710,990]
-            for j,v in enumerate(seq):
-              z+=f'<rect x="{xs[j]-105}" y="120" width="210" height="260" rx="22" fill="#fff" stroke="#94a3b8" stroke-width="4"/>'
-              if k=='shape':z+=shp(xs[j],250,v)
-              elif k=='rotation':z+=ar(xs[j],250,v,1.08)
-              elif k=='sides':z+=pg(xs[j],250,v)
-              elif k=='line':z+=ln(xs[j],250,v)
-              else:z+=f'<polygon points="{xs[j]-58},325 {xs[j]},160 {xs[j]+58},325" fill="#8f0e04" stroke="#172033" stroke-width="6"/><circle cx="{xs[j]+(-40 if v%2==0 else 40)}" cy="{250+(-48 if v//2==0 else 48)}" r="15" fill="#f4c400" stroke="#172033" stroke-width="4"/>'
-            z+='<rect x="1260" y="120" width="210" height="260" rx="22" fill="#fff" stroke="#8f0e04" stroke-width="6" stroke-dasharray="14 10"/><text x="1365" y="275" text-anchor="middle" font-size="86" font-weight="900" fill="#8f0e04">?</text>'
+            k,t,seq,o,c,question,solution=q
+            z='<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900"><rect width="1600" height="900" fill="#fff"/><rect x="24" y="24" width="1552" height="852" rx="28" fill="#f8fafc" stroke="#dbe3ec" stroke-width="4"/><text x="800" y="70" text-anchor="middle" font-family="Arial,sans-serif" font-size="32" font-weight="800" fill="#172033">प्रश्नचिह्न (?) को स्थानमा आउने सही विकल्प छान्नुहोस्</text>'
+            if k=='mirror':
+              p=seq[0]; z+='<rect x="250" y="120" width="360" height="260" rx="22" fill="#fff" stroke="#94a3b8" stroke-width="4"/><line x1="800" y1="105" x2="800" y2="395" stroke="#64748b" stroke-width="6" stroke-dasharray="14 10"/><text x="800" y="95" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" fill="#64748b">ठाडो दर्पण रेखा</text><rect x="990" y="120" width="360" height="260" rx="22" fill="#fff" stroke="#8f0e04" stroke-width="6" stroke-dasharray="14 10"/><text x="1170" y="275" text-anchor="middle" font-size="86" font-weight="900" fill="#8f0e04">?</text><polygon points="365,325 430,160 495,325" fill="#8f0e04" stroke="#172033" stroke-width="6"/><circle cx="{0}" cy="{0}" r="0"/>'.format(390 if p%2==0 else 490, 250+(-48 if p//2==0 else 48))
+              # Replace the harmless zero-size placeholder with the actual source dot.
+              z=z.replace('<circle cx="390" cy="250" r="0"/>','')
+              z=z.replace('<circle cx="490" cy="250" r="0"/>','')
+              dx=390 if p%2==0 else 490; dy=250+(-48 if p//2==0 else 48); z+=f'<circle cx="{dx}" cy="{dy}" r="15" fill="#f4c400" stroke="#172033" stroke-width="4"/>'
+            else:
+              xs=[150,430,710,990]
+              for j,v in enumerate(seq):
+                z+=f'<rect x="{xs[j]-105}" y="120" width="210" height="260" rx="22" fill="#fff" stroke="#94a3b8" stroke-width="4"/>'
+                if k=='shape':z+=shp(xs[j],250,v)
+                elif k=='rotation':z+=ar(xs[j],250,v,1.08)
+                elif k=='sides':z+=pg(xs[j],250,v)
+                else:z+=ln(xs[j],250,v)
+              z+='<rect x="1260" y="120" width="210" height="260" rx="22" fill="#fff" stroke="#8f0e04" stroke-width="6" stroke-dasharray="14 10"/><text x="1365" y="275" text-anchor="middle" font-size="86" font-weight="900" fill="#8f0e04">?</text>'
             for j,v in enumerate(o):
               x=40+j*390
               if k=='shape':b=shp(x+150,665,v)
@@ -92,7 +99,7 @@ jobs:
           seed=[]; H=[]
           for i,q in enumerate(Q,1):
             raw=render(q); assert raw.count('>?</text>')==1
-            p=OUT/f'bo-2.2-{i:03d}.png'; cairosvg.svg2png(bytestring=raw.encode(),write_to=str(p),output_width=1600,output_height=900); H.append(hashlib.sha256(p.read_bytes()).hexdigest())
+            p=O/f'bo-2.2-{i:03d}.png'; cairosvg.svg2png(bytestring=raw.encode(),write_to=str(p),output_width=1600,output_height=900); H.append(hashlib.sha256(p.read_bytes()).hexdigest())
             o=opts(q); seed.append({'id':f'bo-2.2-{i:03d}','examIds':['sakha-adhikrit'],'section':'B','unit':'2.2','subject':'Non-verbal Reasoning','topic':q[1],'level':'L1','type':'pictorial','q':q[5],'question':q[5],'options':o,'correct':q[4],'solution':q[6],'image':f'/image/exam/branch-officer-2.2/bo-2.2-{i:03d}.png','imageAlt':q[1]})
           assert len(set(H))==30 and len(seed)==30
           assert all(len(x['options'])==4 and x['options'][x['correct']] for x in seed)
