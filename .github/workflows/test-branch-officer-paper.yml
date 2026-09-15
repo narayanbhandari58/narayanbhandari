@@ -13,65 +13,161 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate 2138-bank Branch Officer paper selection
+      - name: End-to-end audit against exam-api selector logic
         run: |
           python - <<'PY'
           import json, random
-          d=json.load(open('exam-data.json',encoding='utf-8'))
-          qs=d['questions']
-          assert len(qs)==2138, len(qs)
-          exam=next(x for x in d['exams'] if x['id']=='sakha-adhikrit')
+
+          data=json.load(open('exam-data.json',encoding='utf-8'))
+          bank=data['questions']
+          exam=next(x for x in data['exams'] if x['id']=='sakha-adhikrit')
+
+          assert len(bank)==2138, f'question bank size: {len(bank)}'
           assert exam['questionCount']==100
-          plan=[]
-          for s in exam['blueprint']['sections']:
-            for u in s['units']:
-              plan.append((s,u))
-          def level(q):
+          assert [s['id'] for s in exam['blueprint']['sections']]==['A','B','C']
+          assert [s['questionCount'] for s in exam['blueprint']['sections']]==[50,30,20]
+
+          expected_units={
+            ('A','1.1'):6,('A','1.2'):6,('A','1.3'):6,('A','1.4'):6,
+            ('A','1.5'):6,('A','1.6'):6,('A','1.7'):6,('A','1.8'):8,
+            ('B','2.1'):6,('B','2.2'):6,('B','2.3'):6,('B','2.4'):6,('B','2.5'):6,
+            ('C','3.1'):5,('C','3.2'):7,('C','3.3'):8
+          }
+          actual_units={(s['id'],u['id']):u['questionCount'] for s in exam['blueprint']['sections'] for u in s['units']}
+          assert actual_units==expected_units, actual_units
+
+          def level_of(q):
             v=str(q.get('level','')).lower()
             return {'i':'level1','1':'level1','l1':'level1','level1':'level1','ii':'level2','2':'level2','l2':'level2','level2':'level2'}.get(v,v)
+
+          def unit_matches(q,u):
+            a=str(q.get('unit','')); b=str(u)
+            return a==b or a.startswith(b+'.')
+
+          def stimulus_key(q):
+            if q.get('passage'): return 'passage:'+str(q['passage'])
+            if q.get('figure'): return 'figure:'+str(q['figure'])
+            if q.get('data'): return 'data:'+str(q['data'])
+            return ''
+
+          def has_required_pictorial_image(q):
+            return q.get('type')!='pictorial' or bool(q.get('image') or q.get('imageUrl') or q.get('image_url'))
+
+          # Exact blueprintReady checks from netlify/functions/exam-api.js.
+          assert all(has_required_pictorial_image(q) for q in bank), 'pictorial question without image'
           for s in exam['blueprint']['sections']:
-            sb=[q for q in qs if q.get('section')==s['id']]
             for u in s['units']:
-              pool=[q for q in sb if q.get('unit')==u['id']]
-              assert len(pool)>=u['questionCount'], f"{s['id']}/{u['id']}: {len(pool)} < {u['questionCount']}"
-            dist=s.get('levelDistribution')
-            if dist:
-              assert sum(level(q)=='level1' for q in sb)>=dist.get('level1',0), f"{s['id']} L1 insufficient"
-              assert sum(level(q)=='level2' for q in sb)>=dist.get('level2',0), f"{s['id']} L2 insufficient"
-          def select():
-            selected=[]
-            for s in exam['blueprint']['sections']:
-              sb=qs[:]
-              random.shuffle(sb)
-              d=s.get('levelDistribution') or {}
-              r1=d.get('level1',0); r2=d.get('level2',0)
-              for u in s['units']:
-                pool=[q for q in sb if q.get('section')==s['id'] and q.get('unit')==u['id']]
+              n=sum(q.get('section')==s['id'] and unit_matches(q,u['id']) for q in bank)
+              assert n>=u['questionCount'], f'{s["id"]}/{u["id"]}: {n} < {u["questionCount"]}'
+            d=s.get('levelDistribution')
+            if d:
+              sb=[q for q in bank if q.get('section')==s['id']]
+              assert sum(level_of(q)=='level1' for q in sb)>=(d.get('level1') or 0), f'{s["id"]} L1 insufficient'
+              assert sum(level_of(q)=='level2' for q in sb)>=(d.get('level2') or 0), f'{s["id"]} L2 insufficient'
+
+          # The exact selectPaper() algorithm from exam-api.js, mirrored line-for-line
+          # for deterministic CI testing without invoking Netlify runtime services.
+          def order_by_stimulus(items):
+            groups={}; singles=[]
+            for q in items:
+              k=stimulus_key(q)
+              if not k: singles.append(q); continue
+              groups.setdefault(k,[]).append(q)
+            gl=list(groups.values()); random.shuffle(gl); random.shuffle(singles)
+            out=[]
+            for g in gl: out.extend(g)
+            out.extend(singles)
+            return out
+
+          def select_paper():
+            selected=[]; used=set()
+            def add(q):
+              if not q or q['id'] in used: return False
+              used.add(q['id']); selected.append(q); return True
+
+            for section in exam['blueprint']['sections']:
+              section_bank=[q for q in bank if q.get('section')==section['id']]
+              random.shuffle(section_bank)
+              d=section.get('levelDistribution')
+              remaining1=d.get('level1',0) if d else 0
+              remaining2=d.get('level2',0) if d else 0
+
+              for u in section['units']:
+                pool=[q for q in section_bank if unit_matches(q,u['id']) and q['id'] not in used]
                 random.shuffle(pool)
                 need=u['questionCount']
-                l1=[q for q in pool if level(q)=='level1']; l2=[q for q in pool if level(q)=='level2']
-                t1=min(len(l1),r1,need); t2=min(len(l2),r2,need-t1)
-                chosen=l1[:t1]+l2[:t2]
+                if not pool: continue
+
+                groups={}
+                for q in pool:
+                  k=stimulus_key(q) or 'single:'+q['id']
+                  groups.setdefault(k,[]).append(q)
+                group_list=list(groups.values())
+                random.shuffle(group_list)
+                group_list=[g for g in group_list if len(g)<=need]
+
+                chosen=[]
+                for g in group_list:
+                  if len(chosen)+len(g)>need: continue
+                  l1=sum(level_of(q)=='level1' for q in g)
+                  l2=sum(level_of(q)=='level2' for q in g)
+                  if d and (l1>remaining1 or l2>remaining2): continue
+                  chosen.extend(g)
+                  if len(chosen)==need: break
+
                 if len(chosen)<need:
-                  used={q['id'] for q in chosen}
-                  rest=[q for q in pool if q['id'] not in used]
-                  random.shuffle(rest); chosen += rest[:need-len(chosen)]
-                assert len(chosen)==need, f"selection failed {s['id']}/{u['id']}"
-                selected += chosen
-                r1-=t1; r2-=t2
-            random.shuffle(selected)
-            return selected
-          for i in range(100):
-            paper=select()
-            assert len(paper)==100
-            assert len({q['id'] for q in paper})==100
-            sec={s['id']:sum(q['section']==s['id'] for q in paper) for s in exam['blueprint']['sections']}
+                  rest=[q for q in pool if q['id'] not in {x['id'] for x in chosen}]
+                  random.shuffle(rest)
+                  singles=[q for q in rest if not stimulus_key(q)]
+                  for q in singles:
+                    if len(chosen)>=need: break
+                    if not d or ((1 if level_of(q)=='level1' else 0)<=remaining1 and (1 if level_of(q)=='level2' else 0)<=remaining2):
+                      chosen.append(q)
+
+                if len(chosen)<need:
+                  rest=[q for q in pool if q['id'] not in {x['id'] for x in chosen}]
+                  random.shuffle(rest)
+                  chosen.extend(rest[:need-len(chosen)])
+
+                assert len(chosen)==need, f'selection failed {section["id"]}/{u["id"]}: {len(chosen)} < {need}'
+                for q in chosen: add(q)
+                if d:
+                  remaining1-=sum(level_of(q)=='level1' for q in chosen)
+                  remaining2-=sum(level_of(q)=='level2' for q in chosen)
+
+            if len(selected)<exam['questionCount']:
+              rest=[q for q in bank if q['id'] not in used]
+              random.shuffle(rest)
+              for q in rest[:exam['questionCount']-len(selected)]: add(q)
+            return order_by_stimulus(selected[:exam['questionCount']])
+
+          pict_pool=[q for q in bank if 'sakha-adhikrit' in q.get('examIds',[]) and q.get('section')=='B' and q.get('unit')=='2.2' and q.get('type')=='pictorial']
+          assert len(pict_pool)==30, f'2.2 pictorial pool: {len(pict_pool)}'
+          assert len({q['id'] for q in pict_pool})==30
+          assert all(q.get('image') for q in pict_pool)
+          assert all(len(q.get('options',[]))==4 for q in pict_pool)
+          assert all(isinstance(q.get('correct'),int) and 0<=q['correct']<4 for q in pict_pool)
+
+          observed=set()
+          for i in range(1000):
+            paper=select_paper()
+            assert len(paper)==100, len(paper)
+            assert len({q['id'] for q in paper})==100, 'duplicate question'
+            sec={s['id']:sum(q.get('section')==s['id'] for q in paper) for s in exam['blueprint']['sections']}
             assert sec=={'A':50,'B':30,'C':20}, sec
-            units={u['id']:sum(q['unit']==u['id'] for q in paper) for s in exam['blueprint']['sections'] for u in s['units']}
-            expected={u['id']:u['questionCount'] for s in exam['blueprint']['sections'] for u in s['units']}
-            assert units==expected, (units,expected)
-            A=[q for q in paper if q['section']=='A']
-            assert sum(level(q)=='level1' for q in A)==30
-            assert sum(level(q)=='level2' for q in A)==20
-          print('PASS: 100/100 paper selections matched A=50, B=30, C=20; every unit quota and A L1/L2=30/20 passed across 100 randomized trials.')
+            got={(s['id'],u['id']):sum(q.get('section')==s['id'] and unit_matches(q,u['id']) for q in paper) for s in exam['blueprint']['sections'] for u in s['units']}
+            assert got==expected_units, got
+            A=[q for q in paper if q.get('section')=='A']
+            assert sum(level_of(q)=='level1' for q in A)==30
+            assert sum(level_of(q)=='level2' for q in A)==20
+            B22=[q for q in paper if q.get('section')=='B' and unit_matches(q,'2.2')]
+            assert len(B22)==6
+            assert all(q['id'] in {x['id'] for x in pict_pool} for q in B22), 'B/2.2 selected a non-pictorial question'
+            observed.update(q['id'] for q in B22)
+
+          assert observed, 'B/2.2 pictorial pool was never selected'
+          print('PASS: exact exam-api selector mirrored for 1000 papers.')
+          print('PASS: every paper = 100 questions; A/B/C = 50/30/20; every blueprint unit quota exact; A levels = 30/20.')
+          print('PASS: B/2.2 = exactly 6 questions on every paper, all from the 30 audited image-backed pictorial questions.')
+          print(f'PASS: {len(observed)}/30 audited B/2.2 pictorial IDs were observed across 1000 randomized papers.')
           PY
