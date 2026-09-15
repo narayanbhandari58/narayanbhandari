@@ -45,11 +45,9 @@ jobs:
           assert all(isinstance(q.get('correct'), int) and 0 <= q['correct'] < 4 for q in seed), 'Invalid answer index'
           assert all(q['options'][q['correct']] for q in seed), 'Correct option text missing'
 
-          expected_sides = [7, 8, 9, 14, 11]
+          expected_sides = ['7 भुजा', '8 भुजा', '9 भुजा', '14 भुजा', '11 भुजा']
           side_items = seed[15:20]
-          assert [q['options'][q['correct']] for q in side_items] == [
-              f'{n} भुजा भएको आकृति' for n in expected_sides
-          ], 'Q16-Q20 answer regression'
+          assert [q['options'][q['correct']] for q in side_items] == expected_sides, 'Q16-Q20 answer regression'
 
           for q in seed:
               rel = str(q.get('image', '')).lstrip('/')
