@@ -1,27 +1,35 @@
-/* Runtime DI renderer v4: DI only; pictorial figures are left to the visual renderer. */
+/* Runtime DI renderer v5: robust DI matching; pictorial figures stay with visual renderer. */
 (function(){
   const esc=s=>String(s??'').replace(/[&<>\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[m]));
   const card=()=>document.getElementById('questionCard');
-  const norm=s=>String(s??'').replace(/\s+/g,' ').trim();
-  const isPictorial=q=>{if(!q)return false;const t=norm([q.type,q.topic,q.subject,q.q].filter(Boolean).join(' ')).toLowerCase();return /pictorial|non-verbal|figure-count|triangle-count|triangle-counting|आकृति क्रम|रेखा क्रम|घुमाइ|भुजा क्रम|भर्ने क्रम|भराइ|दर्पण प्रतिबिम्ब|प्रतिबिम्ब/.test(t)};
+  const norm=s=>String(s??'').replace(/<[^>]*>/g,' ').replace(/[\u00a0]/g,' ').replace(/\s+/g,' ').trim();
+  const key=s=>norm(s).toLowerCase().replace(/[“”‘’'"`]/g,'').replace(/[?？!।,:;]+$/g,'').replace(/[^\p{L}\p{N}]+/gu,'');
+  const isPictorial=q=>{if(!q)return false;const t=norm([q.type,q.topic,q.subject,q.category,q.q,q.question].filter(Boolean).join(' ')).toLowerCase();return /pictorial|non-verbal|figure-count|triangle-count|triangle-counting|आकृति क्रम|रेखा क्रम|घुमाइ|भुजा क्रम|भर्ने क्रम|भराइ|दर्पण प्रतिबिम्ब|प्रतिबिम्ब/.test(t)};
   let bank=[],lastObj=null,lastStimulusHTML='';
   async function loadBank(){try{const r=await fetch('exam-data.json?di_runtime='+Date.now(),{cache:'no-store'});const d=await r.json();bank=Array.isArray(d.questions)?d.questions:[]}catch(e){bank=[]}}
-  function findQuestion(text){const t=norm(text);return bank.find(q=>norm(q.q||q.question)===t)||null}
+  function findQuestion(text){
+    const t=norm(text),k=key(t);
+    if(!k)return null;
+    let q=bank.find(x=>key(x.q||x.question)===k);
+    if(q)return q;
+    q=bank.find(x=>{const z=key(x.q||x.question);return z&&((z.length>28&&k.includes(z))||(k.length>28&&z.includes(k)))});
+    return q||null;
+  }
   function numericPairs(s){return [...String(s).matchAll(/([A-Za-z]{2,12})\s*(-?\d+(?:\.\d+)?%?)/g)].map(m=>[m[1],m[2]])}
   function dataRows(q){
     if(isPictorial(q))return null;
-    const raw=String(q?.data||'').trim();if(!raw)return null;
-    const type=String(q.type||'').toLowerCase();let title='',body=raw,parsed=[];
+    const raw=String(q?.data||q?.figure||'').trim();if(!raw)return null;
+    const type=String(q.type||'table').toLowerCase();let title='',body=raw,parsed=[];
     const c=raw.indexOf(':');if(c>0){title=raw.slice(0,c).trim();body=raw.slice(c+1).trim()}
     const rows=body.split(/\s*;\s*/).map(x=>x.trim().replace(/[.]$/,'')).filter(Boolean);
     if(type==='line-graph'){
-      if(rows.length===1){const pairs=numericPairs(rows[0]);if(pairs.length>=2){parsed=[['समय',...pairs.map(x=>x[0])],[title||'मान',...pairs.map(x=>x[1])]]}}
-      if(!parsed.length)rows.forEach((row,i)=>{const x=row.indexOf(':');if(x>0){const label=row.slice(0,x).trim();const vals=row.slice(x+1).trim().split(/\s*[,|]\s*/).filter(Boolean);if(i===0&&!title)title=label;parsed.push([label,...vals])}else{const pairs=numericPairs(row);if(pairs.length>=2)parsed.push([title||'मान',...pairs.map(x=>x[1])]);else parsed.push(row.split(/\s*[,|]\s*/).filter(Boolean))}})
-    } else if(type==='bar-chart'){
-      rows.forEach(row=>{let rest=row;const x=row.indexOf(':');if(x>0){if(!title)title=row.slice(0,x).trim();rest=row.slice(x+1).trim()}const groups=rest.split(/\s*,\s*/).filter(Boolean);groups.forEach(g=>{const m=g.match(/^([A-Za-z][A-Za-z0-9_-]*)\s+(.+)$/);if(m){const vals=m[2].split(/\s*[,|]\s*/).filter(Boolean);parsed.push([m[1],...vals])}})});
+      if(rows.length===1){const pairs=numericPairs(rows[0]);if(pairs.length>=2)parsed=[['समय',...pairs.map(x=>x[0])],[title||'मान',...pairs.map(x=>x[1])]]}
+      if(!parsed.length)rows.forEach((row,i)=>{const x=row.indexOf(':');if(x>0){const label=row.slice(0,x).trim();const vals=row.slice(x+1).trim().split(/\s*[,|]\s*/).filter(Boolean);if(i===0&&!title)title=label;parsed.push([label,...vals])}else{const pairs=numericPairs(row);parsed.push(pairs.length>=2?[title||'मान',...pairs.map(x=>x[1])]:row.split(/\s*[,|]\s*/).filter(Boolean))}})
+    }else if(type==='bar-chart'){
+      rows.forEach(row=>{let rest=row;const x=row.indexOf(':');if(x>0){if(!title)title=row.slice(0,x).trim();rest=row.slice(x+1).trim()}rest.split(/\s*,\s*/).filter(Boolean).forEach(g=>{const m=g.match(/^([A-Za-z][A-Za-z0-9_-]*)\s+(.+)$/);if(m)parsed.push([m[1],...m[2].split(/\s*[,|]\s*/).filter(Boolean)])})});
       if(!parsed.length)rows.forEach(r=>parsed.push(r.split(/\s*[,|]\s*/).filter(Boolean)));
-    } else {
-      rows.forEach(row=>{const a=row.match(/^(.+?)\s+(\d+(?:\.\d+)?%?)\s*→\s*(\d+(?:\.\d+)?%?)$/);if(a){parsed.push([a[1].trim(),a[2],a[3]]);return}const first=row.match(/^([A-Za-z][A-Za-z0-9_-]*)\s+(.+)$/);if(first){const pairs=numericPairs(first[2]);if(pairs.length>=2){parsed.push([first[1],...pairs.map(x=>x[1])]);return}parsed.push([first[1],...first[2].split(/\s*[,|]\s*/).filter(Boolean)]);return}parsed.push(row.split(/\s*[,|]\s*/).filter(Boolean))});
+    }else{
+      rows.forEach(row=>{const a=row.match(/^(.+?)\s+(\d+(?:\.\d+)?%?)\s*→\s*(\d+(?:\.\d+)?%?)$/);if(a){parsed.push([a[1].trim(),a[2],a[3]]);return}const first=row.match(/^([A-Za-z][A-Za-z0-9_-]*)\s+(.+)$/);if(first){const pairs=numericPairs(first[2]);parsed.push(pairs.length>=2?[first[1],...pairs.map(x=>x[1])]:[first[1],...first[2].split(/\s*[,|]\s*/).filter(Boolean)]);return}parsed.push(row.split(/\s*[,|]\s*/).filter(Boolean))});
     }
     let headers=null;
     if(type==='table'&&parsed.length&&parsed.every(r=>r.length===3)){const years=String(title).match(/(\d{4})\s*→\s*(\d{4})/);headers=['विवरण',years?years[1]:'मान १',years?years[2]:'मान २']}
@@ -35,7 +43,7 @@
   function lines(d){if(d.parsed.length<2)return'';const labels=d.parsed[0].slice(1),series=d.parsed.slice(1).map(r=>({v:r.slice(1).map(x=>parseFloat(String(x).replace(/,/g,'').replace('%',''))||0)})),max=Math.max(1,...series.flatMap(x=>x.v)),w=760,h=360,l=60,r=20,top=28,b=72,pw=w-l-r,ph=h-top-b,p=['#ef4444','#3b82f6','#10b981','#f59e0b','#8b5cf6'];let s=`<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Line Graph" style="width:100%;height:auto;display:block"><line x1="${l}" y1="${top}" x2="${l}" y2="${h-b}" stroke="#94a3b8"/><line x1="${l}" y1="${h-b}" x2="${w-r}" y2="${h-b}" stroke="#94a3b8"/>`;for(let g=0;g<=4;g++){const y=top+ph-ph*g/4;s+=`<line x1="${l}" y1="${y}" x2="${w-r}" y2="${y}" stroke="#e2e8f0"/><text x="${l-8}" y="${y+4}" text-anchor="end" font-size="12" fill="#64748b">${Math.round(max*g/4)}</text>`}labels.forEach((x,i)=>{const xx=l+(labels.length===1?pw/2:i*pw/(labels.length-1));s+=`<text x="${xx}" y="${h-38}" text-anchor="middle" font-size="12" font-weight="700">${esc(x)}</text>`});series.forEach((z,si)=>{const pts=z.v.map((v,i)=>{const x=l+(labels.length===1?pw/2:i*pw/(labels.length-1)),y=top+ph-ph*v/max;return[x,y,v]});s+=`<polyline fill="none" stroke="${p[si%p.length]}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="${pts.map(x=>x[0]+','+x[1]).join(' ')}"/>`;pts.forEach(x=>s+=`<circle cx="${x[0]}" cy="${x[1]}" r="6" fill="#fff" stroke="${p[si%p.length]}" stroke-width="4"/><text x="${x[0]}" y="${x[1]-11}" text-anchor="middle" font-size="11" font-weight="700">${x[2]}</text>`)});return box(d.title,s+'</svg>')}
   function stimulus(q){if(!q||isPictorial(q))return'';if(q.passage)return `<div class="exam-stimulus passage-stimulus"><div style="line-height:1.75;white-space:pre-line">${esc(q.passage)}</div></div>`;const d=dataRows(q);if(!d)return'';if(d.type==='pie-chart')return pie(d);if(d.type==='bar-chart')return bars(d);if(d.type==='line-graph')return lines(d);return table(d)}
   function sameGroup(a,b){if(!a||!b)return false;const keys=['section','unit','category','subject'];const present=keys.filter(k=>String(a[k]??'')||String(b[k]??''));return present.length>0&&present.every(k=>String(a[k]??'')===String(b[k]??''))}
-  function currentObj(){const h=card()?.querySelector('h2');if(!h)return null;const text=String(h.textContent||'').replace(/^\s*\d+\.\s*/,'');return findQuestion(text)}
-  function repair(records){const c=card();if(!c)return;const q=currentObj();if(!q)return;const existing=c.querySelector('.exam-stimulus');if(existing){const fresh=stimulus(q);if(fresh)existing.outerHTML=fresh;else{if(isPictorial(q)||(!q.passage&&!q.data))existing.remove()}lastStimulusHTML=c.querySelector('.exam-stimulus')?.outerHTML||lastStimulusHTML;lastObj=q;return}let removed='';for(const rec of records||[]){for(const n of rec.removedNodes||[]){if(n.nodeType===1){const x=n.matches?.('.exam-stimulus')?n:n.querySelector?.('.exam-stimulus');if(x)removed=x.outerHTML}}}if(removed)lastStimulusHTML=removed;if(lastStimulusHTML&&sameGroup(lastObj,q)&&!q.passage&&!q.data&&!q.figure&&!isPictorial(q)){const h=c.querySelector('h2');if(h)h.insertAdjacentHTML('beforebegin',lastStimulusHTML)}lastObj=q}
-  loadBank().then(()=>{const c=card();if(!c)return;let timer;new MutationObserver(records=>{clearTimeout(timer);timer=setTimeout(()=>repair(records),30)}).observe(c,{childList:true,subtree:true});setTimeout(()=>repair(),120)});
+  function currentObj(){const h=card()?.querySelector('h2');if(!h)return null;const text=String(h.textContent||'').replace(/^\s*\d+\s*[.)]\s*/,'');return findQuestion(text)}
+  function repair(records){const c=card();if(!c)return;const q=currentObj();if(!q)return;const fresh=stimulus(q);const existing=c.querySelector('.exam-stimulus');if(existing){if(fresh)existing.outerHTML=fresh;else if(isPictorial(q)||(!q.passage&&!q.data&&!q.figure))existing.remove();lastStimulusHTML=c.querySelector('.exam-stimulus')?.outerHTML||lastStimulusHTML;lastObj=q;return}if(fresh){const h=c.querySelector('h2');if(h)h.insertAdjacentHTML('beforebegin',fresh);lastStimulusHTML=fresh;lastObj=q;return}let removed='';for(const rec of records||[])for(const n of rec.removedNodes||[])if(n.nodeType===1){const x=n.matches?.('.exam-stimulus')?n:n.querySelector?.('.exam-stimulus');if(x)removed=x.outerHTML}if(removed)lastStimulusHTML=removed;if(lastStimulusHTML&&sameGroup(lastObj,q)&&!q.passage&&!q.data&&!q.figure&&!isPictorial(q)){const h=c.querySelector('h2');if(h)h.insertAdjacentHTML('beforebegin',lastStimulusHTML)}lastObj=q}
+  loadBank().then(()=>{const c=card();if(!c)return;let timer;new MutationObserver(records=>{clearTimeout(timer);timer=setTimeout(()=>repair(records),30)}).observe(c,{childList:true,subtree:true});setTimeout(()=>repair(),150)});
 })();
