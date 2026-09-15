@@ -1,36 +1,82 @@
 name: Merge Branch Officer 2.2 pictorial bank v2
+
 on:
-  push:
-    paths: ['.github/workflows/merge-branch-officer-2.2-pictorial-v2.yml']
   workflow_dispatch:
-permissions: {contents: write}
+  push:
+    paths:
+      - '.github/workflows/merge-branch-officer-2.2-pictorial-v2.yml'
+      - 'exam-question-seed/branch-officer-2.2-nonverbal-pictorial.json'
+      - 'image/exam/branch-officer-2.2/**'
+
+permissions:
+  contents: write
+
 jobs:
   merge:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Merge 30 pictorial questions
+
+      - name: Validate and merge audited pictorial bank
         shell: python
         run: |
           import json
           from pathlib import Path
-          p=Path('exam-data.json')
-          d=json.loads(p.read_text(encoding='utf-8'))
-          seed=json.loads(Path('exam-question-seed/branch-officer-2.2-nonverbal-pictorial.json').read_text(encoding='utf-8'))
-          assert len(seed)==30 and all(q.get('image') for q in seed)
-          qs=d.setdefault('questions',[])
-          by={q.get('id'):i for i,q in enumerate(qs)}
+          from datetime import datetime, timezone
+
+          data_path = Path('exam-data.json')
+          seed_path = Path('exam-question-seed/branch-officer-2.2-nonverbal-pictorial.json')
+          image_dir = Path('image/exam/branch-officer-2.2')
+
+          assert data_path.exists(), 'exam-data.json missing'
+          assert seed_path.exists(), 'pictorial seed missing'
+          assert image_dir.exists(), 'pictorial image directory missing'
+
+          exam = json.loads(data_path.read_text(encoding='utf-8'))
+          seed = json.loads(seed_path.read_text(encoding='utf-8'))
+          assert isinstance(seed, list) and len(seed) == 30, f'Expected 30 seed questions, got {len(seed)}'
+
+          ids = [q.get('id') for q in seed]
+          assert len(set(ids)) == 30, 'Duplicate pictorial question IDs'
+          assert all(q.get('examIds') == ['sakha-adhikrit'] for q in seed), 'Unexpected exam mapping'
+          assert all(q.get('section') == 'B' and q.get('unit') == '2.2' for q in seed), 'Unexpected section/unit'
+          assert all(q.get('type') == 'pictorial' for q in seed), 'Non-pictorial item in pictorial seed'
+          assert all(isinstance(q.get('options'), list) and len(q['options']) == 4 for q in seed), 'Every item must have 4 options'
+          assert all(isinstance(q.get('correct'), int) and 0 <= q['correct'] < 4 for q in seed), 'Invalid answer index'
+          assert all(q['options'][q['correct']] for q in seed), 'Correct option text missing'
+
+          expected_sides = [7, 8, 9, 14, 11]
+          side_items = seed[15:20]
+          assert [q['options'][q['correct']] for q in side_items] == [
+              f'{n} भुजा भएको आकृति' for n in expected_sides
+          ], 'Q16-Q20 answer regression'
+
           for q in seed:
-            if q['id'] in by: qs[by[q['id']]]=q
-            else: by[q['id']]=len(qs); qs.append(q)
-          assert sum(1 for q in qs if q.get('unit')=='2.2')>=30
-          d['questionBankUpdatedAt']=__import__('datetime').datetime.utcnow().isoformat()+'Z'
-          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-          print('Merged 30 pictorial questions; total bank',len(qs))
+              rel = str(q.get('image', '')).lstrip('/')
+              p = Path(rel)
+              assert p.exists() and p.stat().st_size > 1000, f'Missing/empty image: {rel}'
+
+          questions = exam.setdefault('questions', [])
+          by_id = {q.get('id'): i for i, q in enumerate(questions)}
+          for q in seed:
+              if q['id'] in by_id:
+                  questions[by_id[q['id']]] = q
+              else:
+                  by_id[q['id']] = len(questions)
+                  questions.append(q)
+
+          matched = [q for q in questions if q.get('unit') == '2.2' and q.get('examIds') == ['sakha-adhikrit'] and q.get('type') == 'pictorial']
+          assert len(matched) >= 30, f'Merge failed: only {len(matched)} pictorial questions present'
+          assert set(q['id'] for q in matched) >= set(ids), 'Not all pictorial IDs reached exam-data.json'
+
+          exam['questionBankUpdatedAt'] = datetime.now(timezone.utc).isoformat()
+          data_path.write_text(json.dumps(exam, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          print(f'VALIDATED AND MERGED: {len(seed)} pictorial questions; exam bank total={len(questions)}')
+
       - name: Commit exam data
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add exam-data.json
-          git diff --cached --quiet || git commit -m 'Merge 30 Branch Officer pictorial questions into exam data'
+          git diff --cached --quiet || git commit -m 'Merge audited Branch Officer 2.2 pictorial questions into exam data'
           git push
