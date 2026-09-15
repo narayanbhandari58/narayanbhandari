@@ -1,0 +1,82 @@
+name: Lock admin entrypoint
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  lock-admin:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Remove public Admin navigation and enforce /admin canonical URL
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          public_pages = [
+              Path('index.html'),
+              Path('about_me.html'),
+              Path('font.html'),
+          ]
+
+          admin_li = re.compile(
+              r'\s*<li>\s*<a\s+[^>]*class=["\'][^"\']*admin-btn[^"\']*["\'][^>]*>\s*Admin\s*</a>\s*</li>\s*',
+              re.I | re.S,
+          )
+
+          generic_admin_li = re.compile(
+              r'\s*<li>\s*<a\s+[^>]*href=["\'](?:\.\./)?admin\.html[^"\'][^>]*>\s*Admin\s*</a>\s*</li>\s*',
+              re.I | re.S,
+          )
+
+          for path in public_pages:
+              if not path.exists():
+                  continue
+              text = path.read_text(encoding='utf-8')
+              new = admin_li.sub('\n', text)
+              new = generic_admin_li.sub('\n', new)
+              new = re.sub(r'\n{4,}', '\n\n\n', new)
+              if new != text:
+                  path.write_text(new, encoding='utf-8')
+
+          admin = Path('admin.html')
+          if admin.exists():
+              text = admin.read_text(encoding='utf-8')
+              guard = '''<script>\n(function(){\n  var p = window.location.pathname.replace(/\\/+$/, '') || '/';\n  if (p !== '/admin') {\n    window.location.replace('/admin');\n  }\n})();\n</script>'''
+              if "window.location.replace('/admin')" not in text:
+                  text = text.replace('</head>', guard + '</head>', 1)
+                  admin.write_text(text, encoding='utf-8')
+
+          netlify = Path('netlify.toml')
+          text = netlify.read_text(encoding='utf-8') if netlify.exists() else ''
+          redirect = '''\n[[redirects]]\n  from = "/admin"\n  to = "/admin.html"\n  status = 200\n  force = true\n'''
+          if 'from = "/admin"' not in text:
+              text = text.rstrip() + redirect
+              netlify.write_text(text, encoding='utf-8')
+
+      - name: Verify public HTML has no Admin button
+        shell: bash
+        run: |
+          ! grep -RniE 'admin-btn|href=["'"'][^"'"']*admin\.html|>Admin<' index.html about_me.html font.html
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html about_me.html font.html admin.html netlify.toml
+          if git diff --cached --quiet; then
+            echo "No changes needed."
+            exit 0
+          fi
+          git commit -m "Restrict admin entrypoint to /admin"
+          git push
