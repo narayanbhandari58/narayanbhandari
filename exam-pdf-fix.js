@@ -1,9 +1,10 @@
-/* Exam PDF v2
-   - Builds a clean print-only feedback document from the completed result.
+/* Exam PDF v2.1
+   - Clean A4 feedback report.
    - Waits for question images before rendering.
-   - Keeps Nepali text rendered by the browser/html2canvas.
-   - Avoids splitting individual review cards where possible.
-   - Provides reliable mobile download + share.
+   - Keeps Nepali text rendered by browser/html2canvas.
+   - Avoids splitting review cards/stimuli where possible.
+   - Separates Generate/Download from Share so mobile Share does not trigger a duplicate download.
+   - Cleans the temporary render node even when PDF generation fails.
 */
 (function(){
   const $=s=>document.querySelector(s);
@@ -15,7 +16,7 @@
     const s=document.createElement('script');
     s.src='https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
     document.head.appendChild(s);
-    await new Promise((resolve,reject)=>{s.onload=resolve;s.onerror=reject});
+    await new Promise((resolve,reject)=>{s.onload=resolve;s.onerror=()=>reject(Error('PDF library load भएन।'))});
   }
 
   function resultData(){
@@ -70,14 +71,12 @@
     return `${title}-feedback.pdf`;
   }
 
-  async function makePDF(){
-    const btn=$('#pdfBtn');
-    if(btn)btn.disabled=true;
+  async function generatePDF(){
+    await loadLib();
+    const el=buildDocument();
     try{
-      await loadLib();
-      const el=buildDocument();
       await waitImages(el);
-      pdfBlob=await html2pdf().set({
+      return await html2pdf().set({
         margin:[8,8,10,8],
         filename:fileName(),
         image:{type:'jpeg',quality:.96},
@@ -85,21 +84,34 @@
         jsPDF:{unit:'mm',format:'a4',orientation:'portrait',compress:true},
         pagebreak:{mode:['css','legacy'],avoid:['.review-card','.question-image-wrap','.exam-stimulus','.data-stimulus','.passage-stimulus']}
       }).from(el).outputPdf('blob');
-      document.body.removeChild(el);
+    }finally{
+      if(el.parentNode)el.parentNode.removeChild(el);
+    }
+  }
+
+  async function makePDF(){
+    const btn=$('#pdfBtn');
+    if(btn)btn.disabled=true;
+    try{
+      pdfBlob=await generatePDF();
+      const name=fileName();
       const url=URL.createObjectURL(pdfBlob),a=document.createElement('a');
-      a.href=url;a.download=fileName();document.body.appendChild(a);a.click();a.remove();
+      a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();
       setTimeout(()=>URL.revokeObjectURL(url),5000);
     }finally{if(btn)btn.disabled=false}
   }
 
   async function sharePDF(){
-    if(!pdfBlob)await makePDF();
-    if(!pdfBlob)return;
-    const file=new File([pdfBlob],fileName(),{type:'application/pdf'});
-    if(navigator.share&&(!navigator.canShare||navigator.canShare({files:[file]}))){
-      try{await navigator.share({title:'लोकसेवा परीक्षा Feedback',text:'परीक्षा Feedback PDF',files:[file]});return}catch(e){if(e.name==='AbortError')return}
-    }
-    alert('PDF तयार भयो। अब मोबाइलको Share/Files विकल्पबाट पठाउन सकिन्छ।');
+    const btn=$('#shareBtn');
+    if(btn)btn.disabled=true;
+    try{
+      if(!pdfBlob)pdfBlob=await generatePDF();
+      const file=new File([pdfBlob],fileName(),{type:'application/pdf'});
+      if(navigator.share&&(!navigator.canShare||navigator.canShare({files:[file]}))){
+        try{await navigator.share({title:'लोकसेवा परीक्षा Feedback',text:'परीक्षा Feedback PDF',files:[file]});return}catch(e){if(e.name==='AbortError')return}
+      }
+      alert('यो browser मा direct PDF Share उपलब्ध छैन। पहिले PDF बनाउनुहोस्, त्यसपछि मोबाइलको Files/Share विकल्पबाट पठाउन सकिन्छ।');
+    }finally{if(btn)btn.disabled=false}
   }
 
   function bind(){
