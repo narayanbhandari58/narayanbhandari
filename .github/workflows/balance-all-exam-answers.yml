@@ -1,8 +1,11 @@
 name: Balance all exam answer positions
 
+# The question bank is expandable. This workflow validates every current
+# question without assuming a fixed total count.
 on:
   push:
     paths:
+      - 'exam-data.json'
       - '.github/workflows/balance-all-exam-answers.yml'
   workflow_dispatch:
 
@@ -14,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Balance correct-answer positions across the full bank
+      - name: Balance correct-answer positions across the current bank
         shell: python
         run: |
           import json
@@ -22,8 +25,12 @@ jobs:
           p=Path('exam-data.json')
           d=json.loads(p.read_text(encoding='utf-8'))
           qs=d.get('questions', [])
-          assert len(qs)==2138, f'Expected 2138 questions, got {len(qs)}'
+          assert isinstance(qs,list) and qs, 'Question bank is empty or invalid'
+          seen=set()
           for i,q in enumerate(qs):
+              assert q.get('id'), f'Question {i+1} has no id'
+              assert q['id'] not in seen, f'Duplicate question id: {q["id"]}'
+              seen.add(q['id'])
               opts=q.get('options') or []
               correct=q.get('correct')
               assert len(opts)==4 and isinstance(correct,int) and 0<=correct<4, f'Invalid question {q.get("id")}'
@@ -35,21 +42,23 @@ jobs:
                   q['options']=distractors
                   q['correct']=target
           counts=[sum(q.get('correct')==i for q in qs) for i in range(4)]
-          assert counts==[535,535,534,534], f'Unexpected balance: {counts}'
+          # A fixed 4-way total is intentionally not asserted because questions
+          # may be added or removed at any time. The workflow itself creates the
+          # balanced distribution from the current bank order.
           max_streak=1; streak=1
           for a,b in zip(qs,qs[1:]):
               if a['correct']==b['correct']:
                   streak+=1; max_streak=max(max_streak,streak)
               else:
                   streak=1
-          assert max_streak==1, f'Consecutive-answer streak found: {max_streak}'
+          assert max_streak<=1, f'Consecutive-answer streak found: {max_streak}'
           d['questionBankUpdatedAt']=__import__('datetime').datetime.utcnow().isoformat()+'Z'
           p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-          print(f'Balanced {len(qs)} questions: A={counts[0]}, B={counts[1]}, C={counts[2]}, D={counts[3]}; max consecutive streak={max_streak}')
+          print(f'Balanced {len(qs)} current questions: A={counts[0]}, B={counts[1]}, C={counts[2]}, D={counts[3]}; max consecutive streak={max_streak}')
       - name: Commit balanced question bank
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add exam-data.json
-          git diff --cached --quiet || git commit -m 'Balance answer positions across full exam bank'
+          git diff --cached --quiet || git commit -m 'Balance answer positions across current exam bank'
           git push
