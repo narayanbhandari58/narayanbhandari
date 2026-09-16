@@ -1,0 +1,67 @@
+name: Audit cross-exam question reuse
+
+on:
+  push:
+    paths:
+      - 'exam-data.json'
+      - '.github/workflows/audit-cross-exam-reuse.yml'
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check reusable questions against each exam blueprint
+        run: |
+          python - <<'PY'
+          import json
+          from collections import defaultdict
+
+          data = json.load(open('exam-data.json', encoding='utf-8'))
+          exams = {e['id']: e for e in data.get('exams', [])}
+          qs = data.get('questions', [])
+
+          def norm(v):
+              return str(v or '').strip().lower()
+
+          def level(q):
+              return {'i':'level1','1':'level1','l1':'level1','level1':'level1',
+                      'ii':'level2','2':'level2','l2':'level2','level2':'level2'}.get(norm(q.get('level')), norm(q.get('level')))
+
+          def image_ok(q):
+              return q.get('type') != 'pictorial' or bool(q.get('image') or q.get('imageUrl') or q.get('image_url'))
+
+          def unit_match(q, unit):
+              a, b = str(q.get('unit','')), str(unit.get('id',''))
+              return a == b or a.startswith(b + '.')
+
+          # Existing explicit multi-exam mappings are safe candidates only when
+          # the question's section/unit and level constraints fit the target blueprint.
+          for target_id in ('kharidar', 'nasu'):
+              exam = exams.get(target_id)
+              if not exam:
+                  print(f'SKIP {target_id}: exam definition not found')
+                  continue
+              bank = [q for q in qs if target_id in (q.get('examIds') or []) and image_ok(q)]
+              print(f'{target_id}: mapped={len(bank)}')
+              for sec in exam.get('blueprint', {}).get('sections', []):
+                  for unit in sec.get('units', []):
+                      pool = [q for q in bank if q.get('section') == sec.get('id') and unit_match(q, unit)]
+                      need = int(unit.get('questionCount', 0))
+                      if len(pool) < need:
+                          print(f'  NEED {sec.get("id")}/{unit.get("id")}: {len(pool)}/{need}')
+              for sec in exam.get('blueprint', {}).get('sections', []):
+                  d = sec.get('levelDistribution')
+                  if not d: continue
+                  pool = [q for q in bank if q.get('section') == sec.get('id')]
+                  l1 = sum(level(q) == 'level1' for q in pool)
+                  l2 = sum(level(q) == 'level2' for q in pool)
+                  print(f'  LEVEL {sec.get("id")}: L1 {l1}/{d.get("level1",0)}, L2 {l2}/{d.get("level2",0)}')
+
+          # Report Branch Officer questions that are already mapped to multiple exams.
+          for q in qs:
+              refs = q.get('examIds') or []
+              if 'sakha-adhikrit' in refs and ('kharidar' in refs or 'nasu' in refs):
+                  print('REUSED', q.get('id'), '=>', ','.join(refs))
+          PY
