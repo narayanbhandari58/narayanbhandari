@@ -24,59 +24,64 @@ function unitMatches(q, u) { const a = String(q.unit ?? ''); const b = String(u 
 function stimulusKey(q) { if (q.groupId) return `group:${q.groupId}`; if (q.passage) return `passage:${q.passage}`; if (q.figure) return `figure:${q.figure}`; if (q.data) return `data:${q.data}`; return '' }
 function hasRequiredPictorialImage(q) { return q.type !== 'pictorial' || !!(q.image || q.imageUrl || q.image_url) }
 function eligibleQuestions(exam, questions) { return questions.filter(q => Array.isArray(q.examIds) && q.examIds.includes(exam.id)) }
-function blueprintReady(exam, bank) {
-  const usable = bank.filter(hasRequiredPictorialImage);
-  const plan = unitPlan(exam);
-  if (!plan.length) return usable.length >= Number(exam.questionCount || 0);
+function unitPlan(exam) { return (exam.blueprint?.sections || []).flatMap(s => (s.units || []).map(u => ({ ...u, sectionId: s.id, sectionTitle: s.title }))) }
+function readinessReport(exam, bank) {
+  const usable = bank.filter(hasRequiredPictorialImage), plan = unitPlan(exam), shortages = [], levelShortages = [];
+  const requiredPaperCount = Number(exam.questionCount || 0);
+  if (!plan.length) {
+    const missing = Math.max(0, requiredPaperCount - usable.length);
+    return { ready: missing === 0, requiredPaperCount, mappedQuestions: bank.length, usableQuestions: usable.length, shortages: missing ? [{ section: '', unit: '', required: requiredPaperCount, available: usable.length, missing }] : [], levelShortages: [] };
+  }
   for (const u of plan) {
-    const n = usable.filter(q => q.section === u.sectionId && unitMatches(q, u.id)).length;
-    if (n < Number(u.questionCount || 0)) return false;
+    const pool = usable.filter(q => q.section === u.sectionId && unitMatches(q, u.id));
+    const required = Number(u.questionCount || 0), available = pool.length;
+    if (available < required) shortages.push({ section: u.sectionId, sectionTitle: u.sectionTitle, unit: u.id, required, available, missing: required - available });
   }
   for (const s of (exam.blueprint?.sections || [])) {
-    const d = s.levelDistribution;
-    if (!d) continue;
-    const q = usable.filter(x => x.section === s.id);
-    if (q.filter(x => levelOf(x) === 'level1').length < Number(d.level1 || 0) || q.filter(x => levelOf(x) === 'level2').length < Number(d.level2 || 0)) return false;
+    const d = s.levelDistribution; if (!d) continue;
+    const q = usable.filter(x => x.section === s.id), a1 = q.filter(x => levelOf(x) === 'level1').length, a2 = q.filter(x => levelOf(x) === 'level2').length;
+    const r1 = Number(d.level1 || 0), r2 = Number(d.level2 || 0);
+    if (a1 < r1 || a2 < r2) levelShortages.push({ section: s.id, sectionTitle: s.title, requiredLevel1: r1, availableLevel1: a1, missingLevel1: Math.max(0, r1 - a1), requiredLevel2: r2, availableLevel2: a2, missingLevel2: Math.max(0, r2 - a2) });
   }
-  return true;
+  return { ready: shortages.length === 0 && levelShortages.length === 0, requiredPaperCount, mappedQuestions: bank.length, usableQuestions: usable.length, shortages, levelShortages };
 }
-function unitPlan(exam) { return (exam.blueprint?.sections || []).flatMap(s => (s.units || []).map(u => ({ ...u, sectionId: s.id, sectionTitle: s.title }))) }
-function selectPaper(exam, bank) {
-  const usableBank = bank.filter(hasRequiredPictorialImage);
-  const plan = unitPlan(exam);
-  if (!plan.length) return orderByStimulus(shuffle(usableBank).slice(0, Number(exam.questionCount || 0)));
-  const selected = [], used = new Set();
-  const add = q => { if (!q || used.has(q.id)) return false; used.add(q.id); selected.push(q); return true };
-  for (const section of (exam.blueprint?.sections || [])) {
-    const sectionBank = shuffle(usableBank.filter(q => q.section === section.id));
-    const d = section.levelDistribution;
-    let r1 = d?.level1 || 0, r2 = d?.level2 || 0;
-    for (const u of (section.units || [])) {
-      const need = Number(u.questionCount || 0);
-      const pool = shuffle(sectionBank.filter(q => unitMatches(q, u.id) && !used.has(q.id)));
-      if (pool.length < need) return null;
-      const singles = shuffle(pool.filter(q => !stimulusKey(q)));
-      let chosen = [];
-      for (const q of singles) {
-        if (chosen.length >= need) break;
-        const lv = levelOf(q);
-        if (!d || (lv === 'level1' && r1 > 0) || (lv === 'level2' && r2 > 0) || !['level1', 'level2'].includes(lv)) {
-          chosen.push(q); if (lv === 'level1') r1--; if (lv === 'level2') r2--;
-        }
-      }
-      if (chosen.length < need) {
-        for (const q of pool) {
-          if (chosen.length >= need || chosen.some(x => x.id === q.id)) continue;
-          const lv = levelOf(q);
-          if (!d || (lv === 'level1' && r1 > 0) || (lv === 'level2' && r2 > 0) || !['level1', 'level2'].includes(lv)) {
-            chosen.push(q); if (lv === 'level1') r1--; if (lv === 'level2') r2--;
-          }
-        }
-      }
-      if (chosen.length < need) return null;
-      chosen.forEach(add);
+function blueprintReady(exam, bank) { return readinessReport(exam, bank).ready }
+function chooseLevelCounts(units, targetL1) {
+  const dp = new Map([[0, []]]);
+  for (let i = 0; i < units.length; i++) {
+    const next = new Map();
+    for (const [sum, picks] of dp) {
+      const u = units[i], lo = Math.max(0, u.need - u.l2), hi = Math.min(u.need, u.l1);
+      for (let x = lo; x <= hi; x++) { const ns = sum + x; if (ns <= targetL1 && !next.has(ns)) next.set(ns, [...picks, x]); }
     }
-    if (d && (r1 !== 0 || r2 !== 0)) return null;
+    dp.clear(); for (const [k, v] of next) dp.set(k, v);
+  }
+  return dp.get(Number(targetL1)) || null;
+}
+function selectPaper(exam, bank) {
+  const usableBank = bank.filter(hasRequiredPictorialImage), plan = unitPlan(exam);
+  if (!plan.length) return orderByStimulus(shuffle(usableBank).slice(0, Number(exam.questionCount || 0)));
+  const selected = [], used = new Set(), add = q => { if (!q || used.has(q.id)) return false; used.add(q.id); selected.push(q); return true };
+  for (const section of (exam.blueprint?.sections || [])) {
+    const units = (section.units || []).map(u => {
+      const pool = usableBank.filter(q => q.section === section.id && unitMatches(q, u.id) && !used.has(q.id));
+      return { id: u.id, need: Number(u.questionCount || 0), pool, l1: pool.filter(q => levelOf(q) === 'level1').length, l2: pool.filter(q => levelOf(q) === 'level2').length };
+    });
+    const d = section.levelDistribution;
+    let counts = null;
+    if (d) counts = chooseLevelCounts(units, Number(d.level1 || 0));
+    if (d && !counts) return null;
+    for (let i = 0; i < units.length; i++) {
+      const u = units[i], need = u.need, pool = shuffle(u.pool);
+      if (pool.length < need) return null;
+      let n1 = d ? counts[i] : 0, n2 = d ? need - n1 : 0;
+      const l1 = shuffle(pool.filter(q => levelOf(q) === 'level1')), l2 = shuffle(pool.filter(q => levelOf(q) === 'level2'));
+      let chosen = [];
+      if (d) { if (l1.length < n1 || l2.length < n2) return null; chosen = [...l1.slice(0, n1), ...l2.slice(0, n2)]; }
+      else chosen = pool.slice(0, need);
+      chosen = shuffle(chosen);
+      if (chosen.length !== need || chosen.some(q => !add(q))) return null;
+    }
   }
   if (selected.length !== Number(exam.questionCount || 0)) return null;
   return orderByStimulus(selected);
@@ -95,10 +100,10 @@ exports.handler = async event => {
     if (action === 'config') {
       const exam = data.exams.find(x => x.id === (p.get('exam') || body.examId) && x.enabled !== false);
       if (!exam) return json(404, { error: 'परीक्षा भेटिएन' });
-      const bank = eligibleQuestions(exam, data.questions);
-      const usable = bank.filter(hasRequiredPictorialImage);
-      const paper = blueprintReady(exam, bank) ? selectPaper(exam, bank) : null;
-      return json(200, { exam, blueprint: exam.blueprint || null, availableQuestions: usable.length, ready: !!paper, questions: (paper || []).map(publicQuestion) });
+      const bank = eligibleQuestions(exam, data.questions), readiness = readinessReport(exam, bank);
+      const paper = readiness.ready ? selectPaper(exam, bank) : null;
+      const finalReady = !!paper;
+      return json(200, { exam, blueprint: exam.blueprint || null, availableQuestions: readiness.usableQuestions, readiness: { ...readiness, ready: finalReady || readiness.ready }, ready: finalReady, questions: (paper || []).map(publicQuestion) });
     }
     if (action === 'submit') {
       const exam = data.exams.find(x => x.id === body.examId && x.enabled !== false);
@@ -110,8 +115,7 @@ exports.handler = async event => {
       if (new Set(ids).size !== ids.length) return json(409, { error: 'प्रश्नपत्रमा दोहोरिएका प्रश्न भेटिए। फेरि परीक्षा सुरु गर्नुहोस्।' });
       let correct = 0, wrong = 0, skipped = 0; const review = [];
       for (const id of ids) {
-        const q = bank.get(id);
-        if (!q) continue;
+        const q = bank.get(id); if (!q) continue;
         const raw = answers[id], selected = Number.isInteger(raw) ? raw : null;
         if (selected === null) skipped++; else if (selected === q.correct) correct++; else wrong++;
         review.push({ id: q.id, q: q.q || q.question, options: q.options, selected, correct: q.correct, type: q.type, format: q.format || '', section: q.section || '', unit: q.unit || '', subject: q.subject, topic: q.topic, level: q.level || '', image: q.image || q.imageUrl || q.image_url || '', imageAlt: q.imageAlt || q.image_alt || q.topic || 'प्रश्नचित्र', passage: q.passage || '', figure: q.figure || '', data: q.data || '', groupId: groupIdOf(q), explanation: q.explanation || '', solution: q.solution || '' });
@@ -124,7 +128,7 @@ exports.handler = async event => {
     }
     if (action === 'admin-data') { if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' }); return json(200, { data }) }
     if (action === 'admin-history' || action === 'admin-users') { if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' }); const a = await attempts(); if (action === 'admin-users') { const m = {}; a.forEach(x => { const c = x.candidate || {}, k = c.email || c.whatsapp || c.name || x.attemptId; if (!m[k]) m[k] = { ...c, attempts: 0, last: x.submittedAt }; m[k].attempts++; if (x.submittedAt > m[k].last) m[k].last = x.submittedAt }); return json(200, { users: Object.values(m) }) } return json(200, { attempts: a }) }
-    if (action === 'save-data') { if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' }); if (!body.data || !Array.isArray(body.data.exams) || !Array.isArray(body.data.questions)) return json(400, { error: 'Exam data format गलत छ' }); const cur = await readData(); await writeData(body.data, cur.sha); return json(200, { ok: true, message: 'Exam data सुरक्षित भयो' }) }
+    if (action === 'save-data') { if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' }); if (!body.data || !Array.isArray(body.data.exams) || !Array.isArray(body.data.questions)) return json(400, { error: 'Exam data format गलत छ' }); const ids = body.data.questions.map(q => String(q.id || '').trim()).filter(Boolean), unique = new Set(ids); if (ids.length !== unique.size) return json(400, { error: 'Question ID दोहोरिएको छ। प्रत्येक प्रश्नको unique ID हुनुपर्छ।' }); const cur = await readData(); await writeData(body.data, cur.sha); return json(200, { ok: true, message: 'Exam data सुरक्षित भयो' }) }
     return json(400, { error: 'Unknown action' });
   } catch (e) { console.error(e); return json(500, { error: e.message || 'Exam API error' }) }
 };
