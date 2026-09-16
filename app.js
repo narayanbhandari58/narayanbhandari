@@ -14,6 +14,38 @@ function cleanContent(value){
   return String(value ?? "").replace(/&nbsp;/gi, " ").replace(/\u00a0/g, " ");
 }
 
+/*
+   Images uploaded by the CMS are stored in this repository's
+   image/uploads/ folder. Older posts may contain a raw.githubusercontent.com
+   URL. Serving those files from the current website is more reliable and
+   also avoids depending on GitHub's raw-image response.
+*/
+function mediaUrl(value){
+  const raw = String(value ?? "").trim();
+  if(!raw) return "";
+
+  try{
+    const u = new URL(raw, window.location.origin);
+    const marker = "/image/uploads/";
+    const i = u.pathname.indexOf(marker);
+    if(i >= 0){
+      return `${window.location.origin}${u.pathname.slice(i)}`;
+    }
+    if(u.origin === window.location.origin){
+      return u.href;
+    }
+    return u.href;
+  }catch{
+    return raw.startsWith("/") ? raw : `/${raw}`;
+  }
+}
+
+function normalizePostMedia(p){
+  if(!p || typeof p !== "object") return p;
+  if(p.featuredImage) p.featuredImage = mediaUrl(p.featuredImage);
+  return p;
+}
+
 function postUrl(id){
   const url = new URL(window.location.href);
   url.search = "";
@@ -22,8 +54,6 @@ function postUrl(id){
   return url.toString();
 }
 
-// Version the social URL so Facebook/WhatsApp do not reuse an older
-// homepage preview cached for the same /share/<id> URL.
 function socialShareUrl(id, updated){
   const version = updated ? encodeURIComponent(updated) : "1";
   return `${window.location.origin}/share/${encodeURIComponent(id)}?v=${version}`;
@@ -49,7 +79,7 @@ async function api(action, options = {}){
 }
 
 function card(p){
-  const image = p.featuredImage ? `<img src="${esc(p.featuredImage)}" alt="${esc(p.title)}" loading="lazy">` : `<span>📝</span>`;
+  const image = p.featuredImage ? `<img src="${esc(mediaUrl(p.featuredImage))}" alt="${esc(p.title)}" loading="lazy" decoding="async">` : `<span>📝</span>`;
   const plain = cleanText(String(p.content || "").replace(/<[^>]*>/g, " "));
   const date = new Date(p.created || p.date).toLocaleDateString("ne-NP");
   const comments = Array.isArray(p.comments) ? p.comments.length : 0;
@@ -68,7 +98,7 @@ function render(){
 async function load(){
   try{
     const d = await api("posts");
-    state.posts = (d.posts || []).filter(p => p.status !== "draft");
+    state.posts = (d.posts || []).filter(p => p.status !== "draft").map(normalizePostMedia);
     render();
     openPostFromUrl();
   }catch(e){
@@ -125,7 +155,7 @@ function showPostModal(id){
   $("#modalTitle").textContent = p.title;
   $("#modalCategory").textContent = p.category;
   $("#modalDate").textContent = new Date(p.created || p.date).toLocaleDateString("ne-NP");
-  const image = p.featuredImage ? `<img src="${esc(p.featuredImage)}" alt="${esc(p.title)}">` : "";
+  const image = p.featuredImage ? `<img src="${esc(mediaUrl(p.featuredImage))}" alt="${esc(p.title)}" loading="lazy" decoding="async">` : "";
   $("#modalContent").innerHTML = image + cleanContent(p.content || "");
   $("#likeCount").textContent = p.likes || 0;
   const comments = Array.isArray(p.comments) ? p.comments : [];
