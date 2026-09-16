@@ -1,0 +1,124 @@
+name: Ensure Branch Officer seed mappings
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/sync-branch-officer-seeds.yml'
+      - 'exam-question-seed/**'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate and normalize Branch Officer seed questions
+        shell: python
+        run: |
+          import base64, gzip, json
+          from pathlib import Path
+
+          seed_dir = Path('exam-question-seed')
+
+          # Generate the embedded 1.7 and 1.8 banks when their generators exist.
+          for name in ('generate-branch-officer-1.7.py', 'generate-branch-officer-1.8.py'):
+              p = seed_dir / name
+              if p.exists():
+                  source = p.read_text(encoding='utf-8')
+                  source = source.replace('base64.b64decode(DATA_B64)', "base64.b64decode(DATA_B64 + '=' * (-len(DATA_B64) % 4))")
+                  exec(compile(source, str(p), 'exec'), {'__name__': '__main__'})
+
+          data_path = Path('exam-data.json')
+          data = json.loads(data_path.read_text(encoding='utf-8'))
+          questions = data.setdefault('questions', [])
+          by_id = {q.get('id'): i for i, q in enumerate(questions)}
+          added = updated = 0
+
+          def normalize(q):
+              uid = str(q.get('unit', '')).strip()
+              # All 1.x Branch Officer General Awareness units are Section A.
+              # 2.x are Section B and 3.x are Section C.
+              if uid.startswith('1.'):
+                  q['section'] = 'A'
+              elif uid.startswith('2.'):
+                  q['section'] = 'B'
+              elif uid.startswith('3.'):
+                  q['section'] = 'C'
+              ids = q.get('examIds')
+              if not isinstance(ids, list):
+                  ids = []
+              if 'sakha-adhikrit' not in ids:
+                  ids.append('sakha-adhikrit')
+              q['examIds'] = ids
+              if not (q.get('q') or q.get('question')):
+                  raise ValueError(f"Question text missing: {q.get('id')}")
+              if not isinstance(q.get('options'), list) or len(q.get('options')) != 4:
+                  raise ValueError(f"Expected 4 options: {q.get('id')}")
+              if not isinstance(q.get('correct'), int) or not 0 <= q['correct'] < 4:
+                  raise ValueError(f"Invalid answer index: {q.get('id')}")
+              return q
+
+          # 1.6 is stored as compressed chunks.
+          chunks = sorted(seed_dir.glob('branch-officer-1.6-data.part*.b64'))
+          if chunks:
+              payload = ''.join(p.read_text(encoding='utf-8').strip() for p in chunks)
+              generated = json.loads(gzip.decompress(base64.b64decode(payload + '=' * (-len(payload) % 4))).decode('utf-8'))
+              for q in generated:
+                  q = normalize(q)
+                  qid = q['id']
+                  if qid in by_id:
+                      questions[by_id[qid]] = q; updated += 1
+                  else:
+                      by_id[qid] = len(questions); questions.append(q); added += 1
+
+          # Merge every JSON seed, then normalize AFTER all merges so a generated
+          # file cannot overwrite examIds/section from a fixed seed.
+          for path in sorted(seed_dir.glob('*.json')):
+              if path.name.startswith('generate-'):
+                  continue
+              seed = json.loads(path.read_text(encoding='utf-8'))
+              if not isinstance(seed, list):
+                  continue
+              for raw in seed:
+                  q = normalize(dict(raw))
+                  qid = q['id']
+                  if qid in by_id:
+                      questions[by_id[qid]] = q; updated += 1
+                  else:
+                      by_id[qid] = len(questions); questions.append(q); added += 1
+
+          # Final normalization of ALL existing Branch Officer questions, including
+          # questions that were already in exam-data.json.
+          for q in questions:
+              uid = str(q.get('unit', '')).strip()
+              if not uid.startswith(('1.', '2.', '3.')):
+                  continue
+              if str(q.get('id', '')).startswith(('bo-', 'branch-officer')) or q.get('examIds') == ['sakha-adhikrit']:
+                  if uid.startswith('1.'):
+                      q['section'] = 'A'
+                  elif uid.startswith('2.'):
+                      q['section'] = 'B'
+                  elif uid.startswith('3.'):
+                      q['section'] = 'C'
+                  ids = q.get('examIds') if isinstance(q.get('examIds'), list) else []
+                  if 'sakha-adhikrit' not in ids:
+                      ids.append('sakha-adhikrit')
+                  q['examIds'] = ids
+
+          data['questions'] = questions
+          data['version'] = max(int(data.get('version', 1)), 3)
+          data['questionBankUpdatedAt'] = __import__('datetime').datetime.utcnow().isoformat() + 'Z'
+          data_path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          print(f'Branch Officer seed sync: added={added}, updated={updated}, total={len(questions)}')
+
+      - name: Commit synchronized question bank
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add exam-data.json exam-question-seed/generated-branch-officer-1.7.json exam-question-seed/generated-branch-officer-1.8.json
+          git diff --cached --quiet || git commit -m 'Map Branch Officer seed questions to syllabus'
+          git push
