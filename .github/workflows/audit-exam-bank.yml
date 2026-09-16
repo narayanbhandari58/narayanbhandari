@@ -1,0 +1,76 @@
+name: Audit exam bank isolation and syllabus quotas
+
+on:
+  push:
+    paths:
+      - 'exam-data.json'
+      - '.github/workflows/audit-exam-bank.yml'
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate every exam against its own mapped question bank
+        run: |
+          python - <<'PY'
+          import json
+          from collections import Counter
+
+          data = json.load(open('exam-data.json', encoding='utf-8'))
+          exams = data.get('exams', [])
+          questions = data.get('questions', [])
+          assert exams and questions, 'exam data is empty'
+
+          exam_ids = {e['id'] for e in exams}
+          ids = [q.get('id') for q in questions]
+          assert all(ids), 'question without id'
+          assert len(ids) == len(set(ids)), 'duplicate question id found'
+
+          def level(q):
+              v = str(q.get('level', '')).lower()
+              return {'i':'level1','1':'level1','l1':'level1','level1':'level1',
+                      'ii':'level2','2':'level2','l2':'level2','level2':'level2'}.get(v, v)
+
+          def matches(q, unit):
+              a, b = str(q.get('unit', '')), str(unit)
+              return a == b or a.startswith(b + '.')
+
+          for q in questions:
+              refs = q.get('examIds', [])
+              assert isinstance(refs, list), f"examIds is not a list: {q.get('id')}"
+              assert set(refs) <= exam_ids, f"unknown examId in {q.get('id')}: {refs}"
+              if q.get('type') == 'pictorial':
+                  assert q.get('image') or q.get('imageUrl') or q.get('image_url'), f"pictorial question has no image: {q.get('id')}"
+
+          for exam in exams:
+              bank = [q for q in questions if exam['id'] in (q.get('examIds') or [])]
+              assert bank, f"no mapped questions for {exam['id']}"
+              plan = [(s, u) for s in exam.get('blueprint', {}).get('sections', []) for u in s.get('units', [])]
+              for s, u in plan:
+                  pool = [q for q in bank if q.get('section') == s['id'] and matches(q, u['id'])]
+                  need = int(u.get('questionCount', 0))
+                  assert len(pool) >= need, f"{exam['id']} {s['id']}/{u['id']}: {len(pool)} < {need}"
+              for s in exam.get('blueprint', {}).get('sections', []):
+                  d = s.get('levelDistribution')
+                  if not d:
+                      continue
+                  pool = [q for q in bank if q.get('section') == s['id']]
+                  l1 = sum(level(q) == 'level1' for q in pool)
+                  l2 = sum(level(q) == 'level2' for q in pool)
+                  assert l1 >= int(d.get('level1', 0)), f"{exam['id']} {s['id']} Level I: {l1} insufficient"
+                  assert l2 >= int(d.get('level2', 0)), f"{exam['id']} {s['id']} Level II: {l2} insufficient"
+              print(f"PASS {exam['id']}: mapped={len(bank)}, blueprint units={len(plan)}")
+
+          bo = next((e for e in exams if e['id'] == 'sakha-adhikrit'), None)
+          if bo:
+              bo_bank = [q for q in questions if 'sakha-adhikrit' in (q.get('examIds') or [])]
+              pict = [q for q in bo_bank if q.get('section') == 'B' and q.get('unit') == '2.2' and q.get('type') == 'pictorial' and (q.get('image') or q.get('imageUrl') or q.get('image_url'))]
+              assert len(pict) >= 6, f'Branch Officer B/2.2 pictorial pool: {len(pict)} < 6'
+              assert all(len(q.get('options', [])) == 4 for q in pict), 'B/2.2 pictorial question must have 4 options'
+              assert all(isinstance(q.get('correct'), int) and 0 <= q['correct'] < 4 for q in pict), 'B/2.2 invalid answer index'
+              print(f'PASS sakha-adhikrit B/2.2 pictorial pool: {len(pict)} image-backed questions')
+
+          print(f'PASS: audited {len(exams)} exams and {len(questions)} total question records.')
+          PY
