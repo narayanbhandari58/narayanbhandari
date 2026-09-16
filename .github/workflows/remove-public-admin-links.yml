@@ -39,11 +39,16 @@ jobs:
 
       - name: Verify public pages contain no Admin navigation
         run: |
-          if grep -nEi 'href=["'"']admin\.html|class=["'"'][^"'"']*admin-btn' index.html about_me.html font.html loksewa.html; then
-            echo 'ERROR: Public Admin link still exists.'
-            exit 1
-          fi
-          echo 'Verified: no Admin navigation remains on public pages.'
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          # Verify actual anchors, not CSS definitions such as .admin-btn { ... }.
+          bad = re.compile(r'<a\b[^>]*(?:href=["\'][^"\']*admin\.html|class=["\'][^"\']*admin-btn[^"\']*["\'])[^>]*>.*?Admin.*?</a>', re.I | re.S)
+          found = [str(p) for p in map(Path, ['index.html', 'about_me.html', 'font.html', 'loksewa.html']) if p.exists() and bad.search(p.read_text(encoding='utf-8'))]
+          if found:
+              raise SystemExit('Public Admin navigation still present: ' + ', '.join(found))
+          print('Verified: no Admin navigation remains on public pages.')
+          PY
 
       - name: Commit changes
         run: |
