@@ -5,33 +5,126 @@ const BRANCH = process.env.GITHUB_BRANCH || 'main';
 const TOKEN = process.env.GITHUB_TOKEN;
 const SECRET = process.env.ADMIN_JWT_SECRET;
 const GH = 'https://api.github.com';
-const RAW=`https://raw.githubusercontent.com/${REPO}/${BRANCH}/exam-data.json`;
-const json=(statusCode,body)=>({statusCode,headers:{'Content-Type':'application/json','Access-Control-Allow-Origin':'*','Access-Control-Allow-Headers':'Content-Type, Authorization','Access-Control-Allow-Methods':'GET, POST, OPTIONS'},body:JSON.stringify(body)});
-function b64(s){return Buffer.from(s).toString('base64url')};function unb(s){return Buffer.from(s,'base64url').toString()};
-function verify(t){if(!t||!SECRET)return null;try{const [h,p,s]=t.split('.');const good=b64(crypto.createHmac('sha256',SECRET).update(`${h}.${p}`).digest())===s;const o=JSON.parse(unb(p));return good&&o.exp>=Date.now()/1000?o:null}catch{return null}}
-function isAdmin(e){return verify((e.headers?.authorization||'').replace(/^Bearer\s+/i,''))}
-async function gh(path,opt={}){if(!TOKEN)throw Error('GITHUB_TOKEN is not configured');const r=await fetch(`${GH}/repos/${REPO}/contents/${path}`,{...opt,headers:{Authorization:`Bearer ${TOKEN}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','Content-Type':'application/json',...(opt.headers||{})}});const d=await r.json();if(!r.ok)throw Error(d.message||'GitHub request failed');return d}
-async function readData(){const [rawRes,meta]=await Promise.all([fetch(RAW,{cache:'no-store'}),gh('exam-data.json')]);if(!rawRes.ok)throw Error(`Question bank load failed (${rawRes.status})`);return{sha:meta.sha,data:await rawRes.json()}}
-async function writeData(data,sha){return gh('exam-data.json',{method:'PUT',body:JSON.stringify({message:'Update Loksewa exam question bank',content:Buffer.from(JSON.stringify(data,null,2)).toString('base64'),branch:BRANCH,sha})})}
-function groupIdOf(q){if(q?.groupId)return String(q.groupId);const raw=String(q?.passage||q?.data||q?.figure||'').trim();if(!raw)return '';const basis=`${q?.unit||''}|${q?.type||''}|${raw}`;return `g-${crypto.createHash('sha1').update(basis).digest('hex').slice(0,10)}`}
-function publicQuestion(q){return{id:q.id,examIds:q.examIds,section:q.section,unit:q.unit,subject:q.subject,topic:q.topic,category:q.category,level:q.level,type:q.type,format:q.format,q:q.q||q.question,options:q.options,image:q.image||q.imageUrl||q.image_url||'',imageAlt:q.imageAlt||q.image_alt||q.topic||'प्रश्नचित्र',passage:q.passage||'',figure:q.figure||'',data:q.data||'',groupId:groupIdOf(q)}}
-function shuffle(a){const x=[...a];for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]]}return x}
-function blobStore(){const siteID=process.env.NETLIFY_SITE_ID||process.env.SITE_ID;const token=process.env.NETLIFY_API_TOKEN||process.env.NETLIFY_AUTH_TOKEN||process.env.NETLIFY_TOKEN;return siteID&&token?getStore('exam-attempts',{siteID,token}):getStore('exam-attempts')}
-async function attempts(){const store=blobStore(),out=[];let cursor;do{const r=await store.list(cursor?{cursor}:{});for(const b of (r.blobs||[])){try{const x=await store.get(b.key,{type:'json'});if(x)out.push(x)}catch{}}cursor=r.cursor}while(cursor);return out.sort((a,b)=>String(b.submittedAt).localeCompare(String(a.submittedAt)))}
-function levelOf(q){const v=String(q.level??'').toLowerCase();if(v==='level1'||v==='l1'||v==='i'||v==='1')return 'level1';if(v==='level2'||v==='l2'||v==='ii'||v==='2')return 'level2';return v}
-function unitMatches(q,u){const a=String(q.unit??'');const b=String(u??'');return a===b||a.startsWith(b+'.')}
-function stimulusKey(q){if(q.groupId)return `group:${q.groupId}`;if(q.passage)return `passage:${q.passage}`;if(q.figure)return `figure:${q.figure}`;if(q.data)return `data:${q.data}`;return ''}
-function hasRequiredPictorialImage(q){return q.type!=='pictorial'||!!(q.image||q.imageUrl||q.image_url)}
-function eligibleQuestions(exam,questions){return questions.filter(q=>Array.isArray(q.examIds)&&q.examIds.includes(exam.id))}
-function blueprintReady(exam,bank){const plan=unitPlan(exam);if(!plan.length)return bank.length>=exam.questionCount;if(!bank.every(hasRequiredPictorialImage))return false;for(const u of plan){const n=bank.filter(q=>q.section===u.sectionId&&unitMatches(q,u.id)).length;if(n<u.questionCount)return false}for(const s of (exam.blueprint?.sections||[])){const d=s.levelDistribution;if(!d)continue;const q=bank.filter(x=>x.section===s.id);if(q.filter(x=>levelOf(x)==='level1').length<(d.level1||0)||q.filter(x=>levelOf(x)==='level2').length<(d.level2||0))return false}return true}
-function unitPlan(exam){return (exam.blueprint?.sections||[]).flatMap(s=>(s.units||[]).map(u=>({...u,sectionId:s.id,sectionTitle:s.title})))}
-function selectPaper(exam,bank){const plan=unitPlan(exam);if(!plan.length)return orderByStimulus(shuffle(bank).slice(0,exam.questionCount));const selected=[],used=new Set();const add=q=>{if(!q||used.has(q.id))return false;used.add(q.id);selected.push(q);return true};
-for(const section of (exam.blueprint?.sections||[])){const sectionBank=shuffle(bank.filter(q=>q.section===section.id));const d=section.levelDistribution;let r1=d?.level1||0,r2=d?.level2||0;
-for(const u of (section.units||[])){const need=Number(u.questionCount||0);let pool=shuffle(sectionBank.filter(q=>unitMatches(q,u.id)&&!used.has(q.id)));if(exam.id==='sakha-adhikrit'&&section.id==='B'&&u.id==='2.2')pool=pool.filter(q=>q.type==='pictorial'&&!!(q.image||q.imageUrl||q.image_url)&&q.unit==='2.2');if(pool.length<need)return null;const singles=shuffle(pool.filter(q=>!stimulusKey(q)));let chosen=[];for(const q of singles){if(chosen.length>=need)break;const lv=levelOf(q);if(!d||(lv==='level1'&&r1>0)||(lv==='level2'&&r2>0)||(!['level1','level2'].includes(lv))){chosen.push(q);if(lv==='level1')r1--;if(lv==='level2')r2--}}if(chosen.length<need){for(const q of pool){if(chosen.length>=need||chosen.some(x=>x.id===q.id))continue;const lv=levelOf(q);if(!d||(lv==='level1'&&r1>0)||(lv==='level2'&&r2>0)||(!['level1','level2'].includes(lv))){chosen.push(q);if(lv==='level1')r1--;if(lv==='level2')r2--}}}if(chosen.length<need)return null;chosen.forEach(add)}if(d&&(r1!==0||r2!==0))return null}if(selected.length!==exam.questionCount)return null;return orderByStimulus(selected)}
-function orderByStimulus(items){const groups=new Map(),singles=[];for(const q of items){const key=stimulusKey(q);if(!key){singles.push(q);continue}if(!groups.has(key))groups.set(key,[]);groups.get(key).push(q)}return shuffle([...groups.values()]).flatMap(g=>g).concat(shuffle(singles))}
-function safeImageName(name){return String(name||'question-image').toLowerCase().replace(/[^a-z0-9._-]+/g,'-').replace(/-+/g,'-').replace(/^-|-$/g,'').slice(0,80)||'question-image'}
-async function uploadImage(body){const allowed={'image/jpeg':'jpg','image/png':'png','image/webp':'webp','image/gif':'gif'};const mime=String(body.type||'').toLowerCase();if(!allowed[mime])throw Error('JPG, PNG, WEBP वा GIF चित्र मात्र अपलोड गर्न मिल्छ।');let raw=String(body.data||'');if(raw.includes(','))raw=raw.slice(raw.indexOf(',')+1);raw=raw.replace(/\s/g,'');const bytes=Buffer.from(raw,'base64');if(!bytes.length)throw Error('चित्र खाली छ।');if(bytes.length>4*1024*1024)throw Error('चित्रको अधिकतम आकार 4 MB हो।');const base=safeImageName(body.name).replace(/\.[a-z0-9]{1,5}$/,'');const path=`image/uploads/exam-${Date.now()}-${base}.${allowed[mime]}`;await gh(path,{method:'PUT',body:JSON.stringify({message:`Upload exam question image: ${path.split('/').pop()}`,content:bytes.toString('base64'),branch:BRANCH})});return{path,url:`https://raw.githubusercontent.com/${REPO}/${BRANCH}/${path}`}}
-exports.handler=async(event)=>{if(event.httpMethod==='OPTIONS')return json(204,{});try{const p=new URLSearchParams(event.rawQuery||'');const action=p.get('action')||'config';const body=event.body?JSON.parse(event.body):{};if(action==='upload-image'){if(!isAdmin(event))return json(401,{error:'Admin login आवश्यक छ'});return json(200,{ok:true,...await uploadImage(body)})}const {data}=await readData();
-if(action==='config'){const exam=data.exams.find(x=>x.id===(p.get('exam')||body.examId)&&x.enabled!==false);if(!exam)return json(404,{error:'परीक्षा भेटिएन'});const bank=eligibleQuestions(exam,data.questions);const paper=blueprintReady(exam,bank)?selectPaper(exam,bank):null;return json(200,{exam,blueprint:exam.blueprint||null,availableQuestions:bank.length,ready:!!paper,questions:(paper||[]).map(publicQuestion)})}
-if(action==='submit'){const exam=data.exams.find(x=>x.id===body.examId&&x.enabled!==false);if(!exam)return json(404,{error:'परीक्षा भेटिएन'});const eligible=eligibleQuestions(exam,data.questions),bank=new Map(eligible.map(q=>[q.id,q]));const answers=body.answers&&typeof body.answers==='object'?body.answers:{};const ids=Array.isArray(body.questionIds)?body.questionIds.slice(0,exam.questionCount):[];if(ids.length!==exam.questionCount)return json(409,{error:`यस परीक्षाका लागि ${exam.questionCount} प्रश्न चाहिन्छ।`});let correct=0,wrong=0,skipped=0;const review=[];for(const id of ids){const q=bank.get(id);if(!q)continue;const raw=answers[id],selected=Number.isInteger(raw)?raw:null;if(selected===null)skipped++;else if(selected===q.correct)correct++;else wrong++;review.push({id:q.id,q:q.q||q.question,options:q.options,selected,correct:q.correct,type:q.type,format:q.format||'',section:q.section||'',unit:q.unit||'',subject:q.subject,topic:q.topic,level:q.level||'',image:q.image||q.imageUrl||q.image_url||'',imageAlt:q.imageAlt||q.image_alt||q.topic||'प्रश्नचित्र',passage:q.passage||'',figure:q.figure||'',data:q.data||'',groupId:groupIdOf(q),explanation:q.explanation||'',solution:q.solution||''})}if(review.length!==exam.questionCount)return json(409,{error:'Question Bank मा आवश्यक सबै प्रश्न उपलब्ध छैनन्।'});const score=Number((correct*Number(exam.positiveMark||1)-wrong*Number(exam.negativeMark||.2)).toFixed(2)),maxScore=review.length*Number(exam.positiveMark||1),percent=maxScore?Number((score/maxScore*100).toFixed(2)):0,result={attemptId:`attempt-${Date.now()}-${crypto.randomBytes(4).toString('hex')}`,examId:exam.id,examTitle:exam.title,stage:exam.stage||'Stage-I',candidate:{name:String(body.name||'').slice(0,100),email:String(body.email||'').slice(0,160),whatsapp:String(body.whatsapp||'').slice(0,30)},submittedAt:new Date().toISOString(),correct,wrong,skipped,score,maxScore,percent,passed:percent>=Number(exam.passPercent||45),review};await blobStore().set(result.attemptId,JSON.stringify(result),{metadata:{examId:exam.id}});return json(200,{result})}
-if(action==='admin-data'){if(!isAdmin(event))return json(401,{error:'Admin login आवश्यक छ'});return json(200,{data})}if(action==='admin-history'||action==='admin-users'){if(!isAdmin(event))return json(401,{error:'Admin login आवश्यक छ'});const a=await attempts();if(action==='admin-users'){const m={};a.forEach(x=>{const c=x.candidate||{},k=c.email||c.whatsapp||c.name||x.attemptId;if(!m[k])m[k]={...c,attempts:0,last:x.submittedAt};m[k].attempts++;if(x.submittedAt>m[k].last)m[k].last=x.submittedAt});return json(200,{users:Object.values(m)})}return json(200,{attempts:a})}if(action==='save-data'){if(!isAdmin(event))return json(401,{error:'Admin login आवश्यक छ'});if(!body.data||!Array.isArray(body.data.exams)||!Array.isArray(body.data.questions))return json(400,{error:'Exam data format गलत छ'});const cur=await readData();await writeData(body.data,cur.sha);return json(200,{ok:true,message:'Exam data सुरक्षित भयो'})}return json(400,{error:'Unknown action'})}catch(e){console.error(e);return json(500,{error:e.message||'Exam API error'})}};
+const RAW = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/exam-data.json`;
+const json = (statusCode, body) => ({ statusCode, headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Content-Type, Authorization', 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS' }, body: JSON.stringify(body) });
+function b64(s) { return Buffer.from(s).toString('base64url') }
+function unb(s) { return Buffer.from(s, 'base64url').toString() }
+function verify(t) { if (!t || !SECRET) return null; try { const [h, p, s] = t.split('.'); const good = b64(crypto.createHmac('sha256', SECRET).update(`${h}.${p}`).digest()) === s; const o = JSON.parse(unb(p)); return good && o.exp >= Date.now() / 1000 ? o : null } catch { return null } }
+function isAdmin(e) { return verify((e.headers?.authorization || '').replace(/^Bearer\s+/i, '')) }
+async function gh(path, opt = {}) { if (!TOKEN) throw Error('GITHUB_TOKEN is not configured'); const r = await fetch(`${GH}/repos/${REPO}/contents/${path}`, { ...opt, headers: { Authorization: `Bearer ${TOKEN}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json', ...(opt.headers || {}) } }); const d = await r.json(); if (!r.ok) throw Error(d.message || 'GitHub request failed'); return d }
+async function readData() { const [rawRes, meta] = await Promise.all([fetch(RAW, { cache: 'no-store' }), gh('exam-data.json')]); if (!rawRes.ok) throw Error(`Question bank load failed (${rawRes.status})`); return { sha: meta.sha, data: await rawRes.json() } }
+async function writeData(data, sha) { return gh('exam-data.json', { method: 'PUT', body: JSON.stringify({ message: 'Update Loksewa exam question bank', content: Buffer.from(JSON.stringify(data, null, 2)).toString('base64'), branch: BRANCH, sha }) }) }
+function groupIdOf(q) { if (q?.groupId) return String(q.groupId); const raw = String(q?.passage || q?.data || q?.figure || '').trim(); if (!raw) return ''; const basis = `${q?.unit || ''}|${q?.type || ''}|${raw}`; return `g-${crypto.createHash('sha1').update(basis).digest('hex').slice(0, 10)}` }
+function publicQuestion(q) { return { id: q.id, examIds: q.examIds, section: q.section, unit: q.unit, subject: q.subject, topic: q.topic, category: q.category, level: q.level, type: q.type, format: q.format, q: q.q || q.question, options: q.options, image: q.image || q.imageUrl || q.image_url || '', imageAlt: q.imageAlt || q.image_alt || q.topic || 'प्रश्नचित्र', passage: q.passage || '', figure: q.figure || '', data: q.data || '', groupId: groupIdOf(q) } }
+function shuffle(a) { const x = [...a]; for (let i = x.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [x[i], x[j]] = [x[j], x[i]] } return x }
+function blobStore() { const siteID = process.env.NETLIFY_SITE_ID || process.env.SITE_ID; const token = process.env.NETLIFY_API_TOKEN || process.env.NETLIFY_AUTH_TOKEN || process.env.NETLIFY_TOKEN; return siteID && token ? getStore('exam-attempts', { siteID, token }) : getStore('exam-attempts') }
+async function attempts() { const store = blobStore(), out = []; let cursor; do { const r = await store.list(cursor ? { cursor } : {}); for (const b of (r.blobs || [])) { try { const x = await store.get(b.key, { type: 'json' }); if (x) out.push(x) } catch {} } cursor = r.cursor } while (cursor); return out.sort((a, b) => String(b.submittedAt).localeCompare(String(a.submittedAt))) }
+function levelOf(q) { const v = String(q.level ?? '').toLowerCase(); if (v === 'level1' || v === 'l1' || v === 'i' || v === '1') return 'level1'; if (v === 'level2' || v === 'l2' || v === 'ii' || v === '2') return 'level2'; return v }
+function unitMatches(q, u) { const a = String(q.unit ?? ''); const b = String(u ?? ''); return a === b || a.startsWith(b + '.') }
+function stimulusKey(q) { if (q.groupId) return `group:${q.groupId}`; if (q.passage) return `passage:${q.passage}`; if (q.figure) return `figure:${q.figure}`; if (q.data) return `data:${q.data}`; return '' }
+function hasRequiredPictorialImage(q) { return q.type !== 'pictorial' || !!(q.image || q.imageUrl || q.image_url) }
+function eligibleQuestions(exam, questions) { return questions.filter(q => Array.isArray(q.examIds) && q.examIds.includes(exam.id)) }
+function blueprintReady(exam, bank) {
+  const usable = bank.filter(hasRequiredPictorialImage);
+  const plan = unitPlan(exam);
+  if (!plan.length) return usable.length >= Number(exam.questionCount || 0);
+  for (const u of plan) {
+    const n = usable.filter(q => q.section === u.sectionId && unitMatches(q, u.id)).length;
+    if (n < Number(u.questionCount || 0)) return false;
+  }
+  for (const s of (exam.blueprint?.sections || [])) {
+    const d = s.levelDistribution;
+    if (!d) continue;
+    const q = usable.filter(x => x.section === s.id);
+    if (q.filter(x => levelOf(x) === 'level1').length < Number(d.level1 || 0) || q.filter(x => levelOf(x) === 'level2').length < Number(d.level2 || 0)) return false;
+  }
+  return true;
+}
+function unitPlan(exam) { return (exam.blueprint?.sections || []).flatMap(s => (s.units || []).map(u => ({ ...u, sectionId: s.id, sectionTitle: s.title }))) }
+function selectPaper(exam, bank) {
+  const usableBank = bank.filter(hasRequiredPictorialImage);
+  const plan = unitPlan(exam);
+  if (!plan.length) return orderByStimulus(shuffle(usableBank).slice(0, Number(exam.questionCount || 0)));
+  const selected = [], used = new Set();
+  const add = q => { if (!q || used.has(q.id)) return false; used.add(q.id); selected.push(q); return true };
+  for (const section of (exam.blueprint?.sections || [])) {
+    const sectionBank = shuffle(usableBank.filter(q => q.section === section.id));
+    const d = section.levelDistribution;
+    let r1 = d?.level1 || 0, r2 = d?.level2 || 0;
+    for (const u of (section.units || [])) {
+      const need = Number(u.questionCount || 0);
+      const pool = shuffle(sectionBank.filter(q => unitMatches(q, u.id) && !used.has(q.id)));
+      if (pool.length < need) return null;
+      const singles = shuffle(pool.filter(q => !stimulusKey(q)));
+      let chosen = [];
+      for (const q of singles) {
+        if (chosen.length >= need) break;
+        const lv = levelOf(q);
+        if (!d || (lv === 'level1' && r1 > 0) || (lv === 'level2' && r2 > 0) || !['level1', 'level2'].includes(lv)) {
+          chosen.push(q); if (lv === 'level1') r1--; if (lv === 'level2') r2--;
+        }
+      }
+      if (chosen.length < need) {
+        for (const q of pool) {
+          if (chosen.length >= need || chosen.some(x => x.id === q.id)) continue;
+          const lv = levelOf(q);
+          if (!d || (lv === 'level1' && r1 > 0) || (lv === 'level2' && r2 > 0) || !['level1', 'level2'].includes(lv)) {
+            chosen.push(q); if (lv === 'level1') r1--; if (lv === 'level2') r2--;
+          }
+        }
+      }
+      if (chosen.length < need) return null;
+      chosen.forEach(add);
+    }
+    if (d && (r1 !== 0 || r2 !== 0)) return null;
+  }
+  if (selected.length !== Number(exam.questionCount || 0)) return null;
+  return orderByStimulus(selected);
+}
+function orderByStimulus(items) { const groups = new Map(), singles = []; for (const q of items) { const key = stimulusKey(q); if (!key) { singles.push(q); continue } if (!groups.has(key)) groups.set(key, []); groups.get(key).push(q) } return shuffle([...groups.values()]).flatMap(g => g).concat(shuffle(singles)) }
+function safeImageName(name) { return String(name || 'question-image').toLowerCase().replace(/[^a-z0-9._-]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '').slice(0, 80) || 'question-image' }
+async function uploadImage(body) { const allowed = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/gif': 'gif' }; const mime = String(body.type || '').toLowerCase(); if (!allowed[mime]) throw Error('JPG, PNG, WEBP वा GIF चित्र मात्र अपलोड गर्न मिल्छ।'); let raw = String(body.data || ''); if (raw.includes(',')) raw = raw.slice(raw.indexOf(',') + 1); raw = raw.replace(/\s/g, ''); const bytes = Buffer.from(raw, 'base64'); if (!bytes.length) throw Error('चित्र खाली छ।'); if (bytes.length > 4 * 1024 * 1024) throw Error('चित्रको अधिकतम आकार 4 MB हो।'); const base = safeImageName(body.name).replace(/\.[a-z0-9]{1,5}$/, ''); const path = `image/uploads/exam-${Date.now()}-${base}.${allowed[mime]}`; await gh(path, { method: 'PUT', body: JSON.stringify({ message: `Upload exam question image: ${path.split('/').pop()}`, content: bytes.toString('base64'), branch: BRANCH }) }); return { path, url: `https://raw.githubusercontent.com/${REPO}/${BRANCH}/${path}` } }
+exports.handler = async event => {
+  if (event.httpMethod === 'OPTIONS') return json(204, {});
+  try {
+    const p = new URLSearchParams(event.rawQuery || '');
+    const action = p.get('action') || 'config';
+    const body = event.body ? JSON.parse(event.body) : {};
+    if (action === 'upload-image') { if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' }); return json(200, { ok: true, ...await uploadImage(body) }) }
+    const { data } = await readData();
+    if (action === 'config') {
+      const exam = data.exams.find(x => x.id === (p.get('exam') || body.examId) && x.enabled !== false);
+      if (!exam) return json(404, { error: 'परीक्षा भेटिएन' });
+      const bank = eligibleQuestions(exam, data.questions);
+      const usable = bank.filter(hasRequiredPictorialImage);
+      const paper = blueprintReady(exam, bank) ? selectPaper(exam, bank) : null;
+      return json(200, { exam, blueprint: exam.blueprint || null, availableQuestions: usable.length, ready: !!paper, questions: (paper || []).map(publicQuestion) });
+    }
+    if (action === 'submit') {
+      const exam = data.exams.find(x => x.id === body.examId && x.enabled !== false);
+      if (!exam) return json(404, { error: 'परीक्षा भेटिएन' });
+      const eligible = eligibleQuestions(exam, data.questions), bank = new Map(eligible.map(q => [q.id, q]));
+      const answers = body.answers && typeof body.answers === 'object' ? body.answers : {};
+      const ids = Array.isArray(body.questionIds) ? body.questionIds.slice(0, Number(exam.questionCount || 0)) : [];
+      if (ids.length !== Number(exam.questionCount || 0)) return json(409, { error: `यस परीक्षाका लागि ${exam.questionCount} प्रश्न चाहिन्छ।` });
+      if (new Set(ids).size !== ids.length) return json(409, { error: 'प्रश्नपत्रमा दोहोरिएका प्रश्न भेटिए। फेरि परीक्षा सुरु गर्नुहोस्।' });
+      let correct = 0, wrong = 0, skipped = 0; const review = [];
+      for (const id of ids) {
+        const q = bank.get(id);
+        if (!q) continue;
+        const raw = answers[id], selected = Number.isInteger(raw) ? raw : null;
+        if (selected === null) skipped++; else if (selected === q.correct) correct++; else wrong++;
+        review.push({ id: q.id, q: q.q || q.question, options: q.options, selected, correct: q.correct, type: q.type, format: q.format || '', section: q.section || '', unit: q.unit || '', subject: q.subject, topic: q.topic, level: q.level || '', image: q.image || q.imageUrl || q.image_url || '', imageAlt: q.imageAlt || q.image_alt || q.topic || 'प्रश्नचित्र', passage: q.passage || '', figure: q.figure || '', data: q.data || '', groupId: groupIdOf(q), explanation: q.explanation || '', solution: q.solution || '' });
+      }
+      if (review.length !== Number(exam.questionCount || 0)) return json(409, { error: 'Question Bank मा आवश्यक सबै प्रश्न उपलब्ध छैनन्।' });
+      const score = Number((correct * Number(exam.positiveMark || 1) - wrong * Number(exam.negativeMark || .2)).toFixed(2)), maxScore = review.length * Number(exam.positiveMark || 1), percent = maxScore ? Number((score / maxScore * 100).toFixed(2)) : 0;
+      const result = { attemptId: `attempt-${Date.now()}-${crypto.randomBytes(4).toString('hex')}`, examId: exam.id, examTitle: exam.title, stage: exam.stage || 'Stage-I', candidate: { name: String(body.name || '').slice(0, 100), email: String(body.email || '').slice(0, 160), whatsapp: String(body.whatsapp || '').slice(0, 30) }, submittedAt: new Date().toISOString(), correct, wrong, skipped, score, maxScore, percent, passed: percent >= Number(exam.passPercent || 45), review };
+      await blobStore().set(result.attemptId, JSON.stringify(result), { metadata: { examId: exam.id } });
+      return json(200, { result });
+    }
+    if (action === 'admin-data') { if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' }); return json(200, { data }) }
+    if (action === 'admin-history' || action === 'admin-users') { if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' }); const a = await attempts(); if (action === 'admin-users') { const m = {}; a.forEach(x => { const c = x.candidate || {}, k = c.email || c.whatsapp || c.name || x.attemptId; if (!m[k]) m[k] = { ...c, attempts: 0, last: x.submittedAt }; m[k].attempts++; if (x.submittedAt > m[k].last) m[k].last = x.submittedAt }); return json(200, { users: Object.values(m) }) } return json(200, { attempts: a }) }
+    if (action === 'save-data') { if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' }); if (!body.data || !Array.isArray(body.data.exams) || !Array.isArray(body.data.questions)) return json(400, { error: 'Exam data format गलत छ' }); const cur = await readData(); await writeData(body.data, cur.sha); return json(200, { ok: true, message: 'Exam data सुरक्षित भयो' }) }
+    return json(400, { error: 'Unknown action' });
+  } catch (e) { console.error(e); return json(500, { error: e.message || 'Exam API error' }) }
+};
