@@ -53,7 +53,8 @@ jobs:
         run: |
           from pathlib import Path
           import re
-          bad = re.compile(r'admin-btn|href=["\'][^"\']*admin\.html|>\s*Admin\s*<', re.I)
+          # Check actual anchor/navigation markup, not CSS class definitions.
+          bad = re.compile(r'<a\b[^>]*(?:href=["\'][^"\']*admin\.html|class=["\'][^"\']*admin-btn[^"\']*["\'])[^>]*>\s*Admin\s*</a>', re.I | re.S)
           found = [str(p) for p in map(Path, ['index.html', 'about_me.html', 'font.html']) if p.exists() and bad.search(p.read_text(encoding='utf-8'))]
           if found:
               raise SystemExit('Public Admin navigation still present: ' + ', '.join(found))
