@@ -25,6 +25,8 @@ jobs:
           files = [Path('index.html'), Path('about_me.html'), Path('font.html'), Path('loksewa.html')]
           changed = []
           for p in files:
+              if not p.exists():
+                  continue
               s = p.read_text(encoding='utf-8')
               original = s
               s = re.sub(r'\s*<li\b[^>]*>\s*<a\b[^>]*href=["\']admin\.html(?:\?[^"\']*)?["\'][^>]*>.*?</a>\s*</li>\s*', '\n', s, flags=re.I | re.S)
@@ -32,9 +34,7 @@ jobs:
               if s != original:
                   p.write_text(s, encoding='utf-8')
                   changed.append(str(p))
-          if not changed:
-              raise SystemExit('No public Admin links found to remove.')
-          print('Updated:', ', '.join(changed))
+          print('Updated:' if changed else 'No public Admin links found; nothing to change.', ', '.join(changed))
           PY
 
       - name: Verify public pages contain no Admin navigation
@@ -55,6 +55,10 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add index.html about_me.html font.html loksewa.html
+          if git diff --cached --quiet; then
+            echo 'No changes needed.'
+            exit 0
+          fi
           git commit -m 'Remove Admin links from public pages'
           git push
 
