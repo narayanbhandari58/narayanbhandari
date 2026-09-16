@@ -15,3 +15,9 @@
 [[edge_functions]]
   path = "/share/*"
   function = "share-preview"
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin.html"
+  status = 200
+  force = true
