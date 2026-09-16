@@ -24,13 +24,12 @@ jobs:
 
           seed_dir = Path('exam-question-seed')
 
-          # Generate the embedded 1.7 and 1.8 banks when their generators exist.
-          for name in ('generate-branch-officer-1.7.py', 'generate-branch-officer-1.8.py'):
-              p = seed_dir / name
-              if p.exists():
-                  source = p.read_text(encoding='utf-8')
-                  source = source.replace('base64.b64decode(DATA_B64)', "base64.b64decode(DATA_B64 + '=' * (-len(DATA_B64) % 4))")
-                  exec(compile(source, str(p), 'exec'), {'__name__': '__main__'})
+          # 1.7 has a generator; 1.8 is already split into category JSON files.
+          p = seed_dir / 'generate-branch-officer-1.7.py'
+          if p.exists():
+              source = p.read_text(encoding='utf-8')
+              source = source.replace('base64.b64decode(DATA_B64)', "base64.b64decode(DATA_B64 + '=' * (-len(DATA_B64) % 4))")
+              exec(compile(source, str(p), 'exec'), {'__name__': '__main__'})
 
           data_path = Path('exam-data.json')
           data = json.loads(data_path.read_text(encoding='utf-8'))
@@ -40,17 +39,13 @@ jobs:
 
           def normalize(q):
               uid = str(q.get('unit', '')).strip()
-              # All 1.x Branch Officer General Awareness units are Section A.
-              # 2.x are Section B and 3.x are Section C.
               if uid.startswith('1.'):
                   q['section'] = 'A'
               elif uid.startswith('2.'):
                   q['section'] = 'B'
               elif uid.startswith('3.'):
                   q['section'] = 'C'
-              ids = q.get('examIds')
-              if not isinstance(ids, list):
-                  ids = []
+              ids = q.get('examIds') if isinstance(q.get('examIds'), list) else []
               if 'sakha-adhikrit' not in ids:
                   ids.append('sakha-adhikrit')
               q['examIds'] = ids
@@ -67,16 +62,15 @@ jobs:
           if chunks:
               payload = ''.join(p.read_text(encoding='utf-8').strip() for p in chunks)
               generated = json.loads(gzip.decompress(base64.b64decode(payload + '=' * (-len(payload) % 4))).decode('utf-8'))
-              for q in generated:
-                  q = normalize(q)
-                  qid = q['id']
+              for raw in generated:
+                  q = normalize(dict(raw)); qid = q['id']
                   if qid in by_id:
                       questions[by_id[qid]] = q; updated += 1
                   else:
                       by_id[qid] = len(questions); questions.append(q); added += 1
 
-          # Merge every JSON seed, then normalize AFTER all merges so a generated
-          # file cannot overwrite examIds/section from a fixed seed.
+          # Merge all JSON seeds. Normalization happens before storing each question,
+          # so generated files cannot erase examIds/section mappings.
           for path in sorted(seed_dir.glob('*.json')):
               if path.name.startswith('generate-'):
                   continue
@@ -84,26 +78,20 @@ jobs:
               if not isinstance(seed, list):
                   continue
               for raw in seed:
-                  q = normalize(dict(raw))
-                  qid = q['id']
+                  q = normalize(dict(raw)); qid = q['id']
                   if qid in by_id:
                       questions[by_id[qid]] = q; updated += 1
                   else:
                       by_id[qid] = len(questions); questions.append(q); added += 1
 
-          # Final normalization of ALL existing Branch Officer questions, including
-          # questions that were already in exam-data.json.
+          # Normalize every existing Branch Officer question as a final safety pass.
           for q in questions:
               uid = str(q.get('unit', '')).strip()
+              qid = str(q.get('id', ''))
               if not uid.startswith(('1.', '2.', '3.')):
                   continue
-              if str(q.get('id', '')).startswith(('bo-', 'branch-officer')) or q.get('examIds') == ['sakha-adhikrit']:
-                  if uid.startswith('1.'):
-                      q['section'] = 'A'
-                  elif uid.startswith('2.'):
-                      q['section'] = 'B'
-                  elif uid.startswith('3.'):
-                      q['section'] = 'C'
+              if qid.startswith(('bo-', 'branch-officer')) or q.get('examIds') == ['sakha-adhikrit']:
+                  q['section'] = 'A' if uid.startswith('1.') else ('B' if uid.startswith('2.') else 'C')
                   ids = q.get('examIds') if isinstance(q.get('examIds'), list) else []
                   if 'sakha-adhikrit' not in ids:
                       ids.append('sakha-adhikrit')
@@ -119,6 +107,6 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add exam-data.json exam-question-seed/generated-branch-officer-1.7.json exam-question-seed/generated-branch-officer-1.8.json
+          git add exam-data.json exam-question-seed/generated-branch-officer-1.7.json
           git diff --cached --quiet || git commit -m 'Map Branch Officer seed questions to syllabus'
           git push
