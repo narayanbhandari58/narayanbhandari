@@ -1,6 +1,7 @@
 name: Test Branch Officer 100-question blueprint
 
 # Parent units include their descendant child units in the validation pool.
+# The question bank is intentionally dynamic: questions may be added or removed.
 on:
   workflow_dispatch:
   push:
@@ -15,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Validate exact Branch Officer paper selection against main dataset
+      - name: Validate Branch Officer blueprint against the current question bank
         shell: python
         run: |
           import json
@@ -26,7 +27,7 @@ jobs:
               data = json.load(f)
 
           bank = data.get('questions', [])
-          assert len(bank) == 2138, f'FAIL: main dataset has {len(bank)}, expected 2138'
+          assert isinstance(bank, list) and bank, 'FAIL: question bank is empty or invalid'
 
           exams = data.get('exams', [])
           exam = next((x for x in exams if x.get('id') == 'sakha-adhikrit' and x.get('enabled', True) is not False), None)
@@ -99,7 +100,7 @@ jobs:
               assert Counter(q.get('unit') for q in paper if q.get('section') == 'B') == Counter({'2.1':6,'2.2':6,'2.3':6,'2.4':6,'2.5':6})
               assert Counter(q.get('unit') for q in paper if q.get('section') == 'C') == Counter({'3.1':5,'3.2':7,'3.3':8})
 
-          print('PASS: main dataset = 2,138 questions')
+          print(f'PASS: current question bank is dynamic ({len(bank)} questions found).')
           print('PASS: Branch Officer = 100 questions, 90 minutes, +1 / -0.2, pass 45%')
           print('PASS: blueprint = A50 + B30 + C20')
           print('PASS: Section B = 2.1/2.2/2.3/2.4/2.5 = 6/6/6/6/6')
