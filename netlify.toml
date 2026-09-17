@@ -2,9 +2,16 @@
   publish = "."
   functions = "netlify/functions"
 
+# Route the public/admin API through the security wrapper first.
+[[redirects]]
+  from = "/.netlify/functions/api"
+  to = "/.netlify/functions/api-secure"
+  status = 200
+  force = true
+
 [[redirects]]
   from = "/api/*"
-  to = "/.netlify/functions/api"
+  to = "/.netlify/functions/api-secure"
   status = 200
 
 [[redirects]]
