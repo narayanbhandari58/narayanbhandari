@@ -24,61 +24,59 @@
 # Indexable, server-rendered canonical page for each published post.
 [[redirects]]
   from = "/post/:id"
-  to = "/.netlify/functions/post?id=:id"
+  to = "/.netlify/functions/post?id=:id
   status = 200
   force = true
 
 # Social preview route. Keep it separate from the canonical post URL.
 [[redirects]]
   from = "/share/*"
-  to = "/.netlify/functions/share?post=:splat"
+  to = "/.netlify/functions/share?post=:splat
   status = 200
 
 [[edge_functions]]
   path = "/share/*"
   function = "share-preview"
 
-# CMS: keep the existing admin.html as the single source of truth.
-# Each clean workspace URL serves the same page; admin.html itself handles
-# authentication and the navbar/workspace switching.
+# Clean CMS workspaces. The existing admin-v4 UI owns the navbar and section routing.
 [[redirects]]
   from = "/admin"
-  to = "/admin.html"
+  to = "/admin-v4.html"
   status = 200
   force = true
 
 [[redirects]]
   from = "/admin/posts"
-  to = "/admin.html"
+  to = "/admin-v4.html"
   status = 200
   force = true
 
 [[redirects]]
   from = "/admin/analytics"
-  to = "/admin.html"
+  to = "/admin-v4.html"
   status = 200
   force = true
 
 [[redirects]]
   from = "/admin/exams"
-  to = "/admin.html"
+  to = "/admin-v4.html"
   status = 200
   force = true
 
 [[redirects]]
   from = "/admin/history"
-  to = "/admin.html"
+  to = "/admin-v4.html"
   status = 200
   force = true
 
 [[redirects]]
   from = "/admin/users"
-  to = "/admin.html"
+  to = "/admin-v4.html"
   status = 200
   force = true
 
 [[redirects]]
   from = "/admin/account"
-  to = "/admin.html"
+  to = "/admin-v4.html"
   status = 200
   force = true
