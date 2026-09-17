@@ -38,45 +38,47 @@
   path = "/share/*"
   function = "share-preview"
 
-# CMS dashboard and clean section workspaces.
+# CMS: keep the existing admin.html as the single source of truth.
+# Each clean workspace URL serves the same page; admin.html itself handles
+# authentication and the navbar/workspace switching.
 [[redirects]]
   from = "/admin"
-  to = "/admin-v4.html"
+  to = "/admin.html"
   status = 200
   force = true
 
 [[redirects]]
   from = "/admin/posts"
-  to = "/admin-v4.html"
+  to = "/admin.html"
   status = 200
   force = true
 
 [[redirects]]
   from = "/admin/analytics"
-  to = "/admin-v4.html"
+  to = "/admin.html"
   status = 200
   force = true
 
 [[redirects]]
   from = "/admin/exams"
-  to = "/admin-v4.html"
+  to = "/admin.html"
   status = 200
   force = true
 
 [[redirects]]
   from = "/admin/history"
-  to = "/admin-v4.html"
+  to = "/admin.html"
   status = 200
   force = true
 
 [[redirects]]
   from = "/admin/users"
-  to = "/admin-v4.html"
+  to = "/admin.html"
   status = 200
   force = true
 
 [[redirects]]
   from = "/admin/account"
-  to = "/admin-v4.html"
+  to = "/admin.html"
   status = 200
   force = true
