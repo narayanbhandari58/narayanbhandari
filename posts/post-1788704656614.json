@@ -8,6 +8,9 @@
   "created": "2026-09-06T14:24:16.614Z",
   "updated": "2026-09-06T14:24:16.614Z",
   "status": "published",
-  "likes": 0,
-  "comments": []
+  "likes": 1,
+  "comments": [],
+  "likedDevices": [
+    "36c0937996960df6d8dacdb2d7aa24a3b7eb0bb79c4bdfcb8be4cd1b01a14288"
+  ]
 }
