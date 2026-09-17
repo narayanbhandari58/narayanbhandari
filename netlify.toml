@@ -40,6 +40,6 @@
 
 [[redirects]]
   from = "/admin"
-  to = "/admin.html"
+  to = "/admin-v4.html"
   status = 200
   force = true
