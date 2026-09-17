@@ -14,6 +14,13 @@
   to = "/.netlify/functions/api-secure"
   status = 200
 
+# Generate the sitemap from the current published post index.
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/.netlify/functions/sitemap"
+  status = 200
+  force = true
+
 [[redirects]]
   from = "/share/*"
   to = "/.netlify/functions/share?post=:splat"
