@@ -1,5 +1,6 @@
 const crypto = require("crypto");
 const { setPassword } = require("./auth-store");
+const { allow, cleanup } = require("./security-rate-limit");
 
 const USER = process.env.ADMIN_USERNAME || "Narayan";
 const RECOVERY = process.env.ADMIN_RECOVERY_CODE;
@@ -9,6 +10,9 @@ function json(statusCode, body) {
     statusCode,
     headers: {
       "Content-Type": "application/json",
+      "Cache-Control": "no-store",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Headers": "Content-Type",
       "Access-Control-Allow-Methods": "POST, OPTIONS"
@@ -31,7 +35,8 @@ function verifyRecoveryToken(token, username) {
   try {
     const [payload, sig] = String(token || "").split(".");
     if (!payload || !sig) return false;
-    const good = crypto.createHmac("sha256", RECOVERY).update(payload).digest("base64url") === sig;
+    const expected = crypto.createHmac("sha256", RECOVERY).update(payload).digest("base64url");
+    const good = expected.length === sig.length && crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(sig));
     const o = JSON.parse(Buffer.from(payload, "base64url").toString());
     return good && o.sub === username && o.exp > Date.now() / 1000;
   } catch {
@@ -40,11 +45,13 @@ function verifyRecoveryToken(token, username) {
 }
 
 exports.handler = async event => {
+  cleanup();
+  if (!allow(event, "password-recovery", 5, 10 * 60_000)) return json(429, { error: "धेरै recovery requests पठाइयो। केही बेरपछि फेरि प्रयास गर्नुहोस्।" });
   if (event.httpMethod === "OPTIONS") return json(204, {});
   if (event.httpMethod !== "POST") return json(405, { error: "Method not allowed" });
 
   try {
-    if (!RECOVERY) return json(500, { error: "Password recovery setup पूरा भएको छैन: ADMIN_RECOVERY_CODE आवश्यक छ" });
+    if (!RECOVERY) return json(500, { error: "Password recovery setup पूरा भएको छैन" });
 
     const body = event.body ? JSON.parse(event.body) : {};
     const mode = String(body.mode || "reset");
@@ -52,9 +59,7 @@ exports.handler = async event => {
     const username = suppliedUsername === "Admin" ? USER : suppliedUsername;
     const recoveryKey = String(body.recoveryKey || "");
 
-    if (!sameSecret(username, USER) || !sameSecret(recoveryKey, RECOVERY)) {
-      return json(401, { error: "Username वा Recovery Key गलत छ" });
-    }
+    if (!sameSecret(username, USER) || !sameSecret(recoveryKey, RECOVERY)) return json(401, { error: "Username वा Recovery Key गलत छ" });
 
     if (mode === "verify") {
       return json(200, {
@@ -70,20 +75,15 @@ exports.handler = async event => {
     const newPassword = String(body.newPassword || "");
     const confirmPassword = String(body.confirmPassword || "");
 
-    if (!verifyRecoveryToken(recoveryToken, username)) {
-      return json(401, { error: "Recovery verification expired वा invalid भयो। फेरि verify गर्नुहोस्।" });
-    }
+    if (!verifyRecoveryToken(recoveryToken, username)) return json(401, { error: "Recovery verification expired वा invalid भयो। फेरि verify गर्नुहोस्।" });
     if (newPassword.length < 10) return json(400, { error: "नयाँ password कम्तीमा 10 characters हुनुपर्छ" });
     if (newPassword !== confirmPassword) return json(400, { error: "नयाँ password र confirmation मिलेन" });
     if (sameSecret(newPassword, RECOVERY)) return json(400, { error: "Recovery Key लाई password को रूपमा प्रयोग नगर्नुहोस्" });
 
     await setPassword(newPassword);
-
-    return json(200, {
-      message: "Password reset भयो। अब नयाँ password बाट login गर्नुहोस्।"
-    });
+    return json(200, { message: "Password reset भयो। अब नयाँ password बाट login गर्नुहोस्।" });
   } catch (e) {
-    console.error(e);
-    return json(500, { error: e.message || "Password recovery failed" });
+    console.error("PASSWORD RECOVERY ERROR:", e);
+    return json(500, { error: "Password recovery failed" });
   }
 };
