@@ -24,14 +24,14 @@
 # Indexable, server-rendered canonical page for each published post.
 [[redirects]]
   from = "/post/:id"
-  to = "/.netlify/functions/post?id=:id
+  to = "/.netlify/functions/post?id=:id"
   status = 200
   force = true
 
 # Social preview route. Keep it separate from the canonical post URL.
 [[redirects]]
   from = "/share/*"
-  to = "/.netlify/functions/share?post=:splat
+  to = "/.netlify/functions/share?post=:splat"
   status = 200
 
 [[edge_functions]]
