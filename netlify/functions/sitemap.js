@@ -4,13 +4,13 @@ exports.handler = async () => {
 
   try {
     const response = await fetch(indexUrl, {
-      headers: { 'User-Agent': 'narayan-bhandari-sitemap/1.0' }
+      headers: { 'User-Agent': 'narayan-bhandari-sitemap/1.1' }
     });
     if (!response.ok) throw new Error(`Post index request failed: ${response.status}`);
 
     const posts = await response.json();
     const published = (Array.isArray(posts) ? posts : [])
-      .filter(post => post && post.id && post.status !== 'draft');
+      .filter(post => post && /^[A-Za-z0-9_-]{1,100}$/.test(String(post.id || '')) && post.status !== 'draft');
 
     const esc = value => String(value ?? '')
       .replace(/&/g, '&amp;')
@@ -29,10 +29,10 @@ exports.handler = async () => {
 
     for (const post of published) {
       urls.push({
-        loc: `${site}/share/${encodeURIComponent(post.id)}`,
+        loc: `${site}/post/${encodeURIComponent(post.id)}`,
         lastmod: post.updated || post.created || post.date || '',
         changefreq: 'monthly',
-        priority: '0.7'
+        priority: '0.8'
       });
     }
 
