@@ -52,6 +52,12 @@
   force = true
 
 [[redirects]]
+  from = "/admin/analytics"
+  to = "/admin-v4.html"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/admin/exams"
   to = "/admin-v4.html"
   status = 200
