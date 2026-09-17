@@ -38,45 +38,46 @@
   path = "/share/*"
   function = "share-preview"
 
-# Clean CMS workspaces. The existing admin-v4 UI owns the navbar and section routing.
+# Existing admin.html is the single CMS entry point.
+# admin.js switches the authenticated page between management workspaces.
 [[redirects]]
   from = "/admin"
-  to = "/admin-v4.html"
+  to = "/admin.html"
   status = 200
   force = true
 
 [[redirects]]
   from = "/admin/posts"
-  to = "/admin-v4.html"
+  to = "/admin.html"
   status = 200
   force = true
 
 [[redirects]]
   from = "/admin/analytics"
-  to = "/admin-v4.html"
+  to = "/admin.html"
   status = 200
   force = true
 
 [[redirects]]
   from = "/admin/exams"
-  to = "/admin-v4.html"
+  to = "/admin.html"
   status = 200
   force = true
 
 [[redirects]]
   from = "/admin/history"
-  to = "/admin-v4.html"
+  to = "/admin.html"
   status = 200
   force = true
 
 [[redirects]]
   from = "/admin/users"
-  to = "/admin-v4.html"
+  to = "/admin.html"
   status = 200
   force = true
 
 [[redirects]]
   from = "/admin/account"
-  to = "/admin-v4.html"
+  to = "/admin.html"
   status = 200
   force = true
