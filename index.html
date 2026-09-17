@@ -22,7 +22,7 @@
 <title>नारायण भण्डारी — आधिकारिक वेबसाइट</title>
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=20260917-2">
 <style>
 /* Compact homepage hero */
 .hero{padding:58px 0 64px;}
@@ -30,6 +30,15 @@
 .hero h1{margin:0 0 8px;}
 .hero p{line-height:1.65;}
 .actions{margin-top:18px;}
+/* Keep SEO card links while restoring the original post-title appearance. */
+.card-link h3,
+.card-link h3:visited,
+.card-link h3:hover,
+.card-link h3:focus,
+.card-link h3:active{
+  color:var(--text) !important;
+  text-decoration:none !important;
+}
 @media(max-width:600px){
   .hero{padding:38px 0 46px;}
   .hero-kicker{margin-bottom:5px;}
@@ -52,6 +61,6 @@
 <footer class="footer"><div class="container"><div class="footer-grid"><div><h3>नारायण भण्डारी</h3><p>सर्जक, साधक र पाठक</p></div><div><h3>द्रुत लिंकहरू</h3><p><a href="#home">गृहपृष्ठ</a> · <a href="#blog">लेखहरू</a> · <a href="#loksewa">लोकसेवा</a> · <a href="about_me.html">मेरो बारेमा</a> · <a href="font.html">Nepali Unicode</a></p></div><div><h3>सामाजिक सञ्जाल</h3><p><a href="https://www.facebook.com/narayanbhandari23" target="_blank" rel="noopener">Facebook</a> · <a href="https://youtube.com/@allinonefornepal" target="_blank" rel="noopener">YouTube</a></p></div></div><div class="copyright">© 2026 नारायण भण्डारी. सर्वाधिकार सुरक्षित.</div></div></footer>
 <div class="modal" id="postModal" aria-hidden="true"><div class="modal-box" role="dialog" aria-modal="true"><button class="close" id="closeModal" type="button" aria-label="Close">×</button><div class="modal-header"><span class="modal-category" id="modalCategory"></span><span class="modal-date" id="modalDate"></span></div><h2 id="modalTitle"></h2><div id="modalContent" class="modal-content"></div><div class="post-actions"><button class="like-button" id="likeBtn" type="button">👍 <span>मन पर्‍यो</span> <strong id="likeCount">0</strong></button></div><div class="comments-section"><h3>टिप्पणीहरू</h3><div id="comments"></div><form id="commentForm"><div class="form-group"><input id="commentAuthor" placeholder="तपाईंको नाम" required></div><div class="form-group"><textarea id="commentText" placeholder="आफ्नो टिप्पणी लेख्नुहोस्..." required></textarea></div><button class="btn btn-primary" type="submit">टिप्पणी पठाउनुहोस्</button></form></div></div></div>
 <div id="toast" class="toast" aria-live="polite"></div>
-<script src="app.js" defer></script>
+<script src="app.js?v=20260917-2" defer></script>
 </body>
 </html>
