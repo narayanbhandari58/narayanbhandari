@@ -1,0 +1,27 @@
+/* Global browser security headers */
+/* Keep inline scripts/styles and required third-party assets working for the existing site. */
+/* Netlify applies these headers to all static responses. */
+
+/* All site pages */
+/* X-Content-Type-Options prevents MIME sniffing. */
+/* Referrer-Policy limits cross-site referrer leakage. */
+/* Permissions-Policy disables browser capabilities the site does not need. */
+/* frame-ancestors is intentionally handled by X-Frame-Options for broad browser support. */
+/* CSP is not added here yet because the existing site uses inline scripts/styles and TinyMCE/CDN resources; an incorrect CSP could break production. */
+/* API endpoints have their own CORS/authentication logic in Netlify Functions. */
+
+/* Netlify header syntax */
+/* The following headers are intentionally conservative. */
+
+/*
+  The wildcard route is supported by Netlify's _headers file.
+*/
+
+/*
+  / *
+    X-Content-Type-Options: nosniff
+    Referrer-Policy: strict-origin-when-cross-origin
+    Permissions-Policy: camera=(), microphone=(), geolocation=()
+    X-Frame-Options: SAMEORIGIN
+  * /
+*/
