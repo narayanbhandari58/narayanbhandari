@@ -1,244 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ne">
 <head>
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HPVL68NT98"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HPVL68NT98');
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>फोटो ग्यालरी | नारायण भण्डारी</title>
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
-
-  body {
-    background: #f8f8f8;
-    color: #222;
-  }
-
-  /* ===== Header / Navbar ===== */
-  header {
-    background-color: #8f0e04;
-    color: #fff;
-    padding: 10px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .nav-brand img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-
-  .nav-brand a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 700;
-    font-size: 1.25rem;
-  }
-
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  nav a:hover {
-    text-decoration: underline;
-  }
-
-  /* ===== Hamburger ===== */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-  }
-
-  .hamburger span {
-    height: 3px;
-    width: 25px;
-    background: white;
-    margin: 4px;
-    border-radius: 5px;
-  }
-
-  @media (max-width: 768px) {
-    nav ul {
-      display: none;
-      flex-direction: column;
-      background: #8f0e04;
-      position: absolute;
-      top: 70px;
-      right: 0;
-      width: 200px;
-      padding: 15px;
-    }
-
-    nav ul.active {
-      display: flex;
-    }
-
-    .hamburger {
-      display: flex;
-    }
-  }
-
-  /* ===== Gallery Section ===== */
-  .gallery-section {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
-
-  .gallery-section h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #8f0e04;
-  }
-
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-  }
-
-  .gallery-grid img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
-
-  .gallery-grid img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  }
-
-  /* ===== Footer ===== */
-  footer {
-    background: #8f0e04;
-    color: #fff;
-    padding: 20px 0;
-    margin-top: 40px;
-  }
-
-  .footer-container {
-    max-width: 1200px;
-    margin: auto;
-    text-align: center;
-  }
-
-  .social-links a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: 500;
-  }
-
-  .social-links a:hover {
-    text-decoration: underline;
-  }
-</style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HPVL68NT98"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HPVL68NT98');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="नारायण भण्डारीको फोटो ग्यालरी।">
+  <title>फोटो ग्यालरी - नारायण भण्डारी</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .gallery-page{background:#f8f8f8;min-height:100vh}
+    .gallery-section{padding:60px 0 80px}
+    .gallery-heading{text-align:center;margin-bottom:36px}
+    .gallery-heading h1{margin:0;color:var(--primary);font-size:clamp(1.9rem,4vw,2.7rem);font-weight:900}
+    .gallery-heading p{margin:10px auto 0;color:#666;max-width:650px;line-height:1.8}
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    .gallery-card{overflow:hidden;background:#fff;border:1px solid #e8e8e8;border-radius:18px;box-shadow:0 8px 25px rgba(0,0,0,.07)}
+    .gallery-card img{display:block;width:100%;height:280px;object-fit:cover;transition:transform .25s ease}
+    .gallery-card:hover img{transform:scale(1.035)}
+    .gallery-card figcaption{padding:12px 15px;text-align:center;color:#555;font-weight:700}
+    .gallery-note{margin-top:28px;padding:16px 18px;border-radius:14px;background:#fff;border:1px dashed #ddd;text-align:center;color:#666;line-height:1.8}
+    .gallery-back{display:flex;justify-content:center;margin-top:30px}
+    .gallery-back a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 18px;border-radius:11px;background:var(--primary);color:#fff;text-decoration:none;font-weight:800}
+    @media(max-width:900px){.gallery-section{padding:48px 0 65px}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.gallery-card img{height:230px}}
+    @media(max-width:520px){.gallery-section{padding:40px 0 55px}.gallery-grid{grid-template-columns:1fr}.gallery-card img{height:auto;max-height:360px}.gallery-card figcaption{padding:10px}}
+  </style>
 </head>
-<body>
-
-  <!-- ===== Header ===== -->
-  <header>
-    <div class="nav-container">
-      <div class="nav-brand">
-        <img src="profile.png" alt="Narayan Bhandari">
-        <a href="index.html">नारायण भण्डारी</a>
-      </div>
+<body class="gallery-page">
+  <header class="navbar">
+    <div class="container nav-container">
+      <a class="brand" href="index.html#home">
+        <img src="image/logo.png" alt="नारायण भण्डारी">
+        <span>नारायण भण्डारी</span>
+      </a>
+      <a class="exam-nav-link" href="loksewa.html" aria-label="लोकसेवा Online Exam">📝 Loksewa Exam</a>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
       <nav>
-        <ul id="nav-links">
-          <li><a href="index.html">गृहपृष्ठ</a></li>
-          <li><a href="about_me.html">मेरो बारेमा</a></li>
-          <li><a href="index.html">लेखहरू</a></li>
-          <li><a href="index.html">लोकसेवा</a></li>
-          <li><a href="index.html">साहित्य</a></li>
-          <li><a href="gallery.html" class="active">फोटो ग्यालरी</a></li>
-          <li><a href="index.html">सम्पर्क</a></li>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html#home" class="nav-link">गृहपृष्ठ</a></li>
+          <li><a href="about_me.html" class="nav-link">मेरो बारेमा</a></li>
+          <li><a href="index.html#blog" class="nav-link">लेखहरू</a></li>
+          <li><a href="index.html#loksewa" class="nav-link">लोकसेवा</a></li>
+          <li><a href="index.html#literature" class="nav-link">साहित्य</a></li>
+          <li><a href="gallery.html" class="nav-link" aria-current="page">फोटो ग्यालरी</a></li>
+          <li><a href="index.html#contact" class="nav-link">सम्पर्क</a></li>
         </ul>
       </nav>
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
     </div>
   </header>
 
-  <!-- ===== Gallery Section ===== -->
-  <section class="gallery-section">
-    <h2>📸 मेरो फोटो ग्यालरी</h2>
-    <div class="gallery-grid">
-      <img src="profile.png" alt="Photo 1">
-      <img src="profile.png" alt="Photo 2">
-      <img src="logo.png" alt="Photo 3">
-      <img src="profile.png" alt="Photo 4">
-      <img src="profile.png" alt="Photo 5">
-      <img src="logo.png" alt="Photo 6">
-      <img src="logo.png" alt="Photo 7">
-      <img src="logo.png" alt="Photo 8">
-    </div>
-  </section>
+  <main>
+    <section class="gallery-section">
+      <div class="container">
+        <div class="gallery-heading">
+          <h1>📸 फोटो ग्यालरी</h1>
+          <p>नारायण भण्डारीसँग सम्बन्धित फोटोहरू एकै ठाउँमा।</p>
+        </div>
 
-  <!-- ===== Footer ===== -->
-  <footer>
-    <div class="footer-container">
-      <p>© 2025 नारायण भण्डारी | सर्वाधिकार सुरक्षित</p>
-      <div class="social-links">
-        <a href="https://www.facebook.com/narayanbhandari23" target="_blank">Facebook</a> |
-        <a href="https://youtube.com/@allinonefornepal" target="_blank">YouTube</a> |
-        <a href="gallery.html">Photo Gallery</a>
+        <div class="gallery-grid">
+          <figure class="gallery-card"><img src="image/profile.png" alt="नारायण भण्डारीको प्रोफाइल फोटो" loading="lazy"><figcaption>प्रोफाइल</figcaption></figure>
+          <figure class="gallery-card"><img src="image/logo.png" alt="नारायण भण्डारीको लोगो" loading="lazy"><figcaption>वेबसाइट लोगो</figcaption></figure>
+          <figure class="gallery-card"><img src="image/profile.png" alt="नारायण भण्डारी" loading="lazy"><figcaption>नारायण भण्डारी</figcaption></figure>
+          <figure class="gallery-card"><img src="image/logo.png" alt="नारायण भण्डारी लोगो" loading="lazy"><figcaption>NB लोगो</figcaption></figure>
+        </div>
+
+        <div class="gallery-note">थप वास्तविक फोटोहरू पछि CMS/Media Library बाट सजिलै थप्न सकिने गरी ग्यालरीको संरचना तयार गरिएको छ।</div>
+        <div class="gallery-back"><a href="index.html#home">← गृहपृष्ठमा फर्कनुहोस्</a></div>
       </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><h3>नारायण भण्डारी</h3><p>सर्जक, साधक र पाठक</p></div>
+      <div><h3>द्रुत लिंकहरू</h3><p><a href="index.html#home">गृहपृष्ठ</a><br><a href="about_me.html">मेरो बारेमा</a><br><a href="index.html#blog">लेखहरू</a><br><a href="index.html#loksewa">लोकसेवा</a><br><a href="index.html#literature">साहित्य</a><br><a href="index.html#contact">सम्पर्क</a></p></div>
+      <div><h3>सामाजिक सञ्जाल</h3><p><a href="https://www.facebook.com/narayanbhandari23" target="_blank" rel="noopener noreferrer">Facebook</a> · <a href="https://youtube.com/@allinonefornepal" target="_blank" rel="noopener noreferrer">YouTube</a> · <a href="gallery.html">Gallery</a></p></div>
     </div>
+    <div class="container"><div class="copyright">© २०८३ नारायण भण्डारी। सर्वाधिकार सुरक्षित।</div></div>
   </footer>
 
-  <!-- ===== JavaScript ===== -->
   <script>
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("nav-links");
-
-    hamburger.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
+    document.addEventListener('DOMContentLoaded',function(){
+      const hamburger=document.getElementById('hamburger'),navMenu=document.getElementById('navMenu');
+      if(!hamburger||!navMenu)return;
+      hamburger.addEventListener('click',function(e){e.stopPropagation();const open=navMenu.classList.toggle('open');hamburger.setAttribute('aria-expanded',open?'true':'false')});
+      navMenu.querySelectorAll('.nav-link').forEach(function(link){link.addEventListener('click',function(){navMenu.classList.remove('open');hamburger.setAttribute('aria-expanded','false')})});
+      document.addEventListener('click',function(e){if(!navMenu.contains(e.target)&&e.target!==hamburger){navMenu.classList.remove('open');hamburger.setAttribute('aria-expanded','false')}});
     });
   </script>
-
 </body>
 </html>
