@@ -77,6 +77,16 @@ button,input,textarea,select{font:inherit;}
 .card-body{padding:21px 21px 18px;}
 .badge{display:inline-block;background:rgba(143,14,4,.09);color:var(--primary);border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:750;}
 .card h3{margin:11px 0 8px;font-size:1.28rem;line-height:1.5;}
+.card h3 a,
+.card h3 a:visited{
+  color:inherit;
+  text-decoration:none;
+}
+.card h3 a:hover,
+.card h3 a:focus-visible{
+  color:inherit;
+  text-decoration:none;
+}
 .excerpt{color:var(--muted);font-size:.95rem;line-height:1.8;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
 .meta{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#777;font-size:.82rem;margin-top:15px;padding-top:12px;border-top:1px solid #eee;}
 .loading,.empty{text-align:center;padding:55px 20px;color:var(--muted);grid-column:1/-1;}
