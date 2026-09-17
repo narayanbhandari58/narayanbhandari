@@ -11,7 +11,12 @@
 <style>
 .account-card{margin-top:22px}.account-toggle,.password-toggle,.recovery-help,.forgot-link{cursor:pointer}.account-toggle,.password-toggle{width:100%;display:flex;justify-content:space-between;align-items:center;background:none;border:0;text-align:left}.account-body,.password-form-wrap,.recovery-step,.recovery-new-password,.forgot-panel,.forgot-new-password{display:none}.account-card.open .account-body,.password-form-wrap.open,.recovery-step.open,.recovery-new-password.open,.forgot-panel.open,.forgot-new-password.open{display:block}.recovery-step.open~.normal-password-form{display:none}.account-arrow,.password-arrow{transition:.2s}.account-card.open .account-arrow,.password-toggle.open .password-arrow{transform:rotate(180deg)}.recovery-help,.forgot-link{display:block;background:none;border:0;padding:8px 0;color:var(--primary);text-decoration:underline}.recovery-step{margin-top:12px;padding:14px;border:1px solid var(--border);border-radius:10px}.recovery-new-password,.forgot-new-password{margin-top:14px}.password-grid,.recovery-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:700px){.password-grid,.recovery-grid{grid-template-columns:1fr}}
 </style>
-</head>
+<script>
+(function(){
+  var p = window.location.pathname.replace(/\/+$/, '') || '/';
+  if (p !== '/admin') window.location.replace('/admin');
+})();
+</script></head>
 <body>
 <div id="login" class="admin-wrap">
   <div class="admin-card">
