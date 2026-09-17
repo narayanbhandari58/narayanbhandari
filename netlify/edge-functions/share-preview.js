@@ -7,38 +7,62 @@ export default async (request, context) => {
 
   try {
     const response = await fetch('https://raw.githubusercontent.com/narayanbhandari58/narayanbhandari/main/posts/index.json', {
-      headers: { 'User-Agent': 'narayan-bhandari-social-preview/3.2' }
+      headers: { 'User-Agent': 'narayan-bhandari-social-preview/3.3' }
     });
     if (!response.ok) return new Response('Share preview unavailable', { status: 502 });
 
     const posts = await response.json();
-    const post = (Array.isArray(posts) ? posts : []).find(p => String(p.id) === String(id) && p.status !== 'draft');
+    const post = (Array.isArray(posts) ? posts : []).find(
+      p => String(p.id) === String(id) && p.status !== 'draft'
+    );
     if (!post) return new Response('Post not found', { status: 404 });
 
-    const esc = value => String(value ?? '').replace(/[&<>\"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#039;'}[m]));
-    const text = String(post.content || '').replace(/<[^>]*>/g, ' ').replace(/&nbsp;/gi, ' ').replace(/\s+/g, ' ').trim();
+    const esc = value => String(value ?? '').replace(/[&<>\"']/g, m => ({
+      '&':'&amp;', '<':'&lt;', '>':'&gt;', '\"':'&quot;', "'":'&#039;'
+    }[m]));
+    const text = String(post.content || '')
+      .replace(/<[^>]*>/g, ' ')
+      .replace(/&nbsp;/gi, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
     const description = text.slice(0, 180) + (text.length > 180 ? '…' : '');
+
     const rawImage = String(post.featuredImage || '').trim();
-    let image = 'https://narayan-bhandari.com.np/image/logo.png';
-    try {
-      image = new URL(rawImage || image, url.origin).href;
-    } catch {}
+    const fallbackImage = 'https://narayan-bhandari.com.np/image/logo.png';
+    let image = fallbackImage;
+    try { image = new URL(rawImage || fallbackImage, url.origin).href; } catch {}
+
     const shareUrl = `${url.origin}${url.pathname}${url.search}`;
     const canonical = `https://narayan-bhandari.com.np/?post=${encodeURIComponent(post.id)}`;
     const published = post.created || post.date || '';
     const modified = post.updated || published;
+    const category = String(post.category || '').trim();
+    const tags = Array.isArray(post.tags)
+      ? post.tags.map(String).map(x => x.trim()).filter(Boolean).slice(0, 10)
+      : String(post.tags || '').split(/[,\n]/).map(x => x.trim()).filter(Boolean).slice(0, 10);
 
     const html = `<!doctype html><html lang="ne"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(post.title)} — नारायण भण्डारी</title>
 <meta name="description" content="${esc(description)}">
+<meta name="robots" content="noindex,follow">
 <meta property="og:type" content="article"><meta property="og:site_name" content="नारायण भण्डारी"><meta property="og:locale" content="ne_NP">
 <meta property="og:title" content="${esc(post.title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${esc(shareUrl)}">
 <meta property="og:image" content="${esc(image)}"><meta property="og:image:secure_url" content="${esc(image)}"><meta property="og:image:alt" content="${esc(post.title)}">
-${published ? `<meta property="article:published_time" content="${esc(published)}">` : ''}${modified ? `<meta property="article:modified_time" content="${esc(modified)}">` : ''}
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(post.title)}"><meta name="twitter:description" content="${esc(description)}"><meta name="twitter:image" content="${esc(image)}">
-<link rel="canonical" href="${esc(canonical)}"><meta name="robots" content="noindex,follow"></head><body><h1>${esc(post.title)}</h1><p>${esc(description)}</p><p><a href="${esc(canonical)}">पोस्ट पढ्नुहोस्</a></p>
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+${published ? `<meta property="article:published_time" content="${esc(published)}">` : ''}
+${modified ? `<meta property="article:modified_time" content="${esc(modified)}">` : ''}
+${category ? `<meta property="article:section" content="${esc(category)}">` : ''}
+${tags.map(tag => `<meta property="article:tag" content="${esc(tag)}">`).join('')}
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(post.title)}"><meta name="twitter:description" content="${esc(description)}"><meta name="twitter:image" content="${esc(image)}"><meta name="twitter:image:alt" content="${esc(post.title)}">
+<link rel="canonical" href="${esc(canonical)}"></head><body><main><h1>${esc(post.title)}</h1><p>${esc(description)}</p><p><a href="${esc(canonical)}">पोस्ट पढ्नुहोस्</a></p></main>
 <script>if(!/facebookexternalhit|Facebot|WhatsApp|Twitterbot|LinkedInBot|Googlebot|bingbot|Slackbot|TelegramBot|Discordbot|Pinterest|Skype/i.test(navigator.userAgent||'')){location.replace(${JSON.stringify(canonical)})}</script></body></html>`;
-    return new Response(html, { status: 200, headers: { 'content-type': 'text/html; charset=UTF-8', 'cache-control': 'public, max-age=300, s-maxage=300' } });
+    return new Response(html, {
+      status: 200,
+      headers: {
+        'content-type': 'text/html; charset=UTF-8',
+        'cache-control': 'public, max-age=300, s-maxage=300, stale-while-revalidate=60'
+      }
+    });
   } catch (error) {
     console.error(error);
     return new Response('Share preview unavailable', { status: 500 });
