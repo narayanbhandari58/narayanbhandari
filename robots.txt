@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /cms
+Disallow: /api/
+Disallow: /.netlify/
+
+Sitemap: https://narayan-bhandari.com.np/sitemap.xml
