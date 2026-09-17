@@ -7,7 +7,7 @@ export default async (request, context) => {
 
   try {
     const response = await fetch('https://raw.githubusercontent.com/narayanbhandari58/narayanbhandari/main/posts/index.json', {
-      headers: { 'User-Agent': 'narayan-bhandari-social-preview/3.4' }
+      headers: { 'User-Agent': 'narayan-bhandari-social-preview/3.5' }
     });
     if (!response.ok) return new Response('Share preview unavailable', { status: 502 });
 
@@ -34,7 +34,7 @@ export default async (request, context) => {
     try { image = new URL(rawImage || fallbackImage, url.origin).href; } catch {}
 
     const shareUrl = `${url.origin}${url.pathname}`;
-    const canonical = shareUrl;
+    const canonical = `https://narayan-bhandari.com.np/post/${encodeURIComponent(post.id)}`;
     const published = post.created || post.date || '';
     const modified = post.updated || published;
     const category = String(post.category || '').trim();
@@ -63,7 +63,7 @@ export default async (request, context) => {
     const html = `<!doctype html><html lang="ne"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
-<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="robots" content="noindex,follow">
 <meta property="og:type" content="article"><meta property="og:site_name" content="नारायण भण्डारी"><meta property="og:locale" content="ne_NP">
 <meta property="og:title" content="${esc(post.title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${esc(shareUrl)}">
 <meta property="og:image" content="${esc(image)}"><meta property="og:image:secure_url" content="${esc(image)}"><meta property="og:image:alt" content="${esc(post.title)}">
