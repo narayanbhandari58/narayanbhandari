@@ -40,4 +40,27 @@
   });
 })();
 </script>
+<script>
+(function(){
+  function formatAnalyticsDates(){
+    document.querySelectorAll('#gaTable .cms-table-row').forEach(function(row){
+      var first=row.querySelector('span');
+      if(!first) return;
+      var raw=(first.textContent||'').trim();
+      if(/^\d{8}$/.test(raw)){
+        var y=raw.slice(0,4),m=raw.slice(4,6),d=raw.slice(6,8);
+        first.textContent=d+'/'+m+'/'+y;
+      }
+    });
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('#gaRefresh,.cms-nav-btn[data-ws="analytics"]');
+    if(b) setTimeout(formatAnalyticsDates,300);
+  });
+  document.addEventListener('DOMContentLoaded',function(){
+    setTimeout(formatAnalyticsDates,500);
+    setInterval(formatAnalyticsDates,1000);
+  });
+})();
+</script>
 </body></html>
