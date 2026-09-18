@@ -79,6 +79,28 @@ jobs:
                   else:
                       by_id[qid] = len(questions); questions.append(q); added += 1
 
+          # Pictorial safeguard: reconcile pictorial questions from their canonical seed
+          # so a later seed merge can never silently overwrite/remove the image metadata.
+          pictorial_seed = Path('exam-question-seed/branch-officer-2.2-nonverbal-pictorial.json')
+          if pictorial_seed.exists():
+              pictorial = json.loads(pictorial_seed.read_text(encoding='utf-8'))
+              assert isinstance(pictorial, list) and len(pictorial) == 30
+              canonical = {str(q.get('id')): q for q in pictorial}
+              for qid, src in canonical.items():
+                  assert src.get('type') == 'pictorial', f'{qid}: canonical pictorial type missing'
+                  image = src.get('image') or src.get('imageUrl') or src.get('image_url')
+                  assert image, f'{qid}: canonical pictorial image missing'
+                  idx = by_id.get(qid)
+                  if idx is None:
+                      questions.append(src); by_id[qid] = len(questions) - 1
+                  else:
+                      dst = questions[idx]
+                      # Keep any newer question text/options, but always restore canonical image metadata.
+                      dst['type'] = 'pictorial'
+                      dst['image'] = image
+                      if src.get('imageAlt'): dst['imageAlt'] = src['imageAlt']
+              assert all((q.get('image') or q.get('imageUrl') or q.get('image_url')) for q in questions if q.get('type') == 'pictorial')
+
           q18 = [q for q in questions if q.get('unit') == '1.8']
           assert len(q18) == 240
           expected_categories = {'राजनीतिक','सामाजिक','सांस्कृतिक','आर्थिक','वैज्ञानिक','खेलकुद','पुस्तक','पुरस्कार','कला','साहित्य','संगीत','अन्य महत्त्वपूर्ण'}
