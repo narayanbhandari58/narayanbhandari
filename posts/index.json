@@ -25,8 +25,11 @@
     "created": "2026-09-07T14:37:54.683Z",
     "updated": "2026-09-07T14:40:56.748Z",
     "status": "published",
-    "likes": 5,
-    "comments": []
+    "likes": 6,
+    "comments": [],
+    "likedDevices": [
+      "2973cbc4aacb10e8285f9b0ad7aa23d09ce3f4a2b9b37fd2520438055eee6336"
+    ]
   },
   {
     "id": "post-1788745918152",
