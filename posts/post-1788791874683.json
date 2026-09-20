@@ -9,7 +9,13 @@
   "updated": "2026-09-07T14:40:56.748Z",
   "status": "published",
   "likes": 10,
-  "comments": [],
+  "comments": [
+    {
+      "author": "अनिल चापागाईं",
+      "text": "गजबको लघुकथा 😍",
+      "date": "2026-09-20T15:13:52.435Z"
+    }
+  ],
   "likedDevices": [
     "2973cbc4aacb10e8285f9b0ad7aa23d09ce3f4a2b9b37fd2520438055eee6336",
     "18b2e5ba8f004fd26322938d67e9bb08009166d5cc037a5d56b943ddeee2c3c1",
