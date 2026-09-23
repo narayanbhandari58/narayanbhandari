@@ -5,7 +5,7 @@
   const NP='०१२३४५६७८९';
   const np=v=>String(v).replace(/\\d/g,d=>NP[d]);
   /* AD 2026-04-14 = BS 2083-01-01; month lengths for BS 2083/2084. */
-  const year2083=[31,32,31,32,31,30,30,30,29,29,30,30];
+  const year2083=[31,31,32,31,31,30,30,30,29,29,30,30];
   const year2084=[31,32,31,32,31,30,30,30,29,30,29,31];
   function daysInYear(y){return y===2083?year2083.reduce((a,b)=>a+b,0):year2084.reduce((a,b)=>a+b,0);}
   function daysToBs(target){
