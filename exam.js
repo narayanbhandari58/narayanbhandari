@@ -10,9 +10,35 @@ function lineChartHTML(d,showTitle=true){if(d.parsed.length<2)return'';const lab
 function tableDataHTML(d,showTitle=true){let rows=d.parsed.map(r=>r.slice());if(!rows.length)return'';let headers=[];if(rows.every(r=>r.length===3)){const years=String(d.title||'').match(/(\d{4})\s*→\s*(\d{4})/);headers=['विवरण',years?years[1]:'मान १',years?years[2]:'मान २'];}else{const max=Math.max(1,...rows.map(r=>r.length));headers=Array.from({length:max},(_,i)=>i===0?'विवरण':`मान ${i}`)}const table=`<div class="data-table-scroll" style="overflow-x:auto;-webkit-overflow-scrolling:touch"><table class="data-stimulus-table" style="width:100%;min-width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid #d7dee8;border-radius:10px;overflow:hidden"><thead><tr>${headers.map((h,i)=>`<th style="padding:11px 12px;border-bottom:1px solid #d7dee8;background:${i?'#8f0e04':'#650a03'};color:#fff;text-align:center;font-weight:800;white-space:nowrap">${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.map((r,ri)=>`<tr>${headers.map((_,i)=>`<td style="padding:10px 12px;border-bottom:1px solid #edf0f4;text-align:${i?'center':'left'};font-weight:${i?'700':'650'};background:${ri%2?'#fff':'#fff8f6'}">${esc(r[i]??'')}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;return chartBox('',table,showTitle)}
 function dataStimulusHTML(q,showTitle=true){const d=dataRows(q);if(!d)return'';if(d.type==='pie-chart')return pieChartHTML(d,showTitle);if(d.type==='bar-chart')return barChartHTML(d,showTitle);if(d.type==='line-graph')return lineChartHTML(d,showTitle);return tableDataHTML(d,showTitle)}
 function passageHTML(q,showTitle=true){return q.passage?`<div class="exam-stimulus passage-stimulus">${showTitle?'<div class="stimulus-label">पाठ / Paragraph</div>':''}<div style="line-height:1.75;white-space:pre-line">${esc(q.passage)}</div></div>`:''}
-function stimulusKey(q){if(q.passage)return'passage:'+q.passage;if(q.data||q.figure)return'data:'+String(q.data||q.figure);return''}
-function stimulusHTML(q,showTitle=true){const key=stimulusKey(q);if(!key)return'';if(q.passage)return passageHTML(q,showTitle);return dataStimulusHTML(q,showTitle)}
-function showStimulusTitleForIndex(i){if(i===0)return true;const a=stimulusKey(examQuestions[i]),b=stimulusKey(examQuestions[i-1]);return !!a&&a!==b}
+function stimulusSource(q){
+  if(!q)return null;
+  if(q.passage||q.data||q.figure)return q;
+  const gid=String(q.groupId||'').trim();
+  if(gid){
+    const same=examQuestions.find(x=>String(x?.groupId||'').trim()===gid&&(x?.passage||x?.data||x?.figure));
+    if(same)return same;
+  }
+  return null;
+}
+function stimulusKey(q){
+  const s=stimulusSource(q);
+  if(!s)return'';
+  if(s.groupId)return'group:'+String(s.groupId);
+  if(s.passage)return'passage:'+String(s.passage);
+  if(s.data||s.figure)return'data:'+String(s.data||s.figure);
+  return'';
+}
+function stimulusHTML(q,showTitle=true){
+  const s=stimulusSource(q);
+  if(!s)return'';
+  if(s.passage)return passageHTML(s,showTitle);
+  return dataStimulusHTML(s,showTitle);
+}
+function showStimulusTitleForIndex(i){
+  if(i===0)return true;
+  const a=stimulusKey(examQuestions[i]),b=stimulusKey(examQuestions[i-1]);
+  return !!a&&a!==b;
+}
 function start(){const name=$('#candidateName').value.trim(),email=$('#candidateEmail').value.trim(),whatsapp=$('#candidateWhatsapp').value.trim();if(!name){alert('नाम लेख्नुहोस्');return}if(!email&&!whatsapp){alert('Feedback पठाउन Gmail वा WhatsApp मध्ये कम्तीमा एउटा राख्नुहोस्');return}answers={};current=0;seconds=selectedExam.durationMinutes*60;$('#candidate').hidden=true;$('#exam').hidden=false;$('#timer').hidden=false;$('#examTitle').textContent=selectedExam.title;renderQuestion();timerId=setInterval(()=>{seconds--;updateTimer();if(seconds<=0){clearInterval(timerId);submitExam(true)}},1000);updateTimer()}
 function updateTimer(){const m=Math.floor(seconds/60),s=seconds%60;$('#timer').textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;$('#timer').classList.toggle('danger',seconds<=60)}
 function repairQuestionImages(){
@@ -37,11 +63,8 @@ function repairQuestionImages(){
 }
 function resolvedQuestionImage(q){
   const id=String(q?.id||'').trim();
-  if(q?.type==='pictorial'&&/^bo-2\\.2-\\d{3}$/.test(id)){
-    const apiImage=String(q?.image||q?.imageUrl||q?.image_url||'').trim();
-    if(apiImage)return apiImage;
-    return 'image/exam/branch-officer-2.2/'+id+'.png?v=2';
-  }
+  if(q?.type==='pictorial'&&/^bo-2\\.2-\\d{3}$/.test(id))
+    return 'https://raw.githubusercontent.com/narayanbhandari58/narayanbhandari/main/image/exam/branch-officer-2.2/'+id+'.png?v=3';
   return String(q?.image||q?.imageUrl||q?.image_url||'').trim();
 }
 function renderQuestion(){const q=examQuestions[current];const showTitle=showStimulusTitleForIndex(current);$('#progress').textContent=`${current+1}/${examQuestions.length}`;$('#questionCard').innerHTML=`<div class="qmeta">${esc(q.subject||'')} ${q.topic?`· ${esc(q.topic)}`:''} ${q.type==='iq'?'<span>IQ</span>':''}</div>${stimulusHTML(q,showTitle)}${resolvedQuestionImage(q)?`<figure class="question-image-wrap"><img class="question-image" data-image-id="${esc(q.id||'')}" src="${esc(resolvedQuestionImage(q))}" alt="${esc(q.imageAlt||q.topic||'प्रश्नचित्र')}" loading="eager" style="display:block;max-width:100%;width:auto;height:auto;max-height:380px;object-fit:contain;margin:0 auto"><figcaption>${esc(q.imageAlt||q.topic||'प्रश्नचित्र')}</figcaption></figure>`:''}<h2>${esc(q.q)}</h2><div class="options">${q.options.map((o,i)=>`<button class="option ${answers[q.id]===i?'selected':''}" data-i="${i}">${String.fromCharCode(65+i)}. ${esc(o)}</button>`).join('')}</div><div class="nav-actions"><button class="btn btn-outline" id="prev" ${current===0?'disabled':''}>← अघिल्लो</button><button class="btn btn-primary" id="next">${current===examQuestions.length-1?'अन्तिम':'अर्को'} →</button></div>`;repairQuestionImages();if(q.image){document.querySelectorAll('#questionCard .options .option').forEach((btn,index)=>{const letter=String.fromCharCode(65+index);btn.setAttribute('aria-label',letter);btn.innerHTML=`<span class="pictorial-option-letter-only">${letter}</span>`;btn.style.display='flex';btn.style.alignItems='center';btn.style.justifyContent='flex-start';btn.style.gap='12px';btn.style.minHeight='58px';btn.style.padding='14px 18px';btn.style.fontSize='1.05rem';btn.style.fontWeight='800'})};document.querySelectorAll('.option').forEach(b=>b.onclick=()=>{answers[q.id]=Number(b.dataset.i);renderQuestion()});$('#prev').onclick=()=>{if(current>0){current--;renderQuestion()}};$('#next').onclick=()=>{if(current<examQuestions.length-1){current++;renderQuestion()}else submitExam(false)}}
