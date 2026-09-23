@@ -24,7 +24,9 @@ function verify(t) {
 function isAdmin(e) { return verify((e.headers?.authorization || '').replace(/^Bearer\s+/i, '')) }
 async function gh(path, opt = {}) { if (!TOKEN) throw Error('GITHUB_TOKEN is not configured'); const r = await fetch(`${GH}/repos/${REPO}/contents/${path}`, { ...opt, headers: { Authorization: `Bearer ${TOKEN}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json', ...(opt.headers || {}) } }); const d = await r.json(); if (!r.ok) throw Error(d.message || 'GitHub request failed'); return d }
 async function readData() {
-  const [rawRes, meta] = await Promise.all([fetch(RAW, { cache: 'no-store' }), gh('exam-data.json')]);
+  // Public exam configuration must not depend on the admin GitHub token.
+  // The published exam-data.json and maintained seed files are public inputs.
+  const rawRes = await fetch(RAW, { cache: 'no-store' });
   if (!rawRes.ok) throw Error(`Question bank load failed (${rawRes.status})`);
   const data = await rawRes.json();
 
@@ -48,7 +50,7 @@ async function readData() {
       existing.add(id);
     }
   }
-  return { sha: meta.sha, data };
+  return { sha: null, data };
 }
 async function writeData(data, sha) { return gh('exam-data.json', { method: 'PUT', body: JSON.stringify({ message: 'Update Loksewa exam question bank', content: Buffer.from(JSON.stringify(data, null, 2)).toString('base64'), branch: BRANCH, sha }) }) }
 function groupIdOf(q) { if (q?.groupId) return String(q.groupId); const raw = String(q?.passage || q?.data || q?.figure || '').trim(); if (!raw) return ''; const basis = `${q?.unit || ''}|${q?.type || ''}|${raw}`; return `g-${crypto.createHash('sha1').update(basis).digest('hex').slice(0, 10)}` }
@@ -238,7 +240,7 @@ exports.handler = async event => {
       } while (cursorState.cursor);
       return json(200, { ok: true, deleted, message: deleted ? 'User र सम्बन्धित history हटाइयो।' : 'यो user को history भेटिएन।' });
     }
-    if (action === 'save-data') { if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' }); if (!body.data || !Array.isArray(body.data.exams) || !Array.isArray(body.data.questions)) return json(400, { error: 'Exam data format गलत छ' }); const ids = body.data.questions.map(q => String(q.id || '').trim()).filter(Boolean), unique = new Set(ids); if (ids.length !== unique.size) return json(400, { error: 'Question ID दोहोरिएको छ। प्रत्येक प्रश्नको unique ID हुनुपर्छ।' }); const cur = await readData(); await writeData(body.data, cur.sha); return json(200, { ok: true, message: 'Exam data सुरक्षित भयो' }) }
+    if (action === 'save-data') { if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' }); if (!body.data || !Array.isArray(body.data.exams) || !Array.isArray(body.data.questions)) return json(400, { error: 'Exam data format गलत छ' }); const ids = body.data.questions.map(q => String(q.id || '').trim()).filter(Boolean), unique = new Set(ids); if (ids.length !== unique.size) return json(400, { error: 'Question ID दोहोरिएको छ। प्रत्येक प्रश्नको unique ID हुनुपर्छ।' }); const current = await gh('exam-data.json'); await writeData(body.data, current.sha); return json(200, { ok: true, message: 'Exam data सुरक्षित भयो' }) }
     return json(400, { error: 'Unknown action' });
   } catch (e) { console.error(e); return json(500, { error: e.message || 'Exam API error' }) }
 };
