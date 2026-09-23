@@ -20,7 +20,7 @@
         <select id="mainCat"><option value="">सबै Category</option></select>
         <select id="mainSub"><option value="">सबै Subject</option></select>
         <select id="mainTopic"><option value="">सबै Topic</option></select>
-        <select id="mainType"><option value="">सबै प्रकार</option><option value="gk">GK/विषयगत</option><option value="iq">IQ</option></select>
+        <select id="mainType"><option value="">सबै प्रकार</option><option value="gk">GK/विषयगत</option><option value="iq">IQ</option><option value="pictorial">Pictorial</option><option value="table">Table</option><option value="bar-chart">Bar Chart</option><option value="line-graph">Line Graph</option><option value="pie-chart">Pie Chart</option></select>
         <input id="mainSearch" type="search" placeholder="🔎 प्रश्न/विषय/Topic खोज्नुहोस्..." autocomplete="off">
       </div><div id="mainQCount" class="filter-result-count"></div><div id="mainQForm" hidden></div><div id="mainQuestions"></div>`;
     anchor.parentNode.insertBefore(sec,anchor);
