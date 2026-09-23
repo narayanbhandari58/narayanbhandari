@@ -22,12 +22,19 @@ function dataRows(q){
   function parseRow(part){
     const text=String(part||'').trim();
     if(!text)return null;
-    let m=text.match(/^([^\s]+)\s+(.+)$/);
-    if(!m){
-      // Handle compact labels such as Science240, Portfolio20@12%, Medicine1200×Rs1500.
-      // Keep the leading alphabetic label separate from the first numeric value.
-      m=text.match(/^([A-Za-z][A-Za-z-]*?)(?=\d)(.+)$/);
+
+    // Compact first token: Science240 at80%, Management300 at72%, etc.
+    // Split the first token into label + first numeric value before parsing the rest.
+    const compact=text.match(/^([A-Za-z][A-Za-z-]*?)(\d+(?:\.\d+)?)(?:\s+(.+))?$/);
+    if(compact){
+      const label=compact[1];
+      const firstValue=compact[2];
+      const rest=String(compact[3]||'').replace(/^at\s*/i,'').trim();
+      const nums=[firstValue,...valuesFrom(rest)];
+      return [label,...nums];
     }
+
+    const m=text.match(/^([^\s]+)\s+(.+)$/);
     if(!m)return null;
     const label=m[1].trim();
     const nums=valuesFrom(m[2]);
