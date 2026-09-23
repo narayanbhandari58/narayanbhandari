@@ -6,15 +6,41 @@ function dataRows(q){
   const raw=String(q.data||q.figure||'').trim(); if(!raw)return null;
   const type=String(q.type||'').toLowerCase();
   const parts=raw.split(/\s*;\s*/).map(x=>x.trim()).filter(Boolean);
-  let title='',parsed=[];
-  parts.forEach((part,i)=>{
-    const c=part.indexOf(':'); let label='',body=part;
-    if(c>0){label=part.slice(0,c).trim();body=part.slice(c+1).trim();if(i===0&&/^(table|data|chart|graph|तालिका|चार्ट|ग्राफ)/i.test(label))title=body;}
-    const vals=body.split(/\s*[,|]\s*/).map(x=>x.trim()).filter(Boolean);
-    if(label && !title) parsed.push([label,...vals]); else if(vals.length) parsed.push(vals);
-  });
-  if(!parsed.length) parsed=parts.map(x=>x.split(/\s*[,|]\s*/).filter(Boolean));
-  return {title,type,parsed};
+  let title='',parsed=[],headers=null;
+  const firstColon=parts[0]?.indexOf(':');
+  if(firstColon>0){
+    title=parts[0].slice(0,firstColon).trim();
+    const firstBody=parts[0].slice(firstColon+1).trim();
+    const rows=[firstBody,...parts.slice(1)];
+    rows.forEach(part=>{
+      const m=part.match(/^([^\s]+)\s+(.+)$/);
+      if(!m)return;
+      const label=m[1],body=m[2].trim();
+      const nums=body.match(/\d+(?:,\d+)*(?:\.\d+)?%?/g)||[];
+      if(nums.length>=2){
+        parsed.push([label,...nums.map(v=>v.replace(/,/g,''))]);
+      }else if(nums.length===1){
+        parsed.push([label,nums[0].replace(/,/g,'')]);
+      }else{
+        const vals=body.split(/\s*[,|→/]\s*/).filter(Boolean);
+        if(vals.length)parsed.push([label,...vals]);
+      }
+    });
+  }else{
+    parts.forEach(part=>{
+      const m=part.match(/^([^\s]+)\s+(.+)$/);
+      if(!m)return;
+      const nums=m[2].match(/\d+(?:,\d+)*(?:\.\d+)?%?/g)||[];
+      parsed.push([m[1],...nums.map(v=>v.replace(/,/g,''))]);
+    });
+  }
+  if(!parsed.length)return null;
+  const max=Math.max(...parsed.map(r=>r.length));
+  if(/^Applications$/i.test(title) && max>=3) headers=['विवरण','Applications','Approved'];
+  else if(/→/.test(raw) && max>=3) headers=['विवरण','पहिलो वर्ष','दोस्रो वर्ष'];
+  else if(max>=3) headers=['विवरण',...Array.from({length:max-1},(_,i)=>'मान '+(i+1))];
+  else headers=['विवरण','मान 1'];
+  return {title,type,parsed,headers};
 }
 function chartBox(title,body,showTitle=true){
   return '<div class="exam-stimulus data-stimulus chart-box">'+(showTitle&&title?'<div class="stimulus-label">'+esc(title)+'</div>':'')+body+'</div>';
@@ -51,8 +77,9 @@ function lineChartHTML(d,showTitle=true){
 }
 function tableDataHTML(d,showTitle=true){
   const rows=d.parsed.map(r=>r.slice()); if(!rows.length)return '';
-  const max=Math.max(...rows.map(r=>r.length)); const headers=rows[0].length===max&&rows.length>1&&/^(विवरण|description|item|category|वर्ष|year|month|मिति)/i.test(rows[0][0])?rows.shift():Array.from({length:max},(_,i)=>i===0?'विवरण':'मान '+i);
-  const table='<div class="table-scroll"><table class="data-stimulus-table"><thead><tr>'+headers.map(h=>'<th>'+esc(h)+'</th>').join('')+'</tr></thead><tbody>'+rows.map((r,ri)=>'<tr>'+headers.map((_,i)=>'<td>'+esc(r[i]??'')+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
+  const max=Math.max(...rows.map(r=>r.length));
+  let headers=Array.isArray(d.headers)&&d.headers.length===max?d.headers:Array.from({length:max},(_,i)=>i===0?'विवरण':'मान '+i);
+  const table='<div class="table-scroll"><table class="data-stimulus-table"><thead><tr>'+headers.map(h=>'<th>'+esc(h)+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+Array.from({length:max},(_,i)=>'<td>'+esc(r[i]??'')+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
   return chartBox(d.title,table,showTitle);
 }
 function dataStimulusHTML(q,showTitle=true){const d=dataRows(q);if(!d)return '';if(d.type==='pie-chart')return pieChartHTML(d,showTitle);if(d.type==='bar-chart')return barChartHTML(d,showTitle);if(d.type==='line-graph')return lineChartHTML(d,showTitle);return tableDataHTML(d,showTitle);}
