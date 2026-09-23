@@ -1,32 +1,38 @@
-/* Global Nepali date bar — no external conversion API dependency */
+/* Global Nepali date bar — robust browser converter */
 (function(){
   const MONTHS=['बैशाख','जेठ','असार','साउन','भदौ','असोज','कार्तिक','मंसिर','पुस','माघ','फागुन','चैत'];
   const DAYS=['आइतबार','सोमबार','मङ्गलबार','बुधबार','बिहीबार','शुक्रबार','शनिबार'];
   const NP='०१२३४५६७८९';
-  function np(v){return String(v).replace(/\d/g,d=>NP[d]);}
+  const np=v=>String(v).replace(/\\d/g,d=>NP[d]);
+  const el=()=>document.querySelector('[data-nepali-date]');
   function render(bs){
-    const el=document.querySelector('[data-nepali-date]');
-    if(!el)return;
-    el.textContent='📅 '+DAYS[bs.day]+', '+np(bs.date)+' '+MONTHS[bs.month-1]+' '+np(bs.year);
+    const node=el();
+    if(!node||!bs)return;
+    node.textContent='📅 '+DAYS[new Date().getDay()]+', '+np(bs.date)+' '+MONTHS[bs.month-1]+' '+np(bs.year);
   }
-  function start(){
-    const el=document.querySelector('[data-nepali-date]');
-    if(!el)return;
+  function load(){
+    const node=el();
+    if(!node)return;
     const s=document.createElement('script');
-    s.src='https://cdn.jsdelivr.net/npm/nepali-date-converter@3.4.0/dist/nepali-date-converter.umd.js';
+    s.src='https://cdn.jsdelivr.net/npm/@remotemerge/nepali-date-converter@1/dist/ndc-browser.js';
     s.onload=function(){
       try{
-        const C=window.NepaliDate || window.nepaliDateConverter || window.default;
-        if(typeof C!=='function')throw new Error('NepaliDate converter not found');
-        const bs=new C(new Date());
-        render({year:bs.BS.year,month:bs.BS.month,date:bs.BS.date,day:bs.BS.day});
-      }catch(e){
-        console.error('Nepali date conversion failed:',e);
-        el.textContent='मिति उपलब्ध हुन सकेन';
+        if(typeof window.DateConverter!=='function')throw new Error('DateConverter global not found');
+        const d=new Date();
+        const ad=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+        const bs=new window.DateConverter(ad).toBs();
+        if(!bs||!bs.year||!bs.month||!bs.date)throw new Error('Invalid BS result');
+        render(bs);
+      }catch(err){
+        console.error('Nepali date conversion failed:',err);
+        node.textContent='मिति उपलब्ध हुन सकेन';
       }
     };
-    s.onerror=function(){console.error('Nepali date script failed to load');el.textContent='मिति उपलब्ध हुन सकेन';};
+    s.onerror=function(){
+      console.error('Nepali date converter failed to load');
+      node.textContent='मिति उपलब्ध हुन सकेन';
+    };
     document.head.appendChild(s);
   }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load);else load();
 })();
