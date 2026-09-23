@@ -86,7 +86,11 @@ function dataStimulusHTML(q,showTitle=true){const d=dataRows(q);if(!d)return '';
 function passageHTML(q,showTitle=true){return q.passage?`<div class="exam-stimulus passage-stimulus">${showTitle?'<div class="stimulus-label">पाठ / Paragraph</div>':''}<div style="line-height:1.75;white-space:pre-line">${esc(q.passage)}</div></div>`:''}
 function stimulusSource(q){
   if(!q)return null;
-  if(q.passage||q.data||q.figure)return q;
+  const qt=String(q.type||'').toLowerCase();
+  const dataTypes=new Set(['table','bar-chart','line-graph','line-table','pie-chart']);
+  if(q.passage)return q;
+  if(dataTypes.has(qt)&&(q.data||q.figure))return q;
+  if(!dataTypes.has(qt))return null;
   const gid=String(q.groupId||'').trim();
   if(gid){
     const same=examQuestions.find(x=>String(x?.groupId||'').trim()===gid&&(x?.passage||x?.data||x?.figure));
