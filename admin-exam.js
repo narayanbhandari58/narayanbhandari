@@ -13,7 +13,7 @@
 
   function inject(){
     if($('#mainQuestionBank'))return true;
-    const anchor=$('#accountCard'); if(!anchor)return false;
+    const anchor=$('#questionBankMount')||$('#accountCard'); if(!anchor)return false;
     const sec=document.createElement('section');sec.className='admin-card';sec.id='mainQuestionBank';
     sec.innerHTML=`<div class="row"><div><h2>📚 Online Exam — Question Bank</h2><p class="exam-bank-note">Category → Subject → Topic अनुसार प्रश्न व्यवस्थापन</p></div><button class="btn btn-primary" id="mainNewQ" type="button">+ नयाँ प्रश्न</button></div>
       <div class="exam-bank-filters">
@@ -23,7 +23,7 @@
         <select id="mainType"><option value="">सबै प्रकार</option><option value="gk">GK/विषयगत</option><option value="iq">IQ</option><option value="pictorial">Pictorial</option><option value="table">Table</option><option value="bar-chart">Bar Chart</option><option value="line-graph">Line Graph</option><option value="pie-chart">Pie Chart</option></select>
         <input id="mainSearch" type="search" placeholder="🔎 प्रश्न/विषय/Topic खोज्नुहोस्..." autocomplete="off">
       </div><div id="mainQCount" class="filter-result-count"></div><div id="mainQForm" hidden></div><div id="mainQuestions"></div>`;
-    anchor.parentNode.insertBefore(sec,anchor);
+    if(anchor.id==='questionBankMount'){anchor.innerHTML='';anchor.appendChild(sec)}else{anchor.parentNode.insertBefore(sec,anchor)}
     const toastEl=document.createElement('div');toastEl.id='examAdminToast';toastEl.className='exam-admin-toast';document.body.appendChild(toastEl);
     $('#mainNewQ').onclick=()=>form();
     ['mainCat','mainSub','mainTopic','mainType'].forEach(id=>$( '#'+id).onchange=render);
