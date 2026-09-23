@@ -34,6 +34,7 @@ async function readData() {
   // If an ID already exists in exam-data.json, the CMS version wins.
   const seedPaths = [
     'exam-question-seed/branch-officer-2.2-nonverbal-pictorial.json',
+    'exam-question-seed/branch-officer-2.2-triangle-counting.json',
     'exam-question-seed/branch-officer-2.5-data-interpretation.json'
   ];
   const existing = new Set((data.questions || []).map(q => String(q.id || '')));
