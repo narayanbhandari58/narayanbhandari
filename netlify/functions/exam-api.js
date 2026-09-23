@@ -236,7 +236,7 @@ exports.handler = async event => {
       await blobStore().set(result.attemptId, JSON.stringify(result), { metadata: { examId: exam.id } });
       return json(200, { result });
     }
-    if (action === 'admin-data') { if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' }); return json(200, { data }) }
+    if (action === 'admin-data') { if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' }); const examReadiness = (data.exams || []).map(exam => ({ examId: exam.id, title: exam.title, ...readinessReport(exam, eligibleQuestions(exam, data.questions)) })); return json(200, { data, examReadiness }) }
     if (action === 'admin-history' || action === 'history' || action === 'admin-users' || action === 'users') {
       if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' });
       const a = await attempts();
