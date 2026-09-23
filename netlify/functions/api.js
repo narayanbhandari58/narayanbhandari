@@ -563,6 +563,20 @@ async function getAnalyticsReport() {
         { name: "screenPageViews" },
         { name: "activeUsers" }
       ]
+    },
+    {
+      dimensions: [{ name: "pageLocation" }],
+      metrics: [
+        { name: "screenPageViews" },
+        { name: "activeUsers" }
+      ]
+    },
+    {
+      dimensions: [{ name: "unifiedScreenName" }],
+      metrics: [
+        { name: "screenPageViews" },
+        { name: "activeUsers" }
+      ]
     }
   ];
 
