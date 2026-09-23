@@ -543,7 +543,7 @@ async function getAnalyticsReport() {
       // pagePath-only query is intentionally used here because it is
       // compatible across GA4 web properties and still identifies the
       // exact post/menu visited.
-      dimensions: [{ name: "pagePath" }],
+      dimensions: [{ name: "unifiedPagePathScreen" }],
       metrics: [
         { name: "screenPageViews" },
         { name: "activeUsers" }
