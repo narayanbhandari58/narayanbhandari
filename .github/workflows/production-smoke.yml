@@ -1,0 +1,90 @@
+name: Production Smoke & Repository Audit
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Required files
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in index.html about_me.html gallery.html loksewa.html admin.html admin.js exam.js exam-resume.js netlify.toml netlify/functions/api.js netlify/functions/api-secure.js netlify/functions/exam-api.js netlify/functions/login.js netlify/functions/sitemap.js netlify/edge-functions/share-preview.js robots.txt; do
+            test -f "$f" || { echo "Missing: $f"; exit 1; }
+          done
+          test ! -f sitemap.xml
+          test ! -f admin-v4.html
+          ! grep -R "admin-v4.html" --exclude-dir=.git . || { echo "Legacy admin-v4 reference found"; exit 1; }
+
+      - name: JavaScript syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          find . -type f -name '*.js'             -not -path './.git/*'             -not -path './netlify/edge-functions/*'             -print0 | xargs -0 -n1 node --check
+
+      - name: JSON validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          find . -type f -name '*.json' -not -path './.git/*' -print0 |
+            while IFS= read -r -d '' f; do
+              node -e "JSON.parse(require('fs').readFileSync(process.argv[1],'utf8'))" "$f"
+            done
+
+      - name: HTML script references
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs=require('fs'), path=require('path');
+          const htmls=fs.readdirSync('.').filter(x=>x.endsWith('.html'));
+          const missing=[];
+          for(const file of htmls){
+            const text=fs.readFileSync(file,'utf8');
+            for(const m of text.matchAll(/<script[^>]+src=["']([^"']+)["']/gi)){
+              const src=m[1].split('?')[0];
+              if(/^https?:\/\//i.test(src)||src.startsWith('//')) continue;
+              const clean=src.replace(/^\//,'');
+              if(clean && !fs.existsSync(clean)) missing.push(file+' -> '+clean);
+            }
+          }
+          if(missing.length){console.error(missing.join('\n'));process.exit(1)}
+          NODE
+
+      - name: Netlify configuration checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q 'to = "/.netlify/functions/api-secure"' netlify.toml
+          grep -q 'to = "/.netlify/functions/sitemap"' netlify.toml
+          grep -q 'to = "/.netlify/functions/post?id=:id"' netlify.toml
+          grep -q 'function = "share-preview"' netlify.toml
+
+      - name: Production HTTP smoke
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://narayan-bhandari.com.np"
+          for path in / /about_me.html /gallery.html /loksewa.html /robots.txt /sitemap.xml; do
+            code=$(curl -L -sS -o /tmp/nb-smoke -w '%{http_code}' "$base$path")
+            echo "$path -> $code"
+            test "$code" = "200"
+          done
+          code=$(curl -L -sS -o /tmp/nb-api -w '%{http_code}' "$base/api/?action=posts")
+          echo "/api/?action=posts -> $code"
+          test "$code" = "200"
