@@ -535,29 +535,57 @@ async function getAnalyticsReport() {
     orderBys: [{ dimension: { dimensionName: "date" } }]
   });
 
-  // Most Visited query अतिरिक्त हो। यो query असफल भए पनि
-  // मुख्य Analytics cards का लागि daily report रोक्नु हुँदैन।
+  // Most Visited: use the official Pages & screens dimension first.
+  // If a property does not expose that dimension, fall back to page-title
+  // and page+query-string dimensions so the dashboard can still identify
+  // visited posts/menu items.
   let pages = { rows: [] };
-  try {
-    pages = await run({
-      // pagePath-only query is intentionally used here because it is
-      // compatible across GA4 web properties and still identifies the
-      // exact post/menu visited.
+  let topPagesError = "";
+  const pageQueries = [
+    {
       dimensions: [{ name: "unifiedPagePathScreen" }],
       metrics: [
         { name: "screenPageViews" },
         { name: "activeUsers" }
-      ],
-      orderBys: [{ metric: { metricName: "screenPageViews", desc: true } }],
-      limit: 6
-    });
-  } catch (e) {
-    console.error("GA4 TOP PAGES ERROR:", e);
+      ]
+    },
+    {
+      dimensions: [{ name: "unifiedScreenClass" }],
+      metrics: [
+        { name: "screenPageViews" },
+        { name: "activeUsers" }
+      ]
+    },
+    {
+      dimensions: [{ name: "unifiedPageScreen" }],
+      metrics: [
+        { name: "screenPageViews" },
+        { name: "activeUsers" }
+      ]
+    }
+  ];
+
+  for (const query of pageQueries) {
+    try {
+      const result = await run({
+        ...query,
+        orderBys: [{ metric: { metricName: "screenPageViews", desc: true } }],
+        limit: 6
+      });
+      if (Array.isArray(result.rows) && result.rows.length) {
+        pages = result;
+        break;
+      }
+    } catch (e) {
+      topPagesError = e.message || "Most Visited query failed";
+      console.error("GA4 TOP PAGES ERROR:", e);
+    }
   }
 
   return {
     rows: daily.rows || [],
-    topPages: pages.rows || []
+    topPages: pages.rows || [],
+    topPagesError
   };
 }
 
