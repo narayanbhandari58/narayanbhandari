@@ -5,7 +5,7 @@ const ALLOWED=/^bo-2\.2-\d{3}$/;
 
 exports.handler=async event=>{
   try{
-    const id=String(new URLSearchParams(event.rawQuery||'').get('id')||'').trim();
+    const id=String(event.queryStringParameters?.id||new URLSearchParams(event.rawQuery||'').get('id')||'').trim();
     if(!ALLOWED.test(id)) return {statusCode:400,headers:{'Cache-Control':'no-store'},body:'Invalid image id'};
     const path='image/exam/branch-officer-2.2/'+id+'.png';
     const headers={Accept:'application/vnd.github.raw'};
