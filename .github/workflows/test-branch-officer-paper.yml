@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'exam-data.json'
+      - 'exam-question-seed/*.json'
       - 'netlify/functions/exam-api.js'
       - '.github/workflows/test-branch-officer-paper.yml'
   workflow_dispatch:
@@ -17,17 +18,35 @@ jobs:
         run: |
           python - <<'PY'
           import json
+          import urllib.request
           data=json.load(open('exam-data.json',encoding='utf-8'))
-          all_bank=data['questions']
+          all_bank=list(data['questions'])
           exam=next(x for x in data['exams'] if x['id']=='sakha-adhikrit')
+
+          # Mirror exam-api.readData(): maintained seed pools are merged at runtime,
+          # while an existing ID in exam-data.json remains authoritative.
+          existing={str(q.get('id','')) for q in all_bank}
+          for path in [
+              'exam-question-seed/branch-officer-2.2-nonverbal-pictorial.json',
+              'exam-question-seed/branch-officer-2.5-data-interpretation.json'
+          ]:
+              with urllib.request.urlopen('https://raw.githubusercontent.com/narayanbhandari58/narayanbhandari/main/'+path) as r:
+                  for q in json.load(r):
+                      qid=str(q.get('id',''))
+                      if qid and qid not in existing:
+                          all_bank.append(q)
+                          existing.add(qid)
+
           # Production exam-api filters by examIds first. Never audit against the global bank.
           bank=[q for q in all_bank if 'sakha-adhikrit' in (q.get('examIds') or [])]
           assert bank, 'no Branch Officer mapped questions'
           assert exam['questionCount']==100
+
           expected={
             ('A','1.1'):6,('A','1.2'):6,('A','1.3'):6,('A','1.4'):6,('A','1.5'):6,('A','1.6'):6,('A','1.7'):6,('A','1.8'):8,
             ('B','2.1'):6,('B','2.2'):6,('B','2.3'):6,('B','2.4'):6,('B','2.5'):6,
             ('C','3.1'):5,('C','3.2'):7,('C','3.3'):8}
+
           def level(q):
             return {'i':'level1','1':'level1','l1':'level1','level1':'level1','ii':'level2','2':'level2','l2':'level2','level2':'level2'}.get(str(q.get('level','')).lower(),str(q.get('level','')).lower())
           def match(q,u):
@@ -35,6 +54,15 @@ jobs:
             return a==b or a.startswith(b+'.')
           def image_ok(q):
             return q.get('type')!='pictorial' or bool(q.get('image') or q.get('imageUrl') or q.get('image_url'))
+
+          # Lock the repository blueprint to the official 100-question distribution.
+          actual={}
+          for s in exam['blueprint']['sections']:
+            for u in s['units']:
+              actual[(s['id'],u['id'])]=u['questionCount']
+          assert actual==expected, f'Blueprint changed: {actual}'
+          assert sum(expected.values())==100
+
           assert all(image_ok(q) for q in bank), 'mapped pictorial question without image'
           for s in exam['blueprint']['sections']:
             for u in s['units']:
@@ -45,17 +73,20 @@ jobs:
               sb=[q for q in bank if q.get('section')==s['id'] and image_ok(q)]
               assert sum(level(q)=='level1' for q in sb)>=d.get('level1',0),f'{s["id"]} L1 insufficient'
               assert sum(level(q)=='level2' for q in sb)>=d.get('level2',0),f'{s["id"]} L2 insufficient'
+
           pict=[q for q in bank if q.get('section')=='B' and q.get('unit')=='2.2' and q.get('type')=='pictorial' and image_ok(q)]
           assert len(pict)>=6,f'B/2.2 pictorial pool {len(pict)} < 6'
           assert all(len(q.get('options',[]))==4 for q in pict)
           assert all(isinstance(q.get('correct'),int) and 0<=q['correct']<4 for q in pict)
-          # Check that every required quota can be drawn from its mapped pool.
+
           for s in exam['blueprint']['sections']:
             for u in s['units']:
               pool=[q for q in bank if q.get('section')==s['id'] and match(q,u['id']) and image_ok(q)]
               assert len(pool)>=u['questionCount']
+
           print(f'PASS: mapped Branch Officer bank={len(bank)}; global bank={len(all_bank)}')
-          print('PASS: readiness/quota audit uses examIds-mapped questions, not global bank size.')
-          print('PASS: all Branch Officer blueprint units and A-level quotas are satisfiable.')
+          print('PASS: runtime seed pools are included in the audit.')
+          print('PASS: official 100-question blueprint is locked: A=50, B=30, C=20.')
+          print('PASS: all Branch Officer blueprint units and level quotas are satisfiable.')
           print(f'PASS: B/2.2 has {len(pict)} image-backed pictorial questions.')
           PY
