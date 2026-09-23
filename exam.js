@@ -99,7 +99,7 @@ function tableDataHTML(d,showTitle=true){
 }
 function dataStimulusHTML(q,showTitle=true){const d=dataRows(q);if(!d)return '';if(d.type==='pie-chart')return pieChartHTML(d,showTitle);if(d.type==='bar-chart')return barChartHTML(d,showTitle);if(d.type==='line-graph')return lineChartHTML(d,showTitle);return tableDataHTML(d,showTitle);}
 function passageHTML(q,showTitle=true){return q.passage?`<div class="exam-stimulus passage-stimulus">${showTitle?'<div class="stimulus-label">पाठ / Paragraph</div>':''}<div style="line-height:1.75;white-space:pre-line">${esc(q.passage)}</div></div>`:''}
-function isPictorialQuestion(q){const id=String(q?.id||'').trim();return /^bo-2\\.2-\\d{3}$/.test(id)||String(q?.type||'').toLowerCase()==='pictorial'}
+function isPictorialQuestion(q){const id=String(q?.id||'').trim();return /^bo-2\.2-\d{3}$/.test(id)||String(q?.type||'').toLowerCase()==='pictorial'}
 function stimulusSource(q){
   if(!q||isPictorialQuestion(q))return null;
   const qt=String(q.type||'').toLowerCase();
@@ -141,7 +141,7 @@ function repairQuestionImages(){
     img.dataset.fallbackBound='1';
     img.addEventListener('error',()=>{
       const id=img.dataset.imageId||'';
-      if(!id||!/^(?:bo-2\\.2-\\d{3})$/.test(id)){img.style.display='none';return}
+      if(!id||!/^(?:bo-2\.2-\d{3})$/.test(id)){img.style.display='none';return}
       const stage=Number(img.dataset.imageStage||'0');
       if(stage===0){
         img.dataset.imageStage='1';
@@ -157,7 +157,7 @@ function repairQuestionImages(){
 }
 function resolvedQuestionImage(q){
   const id=String(q?.id||'').trim();
-  if(isPictorialQuestion(q)&&/^bo-2\\.2-\\d{3}$/.test(id))
+  if(isPictorialQuestion(q)&&/^bo-2\.2-\d{3}$/.test(id))
     return 'https://raw.githubusercontent.com/narayanbhandari58/narayanbhandari/main/image/exam/branch-officer-2.2/'+id+'.png?v=3';
   return String(q?.image||q?.imageUrl||q?.image_url||'').trim();
 }
