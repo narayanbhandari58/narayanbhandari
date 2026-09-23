@@ -57,3 +57,76 @@
  #cmsExams .exam-edit button{grid-column:auto;width:100%}
  #cmsExams .metrics{gap:6px;padding:8px}
 }
+
+
+/* FINAL ADMIN EXAM / USERS / HISTORY POLISH */
+#cmsExams .exam-tools{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  margin:16px 0 20px;padding:14px 16px;border:1px solid var(--cms-line);
+  border-radius:14px;background:linear-gradient(180deg,#fff,#fffaf9);
+}
+#cmsExams .exam-tools>div{min-width:0}
+#cmsExams .exam-tools strong{display:block;color:var(--cms-dark);font-size:.96rem}
+#cmsExams .exam-tools span{display:block;margin-top:3px;color:var(--cms-muted);font-size:.8rem}
+#cmsQuestionBank .question-bank-shell{min-height:300px}
+#cmsQuestionBank .question-bank-shell>.row{
+  padding-bottom:14px;border-bottom:1px solid var(--cms-line);margin-bottom:0;
+}
+#cmsQuestionBank #questionBankMount{margin-top:16px}
+#cmsQuestionBank #mainQuestionBank{margin:0!important;border:0!important;padding:0!important;box-shadow:none!important;background:transparent!important}
+#cmsQuestionBank #mainQuestionBank>.row{padding:0 0 14px;border-bottom:1px solid var(--cms-line)}
+#cmsQuestionBank #mainQuestionBank>.row h2{font-size:1.05rem}
+#cmsUsers .nb-toolbar,#cmsHistory .nb-toolbar{
+  padding:12px;background:var(--cms-soft);border:1px solid var(--cms-line);
+  border-radius:14px;margin:16px 0;
+}
+#cmsUsers .nb-toolbar input,#cmsHistory .nb-toolbar input{
+  min-height:44px;background:#fff;border-color:#d8c5c0;
+}
+#cmsUsers .nb-toolbar .btn,#cmsHistory .nb-toolbar .btn{min-height:44px;white-space:nowrap}
+#cmsUsers #userList,#cmsHistory #historyList{display:grid;gap:10px}
+#cmsUsers .cms-table-row,#cmsHistory .history-card{
+  margin:0!important;box-sizing:border-box;box-shadow:0 2px 10px rgba(62,36,30,.035);
+}
+#cmsUsers .cms-table-row{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;
+  padding:14px 16px;gap:14px;
+}
+#cmsUsers .cms-table-row>span{min-width:0}
+#cmsUsers .cms-table-row b{font-size:.96rem;line-height:1.4}
+#cmsUsers .cms-table-row small{font-size:.78rem;line-height:1.55}
+#cmsUsers .cms-table-row .btn-danger{
+  min-width:82px;padding:9px 13px;white-space:nowrap;
+}
+#cmsHistory .history-card{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;
+  padding:14px 16px;gap:14px;
+}
+#cmsHistory .history-card>div:first-child{min-width:0}
+#cmsHistory .history-card>b,#cmsHistory .history-card b{font-size:.94rem;line-height:1.45}
+#cmsHistory .history-card small{font-size:.77rem;line-height:1.55;word-break:break-word}
+#cmsHistory .score{min-width:110px;text-align:right}
+#cmsHistory .score strong{font-size:1.1rem}
+#cmsHistory .nb-empty,#cmsUsers .nb-empty{
+  padding:24px 16px;border:1px dashed #d8c5c0;border-radius:12px;background:#fffaf9;
+}
+@media(max-width:700px){
+  #cmsExams .exam-tools{align-items:stretch;flex-direction:column}
+  #cmsExams .exam-tools .btn{width:100%}
+  #cmsUsers .cms-table-row,#cmsHistory .history-card{
+    grid-template-columns:1fr;display:grid;gap:10px;
+  }
+  #cmsUsers .cms-table-row .btn-danger{width:100%;min-width:0}
+  #cmsHistory .score{
+    width:auto;text-align:left;min-width:0;padding-top:10px;
+    border-top:1px solid var(--cms-line);
+  }
+}
+@media(max-width:520px){
+  #cmsExams .exam-tools{padding:12px}
+  #cmsExams .exam-tools strong{font-size:.9rem}
+  #cmsExams .exam-tools span{font-size:.75rem}
+  #cmsQuestionBank .question-bank-shell>.row{align-items:flex-start;gap:10px}
+  #cmsQuestionBank .question-bank-shell>.row .btn{width:100%}
+  #cmsUsers .cms-table-row,#cmsHistory .history-card{padding:13px}
+}
