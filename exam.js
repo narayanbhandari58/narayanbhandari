@@ -3,11 +3,12 @@ function renderExams(rows){const byId=new Map(rows.map(x=>[x.exam?.id,x]));$('#e
 async function loadExams(){renderExams([]);const rows=[];await Promise.all(EXAM_META.map(async meta=>{try{const x=await getJSON(API+'config&exam='+encodeURIComponent(meta.id));rows.push(x)}catch(e){}}));renderExams(rows);if(!rows.length){$('#examList').insertAdjacentHTML('afterend','<div class="error">परीक्षा configuration लोड हुन सकेन। कृपया केही बेरपछि फेरि प्रयास गर्नुहोस्।</div>')}}
 async function chooseExam(id){try{const d=await getJSON(API+'config&exam='+encodeURIComponent(id));if(!d.ready){alert(`यस परीक्षाका लागि ${d.exam.questionCount} प्रश्न चाहिन्छ। अहिले Question Bank मा ${d.availableQuestions} प्रश्न मात्र छन्।`);return}if(!Array.isArray(d.questions)||d.questions.length!==d.exam.questionCount){alert('परीक्षाको प्रश्नपत्र पूरा लोड भएन। फेरि प्रयास गर्नुहोस्।');return}selectedExam=d.exam;$('#chooser').hidden=true;$('#candidate').hidden=false;$('#candidateTitle').textContent=selectedExam.title;$('#candidateInfo').innerHTML=`<b>${selectedExam.questionCount} प्रश्न</b> · समय ${selectedExam.durationMinutes} मिनेट · सही +${selectedExam.positiveMark} · गलत −${selectedExam.negativeMark} · उत्तीर्ण ${selectedExam.passPercent}%`;examQuestions=d.questions}catch(e){alert(e.message)}}
 function dataRows(q){
-  const raw=String(q.data||q.figure||'').trim(); if(!raw)return null;
+  const raw=String(q.data||q.figure||'').trim();
+  if(!raw)return null;
   const type=String(q.type||'').toLowerCase();
   const parts=raw.split(/\s*;\s*/).map(x=>x.trim()).filter(Boolean);
   let title='',parsed=[],headers=null;
-  const firstColon=parts[0]?.indexOf(':');
+  const colon=parts[0]?.indexOf(':');
 
   function valuesFrom(body){
     const cleaned=String(body||'').replace(/,/g,' ');
@@ -15,54 +16,39 @@ function dataRows(q){
     if(nums.length===1 && /^\d{6,}$/.test(nums[0]) && nums[0].length%3===0){
       nums=nums[0].match(/\d{3}/g)||nums;
     }
-    return nums.map(v=>v.replace(/%$/,'')+'%'.slice(0, v.endsWith('%')?1:0));
+    return nums.map(v=>v.replace(/%$/,'')+(v.endsWith('%')?'%':''));
   }
 
-  if(firstColon>0 && type==='line-graph'){
-    title=parts[0].slice(0,firstColon).trim();
-    const body=parts[0].slice(firstColon+1).trim();
-    const pairs=[...body.matchAll(/([A-Za-z]+)\s*(\d+(?:\.\d+)?%?)/g)];
-    if(pairs.length>=2){
-      parsed=[
-        ['अवधि',...pairs.map(m=>m[1])],
-        [title.replace(/\s*\([^)]*\)/,'').trim()||'मान',...pairs.map(m=>m[2])]
-      ];
-      headers=parsed[0];
-    }
-  } else if(firstColon>0 && type==='bar-chart'){
-    title=parts[0].slice(0,firstColon).trim();
-    const rows=parts[0].slice(firstColon+1).trim().split(/\s*;\s*/).filter(Boolean);
-    rows.forEach(part=>{
-      const m=part.match(/^([^\s]+)\s+(.+)$/); if(!m)return;
-      const nums=valuesFrom(m[2]);
-      if(nums.length) parsed.push([m[1],...nums]);
-    });
-  }    if(firstColon>0){
-    title=parts[0].slice(0,firstColon).trim();
-    const firstBody=parts[0].slice(firstColon+1).trim();
-    const rows=[firstBody,...parts.slice(1)];
-    rows.forEach(part=>{
-      const m=part.match(/^([^\s]+)\s+(.+)$/); if(!m)return;
-      const label=m[1],body=m[2].trim();
-      const nums=valuesFrom(body);
-      if(nums.length) parsed.push([label,...nums]);
-    });
+  if(colon>0){
+    title=parts[0].slice(0,colon).trim();
+    const firstBody=parts[0].slice(colon+1).trim();
 
-    // For month/period tables, recover column labels from the first row.
-    const firstRow=rows[0]||'';
-    const firstLabelMatch=firstRow.match(/^([^\s]+)\s+(.+)$/);
-    if(firstLabelMatch){
-      const body=firstLabelMatch[2];
-      const colMatches=[...body.matchAll(/(?:^|\s)([A-Za-z]+)(?=\d)/g)].map(m=>m[1]);
-      if(colMatches.length && colMatches.length===Math.max(...parsed.map(r=>r.length-1),0)){
-        headers=['विवरण',...colMatches];
+    if(type==='line-graph'){
+      const pairs=[...firstBody.matchAll(/([A-Za-z]+)\s*(\d+(?:\.\d+)?%?)/g)];
+      if(pairs.length>=2){
+        const labels=pairs.map(m=>m[1]);
+        const vals=pairs.map(m=>m[2]);
+        parsed=[
+          ['अवधि',...labels],
+          [title.replace(/\s*\([^)]*\)/,'').trim()||'मान',...vals]
+        ];
+        headers=parsed[0];
       }
+    }else{
+      const rows=[firstBody,...parts.slice(1)];
+      rows.forEach(part=>{
+        const m=part.match(/^([^\s]+)\s+(.+)$/);
+        if(!m)return;
+        const nums=valuesFrom(m[2]);
+        if(nums.length)parsed.push([m[1],...nums]);
+      });
     }
   }else{
     parts.forEach(part=>{
-      const m=part.match(/^([^\s]+)\s+(.+)$/); if(!m)return;
+      const m=part.match(/^([^\s]+)\s+(.+)$/);
+      if(!m)return;
       const nums=valuesFrom(m[2]);
-      if(nums.length) parsed.push([m[1],...nums]);
+      if(nums.length)parsed.push([m[1],...nums]);
     });
   }
 
@@ -73,7 +59,7 @@ function dataRows(q){
     else if(/→/.test(raw) && max>=3) headers=['विवरण','पहिलो वर्ष','दोस्रो वर्ष'];
     else headers=['विवरण',...Array.from({length:max-1},(_,i)=>'मान '+(i+1))];
   }
-  if(headers.length!==max) headers=['विवरण',...Array.from({length:max-1},(_,i)=>'मान '+(i+1))];
+  if(headers.length!==max)headers=['विवरण',...Array.from({length:max-1},(_,i)=>'मान '+(i+1))];
   return {title,type,parsed,headers};
 }
 function chartBox(title,body,showTitle=true){
@@ -175,10 +161,12 @@ function repairQuestionImages(){
   });
 }
 function resolvedQuestionImage(q){
+  const direct=String(q?.image||q?.imageUrl||q?.image_url||'').trim();
+  if(direct)return direct;
   const id=String(q?.id||'').trim();
   if(isPictorialQuestion(q)&&/^bo-2\.2-\d{3}$/.test(id))
-    return 'https://raw.githubusercontent.com/narayanbhandari58/narayanbhandari/main/image/exam/branch-officer-2.2/'+id+'.png?v=3';
-  return String(q?.image||q?.imageUrl||q?.image_url||'').trim();
+    return '/.netlify/functions/exam-image?id='+encodeURIComponent(id)+'&v=4';
+  return '';
 }
 function renderQuestion(){const q=examQuestions[current];const showTitle=showStimulusTitleForIndex(current);$('#progress').textContent=`${current+1}/${examQuestions.length}`;$('#questionCard').innerHTML=`<div class="qmeta">${esc(q.subject||'')} ${q.topic?`· ${esc(q.topic)}`:''} ${q.type==='iq'?'<span>IQ</span>':''}</div>${stimulusHTML(q,showTitle)}${resolvedQuestionImage(q)?`<figure class="question-image-wrap"><img class="question-image" data-image-id="${esc(q.id||'')}" src="${esc(resolvedQuestionImage(q))}" alt="${esc(q.imageAlt||q.topic||'प्रश्नचित्र')}" loading="eager" style="display:block;max-width:100%;width:auto;height:auto;max-height:380px;object-fit:contain;margin:0 auto"><figcaption>${esc(q.imageAlt||q.topic||'प्रश्नचित्र')}</figcaption></figure>`:''}<h2>${esc(q.q)}</h2><div class="options">${q.options.map((o,i)=>`<button class="option ${answers[q.id]===i?'selected':''}" data-i="${i}">${String.fromCharCode(65+i)}. ${esc(o)}</button>`).join('')}</div><div class="nav-actions"><button class="btn btn-outline" id="prev" ${current===0?'disabled':''}>← अघिल्लो</button><button class="btn btn-primary" id="next">${current===examQuestions.length-1?'अन्तिम':'अर्को'} →</button></div>`;repairQuestionImages();if(isPictorialQuestion(q)){document.querySelectorAll('#questionCard .options .option').forEach((btn,index)=>{const letter=String.fromCharCode(65+index);btn.setAttribute('aria-label',letter);btn.innerHTML=`<span class="pictorial-option-letter-only">${letter}</span>`;btn.style.display='flex';btn.style.alignItems='center';btn.style.justifyContent='flex-start';btn.style.gap='12px';btn.style.minHeight='58px';btn.style.padding='14px 18px';btn.style.fontSize='1.05rem';btn.style.fontWeight='800'})};document.querySelectorAll('.option').forEach(b=>b.onclick=()=>{answers[q.id]=Number(b.dataset.i);renderQuestion()});$('#prev').onclick=()=>{if(current>0){current--;renderQuestion()}};$('#next').onclick=()=>{if(current<examQuestions.length-1){current++;renderQuestion()}else submitExam(false)}}
 async function submitExam(auto){if(!auto&&!confirm('परीक्षा बुझाएपछि उत्तर परिवर्तन गर्न मिल्दैन। बुझाउने?'))return;clearInterval(timerId);$('#exam').hidden=true;$('#timer').hidden=true;const payload={examId:selectedExam.id,name:$('#candidateName').value.trim(),email:$('#candidateEmail').value.trim(),whatsapp:$('#candidateWhatsapp').value.trim(),questionIds:examQuestions.map(q=>q.id),answers};try{const d=await getJSON(API+'submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});finalResult=d.result;renderResult(auto)}catch(e){alert(e.message);$('#exam').hidden=false}}
