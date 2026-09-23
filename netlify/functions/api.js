@@ -542,6 +542,7 @@ async function getAnalyticsReport() {
   let pages = { rows: [] };
   let topPagesDimension = "";
   let topPagesError = "";
+  const topPagesErrors = [];
   const pageQueries = [
     {
       dimensions: [{ name: "unifiedPagePathScreen" }],
@@ -582,19 +583,30 @@ async function getAnalyticsReport() {
 
   for (const query of pageQueries) {
     try {
+      // Keep this query deliberately simple and sort in JavaScript.
+      // Google’s own Pages & screens example uses only the page-path
+      // dimension + screenPageViews metric for this report.
       const result = await run({
         ...query,
-        orderBys: [{ metric: { metricName: "screenPageViews", desc: true } }],
-        limit: 6
+        limit: 50
       });
       if (Array.isArray(result.rows) && result.rows.length) {
-        pages = result;
+        const rows = [...result.rows].sort((a, b) =>
+          Number(b.metricValues?.[0]?.value || 0) -
+          Number(a.metricValues?.[0]?.value || 0)
+        );
+        pages = { ...result, rows: rows.slice(0, 6) };
         topPagesDimension = query.dimensions[0].name;
         break;
       }
     } catch (e) {
-      topPagesError = e.message || "Most Visited query failed";
-      console.error("GA4 TOP PAGES ERROR:", e);
+      const message = e.message || "Most Visited query failed";
+      topPagesError = message;
+      topPagesErrors.push({
+        dimension: query.dimensions[0].name,
+        error: message
+      });
+      console.error("GA4 TOP PAGES ERROR:", query.dimensions[0].name, e);
     }
   }
 
@@ -602,7 +614,8 @@ async function getAnalyticsReport() {
     rows: daily.rows || [],
     topPages: pages.rows || [],
     topPagesDimension,
-    topPagesError
+    topPagesError,
+    topPagesErrors
   };
 }
 
