@@ -46,16 +46,38 @@ async function readData() {
   }));
   for (const seed of seedResults.flat()) {
     const id = String(seed?.id || '');
-    if (id && !existing.has(id)) {
+    if (!id) continue;
+    if (!existing.has(id)) {
       data.questions.push(seed);
       existing.add(id);
+      continue;
+    }
+
+    // The maintained seed is also the source of truth for missing visual
+    // metadata. CMS/exam-data content still wins when a field is already set.
+    const current = data.questions.find(q => String(q?.id || '') === id);
+    if (!current) continue;
+    for (const key of ['image', 'imageUrl', 'image_url', 'imageAlt', 'image_alt', 'figure']) {
+      if ((current[key] == null || String(current[key]).trim() === '') && seed[key] != null && String(seed[key]).trim() !== '') {
+        current[key] = seed[key];
+      }
     }
   }
   return { sha: null, data };
 }
 async function writeData(data, sha) { return gh('exam-data.json', { method: 'PUT', body: JSON.stringify({ message: 'Update Loksewa exam question bank', content: Buffer.from(JSON.stringify(data, null, 2)).toString('base64'), branch: BRANCH, sha }) }) }
 function groupIdOf(q) { if (q?.groupId) return String(q.groupId); const raw = String(q?.passage || q?.data || q?.figure || '').trim(); if (!raw) return ''; const basis = `${q?.unit || ''}|${q?.type || ''}|${raw}`; return `g-${crypto.createHash('sha1').update(basis).digest('hex').slice(0, 10)}` }
-function questionImage(q) { const raw = q?.image || q?.imageUrl || q?.image_url || ''; if (raw) return raw; if (q?.type === 'pictorial' && /^bo-2\.2-\d{3}$/.test(String(q.id || ''))) return `/.netlify/functions/exam-image?id=${encodeURIComponent(q.id)}`; return ''; }
+function questionImage(q) {
+  const raw = q?.image || q?.imageUrl || q?.image_url || '';
+  if (raw) return raw;
+  const id = String(q?.id || '').trim();
+  if (q?.type === 'pictorial' && /^bo-2\.2-\d{3}$/.test(id)) {
+    // Static raw asset is the first fallback; the image function remains available
+    // for deployments where repository assets are not directly served.
+    return `https://raw.githubusercontent.com/${REPO}/${BRANCH}/image/exam/branch-officer-2.2/${id}.png?v=5`;
+  }
+  return '';
+}
 function repairedQuestion(q) {
   const x = { ...q };
   const text = String(x.q || x.question || '').trim().toLowerCase();
