@@ -27,7 +27,7 @@
   function render(){
     const node=document.querySelector('[data-nepali-date]'); if(!node)return;
     const d=new Date(); const bs=daysToBs(new Date(d.getFullYear(),d.getMonth(),d.getDate()));
-    node.textContent='📅 '+DAYS[d.getDay()]+', '+np(bs.date)+' '+MONTHS[bs.month-1]+' '+np(bs.year);
+    node.textContent=DAYS[d.getDay()]+', '+np(bs.date)+' '+MONTHS[bs.month-1]+' '+np(bs.year);
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',render);else render();
 })();
