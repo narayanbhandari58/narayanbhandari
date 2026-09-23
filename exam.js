@@ -8,44 +8,53 @@ function dataRows(q){
   const parts=raw.split(/\s*;\s*/).map(x=>x.trim()).filter(Boolean);
   let title='',parsed=[],headers=null;
   const firstColon=parts[0]?.indexOf(':');
+
+  function valuesFrom(body){
+    const cleaned=String(body||'').replace(/,/g,' ');
+    let nums=cleaned.match(/\d+(?:\.\d+)?%?/g)||[];
+    if(nums.length===1 && /^\d{6,}$/.test(nums[0]) && nums[0].length%3===0){
+      nums=nums[0].match(/\d{3}/g)||nums;
+    }
+    return nums.map(v=>v.replace(/%$/,'')+'%'.slice(0, v.endsWith('%')?1:0));
+  }
+
   if(firstColon>0){
     title=parts[0].slice(0,firstColon).trim();
     const firstBody=parts[0].slice(firstColon+1).trim();
     const rows=[firstBody,...parts.slice(1)];
     rows.forEach(part=>{
-      const m=part.match(/^([^\s]+)\s+(.+)$/);
-      if(!m)return;
+      const m=part.match(/^([^\s]+)\s+(.+)$/); if(!m)return;
       const label=m[1],body=m[2].trim();
-      let nums=body.match(/\d+(?:,\d+)*(?:\.\d+)?%?/g)||[];
-      // Some seed rows arrive without spaces, e.g. "150135162180".
-      // For integer-only strings whose length is a multiple of 3, split into
-      // the intended 3-digit table values instead of creating one huge cell.
-      if(nums.length===1 && /^\d{6,}$/.test(nums[0]) && nums[0].length%3===0){
-        nums=nums[0].match(/\d{3}/g)||nums;
-      }
-      if(nums.length>=2){
-        parsed.push([label,...nums.map(v=>v.replace(/,/g,''))]);
-      }else if(nums.length===1){
-        parsed.push([label,nums[0].replace(/,/g,'')]);
-      }else{
-        const vals=body.split(/\s*[,|→/]\s*/).filter(Boolean);
-        if(vals.length)parsed.push([label,...vals]);
-      }
+      const nums=valuesFrom(body);
+      if(nums.length) parsed.push([label,...nums]);
     });
+
+    // For month/period tables, recover column labels from the first row.
+    const firstRow=rows[0]||'';
+    const firstLabelMatch=firstRow.match(/^([^\s]+)\s+(.+)$/);
+    if(firstLabelMatch){
+      const body=firstLabelMatch[2];
+      const colMatches=[...body.matchAll(/(?:^|\s)([A-Za-z]+)(?=\d)/g)].map(m=>m[1]);
+      if(colMatches.length && colMatches.length===Math.max(...parsed.map(r=>r.length-1),0)){
+        headers=['विवरण',...colMatches];
+      }
+    }
   }else{
     parts.forEach(part=>{
-      const m=part.match(/^([^\s]+)\s+(.+)$/);
-      if(!m)return;
-      const nums=m[2].match(/\d+(?:,\d+)*(?:\.\d+)?%?/g)||[];
-      parsed.push([m[1],...nums.map(v=>v.replace(/,/g,''))]);
+      const m=part.match(/^([^\s]+)\s+(.+)$/); if(!m)return;
+      const nums=valuesFrom(m[2]);
+      if(nums.length) parsed.push([m[1],...nums]);
     });
   }
+
   if(!parsed.length)return null;
   const max=Math.max(...parsed.map(r=>r.length));
-  if(/^Applications$/i.test(title) && max>=3) headers=['विवरण','Applications','Approved'];
-  else if(/→/.test(raw) && max>=3) headers=['विवरण','पहिलो वर्ष','दोस्रो वर्ष'];
-  else if(max>=3) headers=['विवरण',...Array.from({length:max-1},(_,i)=>'मान '+(i+1))];
-  else headers=['विवरण','मान 1'];
+  if(!headers){
+    if(/^Applications$/i.test(title) && max>=3) headers=['विवरण','Applications','Approved'];
+    else if(/→/.test(raw) && max>=3) headers=['विवरण','पहिलो वर्ष','दोस्रो वर्ष'];
+    else headers=['विवरण',...Array.from({length:max-1},(_,i)=>'मान '+(i+1))];
+  }
+  if(headers.length!==max) headers=['विवरण',...Array.from({length:max-1},(_,i)=>'मान '+(i+1))];
   return {title,type,parsed,headers};
 }
 function chartBox(title,body,showTitle=true){
