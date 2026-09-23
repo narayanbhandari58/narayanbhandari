@@ -19,6 +19,21 @@ function dataRows(q){
     return nums.map(v=>v.replace(/%$/,'')+(v.endsWith('%')?'%':''));
   }
 
+  function parseRow(part){
+    const text=String(part||'').trim();
+    if(!text)return null;
+    let m=text.match(/^([^\s]+)\s+(.+)$/);
+    if(!m){
+      // Handle compact labels such as Science240, Portfolio20@12%, Medicine1200×Rs1500.
+      // Keep the leading alphabetic label separate from the first numeric value.
+      m=text.match(/^([A-Za-z][A-Za-z-]*?)(?=\d)(.+)$/);
+    }
+    if(!m)return null;
+    const label=m[1].trim();
+    const nums=valuesFrom(m[2]);
+    return nums.length?[label,...nums]:null;
+  }
+
   if(colon>0){
     title=parts[0].slice(0,colon).trim();
     const firstBody=parts[0].slice(colon+1).trim();
@@ -36,26 +51,17 @@ function dataRows(q){
       }
     }else{
       const rows=[firstBody,...parts.slice(1)];
-      rows.forEach(part=>{
-        const m=part.match(/^([^\s]+)\s+(.+)$/);
-        if(!m)return;
-        const nums=valuesFrom(m[2]);
-        if(nums.length)parsed.push([m[1],...nums]);
-      });
+      rows.forEach(part=>{const row=parseRow(part);if(row)parsed.push(row);});
     }
   }else{
-    parts.forEach(part=>{
-      const m=part.match(/^([^\s]+)\s+(.+)$/);
-      if(!m)return;
-      const nums=valuesFrom(m[2]);
-      if(nums.length)parsed.push([m[1],...nums]);
-    });
+    parts.forEach(part=>{const row=parseRow(part);if(row)parsed.push(row);});
   }
 
   if(!parsed.length)return null;
   const max=Math.max(...parsed.map(r=>r.length));
   if(!headers){
     if(/^Applications$/i.test(title) && max>=3) headers=['विवरण','Applications','Approved'];
+    else if(/^Students$/i.test(title) && max>=3) headers=['विवरण','विद्यार्थी संख्या','प्रतिशत'];
     else if(/→/.test(raw) && max>=3) headers=['विवरण','पहिलो वर्ष','दोस्रो वर्ष'];
     else headers=['विवरण',...Array.from({length:max-1},(_,i)=>'मान '+(i+1))];
   }
