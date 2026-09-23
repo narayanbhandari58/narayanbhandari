@@ -1,5 +1,6 @@
 const crypto = require("crypto");
 const { verifyPassword } = require("./auth-store");
+const { allow, cleanup } = require("./security-rate-limit");
 
 const USER = process.env.ADMIN_USERNAME || "Narayan";
 const PASS = process.env.ADMIN_PASSWORD;
@@ -27,13 +28,18 @@ function json(statusCode, body) {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Headers": "Content-Type",
-      "Access-Control-Allow-Methods": "POST, OPTIONS"
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Cache-Control": "no-store",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
     },
     body: JSON.stringify(body)
   };
 }
 
 exports.handler = async event => {
+  cleanup();
+  if (!allow(event, "admin-login", 5, 10 * 60_000)) return json(429, { error: "धेरै login प्रयास भयो। केही बेरपछि फेरि प्रयास गर्नुहोस्।" });
   if (event.httpMethod === "OPTIONS") return json(204, {});
   if (event.httpMethod !== "POST") return json(405, { error: "Method not allowed" });
 
