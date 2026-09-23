@@ -16,7 +16,13 @@ function dataRows(q){
       const m=part.match(/^([^\s]+)\s+(.+)$/);
       if(!m)return;
       const label=m[1],body=m[2].trim();
-      const nums=body.match(/\d+(?:,\d+)*(?:\.\d+)?%?/g)||[];
+      let nums=body.match(/\d+(?:,\d+)*(?:\.\d+)?%?/g)||[];
+      // Some seed rows arrive without spaces, e.g. "150135162180".
+      // For integer-only strings whose length is a multiple of 3, split into
+      // the intended 3-digit table values instead of creating one huge cell.
+      if(nums.length===1 && /^\d{6,}$/.test(nums[0]) && nums[0].length%3===0){
+        nums=nums[0].match(/\d{3}/g)||nums;
+      }
       if(nums.length>=2){
         parsed.push([label,...nums.map(v=>v.replace(/,/g,''))]);
       }else if(nums.length===1){
