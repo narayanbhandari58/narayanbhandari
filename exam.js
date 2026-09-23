@@ -159,17 +159,25 @@ function repairQuestionImages(){
     img.dataset.fallbackBound='1';
     img.addEventListener('error',()=>{
       const id=img.dataset.imageId||'';
-      if(!id||!/^(?:bo-2\.2-\d{3})$/.test(id)){img.style.display='none';return}
+      const src=String(img.getAttribute('src')||'');
       const stage=Number(img.dataset.imageStage||'0');
-      if(stage===0){
+
+      // Any repository image path can fall back to the raw GitHub asset.
+      // This covers uploaded JPG/PNG/SVG as well as maintained pictorial assets.
+      if(stage===0 && /^\/image\//.test(src)){
         img.dataset.imageStage='1';
-        img.src='https://raw.githubusercontent.com/narayanbhandari58/narayanbhandari/main/image/exam/branch-officer-2.2/'+id+'.png?v=2';
-      }else if(stage===1){
-        img.dataset.imageStage='2';
-        img.src='/.netlify/functions/exam-image?id='+encodeURIComponent(id)+'&v=2';
-      }else{
-        img.style.display='none';
+        img.src='https://raw.githubusercontent.com/narayanbhandari58/narayanbhandari/main'+src+'?v=5';
+        return;
       }
+
+      if(id && /^(?:bo-2\.2-\d{3})$/.test(id)){
+        if(stage<=1){
+          img.dataset.imageStage='2';
+          img.src='/.netlify/functions/exam-image?id='+encodeURIComponent(id)+'&v=5';
+          return;
+        }
+      }
+      img.style.display='none';
     });
   });
 }
