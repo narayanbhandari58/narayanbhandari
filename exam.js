@@ -20,19 +20,25 @@ function repairQuestionImages(){
     if(img.dataset.fallbackBound)return;
     img.dataset.fallbackBound='1';
     img.addEventListener('error',()=>{
-      if(img.dataset.fallbackTried){img.style.display='none';return;}
       const id=img.dataset.imageId||'';
-      if(id&&/^bo-2\\.2-\\d{3}$/.test(id)){
-        img.dataset.fallbackTried='1';
-        img.src='/.netlify/functions/exam-image?id='+encodeURIComponent(id);
-      }else img.style.display='none';
+      if(!id||!/^(?:bo-2\\.2-\\d{3})$/.test(id)){img.style.display='none';return}
+      const stage=Number(img.dataset.imageStage||'0');
+      if(stage===0){
+        img.dataset.imageStage='1';
+        img.src='https://raw.githubusercontent.com/narayanbhandari58/narayanbhandari/main/image/exam/branch-officer-2.2/'+id+'.png?v=2';
+      }else if(stage===1){
+        img.dataset.imageStage='2';
+        img.src='/.netlify/functions/exam-image?id='+encodeURIComponent(id)+'&v=2';
+      }else{
+        img.style.display='none';
+      }
     });
   });
 }
 function resolvedQuestionImage(q){
   const id=String(q?.id||'').trim();
   if(q?.type==='pictorial'&&/^bo-2\\.2-\\d{3}$/.test(id))
-    return 'https://raw.githubusercontent.com/narayanbhandari58/narayanbhandari/main/image/exam/branch-officer-2.2/'+id+'.png';
+    return 'image/exam/branch-officer-2.2/'+id+'.png?v=2';
   return String(q?.image||q?.imageUrl||q?.image_url||'').trim();
 }
 function renderQuestion(){const q=examQuestions[current];const showTitle=showStimulusTitleForIndex(current);$('#progress').textContent=`${current+1}/${examQuestions.length}`;$('#questionCard').innerHTML=`<div class="qmeta">${esc(q.subject||'')} ${q.topic?`· ${esc(q.topic)}`:''} ${q.type==='iq'?'<span>IQ</span>':''}</div>${stimulusHTML(q,showTitle)}${resolvedQuestionImage(q)?`<figure class="question-image-wrap"><img class="question-image" data-image-id="${esc(q.id||'')}" src="${esc(resolvedQuestionImage(q))}" alt="${esc(q.imageAlt||q.topic||'प्रश्नचित्र')}" loading="eager" style="display:block;max-width:100%;width:auto;height:auto;max-height:380px;object-fit:contain;margin:0 auto"><figcaption>${esc(q.imageAlt||q.topic||'प्रश्नचित्र')}</figcaption></figure>`:''}<h2>${esc(q.q)}</h2><div class="options">${q.options.map((o,i)=>`<button class="option ${answers[q.id]===i?'selected':''}" data-i="${i}">${String.fromCharCode(65+i)}. ${esc(o)}</button>`).join('')}</div><div class="nav-actions"><button class="btn btn-outline" id="prev" ${current===0?'disabled':''}>← अघिल्लो</button><button class="btn btn-primary" id="next">${current===examQuestions.length-1?'अन्तिम':'अर्को'} →</button></div>`;repairQuestionImages();if(q.image){document.querySelectorAll('#questionCard .options .option').forEach((btn,index)=>{const letter=String.fromCharCode(65+index);btn.setAttribute('aria-label',letter);btn.innerHTML=`<span class="pictorial-option-letter-only">${letter}</span>`;btn.style.display='flex';btn.style.alignItems='center';btn.style.justifyContent='flex-start';btn.style.gap='12px';btn.style.minHeight='58px';btn.style.padding='14px 18px';btn.style.fontSize='1.05rem';btn.style.fontWeight='800'})};document.querySelectorAll('.option').forEach(b=>b.onclick=()=>{answers[q.id]=Number(b.dataset.i);renderQuestion()});$('#prev').onclick=()=>{if(current>0){current--;renderQuestion()}};$('#next').onclick=()=>{if(current<examQuestions.length-1){current++;renderQuestion()}else submitExam(false)}}
