@@ -102,9 +102,31 @@ function chooseLevelCounts(units, targetL1) {
   }
   return dp.get(Number(targetL1)) || null;
 }
+function validateSelectedPaper(exam, paper) {
+  const expectedTotal = Number(exam.questionCount || 0);
+  if (!Array.isArray(paper) || paper.length !== expectedTotal || new Set(paper.map(q => q.id)).size !== paper.length) return false;
+  const plan = unitPlan(exam);
+  if (!plan.length) return true;
+  for (const u of plan) {
+    const n = paper.filter(q => q.section === u.sectionId && unitMatches(q, u.id)).length;
+    if (n !== Number(u.questionCount || 0)) return false;
+  }
+  for (const section of (exam.blueprint?.sections || [])) {
+    const d = section.levelDistribution;
+    if (!d) continue;
+    const sb = paper.filter(q => q.section === section.id);
+    const l1 = sb.filter(q => levelOf(q) === 'level1').length;
+    const l2 = sb.filter(q => levelOf(q) === 'level2').length;
+    if (l1 !== Number(d.level1 || 0) || l2 !== Number(d.level2 || 0)) return false;
+  }
+  return true;
+}
 function selectPaper(exam, bank) {
   const usableBank = bank.filter(hasRequiredPictorialImage), plan = unitPlan(exam);
-  if (!plan.length) return orderByStimulus(shuffle(usableBank).slice(0, Number(exam.questionCount || 0)));
+  if (!plan.length) {
+    const paper = orderByStimulus(shuffle(usableBank).slice(0, Number(exam.questionCount || 0)));
+    return validateSelectedPaper(exam, paper) ? paper : null;
+  }
   const selected = [], used = new Set(), add = q => { if (!q || used.has(q.id)) return false; used.add(q.id); selected.push(q); return true };
   for (const section of (exam.blueprint?.sections || [])) {
     const units = (section.units || []).map(u => {
@@ -127,7 +149,7 @@ function selectPaper(exam, bank) {
       if (chosen.length !== need || chosen.some(q => !add(q))) return null;
     }
   }
-  if (selected.length !== Number(exam.questionCount || 0)) return null;
+  if (!validateSelectedPaper(exam, selected)) return null;
   return orderByStimulus(selected);
 }
 function orderByStimulus(items) { const groups = new Map(), singles = []; for (const q of items) { const key = stimulusKey(q); if (!key) { singles.push(q); continue } if (!groups.has(key)) groups.set(key, []); groups.get(key).push(q) } return shuffle([...groups.values()]).flatMap(g => g).concat(shuffle(singles)) }
