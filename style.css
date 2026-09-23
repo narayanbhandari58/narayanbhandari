@@ -200,7 +200,7 @@ textarea{min-height:135px;resize:vertical;}
   .footer-grid{grid-template-columns:1fr;}
   .navbar{position:sticky;top:0;z-index:3000;}
   .nav-container{position:relative;}
-  .nav-menu{position:fixed !important;top:60px;left:0;right:0;bottom:0;width:100% !important;display:none;flex-direction:column;align-items:stretch;gap:3px;padding:18px 15px 30px;margin:0;background:#fff; border-radius:0; box-shadow:0 18px 45px rgba(0,0,0,.18);z-index:4000;overflow-y:auto;}
+  .nav-menu{position:fixed !important;top:60px;left:0;right:0;bottom:0;width:100% !important;height:calc(100dvh - 60px);min-height:calc(100vh - 60px);display:none;flex-direction:column;align-items:stretch;gap:3px;padding:18px 15px 30px;margin:0;background:#fff !important;border-radius:0;box-shadow:0 18px 45px rgba(0,0,0,.18);z-index:5002;overflow-y:auto;overscroll-behavior:contain;}
   .nav-menu.open{display:flex !important;}
   .nav-menu li{width:100%;border-bottom:1px solid #f0e3e1;}
   .nav-link{width:100%;text-align:left;padding:15px 14px;font-size:1rem;border-radius:10px;}
@@ -254,10 +254,33 @@ textarea{min-height:135px;resize:vertical;}
   .modal-content{font-size:1rem;}
   .exam-nav-link{font-size:.67rem;padding:5px 7px;margin-right:5px;}
 }
-/* Mobile navigation overlay: keep the open menu above page content */
+/* Mobile navigation overlay: menu fully covers page content */
 @media(max-width:900px){
   body.menu-open{overflow:hidden;}
   .navbar{z-index:5000;}
   .hamburger span{display:block !important;visibility:visible !important;background:#8f0e04 !important;}
   .hamburger[aria-expanded="true"] span{background:#fff !important;}
+}
+
+
+@media(max-width:900px){
+  body.menu-open::before{
+    content:"";
+    position:fixed;
+    z-index:5001;
+    left:0;
+    right:0;
+    top:60px;
+    bottom:0;
+    width:100%;
+    height:calc(100dvh - 60px);
+    background:#fff;
+    pointer-events:auto;
+  }
+  .nav-menu.open{z-index:5002 !important;}
+}
+
+@media(max-width:900px){
+  .mobile-menu-backdrop{display:none;position:fixed;left:0;right:0;top:60px;bottom:0;width:100%;height:calc(100dvh - 60px);background:#fff;z-index:5001;}
+  .mobile-menu-backdrop.show{display:block;}
 }
