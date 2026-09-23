@@ -18,7 +18,26 @@ function dataRows(q){
     return nums.map(v=>v.replace(/%$/,'')+'%'.slice(0, v.endsWith('%')?1:0));
   }
 
-  if(firstColon>0){
+  if(firstColon>0 && type==='line-graph'){
+    title=parts[0].slice(0,firstColon).trim();
+    const body=parts[0].slice(firstColon+1).trim();
+    const pairs=[...body.matchAll(/([A-Za-z]+)\s*(\d+(?:\.\d+)?%?)/g)];
+    if(pairs.length>=2){
+      parsed=[
+        ['अवधि',...pairs.map(m=>m[1])],
+        [title.replace(/\s*\([^)]*\)/,'').trim()||'मान',...pairs.map(m=>m[2])]
+      ];
+      headers=parsed[0];
+    }
+  } else if(firstColon>0 && type==='bar-chart'){
+    title=parts[0].slice(0,firstColon).trim();
+    const rows=parts[0].slice(firstColon+1).trim().split(/\s*;\s*/).filter(Boolean);
+    rows.forEach(part=>{
+      const m=part.match(/^([^\s]+)\s+(.+)$/); if(!m)return;
+      const nums=valuesFrom(m[2]);
+      if(nums.length) parsed.push([m[1],...nums]);
+    });
+  }    if(firstColon>0){
     title=parts[0].slice(0,firstColon).trim();
     const firstBody=parts[0].slice(firstColon+1).trim();
     const rows=[firstBody,...parts.slice(1)];
