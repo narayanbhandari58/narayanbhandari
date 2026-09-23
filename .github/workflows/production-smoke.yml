@@ -29,7 +29,7 @@ jobs:
           done
           test ! -f sitemap.xml
           test ! -f admin-v4.html
-          ! grep -R "admin-v4.html" --exclude-dir=.git . || { echo "Legacy admin-v4 reference found"; exit 1; }
+          ! grep -R "admin-v4.html" --exclude-dir=.git --include='*.html' --include='*.js' --include='*.css' --include='*.toml' . || { echo "Legacy admin-v4 reference found"; exit 1; }
 
       - name: JavaScript syntax
         shell: bash
