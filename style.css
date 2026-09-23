@@ -267,7 +267,7 @@ textarea{min-height:135px;resize:vertical;}
   body.menu-open::before{
     content:"";
     position:fixed;
-    z-index:5001;
+    z-index:4999;
     left:0;
     right:0;
     top:60px;
@@ -281,6 +281,6 @@ textarea{min-height:135px;resize:vertical;}
 }
 
 @media(max-width:900px){
-  .mobile-menu-backdrop{display:none;position:fixed;left:0;right:0;top:60px;bottom:0;width:100%;height:calc(100dvh - 60px);background:#fff;z-index:5001;}
+  .mobile-menu-backdrop{display:none;position:fixed;left:0;right:0;top:60px;bottom:0;width:100%;height:calc(100dvh - 60px);background:#fff;z-index:4999;}
   .mobile-menu-backdrop.show{display:block;}
 }
