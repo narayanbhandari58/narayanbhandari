@@ -496,123 +496,53 @@ async function getGoogleAccessToken() {
 ========================================= */
 
 async function getAnalyticsReport() {
+  if (!GA_PROPERTY_ID) throw Error("GA_PROPERTY_ID is not configured");
 
-  if (!GA_PROPERTY_ID) {
+  const accessToken = await getGoogleAccessToken();
+  const url = `https://analyticsdata.googleapis.com/v1beta/properties/${GA_PROPERTY_ID}:runReport`;
+  const common = {
+    dateRanges: [{ startDate: "30daysAgo", endDate: "today" }]
+  };
 
-    throw Error(
-      "GA_PROPERTY_ID is not configured"
-    );
-
+  async function run(body) {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${accessToken}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ ...common, ...body })
+    });
+    const data = await response.json();
+    if (!response.ok) throw Error(data.error?.message || "Google Analytics API request failed");
+    return data;
   }
 
+  const daily = await run({
+    dimensions: [{ name: "date" }],
+    metrics: [
+      { name: "activeUsers" },
+      { name: "screenPageViews" },
+      { name: "sessions" }
+    ],
+    orderBys: [{ dimension: { dimensionName: "date" } }]
+  });
 
-  const accessToken =
-    await getGoogleAccessToken();
+  const pages = await run({
+    dimensions: [{ name: "pageTitle" }, { name: "pagePath" }],
+    metrics: [
+      { name: "screenPageViews" },
+      { name: "activeUsers" }
+    ],
+    orderBys: [{ metric: { metricName: "screenPageViews", desc: true } }],
+    limit: 6
+  });
 
-
-  const url =
-    `https://analyticsdata.googleapis.com/v1beta/properties/${GA_PROPERTY_ID}:runReport`;
-
-
-  const response =
-    await fetch(
-      url,
-      {
-        method: "POST",
-
-        headers: {
-
-          "Authorization":
-            `Bearer ${accessToken}`,
-
-          "Content-Type":
-            "application/json"
-
-        },
-
-        body:
-          JSON.stringify({
-
-            dateRanges: [
-
-              {
-                startDate:
-                  "30daysAgo",
-
-                endDate:
-                  "today"
-              }
-
-            ],
-
-            dimensions: [
-
-              {
-                name:
-                  "date"
-              }
-
-            ],
-
-            metrics: [
-
-              {
-                name:
-                  "activeUsers"
-              },
-
-              {
-                name:
-                  "screenPageViews"
-              },
-
-              {
-                name:
-                  "sessions"
-              }
-
-            ],
-
-            orderBys: [
-
-              {
-                dimension: {
-
-                  dimensionName:
-                    "date"
-
-                }
-
-              }
-
-            ]
-
-          })
-
-      }
-    );
-
-
-  const data =
-    await response.json();
-
-
-  if (
-    !response.ok
-  ) {
-
-    throw Error(
-      data.error?.message ||
-      "Google Analytics API request failed"
-    );
-
-  }
-
-
-  return data;
-
+  return {
+    rows: daily.rows || [],
+    topPages: pages.rows || []
+  };
 }
-
 
 /* =========================================
    MAIN HANDLER
