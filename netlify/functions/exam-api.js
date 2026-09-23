@@ -23,7 +23,33 @@ function verify(t) {
 }
 function isAdmin(e) { return verify((e.headers?.authorization || '').replace(/^Bearer\s+/i, '')) }
 async function gh(path, opt = {}) { if (!TOKEN) throw Error('GITHUB_TOKEN is not configured'); const r = await fetch(`${GH}/repos/${REPO}/contents/${path}`, { ...opt, headers: { Authorization: `Bearer ${TOKEN}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json', ...(opt.headers || {}) } }); const d = await r.json(); if (!r.ok) throw Error(d.message || 'GitHub request failed'); return d }
-async function readData() { const [rawRes, meta] = await Promise.all([fetch(RAW, { cache: 'no-store' }), gh('exam-data.json')]); if (!rawRes.ok) throw Error(`Question bank load failed (${rawRes.status})`); return { sha: meta.sha, data: await rawRes.json() } }
+async function readData() {
+  const [rawRes, meta] = await Promise.all([fetch(RAW, { cache: 'no-store' }), gh('exam-data.json')]);
+  if (!rawRes.ok) throw Error(`Question bank load failed (${rawRes.status})`);
+  const data = await rawRes.json();
+
+  // Keep the maintained visual/data question pools available to the live exam.
+  // If an ID already exists in exam-data.json, the CMS version wins.
+  const seedPaths = [
+    'exam-question-seed/branch-officer-2.2-nonverbal-pictorial.json',
+    'exam-question-seed/branch-officer-2.5-data-interpretation.json'
+  ];
+  const existing = new Set((data.questions || []).map(q => String(q.id || '')));
+  const seedResults = await Promise.all(seedPaths.map(async path => {
+    try {
+      const r = await fetch(`https://raw.githubusercontent.com/${REPO}/${BRANCH}/${path}`, { cache: 'no-store' });
+      return r.ok ? await r.json() : [];
+    } catch (_) { return []; }
+  }));
+  for (const seed of seedResults.flat()) {
+    const id = String(seed?.id || '');
+    if (id && !existing.has(id)) {
+      data.questions.push(seed);
+      existing.add(id);
+    }
+  }
+  return { sha: meta.sha, data };
+}
 async function writeData(data, sha) { return gh('exam-data.json', { method: 'PUT', body: JSON.stringify({ message: 'Update Loksewa exam question bank', content: Buffer.from(JSON.stringify(data, null, 2)).toString('base64'), branch: BRANCH, sha }) }) }
 function groupIdOf(q) { if (q?.groupId) return String(q.groupId); const raw = String(q?.passage || q?.data || q?.figure || '').trim(); if (!raw) return ''; const basis = `${q?.unit || ''}|${q?.type || ''}|${raw}`; return `g-${crypto.createHash('sha1').update(basis).digest('hex').slice(0, 10)}` }
 function questionImage(q) { const raw = q?.image || q?.imageUrl || q?.image_url || ''; if (raw) return raw; if (q?.type === 'pictorial' && /^bo-2\.2-\d{3}$/.test(String(q.id || ''))) return `/.netlify/functions/exam-image?id=${encodeURIComponent(q.id)}`; return ''; }
