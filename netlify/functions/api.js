@@ -27,10 +27,12 @@ const SECRET =
   process.env.ADMIN_JWT_SECRET;
 
 const GA_PROPERTY_ID =
-  process.env.GA_PROPERTY_ID;
+  process.env.GA_PROPERTY_ID ||
+  "553012766";
 
 const GA_SERVICE_ACCOUNT_JSON =
-  process.env.GA_SERVICE_ACCOUNT_JSON;
+  process.env.GA_SERVICE_ACCOUNT_JSON ||
+  process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
 
 const GH =
   "https://api.github.com";
@@ -362,19 +364,24 @@ async function getGoogleAccessToken() {
   }
 
 
-  const credentials =
-    JSON.parse(
-      GA_SERVICE_ACCOUNT_JSON
+  let credentials;
+  try {
+    credentials = JSON.parse(GA_SERVICE_ACCOUNT_JSON);
+  } catch {
+    throw Error(
+      "GA_SERVICE_ACCOUNT_JSON invalid छ। Netlify मा पूरा Service Account JSON राखिएको छ कि जाँच गर्नुहोस्।"
     );
+  }
 
 
   if (
     !credentials.client_email ||
-    !credentials.private_key
+    !credentials.private_key ||
+    !credentials.project_id
   ) {
 
     throw Error(
-      "Invalid Google Service Account JSON"
+      "Google Service Account JSON मा client_email, private_key वा project_id छुटेको छ"
     );
 
   }
@@ -435,7 +442,7 @@ async function getGoogleAccessToken() {
 
   const signature =
     signer.sign(
-      credentials.private_key,
+      String(credentials.private_key).replace(/\\n/g, "\n"),
       "base64url"
     );
 
