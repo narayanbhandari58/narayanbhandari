@@ -535,15 +535,22 @@ async function getAnalyticsReport() {
     orderBys: [{ dimension: { dimensionName: "date" } }]
   });
 
-  const pages = await run({
-    dimensions: [{ name: "pageTitle" }, { name: "pagePath" }],
-    metrics: [
-      { name: "screenPageViews" },
-      { name: "activeUsers" }
-    ],
-    orderBys: [{ metric: { metricName: "screenPageViews", desc: true } }],
-    limit: 6
-  });
+  // Most Visited query अतिरिक्त हो। यो query असफल भए पनि
+  // मुख्य Analytics cards का लागि daily report रोक्नु हुँदैन।
+  let pages = { rows: [] };
+  try {
+    pages = await run({
+      dimensions: [{ name: "pageTitle" }, { name: "pagePath" }],
+      metrics: [
+        { name: "screenPageViews" },
+        { name: "activeUsers" }
+      ],
+      orderBys: [{ metric: { metricName: "screenPageViews", desc: true } }],
+      limit: 6
+    });
+  } catch (e) {
+    console.error("GA4 TOP PAGES ERROR:", e);
+  }
 
   return {
     rows: daily.rows || [],
