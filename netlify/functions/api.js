@@ -540,6 +540,7 @@ async function getAnalyticsReport() {
   // and page+query-string dimensions so the dashboard can still identify
   // visited posts/menu items.
   let pages = { rows: [] };
+  let topPagesDimension = "";
   let topPagesError = "";
   const pageQueries = [
     {
@@ -574,6 +575,7 @@ async function getAnalyticsReport() {
       });
       if (Array.isArray(result.rows) && result.rows.length) {
         pages = result;
+        topPagesDimension = query.dimensions[0].name;
         break;
       }
     } catch (e) {
@@ -585,6 +587,7 @@ async function getAnalyticsReport() {
   return {
     rows: daily.rows || [],
     topPages: pages.rows || [],
+    topPagesDimension,
     topPagesError
   };
 }
