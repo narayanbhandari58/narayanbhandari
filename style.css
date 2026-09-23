@@ -41,7 +41,14 @@ button,input,textarea,select{font:inherit;}
 .nav-link:hover{background:#f5f5f5;color:var(--primary);}
 .admin-btn{background:var(--primary);color:#fff!important;}
 .admin-btn:hover{background:var(--primary-dark);}
-.hamburger{display:none;border:0;background:none;font-size:31px;cursor:pointer;color:#222;line-height:1;}
+.hamburger{display:none;position:relative;width:42px;height:42px;padding:0;border:1px solid rgba(143,14,4,.14);border-radius:12px;background:#fff;color:var(--primary);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;box-shadow:0 3px 12px rgba(0,0,0,.07);transition:background .2s ease,border-color .2s ease,box-shadow .2s ease,transform .2s ease;}
+.hamburger:hover{background:#fff8f7;border-color:rgba(143,14,4,.28);box-shadow:0 5px 16px rgba(143,14,4,.12);}
+.hamburger:focus-visible{outline:3px solid rgba(143,14,4,.18);outline-offset:2px;}
+.hamburger span{display:block;width:19px;height:2px;border-radius:999px;background:currentColor;transform-origin:center;transition:transform .22s ease,opacity .18s ease,width .22s ease;}
+.hamburger[aria-expanded="true"]{background:var(--primary);color:#fff;border-color:var(--primary);}
+.hamburger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger[aria-expanded="true"] span:nth-child(2){opacity:0;transform:scaleX(.4);}
+.hamburger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 .hero{position:relative;overflow:hidden;background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.12),transparent 35%),linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:92px 0 100px;text-align:center;}
 .hero:after{content:"";position:absolute;width:300px;height:300px;right:-120px;bottom:-170px;border-radius:50%;border:1px solid rgba(255,255,255,.12);}
 .hero-content{max-width:850px;margin:auto;}
@@ -205,7 +212,7 @@ textarea{min-height:135px;resize:vertical;}
   .nav-container{min-height:60px;}
   .brand{font-size:1.08rem;gap:7px;}
   .brand img{width:40px;height:40px;}
-  .hamburger{font-size:26px;}
+  .hamburger{width:40px;height:40px;border-radius:11px;}
   .exam-nav-link{font-size:.72rem;padding:6px 8px;margin-left:auto;margin-right:8px;white-space:nowrap;}
   .hero{padding:28px 0 32px;}
   .hero h1{font-size:1.72rem;line-height:1.2;margin-bottom:4px;}
