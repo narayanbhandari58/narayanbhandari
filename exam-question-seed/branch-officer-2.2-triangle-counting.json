@@ -1,14 +1,146 @@
 [
   {
-    "id":"bo-2.2-tc-001","examIds":["sakha-adhikrit"],"section":"B","unit":"2.2","subject":"Non-verbal Reasoning","topic":"Triangle Counting","level":"L1","type":"triangle-count","q":"दिइएको पूर्ण त्रिभुजलाई ४ वटा साना त्रिभुजमा विभाजन गरिएको छ। जम्मा कति त्रिभुज छन्?","options":["4","5","6","8"],"correct":1,"solution":"४ वटा साना त्रिभुज र बीचमा बनेको १ उल्टो त्रिभुज गरी जम्मा ५ त्रिभुज छन्।","figure":"triangle-grid-2","imageAlt":"दुई तहको त्रिभुज जालो"},
+    "id": "bo-2.2-tc-001",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "Triangle Counting",
+    "level": "L1",
+    "type": "triangle-count",
+    "q": "दिइएको पूर्ण त्रिभुजलाई ४ वटा साना त्रिभुजमा विभाजन गरिएको छ। जम्मा कति त्रिभुज छन्?",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "8"
+    ],
+    "correct": 1,
+    "solution": "४ वटा साना त्रिभुज र बीचमा बनेको १ उल्टो त्रिभुज गरी जम्मा ५ त्रिभुज छन्।",
+    "figure": "triangle-grid-2",
+    "imageAlt": "दुई तहको त्रिभुज जालो",
+    "image": "/image/exam/branch-officer-2.2/triangle-grid-2.svg"
+  },
   {
-    "id":"bo-2.2-tc-002","examIds":["sakha-adhikrit"],"section":"B","unit":"2.2","subject":"Non-verbal Reasoning","topic":"Triangle Counting","level":"L1","type":"triangle-count","q":"चित्रमा २ तहको त्रिभुज जालो छ। सबै आकार र दिशाका त्रिभुज गन्दा जम्मा कति हुन्छन्?","options":["4","5","6","9"],"correct":1,"solution":"दुई तहको मानक त्रिभुज जालोमा ४ साना र १ ठूलो त्रिभुज गरी जम्मा ५ हुन्छन्।","figure":"triangle-grid-2","imageAlt":"दुई तहको त्रिभुज जालो"},
+    "id": "bo-2.2-tc-002",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "Triangle Counting",
+    "level": "L1",
+    "type": "triangle-count",
+    "q": "चित्रमा २ तहको त्रिभुज जालो छ। सबै आकार र दिशाका त्रिभुज गन्दा जम्मा कति हुन्छन्?",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "9"
+    ],
+    "correct": 1,
+    "solution": "दुई तहको मानक त्रिभुज जालोमा ४ साना र १ ठूलो त्रिभुज गरी जम्मा ५ हुन्छन्।",
+    "figure": "triangle-grid-2",
+    "imageAlt": "दुई तहको त्रिभुज जालो",
+    "image": "/image/exam/branch-officer-2.2/triangle-grid-2.svg"
+  },
   {
-    "id":"bo-2.2-tc-003","examIds":["sakha-adhikrit"],"section":"B","unit":"2.2","subject":"Non-verbal Reasoning","topic":"Triangle Counting","level":"L2","type":"triangle-count","q":"दिइएको ३ तहको समबाहु त्रिभुज जालोमा सबै सम्भावित त्रिभुज गन्दा संख्या कति हुन्छ?","options":["9","12","13","15"],"correct":2,"solution":"३ तहको मानक त्रिभुज जालोमा सबै आकार र दिशाका त्रिभुजको कुल संख्या १३ हुन्छ।","figure":"triangle-grid-3","imageAlt":"तीन तहको त्रिभुज जालो"},
+    "id": "bo-2.2-tc-003",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "Triangle Counting",
+    "level": "L2",
+    "type": "triangle-count",
+    "q": "दिइएको ३ तहको समबाहु त्रिभुज जालोमा सबै सम्भावित त्रिभुज गन्दा संख्या कति हुन्छ?",
+    "options": [
+      "9",
+      "12",
+      "13",
+      "15"
+    ],
+    "correct": 2,
+    "solution": "३ तहको मानक त्रिभुज जालोमा सबै आकार र दिशाका त्रिभुजको कुल संख्या १३ हुन्छ।",
+    "figure": "triangle-grid-3",
+    "imageAlt": "तीन तहको त्रिभुज जालो",
+    "image": "/image/exam/branch-officer-2.2/triangle-grid-3.svg"
+  },
   {
-    "id":"bo-2.2-tc-004","examIds":["sakha-adhikrit"],"section":"B","unit":"2.2","subject":"Non-verbal Reasoning","topic":"Triangle Counting","level":"L2","type":"triangle-count","q":"३ तहको त्रिभुज जालोमा साना त्रिभुज मात्र गन्दा कति हुन्छन्?","options":["6","9","12","13"],"correct":1,"solution":"३ तहको जालोमा सबैभन्दा साना त्रिभुज ९ वटा हुन्छन्।","figure":"triangle-grid-3","imageAlt":"तीन तहको त्रिभुज जालो"},
+    "id": "bo-2.2-tc-004",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "Triangle Counting",
+    "level": "L2",
+    "type": "triangle-count",
+    "q": "३ तहको त्रिभुज जालोमा साना त्रिभुज मात्र गन्दा कति हुन्छन्?",
+    "options": [
+      "6",
+      "9",
+      "12",
+      "13"
+    ],
+    "correct": 1,
+    "solution": "३ तहको जालोमा सबैभन्दा साना त्रिभुज ९ वटा हुन्छन्।",
+    "figure": "triangle-grid-3",
+    "imageAlt": "तीन तहको त्रिभुज जालो",
+    "image": "/image/exam/branch-officer-2.2/triangle-grid-3.svg"
+  },
   {
-    "id":"bo-2.2-tc-005","examIds":["sakha-adhikrit"],"section":"B","unit":"2.2","subject":"Non-verbal Reasoning","topic":"Triangle Counting","level":"L2","type":"triangle-count","q":"दिइएको ४ तहको मानक त्रिभुज जालोमा सबै आकारका त्रिभुज गन्दा जम्मा कति हुन्छन्?","options":["24","27","30","32"],"correct":1,"solution":"४ तहको मानक त्रिभुज जालोमा सबै आकार र दिशाका त्रिभुजको कुल संख्या २७ हुन्छ।","figure":"triangle-grid-4","imageAlt":"चार तहको त्रिभुज जालो"},
+    "id": "bo-2.2-tc-005",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "Triangle Counting",
+    "level": "L2",
+    "type": "triangle-count",
+    "q": "दिइएको ४ तहको मानक त्रिभुज जालोमा सबै आकारका त्रिभुज गन्दा जम्मा कति हुन्छन्?",
+    "options": [
+      "24",
+      "27",
+      "30",
+      "32"
+    ],
+    "correct": 1,
+    "solution": "४ तहको मानक त्रिभुज जालोमा सबै आकार र दिशाका त्रिभुजको कुल संख्या २७ हुन्छ।",
+    "figure": "triangle-grid-4",
+    "imageAlt": "चार तहको त्रिभुज जालो",
+    "image": "/image/exam/branch-officer-2.2/triangle-grid-4.svg"
+  },
   {
-    "id":"bo-2.2-tc-006","examIds":["sakha-adhikrit"],"section":"B","unit":"2.2","subject":"Non-verbal Reasoning","topic":"Triangle Counting","level":"L1","type":"triangle-count","q":"चित्रको बाहिरी त्रिभुजलाई मध्यबिन्दुहरू जोडेर बनाइएको आकृतिमा कुल कति त्रिभुज छन्?","options":["4","5","6","8"],"correct":1,"solution":"चारवटा कुनाका साना त्रिभुज र बीचको उल्टो त्रिभुज गरी कुल ५ त्रिभुज छन्।","figure":"triangle-midpoints","imageAlt":"मध्यबिन्दु जोडिएको त्रिभुज"}
+    "id": "bo-2.2-tc-006",
+    "examIds": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "Non-verbal Reasoning",
+    "topic": "Triangle Counting",
+    "level": "L1",
+    "type": "triangle-count",
+    "q": "चित्रको बाहिरी त्रिभुजलाई मध्यबिन्दुहरू जोडेर बनाइएको आकृतिमा कुल कति त्रिभुज छन्?",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "8"
+    ],
+    "correct": 1,
+    "solution": "चारवटा कुनाका साना त्रिभुज र बीचको उल्टो त्रिभुज गरी कुल ५ त्रिभुज छन्।",
+    "figure": "triangle-midpoints",
+    "imageAlt": "मध्यबिन्दु जोडिएको त्रिभुज",
+    "image": "/image/exam/branch-officer-2.2/triangle-midpoints.svg"
+  }
 ]
