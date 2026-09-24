@@ -45667,7 +45667,7 @@
       "subject": "Non-verbal Reasoning",
       "topic": "Triangle Counting",
       "level": "L1",
-      "type": "triangle-count",
+      "type": "gk",
       "q": "दिइएको पूर्ण त्रिभुजलाई ४ वटा साना त्रिभुजमा विभाजन गरिएको छ। जम्मा कति त्रिभुज छन्?",
       "options": [
         "5",
@@ -45678,7 +45678,9 @@
       "correct": 0,
       "solution": "४ वटा साना त्रिभुज र बीचमा बनेको १ उल्टो त्रिभुज गरी जम्मा ५ त्रिभुज छन्।",
       "figure": "triangle-grid-2",
-      "imageAlt": "दुई तहको त्रिभुज जालो"
+      "imageAlt": "दुई तहको त्रिभुज जालो",
+      "image": "/image/exam/branch-officer-2.2/triangle-grid-2.svg",
+      "explanation": ""
     },
     {
       "id": "bo-2.2-tc-002",
@@ -45701,7 +45703,8 @@
       "correct": 1,
       "solution": "दुई तहको मानक त्रिभुज जालोमा ४ साना र १ ठूलो त्रिभुज गरी जम्मा ५ हुन्छन्।",
       "figure": "triangle-grid-2",
-      "imageAlt": "दुई तहको त्रिभुज जालो"
+      "imageAlt": "दुई तहको त्रिभुज जालो",
+      "image": "/image/exam/branch-officer-2.2/triangle-grid-2.svg"
     },
     {
       "id": "bo-2.2-tc-003",
@@ -45724,7 +45727,8 @@
       "correct": 2,
       "solution": "३ तहको मानक त्रिभुज जालोमा सबै आकार र दिशाका त्रिभुजको कुल संख्या १३ हुन्छ।",
       "figure": "triangle-grid-3",
-      "imageAlt": "तीन तहको त्रिभुज जालो"
+      "imageAlt": "तीन तहको त्रिभुज जालो",
+      "image": "/image/exam/branch-officer-2.2/triangle-grid-3.svg"
     },
     {
       "id": "bo-2.2-tc-004",
@@ -45747,7 +45751,8 @@
       "correct": 3,
       "solution": "३ तहको जालोमा सबैभन्दा साना त्रिभुज ९ वटा हुन्छन्।",
       "figure": "triangle-grid-3",
-      "imageAlt": "तीन तहको त्रिभुज जालो"
+      "imageAlt": "तीन तहको त्रिभुज जालो",
+      "image": "/image/exam/branch-officer-2.2/triangle-grid-3.svg"
     },
     {
       "id": "bo-2.2-tc-005",
@@ -45770,7 +45775,8 @@
       "correct": 0,
       "solution": "४ तहको मानक त्रिभुज जालोमा सबै आकार र दिशाका त्रिभुजको कुल संख्या २७ हुन्छ।",
       "figure": "triangle-grid-4",
-      "imageAlt": "चार तहको त्रिभुज जालो"
+      "imageAlt": "चार तहको त्रिभुज जालो",
+      "image": "/image/exam/branch-officer-2.2/triangle-grid-4.svg"
     },
     {
       "id": "bo-2.2-tc-006",
@@ -45793,7 +45799,8 @@
       "correct": 1,
       "solution": "चारवटा कुनाका साना त्रिभुज र बीचको उल्टो त्रिभुज गरी कुल ५ त्रिभुज छन्।",
       "figure": "triangle-midpoints",
-      "imageAlt": "मध्यबिन्दु जोडिएको त्रिभुज"
+      "imageAlt": "मध्यबिन्दु जोडिएको त्रिभुज",
+      "image": "/image/exam/branch-officer-2.2/triangle-midpoints.svg"
     }
   ],
   "questionBankUpdatedAt": "2026-09-24T12:56:30.838119Z"
