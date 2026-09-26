@@ -73,7 +73,19 @@ function selectPaper(exam, input){
       if(chosen.length!==u.need||chosen.some(q=>!add(q)))return null;
     }
   }
-  return selected;
+  // Mirror the live API's stimulus hydration/order step so the stress test
+  // also verifies that child questions inherit and retain their shared stimulus.
+  const hydrated = selected.map(q => {
+    const raw = String(q?.passage || q?.data || q?.figure || '').trim();
+    const gid = q?.groupId || (raw ? 'g-' + raw : '');
+    if (gid) return q;
+    const source = input.find(item => item !== q && String(item?.passage || item?.data || item?.figure || '').trim() && item.unit === q.unit && item.section === q.section);
+    return source ? {...q, passage:q.passage||source.passage, figure:q.figure||source.figure, data:q.data||source.data, image:q.image||source.image, groupId:q.groupId||source.groupId||('g-'+String(source.passage||source.data||source.figure))} : q;
+  });
+  const groups = new Map();
+  for (const q of hydrated) { const key=q.groupId||''; if(key){if(!groups.has(key))groups.set(key,[]);groups.get(key).push(q.id);} }
+  for (const ids of groups.values()) if(ids.some(id=>!selected.some(q=>q.id===id))) return null;
+  return hydrated;
 }
 function validate(exam,paper){
   if(!paper||paper.length!==Number(exam.questionCount)||new Set(paper.map(q=>q.id)).size!==paper.length)return false;
