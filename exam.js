@@ -3,6 +3,21 @@ function renderExams(rows){const byId=new Map(rows.map(x=>[x.exam?.id,x]));$('#e
 async function loadExams(){renderExams([]);const rows=[];await Promise.all(EXAM_META.map(async meta=>{try{const x=await getJSON(API+'config&exam='+encodeURIComponent(meta.id));rows.push(x)}catch(e){}}));renderExams(rows);if(!rows.length){$('#examList').insertAdjacentHTML('afterend','<div class="error">परीक्षा configuration लोड हुन सकेन। कृपया केही बेरपछि फेरि प्रयास गर्नुहोस्।</div>')}else{setTimeout(()=>{try{window.__NBResumeNow?.()}catch(e){}},80)}}
 async function chooseExam(id){try{const d=await getJSON(API+'config&exam='+encodeURIComponent(id));if(!d.ready){alert(`यस परीक्षाका लागि ${d.exam.questionCount} प्रश्न चाहिन्छ। अहिले Question Bank मा ${d.availableQuestions} प्रश्न मात्र छन्।`);return}if(!Array.isArray(d.questions)||d.questions.length!==d.exam.questionCount){alert('परीक्षाको प्रश्नपत्र पूरा लोड भएन। फेरि प्रयास गर्नुहोस्।');return}selectedExam=d.exam;$('#chooser').hidden=true;$('#candidate').hidden=false;$('#candidateTitle').textContent=selectedExam.title;$('#candidateInfo').innerHTML=`<b>${selectedExam.questionCount} प्रश्न</b> · समय ${selectedExam.durationMinutes} मिनेट · सही +${selectedExam.positiveMark} · गलत −${selectedExam.negativeMark} · उत्तीर्ण ${selectedExam.passPercent}%`;examQuestions=d.questions}catch(e){alert(e.message)}}
 function dataRows(q){
+  // Canonical DI portfolio stimulus: keep all four rows, including Fund,
+  // independent of how the API/seed serialized the compact source text.
+  if(String(q?.id||'')==='bo-2.5-036'){
+    return {
+      title:'Portfolio Rs lakh',
+      type:'table',
+      parsed:[
+        ['Equity','20','12%'],
+        ['Bonds','30','8%'],
+        ['Deposit','25','6%'],
+        ['Fund','25','10%']
+      ],
+      headers:['विवरण','मान 1','मान 2']
+    };
+  }
   const raw=String(q.data||q.figure||'').trim();
   if(!raw)return null;
   const type=String(q.type||'').toLowerCase();
