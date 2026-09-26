@@ -50,10 +50,9 @@ for unit,facts in [("1.7.1",facts171),("1.7.2",facts172)]:
                   "चीन":["१ अगस्ट १९५४","११ अगस्ट १९५५","१ सेप्टेम्बर १९५५"],"रुस":["२० जुलाई १९५५","२९ जुलाई १९५६","२० अगस्ट १९५६"],
                   "जापान":["१ सेप्टेम्बर १९५५","१० सेप्टेम्बर १९५६","१ अक्टोबर १९५६"],"स्विट्जरल्यान्ड":["१० नोभेम्बर १९५५","१ नोभेम्बर १९५६","१० डिसेम्बर १९५६"],
                   "जर्मनी":["४ अप्रिल १९५७","१४ अप्रिल १९५८","४ मे १९५८"]}
-                }
                 for key,pool in date_pools.items():
                     if key in topic: return pool
-            raise ValueError(f\"No topic-specific distractor pool for: {topic}\")
+            raise ValueError(f"No topic-specific distractor pool for: {topic}")
         distractors=distractor_pool(topic, answer, facts)
         qs.append(make_q(unit,n,"I",question,answer,distractors,"mcq"))
         n2=2*i
