@@ -203,6 +203,12 @@ function repairQuestionImages(){
           return;
         }
       }
+      const q = examQuestions.find(x => String(x?.id || '') === String(id));
+      if (q?.figure) {
+        const wrap = img.closest('.question-image-wrap');
+        if (wrap) wrap.outerHTML = figureFallbackHTML(q);
+        return;
+      }
       img.style.display='none';
     });
   });
