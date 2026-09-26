@@ -780,6 +780,13 @@ exports.handler =
       }
 
 
+      /* PUBLIC GALLERY */
+      if (action === "gallery") {
+        let items = [];
+        try { items = JSON.parse((await readFile("gallery.json")).content); } catch {}
+        return { statusCode: 200, headers: {"Content-Type":"application/json","Access-Control-Allow-Origin":"*"}, body: JSON.stringify({gallery:Array.isArray(items)?items:[]}) };
+      }
+
       /* ===================================
          LIKE / COMMENT
       =================================== */
@@ -958,6 +965,15 @@ exports.handler =
 
       }
 
+
+      /* SAVE GALLERY */
+      if (action === "save-gallery") {
+        if (!Array.isArray(body.gallery)) return {statusCode:400,body:JSON.stringify({error:"Gallery data invalid छ"})};
+        const items=body.gallery.map((x,i)=>({id:String(x?.id||("gallery-"+Date.now()+"-"+i)),image:String(x?.image||"").trim(),caption:String(x?.caption||"").trim().slice(0,200),alt:String(x?.alt||x?.caption||"नारायण भण्डारी फोटो").trim().slice(0,200),created:x?.created||new Date().toISOString(),updated:new Date().toISOString()})).filter(x=>x.image);
+        let sha; try {sha=(await readFile("gallery.json")).sha;} catch {}
+        await writeFile("gallery.json",JSON.stringify(items,null,2),"Update photo gallery",sha);
+        return {statusCode:200,body:JSON.stringify({message:"Gallery सुरक्षित भयो",gallery:items})};
+      }
 
       /* ===================================
          GOOGLE ANALYTICS
