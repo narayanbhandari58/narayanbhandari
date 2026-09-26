@@ -200,28 +200,78 @@ function selectPaper(exam, bank) {
     const paper = orderByStimulus(shuffle(usableBank).slice(0, Number(exam.questionCount || 0)));
     return validateSelectedPaper(exam, paper) ? paper : null;
   }
-  const selected = [], used = new Set(), add = q => { if (!q || used.has(q.id)) return false; used.add(q.id); selected.push(q); return true };
+
+  const selected = [], used = new Set(), add = q => {
+    if (!q || used.has(q.id)) return false;
+    used.add(q.id); selected.push(q); return true;
+  };
+
+  // When a blueprint unit contains image-backed pictorial questions, make sure
+  // the generated paper actually contains at least one of them. This is
+  // especially important for Branch Officer B/2.2: having pictorial questions
+  // in the pool is not enough; a candidate must be able to see one in the paper.
+  function chooseFromLevel(pool, count, forcePictorial) {
+    if (count <= 0) return [];
+    const shuffled = shuffle(pool);
+    if (!forcePictorial) return shuffled.slice(0, count);
+    const pictorial = shuffled.filter(q => q.type === 'pictorial');
+    if (!pictorial.length) return null;
+    const first = pictorial[0];
+    const rest = shuffled.filter(q => q.id !== first.id);
+    return [first, ...rest.slice(0, count - 1)];
+  }
+
   for (const section of (exam.blueprint?.sections || [])) {
     const units = (section.units || []).map(u => {
       const pool = usableBank.filter(q => q.section === section.id && unitMatches(q, u.id) && !used.has(q.id));
-      return { id: u.id, need: Number(u.questionCount || 0), pool, l1: pool.filter(q => levelOf(q) === 'level1').length, l2: pool.filter(q => levelOf(q) === 'level2').length };
+      return {
+        id: u.id,
+        need: Number(u.questionCount || 0),
+        pool,
+        l1: pool.filter(q => levelOf(q) === 'level1').length,
+        l2: pool.filter(q => levelOf(q) === 'level2').length,
+        hasPictorial: pool.some(q => q.type === 'pictorial')
+      };
     });
     const d = section.levelDistribution;
     let counts = null;
     if (d) counts = chooseLevelCounts(units, Number(d.level1 || 0));
     if (d && !counts) return null;
+
     for (let i = 0; i < units.length; i++) {
-      const u = units[i], need = u.need, pool = shuffle(u.pool);
-      if (pool.length < need) return null;
+      const u = units[i], need = u.need;
+      if (u.pool.length < need) return null;
+
       let n1 = d ? counts[i] : 0, n2 = d ? need - n1 : 0;
-      const l1 = shuffle(pool.filter(q => levelOf(q) === 'level1')), l2 = shuffle(pool.filter(q => levelOf(q) === 'level2'));
+      const l1 = shuffle(u.pool.filter(q => levelOf(q) === 'level1'));
+      const l2 = shuffle(u.pool.filter(q => levelOf(q) === 'level2'));
       let chosen = [];
-      if (d) { if (l1.length < n1 || l2.length < n2) return null; chosen = [...l1.slice(0, n1), ...l2.slice(0, n2)]; }
-      else chosen = pool.slice(0, need);
+
+      if (d) {
+        if (l1.length < n1 || l2.length < n2) return null;
+
+        // Prefer a pictorial item inside the exact level quota whenever this
+        // unit has pictorial questions. If no pictorial exists in either
+        // selected level, fail rather than silently producing a non-pictorial
+        // paper for a unit that is meant to contain visual questions.
+        const pictorialL1 = l1.some(q => q.type === 'pictorial');
+        const pictorialL2 = l2.some(q => q.type === 'pictorial');
+        if (u.hasPictorial && !((n1 > 0 && pictorialL1) || (n2 > 0 && pictorialL2))) return null;
+
+        const c1 = chooseFromLevel(l1, n1, u.hasPictorial && n1 > 0 && pictorialL1);
+        const c2 = chooseFromLevel(l2, n2, !c1?.some(q => q.type === 'pictorial') && u.hasPictorial && n2 > 0 && pictorialL2);
+        if (c1 === null || c2 === null) return null;
+        chosen = [...c1, ...c2];
+      } else {
+        chosen = chooseFromLevel(u.pool, need, u.hasPictorial);
+        if (chosen === null) return null;
+      }
+
       chosen = shuffle(chosen);
       if (chosen.length !== need || chosen.some(q => !add(q))) return null;
     }
   }
+
   if (!validateSelectedPaper(exam, selected)) return null;
   return orderByStimulus(selected);
 }
