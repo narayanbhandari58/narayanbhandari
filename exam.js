@@ -1,6 +1,6 @@
 const API='/.netlify/functions/exam-api?action=';const EXAM_META=[{id:'kharidar',title:'खरिदार',description:'खरिदार पदको लोकसेवा तयारी परीक्षा'},{id:'nasu',title:'नायब सुब्बा',description:'नायब सुब्बा पदको लोकसेवा तयारी परीक्षा'},{id:'sakha-adhikrit',title:'शाखा अधिकृत',description:'शाखा अधिकृत पदको लोकसेवा तयारी परीक्षा'}];const $=s=>document.querySelector(s);let selectedExam=null,examQuestions=[],answers={},current=0,timerId=null,seconds=0,finalResult=null,pdfBlob=null,submitting=false;const esc=s=>String(s??'').replace(/[&<>\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[m]));async function getJSON(url,opt){const isGet=!opt||!opt.method||String(opt.method).toUpperCase()==='GET';const fresh=isGet?`${url}${url.includes('?')?'&':'?'}_=${Date.now()}`:url;const r=await fetch(fresh,{...(opt||{}),...(isGet?{cache:'no-store'}:{})});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.error||'Request failed');return d}
 function renderExams(rows){const byId=new Map(rows.map(x=>[x.exam?.id,x]));$('#examList').innerHTML=EXAM_META.map(meta=>{const x=byId.get(meta.id);const e=x?.exam||meta;const ready=!!x?.ready;const available=x?.availableQuestions??null;const count=e.questionCount??(meta.id==='sakha-adhikrit'?100:'—');const duration=e.durationMinutes??(meta.id==='sakha-adhikrit'?90:'—');let status;if(!x)status='जाँच हुँदैछ…';else status=ready?'परीक्षा उपलब्ध':`Question Bank: ${available}/${count} — तयारी हुँदैछ`;return `<button class="exam-card ${x&&!ready?'disabled':''}" data-id="${esc(meta.id)}" type="button"><span>📚</span><h3>${esc(e.title||meta.title)}</h3><p>${esc(e.description||meta.description)}</p><b>${count} प्रश्न · ${duration} मिनेट</b><small>${status}</small></button>`}).join('');document.querySelectorAll('.exam-card').forEach(b=>b.onclick=()=>chooseExam(b.dataset.id))}
-async function loadExams(){renderExams([]);const rows=[];await Promise.all(EXAM_META.map(async meta=>{try{const x=await getJSON(API+'config&exam='+encodeURIComponent(meta.id));rows.push(x)}catch(e){}}));renderExams(rows);if(!rows.length){$('#examList').insertAdjacentHTML('afterend','<div class="error">परीक्षा configuration लोड हुन सकेन। कृपया केही बेरपछि फेरि प्रयास गर्नुहोस्।</div>')}}
+async function loadExams(){renderExams([]);const rows=[];await Promise.all(EXAM_META.map(async meta=>{try{const x=await getJSON(API+'config&exam='+encodeURIComponent(meta.id));rows.push(x)}catch(e){}}));renderExams(rows);if(!rows.length){$('#examList').insertAdjacentHTML('afterend','<div class="error">परीक्षा configuration लोड हुन सकेन। कृपया केही बेरपछि फेरि प्रयास गर्नुहोस्।</div>')}else{setTimeout(()=>{try{window.__NBResumeNow?.()}catch(e){}},80)}}
 async function chooseExam(id){try{const d=await getJSON(API+'config&exam='+encodeURIComponent(id));if(!d.ready){alert(`यस परीक्षाका लागि ${d.exam.questionCount} प्रश्न चाहिन्छ। अहिले Question Bank मा ${d.availableQuestions} प्रश्न मात्र छन्।`);return}if(!Array.isArray(d.questions)||d.questions.length!==d.exam.questionCount){alert('परीक्षाको प्रश्नपत्र पूरा लोड भएन। फेरि प्रयास गर्नुहोस्।');return}selectedExam=d.exam;$('#chooser').hidden=true;$('#candidate').hidden=false;$('#candidateTitle').textContent=selectedExam.title;$('#candidateInfo').innerHTML=`<b>${selectedExam.questionCount} प्रश्न</b> · समय ${selectedExam.durationMinutes} मिनेट · सही +${selectedExam.positiveMark} · गलत −${selectedExam.negativeMark} · उत्तीर्ण ${selectedExam.passPercent}%`;examQuestions=d.questions}catch(e){alert(e.message)}}
 function dataRows(q){
   const raw=String(q.data||q.figure||'').trim();
@@ -151,6 +151,7 @@ function showStimulusTitleForIndex(i){
   const a=stimulusKey(examQuestions[i]),b=stimulusKey(examQuestions[i-1]);
   return !!a&&a!==b;
 }
+function directResumeState(){try{const x=JSON.parse(localStorage.getItem('nb_loksewa_exact_resume_v13')||'null');if(x?.started&&x?.examId&&Array.isArray(x.paper)&&x.paper.length)return x}catch(e){}return null}
 async function start(){
   const name=$('#candidateName').value.trim(),email=$('#candidateEmail').value.trim(),whatsapp=$('#candidateWhatsapp').value.trim();
   if(!name){alert('नाम लेख्नुहोस्');return}
@@ -158,7 +159,15 @@ async function start(){
   if(window.__NBStarting)return;
   window.__NBStarting=true;
   try{
+    const saved=directResumeState();
     let attemptToken=window.__NBResumeAttemptToken||'',expiresAt=Number(window.__NBResumeExpiresAt)||0,attemptId=window.__NBResumeAttemptId||'';
+    if(!attemptToken&&saved?.examId===selectedExam?.id&&saved?.attemptToken&&Number(saved.expiresAt)>Date.now()){
+      attemptToken=saved.attemptToken;expiresAt=Number(saved.expiresAt);attemptId=saved.attemptId||'';
+      selectedExam=saved.exam||selectedExam;
+      examQuestions=saved.paper;
+      current=Number.isInteger(Number(saved.questionIndex))?Number(saved.questionIndex):0;
+      answers={...(saved.answerMap||{})};
+    }
     if(!attemptToken){
       const d=await getJSON(API+'start',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({examId:selectedExam.id,name,email,whatsapp})});
       if(!Array.isArray(d.questions)||d.questions.length!==Number(selectedExam.questionCount||0)) throw Error('Server बाट मान्य प्रश्नपत्र प्राप्त भएन। फेरि प्रयास गर्नुहोस्।');
@@ -169,7 +178,7 @@ async function start(){
       throw Error('यो परीक्षा session को समय सकिएको छ। नयाँ परीक्षा सुरु गर्नुहोस्।');
     }
     window.__NBExamAttemptToken=attemptToken;window.__NBExamExpiresAt=expiresAt;window.__NBExamAttemptId=attemptId;
-    answers=answers||{};current=0;seconds=Math.max(0,Math.floor((expiresAt-Date.now())/1000));
+    if(!(saved?.examId===selectedExam?.id&&saved?.attemptToken===attemptToken)){answers=answers||{};current=0}else{answers={...(saved.answerMap||answers||{})};current=Number.isInteger(Number(saved.questionIndex))?Number(saved.questionIndex):0}seconds=Math.max(0,Math.floor((expiresAt-Date.now())/1000));
     $('#candidate').hidden=true;$('#exam').hidden=false;$('#timer').hidden=false;$('#examTitle').textContent=selectedExam.title;renderQuestion();
     if(timerId)clearInterval(timerId);
     timerId=setInterval(()=>{seconds=Math.max(0,Math.floor((expiresAt-Date.now())/1000));updateTimer();if(seconds<=0){clearInterval(timerId);submitExam(true)}},250);
