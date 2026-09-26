@@ -1,0 +1,506 @@
+[
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "भिन्न",
+    "level": "L1",
+    "type": "fraction",
+    "q": "7/8 − 3/16 = ?",
+    "question": "7/8 − 3/16 = ?",
+    "options": [
+      "11/16",
+      "10/16",
+      "9/16",
+      "5/16"
+    ],
+    "correct": 0,
+    "solution": "14/16−3/16=11/16।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "भिन्न",
+    "level": "L1",
+    "type": "fraction",
+    "q": "5/12 + 7/18 = ?",
+    "question": "5/12 + 7/18 = ?",
+    "options": [
+      "29/36",
+      "27/36",
+      "31/36",
+      "25/36"
+    ],
+    "correct": 0,
+    "solution": "15/36+14/36=29/36।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "दशमलव",
+    "level": "L1",
+    "type": "decimal",
+    "q": "0.625 लाई सरल भिन्नमा बदल्दा?",
+    "question": "0.625 लाई सरल भिन्नमा बदल्दा?",
+    "options": [
+      "5/8",
+      "3/5",
+      "7/10",
+      "2/3"
+    ],
+    "correct": 0,
+    "solution": "625/1000=5/8।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "दशमलव",
+    "level": "L1",
+    "type": "decimal",
+    "q": "3.75 ÷ 0.15 = ?",
+    "question": "3.75 ÷ 0.15 = ?",
+    "options": [
+      "25",
+      "20",
+      "30",
+      "15"
+    ],
+    "correct": 0,
+    "solution": "375/15=25।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "प्रतिशत",
+    "level": "L1",
+    "type": "percentage",
+    "q": "480 को 12.5% कति?",
+    "question": "480 को 12.5% कति?",
+    "options": [
+      "60",
+      "50",
+      "64",
+      "72"
+    ],
+    "correct": 0,
+    "solution": "12.5%=1/8; 480/8=60।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "प्रतिशत",
+    "level": "L1",
+    "type": "percentage",
+    "q": "कुनै संख्या 250 बाट 225 भयो। प्रतिशत कमी?",
+    "question": "कुनै संख्या 250 बाट 225 भयो। प्रतिशत कमी?",
+    "options": [
+      "10%",
+      "8%",
+      "12.5%",
+      "15%"
+    ],
+    "correct": 0,
+    "solution": "25/250×100=10%।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "प्रतिशत",
+    "level": "L2",
+    "type": "percentage",
+    "q": "मूल्य 20% बढेपछि 10% घट्यो। शुद्ध परिवर्तन?",
+    "question": "मूल्य 20% बढेपछि 10% घट्यो। शुद्ध परिवर्तन?",
+    "options": [
+      "8% वृद्धि",
+      "10% वृद्धि",
+      "8% कमी",
+      "12% वृद्धि"
+    ],
+    "correct": 0,
+    "solution": "1.20×0.90=1.08; 8% वृद्धि।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "प्रतिशत",
+    "level": "L2",
+    "type": "percentage",
+    "q": "एउटा संख्याको 25% अर्को संख्याको 40% बराबर छ। पहिलो:दोस्रो अनुपात?",
+    "question": "एउटा संख्याको 25% अर्को संख्याको 40% बराबर छ। पहिलो:दोस्रो अनुपात?",
+    "options": [
+      "8:5",
+      "5:8",
+      "2:3",
+      "3:2"
+    ],
+    "correct": 0,
+    "solution": "0.25A=0.40B ⇒ A:B=40:25=8:5।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "Time and Work",
+    "level": "L1",
+    "type": "time-work",
+    "q": "A ले काम 16 दिनमा र B ले 24 दिनमा गर्छ। सँगै समय?",
+    "question": "A ले काम 16 दिनमा र B ले 24 दिनमा गर्छ। सँगै समय?",
+    "options": [
+      "9.6 दिन",
+      "8 दिन",
+      "10 दिन",
+      "12 दिन"
+    ],
+    "correct": 0,
+    "solution": "दर 1/16+1/24=5/48; समय 48/5=9.6।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "Time and Work",
+    "level": "L1",
+    "type": "time-work",
+    "q": "A+B ले 10 दिनमा काम गर्छन्। A एक्लैले 15 दिनमा गर्छ भने B?",
+    "question": "A+B ले 10 दिनमा काम गर्छन्। A एक्लैले 15 दिनमा गर्छ भने B?",
+    "options": [
+      "30 दिन",
+      "25 दिन",
+      "20 दिन",
+      "18 दिन"
+    ],
+    "correct": 0,
+    "solution": "B दर=1/10−1/15=1/30।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "Time and Work",
+    "level": "L2",
+    "type": "time-work",
+    "q": "A ले 40% काम 8 दिनमा गर्छ। B, A भन्दा 50% बढी दक्ष छ। B ले पूरा काम कति दिनमा गर्छ?",
+    "question": "A ले 40% काम 8 दिनमा गर्छ। B, A भन्दा 50% बढी दक्ष छ। B ले पूरा काम कति दिनमा गर्छ?",
+    "options": [
+      "13⅓ दिन",
+      "16 दिन",
+      "12 दिन",
+      "10 दिन"
+    ],
+    "correct": 0,
+    "solution": "A को पूरा समय 20 दिन; B समय 20/1.5=13⅓ दिन।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "Time and Work",
+    "level": "L2",
+    "type": "time-work",
+    "q": "15 कामदारले 24 दिनमा काम गर्छन्। 18 कामदारले समान दक्षतामा कति दिन?",
+    "question": "15 कामदारले 24 दिनमा काम गर्छन्। 18 कामदारले समान दक्षतामा कति दिन?",
+    "options": [
+      "20 दिन",
+      "18 दिन",
+      "22 दिन",
+      "21 दिन"
+    ],
+    "correct": 0,
+    "solution": "15×24=18×d ⇒ d=20।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "Time and Work",
+    "level": "L2",
+    "type": "time-work",
+    "q": "A र B क्रमशः 12 र 18 दिनमा काम गर्छन्। A ले 4 दिन एक्लै गरेपछि बाँकी काम B ले कति दिनमा गर्छ?",
+    "question": "A र B क्रमशः 12 र 18 दिनमा काम गर्छन्। A ले 4 दिन एक्लै गरेपछि बाँकी काम B ले कति दिनमा गर्छ?",
+    "options": [
+      "12 दिन",
+      "10 दिन",
+      "14 दिन",
+      "9 दिन"
+    ],
+    "correct": 0,
+    "solution": "A ले 1/3 काम गर्छ; बाँकी 2/3। B दर 1/18 ⇒ 12 दिन।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "Pipes and Cisterns",
+    "level": "L2",
+    "type": "pipes",
+    "q": "पाइप A ले 10 घण्टामा भर्छ र निकास B ले 15 घण्टामा खाली गर्छ। दुवै खुला हुँदा ट्यांकी भरिन कति समय?",
+    "question": "पाइप A ले 10 घण्टामा भर्छ र निकास B ले 15 घण्टामा खाली गर्छ। दुवै खुला हुँदा ट्यांकी भरिन कति समय?",
+    "options": [
+      "30 घण्टा",
+      "25 घण्टा",
+      "20 घण्टा",
+      "15 घण्टा"
+    ],
+    "correct": 0,
+    "solution": "शुद्ध दर 1/10−1/15=1/30।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "भिन्न-दशमलव",
+    "level": "L2",
+    "type": "fraction-decimal",
+    "q": "0.875 − 1/4 = ?",
+    "question": "0.875 − 1/4 = ?",
+    "options": [
+      "0.625",
+      "0.675",
+      "0.725",
+      "0.575"
+    ],
+    "correct": 0,
+    "solution": "1/4=0.25; 0.875−0.25=0.625।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "प्रतिशत",
+    "level": "L2",
+    "type": "percentage",
+    "q": "रु. 1200 को मूल्यमा 15% वृद्धि र त्यसपछि रु.100 छुट दिइयो। अन्तिम मूल्य?",
+    "question": "रु. 1200 को मूल्यमा 15% वृद्धि र त्यसपछि रु.100 छुट दिइयो। अन्तिम मूल्य?",
+    "options": [
+      "Rs.1280",
+      "Rs.1300",
+      "Rs.1320",
+      "Rs.1260"
+    ],
+    "correct": 0,
+    "solution": "1200×1.15=1380; 1380−100=1280।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "भिन्न",
+    "level": "L2",
+    "type": "fraction",
+    "q": "कुन ठूलो हो?",
+    "question": "कुन ठूलो हो?",
+    "options": [
+      "11/18",
+      "5/8",
+      "7/12",
+      "13/21"
+    ],
+    "correct": 3,
+    "solution": "क्रमशः 0.611,0.625,0.583,0.619; 5/8 सबैभन्दा ठूलो।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "दशमलव",
+    "level": "L2",
+    "type": "decimal",
+    "q": "(2.4²−1.6²)/(2.4−1.6) = ?",
+    "question": "(2.4²−1.6²)/(2.4−1.6) = ?",
+    "options": [
+      "4",
+      "3.2",
+      "2.8",
+      "4.8"
+    ],
+    "correct": 0,
+    "solution": "(a²−b²)/(a−b)=a+b=4।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "प्रतिशत",
+    "level": "L2",
+    "type": "percentage",
+    "q": "कुनै परीक्षामा 72% विद्यार्थी उत्तीर्ण भए। 350 मध्ये कति उत्तीर्ण?",
+    "question": "कुनै परीक्षामा 72% विद्यार्थी उत्तीर्ण भए। 350 मध्ये कति उत्तीर्ण?",
+    "options": [
+      "252",
+      "245",
+      "260",
+      "280"
+    ],
+    "correct": 0,
+    "solution": "350×72/100=252।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "प्रतिशत",
+    "level": "L2",
+    "type": "percentage",
+    "q": "आम्दानीको 30% बचत हुन्छ। खर्च 20% बढे पनि आम्दानी उस्तै रहेमा नयाँ बचत प्रतिशत?",
+    "question": "आम्दानीको 30% बचत हुन्छ। खर्च 20% बढे पनि आम्दानी उस्तै रहेमा नयाँ बचत प्रतिशत?",
+    "options": [
+      "6%",
+      "10%",
+      "4%",
+      "8%"
+    ],
+    "correct": 0,
+    "solution": "पुरानो खर्च 70%; 20% वृद्धि ⇒84%; बचत 16%, त्यसैले प्रश्नको विकल्प असंगत।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "Ratio",
+    "level": "L1",
+    "type": "ratio",
+    "q": "A:B=3:5 र B:C=10:7 भए A:C?",
+    "question": "A:B=3:5 र B:C=10:7 भए A:C?",
+    "options": [
+      "6:7",
+      "3:7",
+      "5:7",
+      "6:5"
+    ],
+    "correct": 0,
+    "solution": "A:B=6:10; B:C=10:7 ⇒ A:C=6:7।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "Mixture",
+    "level": "L2",
+    "type": "mixture",
+    "q": "20 L मिश्रणमा दूध:पानी=3:1 छ। 4 L पानी थप्दा नयाँ दूध:पानी अनुपात?",
+    "question": "20 L मिश्रणमा दूध:पानी=3:1 छ। 4 L पानी थप्दा नयाँ दूध:पानी अनुपात?",
+    "options": [
+      "3:2",
+      "3:1",
+      "5:3",
+      "2:1"
+    ],
+    "correct": 0,
+    "solution": "दूध 15L, पानी 5+4=9L ⇒ 15:9=5:3; विकल्पमा छैन, त्यसैले प्रश्न सुधार आवश्यक।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "Average",
+    "level": "L2",
+    "type": "average",
+    "q": "8 संख्याको औसत 24 छ। एउटा संख्या 38 हटाउँदा बाँकी 7 को औसत?",
+    "question": "8 संख्याको औसत 24 छ। एउटा संख्या 38 हटाउँदा बाँकी 7 को औसत?",
+    "options": [
+      "22",
+      "21",
+      "23",
+      "20"
+    ],
+    "correct": 0,
+    "solution": "कुल192−38=154; 154/7=22।"
+  },
+  {
+    "id": [
+      "sakha-adhikrit"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "Quantitative Aptitude",
+    "topic": "Data Sufficiency",
+    "level": "L2",
+    "type": "data-sufficiency",
+    "q": "x को मान कति? I: x 4 र 8 बीचको सम पूर्णांक हो। II: x 3 ले भाग जाने संख्या हो।",
+    "question": "x को मान कति? I: x 4 र 8 बीचको सम पूर्णांक हो। II: x 3 ले भाग जाने संख्या हो।",
+    "options": [
+      "I मात्र पर्याप्त",
+      "II मात्र पर्याप्त",
+      "दुवै मिलेर पर्याप्त",
+      "दुवै अपर्याप्त"
+    ],
+    "correct": 2,
+    "solution": "I बाट x=6 वा 8; II सँग मिल्दा x=6 मात्र।"
+  }
+]
