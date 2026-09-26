@@ -42,10 +42,36 @@ function selectPaper(exam, input){
   const plan=(exam.blueprint?.sections||[]).flatMap(s=>(s.units||[]).map(u=>({s,u})));
   if(!plan.length)return shuffle(usableBank).slice(0,Number(exam.questionCount||0));
   const add=q=>{if(!q||used.has(q.id))return false;used.add(q.id);selected.push(q);return true;};
+  const choose=(pool,count,forcePictorial)=>{
+    if(count<=0)return [];
+    const x=shuffle(pool);
+    if(!forcePictorial)return x.slice(0,count);
+    const p=x.find(q=>q.type==='pictorial'); if(!p)return null;
+    return [p,...x.filter(q=>q.id!==p.id).slice(0,count-1)];
+  };
   for(const section of (exam.blueprint?.sections||[])){
-    const units=(section.units||[]).map(u=>{const pool=usableBank.filter(q=>q.section===section.id&&unitMatches(q,u.id)&&!used.has(q.id));return{id:u.id,need:Number(u.questionCount||0),pool,l1:pool.filter(q=>level(q)==='level1').length,l2:pool.filter(q=>level(q)==='level2').length};});
+    const units=(section.units||[]).map(u=>{
+      const pool=usableBank.filter(q=>q.section===section.id&&unitMatches(q,u.id)&&!used.has(q.id));
+      return{id:u.id,need:Number(u.questionCount||0),pool,l1:pool.filter(q=>level(q)==='level1').length,l2:pool.filter(q=>level(q)==='level2').length,hasPictorial:pool.some(q=>q.type==='pictorial')};
+    });
     const d=section.levelDistribution;const counts=d?chooseLevelCounts(units,Number(d.level1||0)):null;if(d&&!counts)return null;
-    for(let i=0;i<units.length;i++){const u=units[i],pool=shuffle(u.pool);if(pool.length<u.need)return null;const n1=d?counts[i]:0,n2=d?u.need-n1:0;const l1=shuffle(pool.filter(q=>level(q)==='level1')),l2=shuffle(pool.filter(q=>level(q)==='level2'));const chosen=d?[...l1.slice(0,n1),...l2.slice(0,n2)]:pool.slice(0,u.need);if(chosen.length!==u.need||chosen.some(q=>!add(q)))return null;}
+    for(let i=0;i<units.length;i++){
+      const u=units[i]; if(u.pool.length<u.need)return null;
+      const n1=d?counts[i]:0,n2=d?u.need-n1:0;
+      const l1=shuffle(u.pool.filter(q=>level(q)==='level1')),l2=shuffle(u.pool.filter(q=>level(q)==='level2'));
+      let chosen=[];
+      if(d){
+        if(l1.length<n1||l2.length<n2)return null;
+        const p1=l1.some(q=>q.type==='pictorial'),p2=l2.some(q=>q.type==='pictorial');
+        if(u.hasPictorial&&!((n1>0&&p1)||(n2>0&&p2)))return null;
+        const c1=choose(l1,n1,u.hasPictorial&&n1>0&&p1);
+        const c2=choose(l2,n2,!c1?.some(q=>q.type==='pictorial')&&u.hasPictorial&&n2>0&&p2);
+        if(c1===null||c2===null)return null; chosen=[...c1,...c2];
+      }else{
+        chosen=choose(u.pool,u.need,u.hasPictorial); if(chosen===null)return null;
+      }
+      if(chosen.length!==u.need||chosen.some(q=>!add(q)))return null;
+    }
   }
   return selected;
 }
@@ -77,7 +103,7 @@ let totalRuns=0;
 for(const id of ['sakha-adhikrit','nasu','kharidar']){
   const exam=exams[id]; if(!exam) throw new Error('Missing exam '+id);
   const b=bank(id), u=b.filter(usable);
-  for(let i=0;i<500;i++){totalRuns++;const p=selectPaper(exam,b);if(!validate(exam,p)) failures.push(id+' run '+i+' blueprint mismatch');}
+  for(let i=0;i<500;i++){totalRuns++;const p=selectPaper(exam,b);if(!validate(exam,p)) failures.push(id+' run '+i+' blueprint mismatch'); const hasPictorialPool=b.some(q=>q.type==='pictorial'&&usable(q)); if(hasPictorialPool&&!p?.some(q=>q.type==='pictorial')) failures.push(id+' run '+i+' pictorial question missing from generated paper');}
   if(['nasu','kharidar'].includes(id)){const en=b.filter(englishLike).map(q=>q.id);if(en.length)failures.push(id+' English-like mapped questions: '+en.slice(0,20).join(','));}
   for(const q of b)if(q.type==='pictorial'&&!image(q))failures.push(id+' pictorial without image: '+q.id);
   for(const s of exam.blueprint.sections||[])for(const u0 of s.units||[]){const n=u.filter(q=>q.section===s.id&&unitMatches(q,u0.id)).length;if(n<Number(u0.questionCount||0))failures.push(id+' shortage '+s.id+'/'+u0.id+' '+n+'/'+u0.questionCount);}
