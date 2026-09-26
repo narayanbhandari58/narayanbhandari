@@ -292,7 +292,11 @@ function selectPaper(exam, bank) {
   }
 
   if (!validateSelectedPaper(exam, selected)) return null;
-  return orderByStimulus(selected);
+  // Hydrate selected child questions with their shared stimulus before ordering.
+  // This keeps passage/figure/data/image-backed question groups together even
+  // when only the child question stores the group reference implicitly.
+  const hydrated = selected.map(q => stimulusForQuestion(q, usableBank));
+  return orderByStimulus(hydrated);
 }
 function orderByStimulus(items) { const groups = new Map(), singles = []; for (const q of items) { const key = stimulusKey(q); if (!key) { singles.push(q); continue } if (!groups.has(key)) groups.set(key, []); groups.get(key).push(q) } return shuffle([...groups.values()]).flatMap(g => g).concat(shuffle(singles)) }
 function safeImageName(name) { return String(name || 'question-image').toLowerCase().replace(/[^a-z0-9._-]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '').slice(0, 80) || 'question-image' }
