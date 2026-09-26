@@ -54,7 +54,8 @@ async function readData() {
   const seedPaths = [
     'exam-question-seed/branch-officer-2.2-nonverbal-pictorial.json',
     'exam-question-seed/branch-officer-2.2-triangle-counting.json',
-    'exam-question-seed/branch-officer-2.5-data-interpretation.json'
+    'exam-question-seed/branch-officer-2.5-data-interpretation.json',
+    'exam-question-seed/cross-exam-transfer.json'
   ];
   const existing = new Set((data.questions || []).map(q => String(q.id || '')));
   const seedResults = await Promise.all(seedPaths.map(async path => {
@@ -72,14 +73,22 @@ async function readData() {
       continue;
     }
 
-    // The maintained seed is also the source of truth for missing visual
-    // metadata. CMS/exam-data content still wins when a field is already set.
+    // Maintained seed metadata can extend an existing CMS question without
+    // overwriting explicitly edited content. Cross-exam placement is merged
+    // separately so one question can legally belong to different syllabus
+    // units in different exams while retaining a single question ID.
     const current = data.questions.find(q => String(q?.id || '') === id);
     if (!current) continue;
     for (const key of ['image', 'imageUrl', 'image_url', 'imageAlt', 'image_alt', 'figure']) {
       if ((current[key] == null || String(current[key]).trim() === '') && seed[key] != null && String(seed[key]).trim() !== '') {
         current[key] = seed[key];
       }
+    }
+    if (seed.examIds && Array.isArray(seed.examIds)) {
+      current.examIds = [...new Set([...(current.examIds || []), ...seed.examIds])];
+    }
+    if (seed.examMappings && typeof seed.examMappings === 'object') {
+      current.examMappings = { ...(current.examMappings || {}), ...seed.examMappings };
     }
   }
   return { sha: null, data };
@@ -123,7 +132,15 @@ function levelOf(q) { const v = String(q.level ?? '').toLowerCase(); if (v === '
 function unitMatches(q, u) { const a = String(q.unit ?? ''); const b = String(u ?? ''); return a === b || a.startsWith(b + '.') }
 function stimulusKey(q) { if (q.groupId) return `group:${q.groupId}`; if (q.passage) return `passage:${q.passage}`; if (q.figure) return `figure:${q.figure}`; if (q.data) return `data:${q.data}`; return '' }
 function hasRequiredPictorialImage(q) { return q.type !== 'pictorial' || !!questionImage(q) }
-function eligibleQuestions(exam, questions) { return questions.filter(q => Array.isArray(q.examIds) && q.examIds.includes(exam.id)) }
+function eligibleQuestions(exam, questions) {
+  return questions.filter(q => {
+    const mapped = q?.examMappings?.[exam.id];
+    return (Array.isArray(q.examIds) && q.examIds.includes(exam.id)) || !!mapped;
+  }).map(q => {
+    const mapped = q?.examMappings?.[exam.id];
+    return mapped ? { ...q, ...mapped, examIds: q.examIds || [] } : q;
+  });
+}
 function unitPlan(exam) { return (exam.blueprint?.sections || []).flatMap(s => (s.units || []).map(u => ({ ...u, sectionId: s.id, sectionTitle: s.title }))) }
 function readinessReport(exam, bank) {
   const usable = bank.filter(hasRequiredPictorialImage), plan = unitPlan(exam), shortages = [], levelShortages = [];
