@@ -47,10 +47,15 @@ jobs:
               if q.get('type') in ('mcq','gk','concept','fact','analysis','statement_correct','verification','incorrect','matching','correct-statement'):
                   assert len(opts) == 4, f"MCQ must have 4 options: {q.get('id')}"
                   assert len(set(map(str, opts))) == 4, f"Duplicate options: {q.get('id')}"
+                  lengths = [len(str(x).strip()) for x in opts]
+                  assert max(lengths) <= 180, f"Overlong option: {q.get('id')}"
+                  if min(lengths) > 0:
+                      assert max(lengths) <= min(lengths) * 3.5 + 25, f"Option length imbalance: {q.get('id')}"
                   for i, opt in enumerate(opts):
                       if i != q.get('correct'):
-                          assert not any(x in str(opt) for x in ('उपरोक्त सबै','उपरोक्तमध्ये','केवल यो मात्र','केवल मात्र','सधैं मात्र')), f"Giveaway distractor: {q.get('id')}"
-                      assert len(str(opt)) <= 180, f"Overlong option: {q.get('id')}"
+                          text = str(opt).strip()
+                          assert not any(x in text for x in ('उपरोक्त सबै','उपरोक्तमध्ये','केवल यो मात्र','केवल मात्र','सधैं मात्र','केवल','मात्रै')), f"Giveaway distractor wording: {q.get('id')}"
+                          assert text, f"Empty distractor: {q.get('id')}"
 
           for q in questions:
               refs = q.get('examIds', [])
