@@ -968,11 +968,84 @@ exports.handler =
 
       /* SAVE GALLERY */
       if (action === "save-gallery") {
-        if (!Array.isArray(body.gallery)) return {statusCode:400,body:JSON.stringify({error:"Gallery data invalid छ"})};
-        const items=body.gallery.map((x,i)=>({id:String(x?.id||("gallery-"+Date.now()+"-"+i)),image:String(x?.image||"").trim(),caption:String(x?.caption||"").trim().slice(0,200),alt:String(x?.alt||x?.caption||"नारायण भण्डारी फोटो").trim().slice(0,200),created:x?.created||new Date().toISOString(),updated:new Date().toISOString()})).filter(x=>x.image);
-        let sha; try {sha=(await readFile("gallery.json")).sha;} catch {}
-        await writeFile("gallery.json",JSON.stringify(items,null,2),"Update photo gallery",sha);
-        return {statusCode:200,body:JSON.stringify({message:"Gallery सुरक्षित भयो",gallery:items})};
+        if (!Array.isArray(body.gallery)) {
+          return {
+            statusCode: 400,
+            body: JSON.stringify({ error: "Gallery data invalid छ" })
+          };
+        }
+
+        let previous = [];
+        let sha;
+        try {
+          const oldGallery = await readFile("gallery.json");
+          sha = oldGallery.sha;
+          const parsed = JSON.parse(oldGallery.content);
+          previous = Array.isArray(parsed) ? parsed : [];
+        } catch {}
+
+        const items = body.gallery
+          .map((x, i) => ({
+            id: String(x?.id || ("gallery-" + Date.now() + "-" + i)),
+            image: String(x?.image || "").trim(),
+            caption: String(x?.caption || "").trim().slice(0, 200),
+            alt: String(x?.alt || x?.caption || "नारायण भण्डारी फोटो").trim().slice(0, 200),
+            created: x?.created || new Date().toISOString(),
+            updated: new Date().toISOString()
+          }))
+          .filter(x => x.image);
+
+        await writeFile(
+          "gallery.json",
+          JSON.stringify(items, null, 2),
+          "Update photo gallery",
+          sha
+        );
+
+        /*
+         * Gallery मा पहिले प्रयोग भएका uploaded files मध्ये अहिले
+         * कुनै पनि item ले प्रयोग नगरेका image/uploads files हटाइन्छन्।
+         * profile.png/logo.png जस्ता स्थायी site assets कहिल्यै हटाइँदैनन्।
+         */
+        const currentImages = new Set(items.map(x => x.image));
+        const staleImages = [...new Set(
+          previous
+            .map(x => String(x?.image || "").trim())
+            .filter(image =>
+              image &&
+              image.startsWith(`https://raw.githubusercontent.com/${REPO}/${BRANCH}/image/uploads/`) &&
+              !currentImages.has(image)
+            )
+        )];
+
+        for (const imageUrl of staleImages) {
+          try {
+            const prefix = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/`;
+            const filePath = decodeURIComponent(imageUrl.slice(prefix.length));
+            if (!filePath.startsWith("image/uploads/")) continue;
+
+            const file = await readFile(filePath);
+            await gh(filePath, {
+              method: "DELETE",
+              body: JSON.stringify({
+                message: `Remove unused gallery image: ${filePath.split("/").pop()}`,
+                sha: file.sha,
+                branch: BRANCH
+              })
+            });
+          } catch (cleanupError) {
+            console.error("GALLERY IMAGE CLEANUP ERROR:", cleanupError);
+          }
+        }
+
+        return {
+          statusCode: 200,
+          body: JSON.stringify({
+            message: "Gallery सुरक्षित भयो",
+            gallery: items,
+            cleanedFiles: staleImages.length
+          })
+        };
       }
 
       /* ===================================
