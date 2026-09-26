@@ -58617,9 +58617,9 @@
       "figure": "  ▲\n  │\n ●┴●",
       "options": [
         "●┬●\n  │\n  ▼",
-        "●┴●\n  │\n  ▲",
+        "●┴● │ ▲",
         "▲\n│\n●┬●",
-        "●  ●\n  │\n  ▲"
+        "● ● │ ▲"
       ],
       "correct": 0,
       "solution": "Correct answer: A. Water reflection reverses the figure vertically, including ▲ to ▼.",
@@ -58637,10 +58637,10 @@
       "question": "A mirror is placed on the right. Which option shows the mirror image?",
       "figure": "●  →  △  □",
       "options": [
-        "□  △  ←  ●",
+        "□ △ ← ●",
         "●  ←  △  □",
-        "□  △  →  ●",
-        "●  →  □  △"
+        "□ △ → ●",
+        "● → □ △"
       ],
       "correct": 1,
       "solution": "Correct answer: B. Right-side mirroring reverses the order and horizontal direction.",
