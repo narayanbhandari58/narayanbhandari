@@ -67281,7 +67281,7 @@
       "unit": "2.2",
       "subject": "Non-verbal Reasoning",
       "topic": "Triangle Counting",
-      "level": "L1",
+      "level": "level2",
       "type": "triangle-count",
       "q": "चित्रमा २ तहको त्रिभुज जालो छ। सबै आकार र दिशाका त्रिभुज गन्दा जम्मा कति हुन्छन्?",
       "options": [
@@ -67299,7 +67299,7 @@
         "nasu": {
           "section": "B",
           "unit": "2.3",
-          "level": "level1"
+          "level": "level2"
         }
       }
     },
