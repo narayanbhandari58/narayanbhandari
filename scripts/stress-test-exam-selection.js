@@ -6,7 +6,8 @@ const seedPaths = [
   'exam-question-seed/branch-officer-2.2-triangle-counting.json',
   'exam-question-seed/branch-officer-2.5-data-interpretation.json',
   'exam-question-seed/cross-exam-transfer.json',
-  'exam-question-seed/kharidar-pictorial.json'
+  'exam-question-seed/kharidar-pictorial.json',
+  'exam-question-seed/nasu-kharidar-aptitude-variety.json'
 ];
 const byId = new Map((data.questions || []).map(q => [String(q.id), q]));
 for (const path of seedPaths) {
