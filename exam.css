@@ -85,3 +85,46 @@
   .pie-chart{width:min(230px,70vw)}
   .chart-legend{width:100%}
 }
+
+/* Loksewa landing-page UI refresh */
+.exam-shell{max-width:1120px;padding-top:34px}
+.exam-header{padding:26px 28px;border-radius:24px;background:linear-gradient(135deg,#650a03 0%,#8f0e04 62%,#a91b0f 100%);color:#fff;box-shadow:0 14px 35px rgba(101,10,3,.18);margin-bottom:22px}
+.exam-header h1{font-size:clamp(1.65rem,4vw,2.25rem);letter-spacing:-.02em}
+.exam-header p{margin:.45rem 0 0;opacity:.9}
+.exam-header .timer{background:#fff;color:#650a03;box-shadow:0 6px 18px rgba(0,0,0,.15)}
+.panel{border-radius:22px;padding:24px}
+#chooser{background:linear-gradient(180deg,#fff 0%,#fffaf8 100%)}
+#chooser h2{margin-top:0;font-size:1.25rem}
+.exam-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.exam-card{position:relative;min-height:205px;border:1px solid #eadfdb;border-radius:20px;padding:22px;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,.07);overflow:hidden}
+.exam-card:before{content:"";position:absolute;left:0;top:0;right:0;height:5px;background:#8f0e04}
+.exam-card:hover{transform:translateY(-4px);border-color:#d7b4ad;box-shadow:0 14px 30px rgba(101,10,3,.12)}
+.exam-card:focus-visible{outline:3px solid rgba(143,14,4,.25);outline-offset:2px}
+.exam-card .exam-icon{width:54px;height:54px;display:grid;place-items:center;border-radius:16px;background:#fff1ed;font-size:27px;margin-bottom:12px}
+.exam-card h3{font-size:1.18rem;margin:0 0 7px;color:#650a03}
+.exam-card p{min-height:42px;margin:0 0 13px;font-size:.9rem;line-height:1.55;color:#59636f}
+.exam-card b{display:inline-flex;padding:6px 9px;border-radius:999px;background:#f7f8fa;font-size:.78rem;color:#334155}
+.exam-card small{display:block;margin-top:12px;font-weight:800;color:#16803a}
+.exam-card.disabled{cursor:not-allowed;opacity:.65}
+.exam-card.disabled small{color:#a15b00}
+.exam-card.disabled:hover{transform:none;box-shadow:0 8px 24px rgba(15,23,42,.07)}
+.candidate-form-head{margin-bottom:4px}
+.form-grid label{font-size:.9rem}
+.form-grid input{background:#fbfcfd;transition:border-color .15s,box-shadow .15s}
+.form-grid input:focus{border-color:#8f0e04;box-shadow:0 0 0 3px rgba(143,14,4,.08);outline:0}
+#candidateInfo{background:#fff5f1;border:1px solid #f1d7d0;color:#5d1d16;border-radius:13px}
+#startBtn{min-width:190px}
+@media(max-width:800px){
+ .exam-shell{padding:20px 12px 48px}
+ .exam-header{padding:20px;border-radius:20px}
+ .exam-grid{grid-template-columns:1fr;gap:12px}
+ .exam-card{min-height:0;padding:18px}
+ .exam-card p{min-height:0}
+ .panel{padding:16px;border-radius:18px}
+ .exam-header .timer{position:static;margin-top:12px;display:inline-flex}
+}
+@media(max-width:430px){
+ .exam-header h1{font-size:1.5rem}
+ .exam-header p{font-size:.86rem}
+ .exam-card .exam-icon{width:48px;height:48px;font-size:24px}
+}
