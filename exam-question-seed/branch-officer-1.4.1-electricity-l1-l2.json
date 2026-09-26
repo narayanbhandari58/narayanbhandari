@@ -13,9 +13,9 @@
     "q": "विद्युत् पूर्वाधारलाई आर्थिक विकासको आधार किन मानिन्छ?",
     "options": [
       "उद्योग, कृषि, सेवा, घरपरिवार र डिजिटल अर्थतन्त्रको उत्पादन क्षमता बढाउने भएकाले",
-      "घरमा बत्ती बाल्नका लागि",
-      "उद्योगसँग सम्बन्ध नभएकाले",
-      "ऊर्जा आयात बढाउन"
+      "घरपरिवारमा प्रकाश र सामान्य घरेलु उपकरण चलाउनका लागि मात्र",
+      "विद्युत् क्षेत्रको उद्योग र उत्पादनसँग प्रत्यक्ष सम्बन्ध नहुने भएकाले",
+      "आयातित ऊर्जा र इन्धनमा निर्भरता बढाउन सहयोग गर्ने भएकाले"
     ],
     "correct": 0,
     "explanation": "Reliable electricity is a cross-sector productive infrastructure. ",
@@ -35,9 +35,9 @@
     "q": "नेपालको विद्युत् विकासमा जलविद्युत्को प्रमुख महत्त्व कुन हो?",
     "options": [
       "देशको प्रमुख घरेलु ऊर्जा स्रोतका रूपमा उत्पादन र निर्यात सम्भावना",
-      "आयातमा निर्भरता बढाउनु",
-      "विद्युत् खपत घटाउनु",
-      "उद्योग बन्द गर्नु"
+      "ऊर्जा आयातमा निर्भरता र विदेशी मुद्रा खर्च बढाउनु",
+      "उद्योग तथा घरपरिवारको विद्युत् खपत घटाउनु",
+      "विद्युत् उत्पादन घटाएर ऊर्जा अभाव कायम गर्नु"
     ],
     "correct": 0,
     "explanation": "Nepal has substantial hydropower potential and electricity can support domestic use and exports. ",
@@ -123,9 +123,9 @@
     "q": "उत्पादन क्षमता बढे पनि transmission कमजोर भएमा मुख्य समस्या के हुन सक्छ?",
     "options": [
       "उत्पादित विद्युत् माग केन्द्रसम्म पुर्‍याउन bottleneck सिर्जना हुनु",
-      "उत्पादन स्वतः बढ्नु",
-      "विद्युत् लागत शून्य हुनु",
-      "विद्युत् निर्यात स्वतः बढ्नु"
+      "transmission कमजोर हुँदा उत्पादन क्षमता स्वतः बढ्नु",
+      "कमजोर transmission ले विद्युत् लागत शून्य बनाउनु",
+      "transmission क्षमता घट्दा विद्युत् निर्यात स्वतः बढ्नु"
     ],
     "correct": 0,
     "explanation": "Generation and transmission capacity must grow together. ",
@@ -145,9 +145,9 @@
     "q": "विद्युत् वितरण प्रणालीबारे कुन कथन सही छ?",
     "options": [
       "कम loss, भरपर्दो supply र voltage quality ले उपभोक्ता र उद्योग दुवैलाई लाभ दिन्छ",
-      "distribution loss ले लागत घटाउँछ",
-      "voltage quality अप्रासंगिक हुन्छ",
-      "मर्मतसम्भार आवश्यक हुँदैन"
+      "distribution loss बढ्दा उपभोक्ताको ऊर्जा लागत घट्छ",
+      "voltage quality ले उद्योग र घरेलु उपभोक्तालाई असर गर्दैन",
+      "विद्युत् वितरण प्रणालीमा नियमित मर्मतसम्भार आवश्यक हुँदैन"
     ],
     "correct": 0,
     "explanation": "Distribution quality determines reliability and efficiency at the user end. ",
@@ -211,9 +211,9 @@
     "q": "विद्युत् पहुँच विस्तारले रोजगारीमा कुन प्रभाव पार्न सक्छ?",
     "options": [
       "उत्पादनमूलक उद्यम र service activities का लागि operating conditions सुधार्न सक्छ",
-      "रोजगारी घटाउँछ",
-      "व्यवसायसँग कुनै सम्बन्ध छैन",
-      "उद्योगको समय बढाउँछ"
+      "विद्युत् पहुँच विस्तारले स्थानीय रोजगारी स्वतः घटाउँछ",
+      "ऊर्जा पहुँच र व्यवसायिक गतिविधिबीच प्रत्यक्ष सम्बन्ध हुँदैन",
+      "भरपर्दो विद्युत्ले उद्योग सञ्चालनको समय घटाउँछ"
     ],
     "correct": 0,
     "explanation": "Reliable electricity can enable enterprises to operate longer and more efficiently. ",
@@ -233,9 +233,9 @@
     "q": "ऊर्जा दक्षताको आर्थिक लाभ कुन हो?",
     "options": [
       "प्रति एकाइ उत्पादन ऊर्जा लागत र स्रोत खपत घटाउनु",
-      "ऊर्जा खपत बढाउनु",
-      "उत्पादन घटाउनु",
-      "ऊर्जा पहुँच घटाउनु"
+      "प्रति एकाइ उत्पादन ऊर्जा खपत बढाउनु",
+      "ऊर्जा दक्षताका कारण औद्योगिक उत्पादन घटाउनु",
+      "ऊर्जा सेवाको पहुँच र उपयोग घटाउनु"
     ],
     "correct": 0,
     "explanation": "Energy efficiency reduces energy intensity. ",
@@ -277,9 +277,9 @@
     "q": "विद्युत् बजार विस्तारमा कुन कुरा महत्त्वपूर्ण हुन्छ?",
     "options": [
       "विश्वसनीय supply, demand growth, transmission capacity र उचित market arrangements",
-      "उत्पादन capacity",
-      "transmission बिना export",
-      "माग घटाउनु"
+      "विद्युत् उत्पादन capacity लाई मात्र बजार विस्तारको आधार मान्नु",
+      "transmission क्षमता नबढाई निर्यात र बजार विस्तार गर्नु",
+      "विद्युत् माग घटाएर बजार विस्तार गर्ने नीति अपनाउनु"
     ],
     "correct": 0,
     "explanation": "Power market development needs both supply and network capacity. ",
@@ -299,9 +299,9 @@
     "q": "उद्योगको energy competitiveness सुधार्न कुन उपाय बढी प्रभावकारी हुन्छ?",
     "options": [
       "भरपर्दो supply, उचित tariff, energy efficiency र grid quality सुधार",
-      "tariff बढाउनु",
-      "power outage बढाउनु",
-      "ऊर्जा efficiency घटाउनु"
+      "विद्युत् tariff र औद्योगिक ऊर्जा लागत बढाउनु",
+      "power outage को आवृत्ति र अवधि बढाउनु",
+      "energy efficiency घटाएर प्रति एकाइ खपत बढाउनु"
     ],
     "correct": 0,
     "explanation": "Industrial energy competitiveness depends on price and quality of supply. ",
@@ -321,9 +321,9 @@
     "q": "विद्युत् उत्पादन बढे पनि औद्योगिक demand कम छ भने कुन पक्षको समीक्षा गर्नुपर्छ?",
     "options": [
       "industrial competitiveness, tariff, reliability, connection cost र productive demand",
-      "थप generation",
-      "transmission",
-      "household demand"
+      "औद्योगिक demand कम हुँदा थप generation मात्र बढाउनु",
+      "transmission क्षमता हेरेर demand पक्षलाई बेवास्ता गर्नु",
+      "घरायसी demand लाई मात्र औद्योगिक ऊर्जा बजारको आधार मान्नु"
     ],
     "correct": 0,
     "explanation": "Supply expansion must be matched with productive demand and competitive conditions. ",
@@ -365,9 +365,9 @@
     "q": "विद्युत् निर्यातको दीर्घकालीन सम्भावना मूल्याङ्कन गर्दा कुन कुरा महत्त्वपूर्ण हुन्छ?",
     "options": [
       "घरेलु surplus, उत्पादन लागत, transmission interconnection र regional demand",
-      "generation potential",
-      "बजार अध्ययन नगर्नु",
-      "transmission नबनाउनु"
+      "जलविद्युत् generation potential लाई मात्र निर्यातको आधार मान्नु",
+      "क्षेत्रीय बजार र अन्तरदेशीय मागको अध्ययन नगर्नु",
+      "transmission interconnection बिना निर्यात विस्तारको योजना बनाउनु"
     ],
     "correct": 0,
     "explanation": "Export viability depends on surplus and cross-border transmission/market conditions. ",
@@ -387,9 +387,9 @@
     "q": "ऊर्जा क्षेत्रको decarbonization मा जलविद्युत्को भूमिका कसरी बुझिन्छ?",
     "options": [
       "कम-कार्बन विद्युत् आपूर्ति बढाई जीवाश्म इन्धनमा निर्भरता घटाउन सहयोग गर्न सक्छ",
-      "यसले सबै उत्सर्जन शून्य बनाउँछ",
-      "यसको वातावरणीय प्रभाव हुँदैन",
-      "ऊर्जा माग घटाउँछ"
+      "जलविद्युत्ले ऊर्जा क्षेत्रका सबै उत्सर्जन पूर्ण रूपमा शून्य बनाउँछ",
+      "जलविद्युत् आयोजनाबाट कुनै वातावरणीय प्रभाव उत्पन्न हुँदैन",
+      "जलविद्युत् विस्तारले ऊर्जा माग स्वतः घटाउँछ"
     ],
     "correct": 0,
     "explanation": "Hydropower is generally low-carbon in operation but projects still require environmental and social safeguards. ",
@@ -408,10 +408,10 @@
     "type": "gk",
     "q": "ऊर्जा पहुँचमा समावेशिता भन्नाले के बुझिन्छ?",
     "options": [
-      "दुर्गम तथा कमजोर आय समूहलाई पनि भरपर्दो र वहनयोग्य ऊर्जा पहुँच दिलाउनु",
-      "शहरमा supply बढाउनु",
-      "उच्च आय समूहलाई सेवा दिनु",
-      "ग्रामीण क्षेत्र हटाउनु"
+      "दुर्गम तथा कमजोर आय समूहलाई भरपर्दो र वहनयोग्य ऊर्जा पहुँच दिलाउनु",
+      "शहर र मुख्य बजार क्षेत्रमा विद्युत् supply मात्र विस्तार गर्नु",
+      "उच्च आय समूहका घरपरिवारलाई प्राथमिकता दिई सेवा विस्तार गर्नु",
+      "ग्रामीण तथा दुर्गम क्षेत्रलाई ऊर्जा विस्तार योजनाबाट अलग राख्नु"
     ],
     "correct": 0,
     "explanation": "Energy inclusion concerns availability, affordability and reliability. ",
@@ -453,9 +453,9 @@
     "q": "स्वास्थ्य संस्थामा भरपर्दो विद्युत् किन आवश्यक हुन्छ?",
     "options": [
       "diagnostics, refrigeration, surgery, lighting र digital systems सञ्चालनका लागि",
-      "भवन सजावट",
-      "औषधि supply रोक्न",
-      "स्वास्थ्य सेवा घटाउन"
+      "स्वास्थ्य संस्थाको भवन सजावट र भौतिक सौन्दर्यका लागि",
+      "औषधि र स्वास्थ्य सामग्रीको नियमित supply रोक्नका लागि",
+      "स्वास्थ्य सेवाको क्षमता र उपचार पहुँच घटाउनका लागि"
     ],
     "correct": 0,
     "explanation": "Health facilities depend on reliable power for essential equipment and services. ",
@@ -475,9 +475,9 @@
     "q": "कृषि मूल्य शृंखला विकासमा विद्युत्को भूमिका कुन हो?",
     "options": [
       "irrigation, milling, drying, cold storage र processing सम्भव बनाउनु",
-      "कृषि प्रशोधन रोक्नु",
-      "post-harvest loss बढाउनु",
-      "बजार पहुँच घटाउनु"
+      "कृषि उत्पादन तथा प्रशोधनको कामलाई रोक्नु",
+      "post-harvest loss र भण्डारण क्षति बढाउनु",
+      "कृषि बजार र उत्पादकको बजार पहुँच घटाउनु"
     ],
     "correct": 0,
     "explanation": "Electricity enables multiple post-harvest and processing activities. ",
@@ -497,9 +497,9 @@
     "q": "ऊर्जा क्षेत्रको प्रगति मूल्याङ्कनमा कुन सूचक समूह बढी उपयुक्त हुन्छ?",
     "options": [
       "generation, access, reliability, losses, consumption र transmission capacity",
-      "installed capacity",
-      "project संख्या",
-      "budget खर्च"
+      "installed capacity लाई मात्र विद्युत् क्षेत्रको प्रगति सूचक मान्नु",
+      "विद्युत् परियोजनाको संख्या मात्र प्रगतिको आधार मान्नु",
+      "वार्षिक बजेट खर्चलाई मात्र विद्युत् विकासको सूचक मान्नु"
     ],
     "correct": 0,
     "explanation": "Installed capacity alone does not measure service quality or access. ",
@@ -519,9 +519,9 @@
     "q": "ठूला विद्युत् आयोजना बारम्बार ढिला हुँदा कुन पक्षको समीक्षा आवश्यक हुन्छ?",
     "options": [
       "survey/design, financing, procurement, land, transmission coordination र project governance",
-      "बजेट आकार",
-      "उद्घाटन मिति",
-      "installed capacity"
+      "विद्युत् क्षेत्रको वार्षिक बजेटको आकार मात्र समीक्षा गर्नु",
+      "आयोजना उद्घाटनको मिति र समारोह मात्र समीक्षा गर्नु",
+      "installed capacity को लक्ष्यलाई मात्र परियोजना प्रगतिको आधार मान्नु"
     ],
     "correct": 0,
     "explanation": "Energy projects face multiple implementation risks beyond financing. ",
@@ -585,9 +585,9 @@
     "q": "ऊर्जा बजेटलाई उत्पादनमूलक बनाउन कुन संयोजन महत्त्वपूर्ण हुन्छ?",
     "options": [
       "generation + transmission + distribution + maintenance + productive demand",
-      "generation",
-      "project announcement",
-      "transmission बिना generation"
+      "generation capacity विस्तारलाई मात्र ऊर्जा बजेटको प्राथमिकता बनाउने",
+      "project announcement र शिलान्यासलाई मुख्य परिणाम मान्ने",
+      "transmission बिना generation क्षमता मात्र विस्तार गर्ने"
     ],
     "correct": 0,
     "explanation": "Energy investment must address the full value chain. ",
@@ -607,9 +607,9 @@
     "q": "विद्युत् surplus लाई आर्थिक विकासमा रूपान्तरण गर्न कुन नीति बढी प्रभावकारी हुन्छ?",
     "options": [
       "उद्योग, agro-processing, electric mobility र digital services मा productive electricity use बढाउनु",
-      "surplus राख्नु",
-      "खपत घटाउनु",
-      "विद्युत् पहुँच घटाउनु"
+      "उत्पादन भएको विद्युत् प्रयोग नगरी surplus रूपमा मात्र राख्नु",
+      "ऊर्जा खपत र productive use दुवै घटाउनु",
+      "विद्युत् पहुँच विस्तारलाई क्रमशः सीमित गर्नु"
     ],
     "correct": 0,
     "explanation": "Surplus power creates value when used in productive activities or viable export markets. ",
@@ -629,9 +629,9 @@
     "q": "सोह्रौँ योजनाको पूर्वाधार तथा उत्पादकत्व दृष्टिकोणसँग विद्युत् क्षेत्रको कुन रणनीति बढी मेल खान्छ?",
     "options": [
       "भरपर्दो पहुँच, grid expansion, productive use र energy efficiency सँग उत्पादन वृद्धि जोड्नु",
-      "capacity संख्या बढाउनु",
-      "विद्युत् र उद्योग अलग राख्नु",
-      "मर्मतसम्भार घटाउनु"
+      "installed capacity को संख्या मात्र बढाउँदै जानु",
+      "विद्युत् क्षेत्रलाई औद्योगिक उत्पादन र उत्पादकत्वबाट अलग राख्नु",
+      "मर्मतसम्भार र grid reliability का कार्यक्रम घटाउनु"
     ],
     "correct": 0,
     "explanation": "Infrastructure should translate into productive capacity and productivity gains. ",
@@ -651,9 +651,9 @@
     "q": "सोह्रौँ योजना, आर्थिक सर्वेक्षण र बजेटलाई समेटेर ऊर्जा पूर्वाधारको दीर्घकालीन प्राथमिकता कुन हो?",
     "options": [
       "access + reliability + transmission + productive demand + export readiness + resilience",
-      "generation",
-      "household connection",
-      "आयोजना घोषणा"
+      "generation capacity लाई मात्र दीर्घकालीन ऊर्जा प्राथमिकता बनाउने",
+      "घरायसी connection संख्या मात्र मुख्य परिणाम मान्ने",
+      "आयोजना घोषणा र शिलान्यासलाई मात्र ऊर्जा विकासको सूचक मान्ने"
     ],
     "correct": 0,
     "explanation": "A mature power sector needs generation, networks, demand, markets and resilience together. ",
