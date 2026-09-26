@@ -28,6 +28,10 @@ jobs:
           assert all(ids), 'question without id'
           assert len(ids) == len(set(ids)), 'duplicate question id found'
 
+          def placed(q, exam_id):
+              m = (q.get('examMappings') or {}).get(exam_id)
+              return {**q, **m} if m else q
+
           def level(q):
               v = str(q.get('level', '')).lower()
               return {'i':'level1','1':'level1','l1':'level1','level1':'level1',
@@ -45,7 +49,7 @@ jobs:
                   assert q.get('image') or q.get('imageUrl') or q.get('image_url'), f"pictorial question has no image: {q.get('id')}"
 
           for exam in exams:
-              bank = [q for q in questions if exam['id'] in (q.get('examIds') or [])]
+              bank = [placed(q, exam['id']) for q in questions if exam['id'] in (q.get('examIds') or []) or exam['id'] in (q.get('examMappings') or {})]
               assert bank, f"no mapped questions for {exam['id']}"
               plan = [(s, u) for s in exam.get('blueprint', {}).get('sections', []) for u in s.get('units', [])]
               for s, u in plan:
@@ -65,7 +69,7 @@ jobs:
 
           bo = next((e for e in exams if e['id'] == 'sakha-adhikrit'), None)
           if bo:
-              bo_bank = [q for q in questions if 'sakha-adhikrit' in (q.get('examIds') or [])]
+              bo_bank = [placed(q, 'sakha-adhikrit') for q in questions if 'sakha-adhikrit' in (q.get('examIds') or []) or 'sakha-adhikrit' in (q.get('examMappings') or {})]
               pict = [q for q in bo_bank if q.get('section') == 'B' and q.get('unit') == '2.2' and q.get('type') == 'pictorial' and (q.get('image') or q.get('imageUrl') or q.get('image_url'))]
               assert len(pict) >= 6, f'Branch Officer B/2.2 pictorial pool: {len(pict)} < 6'
               assert all(len(q.get('options', [])) == 4 for q in pict), 'B/2.2 pictorial question must have 4 options'
