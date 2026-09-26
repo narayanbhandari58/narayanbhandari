@@ -35,6 +35,7 @@ jobs:
               exam = exams[exam_id]
               count = int(exam.get('questionCount', 0))
               assert exam.get('enabled', True) is not False, f'{exam_id}: exam is disabled'
+              assert exam.get('enabled', True) is not False, f'{exam_id}: exam is disabled'
               assert count > 0, f'{exam_id}: invalid questionCount={count}'
               sections = exam.get('blueprint', {}).get('sections', [])
               assert sections, f'{exam_id}: blueprint sections missing'
@@ -61,6 +62,8 @@ jobs:
                       l1 = sum(str(q.get('level', '')).lower() in ('level1','l1','i','1') for q in pool)
                       l2 = sum(str(q.get('level', '')).lower() in ('level2','l2','ii','2') for q in pool)
                       print(f'  LEVEL {sid}: L1={l1}, L2={l2}, required={dist}')
+                      if l1 < int(dist.get('level1', 0)) or l2 < int(dist.get('level2', 0)):
+                          failures.append(f'{exam_id}: level pool shortage in section {sid}: L1={l1}/{dist.get("level1",0)}, L2={l2}/{dist.get("level2",0)}')
                       if l1 < int(dist.get('level1', 0)) or l2 < int(dist.get('level2', 0)):
                           failures.append(f'{exam_id}: level pool shortage in section {sid}: L1={l1}/{dist.get("level1",0)}, L2={l2}/{dist.get("level2",0)}')
 
