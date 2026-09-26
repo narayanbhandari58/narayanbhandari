@@ -57,8 +57,22 @@ function dataRows(q){
         headers=parsed[0];
       }
     }else{
-      const rows=[firstBody,...parts.slice(1)];
-      rows.forEach(part=>{const row=parseRow(part);if(row)parsed.push(row);});
+      // Arrow-style bar/line data may put all categories in one comma-separated
+      // sentence, e.g. "A 240→300, B 200→225, C 320→352, D 260→312".
+      // Parse each labelled pair as its own chart group instead of treating the
+      // whole sentence as one row.
+      if(/→/.test(firstBody)){
+        const arrowRows=[...firstBody.matchAll(/([A-Za-z][A-Za-z-]*)\s+(\d+(?:\.\d+)?)\s*→\s*(\d+(?:\.\d+)?)/g)];
+        if(arrowRows.length){
+          arrowRows.forEach(m=>parsed.push([m[1],m[2],m[3]]));
+        }else{
+          const rows=[firstBody,...parts.slice(1)];
+          rows.forEach(part=>{const row=parseRow(part);if(row)parsed.push(row);});
+        }
+      }else{
+        const rows=[firstBody,...parts.slice(1)];
+        rows.forEach(part=>{const row=parseRow(part);if(row)parsed.push(row);});
+      }
     }
   }else{
     parts.forEach(part=>{const row=parseRow(part);if(row)parsed.push(row);});
@@ -238,6 +252,10 @@ function resolvedQuestionImage(q){
 function figureFallbackHTML(q){
   const raw=String(q?.figure||'').trim();
   if(!raw||resolvedQuestionImage(q))return '';
+  // Data-interpretation figures are rendered as real charts above. Do not
+  // duplicate their source text in the "आकृति" fallback box.
+  const qt=String(q?.type||'').toLowerCase();
+  if(['table','bar-chart','line-graph','line-table','pie-chart'].includes(qt))return '';
   if(/^triangle-grid-\d+$|^triangle-midpoints$/.test(raw))return '';
   return '<div class="question-figure-fallback" style="margin:14px auto;padding:14px;border:1px solid #d9dee7;border-radius:12px;background:#fafafa;max-width:520px;overflow:auto;text-align:center"><div class="figure-fallback-label" style="font-weight:800;margin-bottom:8px">आकृति</div><pre style="display:inline-block;margin:0;font:700 22px/1.35 monospace;white-space:pre;color:#111;text-align:left">'+esc(raw)+'</pre></div>';
 }
