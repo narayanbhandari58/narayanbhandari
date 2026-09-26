@@ -780,6 +780,13 @@ exports.handler =
       }
 
 
+      /* PUBLIC ABOUT PROFILE */
+      if (action === "about") {
+        let profile = {};
+        try { profile = JSON.parse((await readFile("about.json")).content); } catch {}
+        return { statusCode: 200, headers: {"Content-Type":"application/json","Access-Control-Allow-Origin":"*"}, body: JSON.stringify({about: profile}) };
+      }
+
       /* PUBLIC GALLERY */
       if (action === "gallery") {
         let items = [];
@@ -1046,6 +1053,24 @@ exports.handler =
             cleanedFiles: staleImages.length
           })
         };
+      }
+
+      /* SAVE ABOUT PROFILE */
+      if (action === "save-about") {
+        const clean = {
+          name: String(body.name || "").trim().slice(0,120),
+          birthplace: String(body.birthplace || "").trim().slice(0,300),
+          area: String(body.area || "").trim().slice(0,200),
+          email: String(body.email || "").trim().slice(0,200),
+          description: String(body.description || "").trim().slice(0,3000),
+          profileImage: String(body.profileImage || "").trim().slice(0,1000),
+          updated: new Date().toISOString()
+        };
+        if (!clean.name) return {statusCode:400,body:JSON.stringify({error:"नाम आवश्यक छ"})};
+        let sha;
+        try { sha=(await readFile("about.json")).sha; } catch {}
+        await writeFile("about.json", JSON.stringify(clean,null,2), "Update About profile", sha);
+        return {statusCode:200,body:JSON.stringify({message:"मेरो बारेमा सुरक्षित भयो",about:clean})};
       }
 
       /* ===================================
