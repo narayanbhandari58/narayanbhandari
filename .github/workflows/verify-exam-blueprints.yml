@@ -25,11 +25,16 @@ jobs:
           exams = {e['id']: e for e in data.get('exams', [])}
           questions = data.get('questions', [])
           assert questions, 'Question bank is empty'
+          ids = [str(q.get('id','')).strip() for q in questions]
+          assert all(ids), 'Question bank contains question(s) without an id'
+          assert len(ids) == len(set(ids)), 'Duplicate question IDs found in question bank'
 
+          failures = []
           for exam_id in ('sakha-adhikrit', 'nasu', 'kharidar'):
               assert exam_id in exams, f'Missing exam config: {exam_id}'
               exam = exams[exam_id]
               count = int(exam.get('questionCount', 0))
+              assert exam.get('enabled', True) is not False, f'{exam_id}: exam is disabled'
               assert count > 0, f'{exam_id}: invalid questionCount={count}'
               sections = exam.get('blueprint', {}).get('sections', [])
               assert sections, f'{exam_id}: blueprint sections missing'
@@ -47,16 +52,21 @@ jobs:
                       need = int(unit.get('questionCount', 0))
                       pool = [q for q in usable if q.get('section') == sid and (str(q.get('unit', '')) == uid or str(q.get('unit', '')).startswith(uid + '.'))]
                       if len(pool) < need:
-                          print(f'  SHORTAGE {sid}/{uid}: {len(pool)}/{need}')
+                          msg = f'{exam_id}: SHORTAGE {sid}/{uid}: {len(pool)}/{need}'
+                          failures.append(msg)
+                          print(msg)
                   dist = section.get('levelDistribution') or {}
                   if dist:
                       pool = [q for q in usable if q.get('section') == sid]
                       l1 = sum(str(q.get('level', '')).lower() in ('level1','l1','i','1') for q in pool)
                       l2 = sum(str(q.get('level', '')).lower() in ('level2','l2','ii','2') for q in pool)
                       print(f'  LEVEL {sid}: L1={l1}, L2={l2}, required={dist}')
+                      if l1 < int(dist.get('level1', 0)) or l2 < int(dist.get('level2', 0)):
+                          failures.append(f'{exam_id}: level pool shortage in section {sid}: L1={l1}/{dist.get("level1",0)}, L2={l2}/{dist.get("level2",0)}')
 
           api = Path('netlify/functions/exam-api.js').read_text(encoding='utf-8')
           assert 'questions.length' not in api or '2138' not in api, 'Hard-coded 2138 detected in exam API'
           assert 'eligibleQuestions(exam, questions)' in api, 'Per-exam eligibility function missing'
           assert 'selectPaper(exam, bank)' in api, 'Per-exam paper selector missing'
-          print('Blueprint verification completed.')
+          assert not failures, 'Blueprint readiness failed:\n' + '\n'.join(failures)
+          print('Blueprint verification completed for sakha-adhikrit, nasu and kharidar.')
