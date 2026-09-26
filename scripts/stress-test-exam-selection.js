@@ -29,7 +29,7 @@ function placed(q,id){ const m=(q.examMappings||{})[id]; return m ? {...q,...m} 
 function bank(id){ return questions.filter(q=>id in (q.examMappings||{}) || (q.examIds||[]).includes(id)).map(q=>placed(q,id)); }
 function level(q){const v=String(q.level??'').toLowerCase(); return ['level1','l1','i','1'].includes(v)?'level1':['level2','l2','ii','2'].includes(v)?'level2':v;}
 function unitMatches(q,u){const a=String(q.unit??''),b=String(u??'');return a===b||a.startsWith(b+'.');}
-function image(q){return q.image||q.imageUrl||q.image_url||(/^bo-2\\.2-\\d{3}$/.test(String(q.id))&&q.type==='pictorial'?'/image/exam/branch-officer-2.2/'+q.id+'.png':'');}
+function image(q){return q.image||q.imageUrl||q.image_url||(/^bo-2\.2-\d{3}$/.test(String(q.id))&&q.type==='pictorial'?'/image/exam/branch-officer-2.2/'+q.id+'.png':'');}
 function usable(q){return q.type!=='pictorial'||!!image(q);}
 function shuffle(a){const x=[...a];for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]];}return x;}
 function chooseLevelCounts(units,target){
@@ -55,9 +55,25 @@ function validate(exam,paper){
   for(const s of exam.blueprint.sections||[]){const d=s.levelDistribution;if(!d)continue;const p=paper.filter(q=>q.section===s.id);if(p.filter(q=>level(q)==='level1').length!==Number(d.level1||0)||p.filter(q=>level(q)==='level2').length!==Number(d.level2||0))return false;}
   return true;
 }
-function englishLike(q){const s=String(q.q||q.question||''),dev=[...s].filter(c=>c>='\\u0900'&&c<='\\u097f').length,lat=[...s].filter(c=>/[A-Za-z]/.test(c)).length;return lat>dev+2;}
+function englishLike(q){const s=String(q.q||q.question||''),dev=[...s].filter(c=>c>='\u0900'&&c<='\u097f').length,lat=[...s].filter(c=>/[A-Za-z]/.test(c)).length;return lat>dev+2;}
 
-let totalRuns=0, failures=[];
+let failures=[];
+const knownExamIds=new Set(Object.keys(exams));
+for(const q of questions){
+  for(const id of (q.examIds||[])) if(!knownExamIds.has(id)) failures.push(q.id+' references unknown examId '+id);
+  for(const id of Object.keys(q.examMappings||{})){
+    if(!knownExamIds.has(id)) failures.push(q.id+' has mapping for unknown exam '+id);
+    else {
+      const m=q.examMappings[id]||{}, e=exams[id];
+      const validUnits=new Set((e.blueprint?.sections||[]).flatMap(s=>(s.units||[]).map(u=>String(u.id))));
+      if(m.section && !e.blueprint.sections.some(s=>s.id===m.section)) failures.push(q.id+' '+id+' invalid section '+m.section);
+      if(m.unit && ![...validUnits].some(u=>String(m.unit)===u || String(m.unit).startsWith(u+'.'))) failures.push(q.id+' '+id+' invalid unit '+m.unit);
+      if(m.level && !['level1','l1','i','1','level2','l2','ii','2'].includes(String(m.level).toLowerCase())) failures.push(q.id+' '+id+' invalid level '+m.level);
+    }
+  }
+}
+
+let totalRuns=0;
 for(const id of ['sakha-adhikrit','nasu','kharidar']){
   const exam=exams[id]; if(!exam) throw new Error('Missing exam '+id);
   const b=bank(id), u=b.filter(usable);
@@ -68,6 +84,8 @@ for(const id of ['sakha-adhikrit','nasu','kharidar']){
   console.log(id+': mapped='+b.length+', usable='+u.length+', stress=500');
 }
 const shared=questions.filter(q=>Object.keys(q.examMappings||{}).length>=2);
+const triple=questions.filter(q=>['sakha-adhikrit','nasu','kharidar'].every(id => id in (q.examMappings||{}) || (q.examIds||[]).includes(id)));
 console.log('Shared questions mapped to >=2 exams: '+shared.length);
-if(failures.length){console.error('FAILURES\\n'+failures.join('\\n'));process.exit(1);}
-console.log('PASS: '+totalRuns+' paper generations; blueprint, uniqueness, level quotas, pictorial images, and Kharidar/Na Su English exclusion verified.');
+console.log('Questions usable across all 3 exams: '+triple.length);
+if(failures.length){console.error('FAILURES\n'+failures.join('\n'));process.exit(1);}
+console.log('PASS: '+totalRuns+' paper generations; mapping validity, blueprint, uniqueness, level quotas, pictorial images, and Kharidar/Na Su English exclusion verified.');
