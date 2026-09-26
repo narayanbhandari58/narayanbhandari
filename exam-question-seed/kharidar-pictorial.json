@@ -1,0 +1,198 @@
+[
+  {
+    "id": "kh-b2-pict-001",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B2",
+    "subject": "Basic Office Skills Test",
+    "topic": "आकृति क्रम",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+    "question": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 0,
+    "solution": "A-B-A-B क्रम; अर्को वृत्त हो।",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-001.png",
+    "imageAlt": "आकृति क्रम"
+  },
+  {
+    "id": "kh-b2-pict-002",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B2",
+    "subject": "Basic Office Skills Test",
+    "topic": "आकृति क्रम",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+    "question": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 2,
+    "solution": "वर्ग र हीरा पालैपालो आउँछन्; अर्को वर्ग हो।",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-003.png",
+    "imageAlt": "आकृति क्रम"
+  },
+  {
+    "id": "kh-b2-pict-003",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B2",
+    "subject": "Basic Office Skills Test",
+    "topic": "आकृति क्रम",
+    "level": "L2",
+    "type": "pictorial",
+    "q": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+    "question": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 0,
+    "solution": "चार आकृतिको चक्रपछि पहिलो आकृति अर्थात् हीरा आउँछ।",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-005.png",
+    "imageAlt": "आकृति क्रम"
+  },
+  {
+    "id": "kh-b2-pict-004",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B2",
+    "subject": "Basic Office Skills Test",
+    "topic": "आकृति क्रम",
+    "level": "L2",
+    "type": "pictorial",
+    "q": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+    "question": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 0,
+    "solution": "वर्ग र त्रिभुज पालैपालो छन्; अर्को वर्ग हो।",
+    "image": "/image/exam/branch-officer-2.2/bo-2.2-008.png",
+    "imageAlt": "आकृति क्रम"
+  },
+  {
+    "id": "kh-b9-pict-001",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B9",
+    "subject": "Basic Office Skills Test",
+    "topic": "चित्रात्मक विश्लेषण",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "दिइएको पूर्ण त्रिभुजलाई ४ वटा साना त्रिभुजमा विभाजन गरिएको छ। जम्मा कति त्रिभुज छन्?",
+    "question": "दिइएको पूर्ण त्रिभुजलाई ४ वटा साना त्रिभुजमा विभाजन गरिएको छ। जम्मा कति त्रिभुज छन्?",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "8"
+    ],
+    "correct": 1,
+    "solution": "४ वटा साना त्रिभुज र बीचमा बनेको १ उल्टो त्रिभुज गरी जम्मा ५ त्रिभुज छन्।",
+    "figure": "triangle-grid-2",
+    "image": "/image/exam/branch-officer-2.2/triangle-grid-2.svg",
+    "imageAlt": "दुई तहको त्रिभुज जालो"
+  },
+  {
+    "id": "kh-b9-pict-002",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B9",
+    "subject": "Basic Office Skills Test",
+    "topic": "चित्रात्मक विश्लेषण",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "दिइएको ३ तहको समबाहु त्रिभुज जालोमा सबै सम्भावित त्रिभुज गन्दा संख्या कति हुन्छ?",
+    "question": "दिइएको ३ तहको समबाहु त्रिभुज जालोमा सबै सम्भावित त्रिभुज गन्दा संख्या कति हुन्छ?",
+    "options": [
+      "9",
+      "12",
+      "13",
+      "15"
+    ],
+    "correct": 2,
+    "solution": "३ तहको मानक त्रिभुज जालोमा सबै आकार र दिशाका त्रिभुजको कुल संख्या १३ हुन्छ।",
+    "figure": "triangle-grid-3",
+    "image": "/image/exam/branch-officer-2.2/triangle-grid-3.svg",
+    "imageAlt": "तीन तहको त्रिभुज जालो"
+  },
+  {
+    "id": "kh-b9-pict-003",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B9",
+    "subject": "Basic Office Skills Test",
+    "topic": "चित्रात्मक विश्लेषण",
+    "level": "L2",
+    "type": "pictorial",
+    "q": "दिइएको ४ तहको मानक त्रिभुज जालोमा सबै आकारका त्रिभुज गन्दा जम्मा कति हुन्छन्?",
+    "question": "दिइएको ४ तहको मानक त्रिभुज जालोमा सबै आकारका त्रिभुज गन्दा जम्मा कति हुन्छन्?",
+    "options": [
+      "24",
+      "27",
+      "30",
+      "32"
+    ],
+    "correct": 1,
+    "solution": "४ तहको मानक त्रिभुज जालोमा सबै आकार र दिशाका त्रिभुजको कुल संख्या २७ हुन्छ।",
+    "figure": "triangle-grid-4",
+    "image": "/image/exam/branch-officer-2.2/triangle-grid-4.svg",
+    "imageAlt": "चार तहको त्रिभुज जालो"
+  },
+  {
+    "id": "kh-b9-pict-004",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B9",
+    "subject": "Basic Office Skills Test",
+    "topic": "चित्रात्मक विश्लेषण",
+    "level": "L2",
+    "type": "pictorial",
+    "q": "चित्रको बाहिरी त्रिभुजलाई मध्यबिन्दुहरू जोडेर बनाइएको आकृतिमा कुल कति त्रिभुज छन्?",
+    "question": "चित्रको बाहिरी त्रिभुजलाई मध्यबिन्दुहरू जोडेर बनाइएको आकृतिमा कुल कति त्रिभुज छन्?",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "8"
+    ],
+    "correct": 1,
+    "solution": "चारवटा कुनाका साना त्रिभुज र बीचको उल्टो त्रिभुज गरी कुल ५ त्रिभुज छन्।",
+    "figure": "triangle-midpoints",
+    "image": "/image/exam/branch-officer-2.2/triangle-midpoints.svg",
+    "imageAlt": "मध्यबिन्दु जोडिएको त्रिभुज"
+  }
+]
