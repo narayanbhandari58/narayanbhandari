@@ -34,6 +34,13 @@ function dataRows(q){
       return [label,...nums];
     }
 
+    // Compact portfolio/economic form: Equity20@12%, Bonds30@8%, Fund25@10%.
+    // Keep the amount and rate as separate table columns.
+    const compactRate=text.match(/^([A-Za-z][A-Za-z-]*?)(\d+(?:\.\d+)?)@\s*(\d+(?:\.\d+)?%?)$/);
+    if(compactRate){
+      return [compactRate[1],compactRate[2],compactRate[3].endsWith('%')?compactRate[3]:compactRate[3]+'%'];
+    }
+
     const m=text.match(/^([^\s]+)\s+(.+)$/);
     if(!m)return null;
     const label=m[1].trim();
