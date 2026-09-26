@@ -42,7 +42,7 @@ jobs:
               unit_total = sum(int(u.get('questionCount', 0)) for s in sections for u in s.get('units', []))
               assert unit_total == count, f'{exam_id}: blueprint unit total {unit_total} != questionCount {count}'
 
-              mapped = [q for q in questions if exam_id in (q.get('examIds') or [])]
+              mapped = [placed(q, exam_id) for q in questions if exam_id in (q.get('examIds') or []) or exam_id in (q.get('examMappings') or {})]
               usable = [q for q in mapped if q.get('type') != 'pictorial' or q.get('image') or q.get('imageUrl') or q.get('image_url')]
               print(f'{exam_id}: paper={count}, mapped={len(mapped)}, usable={len(usable)}')
 
