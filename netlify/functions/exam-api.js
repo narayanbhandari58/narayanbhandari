@@ -123,6 +123,14 @@ function repairedQuestion(q) {
 }
 function stimulusForQuestion(q, bank) {
   const x = repairedQuestion(q);
+
+  // DI-2.5 portfolio question has four explicit rows. Keep its stimulus
+  // canonical at the API boundary so the exam UI cannot lose the final row.
+  if (String(x?.id || '') === 'bo-2.5-036') {
+    x.type = 'table';
+    x.data = 'Portfolio Rs lakh: Equity 20 12%; Bonds 30 8%; Deposit 25 6%; Fund 25 10%.';
+  }
+
   const gid = groupIdOf(x);
   const sameGroup = gid && Array.isArray(bank)
     ? bank.find(item => String(groupIdOf(item)) === String(gid) && item !== q)
