@@ -23,6 +23,13 @@ function dataRows(q){
     const text=String(part||'').trim();
     if(!text)return null;
 
+    // Compact portfolio/economic form must be checked BEFORE the generic
+    // compact parser, because Equity20@12% also matches the generic form.
+    const compactRate=text.match(/^([A-Za-z][A-Za-z-]*?)(\d+(?:\.\d+)?)\s*(?:@|at)\s*(\d+(?:\.\d+)?%?)$/i);
+    if(compactRate){
+      return [compactRate[1],compactRate[2],compactRate[3].endsWith('%')?compactRate[3]:compactRate[3]+'%'];
+    }
+
     // Compact first token: Science240 at80%, Management300 at72%, etc.
     // Split the first token into label + first numeric value before parsing the rest.
     const compact=text.match(/^([A-Za-z][A-Za-z-]*?)(\d+(?:\.\d+)?)(?:\s+(.+))?$/);
@@ -32,13 +39,6 @@ function dataRows(q){
       const rest=String(compact[3]||'').replace(/^at\s*/i,'').trim();
       const nums=[firstValue,...valuesFrom(rest)];
       return [label,...nums];
-    }
-
-    // Compact portfolio/economic form: Equity20@12%, Bonds30@8%, Fund25@10%.
-    // Keep the amount and rate as separate table columns.
-    const compactRate=text.match(/^([A-Za-z][A-Za-z-]*?)(\d+(?:\.\d+)?)@\s*(\d+(?:\.\d+)?%?)$/);
-    if(compactRate){
-      return [compactRate[1],compactRate[2],compactRate[3].endsWith('%')?compactRate[3]:compactRate[3]+'%'];
     }
 
     const m=text.match(/^([^\s]+)\s+(.+)$/);
