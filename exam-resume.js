@@ -5,7 +5,7 @@
 */
 (function(){
   const KEY='nb_loksewa_exact_resume_v13';
-  const OLD=['nb_loksewa_exact_resume_v11','nb_loksewa_exact_resume_v10','nb_loksewa_exact_resume_v9','nb_loksewa_exact_resume_v8','nb_loksewa_exact_resume_v7','nb_loksewa_exact_resume_v6','nb_loksewa_exact_resume_v5'];
+  const OLD=['nb_loksewa_exact_resume_v12','nb_loksewa_exact_resume_v11','nb_loksewa_exact_resume_v10','nb_loksewa_exact_resume_v9','nb_loksewa_exact_resume_v8','nb_loksewa_exact_resume_v7','nb_loksewa_exact_resume_v6','nb_loksewa_exact_resume_v5'];
   const ALL=[KEY,...OLD],SESSION='nb_loksewa_exam_session_active_v13',RESUME_ARMED='nb_loksewa_resume_armed_v13';
   const $=s=>document.querySelector(s);let state=null,resuming=false,restoring=false,pendingExamId=null;
   const clean=s=>String(s??'').replace(/\s+/g,' ').trim();
@@ -15,8 +15,9 @@
   const armResume=()=>{try{localStorage.setItem(RESUME_ARMED,'1')}catch(e){}};
   const disarmResume=()=>{try{localStorage.removeItem(RESUME_ARMED)}catch(e){}};
   const read=()=>{try{for(const k of ALL){const x=JSON.parse(localStorage.getItem(k)||'null');if(x?.examId&&Array.isArray(x.paper)&&x.paper.length)return x}}catch(e){}return null};
-  const write=()=>{try{if(state)localStorage.setItem(KEY,JSON.stringify({...state,version:12,savedAt:Date.now()}))}catch(e){}};
+  const write=()=>{try{if(state)localStorage.setItem(KEY,JSON.stringify({...state,version:13,savedAt:Date.now()}))}catch(e){}};
   const clear=()=>{try{ALL.forEach(k=>localStorage.removeItem(k))}catch(e){}setSession(false);disarmResume();state=null;resuming=false;restoring=false;pendingExamId=null};
+  window.__nbClearExamResume=()=>clear();
   const resultVisible=()=>{const e=$('#result');return !!(e&&!e.hidden&&getComputedStyle(e).display!=='none')};
   const examVisible=()=>!!($('#exam')&&!$('#exam').hidden),candidateVisible=()=>!!($('#candidate')&&!$('#candidate').hidden),chooserVisible=()=>!!($('#chooser')&&!$('#chooser').hidden);
   function index(){const h=$('#questionCard h2');const m=h&&clean(h.textContent).match(/^(\d+)\s*[.)]/);if(m)return Number(m[1])-1;const bs=[...document.querySelectorAll('#questionNav button')];const i=bs.findIndex(b=>b.classList.contains('active')||b.getAttribute('aria-current')==='true');return i>=0?i:null}
