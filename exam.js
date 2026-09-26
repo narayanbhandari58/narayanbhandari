@@ -214,10 +214,16 @@ function repairQuestionImages(){
   });
 }
 function resolvedQuestionImage(q){
+  const id=String(q?.id||'').trim();
+  const type=String(q?.type||'').toLowerCase();
+  // Pictorial questions use the Netlify image endpoint first so the exam
+  // does not depend on static-file routing/CDN behavior.
+  if(type==='pictorial' && /^bo-2\\.2-\\d{3}$/.test(id)){
+    return '/.netlify/functions/exam-image?id='+encodeURIComponent(id)+'&v=6';
+  }
   const direct=String(q?.image||q?.imageUrl||q?.image_url||'').trim();
   if(direct)return direct;
-  const id=String(q?.id||'').trim();
-  if(/^bo-2\.2-\d{3}$/.test(id)) return '/.netlify/functions/exam-image?id='+encodeURIComponent(id)+'&v=5';
+  if(/^bo-2\\.2-\\d{3}$/.test(id)) return '/.netlify/functions/exam-image?id='+encodeURIComponent(id)+'&v=6';
   return '';
 }
 function figureFallbackHTML(q){
