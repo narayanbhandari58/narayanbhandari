@@ -200,27 +200,54 @@ function selectPaper(exam, bank) {
     const paper = orderByStimulus(shuffle(usableBank).slice(0, Number(exam.questionCount || 0)));
     return validateSelectedPaper(exam, paper) ? paper : null;
   }
-  const selected = [], used = new Set(), add = q => { if (!q || used.has(q.id)) return false; used.add(q.id); selected.push(q); return true };
+  const selected = [], used = new Set();
+  const add = q => {
+    if (!q || used.has(String(q.id))) return false;
+    used.add(String(q.id)); selected.push(q); return true;
+  };
+  // Solve the blueprint globally instead of committing unit-by-unit. This is
+  // important when a shared question can satisfy more than one exam mapping
+  // or when a unit has a narrow Level-I/II pool.
+  const units = [];
   for (const section of (exam.blueprint?.sections || [])) {
-    const units = (section.units || []).map(u => {
-      const pool = usableBank.filter(q => q.section === section.id && unitMatches(q, u.id) && !used.has(q.id));
-      return { id: u.id, need: Number(u.questionCount || 0), pool, l1: pool.filter(q => levelOf(q) === 'level1').length, l2: pool.filter(q => levelOf(q) === 'level2').length };
-    });
-    const d = section.levelDistribution;
-    let counts = null;
-    if (d) counts = chooseLevelCounts(units, Number(d.level1 || 0));
-    if (d && !counts) return null;
-    for (let i = 0; i < units.length; i++) {
-      const u = units[i], need = u.need, pool = shuffle(u.pool);
-      if (pool.length < need) return null;
-      let n1 = d ? counts[i] : 0, n2 = d ? need - n1 : 0;
-      const l1 = shuffle(pool.filter(q => levelOf(q) === 'level1')), l2 = shuffle(pool.filter(q => levelOf(q) === 'level2'));
-      let chosen = [];
-      if (d) { if (l1.length < n1 || l2.length < n2) return null; chosen = [...l1.slice(0, n1), ...l2.slice(0, n2)]; }
-      else chosen = pool.slice(0, need);
-      chosen = shuffle(chosen);
-      if (chosen.length !== need || chosen.some(q => !add(q))) return null;
+    const d = section.levelDistribution || null;
+    for (const u of (section.units || [])) {
+      const pool = shuffle(usableBank.filter(q =>
+        q.section === section.id && unitMatches(q, u.id) && !used.has(String(q.id))
+      ));
+      units.push({
+        sectionId: section.id, id: u.id, need: Number(u.questionCount || 0),
+        pool, l1: pool.filter(q => levelOf(q) === 'level1'),
+        l2: pool.filter(q => levelOf(q) === 'level2'),
+        levelDistribution: d
+      });
     }
+  }
+  // Hardest units first reduces random dead-ends and gives reproducible
+  // readiness behaviour without weakening blueprint validation.
+  units.sort((a,b) => (a.pool.length-a.need)-(b.pool.length-b.need));
+  const sectionPicked = new Map();
+  for (const u of units) {
+    const d = u.levelDistribution;
+    let n1 = 0, n2 = u.need;
+    if (d) {
+      const sectionUnits = units.filter(x => x.sectionId === u.sectionId);
+      const already1 = sectionUnits.reduce((n,x) => n + (sectionPicked.get(x.id)?.l1 || 0), 0);
+      const remainingNeed = sectionUnits.filter(x => !sectionPicked.has(x.id)).reduce((n,x) => n + x.need, 0);
+      const remainingL1 = Number(d.level1 || 0) - already1;
+      const min1 = Math.max(0, remainingL1 - Math.max(0, remainingNeed - u.need));
+      const max1 = Math.min(u.need, remainingL1);
+      const possible = Array.from({length:max1-min1+1},(_,i)=>min1+i).sort(()=>Math.random()-.5);
+      const picked = possible.find(k => u.l1.length >= k && u.l2.length >= u.need-k);
+      if (picked == null) return null;
+      n1=picked; n2=u.need-picked;
+    }
+    const pool=shuffle([...u.pool]);
+    const l1=shuffle(pool.filter(q=>levelOf(q)==='level1')).slice(0,n1);
+    const l2=shuffle(pool.filter(q=>levelOf(q)==='level2')).slice(0,n2);
+    const chosen=shuffle([...l1,...l2]);
+    if(chosen.length!==u.need || chosen.some(q=>!add(q))) return null;
+    sectionPicked.set(u.id,{l1:n1,l2:n2});
   }
   if (!validateSelectedPaper(exam, selected)) return null;
   return orderByStimulus(selected);
