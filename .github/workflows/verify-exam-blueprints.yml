@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Run randomized paper-selection stress test
+        run: node scripts/stress-test-exam-selection.js
       - name: Validate dynamic question-bank and per-exam blueprint rules
         shell: python
         run: |
