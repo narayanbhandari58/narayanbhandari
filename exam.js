@@ -160,7 +160,10 @@ async function start(){
   try{
     let attemptToken=window.__NBResumeAttemptToken||'',expiresAt=Number(window.__NBResumeExpiresAt)||0,attemptId=window.__NBResumeAttemptId||'';
     if(!attemptToken){
-      const d=await getJSON(API+'start',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({examId:selectedExam.id,questionIds:examQuestions.map(q=>q.id),name,email,whatsapp})});
+      const d=await getJSON(API+'start',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({examId:selectedExam.id,name,email,whatsapp})});
+      if(!Array.isArray(d.questions)||d.questions.length!==Number(selectedExam.questionCount||0)) throw Error('Server बाट मान्य प्रश्नपत्र प्राप्त भएन। फेरि प्रयास गर्नुहोस्।');
+      examQuestions=d.questions;
+      selectedExam=d.exam||selectedExam;
       attemptToken=d.attemptToken;expiresAt=Number(d.expiresAt);attemptId=d.attemptId;
     }else if(expiresAt<=Date.now()){
       throw Error('यो परीक्षा session को समय सकिएको छ। नयाँ परीक्षा सुरु गर्नुहोस्।');
