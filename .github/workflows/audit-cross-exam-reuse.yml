@@ -25,6 +25,10 @@ jobs:
           def norm(v):
               return str(v or '').strip().lower()
 
+          def placed(q, exam_id):
+              m = (q.get('examMappings') or {}).get(exam_id)
+              return {**q, **m} if m else q
+
           def level(q):
               return {'i':'level1','1':'level1','l1':'level1','level1':'level1',
                       'ii':'level2','2':'level2','l2':'level2','level2':'level2'}.get(norm(q.get('level')), norm(q.get('level')))
@@ -43,7 +47,7 @@ jobs:
               if not exam:
                   print(f'SKIP {target_id}: exam definition not found')
                   continue
-              bank = [q for q in qs if target_id in (q.get('examIds') or []) and image_ok(q)]
+              bank = [placed(q, target_id) for q in qs if (target_id in (q.get('examIds') or []) or target_id in (q.get('examMappings') or {})) and image_ok(placed(q,target_id))]
               print(f'{target_id}: mapped={len(bank)}')
               for sec in exam.get('blueprint', {}).get('sections', []):
                   for unit in sec.get('units', []):
