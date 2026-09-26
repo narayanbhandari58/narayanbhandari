@@ -57,8 +57,27 @@
   };
 }
 patchFetch();patchSubmitAnswers();
+function patchAttemptStart(){
+  if(window.__NBAttemptStartPatch)return;
+  window.__NBAttemptStartPatch=true;
+  const original=window.fetch.bind(window);
+  window.fetch=async function(input,init){
+    const url=typeof input==='string'?input:(input?.url||'');
+    const r=await original(input,init);
+    if(/exam-api\?action=start(?:&|$)/.test(url)){
+      try{
+        const d=await r.clone().json();
+        if(d?.attemptToken&&state){
+          state.attemptToken=d.attemptToken;state.attemptId=d.attemptId||'';state.expiresAt=Number(d.expiresAt)||0;state.timerEndsAt=state.expiresAt;write();setSession(true);
+        }
+      }catch(e){}
+    }
+    return r;
+  };
+}
+patchAttemptStart();
   document.addEventListener('click',e=>{const b=e.target.closest?.('#examList .exam-card');if(b&&!b.classList.contains('disabled')){pendingExamId=b.dataset.id||null;armResume()}},true);
-  document.addEventListener('click',e=>{const b=e.target.closest?.('#startBtn');if(!b||!state||resuming)return;const n=$('#candidateName')?.value.trim()||'',em=$('#candidateEmail')?.value.trim()||'';if(n&&(em||wa)){state.started=true;state.questionIndex=0;state.timerEndsAt=0;setSession(true);candidate();write();setTimeout(lockNavigation,80)}},true);
+  document.addEventListener('click',e=>{const b=e.target.closest?.('#startBtn');if(!b||!state||resuming)return;const n=$('#candidateName')?.value.trim()||'',em=$('#candidateEmail')?.value.trim()||'';if(n&&(em||wa)){if(state.attemptToken){window.__NBResumeAttemptToken=state.attemptToken;window.__NBResumeExpiresAt=Number(state.expiresAt)||0;window.__NBResumeAttemptId=state.attemptId||''}state.started=true;state.questionIndex=0;state.timerEndsAt=0;setSession(true);candidate();write();setTimeout(lockNavigation,80)}},true);
   document.addEventListener('input',()=>{if(state&&!resuming)candidate()},true);
   document.addEventListener('change',()=>{if(state&&!resuming){candidate();capture()}},true);
   document.addEventListener('click',e=>{if(!state||resuming)return;if(e.target.closest?.('#questionNav button')){setTimeout(capture,20);return}if(e.target.closest?.('#questionCard .option'))setTimeout(capture,20)},true);
