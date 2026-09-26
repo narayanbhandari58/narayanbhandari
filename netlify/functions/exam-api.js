@@ -22,6 +22,25 @@ function verify(t) {
   } catch { return null }
 }
 function isAdmin(e) { return verify((e.headers?.authorization || '').replace(/^Bearer\s+/i, '')) }
+function signAttempt(payload) {
+  if (!SECRET) throw Error('ADMIN_JWT_SECRET is not configured');
+  const h = b64(JSON.stringify({ alg: 'HS256', typ: 'NB-EXAM' }));
+  const p = b64(JSON.stringify(payload));
+  const s = b64(crypto.createHmac('sha256', SECRET).update(`${h}.${p}`).digest());
+  return `${h}.${p}.${s}`;
+}
+function verifyAttempt(t) {
+  if (!t || !SECRET) return null;
+  try {
+    const [h, p, s] = String(t).split('.');
+    if (!h || !p || !s) return null;
+    const expected = b64(crypto.createHmac('sha256', SECRET).update(`${h}.${p}`).digest());
+    if (expected.length !== s.length || !crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(s))) return null;
+    const o = JSON.parse(unb(p));
+    return o.type === 'exam-attempt' && o.attemptId && o.examId && Array.isArray(o.questionIds) && Number(o.expiresAt) > Date.now() ? o : null;
+  } catch { return null }
+}
+
 async function gh(path, opt = {}) { if (!TOKEN) throw Error('GITHUB_TOKEN is not configured'); const r = await fetch(`${GH}/repos/${REPO}/contents/${path}`, { ...opt, headers: { Authorization: `Bearer ${TOKEN}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json', ...(opt.headers || {}) } }); const d = await r.json(); if (!r.ok) throw Error(d.message || 'GitHub request failed'); return d }
 async function readData() {
   // Public exam configuration must not depend on the admin GitHub token.
@@ -213,13 +232,39 @@ exports.handler = async event => {
       const finalReady = !!paper;
       return json(200, { exam, blueprint: exam.blueprint || null, availableQuestions: readiness.usableQuestions, readiness: { ...readiness, ready: finalReady || readiness.ready }, ready: finalReady, questions: (paper || []).map(publicQuestion) });
     }
+    if (action === 'start') {
+      if (typeof body !== 'object' || !body) return json(400, { error: 'Invalid request' });
+      const exam = data.exams.find(x => x.id === body.examId && x.enabled !== false);
+      if (!exam) return json(404, { error: 'परीक्षा भेटिएन' });
+      const ids = Array.isArray(body.questionIds) ? body.questionIds.map(String) : [];
+      if (ids.length !== Number(exam.questionCount || 0) || new Set(ids).size !== ids.length) return json(409, { error: 'प्रश्नपत्र पूरा वा सही छैन। फेरि परीक्षा सुरु गर्नुहोस्।' });
+      const eligible = eligibleQuestions(exam, data.questions);
+      const byId = new Map(eligible.map(q => [String(q.id), q]));
+      const paper = ids.map(id => byId.get(id)).filter(Boolean).map(repairedQuestion);
+      if (paper.length !== ids.length || !paper.every(hasRequiredPictorialImage) || !validateSelectedPaper(exam, paper)) return json(409, { error: 'यो प्रश्नपत्र परीक्षाको blueprint अनुसार मान्य छैन। फेरि परीक्षा सुरु गर्नुहोस्।' });
+      const now = Date.now(), durationMs = Number(exam.durationMinutes || 0) * 60_000;
+      if (!durationMs) return json(500, { error: 'परीक्षाको समय configuration गलत छ।' });
+      const attemptId = `attempt-${now}-${crypto.randomBytes(5).toString('hex')}`;
+      const payload = {
+        type: 'exam-attempt', attemptId, examId: exam.id, questionIds: ids,
+        startedAt: now, expiresAt: now + durationMs
+      };
+      await blobStore().set(`active:${attemptId}`, JSON.stringify(payload), { metadata: { examId: exam.id, expiresAt: String(payload.expiresAt) } });
+      return json(200, { ok: true, attemptId, attemptToken: signAttempt(payload), startedAt: now, expiresAt: payload.expiresAt });
+    }
     if (action === 'submit') {
       if (typeof body !== 'object' || !body) return json(400, { error: 'Invalid request' });
       const exam = data.exams.find(x => x.id === body.examId && x.enabled !== false);
       if (!exam) return json(404, { error: 'परीक्षा भेटिएन' });
-      const eligible = eligibleQuestions(exam, data.questions), bank = new Map(eligible.map(q => [q.id, q]));
+      const attempt = verifyAttempt(body.attemptToken);
+      if (!attempt || attempt.examId !== exam.id) return json(401, { error: 'Exam session मान्य छैन वा समय सकिएको छ। परीक्षा फेरि सुरु गर्नुहोस्।' });
+      const activeKey = `active:${attempt.attemptId}`;
+      const active = await blobStore().get(activeKey, { type: 'json' }).catch(() => null);
+      if (!active) return json(409, { error: 'यो exam session पहिले नै बुझाइएको वा समाप्त भएको छ।' });
+      if (Number(active.expiresAt) <= Date.now()) { await blobStore().delete(activeKey).catch(() => {}); return json(409, { error: 'परीक्षाको समय सकिएको छ।' }); }
+      const eligible = eligibleQuestions(exam, data.questions), bank = new Map(eligible.map(q => [String(q.id), q]));
       const answers = body.answers && typeof body.answers === 'object' ? body.answers : {};
-      const ids = Array.isArray(body.questionIds) ? body.questionIds.slice(0, Number(exam.questionCount || 0)) : [];
+      const ids = attempt.questionIds.map(String);
       if (ids.length !== Number(exam.questionCount || 0)) return json(409, { error: `यस परीक्षाका लागि ${exam.questionCount} प्रश्न चाहिन्छ।` });
       if (new Set(ids).size !== ids.length) return json(409, { error: 'प्रश्नपत्रमा दोहोरिएका प्रश्न भेटिए। फेरि परीक्षा सुरु गर्नुहोस्।' });
       let correct = 0, wrong = 0, skipped = 0; const review = [];
@@ -233,7 +278,8 @@ exports.handler = async event => {
       if (review.length !== Number(exam.questionCount || 0)) return json(409, { error: 'Question Bank मा आवश्यक सबै प्रश्न उपलब्ध छैनन्।' });
       const score = Number((correct * Number(exam.positiveMark || 1) - wrong * Number(exam.negativeMark || .2)).toFixed(2)), maxScore = review.length * Number(exam.positiveMark || 1), percent = maxScore ? Number((score / maxScore * 100).toFixed(2)) : 0;
       const result = { attemptId: `attempt-${Date.now()}-${crypto.randomBytes(4).toString('hex')}`, examId: exam.id, examTitle: exam.title, stage: exam.stage || 'Stage-I', candidate: { name: String(body.name || '').slice(0, 100), email: String(body.email || '').slice(0, 160), whatsapp: String(body.whatsapp || '').slice(0, 30) }, submittedAt: new Date().toISOString(), correct, wrong, skipped, score, maxScore, percent, passed: percent >= Number(exam.passPercent || 45), review };
-      await blobStore().set(result.attemptId, JSON.stringify(result), { metadata: { examId: exam.id } });
+      await blobStore().set(result.attemptId, JSON.stringify(result), { metadata: { examId: exam.id, startedAt: String(attempt.startedAt) } });
+      await blobStore().delete(activeKey).catch(() => {});
       return json(200, { result });
     }
     if (action === 'admin-data') { if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' }); const examReadiness = (data.exams || []).map(exam => ({ examId: exam.id, title: exam.title, ...readinessReport(exam, eligibleQuestions(exam, data.questions)) })); return json(200, { data, examReadiness }) }
