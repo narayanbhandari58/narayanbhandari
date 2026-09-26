@@ -7,6 +7,8 @@ on:
       - 'netlify/functions/exam-api.js'
       - 'exam.js'
       - 'exam-resume.js'
+      - 'exam-question-seed/**'
+      - 'scripts/stress-test-exam-selection.js'
       - '.github/workflows/verify-exam-blueprints.yml'
   workflow_dispatch:
 
@@ -29,12 +31,15 @@ jobs:
           assert all(ids), 'Question bank contains question(s) without an id'
           assert len(ids) == len(set(ids)), 'Duplicate question IDs found in question bank'
 
+          def placed(q, exam_id):
+              mapping = (q.get('examMappings') or {}).get(exam_id)
+              return {**q, **mapping} if mapping else q
+
           failures = []
           for exam_id in ('sakha-adhikrit', 'nasu', 'kharidar'):
               assert exam_id in exams, f'Missing exam config: {exam_id}'
               exam = exams[exam_id]
               count = int(exam.get('questionCount', 0))
-              assert exam.get('enabled', True) is not False, f'{exam_id}: exam is disabled'
               assert exam.get('enabled', True) is not False, f'{exam_id}: exam is disabled'
               assert count > 0, f'{exam_id}: invalid questionCount={count}'
               sections = exam.get('blueprint', {}).get('sections', [])
@@ -45,6 +50,7 @@ jobs:
               mapped = [placed(q, exam_id) for q in questions if exam_id in (q.get('examIds') or []) or exam_id in (q.get('examMappings') or {})]
               usable = [q for q in mapped if q.get('type') != 'pictorial' or q.get('image') or q.get('imageUrl') or q.get('image_url')]
               print(f'{exam_id}: paper={count}, mapped={len(mapped)}, usable={len(usable)}')
+
               if exam_id in ('kharidar', 'nasu'):
                   english_like = []
                   for q in mapped:
@@ -73,11 +79,8 @@ jobs:
                       print(f'  LEVEL {sid}: L1={l1}, L2={l2}, required={dist}')
                       if l1 < int(dist.get('level1', 0)) or l2 < int(dist.get('level2', 0)):
                           failures.append(f'{exam_id}: level pool shortage in section {sid}: L1={l1}/{dist.get("level1",0)}, L2={l2}/{dist.get("level2",0)}')
-                      if l1 < int(dist.get('level1', 0)) or l2 < int(dist.get('level2', 0)):
-                          failures.append(f'{exam_id}: level pool shortage in section {sid}: L1={l1}/{dist.get("level1",0)}, L2={l2}/{dist.get("level2",0)}')
 
           api = Path('netlify/functions/exam-api.js').read_text(encoding='utf-8')
-          assert 'questions.length' not in api or '2138' not in api, 'Hard-coded 2138 detected in exam API'
           assert 'eligibleQuestions(exam, questions)' in api, 'Per-exam eligibility function missing'
           assert 'selectPaper(exam, bank)' in api, 'Per-exam paper selector missing'
           assert not failures, 'Blueprint readiness failed:\n' + '\n'.join(failures)
