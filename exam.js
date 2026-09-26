@@ -70,8 +70,21 @@ function dataRows(q){
           rows.forEach(part=>{const row=parseRow(part);if(row)parsed.push(row);});
         }
       }else{
-        const rows=[firstBody,...parts.slice(1)];
-        rows.forEach(part=>{const row=parseRow(part);if(row)parsed.push(row);});
+        // Compact comma-separated category data such as
+        // "Roads35%, Water25%, Health20%, Education12%, Other8%"
+        // must become separate pie/table rows. Otherwise the old parser
+        // treated the first label as one row and dropped the other labels.
+        const compactItems=firstBody.split(/\s*,\s*/).map(x=>x.trim()).filter(Boolean);
+        const compactRows=compactItems.map(item=>{
+          const m=item.match(/^([A-Za-z][A-Za-z-]*?)(\d+(?:\.\d+)?%?)$/);
+          return m?[m[1],m[2]]:null;
+        }).filter(Boolean);
+        if(compactRows.length>=2){
+          compactRows.forEach(row=>parsed.push(row));
+        }else{
+          const rows=[firstBody,...parts.slice(1)];
+          rows.forEach(part=>{const row=parseRow(part);if(row)parsed.push(row);});
+        }
       }
     }
   }else{
