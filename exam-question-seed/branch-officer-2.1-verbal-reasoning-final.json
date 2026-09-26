@@ -454,15 +454,15 @@
     "unit": "2.1",
     "level": "II",
     "type": "series",
-    "question": "Find the next number: 4, 9, 19, 39, 79, ?",
+    "question": "In the sequence AABABCABCDABCDE..., what is the 96th letter?",
     "options": [
-      "149",
-      "159",
-      "161",
-      "169"
+      "D",
+      "E",
+      "F",
+      "G"
     ],
     "correct": 1,
-    "solution": "Each term is doubled and 1 added: 79×2+1=159."
+    "solution": "The groups are A, AB, ABC, ABCD, ... . The first 13 groups contain 91 letters; group 14 is ABCDEFGHIJKLMN, occupying positions 92–105. Position 96 is the 5th letter of that group: E."
   },
   {
     "id": "bo-2.1-32",
