@@ -53,7 +53,7 @@ for unit,facts in [("1.7.1",facts171),("1.7.2",facts172)]:
                 }
                 for key,pool in date_pools.items():
                     if key in topic: return pool
-            return [x[2] for x in facts if x[2]!=answer][:3]
+            raise ValueError(f\"No topic-specific distractor pool for: {topic}\")
         distractors=distractor_pool(topic, answer, facts)
         qs.append(make_q(unit,n,"I",question,answer,distractors,"mcq"))
         n2=2*i
