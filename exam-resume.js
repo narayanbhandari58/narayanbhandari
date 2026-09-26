@@ -16,9 +16,45 @@
   const disarmResume=()=>{try{localStorage.removeItem(RESUME_ARMED)}catch(e){}};
   const read=()=>{try{for(const k of ALL){const x=JSON.parse(localStorage.getItem(k)||'null');if(x?.examId&&Array.isArray(x.paper)&&x.paper.length)return x}}catch(e){}return null};
   const write=()=>{try{if(state)localStorage.setItem(KEY,JSON.stringify({...state,version:13,savedAt:Date.now()}))}catch(e){}};
-  const clear=()=>{try{ALL.forEach(k=>localStorage.removeItem(k))}catch(e){}setSession(false);disarmResume();state=null;resuming=false;restoring=false;pendingExamId=null};
+  const clear=()=>{unlockNavigation();try{ALL.forEach(k=>localStorage.removeItem(k))}catch(e){}setSession(false);disarmResume();state=null;resuming=false;restoring=false;pendingExamId=null};
   window.__nbClearExamResume=()=>clear();
   const resultVisible=()=>{const e=$('#result');return !!(e&&!e.hidden&&getComputedStyle(e).display!=='none')};
+  let navigationLocked=false, navigationGuardInstalled=false, suppressNavigation=false;
+  function lockNavigation(){
+    navigationLocked=true;
+    if(!navigationGuardInstalled){
+      navigationGuardInstalled=true;
+      try{history.pushState({nbExamLock:true},'',location.href)}catch(e){}
+      window.addEventListener('popstate',function(){
+        if(!navigationLocked||suppressNavigation)return;
+        try{history.pushState({nbExamLock:true},'',location.href)}catch(e){}
+        alert('परीक्षा चलिरहेको छ। परीक्षा बुझाएपछि मात्र यो पृष्ठबाट बाहिर जान सकिन्छ।');
+      });
+      document.addEventListener('click',function(e){
+        if(!navigationLocked||suppressNavigation)return;
+        const a=e.target.closest?.('a[href]');
+        if(!a)return;
+        const href=a.getAttribute('href')||'';
+        if(!href||href.startsWith('#')||a.hasAttribute('download'))return;
+        e.preventDefault();e.stopImmediatePropagation();
+        alert('परीक्षा चलिरहेको छ। परीक्षा बुझाएपछि मात्र मुख्य वेबसाइट वा अर्को पृष्ठमा जान सकिन्छ।');
+      },true);
+      window.addEventListener('keydown',function(e){
+        if(!navigationLocked||suppressNavigation)return;
+        const k=String(e.key||'').toLowerCase();
+        if(k==='f5'||((e.ctrlKey||e.metaKey)&&k==='r')){
+          e.preventDefault();e.stopPropagation();
+          alert('परीक्षा चलिरहेको बेला refresh गर्न आवश्यक छैन। पृष्ठ बन्द भए/फेरि खोलिएमा परीक्षा यही session बाट resume हुन्छ।');
+        }
+      },true);
+      window.addEventListener('beforeunload',function(e){
+        if(!navigationLocked||suppressNavigation||resultVisible())return;
+        e.preventDefault();e.returnValue='परीक्षा चलिरहेको छ। बाहिर निस्कनुहुन्छ?';
+      });
+    }
+  }
+  function unlockNavigation(){navigationLocked=false;suppressNavigation=true;try{history.replaceState(null,'',location.href)}catch(e){}setTimeout(()=>{suppressNavigation=false},0)}
+
   const examVisible=()=>!!($('#exam')&&!$('#exam').hidden),candidateVisible=()=>!!($('#candidate')&&!$('#candidate').hidden),chooserVisible=()=>!!($('#chooser')&&!$('#chooser').hidden);
   function index(){const h=$('#questionCard h2');const m=h&&clean(h.textContent).match(/^(\d+)\s*[.)]/);if(m)return Number(m[1])-1;const bs=[...document.querySelectorAll('#questionNav button')];const i=bs.findIndex(b=>b.classList.contains('active')||b.getAttribute('aria-current')==='true');return i>=0?i:null}
   function timerSecondsFromState(){if(!state)return null;const end=Number(state.timerEndsAt);if(Number.isFinite(end)&&end>0)return Math.max(0,Math.floor((end-Date.now())/1000));let base=Number(state.timerSeconds);if(!Number.isFinite(base)||base<0){const m=clean(state.timerText||'').match(/^(\d+):([0-5]\d)$/);if(!m)return null;base=Number(m[1])*60+Number(m[2])}const savedAt=Number(state.savedAt);if(Number.isFinite(savedAt)&&savedAt>0)base-=Math.max(0,(Date.now()-savedAt)/1000);return Math.max(0,Math.floor(base))}
@@ -77,7 +113,7 @@ function patchAttemptStart(){
 }
 patchAttemptStart();
   document.addEventListener('click',e=>{const b=e.target.closest?.('#examList .exam-card');if(b&&!b.classList.contains('disabled')){pendingExamId=b.dataset.id||null;armResume()}},true);
-  document.addEventListener('click',e=>{const b=e.target.closest?.('#startBtn');if(!b||!state||resuming)return;const n=$('#candidateName')?.value.trim()||'',em=$('#candidateEmail')?.value.trim()||'';if(n&&(em||wa)){if(state.attemptToken){window.__NBResumeAttemptToken=state.attemptToken;window.__NBResumeExpiresAt=Number(state.expiresAt)||0;window.__NBResumeAttemptId=state.attemptId||''}state.started=true;state.questionIndex=0;state.timerEndsAt=0;setSession(true);candidate();write();setTimeout(lockNavigation,80)}},true);
+  document.addEventListener('click',e=>{const b=e.target.closest?.('#startBtn');if(!b||!state||resuming)return;const n=$('#candidateName')?.value.trim()||'',em=$('#candidateEmail')?.value.trim()||'',wa=$('#candidateWhatsapp')?.value.trim()||'';if(n&&(em||wa)){if(state.attemptToken){window.__NBResumeAttemptToken=state.attemptToken;window.__NBResumeExpiresAt=Number(state.expiresAt)||0;window.__NBResumeAttemptId=state.attemptId||''}state.started=true;state.questionIndex=0;state.timerEndsAt=0;setSession(true);candidate();write();setTimeout(lockNavigation,80)}},true);
   document.addEventListener('input',()=>{if(state&&!resuming)candidate()},true);
   document.addEventListener('change',()=>{if(state&&!resuming){candidate();capture()}},true);
   document.addEventListener('click',e=>{if(!state||resuming)return;if(e.target.closest?.('#questionNav button')){setTimeout(capture,20);return}if(e.target.closest?.('#questionCard .option'))setTimeout(capture,20)},true);
