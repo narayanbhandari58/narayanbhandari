@@ -119,6 +119,8 @@
     });
   </script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","@id":"https://narayan-bhandari.com.np/about_me.html#profile","url":"https://narayan-bhandari.com.np/about_me.html","name":"About Narayan Bhandari | नारायण भण्डारी","inLanguage":["ne-NP","en-US"],"mainEntity":{"@type":"Person","@id":"https://narayan-bhandari.com.np/#person","name":"Narayan Bhandari","alternateName":"नारायण भण्डारी","url":"https://narayan-bhandari.com.np/","image":"https://narayan-bhandari.com.np/image/profile.png","email":"narayanbhandari58@gmail.com","sameAs":["https://www.facebook.com/narayanbhandari23","https://youtube.com/@allinonefornepal"],"description":"लेखन, साहित्य, शिक्षा र लोकसेवा तयारीसँग सम्बन्धित सामग्री प्रस्तुत गर्ने नारायण भण्डारी।"}}</script>
-<script src="nepali-date.js?v=20260923-5" defer></script>
+<script>
+(async function(){try{const r=await fetch('/api?action=about');const d=await r.json();const x=d.about||{};const map={'.about-content h2':x.name,'.about-detail:nth-child(1) span':x.birthplace,'.about-detail:nth-child(2) span':x.area,'.about-detail:nth-child(3) span':x.email,'.about-description':x.description};Object.entries(map).forEach(([sel,v])=>{const e=document.querySelector(sel);if(e&&v)e.textContent=v});const im=document.querySelector('.about-image img');if(im&&x.profileImage)im.src=x.profileImage;const email=document.querySelector('.about-detail:nth-child(3) a');if(email&&x.email){email.href='mailto:'+x.email;email.textContent=x.email;}}catch(e){}})();
+</script><script src="nepali-date.js?v=20260923-5" defer></script>
 </body>
 </html>
