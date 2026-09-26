@@ -1,0 +1,14 @@
+[
+  {
+    "id": "profile",
+    "image": "image/profile.png",
+    "caption": "प्रोफाइल",
+    "alt": "नारायण भण्डारीको प्रोफाइल फोटो"
+  },
+  {
+    "id": "logo",
+    "image": "image/logo.png",
+    "caption": "वेबसाइट लोगो",
+    "alt": "नारायण भण्डारीको लोगो"
+  }
+]
