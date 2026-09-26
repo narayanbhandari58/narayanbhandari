@@ -118,7 +118,26 @@ function repairedQuestion(q) {
   }
   return x;
 }
-function publicQuestion(q) { const x = repairedQuestion(q); return { id: x.id, examIds: x.examIds, section: x.section, unit: x.unit, subject: x.subject, topic: x.topic, category: x.category, level: x.level, type: x.type, format: x.format, q: x.q || x.question, options: x.options, image: questionImage(x), imageAlt: x.imageAlt || x.image_alt || x.topic || 'प्रश्नचित्र', passage: x.passage || '', figure: x.figure || '', data: x.data || '', groupId: groupIdOf(x) } }
+function stimulusForQuestion(q, bank) {
+  const x = repairedQuestion(q);
+  const gid = groupIdOf(x);
+  const sameGroup = gid && Array.isArray(bank)
+    ? bank.find(item => String(groupIdOf(item)) === String(gid) && item !== q)
+    : null;
+  const source = sameGroup || {};
+  return {
+    ...x,
+    image: String(x.image || x.imageUrl || x.image_url || '').trim() || String(source.image || source.imageUrl || source.image_url || '').trim(),
+    imageAlt: x.imageAlt || x.image_alt || source.imageAlt || source.image_alt || x.topic || source.topic || 'प्रश्नचित्र',
+    passage: x.passage || source.passage || '',
+    figure: x.figure || source.figure || '',
+    data: x.data || source.data || ''
+  };
+}
+function publicQuestion(q, bank) {
+  const x = stimulusForQuestion(q, bank);
+  return { id: x.id, examIds: x.examIds, section: x.section, unit: x.unit, subject: x.subject, topic: x.topic, category: x.category, level: x.level, type: x.type, format: x.format, q: x.q || x.question, options: x.options, image: questionImage(x), imageAlt: x.imageAlt || x.image_alt || x.topic || 'प्रश्नचित्र', passage: x.passage || '', figure: x.figure || '', data: x.data || '', groupId: groupIdOf(x) }
+}
 function shuffle(a) { const x = [...a]; for (let i = x.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [x[i], x[j]] = [x[j], x[i]] } return x }
 function userQuery(p) { return String(p.get('user') || p.get('q') || '').trim().toLowerCase(); }
 function matchesUser(x, query) {
@@ -297,7 +316,7 @@ exports.handler = async event => {
       const bank = eligibleQuestions(exam, data.questions), readiness = readinessReport(exam, bank);
       const paper = readiness.ready ? selectPaper(exam, bank) : null;
       const finalReady = !!paper;
-      return json(200, { exam, blueprint: exam.blueprint || null, availableQuestions: readiness.usableQuestions, readiness: { ...readiness, ready: finalReady || readiness.ready }, ready: finalReady, questions: (paper || []).map(publicQuestion) });
+      return json(200, { exam, blueprint: exam.blueprint || null, availableQuestions: readiness.usableQuestions, readiness: { ...readiness, ready: finalReady || readiness.ready }, ready: finalReady, questions: (paper || []).map(q => publicQuestion(q, bank)) });
     }
     if (action === 'start') {
       if (typeof body !== 'object' || !body) return json(400, { error: 'Invalid request' });
@@ -321,7 +340,7 @@ exports.handler = async event => {
       await blobStore().set(`active:${attemptId}`, JSON.stringify(payload), { metadata: { examId: exam.id, expiresAt: String(payload.expiresAt) } });
       return json(200, {
         ok: true, attemptId, attemptToken: signAttempt(payload), startedAt: now, expiresAt: payload.expiresAt,
-        exam, questions: paper.map(publicQuestion)
+        exam, questions: paper.map(q => publicQuestion(q, eligible))
       });
     }
     if (action === 'submit') {
@@ -345,7 +364,8 @@ exports.handler = async event => {
         const raw = answers[id], selected = Number.isInteger(raw) ? raw : null;
         if (selected !== null && (selected < 0 || selected >= (Array.isArray(q.options) ? q.options.length : 0))) return json(400, { error: 'Invalid answer option' });
         if (selected === null) skipped++; else if (selected === q.correct) correct++; else wrong++;
-        review.push({ id: q.id, q: q.q || q.question, options: q.options, selected, correct: q.correct, type: q.type, format: q.format || '', section: q.section || '', unit: q.unit || '', subject: q.subject, topic: q.topic, level: q.level || '', image: questionImage(q), imageAlt: q.imageAlt || q.image_alt || q.topic || 'प्रश्नचित्र', passage: q.passage || '', figure: q.figure || '', data: q.data || '', groupId: groupIdOf(q), explanation: q.explanation || '', solution: q.solution || '' });
+        const rq = stimulusForQuestion(q, eligible);
+        review.push({ id: rq.id, q: rq.q || rq.question, options: rq.options, selected, correct: rq.correct, type: rq.type, format: rq.format || '', section: rq.section || '', unit: rq.unit || '', subject: rq.subject, topic: rq.topic, level: rq.level || '', image: questionImage(rq), imageAlt: rq.imageAlt || rq.image_alt || rq.topic || 'प्रश्नचित्र', passage: rq.passage || '', figure: rq.figure || '', data: rq.data || '', groupId: groupIdOf(rq), explanation: rq.explanation || '', solution: rq.solution || '' });
       }
       if (review.length !== Number(exam.questionCount || 0)) return json(409, { error: 'Question Bank मा आवश्यक सबै प्रश्न उपलब्ध छैनन्।' });
       const score = Number((correct * Number(exam.positiveMark || 1) - wrong * Number(exam.negativeMark || .2)).toFixed(2)), maxScore = review.length * Number(exam.positiveMark || 1), percent = maxScore ? Number((score / maxScore * 100).toFixed(2)) : 0;
