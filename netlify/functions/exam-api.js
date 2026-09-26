@@ -37,7 +37,7 @@ function verifyAttempt(t) {
     const expected = b64(crypto.createHmac('sha256', SECRET).update(`${h}.${p}`).digest());
     if (expected.length !== s.length || !crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(s))) return null;
     const o = JSON.parse(unb(p));
-    return o.type === 'exam-attempt' && o.attemptId && o.examId && Array.isArray(o.questionIds) && Number(o.expiresAt) > Date.now() ? o : null;
+    return o.type === 'exam-attempt' && o.attemptId && o.examId && Array.isArray(o.questionIds) && Number(o.expiresAt) + 5000 > Date.now() ? o : null;
   } catch { return null }
 }
 
@@ -261,7 +261,7 @@ exports.handler = async event => {
       const activeKey = `active:${attempt.attemptId}`;
       const active = await blobStore().get(activeKey, { type: 'json' }).catch(() => null);
       if (!active) return json(409, { error: 'यो exam session पहिले नै बुझाइएको वा समाप्त भएको छ।' });
-      if (Number(active.expiresAt) <= Date.now()) { await blobStore().delete(activeKey).catch(() => {}); return json(409, { error: 'परीक्षाको समय सकिएको छ।' }); }
+      if (Number(active.expiresAt) + 5000 <= Date.now()) { await blobStore().delete(activeKey).catch(() => {}); return json(409, { error: 'परीक्षाको समय सकिएको छ।' }); }
       const eligible = eligibleQuestions(exam, data.questions), bank = new Map(eligible.map(q => [String(q.id), q]));
       const answers = body.answers && typeof body.answers === 'object' ? body.answers : {};
       const ids = attempt.questionIds.map(String);
