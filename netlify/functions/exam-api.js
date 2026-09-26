@@ -122,7 +122,7 @@ async function attempts() { const store = blobStore(), out = []; let cursor; do 
 function levelOf(q) { const v = String(q.level ?? '').toLowerCase(); if (v === 'level1' || v === 'l1' || v === 'i' || v === '1') return 'level1'; if (v === 'level2' || v === 'l2' || v === 'ii' || v === '2') return 'level2'; return v }
 function unitMatches(q, u) { const a = String(q.unit ?? ''); const b = String(u ?? ''); return a === b || a.startsWith(b + '.') }
 function stimulusKey(q) { if (q.groupId) return `group:${q.groupId}`; if (q.passage) return `passage:${q.passage}`; if (q.figure) return `figure:${q.figure}`; if (q.data) return `data:${q.data}`; return '' }
-function hasRequiredPictorialImage(q) { return q.type !== 'pictorial' || !!(q.image || q.imageUrl || q.image_url) }
+function hasRequiredPictorialImage(q) { return q.type !== 'pictorial' || !!questionImage(q) }
 function eligibleQuestions(exam, questions) { return questions.filter(q => Array.isArray(q.examIds) && q.examIds.includes(exam.id)) }
 function unitPlan(exam) { return (exam.blueprint?.sections || []).flatMap(s => (s.units || []).map(u => ({ ...u, sectionId: s.id, sectionTitle: s.title }))) }
 function readinessReport(exam, bank) {
