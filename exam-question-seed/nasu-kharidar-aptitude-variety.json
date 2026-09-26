@@ -1,0 +1,1388 @@
+[
+  {
+    "id": "nasu-2.1-var-001",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.1",
+    "subject": "General Mental Ability",
+    "topic": "अक्षर श्रेणी",
+    "level": "L1",
+    "type": "letter-series",
+    "q": "A, D, H, M, S, ? मा अर्को अक्षर कुन?",
+    "question": "A, D, H, M, S, ? मा अर्को अक्षर कुन?",
+    "options": [
+      "Y",
+      "Z",
+      "X",
+      "W"
+    ],
+    "correct": 1,
+    "solution": "+3,+4,+5,+6,+7; S+7=Z।"
+  },
+  {
+    "id": "nasu-2.1-var-002",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.1",
+    "subject": "General Mental Ability",
+    "topic": "अक्षर श्रेणी",
+    "level": "L1",
+    "type": "letter-series",
+    "q": "B, E, I, N, T, ? मा अर्को अक्षर कुन?",
+    "question": "B, E, I, N, T, ? मा अर्को अक्षर कुन?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 0,
+    "solution": "+3,+4,+5,+6,+7; T+7=27 अर्थात् A।"
+  },
+  {
+    "id": "nasu-2.1-var-003",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.1",
+    "subject": "General Mental Ability",
+    "topic": "मिश्रित अक्षर-चिह्न",
+    "level": "L1",
+    "type": "letter-symbol-series",
+    "q": "A2, C4, E6, G8, ? मा अर्को पद कुन?",
+    "question": "A2, C4, E6, G8, ? मा अर्को पद कुन?",
+    "options": [
+      "I10",
+      "H10",
+      "I9",
+      "J10"
+    ],
+    "correct": 0,
+    "solution": "अक्षर र संख्या दुवै +2।"
+  },
+  {
+    "id": "nasu-2.1-var-004",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.1",
+    "subject": "General Mental Ability",
+    "topic": "अक्षर उपमा",
+    "level": "L1",
+    "type": "analogy",
+    "q": "AD : EH :: KN : ?",
+    "question": "AD : EH :: KN : ?",
+    "options": [
+      "OQ",
+      "OR",
+      "NP",
+      "PS"
+    ],
+    "correct": 0,
+    "solution": "A→E,D→H र K→O,N→Q; दुवै अक्षरमा +4।"
+  },
+  {
+    "id": "nasu-2.1-var-005",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.1",
+    "subject": "General Mental Ability",
+    "topic": "Coding-Decoding",
+    "level": "L1",
+    "type": "coding-decoding",
+    "q": "यदि CAT लाई DBU लेखिन्छ भने DOG लाई कसरी लेखिन्छ?",
+    "question": "यदि CAT लाई DBU लेखिन्छ भने DOG लाई कसरी लेखिन्छ?",
+    "options": [
+      "EPH",
+      "EOG",
+      "DPH",
+      "FOH"
+    ],
+    "correct": 0,
+    "solution": "प्रत्येक अक्षर +1।"
+  },
+  {
+    "id": "nasu-2.1-var-006",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.1",
+    "subject": "General Mental Ability",
+    "topic": "Coding-Decoding",
+    "level": "L1",
+    "type": "coding-decoding",
+    "q": "यदि NEPAL लाई OFQBM लेखिन्छ भने INDIA लाई कसरी लेखिन्छ?",
+    "question": "यदि NEPAL लाई OFQBM लेखिन्छ भने INDIA लाई कसरी लेखिन्छ?",
+    "options": [
+      "JOEJB",
+      "JOEIB",
+      "JPEJB",
+      "INEJB"
+    ],
+    "correct": 0,
+    "solution": "प्रत्येक अक्षर +1।"
+  },
+  {
+    "id": "nasu-2.1-var-007",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.1",
+    "subject": "General Mental Ability",
+    "topic": "Alphabet Test",
+    "level": "L1",
+    "type": "alphabet-test",
+    "q": "M को दायाँतर्फ 5औँ अक्षर कुन हो?",
+    "question": "M को दायाँतर्फ 5औँ अक्षर कुन हो?",
+    "options": [
+      "R",
+      "S",
+      "T",
+      "Q"
+    ],
+    "correct": 0,
+    "solution": "N,O,P,Q,R।"
+  },
+  {
+    "id": "nasu-2.1-var-008",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.1",
+    "subject": "General Mental Ability",
+    "topic": "Alphabet Test",
+    "level": "L1",
+    "type": "alphabet-test",
+    "q": "GOVERNMENT लाई वर्णक्रमअनुसार राख्दा चौथो अक्षर कुन हुन्छ?",
+    "question": "GOVERNMENT लाई वर्णक्रमअनुसार राख्दा चौथो अक्षर कुन हुन्छ?",
+    "options": [
+      "M",
+      "G",
+      "N",
+      "O"
+    ],
+    "correct": 2,
+    "solution": "E,G,M,N,O,R,T,V; चौथो N।"
+  },
+  {
+    "id": "nasu-2.1-var-009",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.1",
+    "subject": "General Mental Ability",
+    "topic": "Missing Character",
+    "level": "L1",
+    "type": "missing-character",
+    "q": "B, E, H, ?, N मा हराएको अक्षर कुन हो?",
+    "question": "B, E, H, ?, N मा हराएको अक्षर कुन हो?",
+    "options": [
+      "J",
+      "K",
+      "L",
+      "M"
+    ],
+    "correct": 1,
+    "solution": "हरेक पटक +3; K।"
+  },
+  {
+    "id": "nasu-2.1-var-010",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.1",
+    "subject": "General Mental Ability",
+    "topic": "Odd Group",
+    "level": "L1",
+    "type": "odd-one-out",
+    "q": "कुन समूहको ढाँचा अरूभन्दा फरक छ?",
+    "question": "कुन समूहको ढाँचा अरूभन्दा फरक छ?",
+    "options": [
+      "ACE",
+      "BDF",
+      "CEG",
+      "DFI"
+    ],
+    "correct": 3,
+    "solution": "पहिला तीनमा +2; DFI मा F→I +3।"
+  },
+  {
+    "id": "nasu-2.1-var-011",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.1",
+    "subject": "General Mental Ability",
+    "topic": "Alpha-numeric",
+    "level": "L1",
+    "type": "alpha-numeric-series",
+    "q": "A1, C3, F6, J10, ? मा अर्को पद कुन हो?",
+    "question": "A1, C3, F6, J10, ? मा अर्को पद कुन हो?",
+    "options": [
+      "O15",
+      "N15",
+      "O14",
+      "P15"
+    ],
+    "correct": 0,
+    "solution": "अन्तर +2,+3,+4,+5; O15।"
+  },
+  {
+    "id": "nasu-2.1-var-012",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.1",
+    "subject": "General Mental Ability",
+    "topic": "Continuous Pattern",
+    "level": "L1",
+    "type": "continuous-pattern",
+    "q": "A, BB, CCC, DDDD, ... मा 20औँ स्थानमा कुन अक्षर पर्छ?",
+    "question": "A, BB, CCC, DDDD, ... मा 20औँ स्थानमा कुन अक्षर पर्छ?",
+    "options": [
+      "E",
+      "F",
+      "G",
+      "H"
+    ],
+    "correct": 1,
+    "solution": "समूह अन्त्य 1,3,6,10,15,21; 20औँ F समूहमा।"
+  },
+  {
+    "id": "nasu-2.2-var-001",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "General Mental Ability",
+    "topic": "भिन्न",
+    "level": "L1",
+    "type": "fraction",
+    "q": "3/5 + 7/10 = ?",
+    "question": "3/5 + 7/10 = ?",
+    "options": [
+      "13/10",
+      "11/10",
+      "12/10",
+      "14/10"
+    ],
+    "correct": 0,
+    "solution": "6/10+7/10=13/10।"
+  },
+  {
+    "id": "nasu-2.2-var-002",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "General Mental Ability",
+    "topic": "भिन्न",
+    "level": "L1",
+    "type": "fraction",
+    "q": "5/6 − 1/4 = ?",
+    "question": "5/6 − 1/4 = ?",
+    "options": [
+      "7/12",
+      "5/12",
+      "2/12",
+      "3/8"
+    ],
+    "correct": 0,
+    "solution": "10/12−3/12=7/12।"
+  },
+  {
+    "id": "nasu-2.2-var-003",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "General Mental Ability",
+    "topic": "दशमलव",
+    "level": "L1",
+    "type": "decimal",
+    "q": "0.375 लाई सरल भिन्नमा बदल्दा?",
+    "question": "0.375 लाई सरल भिन्नमा बदल्दा?",
+    "options": [
+      "3/8",
+      "5/8",
+      "3/10",
+      "7/16"
+    ],
+    "correct": 0,
+    "solution": "375/1000=3/8।"
+  },
+  {
+    "id": "nasu-2.2-var-004",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "General Mental Ability",
+    "topic": "दशमलव",
+    "level": "L1",
+    "type": "decimal",
+    "q": "2.4 ÷ 0.6 = ?",
+    "question": "2.4 ÷ 0.6 = ?",
+    "options": [
+      "4",
+      "3",
+      "5",
+      "6"
+    ],
+    "correct": 0,
+    "solution": "2.4/0.6=4।"
+  },
+  {
+    "id": "nasu-2.2-var-005",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "General Mental Ability",
+    "topic": "प्रतिशत",
+    "level": "L1",
+    "type": "percentage",
+    "q": "250 को 18% कति हुन्छ?",
+    "question": "250 को 18% कति हुन्छ?",
+    "options": [
+      "45",
+      "40",
+      "50",
+      "55"
+    ],
+    "correct": 0,
+    "solution": "250×18/100=45।"
+  },
+  {
+    "id": "nasu-2.2-var-006",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "General Mental Ability",
+    "topic": "प्रतिशत",
+    "level": "L1",
+    "type": "percentage",
+    "q": "160 बाट 200 पुग्दा प्रतिशत वृद्धि कति?",
+    "question": "160 बाट 200 पुग्दा प्रतिशत वृद्धि कति?",
+    "options": [
+      "20%",
+      "25%",
+      "30%",
+      "40%"
+    ],
+    "correct": 1,
+    "solution": "40/160×100=25%।"
+  },
+  {
+    "id": "nasu-2.2-var-007",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "General Mental Ability",
+    "topic": "प्रतिशत",
+    "level": "L1",
+    "type": "percentage",
+    "q": "20% छुटपछि मूल्य रु.640 भयो। प्रारम्भिक मूल्य?",
+    "question": "20% छुटपछि मूल्य रु.640 भयो। प्रारम्भिक मूल्य?",
+    "options": [
+      "Rs.760",
+      "Rs.800",
+      "Rs.820",
+      "Rs.840"
+    ],
+    "correct": 1,
+    "solution": "640 मूल मूल्यको 80%; 640/0.8=800।"
+  },
+  {
+    "id": "nasu-2.2-var-008",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "General Mental Ability",
+    "topic": "Time and Work",
+    "level": "L1",
+    "type": "time-work",
+    "q": "A ले 12 दिन र B ले 18 दिनमा काम गर्छन्। सँगै कति दिन?",
+    "question": "A ले 12 दिन र B ले 18 दिनमा काम गर्छन्। सँगै कति दिन?",
+    "options": [
+      "7.2",
+      "6.5",
+      "8",
+      "9"
+    ],
+    "correct": 0,
+    "solution": "संयुक्त दर 5/36; समय 7.2 दिन।"
+  },
+  {
+    "id": "nasu-2.2-var-009",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "General Mental Ability",
+    "topic": "Time and Work",
+    "level": "L1",
+    "type": "time-work",
+    "q": "A ले 15 दिन र B ले 10 दिनमा काम गर्छन्। 3 दिन सँगैपछि कति बाँकी?",
+    "question": "A ले 15 दिन र B ले 10 दिनमा काम गर्छन्। 3 दिन सँगैपछि कति बाँकी?",
+    "options": [
+      "1/2",
+      "1/3",
+      "2/3",
+      "1/5"
+    ],
+    "correct": 0,
+    "solution": "संयुक्त दर 1/6; 3 दिनमा 1/2 काम।"
+  },
+  {
+    "id": "nasu-2.2-var-010",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "General Mental Ability",
+    "topic": "Time and Work",
+    "level": "L2",
+    "type": "time-work",
+    "q": "A ले 20 दिनमा काम गर्छ। B, A भन्दा 25% बढी दक्ष छ। B को समय?",
+    "question": "A ले 20 दिनमा काम गर्छ। B, A भन्दा 25% बढी दक्ष छ। B को समय?",
+    "options": [
+      "16",
+      "15",
+      "18",
+      "25"
+    ],
+    "correct": 0,
+    "solution": "समय 20/1.25=16 दिन।"
+  },
+  {
+    "id": "nasu-2.2-var-011",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "General Mental Ability",
+    "topic": "Time and Work",
+    "level": "L2",
+    "type": "time-work",
+    "q": "A+B ले 8 दिनमा काम गर्छन्। A एक्लैले 12 दिनमा गर्छ भने B?",
+    "question": "A+B ले 8 दिनमा काम गर्छन्। A एक्लैले 12 दिनमा गर्छ भने B?",
+    "options": [
+      "24",
+      "20",
+      "18",
+      "16"
+    ],
+    "correct": 0,
+    "solution": "B दर=1/8−1/12=1/24।"
+  },
+  {
+    "id": "nasu-2.2-var-012",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "General Mental Ability",
+    "topic": "Time and Work",
+    "level": "L2",
+    "type": "time-work",
+    "q": "12 कामदारले 15 दिनमा काम गर्छन्। 20 कामदारले कति दिन?",
+    "question": "12 कामदारले 15 दिनमा काम गर्छन्। 20 कामदारले कति दिन?",
+    "options": [
+      "9",
+      "10",
+      "12",
+      "8"
+    ],
+    "correct": 0,
+    "solution": "12×15=20×d; d=9।"
+  },
+  {
+    "id": "nasu-2.2-var-013",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "General Mental Ability",
+    "topic": "Time and Work",
+    "level": "L2",
+    "type": "time-work",
+    "q": "A ले 30% काम 6 दिनमा गर्छ। पूरा कामको समय?",
+    "question": "A ले 30% काम 6 दिनमा गर्छ। पूरा कामको समय?",
+    "options": [
+      "20",
+      "18",
+      "15",
+      "24"
+    ],
+    "correct": 0,
+    "solution": "6/0.30=20 दिन।"
+  },
+  {
+    "id": "nasu-2.2-var-014",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "General Mental Ability",
+    "topic": "भिन्न-दशमलव",
+    "level": "L2",
+    "type": "fraction-decimal",
+    "q": "0.2 + 3/5 = ?",
+    "question": "0.2 + 3/5 = ?",
+    "options": [
+      "0.8",
+      "0.7",
+      "0.9",
+      "0.6"
+    ],
+    "correct": 0,
+    "solution": "3/5=0.6; जम्मा 0.8।"
+  },
+  {
+    "id": "nasu-2.2-var-015",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "General Mental Ability",
+    "topic": "प्रतिशत",
+    "level": "L2",
+    "type": "percentage",
+    "q": "कुनै संख्याको 40%=72 भए संख्या?",
+    "question": "कुनै संख्याको 40%=72 भए संख्या?",
+    "options": [
+      "160",
+      "180",
+      "200",
+      "240"
+    ],
+    "correct": 1,
+    "solution": "72/0.4=180।"
+  },
+  {
+    "id": "nasu-2.2-var-016",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "General Mental Ability",
+    "topic": "प्रतिशत",
+    "level": "L2",
+    "type": "percentage",
+    "q": "वेतन 15% बढाएर 10% घटाउँदा शुद्ध परिवर्तन?",
+    "question": "वेतन 15% बढाएर 10% घटाउँदा शुद्ध परिवर्तन?",
+    "options": [
+      "3.5% वृद्धि",
+      "5% वृद्धि",
+      "3.5% कमी",
+      "1.5% वृद्धि"
+    ],
+    "correct": 0,
+    "solution": "1.15×0.90=1.035; 3.5% वृद्धि।"
+  },
+  {
+    "id": "nasu-2.2-var-017",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "General Mental Ability",
+    "topic": "दशमलव",
+    "level": "L2",
+    "type": "decimal",
+    "q": "1.25 × 0.08 = ?",
+    "question": "1.25 × 0.08 = ?",
+    "options": [
+      "0.10",
+      "0.08",
+      "0.12",
+      "0.15"
+    ],
+    "correct": 0,
+    "solution": "1.25×0.08=0.10।"
+  },
+  {
+    "id": "nasu-2.2-var-018",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "General Mental Ability",
+    "topic": "भिन्न",
+    "level": "L2",
+    "type": "fraction",
+    "q": "कुन ठूलो हो?",
+    "question": "कुन ठूलो हो?",
+    "options": [
+      "7/12",
+      "5/8",
+      "3/5",
+      "2/3"
+    ],
+    "correct": 3,
+    "solution": "2/3≈0.667।"
+  },
+  {
+    "id": "nasu-2.2-var-019",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.2",
+    "subject": "General Mental Ability",
+    "topic": "प्रतिशत",
+    "level": "L2",
+    "type": "percentage",
+    "q": "रु.800 मा 12.5% छुट दिँदा बिक्री मूल्य?",
+    "question": "रु.800 मा 12.5% छुट दिँदा बिक्री मूल्य?",
+    "options": [
+      "Rs.700",
+      "Rs.720",
+      "Rs.680",
+      "Rs.750"
+    ],
+    "correct": 0,
+    "solution": "छुट 100; बिक्री मूल्य 700।"
+  },
+  {
+    "id": "nasu-2.3-var-001",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "General Mental Ability",
+    "topic": "आकृति क्रम",
+    "level": "L1",
+    "type": "pictorial",
+    "q": "△, □, ○, △, □, ? मा हराएको आकृति?",
+    "question": "△, □, ○, △, □, ? मा हराएको आकृति?",
+    "options": [
+      "○",
+      "△",
+      "□",
+      "◇"
+    ],
+    "correct": 0,
+    "solution": "तीन आकृतिको क्रम दोहोरिन्छ।"
+  },
+  {
+    "id": "nasu-2.3-var-002",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "General Mental Ability",
+    "topic": "दिशा परिवर्तन",
+    "level": "L1",
+    "type": "symbol-pattern",
+    "q": "↑, →, ↓, ←, ? मा अर्को चिन्ह?",
+    "question": "↑, →, ↓, ←, ? मा अर्को चिन्ह?",
+    "options": [
+      "↑",
+      "→",
+      "↓",
+      "↗"
+    ],
+    "correct": 0,
+    "solution": "90° घडीको दिशामा क्रम।"
+  },
+  {
+    "id": "nasu-2.3-var-003",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "General Mental Ability",
+    "topic": "आकृति संख्या",
+    "level": "L1",
+    "type": "shape-series",
+    "q": "▲, ▲▲, ▲▲▲, ? मा अर्को समूहमा कति त्रिभुज?",
+    "question": "▲, ▲▲, ▲▲▲, ? मा अर्को समूहमा कति त्रिभुज?",
+    "options": [
+      "4",
+      "5",
+      "3",
+      "6"
+    ],
+    "correct": 0,
+    "solution": "1,2,3,4 हुँदै बढ्छ।"
+  },
+  {
+    "id": "nasu-2.3-var-004",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "General Mental Ability",
+    "topic": "छायांकन",
+    "level": "L1",
+    "type": "pattern",
+    "q": "●, ○, ●, ○, ? मा अर्को चिन्ह?",
+    "question": "●, ○, ●, ○, ? मा अर्को चिन्ह?",
+    "options": [
+      "●",
+      "○",
+      "□",
+      "■"
+    ],
+    "correct": 0,
+    "solution": "कालो/सेतो वैकल्पिक।"
+  },
+  {
+    "id": "nasu-2.3-var-005",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "General Mental Ability",
+    "topic": "आकृति क्रम",
+    "level": "L1",
+    "type": "shape-series",
+    "q": "□, △, □□, △△, □□□, ? मा अर्को समूह?",
+    "question": "□, △, □□, △△, □□□, ? मा अर्को समूह?",
+    "options": [
+      "△△△",
+      "□□□",
+      "△△",
+      "□□□□"
+    ],
+    "correct": 0,
+    "solution": "आकृति पालैपालो र संख्या 1,1,2,2,3,3।"
+  },
+  {
+    "id": "nasu-2.3-var-006",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "General Mental Ability",
+    "topic": "दर्पण",
+    "level": "L1",
+    "type": "mirror-image",
+    "q": "→ को दर्पण प्रतिबिम्ब कुन हुन्छ?",
+    "question": "→ को दर्पण प्रतिबिम्ब कुन हुन्छ?",
+    "options": [
+      "←",
+      "↑",
+      "↓",
+      "→"
+    ],
+    "correct": 0,
+    "solution": "तेर्सो दर्पणमा दिशा उल्टिन्छ।"
+  },
+  {
+    "id": "nasu-2.3-var-007",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "General Mental Ability",
+    "topic": "घुमाइ",
+    "level": "L2",
+    "type": "rotation",
+    "q": "↑ लाई 180° घुमाउँदा?",
+    "question": "↑ लाई 180° घुमाउँदा?",
+    "options": [
+      "↓",
+      "→",
+      "←",
+      "↗"
+    ],
+    "correct": 0,
+    "solution": "180° पछि तलतिर।"
+  },
+  {
+    "id": "nasu-2.3-var-008",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "General Mental Ability",
+    "topic": "आकृति क्रम",
+    "level": "L2",
+    "type": "shape-series",
+    "q": "○, △, □, ○○, △△, □□, ? मा अर्को समूह?",
+    "question": "○, △, □, ○○, △△, □□, ? मा अर्को समूह?",
+    "options": [
+      "○○○",
+      "△△△",
+      "□□□",
+      "○△○"
+    ],
+    "correct": 0,
+    "solution": "तीन आकृतिको चक्र र संख्या +1।"
+  },
+  {
+    "id": "nasu-2.3-var-009",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "General Mental Ability",
+    "topic": "बाहु संख्या",
+    "level": "L2",
+    "type": "shape-series",
+    "q": "त्रिभुज, चतुर्भुज, पञ्चभुज, ? को अर्को आकृतिमा कति भुजा?",
+    "question": "त्रिभुज, चतुर्भुज, पञ्चभुज, ? को अर्को आकृतिमा कति भुजा?",
+    "options": [
+      "6",
+      "7",
+      "5",
+      "8"
+    ],
+    "correct": 0,
+    "solution": "3,4,5,6 भुजा।"
+  },
+  {
+    "id": "nasu-2.3-var-010",
+    "examIds": [
+      "nasu"
+    ],
+    "section": "B",
+    "unit": "2.3",
+    "subject": "General Mental Ability",
+    "topic": "डोमिनो ढाँचा",
+    "level": "L2",
+    "type": "symbol-pattern",
+    "q": "बिन्दु संख्या 1,3,5,3,1,3,? भए अर्को?",
+    "question": "बिन्दु संख्या 1,3,5,3,1,3,? भए अर्को?",
+    "options": [
+      "5",
+      "1",
+      "3",
+      "7"
+    ],
+    "correct": 0,
+    "solution": "1,3,5,3,1 को चक्र।"
+  },
+  {
+    "id": "khd-B1-001",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B1",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B1",
+    "level": "L1",
+    "type": "aptitude",
+    "q": "2,4,6,8, ? मा अर्को संख्या?",
+    "question": "2,4,6,8, ? मा अर्को संख्या?",
+    "options": [
+      "10",
+      "9",
+      "11",
+      "12"
+    ],
+    "correct": 0,
+    "solution": "प्रत्येक पटक +2।"
+  },
+  {
+    "id": "khd-B1-002",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B1",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B1",
+    "level": "L2",
+    "type": "aptitude",
+    "q": "3:9 जस्तै 4:? मा सम्बन्ध?",
+    "question": "3:9 जस्तै 4:? मा सम्बन्ध?",
+    "options": [
+      "16",
+      "12",
+      "20",
+      "24"
+    ],
+    "correct": 0,
+    "solution": "वर्ग सम्बन्ध।"
+  },
+  {
+    "id": "khd-B2-001",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B2",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B2",
+    "level": "L1",
+    "type": "aptitude",
+    "q": "A,C,E,G, ? मा अर्को अक्षर?",
+    "question": "A,C,E,G, ? मा अर्को अक्षर?",
+    "options": [
+      "I",
+      "H",
+      "J",
+      "K"
+    ],
+    "correct": 0,
+    "solution": "हरेक पटक +2।"
+  },
+  {
+    "id": "khd-B2-002",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B2",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B2",
+    "level": "L2",
+    "type": "aptitude",
+    "q": "5,10,20,40, ? मा अर्को?",
+    "question": "5,10,20,40, ? मा अर्को?",
+    "options": [
+      "80",
+      "60",
+      "70",
+      "90"
+    ],
+    "correct": 0,
+    "solution": "हरेक पटक ×2।"
+  },
+  {
+    "id": "khd-B3-001",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B3",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B3",
+    "level": "L1",
+    "type": "aptitude",
+    "q": "कुन संख्या अरू तीनभन्दा फरक छ?",
+    "question": "कुन संख्या अरू तीनभन्दा फरक छ?",
+    "options": [
+      "27",
+      "64",
+      "81",
+      "100"
+    ],
+    "correct": 0,
+    "solution": "64,81,100 पूर्ण वर्ग; 27 होइन।"
+  },
+  {
+    "id": "khd-B3-002",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B3",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B3",
+    "level": "L2",
+    "type": "aptitude",
+    "q": "कुन अक्षर समूह फरक छ?",
+    "question": "कुन अक्षर समूह फरक छ?",
+    "options": [
+      "ACE",
+      "BDF",
+      "CEG",
+      "DFI"
+    ],
+    "correct": 3,
+    "solution": "पहिला तीनमा +2; DFI मा F→I +3।"
+  },
+  {
+    "id": "khd-B4-001",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B4",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B4",
+    "level": "L1",
+    "type": "aptitude",
+    "q": "कलम : लेख्नु :: चक्कु : ?",
+    "question": "कलम : लेख्नु :: चक्कु : ?",
+    "options": [
+      "काट्नु",
+      "पढ्नु",
+      "सुन्नु",
+      "हेर्नु"
+    ],
+    "correct": 0,
+    "solution": "उपकरण र मुख्य कामको सम्बन्ध।"
+  },
+  {
+    "id": "khd-B4-002",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B4",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B4",
+    "level": "L2",
+    "type": "aptitude",
+    "q": "4 : 16 :: 7 : ?",
+    "question": "4 : 16 :: 7 : ?",
+    "options": [
+      "49",
+      "28",
+      "35",
+      "56"
+    ],
+    "correct": 0,
+    "solution": "संख्याको वर्ग।"
+  },
+  {
+    "id": "khd-B5-001",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B5",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B5",
+    "level": "L1",
+    "type": "aptitude",
+    "q": "फाइल 101,102,103,104 मध्ये 103 पछि कुन?",
+    "question": "फाइल 101,102,103,104 मध्ये 103 पछि कुन?",
+    "options": [
+      "104",
+      "102",
+      "101",
+      "105"
+    ],
+    "correct": 0,
+    "solution": "बढ्दो क्रममा 104।"
+  },
+  {
+    "id": "khd-B5-002",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B5",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B5",
+    "level": "L2",
+    "type": "aptitude",
+    "q": "A-12,A-15,A-18,A-21 मा अर्को?",
+    "question": "A-12,A-15,A-18,A-21 मा अर्को?",
+    "options": [
+      "A-24",
+      "A-23",
+      "A-25",
+      "A-27"
+    ],
+    "correct": 0,
+    "solution": "संख्या +3।"
+  },
+  {
+    "id": "khd-B6-001",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B6",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B6",
+    "level": "L1",
+    "type": "aptitude",
+    "q": "पहिले 3 थप्नुहोस्, त्यसपछि 2 ले गुणा: 5 बाट परिणाम?",
+    "question": "पहिले 3 थप्नुहोस्, त्यसपछि 2 ले गुणा: 5 बाट परिणाम?",
+    "options": [
+      "16",
+      "13",
+      "10",
+      "12"
+    ],
+    "correct": 0,
+    "solution": "(5+3)×2=16।"
+  },
+  {
+    "id": "khd-B6-002",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B6",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B6",
+    "level": "L2",
+    "type": "aptitude",
+    "q": "पहिले 20 बाट 5 घटाउनुहोस्, त्यसपछि 3 ले भाग गर्नुहोस्।",
+    "question": "पहिले 20 बाट 5 घटाउनुहोस्, त्यसपछि 3 ले भाग गर्नुहोस्।",
+    "options": [
+      "5",
+      "15",
+      "6",
+      "3"
+    ],
+    "correct": 0,
+    "solution": "(20−5)/3=5।"
+  },
+  {
+    "id": "khd-B7-001",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B7",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B7",
+    "level": "L1",
+    "type": "aptitude",
+    "q": "3/4 + 1/8 = ?",
+    "question": "3/4 + 1/8 = ?",
+    "options": [
+      "7/8",
+      "5/8",
+      "1",
+      "9/8"
+    ],
+    "correct": 0,
+    "solution": "6/8+1/8=7/8।"
+  },
+  {
+    "id": "khd-B7-002",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B7",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B7",
+    "level": "L2",
+    "type": "aptitude",
+    "q": "A ले 12 दिन र B ले 18 दिनमा काम गर्छन्। सँगै समय?",
+    "question": "A ले 12 दिन र B ले 18 दिनमा काम गर्छन्। सँगै समय?",
+    "options": [
+      "7.2",
+      "6",
+      "8",
+      "9"
+    ],
+    "correct": 0,
+    "solution": "संयुक्त दर 5/36; समय 7.2 दिन।"
+  },
+  {
+    "id": "khd-B8-001",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B8",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B8",
+    "level": "L1",
+    "type": "aptitude",
+    "q": "यदि CAT→DBU भने BAT→?",
+    "question": "यदि CAT→DBU भने BAT→?",
+    "options": [
+      "CBU",
+      "CBT",
+      "CAU",
+      "DBT"
+    ],
+    "correct": 0,
+    "solution": "हरेक अक्षर +1।"
+  },
+  {
+    "id": "khd-B8-002",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B8",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B8",
+    "level": "L2",
+    "type": "aptitude",
+    "q": "यदि PEN→QFO भने MAP→?",
+    "question": "यदि PEN→QFO भने MAP→?",
+    "options": [
+      "NBQ",
+      "MBQ",
+      "NBR",
+      "OCP"
+    ],
+    "correct": 0,
+    "solution": "हरेक अक्षर +1।"
+  },
+  {
+    "id": "khd-B9-001",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B9",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B9",
+    "level": "L1",
+    "type": "aptitude",
+    "q": "P अघि Q र R अघि S छ। कुन क्रम सम्भव छ?",
+    "question": "P अघि Q र R अघि S छ। कुन क्रम सम्भव छ?",
+    "options": [
+      "P-Q-R-S",
+      "Q-P-S-R",
+      "R-S-Q-P",
+      "S-R-P-Q"
+    ],
+    "correct": 0,
+    "solution": "दुवै शर्त पूरा।"
+  },
+  {
+    "id": "khd-B9-002",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B9",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B9",
+    "level": "L2",
+    "type": "aptitude",
+    "q": "P छानिए Q पनि चाहिन्छ; Q छानिए R चाहिँदैन। कुन समूह मान्य?",
+    "question": "P छानिए Q पनि चाहिन्छ; Q छानिए R चाहिँदैन। कुन समूह मान्य?",
+    "options": [
+      "P,Q,R",
+      "P,R,S",
+      "P,Q,S",
+      "Q,R,S"
+    ],
+    "correct": 2,
+    "solution": "P,Q,S मान्य।"
+  },
+  {
+    "id": "khd-B10-001",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B10",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B10",
+    "level": "L1",
+    "type": "aptitude",
+    "q": "5 मिटर पूर्व र त्यसपछि 5 मिटर उत्तर जाँदा दिशा?",
+    "question": "5 मिटर पूर्व र त्यसपछि 5 मिटर उत्तर जाँदा दिशा?",
+    "options": [
+      "उत्तर-पूर्व",
+      "उत्तर-पश्चिम",
+      "दक्षिण-पूर्व",
+      "दक्षिण-पश्चिम"
+    ],
+    "correct": 0,
+    "solution": "पूर्व+उत्तर=उत्तर-पूर्व।"
+  },
+  {
+    "id": "khd-B10-002",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B10",
+    "subject": "General Mental Ability",
+    "topic": "BOST-B10",
+    "level": "L2",
+    "type": "aptitude",
+    "q": "8 मिटर उत्तर र 6 मिटर पूर्व जाँदा सीधा दूरी?",
+    "question": "8 मिटर उत्तर र 6 मिटर पूर्व जाँदा सीधा दूरी?",
+    "options": [
+      "10 मिटर",
+      "12 मिटर",
+      "14 मिटर",
+      "8 मिटर"
+    ],
+    "correct": 0,
+    "solution": "√(8²+6²)=10।"
+  },
+  {
+    "id": "khd-B7-003",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B7",
+    "subject": "General Mental Ability",
+    "topic": "Numerical reasoning",
+    "level": "L1",
+    "type": "numerical",
+    "q": "250 को 16% कति?",
+    "question": "250 को 16% कति?",
+    "options": [
+      "40",
+      "35",
+      "45",
+      "50"
+    ],
+    "correct": 0,
+    "solution": "250×0.16=40।"
+  },
+  {
+    "id": "khd-B7-004",
+    "examIds": [
+      "kharidar"
+    ],
+    "section": "B",
+    "unit": "B7",
+    "subject": "General Mental Ability",
+    "topic": "Numerical reasoning",
+    "level": "L2",
+    "type": "numerical",
+    "q": "12 कामदारले 15 दिनमा काम गर्छन्। 20 कामदारले कति दिन?",
+    "question": "12 कामदारले 15 दिनमा काम गर्छन्। 20 कामदारले कति दिन?",
+    "options": [
+      "9",
+      "10",
+      "12",
+      "8"
+    ],
+    "correct": 0,
+    "solution": "12×15=20×d ⇒ 9 दिन।"
+  }
+]
