@@ -104,7 +104,10 @@ function patchAttemptStart(){
       try{
         const d=await r.clone().json();
         if(d?.attemptToken&&state){
-          state.attemptToken=d.attemptToken;state.attemptId=d.attemptId||'';state.expiresAt=Number(d.expiresAt)||0;state.timerEndsAt=state.expiresAt;write();setSession(true);
+          state.attemptToken=d.attemptToken;state.attemptId=d.attemptId||'';state.expiresAt=Number(d.expiresAt)||0;state.timerEndsAt=state.expiresAt;
+          if(d.exam)state.exam=d.exam;
+          if(Array.isArray(d.questions)&&d.questions.length){state.paper=d.questions;state.questionCount=d.questions.length}
+          write();setSession(true);
         }
       }catch(e){}
     }
