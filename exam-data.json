@@ -29697,9 +29697,7 @@
     {
       "id": "bo-1.4.1-trans-015",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
       "section": "A",
       "unit": "1.4.1",
@@ -29717,18 +29715,7 @@
       "correct": 0,
       "explanation": "ITS uses data and technology to improve traffic operations and information. ",
       "solution": "सही उत्तर: A।",
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "3",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.7",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.4.1-trans-016",
@@ -30597,9 +30584,7 @@
     {
       "id": "bo-1.4.1-comm-010",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
       "section": "A",
       "unit": "1.4.1",
@@ -30617,18 +30602,7 @@
       "correct": 1,
       "explanation": "Better information and coordination can raise productivity. ",
       "solution": "सही उत्तर: A।",
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "3",
-          "level": "level2"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.7",
-          "level": "level2"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.4.1-comm-011",
@@ -30741,9 +30715,7 @@
     {
       "id": "bo-1.4.1-comm-014",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
       "section": "A",
       "unit": "1.4.1",
@@ -30761,18 +30733,7 @@
       "correct": 1,
       "explanation": "Digital payments can reduce physical transaction costs and improve convenience. ",
       "solution": "सही उत्तर: A।",
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "3",
-          "level": "level2"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.7",
-          "level": "level2"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.4.1-comm-015",
@@ -43005,22 +42966,9 @@
       "correct": 3,
       "solution": "सही उत्तर: D।",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "4",
-          "level": "level2"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.8",
-          "level": "level2"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1-6-3-009",
@@ -44331,22 +44279,9 @@
       "correct": 2,
       "solution": "सही उत्तर: C।",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "4",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.8",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1-6-3-048",
@@ -44501,22 +44436,9 @@
       "correct": 3,
       "solution": "सही उत्तर: D।",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "4",
-          "level": "level2"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.8",
-          "level": "level2"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1-6-3-053",
@@ -46918,22 +46840,9 @@
       "solution": "",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.10",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "1.7.2-006",
@@ -47380,22 +47289,9 @@
       "solution": "",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.10",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "1.7.2-020",
@@ -47413,22 +47309,9 @@
       "solution": "",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level2"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.10",
-          "level": "level2"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "1.7.2-021",
@@ -47809,22 +47692,9 @@
       "solution": "",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level2"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.10",
-          "level": "level2"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "1.7.2-033",
@@ -47842,22 +47712,9 @@
       "solution": "",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.10",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "1.7.2-034",
@@ -47908,22 +47765,9 @@
       "solution": "",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.10",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "1.7.2-036",
@@ -48106,22 +47950,9 @@
       "solution": "",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.10",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "1.7.2-042",
@@ -48205,22 +48036,9 @@
       "solution": "",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level2"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.10",
-          "level": "level2"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "1.7.2-045",
@@ -48370,22 +48188,9 @@
       "solution": "",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.10",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "1.7.2-050",
@@ -48436,22 +48241,9 @@
       "solution": "",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.10",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "1.7.2-052",
@@ -48601,22 +48393,9 @@
       "solution": "",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level2"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.10",
-          "level": "level2"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "1.7.2-057",
@@ -48803,22 +48582,9 @@
       "source": "La Biennale di Venezia",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-ART-02",
@@ -48838,22 +48604,9 @@
       "source": "La Biennale di Venezia",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-ART-03",
@@ -49678,22 +49431,9 @@
       "source": "Academy Awards",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-AWD-07",
@@ -49713,22 +49453,9 @@
       "source": "Academy Awards",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-AWD-08",
@@ -49748,22 +49475,9 @@
       "source": "Recording Academy",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-AWD-09",
@@ -49853,22 +49567,9 @@
       "source": "Academy Awards",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level2"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level2"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-AWD-12",
@@ -49888,22 +49589,9 @@
       "source": "Recording Academy",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level2"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level2"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-AWD-13",
@@ -50203,22 +49891,9 @@
       "source": "The Booker Prizes",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-BOK-02",
@@ -50238,22 +49913,9 @@
       "source": "The Booker Prizes",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-BOK-03",
@@ -50308,22 +49970,9 @@
       "source": "The Booker Prizes",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-BOK-05",
@@ -50378,22 +50027,9 @@
       "source": "The Booker Prizes",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-BOK-07",
@@ -50413,22 +50049,9 @@
       "source": "The Booker Prizes",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-BOK-08",
@@ -50483,22 +50106,9 @@
       "source": "The Booker Prizes",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-BOK-10",
@@ -52303,22 +51913,9 @@
       "source": "The Booker Prizes",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-LIT-02",
@@ -52443,22 +52040,9 @@
       "source": "The Booker Prizes",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-LIT-06",
@@ -52513,22 +52097,9 @@
       "source": "The Booker Prizes",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-LIT-08",
@@ -52548,22 +52119,9 @@
       "source": "The Booker Prizes",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-LIT-09",
@@ -52618,22 +52176,9 @@
       "source": "The Booker Prizes",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-LIT-11",
@@ -53003,22 +52548,9 @@
       "source": "Recording Academy",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-MUS-02",
@@ -53038,22 +52570,9 @@
       "source": "Recording Academy",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-MUS-03",
@@ -53213,22 +52732,9 @@
       "source": "Recording Academy",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-MUS-08",
@@ -53808,22 +53314,9 @@
       "source": "United Nations",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-OTH-05",
@@ -53843,22 +53336,9 @@
       "source": "United Nations",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-OTH-06",
@@ -53913,22 +53393,9 @@
       "source": "United Nations",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-OTH-08",
@@ -55243,22 +54710,9 @@
       "source": "Reuters",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-SCI-07",
@@ -55278,22 +54732,9 @@
       "source": "Reuters",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-SCI-08",
@@ -55313,22 +54754,9 @@
       "source": "Reuters",
       "section": "A",
       "examIds": [
-        "sakha-adhikrit",
-        "kharidar",
-        "nasu"
+        "sakha-adhikrit"
       ],
-      "examMappings": {
-        "kharidar": {
-          "section": "A",
-          "unit": "5",
-          "level": "level1"
-        },
-        "nasu": {
-          "section": "A",
-          "unit": "1.11",
-          "level": "level1"
-        }
-      }
+      "examMappings": {}
     },
     {
       "id": "bo-1.8-SCI-09",
