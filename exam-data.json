@@ -452,7 +452,14 @@
       ],
       "correct": 2,
       "explanation": "अन्तर 4, 6, 8, 10 हुँदै बढेको छ। अर्को अन्तर 12 हुन्छ।",
-      "solution": "अन्तरहरू 4, 6, 8, 10 छन्। अर्को अन्तर 12 हुने भएकाले 20 + 12 = 32। सही विकल्प C हो।"
+      "solution": "अन्तरहरू 4, 6, 8, 10 छन्। अर्को अन्तर 12 हुने भएकाले 20 + 12 = 32। सही विकल्प C हो।",
+      "examMappings": {
+        "kharidar": {
+          "section": "B",
+          "unit": "B2",
+          "level": "level2"
+        }
+      }
     },
     {
       "id": "demo-004",
@@ -475,7 +482,14 @@
       ],
       "correct": 3,
       "explanation": "15/100 × 200 = 30।",
-      "solution": "15% = 15/100; 200 × 15/100 = 30।"
+      "solution": "15% = 15/100; 200 × 15/100 = 30।",
+      "examMappings": {
+        "kharidar": {
+          "section": "B",
+          "unit": "B7",
+          "level": "level2"
+        }
+      }
     },
     {
       "id": "demo-005",
@@ -68661,7 +68675,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B1"
+          "unit": "B1",
+          "level": "level1"
         }
       },
       "section": "B",
@@ -68678,7 +68693,8 @@
       ],
       "correct": 2,
       "explanation": "",
-      "solution": ""
+      "solution": "",
+      "level": "level1"
     },
     {
       "id": "kharidar-b1-new-2",
@@ -68688,7 +68704,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B1"
+          "unit": "B1",
+          "level": "level1"
         }
       },
       "section": "B",
@@ -68705,7 +68722,8 @@
       ],
       "correct": 3,
       "explanation": "",
-      "solution": ""
+      "solution": "",
+      "level": "level1"
     },
     {
       "id": "kharidar-b2-new-1",
@@ -68715,7 +68733,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B2"
+          "unit": "B2",
+          "level": "level1"
         }
       },
       "section": "B",
@@ -68732,7 +68751,8 @@
       ],
       "correct": 0,
       "explanation": "",
-      "solution": ""
+      "solution": "",
+      "level": "level1"
     },
     {
       "id": "kharidar-b2-new-2",
@@ -68742,7 +68762,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B2"
+          "unit": "B2",
+          "level": "level1"
         }
       },
       "section": "B",
@@ -68759,7 +68780,8 @@
       ],
       "correct": 1,
       "explanation": "",
-      "solution": ""
+      "solution": "",
+      "level": "level1"
     },
     {
       "id": "kharidar-b3-new-1",
@@ -68769,7 +68791,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B3"
+          "unit": "B3",
+          "level": "level1"
         }
       },
       "section": "B",
@@ -68786,7 +68809,8 @@
       ],
       "correct": 2,
       "explanation": "",
-      "solution": ""
+      "solution": "",
+      "level": "level1"
     },
     {
       "id": "kharidar-b3-new-2",
@@ -68796,7 +68820,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B3"
+          "unit": "B3",
+          "level": "level2"
         }
       },
       "section": "B",
@@ -68813,7 +68838,8 @@
       ],
       "correct": 3,
       "explanation": "",
-      "solution": ""
+      "solution": "",
+      "level": "level2"
     },
     {
       "id": "kharidar-b4-new-1",
@@ -68823,7 +68849,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B4"
+          "unit": "B4",
+          "level": "level1"
         }
       },
       "section": "B",
@@ -68840,7 +68867,8 @@
       ],
       "correct": 0,
       "explanation": "",
-      "solution": ""
+      "solution": "",
+      "level": "level1"
     },
     {
       "id": "kharidar-b4-new-2",
@@ -68850,7 +68878,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B4"
+          "unit": "B4",
+          "level": "level2"
         }
       },
       "section": "B",
@@ -68867,7 +68896,8 @@
       ],
       "correct": 1,
       "explanation": "",
-      "solution": ""
+      "solution": "",
+      "level": "level2"
     },
     {
       "id": "kharidar-b5-new-1",
@@ -68877,7 +68907,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B5"
+          "unit": "B5",
+          "level": "level1"
         }
       },
       "section": "B",
@@ -68894,7 +68925,8 @@
       ],
       "correct": 2,
       "explanation": "",
-      "solution": ""
+      "solution": "",
+      "level": "level1"
     },
     {
       "id": "kharidar-b5-new-2",
@@ -68904,7 +68936,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B5"
+          "unit": "B5",
+          "level": "level2"
         }
       },
       "section": "B",
@@ -68921,7 +68954,8 @@
       ],
       "correct": 3,
       "explanation": "",
-      "solution": ""
+      "solution": "",
+      "level": "level2"
     },
     {
       "id": "kharidar-b6-new-1",
@@ -68931,7 +68965,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B6"
+          "unit": "B6",
+          "level": "level1"
         }
       },
       "section": "B",
@@ -68948,7 +68983,8 @@
       ],
       "correct": 0,
       "explanation": "",
-      "solution": ""
+      "solution": "",
+      "level": "level1"
     },
     {
       "id": "kharidar-b6-new-2",
@@ -68958,7 +68994,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B6"
+          "unit": "B6",
+          "level": "level2"
         }
       },
       "section": "B",
@@ -68975,7 +69012,8 @@
       ],
       "correct": 1,
       "explanation": "",
-      "solution": ""
+      "solution": "",
+      "level": "level2"
     },
     {
       "id": "kharidar-b7-new-1",
@@ -68985,7 +69023,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B7"
+          "unit": "B7",
+          "level": "level1"
         }
       },
       "section": "B",
@@ -69002,7 +69041,8 @@
       ],
       "correct": 2,
       "explanation": "",
-      "solution": ""
+      "solution": "",
+      "level": "level1"
     },
     {
       "id": "kharidar-b7-new-2",
@@ -69012,7 +69052,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B7"
+          "unit": "B7",
+          "level": "level2"
         }
       },
       "section": "B",
@@ -69029,7 +69070,8 @@
       ],
       "correct": 3,
       "explanation": "",
-      "solution": ""
+      "solution": "",
+      "level": "level2"
     },
     {
       "id": "kharidar-b8-new-1",
@@ -69039,7 +69081,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B8"
+          "unit": "B8",
+          "level": "level1"
         }
       },
       "section": "B",
@@ -69047,16 +69090,17 @@
       "type": "iq",
       "subject": "आधारभूत कार्यालय सीप परीक्षण (BOST)",
       "topic": "B8",
-      "q": "यदि 1=A, 2=B, 3=C भने 2-1-3 ले कुन शब्द जनाउँछ?",
+      "q": "यदि १=क, २=ख, ३=ग भने २-१-३ ले कुन क्रम जनाउँछ?",
       "options": [
-        "BAC",
-        "ABC",
-        "BCA",
-        "CAB"
+        "कखग",
+        "खकग",
+        "खगक",
+        "गकख"
       ],
-      "correct": 0,
+      "correct": 1,
       "explanation": "",
-      "solution": ""
+      "solution": "",
+      "level": "level1"
     },
     {
       "id": "kharidar-b8-new-2",
@@ -69066,7 +69110,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B8"
+          "unit": "B8",
+          "level": "level2"
         }
       },
       "section": "B",
@@ -69083,7 +69128,8 @@
       ],
       "correct": 1,
       "explanation": "",
-      "solution": ""
+      "solution": "",
+      "level": "level2"
     },
     {
       "id": "kharidar-b9-new-1",
@@ -69093,7 +69139,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B9"
+          "unit": "B9",
+          "level": "level1"
         }
       },
       "section": "B",
@@ -69110,7 +69157,8 @@
       ],
       "correct": 2,
       "explanation": "",
-      "solution": ""
+      "solution": "",
+      "level": "level1"
     },
     {
       "id": "kharidar-b9-new-2",
@@ -69120,7 +69168,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B9"
+          "unit": "B9",
+          "level": "level2"
         }
       },
       "section": "B",
@@ -69136,8 +69185,9 @@
         "मोहन"
       ],
       "correct": 3,
-      "explanation": "",
-      "solution": ""
+      "explanation": "शर्तअनुसार मोहनभन्दा अगाडि सीता, सीताभन्दा अगाडि रिना र रिनाभन्दा अगाडि गीता हुन सक्छिन्; त्यसैले सम्भावित सबैभन्दा अगाडिको व्यक्ति गीता हुन्।",
+      "solution": "",
+      "level": "level2"
     },
     {
       "id": "kharidar-b10-new-1",
@@ -69147,7 +69197,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B10"
+          "unit": "B10",
+          "level": "level1"
         }
       },
       "section": "B",
@@ -69164,7 +69215,8 @@
       ],
       "correct": 0,
       "explanation": "",
-      "solution": ""
+      "solution": "",
+      "level": "level1"
     },
     {
       "id": "kharidar-b10-new-2",
@@ -69174,7 +69226,8 @@
       "examMappings": {
         "kharidar": {
           "section": "B",
-          "unit": "B10"
+          "unit": "B10",
+          "level": "level2"
         }
       },
       "section": "B",
@@ -69191,7 +69244,8 @@
       ],
       "correct": 1,
       "explanation": "",
-      "solution": ""
+      "solution": "",
+      "level": "level2"
     }
   ],
   "questionBankUpdatedAt": "2026-09-26T13:00:14.308126Z"
