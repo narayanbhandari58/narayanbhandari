@@ -69092,12 +69092,12 @@
       "topic": "B8",
       "q": "यदि १=क, २=ख, ३=ग भने २-१-३ ले कुन क्रम जनाउँछ?",
       "options": [
-        "कखग",
         "खकग",
+        "कखग",
         "खगक",
         "गकख"
       ],
-      "correct": 1,
+      "correct": 0,
       "explanation": "",
       "solution": "",
       "level": "level1"
@@ -69248,5 +69248,5 @@
       "level": "level2"
     }
   ],
-  "questionBankUpdatedAt": "2026-09-26T13:00:14.308126Z"
+  "questionBankUpdatedAt": "2026-09-26T13:00:48.441696Z"
 }
