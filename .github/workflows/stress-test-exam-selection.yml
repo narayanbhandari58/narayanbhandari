@@ -1,0 +1,22 @@
+name: Stress test Loksewa paper generation
+
+on:
+  push:
+    paths:
+      - 'exam-data.json'
+      - 'exam-question-seed/**'
+      - 'netlify/functions/exam-api.js'
+      - 'scripts/stress-test-exam-selection.js'
+      - '.github/workflows/stress-test-exam-selection.yml'
+  workflow_dispatch:
+
+jobs:
+  stress:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run 500-paper stress test for each exam
+        run: node scripts/stress-test-exam-selection.js
