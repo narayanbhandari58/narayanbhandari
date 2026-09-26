@@ -41,6 +41,17 @@ jobs:
               a, b = str(q.get('unit', '')), str(unit)
               return a == b or a.startswith(b + '.')
 
+          # MCQ option-quality audit: distractors must be comparable, non-duplicated, and free of giveaway wording.
+          for q in questions:
+              opts = q.get('options') or []
+              if q.get('type') in ('mcq','gk','concept','fact','analysis','statement_correct','verification','incorrect','matching','correct-statement'):
+                  assert len(opts) == 4, f"MCQ must have 4 options: {q.get('id')}"
+                  assert len(set(map(str, opts))) == 4, f"Duplicate options: {q.get('id')}"
+                  for i, opt in enumerate(opts):
+                      if i != q.get('correct'):
+                          assert not any(x in str(opt) for x in ('उपरोक्त सबै','उपरोक्तमध्ये','केवल यो मात्र','केवल मात्र','सधैं मात्र')), f"Giveaway distractor: {q.get('id')}"
+                      assert len(str(opt)) <= 180, f"Overlong option: {q.get('id')}"
+
           for q in questions:
               refs = q.get('examIds', [])
               assert isinstance(refs, list), f"examIds is not a list: {q.get('id')}"
