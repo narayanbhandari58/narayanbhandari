@@ -236,12 +236,14 @@ exports.handler = async event => {
       if (typeof body !== 'object' || !body) return json(400, { error: 'Invalid request' });
       const exam = data.exams.find(x => x.id === body.examId && x.enabled !== false);
       if (!exam) return json(404, { error: 'परीक्षा भेटिएन' });
-      const ids = Array.isArray(body.questionIds) ? body.questionIds.map(String) : [];
-      if (ids.length !== Number(exam.questionCount || 0) || new Set(ids).size !== ids.length) return json(409, { error: 'प्रश्नपत्र पूरा वा सही छैन। फेरि परीक्षा सुरु गर्नुहोस्।' });
+      // The server is authoritative for the paper. Never trust the client's
+      // questionIds to decide which questions an attempt contains.
       const eligible = eligibleQuestions(exam, data.questions);
-      const byId = new Map(eligible.map(q => [String(q.id), q]));
-      const paper = ids.map(id => byId.get(id)).filter(Boolean).map(repairedQuestion);
-      if (paper.length !== ids.length || !paper.every(hasRequiredPictorialImage) || !validateSelectedPaper(exam, paper)) return json(409, { error: 'यो प्रश्नपत्र परीक्षाको blueprint अनुसार मान्य छैन। फेरि परीक्षा सुरु गर्नुहोस्।' });
+      const paper = selectPaper(exam, eligible);
+      if (!paper || paper.length !== Number(exam.questionCount || 0) || !paper.every(hasRequiredPictorialImage) || !validateSelectedPaper(exam, paper)) {
+        return json(409, { error: 'परीक्षाको मान्य प्रश्नपत्र तयार हुन सकेन। केही बेरपछि फेरि प्रयास गर्नुहोस्।' });
+      }
+      const ids = paper.map(q => String(q.id));
       const now = Date.now(), durationMs = Number(exam.durationMinutes || 0) * 60_000;
       if (!durationMs) return json(500, { error: 'परीक्षाको समय configuration गलत छ।' });
       const attemptId = `attempt-${now}-${crypto.randomBytes(5).toString('hex')}`;
@@ -250,7 +252,10 @@ exports.handler = async event => {
         startedAt: now, expiresAt: now + durationMs
       };
       await blobStore().set(`active:${attemptId}`, JSON.stringify(payload), { metadata: { examId: exam.id, expiresAt: String(payload.expiresAt) } });
-      return json(200, { ok: true, attemptId, attemptToken: signAttempt(payload), startedAt: now, expiresAt: payload.expiresAt });
+      return json(200, {
+        ok: true, attemptId, attemptToken: signAttempt(payload), startedAt: now, expiresAt: payload.expiresAt,
+        exam, questions: paper.map(publicQuestion)
+      });
     }
     if (action === 'submit') {
       if (typeof body !== 'object' || !body) return json(400, { error: 'Invalid request' });
