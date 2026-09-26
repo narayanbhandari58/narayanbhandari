@@ -13,9 +13,9 @@
     "q": "सञ्चार पूर्वाधारको आर्थिक भूमिका कुन हो?",
     "options": [
       "सूचना प्रवाह र आर्थिक कारोबारको transaction cost घटाउनु",
-      "बजार सूचना रोक्नु",
-      "व्यवसाय बन्द गर्नु",
-      "उत्पादन घटाउनु"
+      "बजार सूचना र व्यापारिक कारोबारको पहुँच सीमित गर्नु",
+      "व्यवसाय सञ्चालनमा सूचना आदानप्रदान घटाउनु",
+      "उत्पादन तथा सेवा कारोबारको लागत बढाउनु"
     ],
     "correct": 0,
     "explanation": "Connectivity reduces information frictions and supports economic coordination. ",
@@ -35,9 +35,9 @@
     "q": "इन्टरनेट पहुँच विस्तारको प्रत्यक्ष आर्थिक लाभ कुन हो?",
     "options": [
       "सूचना, डिजिटल सेवा, ई-कमर्स र दूरस्थ कामको पहुँच बढाउनु",
-      "सूचना प्रवाह घटाउनु",
-      "व्यापार रोक्नु",
-      "शिक्षा पहुँच घटाउनु"
+      "सूचना प्रवाहको गति र उपलब्धता घटाउनु",
+      "डिजिटल माध्यमबाट हुने व्यापारिक कारोबार रोक्नु",
+      "शिक्षा तथा तालिमका अनलाइन सेवाको पहुँच घटाउनु"
     ],
     "correct": 0,
     "explanation": "Internet connectivity is a platform infrastructure for digital economic activity. ",
@@ -57,9 +57,9 @@
     "q": "डिजिटल विभाजन घटाउन कुन नीति बढी प्रभावकारी हुन्छ?",
     "options": [
       "सुलभ connectivity, device access, digital literacy र स्थानीय digital services",
-      "शहरी internet विस्तार",
-      "device access रोक्नु",
-      "digital literacy घटाउनु"
+      "मुख्य शहरमा internet infrastructure विस्तारलाई प्राथमिकता दिनु",
+      "कम आय समूहमा device access र service use सीमित गर्नु",
+      "digital literacy तथा स्थानीय digital support कार्यक्रम घटाउनु"
     ],
     "correct": 0,
     "explanation": "Digital inclusion requires both network access and capability to use services. ",
@@ -101,9 +101,9 @@
     "q": "कृषिमा सञ्चार प्रविधिको प्रयोगले किसानलाई कुन सूचना दिन सक्छ?",
     "options": [
       "मौसम, बजार मूल्य, रोग व्यवस्थापन र कृषि प्रविधि",
-      "मनोरञ्जन",
-      "बजार सूचना रोक्ने",
-      "उत्पादन घटाउने"
+      "मनोरञ्जन सामग्री र सामाजिक सञ्जालसम्बन्धी सूचना",
+      "कृषि बजारको मूल्य तथा मागसम्बन्धी सूचना रोक्ने व्यवस्था",
+      "उत्पादन र प्रविधिसम्बन्धी सूचना घटाएर लागत बढाउने उपाय"
     ],
     "correct": 0,
     "explanation": "Information services can improve farm decisions and reduce information asymmetry. ",
@@ -123,9 +123,9 @@
     "q": "डिजिटल शिक्षाको मुख्य पूर्वशर्तमध्ये कुन महत्त्वपूर्ण छ?",
     "options": [
       "connectivity, devices, digital content र शिक्षक/विद्यार्थीको digital skills",
-      "मोबाइलको संख्या",
-      "इन्टरनेट बिना digital class",
-      "शिक्षक तालिम हटाउनु"
+      "मोबाइल उपकरणको संख्या मात्र बढाउनु",
+      "इन्टरनेट पहुँचबिनै digital class सञ्चालन गर्नु",
+      "शिक्षक तथा विद्यार्थीको digital skills तालिम घटाउनु"
     ],
     "correct": 0,
     "explanation": "Digital education is an ecosystem rather than a device-only intervention. ",
@@ -145,9 +145,9 @@
     "q": "Telemedicine को आर्थिक/सामाजिक उपयोगिता कुन हो?",
     "options": [
       "दुर्गम क्षेत्रमा विशेषज्ञ सल्लाह र स्वास्थ्य जानकारीको पहुँच बढाउन",
-      "अस्पतालको आवश्यकता हटाउन",
-      "सबै उपचार डिजिटल बनाउन",
-      "स्वास्थ्य पहुँच घटाउन"
+      "दुर्गम क्षेत्रमा अस्पताल र स्वास्थ्य संस्थाको आवश्यकता हटाउन",
+      "सबै प्रकारका उपचारलाई प्रत्यक्ष डिजिटल माध्यममै सीमित गर्न",
+      "स्वास्थ्य सेवाको भौगोलिक पहुँच घटाएर लागत नियन्त्रण गर्न"
     ],
     "correct": 0,
     "explanation": "Telemedicine can complement, not completely replace, physical health services. ",
@@ -189,9 +189,9 @@
     "q": "Broadband को आर्थिक महत्त्व कुन हो?",
     "options": [
       "उच्च क्षमताको digital connectivity मार्फत व्यवसाय र सेवाको पहुँच बढाउनु",
-      "फोन कल गर्न",
-      "इन्टरनेट प्रयोग रोक्नु",
-      "बजारलाई सीमित गर्नु"
+      "सामान्य फोन कल सञ्चालनका लागि मात्र network प्रयोग गर्नु",
+      "इन्टरनेट सेवा र digital कारोबारको प्रयोग सीमित गर्नु",
+      "व्यवसाय तथा सेवाको अनलाइन बजार पहुँचलाई सीमित गर्नु"
     ],
     "correct": 0,
     "explanation": "Broadband supports data-intensive economic and social services. ",
@@ -211,9 +211,9 @@
     "q": "डिजिटल connectivity ले productivity कसरी बढाउन सक्छ?",
     "options": [
       "सूचना खोज्ने समय, coordination cost र transaction friction घटाएर",
-      "उत्पादन रोक्दै",
-      "बजार सूचना घटाउँदै",
-      "व्यवसायलाई अलग गर्दै"
+      "उत्पादन प्रक्रिया रोक्दै व्यवसायको लागत बढाएर",
+      "बजार सूचना र ग्राहक सम्पर्कको पहुँच घटाएर",
+      "व्यवसायबीचको coordination र सूचना आदानप्रदान अलग गरेर"
     ],
     "correct": 0,
     "explanation": "Better information and coordination can raise productivity. ",
@@ -233,9 +233,9 @@
     "q": "डिजिटल अर्थतन्त्रले नयाँ रोजगारीका अवसर कहाँ सिर्जना गर्न सक्छ?",
     "options": [
       "IT services, digital platforms, e-commerce, content र remote services मा",
-      "सरकारी कार्यालयमा",
-      "कृषि क्षेत्रमा",
-      "कुनै क्षेत्रमा होइन"
+      "सरकारी कार्यालयका परम्परागत प्रशासनिक काममा मात्र",
+      "कृषि क्षेत्रको भौतिक उत्पादनमा मात्र",
+      "कुनै नयाँ रोजगारी सिर्जना नहुने क्षेत्रमा"
     ],
     "correct": 0,
     "explanation": "Digitalization creates new occupations while changing existing jobs. ",
@@ -277,9 +277,9 @@
     "q": "पर्यटनमा डिजिटल सञ्चारको प्रमुख उपयोगिता कुन हो?",
     "options": [
       "गन्तव्य सूचना, navigation, booking र promotion सहज बनाउनु",
-      "पर्यटक सूचना रोक्नु",
-      "गन्तव्य पहुँच घटाउनु",
-      "होटल सेवा बन्द गर्नु"
+      "पर्यटकलाई गन्तव्यसम्बन्धी सूचना र booking पहुँचबाट अलग गर्नु",
+      "गन्तव्यसम्मको digital navigation र सेवा पहुँच घटाउनु",
+      "होटल तथा पर्यटन सेवाको अनलाइन कारोबार सीमित गर्नु"
     ],
     "correct": 0,
     "explanation": "Digital channels influence destination discovery and transactions. ",
@@ -299,9 +299,9 @@
     "q": "Digital financial services ले कुन समस्या घटाउन सक्छ?",
     "options": [
       "भुक्तानी दूरी, समय र केही transaction costs घटाउन",
-      "वित्तीय पहुँच घटाउन",
-      "भुक्तानी बन्द गर्न",
-      "बैंकिङ सेवा हटाउन"
+      "वित्तीय सेवामा ग्राहकको पहुँच र कारोबार क्षमता घटाउन",
+      "डिजिटल तथा इलेक्ट्रोनिक भुक्तानी सेवा बन्द गर्न",
+      "बैंकिङ सेवाको पहुँच घटाएर कारोबारलाई नगदमै सीमित गर्न"
     ],
     "correct": 0,
     "explanation": "Digital payments can reduce physical transaction costs and improve convenience. ",
@@ -321,9 +321,9 @@
     "q": "उद्योगमा IoT वा real-time data को प्रयोगले के सुधार्न सक्छ?",
     "options": [
       "उत्पादन monitoring, maintenance र supply chain visibility",
-      "भवन सजावट",
-      "उत्पादन रोक्नु",
-      "डेटा प्रयोग हटाउनु"
+      "औद्योगिक भवनको सजावट र भौतिक संरचना व्यवस्थापन",
+      "उत्पादन प्रक्रिया र उपकरणको monitoring घटाउनु",
+      "औद्योगिक निर्णयमा real-time data को प्रयोग हटाउनु"
     ],
     "correct": 0,
     "explanation": "Connected industrial systems can improve operational visibility and predictive maintenance. ",
@@ -343,9 +343,9 @@
     "q": "दुर्गम पालिकामा internet पुगे पनि digital service प्रयोग कम छ भने कुन intervention बढी तार्किक हुन्छ?",
     "options": [
       "digital literacy, affordable devices, local support र relevant services बढाउनु",
-      "tower संख्या बढाउनु",
-      "service बन्द गर्नु",
-      "digital skills तालिम हटाउनु"
+      "internet tower संख्या बढाएर मात्र service use विस्तार गर्नु",
+      "कम प्रयोग भएका digital services लाई बन्द गर्नु",
+      "digital skills तालिम र स्थानीय support सेवा घटाउनु"
     ],
     "correct": 0,
     "explanation": "Access without affordability, skills and useful services can leave the digital divide unresolved. ",
@@ -386,10 +386,10 @@
     "type": "concept",
     "q": "सञ्चार पूर्वाधारमा coverage र usage बीच फरक किन महत्त्वपूर्ण हुन्छ?",
     "options": [
-      "नेटवर्क पुगेको भए पनि affordability वा skills का कारण वास्तविक उपयोग कम हुन सक्छ",
-      "coverage भए usage 100% हुन्छ",
-      "usage को कुनै महत्त्व हुँदैन",
-      "network quality अप्रासंगिक हुन्छ"
+      "नेटवर्क पुगे पनि affordability वा skills का कारण वास्तविक उपयोग कम हुन सक्छ",
+      "coverage पुगेपछि सबै प्रयोगकर्ताले सेवा पूर्ण रूपमा प्रयोग गर्छन्",
+      "usage rate कम भए पनि त्यसको नीति महत्त्व हुँदैन",
+      "network quality र affordability ले वास्तविक उपयोगमा असर गर्दैन"
     ],
     "correct": 0,
     "explanation": "Infrastructure availability does not guarantee meaningful adoption. ",
@@ -453,9 +453,9 @@
     "q": "ई-कमर्सले साना उद्यमको बजार विस्तारमा कसरी सहयोग गर्न सक्छ?",
     "options": [
       "भौगोलिक सीमाबाहिर ग्राहक पहुँच र digital marketing सम्भव बनाउँदै",
-      "बजार घटाउँदै",
-      "स्थानीय उत्पादन हटाउँदै",
-      "भुक्तानी असम्भव बनाउँदै"
+      "अनलाइन बिक्रीको बजार र ग्राहक पहुँचलाई स्थानीय क्षेत्रमा सीमित गर्दै",
+      "स्थानीय उत्पादनको online visibility र ग्राहक पहुँच घटाउँदै",
+      "digital payment र logistics को प्रयोगलाई कठिन बनाउँदै"
     ],
     "correct": 0,
     "explanation": "Digital marketplaces reduce some geographic barriers to market access. ",
@@ -475,9 +475,9 @@
     "q": "सञ्चार बजेटको प्रभाव मूल्याङ्कन गर्दा कुन सूचकहरूको समूह राम्रो हुन्छ?",
     "options": [
       "coverage, quality, affordability, usage र digital service adoption",
-      "tower संख्या",
-      "खर्च रकम",
-      "internet speed को एउटा मापन"
+      "tower संख्या र निर्माण गरिएको network infrastructure",
+      "सञ्चार क्षेत्रमा भएको कुल खर्चको वार्षिक रकम",
+      "internet speed को एउटा मापनलाई मात्र मुख्य सूचक बनाउने"
     ],
     "correct": 0,
     "explanation": "Outcome assessment needs both infrastructure and adoption indicators. ",
@@ -497,9 +497,9 @@
     "q": "सञ्चार पूर्वाधारको समावेशी विकासको अर्थ के हो?",
     "options": [
       "भौगोलिक, आय, लैङ्गिक र सामाजिक अवस्थाअनुसार पहुँचको असमानता घटाउनु",
-      "राजधानीमा सेवा विस्तार",
-      "दुर्गम क्षेत्र छोड्नु",
-      "उच्च आय समूहलाई सेवा दिनु"
+      "राजधानी र ठूला शहरमा सेवा विस्तारलाई मुख्य प्राथमिकता दिनु",
+      "दुर्गम तथा कम आय भएका क्षेत्रलाई बजारमा निर्भर छोड्नु",
+      "उच्च आय समूहमा मात्र digital service विस्तार गर्नु"
     ],
     "correct": 0,
     "explanation": "Digital inclusion aims to reduce access and usage gaps. ",
@@ -519,9 +519,9 @@
     "q": "दुर्घटना वा विपद्मा सञ्चार resilience का लागि कुन उपाय उपयोगी हुन्छ?",
     "options": [
       "redundant networks, backup power र emergency communication systems",
-      "एकै network मा पूर्ण निर्भरता",
-      "backup हटाउनु",
-      "emergency channel बन्द गर्नु"
+      "एउटै network infrastructure मा पूर्ण निर्भर रहनु",
+      "backup power तथा वैकल्पिक communication व्यवस्था हटाउनु",
+      "विपद्को समयमा emergency communication channel बन्द गर्नु"
     ],
     "correct": 0,
     "explanation": "Redundancy and backup systems improve continuity during disruptions. ",
@@ -563,9 +563,9 @@
     "q": "Digital literacy को आर्थिक महत्त्व कुन हो?",
     "options": [
       "नागरिक र व्यवसायलाई digital tools सुरक्षित र प्रभावकारी रूपमा प्रयोग गर्न सक्षम बनाउनु",
-      "internet coverage घटाउनु",
-      "digital service बन्द गर्नु",
-      "व्यवसायको productivity घटाउनु"
+      "internet coverage को भौगोलिक विस्तार मात्र बढाउनु",
+      "digital services को प्रयोग र पहुँचलाई सीमित गर्नु",
+      "digital tools प्रयोगबाट व्यवसायको productivity घटाउनु"
     ],
     "correct": 0,
     "explanation": "Skills determine whether connectivity translates into economic and social benefits. ",
@@ -585,9 +585,9 @@
     "q": "सञ्चार पूर्वाधार नीति बनाउँदा केवल coverage भन्दा बढी के हेर्नुपर्छ?",
     "options": [
       "गुणस्तर, affordability, usage, security र digital skills पनि",
-      "tower संख्या",
-      "विज्ञापन",
-      "शहरको coverage"
+      "tower संख्या र network coverage लाई मात्र मुख्य सूचक बनाउनु",
+      "सञ्चार सेवाको विज्ञापन र प्रचारलाई मुख्य मापदण्ड बनाउनु",
+      "शहरमा उपलब्ध coverage लाई राष्ट्रिय उपलब्धिको आधार मान्नु"
     ],
     "correct": 0,
     "explanation": "Meaningful connectivity is multi-dimensional. ",
@@ -607,9 +607,9 @@
     "q": "स्थानीय उत्पादन राम्रो भए पनि अनलाइन बिक्री कमजोर छ भने कुन प्याकेज उपयोगी हुन्छ?",
     "options": [
       "digital marketing, e-payment, e-commerce skills, logistics र product standards",
-      "internet tower थप्नु",
-      "बजार बन्द गर्नु",
-      "उत्पादन घटाउनु"
+      "internet tower थपेर मात्र online sales समस्या समाधान गर्नु",
+      "अनलाइन बजारलाई सीमित गरेर परम्परागत बिक्रीमा मात्र निर्भर हुनु",
+      "उत्पादन घटाएर बजारमा उपलब्ध वस्तुको संख्या सीमित गर्नु"
     ],
     "correct": 0,
     "explanation": "Digital commerce requires both connectivity and complementary business capabilities. ",
@@ -628,10 +628,10 @@
     "type": "statement_correct",
     "q": "सञ्चारलाई संरचनागत आर्थिक विकाससँग जोड्ने सही दृष्टिकोण कुन हो?",
     "options": [
-      "कृषि, उद्योग, व्यापार, शिक्षा, स्वास्थ्य र सरकारका सूचना/सेवा शृंखला डिजिटल रूपमा जोड्नु",
-      "सञ्चारलाई मनोरञ्जनमा सीमित गर्नु",
-      "उत्पादन क्षेत्रसँग सञ्चार अलग गर्नु",
-      "दुर्गम क्षेत्रमा connectivity नदिनु"
+      "कृषि, उद्योग, व्यापार, शिक्षा, स्वास्थ्य र सरकारका सेवा शृंखला डिजिटल रूपमा जोड्नु",
+      "सञ्चार प्रविधिलाई मनोरञ्जन र व्यक्तिगत प्रयोगमा मात्र सीमित गर्नु",
+      "उत्पादन तथा सेवा क्षेत्रबाट सञ्चार पूर्वाधारलाई अलग राख्नु",
+      "दुर्गम क्षेत्रलाई connectivity विस्तारको प्राथमिकताबाट बाहिर राख्नु"
     ],
     "correct": 0,
     "explanation": "Digital connectivity is cross-sector infrastructure. ",
@@ -651,9 +651,9 @@
     "q": "सोह्रौँ योजना र वार्षिक बजेटको पूर्वाधार दृष्टिले सञ्चार क्षेत्रमा दीर्घकालीन प्राथमिकता कुन हुनुपर्छ?",
     "options": [
       "meaningful connectivity + digital inclusion + secure services + skills + resilient infrastructure",
-      "coverage संख्या",
-      "सरकारी website",
-      "शहरमा high-speed internet"
+      "network coverage को संख्या मात्र बढाउने नीति",
+      "सरकारी website निर्माणलाई मात्र दीर्घकालीन लक्ष्य बनाउने नीति",
+      "शहरमा high-speed internet विस्तारलाई मात्र प्राथमिकता दिने नीति"
     ],
     "correct": 0,
     "explanation": "The economic return of connectivity depends on quality, inclusion, skills and secure use. ",
