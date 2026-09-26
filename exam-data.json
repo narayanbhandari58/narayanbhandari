@@ -59240,9 +59240,9 @@
       "question": "What is 3/4 + 1/8?",
       "options": [
         "5/8",
-        "1",
+        "3/4",
         "7/8",
-        "9/8"
+        "1/2"
       ],
       "correct": 2,
       "solution": "Correct answer: C. 3/4 = 6/8, so the sum is 7/8.",
@@ -59362,7 +59362,7 @@
         "1/10",
         "1/5",
         "1/20",
-        "10"
+        "1/40"
       ],
       "correct": 0,
       "solution": "Correct answer: A. One-day work is 1/10.",
@@ -68680,5 +68680,5 @@
       "level": "level2"
     }
   ],
-  "questionBankUpdatedAt": "2026-09-26T15:37:21.989717Z"
+  "questionBankUpdatedAt": "2026-09-26T15:38:09.161Z"
 }
