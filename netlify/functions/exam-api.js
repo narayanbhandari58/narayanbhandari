@@ -42,6 +42,20 @@ function verifyAttempt(t) {
 }
 
 async function gh(path, opt = {}) { if (!TOKEN) throw Error('GITHUB_TOKEN is not configured'); const r = await fetch(`${GH}/repos/${REPO}/contents/${path}`, { ...opt, headers: { Authorization: `Bearer ${TOKEN}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json', ...(opt.headers || {}) } }); const d = await r.json(); if (!r.ok) throw Error(d.message || 'GitHub request failed'); return d }
+async function readGithubJson(path) {
+  const meta = await gh(path);
+  if (typeof meta.content === 'string' && meta.content.trim()) {
+    try { return { data: JSON.parse(Buffer.from(meta.content, 'base64').toString('utf8')), sha: meta.sha }; } catch {}
+  }
+  if (!meta.sha) throw Error('GitHub file SHA भेटिएन।');
+  const r = await fetch(`${GH}/repos/${REPO}/git/blobs/${meta.sha}`, {
+    headers: { Authorization: `Bearer ${TOKEN}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' }
+  });
+  const d = await r.json();
+  if (!r.ok || d.encoding !== 'base64' || typeof d.content !== 'string') throw Error('GitHub blob पढ्न सकिएन।');
+  try { return { data: JSON.parse(Buffer.from(d.content.replace(/\\s/g, ''), 'base64').toString('utf8')), sha: meta.sha }; }
+  catch { throw Error('exam-data.json को JSON format गलत छ।'); }
+}
 async function readData() {
   // Public exam configuration must not depend on the admin GitHub token.
   // The published exam-data.json and maintained seed files are public inputs.
@@ -396,8 +410,8 @@ exports.handler = async event => {
       // after a write, which made edited questions appear to revert.
       let adminData = data;
       try {
-        const fresh = await gh('exam-data.json');
-        adminData = JSON.parse(Buffer.from(fresh.content, 'base64').toString('utf8'));
+        const fresh = await readGithubJson('exam-data.json');
+        adminData = fresh.data;
       } catch (e) {
         console.warn('Fresh admin exam-data read failed; using public data:', e.message);
       }
@@ -453,13 +467,10 @@ exports.handler = async event => {
       if (!Array.isArray(q.examIds) || !q.examIds.length || !String(q.subject || '').trim() || !String(q.topic || '').trim() || !String(q.q || '').trim() || !Array.isArray(q.options) || q.options.length !== 4 || q.options.some(x => !String(x || '').trim())) {
         return json(400, { error: 'Category, Subject, Topic, प्रश्न र चारवटै विकल्प आवश्यक छन्।' });
       }
-      const current = await gh('exam-data.json');
-      let currentData;
-      try {
-        currentData = JSON.parse(Buffer.from(current.content, 'base64').toString('utf8'));
-      } catch (e) {
-        return json(500, { error: 'exam-data.json पढ्न सकिएन। फेरि प्रयास गर्नुहोस्।' });
-      }
+      let current;
+      try { current = await readGithubJson('exam-data.json'); }
+      catch (e) { return json(500, { error: 'exam-data.json पढ्न सकिएन। फेरि प्रयास गर्नुहोस्।' }); }
+      const currentData = current.data;
       const questions = Array.isArray(currentData.questions) ? currentData.questions.slice() : [];
       const index = questions.findIndex(x => String(x.id) === String(q.id));
       if (index < 0) return json(404, { error: 'यो प्रश्न Question Bank मा भेटिएन।' });
