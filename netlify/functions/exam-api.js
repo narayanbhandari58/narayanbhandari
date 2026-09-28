@@ -471,6 +471,13 @@ exports.handler = async event => {
       try { current = await readGithubJson('exam-data.json'); }
       catch (e) { return json(500, { error: 'exam-data.json पढ्न सकिएन। फेरि प्रयास गर्नुहोस्।' }); }
       const currentData = current.data;
+      const validExamIds = new Set((currentData.exams || []).map(x => String(x.id)));
+      const requestedExamIds = [...new Set(q.examIds.map(x => String(x).trim()).filter(Boolean))];
+      if (requestedExamIds.some(id => !validExamIds.has(id))) return json(400, { error: 'अमान्य परीक्षा Category चयन गरिएको छ।' });
+      q.examIds = requestedExamIds;
+      if (q.examMappings && typeof q.examMappings === 'object') {
+        q.examMappings = Object.fromEntries(Object.entries(q.examMappings).filter(([id]) => requestedExamIds.includes(String(id))));
+      }
       const questions = Array.isArray(currentData.questions) ? currentData.questions.slice() : [];
       const index = questions.findIndex(x => String(x.id) === String(q.id));
       const duplicate = questions.find((x, i) => i !== index && String(x.id) === String(q.id));
