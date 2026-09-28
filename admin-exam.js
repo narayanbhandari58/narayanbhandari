@@ -17,9 +17,9 @@
     const sec=document.createElement('section');sec.className='admin-card';sec.id='mainQuestionBank';
     sec.innerHTML=`<div class="row"><div><h2>📚 Online Exam — Question Bank</h2><p class="exam-bank-note">Category → Subject → Topic अनुसार प्रश्न व्यवस्थापन</p></div><button class="btn btn-primary" id="mainNewQ" type="button">+ नयाँ प्रश्न</button></div>
       <div class="exam-bank-filters">
-        <select id="mainCat"><option value="">सबै Category</option></select>
-        <select id="mainSub"><option value="">सबै Subject</option></select>
-        <select id="mainTopic"><option value="">सबै Topic</option></select>
+        <select id="mainCat"><option value="">१. परीक्षा छान्नुहोस्</option></select>
+        <select id="mainSub" disabled><option value="">२. पहिले परीक्षा छान्नुहोस्</option></select>
+        <select id="mainTopic" disabled><option value="">३. पहिले विषय छान्नुहोस्</option></select>
         <select id="mainType"><option value="">सबै प्रकार</option><option value="gk">GK/विषयगत</option><option value="iq">IQ</option><option value="pictorial">Pictorial</option><option value="table">Table</option><option value="bar-chart">Bar Chart</option><option value="line-graph">Line Graph</option><option value="pie-chart">Pie Chart</option></select>
         <input id="mainSearch" type="search" placeholder="🔎 प्रश्न/विषय/Topic खोज्नुहोस्..." autocomplete="off">
       </div><div id="mainQCount" class="filter-result-count"></div><div id="mainQForm" hidden></div><div id="mainQuestions"></div>`;
