@@ -70197,8 +70197,8 @@
       "subject": "General Mental Ability",
       "topic": "BOST-B9",
       "level": "L2",
-      "type": "aptitude",
-      "q": "P छानिए Q पनि चाहिन्छ; Q छानिए R चाहिँदैन। कुन समूह मान्य?",
+      "type": "gk",
+      "q": "P छानिए Q पनि चाहिन्छ; Q छानिए R चाहिँदैन। कुन समूह मान्य हुन्छ?",
       "question": "P छानिए Q पनि चाहिन्छ; Q छानिए R चाहिँदैन। कुन समूह मान्य?",
       "options": [
         "P,Q,S",
@@ -70207,7 +70207,10 @@
         "Q,R,S"
       ],
       "correct": 0,
-      "solution": "P,Q,S मान्य।"
+      "solution": "P,Q,S मान्य।",
+      "explanation": "",
+      "image": "",
+      "imageAlt": "BOST-B9"
     },
     {
       "id": "khd-B10-001",
