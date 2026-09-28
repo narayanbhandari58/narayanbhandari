@@ -53,7 +53,7 @@ async function readGithubJson(path) {
   });
   const d = await r.json();
   if (!r.ok || d.encoding !== 'base64' || typeof d.content !== 'string') throw Error('GitHub blob पढ्न सकिएन।');
-  try { return { data: JSON.parse(Buffer.from(d.content.replace(/\\s/g, ''), 'base64').toString('utf8')), sha: meta.sha }; }
+  try { return { data: JSON.parse(Buffer.from(d.content.replace(/\s/g, ''), 'base64').toString('utf8')), sha: meta.sha }; }
   catch { throw Error('exam-data.json को JSON format गलत छ।'); }
 }
 async function readData() {
