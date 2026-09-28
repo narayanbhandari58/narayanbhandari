@@ -69845,8 +69845,8 @@
       "subject": "General Mental Ability",
       "topic": "BOST-B1",
       "level": "L2",
-      "type": "aptitude",
-      "q": "3:9 जस्तै 4:? मा सम्बन्ध?",
+      "type": "gk",
+      "q": "3:9 :: 4:?",
       "question": "3:9 जस्तै 4:? मा सम्बन्ध?",
       "options": [
         "16",
@@ -69855,7 +69855,10 @@
         "24"
       ],
       "correct": 0,
-      "solution": "वर्ग सम्बन्ध।"
+      "solution": "वर्ग सम्बन्ध।",
+      "explanation": "",
+      "image": "",
+      "imageAlt": "BOST-B1"
     },
     {
       "id": "khd-B2-001",
