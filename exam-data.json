@@ -69911,7 +69911,7 @@
       "subject": "General Mental Ability",
       "topic": "BOST-B3",
       "level": "L1",
-      "type": "aptitude",
+      "type": "gk",
       "q": "कुन संख्या अरू तीनभन्दा फरक छ?",
       "question": "कुन संख्या अरू तीनभन्दा फरक छ?",
       "options": [
@@ -69921,7 +69921,10 @@
         "27"
       ],
       "correct": 3,
-      "solution": "64,81,100 पूर्ण वर्ग; 27 होइन।"
+      "solution": "64,81,100 पूर्ण वर्ग; 27 होइन।",
+      "explanation": "",
+      "image": "",
+      "imageAlt": "BOST-B3"
     },
     {
       "id": "khd-B3-002",
