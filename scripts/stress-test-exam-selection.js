@@ -98,7 +98,16 @@ function validate(exam,paper){
   for(const s of exam.blueprint.sections||[]){const d=s.levelDistribution;if(!d)continue;const p=paper.filter(q=>q.section===s.id);if(p.filter(q=>level(q)==='level1').length!==Number(d.level1||0)||p.filter(q=>level(q)==='level2').length!==Number(d.level2||0))return false;}
   return true;
 }
-function englishLike(q){const s=String(q.q||q.question||''),dev=[...s].filter(c=>c>='\u0900'&&c<='\u097f').length,lat=[...s].filter(c=>/[A-Za-z]/.test(c)).length;return lat>dev+2;}
+function englishLike(q){
+  const s=String(q.q||q.question||'').trim();
+  const dev=[...s].filter(c=>c>='\u0900'&&c<='\u097f').length;
+  const lat=[...s].filter(c=>/[A-Za-z]/.test(c)).length;
+  if(dev>0)return false;
+  // Alphabet-test/coding-decoding questions legitimately use compact Latin
+  // letter groups (AD:EH, CAT→DBU, etc.) inside an otherwise Nepali exam.
+  const words=s.match(/[A-Za-z]+/g)||[];
+  const compact=words.length>0 && words.every(w=>w.length<=3) && !/\b(the|what|which|when|where|how|is|are|of|and|or|with|from|following|choose|find|select)\b/i.test(s);
+  return !compact && lat>2;}
 
 let failures=[];
 const knownExamIds=new Set(Object.keys(exams));
