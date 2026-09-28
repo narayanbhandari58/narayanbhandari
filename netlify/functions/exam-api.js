@@ -454,13 +454,19 @@ exports.handler = async event => {
         return json(400, { error: 'Category, Subject, Topic, प्रश्न र चारवटै विकल्प आवश्यक छन्।' });
       }
       const current = await gh('exam-data.json');
-      const questions = Array.isArray(current.data.questions) ? current.data.questions.slice() : [];
+      let currentData;
+      try {
+        currentData = JSON.parse(Buffer.from(current.content, 'base64').toString('utf8'));
+      } catch (e) {
+        return json(500, { error: 'exam-data.json पढ्न सकिएन। फेरि प्रयास गर्नुहोस्।' });
+      }
+      const questions = Array.isArray(currentData.questions) ? currentData.questions.slice() : [];
       const index = questions.findIndex(x => String(x.id) === String(q.id));
       if (index < 0) return json(404, { error: 'यो प्रश्न Question Bank मा भेटिएन।' });
       const duplicate = questions.find((x, i) => i !== index && String(x.id) === String(q.id));
       if (duplicate) return json(400, { error: 'Question ID दोहोरिएको छ।' });
       questions[index] = q;
-      const next = { ...current.data, questions };
+      const next = { ...currentData, questions };
       await writeData(next, current.sha);
       return json(200, { ok: true, question: q, message: 'प्रश्न स्थायी रूपमा सुरक्षित भयो।' });
     }
