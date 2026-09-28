@@ -70263,8 +70263,8 @@
       "subject": "General Mental Ability",
       "topic": "Numerical reasoning",
       "level": "L1",
-      "type": "numerical",
-      "q": "250 को 16% कति?",
+      "type": "gk",
+      "q": "250 को 16% कति हुन्छ?",
       "question": "250 को 16% कति?",
       "options": [
         "35",
@@ -70273,7 +70273,10 @@
         "40"
       ],
       "correct": 3,
-      "solution": "250×0.16=40।"
+      "solution": "250×0.16=40।",
+      "explanation": "",
+      "image": "",
+      "imageAlt": "Numerical reasoning"
     },
     {
       "id": "khd-B7-004",
