@@ -311,12 +311,12 @@ async function posts() {
    SAVE INDEX
 ========================================= */
 
-async function saveIndex(arr) {
+async function saveIndex(arr, knownSha) {
 
-  let sha;
+  let sha = knownSha;
 
 
-  try {
+  if (!sha) try {
 
     sha =
       (
@@ -803,8 +803,14 @@ exports.handler =
         action === "comment"
       ) {
 
-        const arr =
-          await posts();
+        let indexSha;
+        let arr = [];
+        try {
+          const indexFile = await readFile("posts/index.json");
+          indexSha = indexFile.sha;
+          arr = JSON.parse(indexFile.content);
+          if (!Array.isArray(arr)) arr = [];
+        } catch { arr = []; }
 
 
         const p =
@@ -924,7 +930,8 @@ exports.handler =
 
 
         await saveIndex(
-          arr
+          arr,
+          indexSha
         );
 
 
