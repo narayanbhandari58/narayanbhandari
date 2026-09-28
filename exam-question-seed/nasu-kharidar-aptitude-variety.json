@@ -172,8 +172,8 @@
       "N",
       "O"
     ],
-    "correct": 2,
-    "solution": "E,G,M,N,O,R,T,V; चौथो N।"
+    "correct": 0,
+    "solution": "GOVERNMENT का अक्षरहरू वर्णक्रममा E,E,G,M,N,N,O,R,T,V हुन्छन्; चौथो अक्षर M।"
   },
   {
     "id": "nasu-2.1-var-009",
