@@ -473,13 +473,13 @@ exports.handler = async event => {
       const currentData = current.data;
       const questions = Array.isArray(currentData.questions) ? currentData.questions.slice() : [];
       const index = questions.findIndex(x => String(x.id) === String(q.id));
-      if (index < 0) return json(404, { error: 'यो प्रश्न Question Bank मा भेटिएन।' });
       const duplicate = questions.find((x, i) => i !== index && String(x.id) === String(q.id));
       if (duplicate) return json(400, { error: 'Question ID दोहोरिएको छ।' });
-      questions[index] = q;
+      if (index >= 0) questions[index] = q;
+      else questions.unshift(q);
       const next = { ...currentData, questions };
       await writeData(next, current.sha);
-      return json(200, { ok: true, question: q, message: 'प्रश्न स्थायी रूपमा सुरक्षित भयो।' });
+      return json(200, { ok: true, created: index < 0, question: q, message: index < 0 ? 'नयाँ प्रश्न स्थायी रूपमा सुरक्षित भयो।' : 'प्रश्न स्थायी रूपमा सुरक्षित भयो।' });
     }
     if (action === 'save-data') { if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' }); if (!body.data || !Array.isArray(body.data.exams) || !Array.isArray(body.data.questions)) return json(400, { error: 'Exam data format गलत छ' }); const ids = body.data.questions.map(q => String(q.id || '').trim()).filter(Boolean), unique = new Set(ids); if (ids.length !== unique.size) return json(400, { error: 'Question ID दोहोरिएको छ। प्रत्येक प्रश्नको unique ID हुनुपर्छ।' }); const current = await gh('exam-data.json'); await writeData(body.data, current.sha); return json(200, { ok: true, message: 'Exam data सुरक्षित भयो' }) }
     return json(400, { error: 'Unknown action' });
