@@ -59,7 +59,14 @@ jobs:
                       s = str(q.get('q') or q.get('question') or '')
                       dev = sum('\u0900' <= ch <= '\u097f' for ch in s)
                       lat = sum(('A' <= ch <= 'Z') or ('a' <= ch <= 'z') for ch in s)
-                      if lat > dev + 2:
+                      # Compact alphabet-test/coding tokens (AD:EH, CAT→DBU)
+                      # are legitimate in Nepali aptitude questions.
+                      words = __import__('re').findall(r'[A-Za-z]+', s)
+                      compact = bool(words) and all(len(w) <= 3 for w in words) and not __import__('re').search(
+                          r'\b(the|what|which|when|where|how|is|are|of|and|or|with|from|following|choose|find|select)\b',
+                          s, __import__('re').I
+                      )
+                      if not compact and lat > 2:
                           english_like.append(q.get('id'))
                   assert not english_like, f'{exam_id}: English-language question(s) mapped: {english_like[:10]}'
 
