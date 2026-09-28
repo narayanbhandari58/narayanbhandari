@@ -389,7 +389,25 @@ exports.handler = async event => {
       await blobStore().delete(activeKey).catch(() => {});
       return json(200, { result });
     }
-    if (action === 'admin-data') { if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' }); const examReadiness = (data.exams || []).map(exam => ({ examId: exam.id, title: exam.title, ...readinessReport(exam, eligibleQuestions(exam, data.questions)) })); return json(200, { data, examReadiness }) }
+    if (action === 'admin-data') {
+      if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' });
+      // Admin must read the just-saved GitHub version directly. The public
+      // raw.githubusercontent.com CDN can briefly serve an older exam-data.json
+      // after a write, which made edited questions appear to revert.
+      let adminData = data;
+      try {
+        const fresh = await gh('exam-data.json');
+        adminData = JSON.parse(Buffer.from(fresh.content, 'base64').toString('utf8'));
+      } catch (e) {
+        console.warn('Fresh admin exam-data read failed; using public data:', e.message);
+      }
+      const examReadiness = (adminData.exams || []).map(exam => ({
+        examId: exam.id,
+        title: exam.title,
+        ...readinessReport(exam, eligibleQuestions(exam, adminData.questions || []))
+      }));
+      return json(200, { data: adminData, examReadiness });
+    }
     if (action === 'admin-history' || action === 'history' || action === 'admin-users' || action === 'users') {
       if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' });
       const a = await attempts();
