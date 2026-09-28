@@ -428,6 +428,24 @@ exports.handler = async event => {
       } while (cursorState.cursor);
       return json(200, { ok: true, deleted, message: deleted ? 'User र सम्बन्धित history हटाइयो।' : 'यो user को history भेटिएन।' });
     }
+    if (action === 'save-question') {
+      if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' });
+      const q = body?.question;
+      if (!q || !String(q.id || '').trim()) return json(400, { error: 'प्रश्न ID आवश्यक छ' });
+      if (!Array.isArray(q.examIds) || !q.examIds.length || !String(q.subject || '').trim() || !String(q.topic || '').trim() || !String(q.q || '').trim() || !Array.isArray(q.options) || q.options.length !== 4 || q.options.some(x => !String(x || '').trim())) {
+        return json(400, { error: 'Category, Subject, Topic, प्रश्न र चारवटै विकल्प आवश्यक छन्।' });
+      }
+      const current = await gh('exam-data.json');
+      const questions = Array.isArray(current.data.questions) ? current.data.questions.slice() : [];
+      const index = questions.findIndex(x => String(x.id) === String(q.id));
+      if (index < 0) return json(404, { error: 'यो प्रश्न Question Bank मा भेटिएन।' });
+      const duplicate = questions.find((x, i) => i !== index && String(x.id) === String(q.id));
+      if (duplicate) return json(400, { error: 'Question ID दोहोरिएको छ।' });
+      questions[index] = q;
+      const next = { ...current.data, questions };
+      await writeData(next, current.sha);
+      return json(200, { ok: true, question: q, message: 'प्रश्न स्थायी रूपमा सुरक्षित भयो।' });
+    }
     if (action === 'save-data') { if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' }); if (!body.data || !Array.isArray(body.data.exams) || !Array.isArray(body.data.questions)) return json(400, { error: 'Exam data format गलत छ' }); const ids = body.data.questions.map(q => String(q.id || '').trim()).filter(Boolean), unique = new Set(ids); if (ids.length !== unique.size) return json(400, { error: 'Question ID दोहोरिएको छ। प्रत्येक प्रश्नको unique ID हुनुपर्छ।' }); const current = await gh('exam-data.json'); await writeData(body.data, current.sha); return json(200, { ok: true, message: 'Exam data सुरक्षित भयो' }) }
     return json(400, { error: 'Unknown action' });
   } catch (e) { console.error(e); return json(500, { error: e.message || 'Exam API error' }) }
