@@ -70048,11 +70048,11 @@
       "question": "पहिले 3 थप्नुहोस्, त्यसपछि 2 ले गुणा: 5 बाट परिणाम?",
       "options": [
         "13",
-        "16",
         "36",
+        "16",
         "12"
       ],
-      "correct": 2,
+      "correct": 1,
       "solution": "5(3*2)+6\n5*6+6\n30+6\n36 ANS",
       "explanation": "",
       "image": "",
@@ -70769,5 +70769,5 @@
       "solution": "I बाट x=6 वा 8; II सँग मिल्दा x=6 मात्र।"
     }
   ],
-  "questionBankUpdatedAt": "2026-09-28T15:24:21.945643Z"
+  "questionBankUpdatedAt": "2026-09-28T15:24:41.330157Z"
 }
