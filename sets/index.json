@@ -1,4 +1,336 @@
 {
   "version": 1,
-  "sets": []
+  "generatedFrom": "exam-data.json",
+  "sets": [
+    {
+      "examId": "kharidar",
+      "setId": "01",
+      "title": "Set 1",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "kharidar",
+      "setId": "02",
+      "title": "Set 2",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "kharidar",
+      "setId": "03",
+      "title": "Set 3",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "kharidar",
+      "setId": "04",
+      "title": "Set 4",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "kharidar",
+      "setId": "05",
+      "title": "Set 5",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "kharidar",
+      "setId": "06",
+      "title": "Set 6",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "kharidar",
+      "setId": "07",
+      "title": "Set 7",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "kharidar",
+      "setId": "08",
+      "title": "Set 8",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "kharidar",
+      "setId": "09",
+      "title": "Set 9",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "kharidar",
+      "setId": "10",
+      "title": "Set 10",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "nasu",
+      "setId": "01",
+      "title": "Set 1",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "nasu",
+      "setId": "02",
+      "title": "Set 2",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "nasu",
+      "setId": "03",
+      "title": "Set 3",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "nasu",
+      "setId": "04",
+      "title": "Set 4",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "nasu",
+      "setId": "05",
+      "title": "Set 5",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "nasu",
+      "setId": "06",
+      "title": "Set 6",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "nasu",
+      "setId": "07",
+      "title": "Set 7",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "nasu",
+      "setId": "08",
+      "title": "Set 8",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "nasu",
+      "setId": "09",
+      "title": "Set 9",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "nasu",
+      "setId": "10",
+      "title": "Set 10",
+      "questionCount": 50,
+      "durationMinutes": 45,
+      "positiveMark": 2,
+      "negativeMark": 0.4,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "sakha-adhikrit",
+      "setId": "01",
+      "title": "Set 1",
+      "questionCount": 100,
+      "durationMinutes": 90,
+      "positiveMark": 1,
+      "negativeMark": 0.2,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "sakha-adhikrit",
+      "setId": "02",
+      "title": "Set 2",
+      "questionCount": 100,
+      "durationMinutes": 90,
+      "positiveMark": 1,
+      "negativeMark": 0.2,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "sakha-adhikrit",
+      "setId": "03",
+      "title": "Set 3",
+      "questionCount": 100,
+      "durationMinutes": 90,
+      "positiveMark": 1,
+      "negativeMark": 0.2,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "sakha-adhikrit",
+      "setId": "04",
+      "title": "Set 4",
+      "questionCount": 100,
+      "durationMinutes": 90,
+      "positiveMark": 1,
+      "negativeMark": 0.2,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "sakha-adhikrit",
+      "setId": "05",
+      "title": "Set 5",
+      "questionCount": 100,
+      "durationMinutes": 90,
+      "positiveMark": 1,
+      "negativeMark": 0.2,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "sakha-adhikrit",
+      "setId": "06",
+      "title": "Set 6",
+      "questionCount": 100,
+      "durationMinutes": 90,
+      "positiveMark": 1,
+      "negativeMark": 0.2,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "sakha-adhikrit",
+      "setId": "07",
+      "title": "Set 7",
+      "questionCount": 100,
+      "durationMinutes": 90,
+      "positiveMark": 1,
+      "negativeMark": 0.2,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "sakha-adhikrit",
+      "setId": "08",
+      "title": "Set 8",
+      "questionCount": 100,
+      "durationMinutes": 90,
+      "positiveMark": 1,
+      "negativeMark": 0.2,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "sakha-adhikrit",
+      "setId": "09",
+      "title": "Set 9",
+      "questionCount": 100,
+      "durationMinutes": 90,
+      "positiveMark": 1,
+      "negativeMark": 0.2,
+      "passPercent": 45,
+      "sourceVersion": null
+    },
+    {
+      "examId": "sakha-adhikrit",
+      "setId": "10",
+      "title": "Set 10",
+      "questionCount": 100,
+      "durationMinutes": 90,
+      "positiveMark": 1,
+      "negativeMark": 0.2,
+      "passPercent": 45,
+      "sourceVersion": null
+    }
+  ]
 }
