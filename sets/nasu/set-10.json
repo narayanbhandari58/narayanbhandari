@@ -1,0 +1,1580 @@
+{
+  "version": 1,
+  "examId": "nasu",
+  "setId": "10",
+  "title": "Set 10",
+  "questionCount": 50,
+  "durationMinutes": 45,
+  "positiveMark": 2,
+  "negativeMark": 0.4,
+  "passPercent": 45,
+  "blueprintVersion": null,
+  "generatedFrom": "exam-data.json",
+  "questions": [
+    {
+      "id": "nasu-1.1-new-007",
+      "examIds": [
+        "nasu"
+      ],
+      "examMappings": {
+        "nasu": {
+          "section": "A",
+          "unit": "1.1",
+          "level": "level2"
+        }
+      },
+      "section": "A",
+      "unit": "1.1",
+      "level": "level2",
+      "type": "gk",
+      "subject": "सामान्य ज्ञान",
+      "topic": "ब्रह्माण्ड तथा सौर्यमण्डल",
+      "q": "पृथ्वीको घूर्णनका कारण मुख्यतः कुन घटना हुन्छ?",
+      "options": [
+        "दिन र रात",
+        "ऋतु परिवर्तन",
+        "ज्वारभाटा",
+        "भूकम्प"
+      ],
+      "correct": 0,
+      "explanation": "",
+      "solution": ""
+    },
+    {
+      "id": "bo-1.1-050",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.2",
+      "subject": "भूगोल",
+      "topic": "नदी तथा जलाधार",
+      "level": "level2",
+      "type": "gk",
+      "q": "राइन नदी कुन सागरमा मिसिन्छ?",
+      "options": [
+        "भूमध्यसागर",
+        "बाल्टिक सागर",
+        "उत्तर सागर",
+        "काला सागर"
+      ],
+      "correct": 2,
+      "explanation": "राइन नदी पश्चिमी युरोप हुँदै उत्तर सागरमा मिसिन्छ।",
+      "solution": "सही उत्तर: A — उत्तर सागर।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.2",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.1-085",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.2",
+      "subject": "भूगोल",
+      "topic": "दक्षिण अमेरिका",
+      "level": "level2",
+      "type": "gk",
+      "q": "पाम्पास घाँसे मैदान कुन क्षेत्रमा प्रसिद्ध छ?",
+      "options": [
+        "क्यानडा",
+        "अर्जेन्टिना र आसपासको दक्षिण अमेरिका",
+        "मंगोलिया",
+        "अष्ट्रेलिया"
+      ],
+      "correct": 1,
+      "explanation": "पाम्पास दक्षिण अमेरिकाको दक्षिणपूर्वी भाग, विशेषतः अर्जेन्टिनासँग सम्बन्धित उर्वर घाँसे मैदान हो।",
+      "solution": "सही उत्तर: A — अर्जेन्टिना र आसपासको दक्षिण अमेरिका।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.2",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.1-004",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.3",
+      "subject": "भूगोल",
+      "topic": "प्लेट विवर्तनिकी",
+      "level": "level2",
+      "type": "gk",
+      "q": "हिमालय पर्वत निर्माण मुख्यतः कुन दुई टेक्टोनिक प्लेटको टक्करबाट भएको हो?",
+      "options": [
+        "भारतीय र युरेसियाली",
+        "प्रशान्त र उत्तर अमेरिकी",
+        "अफ्रिकी र दक्षिण अमेरिकी",
+        "अरेबियन र अफ्रिकी"
+      ],
+      "correct": 0,
+      "explanation": "भारतीय प्लेट उत्तरतर्फ सर्दै युरेसियाली प्लेटसँग ठोक्किँदा हिमालयको उत्थान भएको हो।",
+      "solution": "सही उत्तर: B — भारतीय र युरेसियाली प्लेट।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.3",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.1-l2-024",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.3",
+      "subject": "भूगोल",
+      "topic": "नेपालको सामाजिक भूगोल",
+      "level": "level2",
+      "format": "statement_correct",
+      "type": "gk",
+      "q": "नेपालको सामाजिक भूगोलबारे कुन कथन ठीक छ?",
+      "options": [
+        "भौगोलिक क्षेत्र, यातायात र रोजगारीका अवसरले जनसंख्या वितरण र बसाइँसराइमा प्रभाव पार्न सक्छन्",
+        "जनसंख्या वितरण अक्षांशले निर्धारण गर्छ",
+        "शहरीकरणको भूगोलसँग कुनै सम्बन्ध हुँदैन",
+        "बसाइँसराइ आर्थिक अवसरबाट प्रभावित हुँदैन"
+      ],
+      "correct": 0,
+      "explanation": "रोजगारी, सेवा-सुविधा, यातायात र भौगोलिक अवस्थाले जनसंख्या वितरण तथा आन्तरिक बसाइँसराइमा प्रभाव पार्न सक्छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.3",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.1-l2-026",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.3",
+      "subject": "भूगोल",
+      "topic": "नेपालको कृषि भूगोल",
+      "level": "level2",
+      "format": "matching",
+      "type": "gk",
+      "q": "जोडा मिलाउँदा कुन विकल्प बढी उपयुक्त छ?",
+      "options": [
+        "हिमाली क्षेत्र — सबैभन्दा तातो उष्ण मरुभूमि",
+        "पहाडी क्षेत्र — कुनै पनि कृषि सम्भावना नभएको क्षेत्र",
+        "तराई — समथर भूभागका कारण कृषि तथा बसोबासका लागि महत्वपूर्ण क्षेत्र",
+        "तराई — हिमाली पर्यटनमा निर्भर क्षेत्र"
+      ],
+      "correct": 2,
+      "explanation": "तराईको समथर भूभाग र तुलनात्मक रूपमा अनुकूल भौगोलिक अवस्थाले कृषि तथा घना बसोबासमा योगदान गरेको छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.3",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.1-l2-029",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.3",
+      "subject": "भूगोल",
+      "topic": "नेपालको आर्थिक भूगोल",
+      "level": "level2",
+      "format": "statement_correct",
+      "type": "gk",
+      "q": "नेपालको आर्थिक भूगोलसम्बन्धी कुन कथन सही छ?",
+      "options": [
+        "नेपालको अर्थतन्त्रमा भूगोलको कुनै प्रभाव हुँदैन",
+        "पर्यटन, जलविद्युत, कृषि र सेवा क्षेत्र नेपालका आर्थिक गतिविधिसँग सम्बन्धित महत्वपूर्ण क्षेत्र हुन्",
+        "जलविद्युत विकासका लागि नदी र भौगोलिक ढलानको कुनै महत्व हुँदैन",
+        "पर्यटन स्थलको अवस्थिति आर्थिक गतिविधिसँग असम्बन्धित हुन्छ"
+      ],
+      "correct": 1,
+      "explanation": "नेपालको भौगोलिक विविधता कृषि, पर्यटन र जलविद्युतलगायत आर्थिक गतिविधिका अवसरसँग जोडिएको छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.3",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-l2-003",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.4",
+      "subject": "इतिहास",
+      "topic": "औद्योगिक क्रान्ति",
+      "level": "level2",
+      "format": "statement_correct",
+      "type": "gk",
+      "q": "तलका मध्ये कुन सम्बन्ध बढी उपयुक्त छ?",
+      "options": [
+        "म्याग्नाकार्टा — वाष्प इन्जिनको आविष्कार",
+        "फ्रान्सेली क्रान्ति — कारखाना प्रणालीको पहिलो आविष्कार",
+        "रूसी क्रान्ति — पहिलो रेलमार्गको निर्माण",
+        "वाष्प इन्जिनको सुधार — औद्योगिक उत्पादन र यातायातमा परिवर्तन"
+      ],
+      "correct": 3,
+      "explanation": "James Watt लगायतका सुधारहरूले वाष्पशक्तिको व्यावहारिक उपयोग विस्तार गर्न योगदान गरे, जसले उद्योग र यातायातमा परिवर्तन ल्यायो।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.4",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-nh-l2-005",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.5",
+      "subject": "नेपाल इतिहास",
+      "topic": "एकीकरण",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "पृथ्वीनारायण शाहको नेपाल एकीकरण अभियानको प्रारम्भिक आधार कुन राज्य थियो?",
+      "options": [
+        "गोरखा",
+        "काठमाडौं",
+        "पाल्पा",
+        "भक्तपुर"
+      ],
+      "correct": 0,
+      "explanation": "पृथ्वीनारायण शाहले गोरखा राज्यबाट उपत्यका लगायतका क्षेत्रमा एकीकरण अभियान अघि बढाएका थिए।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.5",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-nh-l2-002",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.5",
+      "subject": "नेपाल इतिहास",
+      "topic": "लिच्छविकाल",
+      "level": "level2",
+      "type": "verification",
+      "q": "लिच्छविकालका अभिलेखीय स्रोतको महत्व कुन कारणले बढी छ?",
+      "options": [
+        "तिनमा विदेशी इतिहास लेखिएको छ",
+        "तिनले तत्कालीन प्रशासन, समाज, धर्म र दानसम्बन्धी सूचना दिन्छन्",
+        "तिनले आधुनिक संघीय संरचना वर्णन गर्छन्",
+        "तिनमा कुनै राजकीय सूचना हुँदैन"
+      ],
+      "correct": 1,
+      "explanation": "लिच्छविकालका शिलालेख तथा अन्य अभिलेखले तत्कालीन राजनीतिक, प्रशासनिक, सामाजिक तथा धार्मिक अवस्थाबारे प्रत्यक्ष प्रमाण दिन्छन्।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.5",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-jn-b-013",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.6",
+      "subject": "आदिवासी जनजाति",
+      "topic": "राजवंशी",
+      "level": "level1",
+      "type": "gk",
+      "q": "राजवंशी समुदायको ऐतिहासिक बसोबास कुन क्षेत्रसँग जोडिन्छ?",
+      "options": [
+        "उच्च हिमाल",
+        "काठमाडौं उपत्यका",
+        "पूर्वी तराई",
+        "कर्णालीको उच्च पहाड"
+      ],
+      "correct": 2,
+      "explanation": "राजवंशी समुदायको ऐतिहासिक बसोबास पूर्वी तराईसँग जोडिन्छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.6",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-nh-l2-017",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.6",
+      "subject": "नेपाल इतिहास",
+      "topic": "आर्थिक अवस्था",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "नेपालको परम्परागत कृषि अर्थतन्त्रको सामाजिक प्रभाव बुझ्दा कुन पक्ष महत्वपूर्ण हुन्छ?",
+      "options": [
+        "भूमि, श्रम, उत्पादन र स्थानीय विनिमयबीचको सम्बन्ध",
+        "आधुनिक शेयर बजार",
+        "अन्तरिक्ष प्रविधि",
+        "विदेशी मुद्रा बजार"
+      ],
+      "correct": 0,
+      "explanation": "ऐतिहासिक ग्रामीण अर्थतन्त्रमा भूमि, श्रम, कृषि उत्पादन र स्थानीय विनिमयबीचको सम्बन्ध सामाजिक संरचनासँग जोडिएको थियो।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.6",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-dem-l2-003",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.6",
+      "subject": "लोकतान्त्रिक आन्दोलन",
+      "topic": "२०१७ साल",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "२०१७ साल पुस १ गतेको राजनीतिक परिवर्तनको प्रमुख परिणाम कुन थियो?",
+      "options": [
+        "राणा शासनको पुनःस्थापना",
+        "संघीय गणतन्त्रको स्थापना",
+        "निर्दलीय पञ्चायती शासनको सुरुवात",
+        "संविधानसभा निर्वाचन"
+      ],
+      "correct": 2,
+      "explanation": "संसदीय इतिहासअनुसार २०१७ पुस १ गतेदेखि निर्दलीय पञ्चायती शासन व्यवस्था सुरु भयो।",
+      "solution": "सही उत्तर: A — निर्दलीय पञ्चायती शासनको सुरुवात।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.6",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-004",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.6",
+      "subject": "इतिहास",
+      "topic": "ग्रीस",
+      "level": "level1",
+      "type": "gk",
+      "q": "प्राचीन एथेन्स कुन राजनीतिक अवधारणाको विकासका लागि प्रसिद्ध छ?",
+      "options": [
+        "लोकतन्त्र",
+        "सामन्तवाद",
+        "उपनिवेशवाद",
+        "निरंकुश राजतन्त्र"
+      ],
+      "correct": 0,
+      "explanation": "एथेन्समा प्रत्यक्ष लोकतन्त्रको प्रारम्भिक रूप विकसित भएको थियो।",
+      "solution": "सही उत्तर: B — लोकतन्त्र।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.6",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.4.1-trade-019",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.7",
+      "subject": "आर्थिक विकास",
+      "topic": "व्यापार र पर्यटन",
+      "level": "level1",
+      "type": "gk",
+      "q": "पर्यटनले व्यापारमा कुन योगदान गर्न सक्छ?",
+      "options": [
+        "सेवा निर्यातमार्फत विदेशी मुद्रा आर्जन गर्न",
+        "वस्तु आयात बढाउन",
+        "कृषि उत्पादन घटाउन",
+        "व्यापार घाटा अनिवार्य रूपमा बढाउन"
+      ],
+      "correct": 0,
+      "explanation": "Tourism receipts are commonly treated as service exports and generate foreign exchange. ",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.7",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.4.1-comm-009",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.7",
+      "subject": "आर्थिक विकास",
+      "topic": "ब्रोडब्यान्ड",
+      "level": "level1",
+      "type": "gk",
+      "q": "Broadband को आर्थिक महत्त्व कुन हो?",
+      "options": [
+        "उच्च क्षमताको digital connectivity मार्फत व्यवसाय र सेवाको पहुँच बढाउनु",
+        "फोन कल गर्न",
+        "इन्टरनेट प्रयोग रोक्नु",
+        "बजारलाई सीमित गर्नु"
+      ],
+      "correct": 0,
+      "explanation": "Broadband supports data-intensive economic and social services. ",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.7",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.4.1-devinfra-agri-028",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.7",
+      "subject": "आर्थिक विकास",
+      "topic": "कृषि र जलस्रोत",
+      "level": "level1",
+      "type": "matching",
+      "q": "कृषि जलस्रोत व्यवस्थापनको सही जोडी कुन हो?",
+      "options": [
+        "सिँचाइ — पानीको उपयोगिता हटाउने",
+        "सिँचाइ — उत्पादनको मौसमी निर्भरता घटाउने",
+        "जलसञ्चय — सुख्खा जोखिम बढाउने",
+        "सूक्ष्म सिँचाइ — पानीको अपव्यय बढाउने"
+      ],
+      "correct": 1,
+      "explanation": "सिँचाइ र जलसञ्चयले उत्पादन स्थिरता बढाउन सक्छन्; दक्ष प्रविधिले पानी बचत गर्न सहयोग गर्छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.7",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-2-004",
+      "unit": "1.8",
+      "section": "A",
+      "subject": "विज्ञान र प्रविधिको मानव जीवन र समाजमा परेको प्रभाव",
+      "level": "level1",
+      "type": "concept",
+      "question": "कृत्रिम बुद्धिमत्ता (AI) को प्रमुख विशेषता कुन हो?",
+      "options": [
+        "यसले मानवभन्दा सही निर्णय गर्छ",
+        "यसलाई कुनै डेटा चाहिँदैन",
+        "यसको कुनै जोखिम हुँदैन",
+        "तथ्य/डेटाबाट ढाँचा सिकेर निश्चित कार्यमा पूर्वानुमान वा निर्णयमा सहयोग गर्न सक्नु"
+      ],
+      "correct": 3,
+      "solution": "सही उत्तर: D।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-1-015",
+      "unit": "1.8",
+      "section": "A",
+      "subject": "प्रमुख वैज्ञानिक तथा आविष्कारहरू",
+      "level": "level1",
+      "type": "gk",
+      "question": "आधुनिक जीवाणु सिद्धान्त र रोगाणुविज्ञानको विकासमा महत्वपूर्ण योगदान दिने वैज्ञानिक को हुन्?",
+      "options": [
+        "जेम्स वाट",
+        "ब्याबेज",
+        "लुइ पाश्चर",
+        "गुटेनबर्ग"
+      ],
+      "correct": 2,
+      "solution": "सही उत्तर: C।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-1-040",
+      "unit": "1.8",
+      "section": "A",
+      "subject": "प्रमुख वैज्ञानिक तथा आविष्कारहरू",
+      "level": "level1",
+      "type": "concept",
+      "question": "आविष्कार र नवप्रवर्तनबीच उपयुक्त भिन्नता कुन हो?",
+      "options": [
+        "दुवै शब्दको अर्थ पूर्णतः एउटै हो",
+        "नवप्रवर्तनमा प्रयोग हुँदैन",
+        "आविष्कारमा ज्ञान आवश्यक हुँदैन",
+        "आविष्कार नयाँ विचार/वस्तुको सिर्जना हो; नवप्रवर्तनले त्यसलाई उपयोगी रूपमा कार्यान्वयन वा सुधार गर्छ"
+      ],
+      "correct": 3,
+      "solution": "सही उत्तर: D।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.5-environment-008",
+      "unit": "1.9",
+      "section": "A",
+      "subject": "दिगो विकास तथा वातावरण",
+      "level": "level1",
+      "type": "gk",
+      "question": "नेपालमा वातावरण संरक्षणसम्बन्धी प्रमुख आधारभूत कानून कुन हो?",
+      "options": [
+        "स्थानीय सरकार सञ्चालन ऐन, २०७४",
+        "मुलुकी देवानी संहिता, २०७४",
+        "कम्पनी ऐन, २०६३",
+        "वातावरण संरक्षण ऐन, २०७६"
+      ],
+      "correct": 3,
+      "solution": "सही उत्तर: D।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.9",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.5-environment-013",
+      "unit": "1.9",
+      "section": "A",
+      "subject": "दिगो विकास तथा वातावरण",
+      "level": "level1",
+      "type": "concept",
+      "question": "जैविक विविधताले के समेट्छ?",
+      "options": [
+        "आनुवंशिक, प्रजातीय र पारिस्थितिकीय विविधता",
+        "वन्यजन्तुको संख्या",
+        "वनको क्षेत्रफल",
+        "कृषि बालीको विविधता"
+      ],
+      "correct": 0,
+      "solution": "सही उत्तर: A।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.9",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.5-environment-003",
+      "unit": "1.9",
+      "section": "A",
+      "subject": "दिगो विकास तथा वातावरण",
+      "level": "level1",
+      "type": "gk",
+      "question": "नेपालमा दिगो विकास लक्ष्य कार्यान्वयनको राष्ट्रिय समन्वयमा प्रमुख भूमिका कसको हुन्छ?",
+      "options": [
+        "नेपाल राष्ट्र बैंक",
+        "निर्वाचन आयोग",
+        "राष्ट्रिय योजना आयोग",
+        "लोक सेवा आयोग"
+      ],
+      "correct": 2,
+      "solution": "सही उत्तर: C।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.9",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "1.7.1-059",
+      "unit": "1.10",
+      "level": "level1",
+      "type": "mcq",
+      "question": "नेपाल NAM मा कस्तो भूमिका भएको देश हो?",
+      "options": [
+        "A/RES/995(X)",
+        "१८३",
+        "संस्थापक सदस्य",
+        "१४ डिसेम्बर १९५५"
+      ],
+      "correct": 2,
+      "solution": "",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.10",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "1.7.1-053",
+      "unit": "1.10",
+      "level": "level1",
+      "type": "mcq",
+      "question": "BIMSTEC सचिवालय कहाँ छ?",
+      "options": [
+        "ढाका",
+        "१४ डिसेम्बर १९५५",
+        "A/RES/995(X)",
+        "१८३"
+      ],
+      "correct": 0,
+      "solution": "",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.10",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.8-SCI-05",
+      "unit": "1.11",
+      "category": "वैज्ञानिक",
+      "level": "level1",
+      "type": "fact",
+      "question": "NASA-IBM Lunar Foundation Model ले कति भन्दा बढी तह र NASA का कति मिसनका उपकरणसम्बन्धी डेटा प्रयोग गरेको रिपोर्ट छ?",
+      "options": [
+        "३० भन्दा बढी तह र ४ मिसन",
+        "१० तह र १ मिसन",
+        "५ तह र ८ मिसन",
+        "१०० तह र २० मिसन"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.11",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.8-OTH-01",
+      "unit": "1.11",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "level1",
+      "type": "fact",
+      "question": "संयुक्त राष्ट्र महासभाको ८१औँ अधिवेशनको General Debate २०२६ मा कहिलेदेखि सुरु हुन्छ?",
+      "options": [
+        "१८ सेप्टेम्बर २०२६",
+        "२२ सेप्टेम्बर २०२६",
+        "२७ सेप्टेम्बर २०२६",
+        "३० सेप्टेम्बर २०२६"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "United Nations",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.11",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.8-POL-02",
+      "unit": "1.11",
+      "category": "राजनीतिक",
+      "level": "level1",
+      "type": "fact",
+      "question": "२०२६ को प्रतिनिधिसभा निर्वाचनपछि सबैभन्दा ठूलो दल कुन बन्यो?",
+      "options": [
+        "नेपाली कांग्रेस",
+        "राष्ट्रिय स्वतन्त्र पार्टी",
+        "नेकपा एमाले",
+        "नेकपा माओवादी केन्द्र"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "प्रधानमन्त्री तथा मन्त्रिपरिषद्को कार्यालय",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.11",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.8-SCI-04",
+      "unit": "1.11",
+      "category": "वैज्ञानिक",
+      "level": "level1",
+      "type": "fact",
+      "question": "NASA-IBM को चन्द्र AI मोडेलले अधिकतम करिब कति accuracy सुधार देखाएको रिपोर्ट छ?",
+      "options": [
+        "५ प्रतिशत",
+        "५० प्रतिशत",
+        "७५ प्रतिशत",
+        "२३ प्रतिशतसम्म"
+      ],
+      "correct": 3,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.11",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.8-ART-10",
+      "unit": "1.11",
+      "category": "कला",
+      "level": "level1",
+      "type": "fact",
+      "question": "विश्व सम्पदा संरक्षणमा 'living heritage' अवधारणाले के जोड दिन्छ?",
+      "options": [
+        "पुराना ढुंगा",
+        "संग्रहालय",
+        "समुदायसँग जीवित रूपमा अभ्यास भइरहेका परम्परा र सम्पदामा",
+        "पर्यटन टिकट"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.11",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "nasu-2.1-var-006",
+      "examIds": [
+        "nasu"
+      ],
+      "section": "B",
+      "unit": "2.1",
+      "subject": "General Mental Ability",
+      "topic": "Coding-Decoding",
+      "level": "L1",
+      "type": "coding-decoding",
+      "q": "यदि NEPAL लाई OFQBM लेखिन्छ भने INDIA लाई कसरी लेखिन्छ?",
+      "question": "यदि NEPAL लाई OFQBM लेखिन्छ भने INDIA लाई कसरी लेखिन्छ?",
+      "options": [
+        "JOEIB",
+        "JPEJB",
+        "INEJB",
+        "JOEJB"
+      ],
+      "correct": 3,
+      "solution": "प्रत्येक अक्षर +1।"
+    },
+    {
+      "id": "nasu-2.1-new-005",
+      "examIds": [
+        "nasu"
+      ],
+      "examMappings": {
+        "nasu": {
+          "section": "B",
+          "unit": "2.1",
+          "level": "level2"
+        }
+      },
+      "section": "B",
+      "unit": "2.1",
+      "level": "level2",
+      "type": "iq",
+      "subject": "सामान्य बौद्धिक परीक्षण",
+      "topic": "शाब्दिक तार्किक परीक्षण",
+      "q": "राम ८ किमि उत्तरतर्फ र त्यसपछि ६ किमि पूर्वतर्फ जान्छन्। सुरुको स्थानबाट उनी कति किमि टाढा छन्?",
+      "options": [
+        "१०",
+        "१२",
+        "१४",
+        "८"
+      ],
+      "correct": 0,
+      "explanation": "",
+      "solution": ""
+    },
+    {
+      "id": "nasu-2.1-var-001",
+      "examIds": [
+        "nasu"
+      ],
+      "section": "B",
+      "unit": "2.1",
+      "subject": "General Mental Ability",
+      "topic": "अक्षर श्रेणी",
+      "level": "L1",
+      "type": "letter-series",
+      "q": "A, D, H, M, S, ? मा अर्को अक्षर कुन?",
+      "question": "A, D, H, M, S, ? मा अर्को अक्षर कुन?",
+      "options": [
+        "Y",
+        "X",
+        "Z",
+        "W"
+      ],
+      "correct": 2,
+      "solution": "+3,+4,+5,+6,+7; S+7=Z।"
+    },
+    {
+      "id": "nasu-2.1-var-008",
+      "examIds": [
+        "nasu"
+      ],
+      "section": "B",
+      "unit": "2.1",
+      "subject": "General Mental Ability",
+      "topic": "Alphabet Test",
+      "level": "L1",
+      "type": "alphabet-test",
+      "q": "GOVERNMENT लाई वर्णक्रमअनुसार राख्दा चौथो अक्षर कुन हुन्छ?",
+      "question": "GOVERNMENT लाई वर्णक्रमअनुसार राख्दा चौथो अक्षर कुन हुन्छ?",
+      "options": [
+        "M",
+        "N",
+        "G",
+        "O"
+      ],
+      "correct": 1,
+      "solution": "E,G,M,N,O,R,T,V; चौथो N।"
+    },
+    {
+      "id": "nasu-2.1-new-003",
+      "examIds": [
+        "nasu"
+      ],
+      "examMappings": {
+        "nasu": {
+          "section": "B",
+          "unit": "2.1",
+          "level": "level1"
+        }
+      },
+      "section": "B",
+      "unit": "2.1",
+      "level": "level1",
+      "type": "iq",
+      "subject": "सामान्य बौद्धिक परीक्षण",
+      "topic": "शाब्दिक तार्किक परीक्षण",
+      "q": "तलका मध्ये नमिल्दो शब्द कुन हो?",
+      "options": [
+        "आँप",
+        "स्याउ",
+        "गाजर",
+        "केरा"
+      ],
+      "correct": 2,
+      "explanation": "",
+      "solution": ""
+    },
+    {
+      "id": "nasu-2.1-new-006",
+      "examIds": [
+        "nasu"
+      ],
+      "examMappings": {
+        "nasu": {
+          "section": "B",
+          "unit": "2.1",
+          "level": "level2"
+        }
+      },
+      "section": "B",
+      "unit": "2.1",
+      "level": "level2",
+      "type": "iq",
+      "subject": "सामान्य बौद्धिक परीक्षण",
+      "topic": "शाब्दिक तार्किक परीक्षण",
+      "q": "'सबै कर्मचारीले नियम पालना गर्नुपर्छ' र 'सीता कर्मचारी हुन्' भने कुन निष्कर्ष सही हुन्छ?",
+      "options": [
+        "सीता कर्मचारी होइनन्",
+        "सीताले नियम पालना गर्नुपर्छ",
+        "सबै नियम सीताले बनाउँछिन्",
+        "कुनै निष्कर्ष निकाल्न सकिँदैन"
+      ],
+      "correct": 1,
+      "explanation": "",
+      "solution": ""
+    },
+    {
+      "id": "nasu-2.2-var-018",
+      "examIds": [
+        "nasu"
+      ],
+      "section": "B",
+      "unit": "2.2",
+      "subject": "General Mental Ability",
+      "topic": "भिन्न",
+      "level": "L2",
+      "type": "fraction",
+      "q": "कुन ठूलो हो?",
+      "question": "कुन ठूलो हो?",
+      "options": [
+        "7/12",
+        "5/8",
+        "3/5",
+        "2/3"
+      ],
+      "correct": 3,
+      "solution": "2/3≈0.667।"
+    },
+    {
+      "id": "nasu-2.2-new-005",
+      "examIds": [
+        "nasu"
+      ],
+      "examMappings": {
+        "nasu": {
+          "section": "B",
+          "unit": "2.2",
+          "level": "level2"
+        }
+      },
+      "section": "B",
+      "unit": "2.2",
+      "level": "level2",
+      "type": "iq",
+      "subject": "सामान्य बौद्धिक परीक्षण",
+      "topic": "मात्रात्मक/संख्यात्मक तार्किक परीक्षण",
+      "q": "कुनै वस्तुको लागत मूल्य रु. ८०० र बिक्री मूल्य रु. ९२० छ भने नाफा प्रतिशत कति हुन्छ?",
+      "options": [
+        "10%",
+        "12%",
+        "15%",
+        "20%"
+      ],
+      "correct": 2,
+      "explanation": "",
+      "solution": ""
+    },
+    {
+      "id": "nasu-2.2-var-015",
+      "examIds": [
+        "nasu"
+      ],
+      "section": "B",
+      "unit": "2.2",
+      "subject": "General Mental Ability",
+      "topic": "प्रतिशत",
+      "level": "L2",
+      "type": "percentage",
+      "q": "कुनै संख्याको 40%=72 भए संख्या?",
+      "question": "कुनै संख्याको 40%=72 भए संख्या?",
+      "options": [
+        "180",
+        "160",
+        "200",
+        "240"
+      ],
+      "correct": 0,
+      "solution": "72/0.4=180।"
+    },
+    {
+      "id": "nasu-2.2-var-019",
+      "examIds": [
+        "nasu"
+      ],
+      "section": "B",
+      "unit": "2.2",
+      "subject": "General Mental Ability",
+      "topic": "प्रतिशत",
+      "level": "L2",
+      "type": "percentage",
+      "q": "रु.800 मा 12.5% छुट दिँदा बिक्री मूल्य?",
+      "question": "रु.800 मा 12.5% छुट दिँदा बिक्री मूल्य?",
+      "options": [
+        "Rs.700",
+        "Rs.720",
+        "Rs.680",
+        "Rs.750"
+      ],
+      "correct": 0,
+      "solution": "छुट 100; बिक्री मूल्य 700।"
+    },
+    {
+      "id": "nasu-2.2-var-012",
+      "examIds": [
+        "nasu"
+      ],
+      "section": "B",
+      "unit": "2.2",
+      "subject": "General Mental Ability",
+      "topic": "Time and Work",
+      "level": "L2",
+      "type": "time-work",
+      "q": "12 कामदारले 15 दिनमा काम गर्छन्। 20 कामदारले कति दिन?",
+      "question": "12 कामदारले 15 दिनमा काम गर्छन्। 20 कामदारले कति दिन?",
+      "options": [
+        "10",
+        "9",
+        "12",
+        "8"
+      ],
+      "correct": 1,
+      "solution": "12×15=20×d; d=9।"
+    },
+    {
+      "id": "nasu-2.2-var-006",
+      "examIds": [
+        "nasu"
+      ],
+      "section": "B",
+      "unit": "2.2",
+      "subject": "General Mental Ability",
+      "topic": "प्रतिशत",
+      "level": "L1",
+      "type": "percentage",
+      "q": "160 बाट 200 पुग्दा प्रतिशत वृद्धि कति?",
+      "question": "160 बाट 200 पुग्दा प्रतिशत वृद्धि कति?",
+      "options": [
+        "20%",
+        "30%",
+        "40%",
+        "25%"
+      ],
+      "correct": 3,
+      "solution": "40/160×100=25%।"
+    },
+    {
+      "id": "nasu-2.2-new-002",
+      "examIds": [
+        "nasu"
+      ],
+      "examMappings": {
+        "nasu": {
+          "section": "B",
+          "unit": "2.2",
+          "level": "level1"
+        }
+      },
+      "section": "B",
+      "unit": "2.2",
+      "level": "level1",
+      "type": "iq",
+      "subject": "सामान्य बौद्धिक परीक्षण",
+      "topic": "मात्रात्मक/संख्यात्मक तार्किक परीक्षण",
+      "q": "250 को 16% कति हुन्छ?",
+      "options": [
+        "30",
+        "35",
+        "45",
+        "40"
+      ],
+      "correct": 3,
+      "explanation": "",
+      "solution": ""
+    },
+    {
+      "id": "nasu-2.2-var-011",
+      "examIds": [
+        "nasu"
+      ],
+      "section": "B",
+      "unit": "2.2",
+      "subject": "General Mental Ability",
+      "topic": "Time and Work",
+      "level": "L2",
+      "type": "time-work",
+      "q": "A+B ले 8 दिनमा काम गर्छन्। A एक्लैले 12 दिनमा गर्छ भने B?",
+      "question": "A+B ले 8 दिनमा काम गर्छन्। A एक्लैले 12 दिनमा गर्छ भने B?",
+      "options": [
+        "24",
+        "20",
+        "18",
+        "16"
+      ],
+      "correct": 0,
+      "solution": "B दर=1/8−1/12=1/24।"
+    },
+    {
+      "id": "nasu-2.3-var-005",
+      "examIds": [
+        "nasu"
+      ],
+      "section": "B",
+      "unit": "2.3",
+      "subject": "General Mental Ability",
+      "topic": "आकृति क्रम",
+      "level": "L1",
+      "type": "shape-series",
+      "q": "□, △, □□, △△, □□□, ? मा अर्को समूह?",
+      "question": "□, △, □□, △△, □□□, ? मा अर्को समूह?",
+      "options": [
+        "□□□",
+        "△△△",
+        "△△",
+        "□□□□"
+      ],
+      "correct": 1,
+      "solution": "आकृति पालैपालो र संख्या 1,1,2,2,3,3।",
+      "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-005.svg",
+      "imageAlt": "आकृति क्रम — nasu-2.3-var-005"
+    },
+    {
+      "id": "bo-2.2-001",
+      "examIds": [
+        "sakha-adhikrit",
+        "nasu"
+      ],
+      "section": "B",
+      "unit": "2.3",
+      "subject": "Non-verbal Reasoning",
+      "topic": "आकृति क्रम",
+      "level": "level1",
+      "type": "pictorial",
+      "q": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+      "question": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "solution": "A-B-A-B क्रम; अर्को वृत्त हो।",
+      "image": "/image/exam/branch-officer-2.2/bo-2.2-001.png",
+      "imageAlt": "आकृति क्रम",
+      "examMappings": {
+        "nasu": {
+          "section": "B",
+          "unit": "2.3",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "nasu-2.3-var-006",
+      "examIds": [
+        "nasu"
+      ],
+      "section": "B",
+      "unit": "2.3",
+      "subject": "General Mental Ability",
+      "topic": "दर्पण",
+      "level": "L1",
+      "type": "mirror-image",
+      "q": "→ को दर्पण प्रतिबिम्ब कुन हुन्छ?",
+      "question": "→ को दर्पण प्रतिबिम्ब कुन हुन्छ?",
+      "options": [
+        "↑",
+        "↓",
+        "←",
+        "→"
+      ],
+      "correct": 2,
+      "solution": "तेर्सो दर्पणमा दिशा उल्टिन्छ।",
+      "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-006.svg",
+      "imageAlt": "दर्पण — nasu-2.3-var-006"
+    },
+    {
+      "id": "nasu-2.3-var-001",
+      "examIds": [
+        "nasu"
+      ],
+      "section": "B",
+      "unit": "2.3",
+      "subject": "General Mental Ability",
+      "topic": "आकृति क्रम",
+      "level": "L1",
+      "type": "symbol-pattern",
+      "q": "△, □, ○, △, □, ? मा हराएको आकृति?",
+      "question": "△, □, ○, △, □, ? मा हराएको आकृति?",
+      "options": [
+        "△",
+        "○",
+        "□",
+        "◇"
+      ],
+      "correct": 1,
+      "solution": "तीन आकृतिको क्रम दोहोरिन्छ।",
+      "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-001.svg",
+      "imageAlt": "आकृति क्रम — nasu-2.3-var-001"
+    },
+    {
+      "id": "bo-2.2-003",
+      "examIds": [
+        "sakha-adhikrit",
+        "nasu"
+      ],
+      "section": "B",
+      "unit": "2.3",
+      "subject": "Non-verbal Reasoning",
+      "topic": "आकृति क्रम",
+      "level": "level1",
+      "type": "pictorial",
+      "q": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+      "question": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 2,
+      "solution": "वर्ग र हीरा पालैपालो आउँछन्; अर्को वर्ग हो।",
+      "image": "/image/exam/branch-officer-2.2/bo-2.2-003.png",
+      "imageAlt": "आकृति क्रम",
+      "examMappings": {
+        "nasu": {
+          "section": "B",
+          "unit": "2.3",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-2.2-002",
+      "examIds": [
+        "sakha-adhikrit",
+        "nasu"
+      ],
+      "section": "B",
+      "unit": "2.3",
+      "subject": "Non-verbal Reasoning",
+      "topic": "आकृति क्रम",
+      "level": "level1",
+      "type": "pictorial",
+      "q": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+      "question": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 1,
+      "solution": "दुई-दुईको समूह दोहोरिन्छ; अर्को त्रिभुज हो।",
+      "image": "/image/exam/branch-officer-2.2/bo-2.2-002.png",
+      "imageAlt": "आकृति क्रम",
+      "examMappings": {
+        "nasu": {
+          "section": "B",
+          "unit": "2.3",
+          "level": "level1"
+        }
+      }
+    }
+  ]
+}
