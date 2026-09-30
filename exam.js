@@ -340,3 +340,4 @@ async function sharePDF(){
   downloadPDF();alert('PDF तयार भयो। Share उपलब्ध नभए PDF डाउनलोड गरेर WhatsApp वा Gmail बाट पठाउन सकिन्छ।');
 }
 $('#startBtn').onclick=start;$('#finishBtn').onclick=()=>submitExam(false);$('#generateFeedbackBtn').onclick=generateFeedback;$('#downloadBtn').onclick=downloadPDF;$('#shareBtn').onclick=sharePDF;$('#chooser').hidden=false;$('#candidate').hidden=true;$('#exam').hidden=true;$('#result').hidden=true;loadExams();
+// stable-set extension placeholder
