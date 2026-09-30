@@ -1,0 +1,1580 @@
+{
+  "version": 1,
+  "examId": "kharidar",
+  "setId": "01",
+  "title": "Set 1",
+  "questionCount": 50,
+  "durationMinutes": 45,
+  "positiveMark": 2,
+  "negativeMark": 0.4,
+  "passPercent": 45,
+  "blueprintVersion": null,
+  "generatedFrom": "exam-data.json",
+  "questions": [
+    {
+      "id": "bo-1.1-l2-007",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1",
+      "subject": "भूगोल",
+      "topic": "समुद्री धार",
+      "level": "level2",
+      "format": "statement_correct",
+      "type": "gk",
+      "q": "तलका मध्ये कुन सम्बन्ध सही छ?",
+      "options": [
+        "Labrador Current — तातो धारा",
+        "Gulf Stream — प्रशान्त महासागरको धारा",
+        "समुद्री धाराले जलवायुमा कुनै प्रभाव पार्दैन",
+        "Gulf Stream — उत्तर एटलान्टिक क्षेत्रको न्यानो समुद्री धारासँग सम्बन्धित"
+      ],
+      "correct": 3,
+      "explanation": "Gulf Stream न्यानो समुद्री धाराको रूपमा उत्तर एटलान्टिक क्षेत्रको जलवायुमा प्रभाव पार्छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.2",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.1-l2-016",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1",
+      "subject": "भूगोल",
+      "topic": "समुद्री भूगोल",
+      "level": "level2",
+      "format": "matching",
+      "type": "gk",
+      "q": "जोडा मिलाउँदा कुन विकल्प सही छ?",
+      "options": [
+        "Caspian Sea — संसारको सबैभन्दा ठूलो बन्द जलाशय/तालको रूपमा परिचित",
+        "Lake Baikal — अफ्रिकाको सबैभन्दा ठूलो ताल",
+        "Lake Superior — दक्षिण अमेरिकाको ताल",
+        "Dead Sea — प्रशान्त महासागरको खाडी"
+      ],
+      "correct": 0,
+      "explanation": "Caspian Sea नाम भए पनि भौगोलिक रूपमा ठूलो बन्द जलाशय हो र विश्वकै सबैभन्दा ठूलो lake का रूपमा पनि वर्णन गरिन्छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.2",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.1-040",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1",
+      "subject": "भूगोल",
+      "topic": "प्लेट विवर्तनिकी",
+      "level": "level2",
+      "type": "gk",
+      "q": "दुई प्लेट एकअर्कातर्फ सर्दा बन्ने सीमालाई के भनिन्छ?",
+      "options": [
+        "Convergent",
+        "Divergent",
+        "Transform",
+        "Stable"
+      ],
+      "correct": 0,
+      "explanation": "Convergent boundary मा दुई प्लेट एकअर्कातर्फ सर्छन् र टक्कर वा सबडक्शन हुन सक्छ।",
+      "solution": "सही उत्तर: C — Convergent।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.2",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.1-082",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1",
+      "subject": "भूगोल",
+      "topic": "स्थलरूप",
+      "level": "level2",
+      "type": "gk",
+      "q": "बाढी मैदान मुख्यतः कुन प्रक्रियाबाट विकसित हुन्छ?",
+      "options": [
+        "ज्वालामुखी लाभा",
+        "हिमनदी पग्लिनु",
+        "नदीको निक्षेपण",
+        "समुद्री ज्वार"
+      ],
+      "correct": 2,
+      "explanation": "नदीले बारम्बार बाढी ल्याउँदा बोकिएको महीन अवसाद वरपरको समथर क्षेत्रमा जम्मा भएर बाढी मैदान विकसित हुन्छ।",
+      "solution": "सही उत्तर: A — नदीको निक्षेपण।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.2",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.1-012",
+      "examIds": [
+        "kharidar",
+        "nasu",
+        "sakha-adhikrit"
+      ],
+      "section": "A",
+      "unit": "1",
+      "subject": "भूगोल",
+      "topic": "समुद्री भूगोल",
+      "level": "level2",
+      "type": "gk",
+      "q": "समुद्र सतहमा हावाको चाप, चन्द्रमा र सूर्यको गुरुत्व प्रभावसँग सम्बन्धित  सामुद्रिक उतारचढावलाई के भनिन्छ?",
+      "options": [
+        "ज्वारभाटा",
+        "भूकम्प",
+        "समुद्री धार",
+        "सुनामी"
+      ],
+      "correct": 0,
+      "explanation": "चन्द्रमा र सूर्यको गुरुत्वीय प्रभावका कारण समुद्रको सतहमा हुने नियमित उतारचढावलाई ज्वारभाटा भनिन्छ।",
+      "solution": "सही उत्तर: A — ज्वारभाटा।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.2",
+          "level": "level2"
+        }
+      },
+      "image": "",
+      "imageAlt": "समुद्री भूगोल"
+    },
+    {
+      "id": "bo-1.1-031",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1",
+      "subject": "भूगोल",
+      "topic": "मरुभूमि",
+      "level": "level2",
+      "type": "gk",
+      "q": "ग्रेट भिक्टोरिया मरुभूमि कुन देशमा पर्छ?",
+      "options": [
+        "क्यानडा",
+        "ब्राजिल",
+        "मोरक्को",
+        "अष्ट्रेलिया"
+      ],
+      "correct": 3,
+      "explanation": "ग्रेट भिक्टोरिया मरुभूमि अष्ट्रेलियाको ठूलो आन्तरिक शुष्क क्षेत्रमा पर्छ।",
+      "solution": "सही उत्तर: A — अष्ट्रेलिया।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.2",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-nh-l2-016",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "2",
+      "subject": "नेपाल इतिहास",
+      "topic": "ऐतिहासिक स्रोत",
+      "level": "level2",
+      "type": "verification",
+      "q": "नेपालको इतिहास अध्ययनमा अभिलेख, सिक्का, पुरातात्त्विक अवशेष तथा वंशावलीको प्रयोग किन महत्वपूर्ण हुन्छ?",
+      "options": [
+        "यी सबै आधुनिक जनगणनाका प्रतिवेदन हुन्",
+        "यी आर्थिक सर्वेक्षण हुन्",
+        "यी सबै विदेशी कूटनीतिक दस्तावेज हुन्",
+        "यी विभिन्न प्रकारका प्राथमिक वा ऐतिहासिक प्रमाण उपलब्ध गराउँछन्"
+      ],
+      "correct": 3,
+      "explanation": "इतिहासको पुनर्निर्माणमा अभिलेख, सिक्का, पुरातात्त्विक सामग्री र वंशावलीजस्ता स्रोतले प्रमाण उपलब्ध गराउँछन्।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.5",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-081",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "2",
+      "subject": "इतिहास",
+      "topic": "फ्रान्सेली क्रान्ति",
+      "level": "level2",
+      "type": "gk",
+      "q": "फ्रान्सेली क्रान्तिपछि जारी मानव तथा नागरिक अधिकार घोषणाले कुन अवधारणालाई जोड दियो?",
+      "options": [
+        "राजकीय निरंकुशता",
+        "मानव स्वतन्त्रता र समानता",
+        "वंशानुगत विशेषाधिकार",
+        "सामन्ती कर"
+      ],
+      "correct": 1,
+      "explanation": "1789 को घोषणाले स्वतन्त्रता, समानता र अधिकारका सिद्धान्तलाई अघि बढायो।",
+      "solution": "सही उत्तर: A — मानव स्वतन्त्रता र समानता।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.4",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-097",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "2",
+      "subject": "इतिहास",
+      "topic": "मध्ययुग",
+      "level": "level2",
+      "type": "gk",
+      "q": "1453 मा कन्स्टान्टिनोपल पतन भएपछि कुन साम्राज्यको अन्त्य भयो?",
+      "options": [
+        "रोमन गणतन्त्र",
+        "बाइजेन्टाइन साम्राज्य",
+        "मुगल साम्राज्य",
+        "अस्ट्रो-हंगेरी साम्राज्य"
+      ],
+      "correct": 1,
+      "explanation": "1453 मा ओटोमनहरूले कन्स्टान्टिनोपल कब्जा गरेपछि बाइजेन्टाइन साम्राज्यको अन्त्य भयो।",
+      "solution": "सही उत्तर: A — बाइजेन्टाइन साम्राज्य।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.6",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-055",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "2",
+      "subject": "इतिहास",
+      "topic": "भियना सम्मेलन",
+      "level": "level2",
+      "type": "gk",
+      "q": "नेपोलियन युद्धपछि युरोपको राजनीतिक पुनर्संरचनाका लागि कुन सम्मेलन भयो?",
+      "options": [
+        "बर्लिन सम्मेलन",
+        "पोट्सडाम सम्मेलन",
+        "बान्डुङ सम्मेलन",
+        "भियना सम्मेलन"
+      ],
+      "correct": 3,
+      "explanation": "1814–15 को भियना सम्मेलनले नेपोलियनपछिको युरोपको शक्ति सन्तुलन पुनर्स्थापित गर्न खोज्यो।",
+      "solution": "सही उत्तर: A — भियना सम्मेलन।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.6",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-jn-b-024",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "2",
+      "subject": "आदिवासी जनजाति",
+      "topic": "चेपाङ",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "चेपाङ समुदायको परम्परागत धार्मिक विश्वाससँग कुन कुरा जोडिन्छ?",
+      "options": [
+        "इस्लाम",
+        "प्रकृति र पुर्खापूजा",
+        "इसाई धर्म",
+        "जैन धर्म"
+      ],
+      "correct": 1,
+      "explanation": "चेपाङ समुदायको परम्परागत विश्वासमा प्रकृति तथा पुर्खासँग सम्बन्धित पूजा-अनुष्ठान पाइन्छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.6",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-jn-d-030",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "2",
+      "subject": "आदिवासी जनजाति",
+      "topic": "प्रतिष्ठानको उद्देश्य",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "आदिवासी जनजातिको भाषा, लिपि, संस्कृति, साहित्य, कला र इतिहासको संरक्षण तथा प्रवर्द्धनसम्बन्धी कार्य कुन संस्थाको घोषित उद्देश्य हो?",
+      "options": [
+        "नेपाल राष्ट्र बैंक",
+        "निर्वाचन आयोग",
+        "लोक सेवा आयोग",
+        "आदिवासी जनजाति उत्थान राष्ट्रिय प्रतिष्ठान"
+      ],
+      "correct": 3,
+      "explanation": "प्रतिष्ठानले भाषा, लिपि, संस्कृति, साहित्य, कला र इतिहासको संरक्षण तथा प्रवर्द्धनलाई आफ्नो उद्देश्यमा राखेको छ।",
+      "solution": "सही उत्तर: C।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.6",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.4.1-trade-019",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "3",
+      "subject": "आर्थिक विकास",
+      "topic": "व्यापार र पर्यटन",
+      "level": "level1",
+      "type": "gk",
+      "q": "पर्यटनले व्यापारमा कुन योगदान गर्न सक्छ?",
+      "options": [
+        "सेवा निर्यातमार्फत विदेशी मुद्रा आर्जन गर्न",
+        "वस्तु आयात बढाउन",
+        "कृषि उत्पादन घटाउन",
+        "व्यापार घाटा अनिवार्य रूपमा बढाउन"
+      ],
+      "correct": 0,
+      "explanation": "Tourism receipts are commonly treated as service exports and generate foreign exchange. ",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.7",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.4.1-devinfra-agri-024",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "3",
+      "subject": "आर्थिक विकास",
+      "topic": "कृषि प्रशोधन",
+      "level": "level1",
+      "type": "concept",
+      "q": "कृषि प्रशोधन उद्योगको विकासले कृषकलाई मुख्यतः कसरी फाइदा पुर्‍याउँछ?",
+      "options": [
+        "कच्चा उत्पादनको मूल्य घटाएर",
+        "कच्चा उत्पादनको मूल्य अभिवृद्धि र बजारको माग विस्तार गरेर",
+        "उत्पादन नष्ट गरेर",
+        "कृषिलाई उद्योगबाट अलग गरेर"
+      ],
+      "correct": 1,
+      "explanation": "प्रशोधनले उत्पादनको shelf life, मूल्य र बजार विकल्प बढाउँछ तथा कृषि–उद्योग सम्बन्ध बलियो बनाउँछ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.7",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.4.1-edu-027",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "3",
+      "subject": "आर्थिक विकास",
+      "topic": "शिक्षा र स्थानीय अर्थतन्त्र",
+      "level": "level1",
+      "type": "concept",
+      "q": "स्थानीय शिक्षा पूर्वाधारले स्थानीय अर्थतन्त्रमा कुन प्रभाव पार्न सक्छ?",
+      "options": [
+        "मानव पूँजी निर्माण र स्थानीय सेवा/रोजगारीलाई आधार दिन सक्छ",
+        "स्थानीय आय घटाउँछ",
+        "स्थानीय उत्पादन बन्द गर्छ",
+        "श्रम बजारसँग सम्बन्ध हुँदैन"
+      ],
+      "correct": 0,
+      "explanation": "Education is both a service and a long-term human-capital investment. ",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.7",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.4.1-trade-002",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "3",
+      "subject": "आर्थिक विकास",
+      "topic": "आयात निर्यात",
+      "level": "level1",
+      "type": "concept",
+      "q": "निर्यात वृद्धि नेपालको अर्थतन्त्रका लागि किन महत्त्वपूर्ण हुन्छ?",
+      "options": [
+        "आयात बढाउने भएकाले",
+        "घरेलु उत्पादन घटाउने भएकाले",
+        "कर हटाउने भएकाले",
+        "वैदेशिक मुद्रा आम्दानी, उत्पादन र रोजगारी विस्तारमा सहयोग गर्ने भएकाले"
+      ],
+      "correct": 3,
+      "explanation": "प्रतिस्पर्धी निर्यातले विदेशी मुद्रा, उत्पादन, लगानी र रोजगारीमा योगदान गर्न सक्छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.7",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.4.1-trade-006",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "3",
+      "subject": "आर्थिक विकास",
+      "topic": "व्यापार र कृषि",
+      "level": "level1",
+      "type": "gk",
+      "q": "कृषि निर्यातका लागि कुन कुरा विशेष महत्त्वपूर्ण हुन्छ?",
+      "options": [
+        "उत्पादनको ा",
+        "गुणस्तर मापदण्ड हटाउनु",
+        "बजार सूचना हटाउनु",
+        "गुणस्तर, प्रमाणिकरण, निरन्तर आपूर्ति र शीत शृंखला"
+      ],
+      "correct": 3,
+      "explanation": "कृषि निर्यातमा perishable nature का कारण quality, SPS, logistics र cold chain महत्त्वपूर्ण हुन्छन्।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.7",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.3-gov-a-012",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar"
+      ],
+      "section": "A",
+      "unit": "3",
+      "subject": "शासनपद्धति र शासन",
+      "topic": "अधिकारको बाँडफाँड",
+      "level": "level1",
+      "type": "gk",
+      "q": "स्थानीय तहको एकल अधिकारका विषयहरू कुन अनुसूचीमा छन्?",
+      "options": [
+        "अनुसूची ५",
+        "अनुसूची ६",
+        "अनुसूची ७",
+        "अनुसूची ८"
+      ],
+      "correct": 3,
+      "explanation": "नेपालको संविधानको अनुसूची ८ मा स्थानीय तहका एकल अधिकारका विषयहरू छन्।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-3-048",
+      "unit": "4",
+      "section": "A",
+      "subject": "कम्प्युटर, सञ्चार, स्वास्थ्य र रोगबारे सामान्य जानकारी",
+      "level": "level1",
+      "type": "concept",
+      "question": "क्षयरोग मुख्यतः कुन प्रकारको रोग हो?",
+      "options": [
+        "आनुवंशिक रोग",
+        "पोषणको कमी",
+        "भाइरसबाट हुने रोग",
+        "जीवाणुबाट हुने संक्रामक रोग"
+      ],
+      "correct": 3,
+      "solution": "सही उत्तर: D।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-2-031",
+      "unit": "4",
+      "section": "A",
+      "subject": "विज्ञान र प्रविधिको मानव जीवन र समाजमा परेको प्रभाव",
+      "level": "level1",
+      "type": "concept",
+      "question": "कृत्रिम बुद्धिमत्तामा algorithmic bias को जोखिम कुन हो?",
+      "options": [
+        "AI ले डेटा कहिल्यै प्रयोग गर्दैन",
+        "bias hardware को समस्या हो",
+        "ऐतिहासिक वा त्रुटिपूर्ण डेटा/डिजाइनका कारण केही समूहप्रति अनुचित परिणाम आउन सक्छ",
+        "यसले सबैलाई समान परिणामको ग्यारेन्टी गर्छ"
+      ],
+      "correct": 2,
+      "solution": "सही उत्तर: C।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-3-012",
+      "unit": "4",
+      "section": "A",
+      "subject": "कम्प्युटर, सञ्चार, स्वास्थ्य र रोगबारे सामान्य जानकारी",
+      "level": "level1",
+      "type": "concept",
+      "question": "IP address को सामान्य भूमिका कुन हो?",
+      "options": [
+        "कम्प्युटरको physical weight",
+        "पासवर्डको प्रकार",
+        "प्रिन्टरको मसी",
+        "नेटवर्कमा उपकरण/स्थान पहिचान गर्न प्रयोग हुने address"
+      ],
+      "correct": 3,
+      "solution": "सही उत्तर: D।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-1-055",
+      "unit": "4",
+      "section": "A",
+      "subject": "प्रमुख वैज्ञानिक तथा आविष्कारहरू",
+      "level": "level1",
+      "type": "analysis",
+      "question": "क्लोनिङ र सामान्य प्रजननबीच मुख्य भिन्नता कुन हो?",
+      "options": [
+        "क्लोनिङमा DNA हुँदैन",
+        "सामान्य प्रजननमा कुनै आनुवंशिकता हुँदैन",
+        "क्लोनिङमा आनुवंशिक रूपमा अत्यन्त समान प्रतिलिपि बनाउन प्रयास गरिन्छ",
+        "दुवै पूर्णतः एउटै प्रक्रिया हुन्"
+      ],
+      "correct": 2,
+      "solution": "सही उत्तर: C।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-3-010",
+      "unit": "4",
+      "section": "A",
+      "subject": "कम्प्युटर, सञ्चार, स्वास्थ्य र रोगबारे सामान्य जानकारी",
+      "level": "level1",
+      "type": "concept",
+      "question": "डेटा backup को मुख्य उद्देश्य कुन हो?",
+      "options": [
+        "डेटा मेटाउनु",
+        "डेटा हराए वा बिग्रिएमा पुनः प्राप्त गर्न सक्ने प्रतिलिपि राख्नु",
+        "इन्टरनेट बन्द गर्नु",
+        "virus बनाउनु"
+      ],
+      "correct": 1,
+      "solution": "सही उत्तर: B।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-2-050",
+      "unit": "4",
+      "section": "A",
+      "subject": "विज्ञान र प्रविधिको मानव जीवन र समाजमा परेको प्रभाव",
+      "level": "level1",
+      "type": "analysis",
+      "question": "डिजिटल सार्वजनिक पूर्वाधारको दीर्घकालीन स्थायित्वका लागि कुन कुरा आवश्यक हुन्छ?",
+      "options": [
+        "एकपटक software बनाएपछि कहिल्यै सुधार नगर्नु",
+        "खुला मापदण्ड, साइबर सुरक्षा, मर्मत क्षमता, डेटा शासन र निरन्तर वित्तीय योजना",
+        "सबै डेटा निजी बनाउनु",
+        "backup हटाउनु"
+      ],
+      "correct": 1,
+      "solution": "सही उत्तर: B।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.8-MUS-09",
+      "unit": "5",
+      "category": "संगीत",
+      "level": "level1",
+      "type": "fact",
+      "question": "२०२६ Grammys को समारोहको मिति कुन हो?",
+      "options": [
+        "१५ मार्च २०२६",
+        "१ फेब्रुअरी २०२६",
+        "१९ मे २०२६",
+        "२२ सेप्टेम्बर २०२६"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "Recording Academy",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.11",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "1.7.1-057",
+      "unit": "5",
+      "level": "level1",
+      "type": "mcq",
+      "question": "NAM को पहिलो सम्मेलन कहाँ भयो?",
+      "options": [
+        "बेलग्रेड",
+        "१४ डिसेम्बर १९५५",
+        "A/RES/995(X)",
+        "१८३"
+      ],
+      "correct": 0,
+      "solution": "",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.10",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.8-CUL-04",
+      "unit": "5",
+      "category": "सांस्कृतिक",
+      "level": "level1",
+      "type": "fact",
+      "question": "नेपालले UNESCO को 2003 अमूर्त सांस्कृतिक सम्पदा महासन्धि कहिले अनुमोदन गर्‍यो?",
+      "options": [
+        "२०१०",
+        "२००३",
+        "२००५",
+        "२०१५"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.11",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.8-POL-02",
+      "unit": "5",
+      "category": "राजनीतिक",
+      "level": "level1",
+      "type": "fact",
+      "question": "२०२६ को प्रतिनिधिसभा निर्वाचनपछि सबैभन्दा ठूलो दल कुन बन्यो?",
+      "options": [
+        "नेपाली कांग्रेस",
+        "राष्ट्रिय स्वतन्त्र पार्टी",
+        "नेकपा एमाले",
+        "नेकपा माओवादी केन्द्र"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "प्रधानमन्त्री तथा मन्त्रिपरिषद्को कार्यालय",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.11",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.8-SOC-06",
+      "unit": "5",
+      "category": "सामाजिक",
+      "level": "level1",
+      "type": "fact",
+      "question": "GBV भन्नाले सामान्यतः के जनाउँछ?",
+      "options": [
+        "Global Budget Value",
+        "Gender-Based Violence",
+        "Government Benefit Voucher",
+        "General Biodiversity Vision"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "WHO/UN",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.11",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.8-AWD-05",
+      "unit": "5",
+      "category": "पुरस्कार",
+      "level": "level1",
+      "type": "fact",
+      "question": "२०२६ Oscars मा Best Supporting Actor को पुरस्कार कसले पाए?",
+      "options": [
+        "Jacob Elordi",
+        "Sean Penn",
+        "Benicio del Toro",
+        "Paul Mescal"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "Academy Awards",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.11",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "khd-B1-001",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B1",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B1",
+      "level": "L1",
+      "type": "aptitude",
+      "q": "2,4,6,8, ? मा अर्को संख्या?",
+      "question": "2,4,6,8, ? मा अर्को संख्या?",
+      "options": [
+        "9",
+        "11",
+        "12",
+        "10"
+      ],
+      "correct": 3,
+      "solution": "प्रत्येक पटक +2।"
+    },
+    {
+      "id": "khd-B1-002",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B1",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B1",
+      "level": "L2",
+      "type": "gk",
+      "q": "3:9 :: 4:?",
+      "question": "3:9 जस्तै 4:? मा सम्बन्ध?",
+      "options": [
+        "16",
+        "12",
+        "20",
+        "24"
+      ],
+      "correct": 0,
+      "solution": "वर्ग सम्बन्ध।",
+      "explanation": "",
+      "image": "",
+      "imageAlt": "BOST-B1"
+    },
+    {
+      "id": "khd-B2-002",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B2",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B2",
+      "level": "L2",
+      "type": "aptitude",
+      "q": "5,10,20,40, ? मा अर्को?",
+      "question": "5,10,20,40, ? मा अर्को?",
+      "options": [
+        "60",
+        "70",
+        "80",
+        "90"
+      ],
+      "correct": 2,
+      "solution": "हरेक पटक ×2।"
+    },
+    {
+      "id": "kh-b2-pict-004",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B2",
+      "subject": "Basic Office Skills Test",
+      "topic": "आकृति क्रम",
+      "level": "L2",
+      "type": "pictorial",
+      "q": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+      "question": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+      "options": [
+        "B",
+        "A",
+        "C",
+        "D"
+      ],
+      "correct": 1,
+      "solution": "वर्ग र त्रिभुज पालैपालो छन्; अर्को वर्ग हो।",
+      "image": "/image/exam/branch-officer-2.2/bo-2.2-008.png",
+      "imageAlt": "आकृति क्रम"
+    },
+    {
+      "id": "kharidar-b3-new-2",
+      "examIds": [
+        "kharidar"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "B",
+          "unit": "B3",
+          "level": "level2"
+        }
+      },
+      "section": "B",
+      "unit": "B3",
+      "type": "iq",
+      "subject": "आधारभूत कार्यालय सीप परीक्षण (BOST)",
+      "topic": "B3",
+      "q": "तलका मध्ये कुन संख्या बाँकी तीनभन्दा फरक नियममा बनेको छ?",
+      "options": [
+        "16",
+        "25",
+        "36",
+        "48"
+      ],
+      "correct": 3,
+      "explanation": "",
+      "solution": "",
+      "level": "level2"
+    },
+    {
+      "id": "khd-B3-002",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B3",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B3",
+      "level": "L2",
+      "type": "aptitude",
+      "q": "कुन अक्षर समूह फरक छ?",
+      "question": "कुन अक्षर समूह फरक छ?",
+      "options": [
+        "DFI",
+        "ACE",
+        "BDF",
+        "CEG"
+      ],
+      "correct": 0,
+      "solution": "पहिला तीनमा +2; DFI मा F→I +3।"
+    },
+    {
+      "id": "kharidar-b4-new-2",
+      "examIds": [
+        "kharidar"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "B",
+          "unit": "B4",
+          "level": "level2"
+        }
+      },
+      "section": "B",
+      "unit": "B4",
+      "type": "iq",
+      "subject": "आधारभूत कार्यालय सीप परीक्षण (BOST)",
+      "topic": "B4",
+      "q": "३ : ९ :: ५ : ?",
+      "options": [
+        "१५",
+        "२५",
+        "२०",
+        "३०"
+      ],
+      "correct": 1,
+      "explanation": "",
+      "solution": "",
+      "level": "level2"
+    },
+    {
+      "id": "khd-B4-002",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B4",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B4",
+      "level": "L2",
+      "type": "aptitude",
+      "q": "4 : 16 :: 7 : ?",
+      "question": "4 : 16 :: 7 : ?",
+      "options": [
+        "28",
+        "35",
+        "49",
+        "56"
+      ],
+      "correct": 2,
+      "solution": "संख्याको वर्ग।"
+    },
+    {
+      "id": "kharidar-b5-new-2",
+      "examIds": [
+        "kharidar"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "B",
+          "unit": "B5",
+          "level": "level2"
+        }
+      },
+      "section": "B",
+      "unit": "B5",
+      "type": "iq",
+      "subject": "आधारभूत कार्यालय सीप परीक्षण (BOST)",
+      "topic": "B5",
+      "q": "मिति क्रमअनुसार सबैभन्दा पहिले कुन अभिलेख राख्नुपर्छ?",
+      "options": [
+        "२०८१/०५/१२",
+        "२०८१/०४/२८",
+        "२०८१/०६/०१",
+        "२०८०/१२/३०"
+      ],
+      "correct": 3,
+      "explanation": "",
+      "solution": "",
+      "level": "level2"
+    },
+    {
+      "id": "khd-B5-001",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B5",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B5",
+      "level": "L1",
+      "type": "aptitude",
+      "q": "फाइल 101,102,103,104 मध्ये 103 पछि कुन?",
+      "question": "फाइल 101,102,103,104 मध्ये 103 पछि कुन?",
+      "options": [
+        "102",
+        "101",
+        "105",
+        "104"
+      ],
+      "correct": 3,
+      "solution": "बढ्दो क्रममा 104।"
+    },
+    {
+      "id": "khd-B6-001",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B6",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B6",
+      "level": "L1",
+      "type": "gk",
+      "q": "हिसाब गर्नुहोस\n5(3*2)+6",
+      "question": "पहिले 3 थप्नुहोस्, त्यसपछि 2 ले गुणा: 5 बाट परिणाम?",
+      "options": [
+        "13",
+        "36",
+        "16",
+        "12"
+      ],
+      "correct": 1,
+      "solution": "5(3*2)+6\n5*6+6\n30+6\n36 ANS",
+      "explanation": "",
+      "image": "",
+      "imageAlt": "BOST-B6"
+    },
+    {
+      "id": "kharidar-b6-new-1",
+      "examIds": [
+        "kharidar"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "B",
+          "unit": "B6",
+          "level": "level1"
+        }
+      },
+      "section": "B",
+      "unit": "B6",
+      "type": "iq",
+      "subject": "आधारभूत कार्यालय सीप परीक्षण (BOST)",
+      "topic": "B6",
+      "q": "निर्देशन: प्रत्येक संख्यामा २ थप्नुहोस्। 7, 11, 15 मध्ये परिणामको क्रम कुन हो?",
+      "options": [
+        "9,13,17",
+        "8,12,16",
+        "10,14,18",
+        "11,15,19"
+      ],
+      "correct": 0,
+      "explanation": "",
+      "solution": "",
+      "level": "level1"
+    },
+    {
+      "id": "khd-B7-001",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B7",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B7",
+      "level": "L1",
+      "type": "aptitude",
+      "q": "3/4 + 1/8 = ?",
+      "question": "3/4 + 1/8 = ?",
+      "options": [
+        "5/8",
+        "1",
+        "9/8",
+        "7/8"
+      ],
+      "correct": 3,
+      "solution": "6/8+1/8=7/8।"
+    },
+    {
+      "id": "khd-B7-003",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B7",
+      "subject": "General Mental Ability",
+      "topic": "Numerical reasoning",
+      "level": "L1",
+      "type": "gk",
+      "q": "250 को 16% कति हुन्छ?",
+      "question": "250 को 16% कति?",
+      "options": [
+        "35",
+        "45",
+        "50",
+        "40"
+      ],
+      "correct": 3,
+      "solution": "250×0.16=40।",
+      "explanation": "",
+      "image": "",
+      "imageAlt": "Numerical reasoning"
+    },
+    {
+      "id": "kharidar-b8-new-1",
+      "examIds": [
+        "kharidar"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "B",
+          "unit": "B8",
+          "level": "level1"
+        }
+      },
+      "section": "B",
+      "unit": "B8",
+      "type": "iq",
+      "subject": "आधारभूत कार्यालय सीप परीक्षण (BOST)",
+      "topic": "B8",
+      "q": "यदि १=क, २=ख, ३=ग भने २-१-३ ले कुन क्रम जनाउँछ?",
+      "options": [
+        "खकग",
+        "कखग",
+        "खगक",
+        "गकख"
+      ],
+      "correct": 0,
+      "explanation": "",
+      "solution": "",
+      "level": "level1"
+    },
+    {
+      "id": "khd-B8-001",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B8",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B8",
+      "level": "L1",
+      "type": "aptitude",
+      "q": "यदि CAT→DBU भने BAT→?",
+      "question": "यदि CAT→DBU भने BAT→?",
+      "options": [
+        "CBT",
+        "CBU",
+        "CAU",
+        "DBT"
+      ],
+      "correct": 1,
+      "solution": "हरेक अक्षर +1।"
+    },
+    {
+      "id": "kharidar-b9-new-1",
+      "examIds": [
+        "kharidar"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "B",
+          "unit": "B9",
+          "level": "level1"
+        }
+      },
+      "section": "B",
+      "unit": "B9",
+      "type": "iq",
+      "subject": "आधारभूत कार्यालय सीप परीक्षण (BOST)",
+      "topic": "B9",
+      "q": "राम, श्यामभन्दा अगाडि छन्; श्याम, हरिभन्दा अगाडि छन्; हरि, मोहनभन्दा अगाडि छन्। सबैभन्दा पछाडि को छन्?",
+      "options": [
+        "राम",
+        "श्याम",
+        "मोहन",
+        "हरि"
+      ],
+      "correct": 2,
+      "explanation": "क्रम राम → श्याम → हरि → मोहन भएकाले सबैभन्दा पछाडि मोहन छन्।",
+      "solution": "राम श्यामभन्दा अगाडि, श्याम हरिभन्दा अगाडि र हरि मोहनभन्दा अगाडि छन्। त्यसैले अन्तिम स्थानमा मोहन पर्छन्।",
+      "level": "level1",
+      "question": "राम, श्यामभन्दा अगाडि छन्; श्याम, हरिभन्दा अगाडि छन्; हरि, मोहनभन्दा अगाडि छन्। सबैभन्दा पछाडि को छन्?"
+    },
+    {
+      "id": "kh-b9-pict-002",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B9",
+      "subject": "Basic Office Skills Test",
+      "topic": "चित्रात्मक विश्लेषण",
+      "level": "L1",
+      "type": "pictorial",
+      "q": "दिइएको ३ तहको समबाहु त्रिभुज जालोमा सबै सम्भावित त्रिभुज गन्दा संख्या कति हुन्छ?",
+      "question": "दिइएको ३ तहको समबाहु त्रिभुज जालोमा सबै सम्भावित त्रिभुज गन्दा संख्या कति हुन्छ?",
+      "options": [
+        "9",
+        "12",
+        "15",
+        "13"
+      ],
+      "correct": 3,
+      "solution": "३ तहको मानक त्रिभुज जालोमा सबै आकार र दिशाका त्रिभुजको कुल संख्या १३ हुन्छ।",
+      "figure": "triangle-grid-3",
+      "image": "/image/exam/branch-officer-2.2/triangle-grid-3.svg",
+      "imageAlt": "तीन तहको त्रिभुज जालो"
+    },
+    {
+      "id": "kharidar-b10-new-1",
+      "examIds": [
+        "kharidar"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "B",
+          "unit": "B10",
+          "level": "level1"
+        }
+      },
+      "section": "B",
+      "unit": "B10",
+      "type": "iq",
+      "subject": "आधारभूत कार्यालय सीप परीक्षण (BOST)",
+      "topic": "B10",
+      "q": "एक व्यक्ति ५ किमि पूर्व र त्यसपछि ५ किमि पश्चिम गए। सुरुको स्थानबाट उनी कति टाढा छन्?",
+      "options": [
+        "0 किमि",
+        "5 किमि",
+        "10 किमि",
+        "15 किमि"
+      ],
+      "correct": 0,
+      "explanation": "",
+      "solution": "",
+      "level": "level1"
+    },
+    {
+      "id": "khd-B10-001",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B10",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B10",
+      "level": "L1",
+      "type": "gk",
+      "q": "हरी आफू उभिरहेको स्थानबाट 5 मिटर पूर्व जान्छ र त्यसपछि 5 मिटर उत्तर तर्फ जान्छ भने हरी सुरुको विन्दुबाट  कुन दिशा तर्फ फर्किरहेको छ?",
+      "question": "5 मिटर पूर्व र त्यसपछि 5 मिटर उत्तर जाँदा दिशा?",
+      "options": [
+        "उत्तर-पश्चिम",
+        "उत्तर-पूर्व",
+        "दक्षिण-पूर्व",
+        "दक्षिण-पश्चिम"
+      ],
+      "correct": 1,
+      "solution": "पूर्व+उत्तर=उत्तर-पूर्व।",
+      "explanation": "",
+      "image": "",
+      "imageAlt": "BOST-B10"
+    }
+  ]
+}
