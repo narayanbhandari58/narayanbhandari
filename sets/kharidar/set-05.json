@@ -1,0 +1,1575 @@
+{
+  "version": 1,
+  "examId": "kharidar",
+  "setId": "05",
+  "title": "Set 5",
+  "questionCount": 50,
+  "durationMinutes": 45,
+  "positiveMark": 2,
+  "negativeMark": 0.4,
+  "passPercent": 45,
+  "blueprintVersion": null,
+  "generatedFrom": "exam-data.json",
+  "questions": [
+    {
+      "id": "bo-1.1-033",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1",
+      "subject": "भूगोल",
+      "topic": "पर्वत तथा प्लेट विवर्तनिकी",
+      "level": "level2",
+      "type": "gk",
+      "q": "हिमालय पर्वत मुख्यतः कुन दुई प्लेटको टक्करबाट बनेको हो?",
+      "options": [
+        "प्रशान्त र उत्तर अमेरिकी",
+        "भारतीय र युरेसियाली",
+        "अफ्रिकी र दक्षिण अमेरिकी",
+        "अरेबियन र अफ्रिकी"
+      ],
+      "correct": 1,
+      "explanation": "भारतीय प्लेटको उत्तरतर्फको गति र युरेसियाली प्लेटसँगको टक्कर हिमालय निर्माणको प्रमुख भूगर्भीय कारण हो।",
+      "solution": "सही उत्तर: A — भारतीय र युरेसियाली।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.3",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.1-043",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1",
+      "subject": "भूगोल",
+      "topic": "पर्वत तथा प्लेट विवर्तनिकी",
+      "level": "level2",
+      "type": "gk",
+      "q": "विश्वको सबैभन्दा लामो स्थलीय पर्वत शृङ्खलामध्ये प्रमुख एन्डिज कुन महादेशमा छ?",
+      "options": [
+        "युरोप",
+        "अफ्रिका",
+        "अष्ट्रेलिया",
+        "दक्षिण अमेरिका"
+      ],
+      "correct": 3,
+      "explanation": "एन्डिज दक्षिण अमेरिकाको पश्चिमी भागमा उत्तर–दक्षिण दिशामा लामो दूरीसम्म फैलिएको छ।",
+      "solution": "सही उत्तर: A — दक्षिण अमेरिका।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.2",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.1-l2-018",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1",
+      "subject": "भूगोल",
+      "topic": "महादेशीय तुलना",
+      "level": "level2",
+      "format": "incorrect",
+      "type": "gk",
+      "q": "तलका मध्ये कुन भनाइ गलत छ?",
+      "options": [
+        "एन्डिज दक्षिण अमेरिकामा पर्छ",
+        "रकी पर्वत उत्तर अमेरिकामा पर्छ",
+        "आल्प्स पर्वत दक्षिण अमेरिकामा पर्छ",
+        "युराल पर्वत युरोप र एसियाबीचको परम्परागत भौगोलिक सीमासँग सम्बन्धित छ"
+      ],
+      "correct": 2,
+      "explanation": "आल्प्स युरोपमा अवस्थित पर्वत शृङ्खला हो।",
+      "solution": "सही उत्तर: D।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.2",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.1-l2-031",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1",
+      "subject": "भूगोल",
+      "topic": "बसाइँसराइ र आर्थिक अवसर",
+      "level": "level2",
+      "format": "statement_correct",
+      "type": "gk",
+      "q": "आन्तरिक बसाइँसराइको भौगोलिक विश्लेषणमा कुन कुरा बढी उपयुक्त हुन्छ?",
+      "options": [
+        "बसाइँसराइलाई मौसमको परिणाम मान्नु",
+        "आर्थिक अवसरलाई पूर्ण रूपमा बेवास्ता गर्नु",
+        "गन्तव्य क्षेत्रको अवस्थिति अध्ययन नगर्नु",
+        "रोजगारी, शिक्षा, स्वास्थ्य र सेवा-सुविधाका अवसरलाई गन्तव्यको भौगोलिक अवस्थासँग जोडेर हेर्नु"
+      ],
+      "correct": 3,
+      "explanation": "बसाइँसराइ बुझ्दा आर्थिक, सामाजिक र भौगोलिक pull/push factors लाई समग्र रूपमा हेर्नुपर्छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.2",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.1-l2-001",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1",
+      "subject": "भूगोल",
+      "topic": "अक्षांश, जलवायु र भू-आकृति",
+      "level": "level2",
+      "format": "statement_correct",
+      "type": "gk",
+      "q": "तलका कथनमध्ये कुन ठीक छ?",
+      "options": [
+        "अक्षांश बढ्दै जाँदा सामान्यतः तापक्रम बढ्छ",
+        "भूमध्यरेखीय क्षेत्रमा सूर्यको किरण वर्षभरि तुलनात्मक रूपमा ठाडो पर्छ",
+        "ध्रुवीय क्षेत्रमा वर्षभरि दिन र रात बराबर हुन्छ",
+        "कर्कट रेखा 66.5° उत्तरमा पर्छ"
+      ],
+      "correct": 1,
+      "explanation": "भूमध्यरेखीय क्षेत्रमा सूर्यको किरण तुलनात्मक रूपमा ठाडो पर्ने भएकाले उच्च ताप प्राप्त हुन्छ। कर्कट रेखा करिब 23.5° उत्तरमा हुन्छ।",
+      "solution": "सही उत्तर: B — भूमध्यरेखीय क्षेत्रमा सूर्यको किरण वर्षभरि तुलनात्मक रूपमा ठाडो पर्छ।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.2",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.1-096",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1",
+      "subject": "भूगोल",
+      "topic": "एसिया",
+      "level": "level2",
+      "type": "gk",
+      "q": "तिब्बती पठारलाई प्रायः कुन उपनामले चिनिन्छ?",
+      "options": [
+        "विश्वको छानो",
+        "विश्वको तल्लो मैदान",
+        "मरुभूमिको मुटु",
+        "समुद्रको छानो"
+      ],
+      "correct": 0,
+      "explanation": "अत्यधिक औसत उचाइका कारण तिब्बती पठारलाई प्रायः ‘Roof of the World’ अर्थात् विश्वको छानो भनिन्छ।",
+      "solution": "सही उत्तर: A — विश्वको छानो।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.2",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-cs-004",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "2",
+      "subject": "धर्म संस्कृति समाज",
+      "topic": "जनगणना २०७८",
+      "level": "level2",
+      "type": "gk",
+      "q": "जनगणना २०७८ अनुसार नेपालको लैङ्गिक अनुपात कति थियो?",
+      "options": [
+        "१००.०",
+        "१०५.६",
+        "९०.५",
+        "९५.६"
+      ],
+      "correct": 3,
+      "explanation": "जनगणना २०७८ को राष्ट्रिय परिणाममा लैङ्गिक अनुपात ९५.६ पुरुष प्रति १०० महिला थियो।",
+      "solution": "सही उत्तर: A — ९५.६।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.6",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-dem-l2-018",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "2",
+      "subject": "लोकतान्त्रिक आन्दोलन",
+      "topic": "संवैधानिक विकास",
+      "level": "level2",
+      "type": "incorrect",
+      "q": "तलका मध्ये कुन कथन गलत हो?",
+      "options": [
+        "२०६४ मा पहिलो संविधानसभा निर्वाचन भयो",
+        "२०४६ सालपछि पञ्चायती व्यवस्था पुनःस्थापित भयो",
+        "पहिलो संविधानसभा ६०१ सदस्यीय थियो",
+        "२०६५ जेठ १५ मा गणतन्त्र स्थापना भयो"
+      ],
+      "correct": 1,
+      "explanation": "२०४६ सालको जनआन्दोलनपछि पञ्चायती व्यवस्था अन्त्य भई बहुदलीय लोकतन्त्र पुनःस्थापित भएको थियो।",
+      "solution": "सही उत्तर: D — २०४६ सालपछि पञ्चायती व्यवस्था पुनःस्थापित भएको कथन गलत हो।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.6",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-093",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "2",
+      "subject": "इतिहास",
+      "topic": "शीतयुद्ध",
+      "level": "level2",
+      "type": "gk",
+      "q": "क्युबा क्षेप्यास्त्र संकट कुन वर्ष भयो?",
+      "options": [
+        "1956",
+        "1962",
+        "1968",
+        "1975"
+      ],
+      "correct": 1,
+      "explanation": "अमेरिका र सोभियत संघबीचको क्युबा क्षेप्यास्त्र संकट 1962 मा चरममा पुग्यो।",
+      "solution": "सही उत्तर: B — 1962।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.4",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-jn-c-012",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "2",
+      "subject": "आदिवासी जनजाति",
+      "topic": "दनुवार",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "दनुवार समुदायको भाषिक विविधताबारे कुन कथन सही छ?",
+      "options": [
+        "सबै दनुवारले एउटै भाषा बोल्छन्",
+        "दनुवारको भाषा तिब्बती भाषापरिवारमा पर्छ",
+        "दनुवारको आफ्नै भाषिक परम्परा छैन",
+        "पहाडी दनुवार र मधेसी दनुवारका भाषामा फरक भाषिक प्रभाव पाइन्छ"
+      ],
+      "correct": 3,
+      "explanation": "NFDIN का अनुसार पहाडी दनुवारको भाषामा तिब्बती-बर्मेलीपन र मधेसी दनुवारको भाषामा भारोपेलीपन पाइन्छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.6",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-100",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "2",
+      "subject": "इतिहास",
+      "topic": "विश्व इतिहासको समग्र विकास",
+      "level": "level2",
+      "type": "gk",
+      "q": "आधुनिक विश्वको राजनीतिक विकासमा अमेरिकी र फ्रान्सेली क्रान्तिको साझा महत्वपूर्ण प्रभाव कुन हो?",
+      "options": [
+        "नागरिक अधिकार र प्रतिनिधिमूलक शासनका विचारको विस्तार",
+        "सामन्तवादको विस्तार",
+        "निरंकुश राजतन्त्रको सुदृढीकरण",
+        "उपनिवेशवादको स्थायीकरण"
+      ],
+      "correct": 0,
+      "explanation": "दुवै क्रान्तिले अधिकार, नागरिकता, प्रतिनिधित्व र जनसार्वभौमसत्ताका आधुनिक राजनीतिक विचारलाई बलियो बनाए।",
+      "solution": "सही उत्तर: A — नागरिक अधिकार र प्रतिनिधिमूलक शासनका विचारको विस्तार।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.4",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-053",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "2",
+      "subject": "इतिहास",
+      "topic": "युरोपेली राजनीति",
+      "level": "level2",
+      "type": "gk",
+      "q": "नेपोलियन बोनापार्ट फ्रान्सका सम्राट कहिले बने?",
+      "options": [
+        "1789",
+        "1804",
+        "1799",
+        "1815"
+      ],
+      "correct": 1,
+      "explanation": "नेपोलियनले 1804 मा आफूलाई फ्रान्सको सम्राट घोषणा गरे।",
+      "solution": "सही उत्तर: C — 1804।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.6",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.4.1-devinfra-a-001",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "3",
+      "subject": "आर्थिक विकास",
+      "topic": "सोह्रौँ योजना",
+      "level": "level1",
+      "type": "gk",
+      "q": "सोह्रौँ योजना कुन अवधिका लागि कार्यान्वयन भइरहेको छ?",
+      "options": [
+        "आ.व. २०८१/८२–२०८५/८६",
+        "आ.व. २०८०/८१–२०८४/८५",
+        "आ.व. २०८२/८३–२०८६/८७",
+        "आ.व. २०७९/८०–२०८३/८४"
+      ],
+      "correct": 0,
+      "explanation": "सोह्रौँ योजना आर्थिक वर्ष २०८१/८२ देखि २०८५/८६ सम्मको पाँचवर्षीय आवधिक योजना हो।",
+      "solution": "सही उत्तर: A।",
+      "parentUnit": "1.4",
+      "unitPath": "1.4 > 1.4.1",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.7",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.4.1-trans-006",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "3",
+      "subject": "आर्थिक विकास",
+      "topic": "पुल",
+      "level": "level1",
+      "type": "gk",
+      "q": "पुलको विकासमा प्राथमिक आर्थिक तर्क कुन हो?",
+      "options": [
+        "सडक सञ्जाल काट्नु",
+        "नदी किनार सजाउनु",
+        "ढुवानी रोक्नु",
+        "सडक सञ्जालको continuity कायम गरी यात्रा र ढुवानी सहज बनाउनु"
+      ],
+      "correct": 3,
+      "explanation": "Bridges remove network bottlenecks and improve connectivity. ",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.7",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.3-gov-a-026",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar"
+      ],
+      "section": "A",
+      "unit": "3",
+      "subject": "शासनपद्धति र शासन",
+      "topic": "विकेन्द्रीकरण",
+      "level": "level1",
+      "type": "concept",
+      "q": "विकेन्द्रीकरणको सामान्य अर्थ के हो?",
+      "options": [
+        "सबै निर्णय केन्द्रमा राख्नु",
+        "केन्द्रको अधिकार र जिम्मेवारी तल्ला तहमा हस्तान्तरण वा वितरण गर्नु",
+        "स्थानीय संस्थालाई समाप्त गर्नु",
+        "नागरिक सहभागिता रोक्नु"
+      ],
+      "correct": 1,
+      "explanation": "विकेन्द्रीकरणमा निर्णय, अधिकार र जिम्मेवारी तल्ला वा स्थानीय तहमा हस्तान्तरण/वितरण गर्ने अवधारणा हुन्छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.3-gov-d-002",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar"
+      ],
+      "section": "A",
+      "unit": "3",
+      "subject": "शासनपद्धति र शासन",
+      "topic": "प्रशासनिक विकासक्रम",
+      "level": "level1",
+      "type": "gk",
+      "q": "नेपालमा प्रजातान्त्रिक परिवर्तनपछि प्रशासनमा कुन मूल्यले बढी महत्व पायो?",
+      "options": [
+        "वंशानुगत पद",
+        "निरंकुश केन्द्रीकरण",
+        "नागरिक सहभागिता निषेध",
+        "जनउत्तरदायित्व र सार्वजनिक सेवा"
+      ],
+      "correct": 3,
+      "explanation": "लोकतान्त्रिक परिवर्तनसँग प्रशासनमा जनउत्तरदायित्व, कानूनको शासन र सार्वजनिक सेवाको महत्व बढ्यो।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.3-gov-b-008",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar"
+      ],
+      "section": "A",
+      "unit": "3",
+      "subject": "शासनपद्धति र शासन",
+      "topic": "अधिकारमा आधारित शासन",
+      "level": "level1",
+      "type": "concept",
+      "q": "अधिकारमा आधारित शासनको केन्द्रमा कुन कुरा रहन्छ?",
+      "options": [
+        "आर्थिक वृद्धि",
+        "मानव अधिकार, गरिमा, समानता र गैरभेदभाव",
+        "सरकारी सुविधा वितरण",
+        "राज्यको प्रशासनिक सुविधा"
+      ],
+      "correct": 1,
+      "explanation": "अधिकारमा आधारित दृष्टिकोणले मानव अधिकार, गरिमा, समानता र गैरभेदभावलाई केन्द्रमा राख्छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.4.1-trans-002",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "3",
+      "subject": "आर्थिक विकास",
+      "topic": "सडक",
+      "level": "level1",
+      "type": "concept",
+      "q": "ग्रामीण सडकको आर्थिक लाभ कुन हो?",
+      "options": [
+        "सरकारी कार्यालय जोड्नु",
+        "उत्पादन बजारबाट अलग गर्नु",
+        "ढुवानी लागत बढाउनु",
+        "कृषि, शिक्षा, स्वास्थ्य र बजारसम्म पहुँच सुधार गर्नु"
+      ],
+      "correct": 3,
+      "explanation": "Rural roads have broad access and market effects. ",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.7",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-2-001",
+      "unit": "4",
+      "section": "A",
+      "subject": "विज्ञान र प्रविधिको मानव जीवन र समाजमा परेको प्रभाव",
+      "level": "level1",
+      "type": "concept",
+      "question": "विज्ञान र प्रविधिले मानव जीवनमा पार्ने प्रभावलाई समग्र रूपमा कसरी बुझिन्छ?",
+      "options": [
+        "सुविधा र अवसरसँगै जोखिम, असमानता र नैतिक चुनौती पनि उत्पन्न हुन सक्छ",
+        "यसले सकारात्मक प्रभाव पार्छ",
+        "यसको सामाजिक प्रभाव हुँदैन",
+        "यसले मानव निर्णय पूर्ण रूपमा विस्थापित गर्छ"
+      ],
+      "correct": 0,
+      "solution": "सही उत्तर: A।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.5-environment-026",
+      "unit": "4",
+      "section": "A",
+      "subject": "दिगो विकास तथा वातावरण",
+      "level": "level1",
+      "type": "application",
+      "question": "जनगणना २०७८ अनुसार नेपालको जनसंख्या संरचनासम्बन्धी तथ्याङ्कको मुख्य उपयोग के हो?",
+      "options": [
+        "निर्वाचन क्षेत्रको नाम परिवर्तन गर्नु",
+        "योजना, नीति, सेवा र स्रोत विनियोजनका लागि आधार तयार गर्नु",
+        "राहदानी वितरण गर्नु",
+        "कर बढाउनु"
+      ],
+      "correct": 1,
+      "solution": "सही उत्तर: B।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.9",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-1-057",
+      "unit": "4",
+      "section": "A",
+      "subject": "प्रमुख वैज्ञानिक तथा आविष्कारहरू",
+      "level": "level1",
+      "type": "analysis",
+      "question": "वैज्ञानिक साक्षरता बढाउनु लोकतान्त्रिक समाजका लागि किन उपयोगी हुन्छ?",
+      "options": [
+        "नागरिकलाई प्रमाण र मिथ्याबीच फरक छुट्याई सूचित निर्णय गर्न मद्दत गर्छ",
+        "यसले प्रश्न गर्ने अधिकार हटाउँछ",
+        "यसले अफवाह बढाउँछ",
+        "यसले नीति निर्माण रोक्छ"
+      ],
+      "correct": 0,
+      "solution": "सही उत्तर: A।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-3-023",
+      "unit": "4",
+      "section": "A",
+      "subject": "कम्प्युटर, सञ्चार, स्वास्थ्य र रोगबारे सामान्य जानकारी",
+      "level": "level1",
+      "type": "analysis",
+      "question": "Phishing बाट बच्न कुन व्यवहार बढी उपयुक्त हुन्छ?",
+      "options": [
+        "OTP तुरुन्त पठाउने",
+        "अनजान attachment खोल्ने",
+        "सन्देशको स्रोत/URL जाँच्ने र संवेदनशील जानकारी अनजान link बाट नदिने",
+        "पासवर्ड chat मा राख्ने"
+      ],
+      "correct": 2,
+      "solution": "सही उत्तर: C।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-3-049",
+      "unit": "4",
+      "section": "A",
+      "subject": "कम्प्युटर, सञ्चार, स्वास्थ्य र रोगबारे सामान्य जानकारी",
+      "level": "level1",
+      "type": "concept",
+      "question": "मलेरिया कुन माध्यमबाट मानिसमा सर्न सक्छ?",
+      "options": [
+        "संक्रमित पोथी Anopheles लामखुट्टेको टोकाइबाट",
+        "सफा पानी पिउँदा",
+        "हावाबाट",
+        "मानव DNA बाट"
+      ],
+      "correct": 0,
+      "solution": "सही उत्तर: A।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-2-036",
+      "unit": "4",
+      "section": "A",
+      "subject": "विज्ञान र प्रविधिको मानव जीवन र समाजमा परेको प्रभाव",
+      "level": "level1",
+      "type": "concept",
+      "question": "IoT भन्नाले के बुझिन्छ?",
+      "options": [
+        "सामाजिक सञ्जाल",
+        "अफलाइन पुस्तकालय",
+        "कम्प्युटरको antivirus",
+        "इन्टरनेटमार्फत जोडिएका भौतिक उपकरण र सेन्सरहरूको सञ्जाल"
+      ],
+      "correct": 3,
+      "solution": "सही उत्तर: D।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.7-003",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "5",
+      "subject": "अन्तर्राष्ट्रिय मामिला तथा अन्तर्राष्ट्रिय संघ/संस्था",
+      "topic": "BIMSTEC",
+      "level": "level1",
+      "type": "mcq",
+      "q": "BIMSTEC मा हाल कति सदस्य राष्ट्र छन्?",
+      "options": [
+        "७",
+        "५",
+        "६",
+        "८"
+      ],
+      "correct": 0,
+      "solution": "BIMSTEC मा सात सदस्य राष्ट्र छन्।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.10",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.8-SOC-03",
+      "unit": "5",
+      "category": "सामाजिक",
+      "level": "level1",
+      "type": "fact",
+      "question": "नेपालको मानसिक स्वास्थ्य रणनीति २०२६–२०३० कुन विषयसँग सम्बन्धित छ?",
+      "options": [
+        "खेलकुद",
+        "कर प्रशासन",
+        "मानसिक स्वास्थ्य सेवाको सुदृढीकरण",
+        "पर्यटन"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "WHO Nepal",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.11",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.8-ART-10",
+      "unit": "5",
+      "category": "कला",
+      "level": "level1",
+      "type": "fact",
+      "question": "विश्व सम्पदा संरक्षणमा 'living heritage' अवधारणाले के जोड दिन्छ?",
+      "options": [
+        "पुराना ढुंगा",
+        "संग्रहालय",
+        "समुदायसँग जीवित रूपमा अभ्यास भइरहेका परम्परा र सम्पदामा",
+        "पर्यटन टिकट"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "UNESCO",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.11",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.8-ART-06",
+      "unit": "5",
+      "category": "कला",
+      "level": "level1",
+      "type": "fact",
+      "question": "Koyo Kouoh को 2026 Biennale सम्बन्धी क्युरेटोरियल परियोजनाको नाम कुन हो?",
+      "options": [
+        "The Milk of Dreams",
+        "The Encyclopedic Palace",
+        "In Minor Keys",
+        "May You Live in Interesting Times"
+      ],
+      "correct": 2,
+      "asOf": "2026-09-12",
+      "source": "La Biennale di Venezia",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.11",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.8-SCI-01",
+      "unit": "5",
+      "category": "वैज्ञानिक",
+      "level": "level1",
+      "type": "fact",
+      "question": "NASA र IBM ले २०२६ मा चन्द्रमासम्बन्धी कुन AI मोडेल सार्वजनिक गरेका छन्?",
+      "options": [
+        "Lunar Foundation Model",
+        "Mars Language Model",
+        "Earth Climate Model",
+        "Solar Forecast Model"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "NASA/Reuters",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.11",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "1.7.1-053",
+      "unit": "5",
+      "level": "level1",
+      "type": "mcq",
+      "question": "BIMSTEC सचिवालय कहाँ छ?",
+      "options": [
+        "ढाका",
+        "१४ डिसेम्बर १९५५",
+        "A/RES/995(X)",
+        "१८३"
+      ],
+      "correct": 0,
+      "solution": "",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.10",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "khd-B1-001",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B1",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B1",
+      "level": "L1",
+      "type": "aptitude",
+      "q": "2,4,6,8, ? मा अर्को संख्या?",
+      "question": "2,4,6,8, ? मा अर्को संख्या?",
+      "options": [
+        "9",
+        "11",
+        "12",
+        "10"
+      ],
+      "correct": 3,
+      "solution": "प्रत्येक पटक +2।"
+    },
+    {
+      "id": "khd-B1-002",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B1",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B1",
+      "level": "L2",
+      "type": "gk",
+      "q": "3:9 :: 4:?",
+      "question": "3:9 जस्तै 4:? मा सम्बन्ध?",
+      "options": [
+        "16",
+        "12",
+        "20",
+        "24"
+      ],
+      "correct": 0,
+      "solution": "वर्ग सम्बन्ध।",
+      "explanation": "",
+      "image": "",
+      "imageAlt": "BOST-B1"
+    },
+    {
+      "id": "khd-B2-002",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B2",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B2",
+      "level": "L2",
+      "type": "aptitude",
+      "q": "5,10,20,40, ? मा अर्को?",
+      "question": "5,10,20,40, ? मा अर्को?",
+      "options": [
+        "60",
+        "70",
+        "80",
+        "90"
+      ],
+      "correct": 2,
+      "solution": "हरेक पटक ×2।"
+    },
+    {
+      "id": "demo-003",
+      "examIds": [
+        "kharidar",
+        "nasu"
+      ],
+      "section": "B",
+      "unit": "B2",
+      "subject": "बौद्धिक परीक्षण",
+      "topic": "संख्या श्रेणी",
+      "level": "level2",
+      "type": "iq",
+      "q": "2, 6, 12, 20, ?",
+      "options": [
+        "28",
+        "30",
+        "32",
+        "34"
+      ],
+      "correct": 2,
+      "explanation": "अन्तर 4, 6, 8, 10 हुँदै बढेको छ। अर्को अन्तर 12 हुन्छ।",
+      "solution": "अन्तरहरू 4, 6, 8, 10 छन्। अर्को अन्तर 12 हुने भएकाले 20 + 12 = 32। सही विकल्प C हो।",
+      "examMappings": {
+        "kharidar": {
+          "section": "B",
+          "unit": "B2",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "kharidar-b3-new-2",
+      "examIds": [
+        "kharidar"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "B",
+          "unit": "B3",
+          "level": "level2"
+        }
+      },
+      "section": "B",
+      "unit": "B3",
+      "type": "iq",
+      "subject": "आधारभूत कार्यालय सीप परीक्षण (BOST)",
+      "topic": "B3",
+      "q": "तलका मध्ये कुन संख्या बाँकी तीनभन्दा फरक नियममा बनेको छ?",
+      "options": [
+        "16",
+        "25",
+        "36",
+        "48"
+      ],
+      "correct": 3,
+      "explanation": "",
+      "solution": "",
+      "level": "level2"
+    },
+    {
+      "id": "khd-B3-002",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B3",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B3",
+      "level": "L2",
+      "type": "aptitude",
+      "q": "कुन अक्षर समूह फरक छ?",
+      "question": "कुन अक्षर समूह फरक छ?",
+      "options": [
+        "DFI",
+        "ACE",
+        "BDF",
+        "CEG"
+      ],
+      "correct": 0,
+      "solution": "पहिला तीनमा +2; DFI मा F→I +3।"
+    },
+    {
+      "id": "kharidar-b4-new-2",
+      "examIds": [
+        "kharidar"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "B",
+          "unit": "B4",
+          "level": "level2"
+        }
+      },
+      "section": "B",
+      "unit": "B4",
+      "type": "iq",
+      "subject": "आधारभूत कार्यालय सीप परीक्षण (BOST)",
+      "topic": "B4",
+      "q": "३ : ९ :: ५ : ?",
+      "options": [
+        "१५",
+        "२५",
+        "२०",
+        "३०"
+      ],
+      "correct": 1,
+      "explanation": "",
+      "solution": "",
+      "level": "level2"
+    },
+    {
+      "id": "khd-B4-002",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B4",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B4",
+      "level": "L2",
+      "type": "aptitude",
+      "q": "4 : 16 :: 7 : ?",
+      "question": "4 : 16 :: 7 : ?",
+      "options": [
+        "28",
+        "35",
+        "49",
+        "56"
+      ],
+      "correct": 2,
+      "solution": "संख्याको वर्ग।"
+    },
+    {
+      "id": "kharidar-b5-new-1",
+      "examIds": [
+        "kharidar"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "B",
+          "unit": "B5",
+          "level": "level1"
+        }
+      },
+      "section": "B",
+      "unit": "B5",
+      "type": "iq",
+      "subject": "आधारभूत कार्यालय सीप परीक्षण (BOST)",
+      "topic": "B5",
+      "q": "तलका नामलाई वर्णानुक्रममा राख्दा पहिलो कुन हुन्छ?",
+      "options": [
+        "कमल",
+        "कृष्ण",
+        "किरण",
+        "केशव"
+      ],
+      "correct": 2,
+      "explanation": "",
+      "solution": "",
+      "level": "level1"
+    },
+    {
+      "id": "khd-B5-002",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B5",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B5",
+      "level": "L2",
+      "type": "aptitude",
+      "q": "A-12,A-15,A-18,A-21 मा अर्को?",
+      "question": "A-12,A-15,A-18,A-21 मा अर्को?",
+      "options": [
+        "A-24",
+        "A-23",
+        "A-25",
+        "A-27"
+      ],
+      "correct": 0,
+      "solution": "संख्या +3।"
+    },
+    {
+      "id": "khd-B6-001",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B6",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B6",
+      "level": "L1",
+      "type": "gk",
+      "q": "हिसाब गर्नुहोस\n5(3*2)+6",
+      "question": "पहिले 3 थप्नुहोस्, त्यसपछि 2 ले गुणा: 5 बाट परिणाम?",
+      "options": [
+        "13",
+        "36",
+        "16",
+        "12"
+      ],
+      "correct": 1,
+      "solution": "5(3*2)+6\n5*6+6\n30+6\n36 ANS",
+      "explanation": "",
+      "image": "",
+      "imageAlt": "BOST-B6"
+    },
+    {
+      "id": "kharidar-b6-new-1",
+      "examIds": [
+        "kharidar"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "B",
+          "unit": "B6",
+          "level": "level1"
+        }
+      },
+      "section": "B",
+      "unit": "B6",
+      "type": "iq",
+      "subject": "आधारभूत कार्यालय सीप परीक्षण (BOST)",
+      "topic": "B6",
+      "q": "निर्देशन: प्रत्येक संख्यामा २ थप्नुहोस्। 7, 11, 15 मध्ये परिणामको क्रम कुन हो?",
+      "options": [
+        "9,13,17",
+        "8,12,16",
+        "10,14,18",
+        "11,15,19"
+      ],
+      "correct": 0,
+      "explanation": "",
+      "solution": "",
+      "level": "level1"
+    },
+    {
+      "id": "khd-B7-001",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B7",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B7",
+      "level": "L1",
+      "type": "aptitude",
+      "q": "3/4 + 1/8 = ?",
+      "question": "3/4 + 1/8 = ?",
+      "options": [
+        "5/8",
+        "1",
+        "9/8",
+        "7/8"
+      ],
+      "correct": 3,
+      "solution": "6/8+1/8=7/8।"
+    },
+    {
+      "id": "khd-B7-003",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B7",
+      "subject": "General Mental Ability",
+      "topic": "Numerical reasoning",
+      "level": "L1",
+      "type": "gk",
+      "q": "250 को 16% कति हुन्छ?",
+      "question": "250 को 16% कति?",
+      "options": [
+        "35",
+        "45",
+        "50",
+        "40"
+      ],
+      "correct": 3,
+      "solution": "250×0.16=40।",
+      "explanation": "",
+      "image": "",
+      "imageAlt": "Numerical reasoning"
+    },
+    {
+      "id": "khd-B8-001",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B8",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B8",
+      "level": "L1",
+      "type": "aptitude",
+      "q": "यदि CAT→DBU भने BAT→?",
+      "question": "यदि CAT→DBU भने BAT→?",
+      "options": [
+        "CBT",
+        "CBU",
+        "CAU",
+        "DBT"
+      ],
+      "correct": 1,
+      "solution": "हरेक अक्षर +1।"
+    },
+    {
+      "id": "kharidar-b8-new-1",
+      "examIds": [
+        "kharidar"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "B",
+          "unit": "B8",
+          "level": "level1"
+        }
+      },
+      "section": "B",
+      "unit": "B8",
+      "type": "iq",
+      "subject": "आधारभूत कार्यालय सीप परीक्षण (BOST)",
+      "topic": "B8",
+      "q": "यदि १=क, २=ख, ३=ग भने २-१-३ ले कुन क्रम जनाउँछ?",
+      "options": [
+        "खकग",
+        "कखग",
+        "खगक",
+        "गकख"
+      ],
+      "correct": 0,
+      "explanation": "",
+      "solution": "",
+      "level": "level1"
+    },
+    {
+      "id": "kh-b9-pict-002",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B9",
+      "subject": "Basic Office Skills Test",
+      "topic": "चित्रात्मक विश्लेषण",
+      "level": "L1",
+      "type": "pictorial",
+      "q": "दिइएको ३ तहको समबाहु त्रिभुज जालोमा सबै सम्भावित त्रिभुज गन्दा संख्या कति हुन्छ?",
+      "question": "दिइएको ३ तहको समबाहु त्रिभुज जालोमा सबै सम्भावित त्रिभुज गन्दा संख्या कति हुन्छ?",
+      "options": [
+        "9",
+        "12",
+        "15",
+        "13"
+      ],
+      "correct": 3,
+      "solution": "३ तहको मानक त्रिभुज जालोमा सबै आकार र दिशाका त्रिभुजको कुल संख्या १३ हुन्छ।",
+      "figure": "triangle-grid-3",
+      "image": "/image/exam/branch-officer-2.2/triangle-grid-3.svg",
+      "imageAlt": "तीन तहको त्रिभुज जालो"
+    },
+    {
+      "id": "kharidar-b9-new-1",
+      "examIds": [
+        "kharidar"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "B",
+          "unit": "B9",
+          "level": "level1"
+        }
+      },
+      "section": "B",
+      "unit": "B9",
+      "type": "iq",
+      "subject": "आधारभूत कार्यालय सीप परीक्षण (BOST)",
+      "topic": "B9",
+      "q": "राम, श्यामभन्दा अगाडि छन्; श्याम, हरिभन्दा अगाडि छन्; हरि, मोहनभन्दा अगाडि छन्। सबैभन्दा पछाडि को छन्?",
+      "options": [
+        "राम",
+        "श्याम",
+        "मोहन",
+        "हरि"
+      ],
+      "correct": 2,
+      "explanation": "क्रम राम → श्याम → हरि → मोहन भएकाले सबैभन्दा पछाडि मोहन छन्।",
+      "solution": "राम श्यामभन्दा अगाडि, श्याम हरिभन्दा अगाडि र हरि मोहनभन्दा अगाडि छन्। त्यसैले अन्तिम स्थानमा मोहन पर्छन्।",
+      "level": "level1",
+      "question": "राम, श्यामभन्दा अगाडि छन्; श्याम, हरिभन्दा अगाडि छन्; हरि, मोहनभन्दा अगाडि छन्। सबैभन्दा पछाडि को छन्?"
+    },
+    {
+      "id": "khd-B10-001",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "B",
+      "unit": "B10",
+      "subject": "General Mental Ability",
+      "topic": "BOST-B10",
+      "level": "L1",
+      "type": "gk",
+      "q": "हरी आफू उभिरहेको स्थानबाट 5 मिटर पूर्व जान्छ र त्यसपछि 5 मिटर उत्तर तर्फ जान्छ भने हरी सुरुको विन्दुबाट  कुन दिशा तर्फ फर्किरहेको छ?",
+      "question": "5 मिटर पूर्व र त्यसपछि 5 मिटर उत्तर जाँदा दिशा?",
+      "options": [
+        "उत्तर-पश्चिम",
+        "उत्तर-पूर्व",
+        "दक्षिण-पूर्व",
+        "दक्षिण-पश्चिम"
+      ],
+      "correct": 1,
+      "solution": "पूर्व+उत्तर=उत्तर-पूर्व।",
+      "explanation": "",
+      "image": "",
+      "imageAlt": "BOST-B10"
+    },
+    {
+      "id": "kharidar-b10-new-1",
+      "examIds": [
+        "kharidar"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "B",
+          "unit": "B10",
+          "level": "level1"
+        }
+      },
+      "section": "B",
+      "unit": "B10",
+      "type": "iq",
+      "subject": "आधारभूत कार्यालय सीप परीक्षण (BOST)",
+      "topic": "B10",
+      "q": "एक व्यक्ति ५ किमि पूर्व र त्यसपछि ५ किमि पश्चिम गए। सुरुको स्थानबाट उनी कति टाढा छन्?",
+      "options": [
+        "0 किमि",
+        "5 किमि",
+        "10 किमि",
+        "15 किमि"
+      ],
+      "correct": 0,
+      "explanation": "",
+      "solution": "",
+      "level": "level1"
+    }
+  ]
+}
