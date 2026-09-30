@@ -1,0 +1,2730 @@
+{
+  "version": 1,
+  "examId": "sakha-adhikrit",
+  "setId": "14",
+  "title": "Set 14",
+  "questionCount": 100,
+  "durationMinutes": 90,
+  "positiveMark": 1,
+  "negativeMark": 0.2,
+  "passPercent": 45,
+  "blueprintVersion": null,
+  "generatedFrom": "exam-data.json",
+  "questions": [
+    {
+      "id": "bo-1.1-l2-026",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.1",
+      "subject": "भूगोल",
+      "topic": "नेपालको कृषि भूगोल",
+      "level": "level2",
+      "format": "matching",
+      "type": "gk",
+      "q": "जोडा मिलाउँदा कुन विकल्प बढी उपयुक्त छ?",
+      "options": [
+        "हिमाली क्षेत्र — सबैभन्दा तातो उष्ण मरुभूमि",
+        "पहाडी क्षेत्र — कुनै पनि कृषि सम्भावना नभएको क्षेत्र",
+        "तराई — समथर भूभागका कारण कृषि तथा बसोबासका लागि महत्वपूर्ण क्षेत्र",
+        "तराई — हिमाली पर्यटनमा निर्भर क्षेत्र"
+      ],
+      "correct": 2,
+      "explanation": "तराईको समथर भूभाग र तुलनात्मक रूपमा अनुकूल भौगोलिक अवस्थाले कृषि तथा घना बसोबासमा योगदान गरेको छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.3",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.1-l2-009",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.1",
+      "subject": "भूगोल",
+      "topic": "भौगोलिक अवस्थिति र अर्थतन्त्र",
+      "level": "level2",
+      "format": "statement_correct",
+      "type": "gk",
+      "q": "तलका मध्ये कुन भनाइ सही छ?",
+      "options": [
+        "समुद्री मार्ग र जलडमरूमध्यको अवस्थिति अन्तर्राष्ट्रिय व्यापारमा महत्वहीन हुन्छ",
+        "नहरहरूले केही समुद्री मार्गको दूरी घटाउन सक्छन्",
+        "भौगोलिक अवस्थिति व्यापारिक गतिविधिसँग कहिल्यै सम्बन्धित हुँदैन",
+        "सबै बन्दरगाह समान भौगोलिक लाभमा हुन्छन्"
+      ],
+      "correct": 1,
+      "explanation": "Suez र Panama जस्ता नहरले लामो समुद्री मार्गलाई छोट्याउन सक्ने भएकाले विश्व व्यापारमा रणनीतिक महत्व राख्छन्।",
+      "solution": "सही उत्तर: B।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.2",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.1-l2-035",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.1",
+      "subject": "भूगोल",
+      "topic": "स्रोत र विकास",
+      "level": "level2",
+      "format": "incorrect",
+      "type": "gk",
+      "q": "प्राकृतिक स्रोत र आर्थिक विकासबारे कुन भनाइ गलत छ?",
+      "options": [
+        "जलस्रोतले ऊर्जा तथा कृषि दुवैमा योगदान गर्न सक्छ",
+        "खनिज स्रोतले केही क्षेत्रमा उद्योगलाई आधार दिन सक्छ",
+        "स्रोतको दिगो व्यवस्थापन विकाससँग सम्बन्धित हुन्छ",
+        "स्रोतको उपलब्धता मात्रले विकासका सबै समस्या स्वतः समाधान गर्छ"
+      ],
+      "correct": 3,
+      "explanation": "प्राकृतिक स्रोत उपयोगी भए पनि पूर्वाधार, प्रविधि, मानव पूँजी, नीति र संस्थागत क्षमता जस्ता पक्ष पनि विकासका लागि आवश्यक हुन्छन्।",
+      "solution": "सही उत्तर: C।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.2",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.1-082",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.1",
+      "subject": "भूगोल",
+      "topic": "स्थलरूप",
+      "level": "level2",
+      "type": "gk",
+      "q": "बाढी मैदान मुख्यतः कुन प्रक्रियाबाट विकसित हुन्छ?",
+      "options": [
+        "ज्वालामुखी लाभा",
+        "हिमनदी पग्लिनु",
+        "नदीको निक्षेपण",
+        "समुद्री ज्वार"
+      ],
+      "correct": 2,
+      "explanation": "नदीले बारम्बार बाढी ल्याउँदा बोकिएको महीन अवसाद वरपरको समथर क्षेत्रमा जम्मा भएर बाढी मैदान विकसित हुन्छ।",
+      "solution": "सही उत्तर: A — नदीको निक्षेपण।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.2",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.1-005",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.1",
+      "subject": "भूगोल",
+      "topic": "प्लेट विवर्तनिकी",
+      "level": "level2",
+      "type": "gk",
+      "q": "दुई प्लेट एकअर्काबाट टाढिँदै जाने प्लेट सीमालाई के भनिन्छ?",
+      "options": [
+        "Convergent boundary",
+        "Divergent boundary",
+        "Transform boundary",
+        "Passive boundary"
+      ],
+      "correct": 1,
+      "explanation": "Divergent boundary मा टेक्टोनिक प्लेटहरू एकअर्काबाट अलग हुन्छन् र नयाँ भूपर्पटी बन्न सक्छ।",
+      "solution": "सही उत्तर: B — Divergent boundary।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.2",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.1-l2-034",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.1",
+      "subject": "भूगोल",
+      "topic": "पर्यटन भूगोल",
+      "level": "level2",
+      "format": "statement_correct",
+      "type": "gk",
+      "q": "पर्यटन भूगोलबारे कुन कथन ठीक छ?",
+      "options": [
+        "पर्यटनमा पहुँचको कुनै महत्व हुँदैन",
+        "पर्यटकको गन्तव्य छनोटमा प्राकृतिक/सांस्कृतिक विशेषताको कुनै भूमिका हुँदैन",
+        "प्राकृतिक तथा सांस्कृतिक आकर्षणको अवस्थिति, पहुँच र पूर्वाधारले पर्यटनको विकासमा प्रभाव पार्न सक्छ",
+        "पर्यटन गतिविधि भूगोलबाट पूर्ण रूपमा स्वतन्त्र हुन्छ"
+      ],
+      "correct": 2,
+      "explanation": "आकर्षण, पहुँच, पूर्वाधार र सेवा-सुविधा पर्यटनको भौगोलिक विकाससँग सम्बन्धित हुन्छन्।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "1",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.2",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-093",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.2",
+      "subject": "इतिहास",
+      "topic": "शीतयुद्ध",
+      "level": "level2",
+      "type": "gk",
+      "q": "क्युबा क्षेप्यास्त्र संकट कुन वर्ष भयो?",
+      "options": [
+        "1956",
+        "1962",
+        "1968",
+        "1975"
+      ],
+      "correct": 1,
+      "explanation": "अमेरिका र सोभियत संघबीचको क्युबा क्षेप्यास्त्र संकट 1962 मा चरममा पुग्यो।",
+      "solution": "सही उत्तर: B — 1962।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.4",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-jn-d-013",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.2",
+      "subject": "आदिवासी जनजाति",
+      "topic": "मातृभाषा कार्यक्रम",
+      "level": "level2",
+      "type": "gk",
+      "q": "अन्तर्राष्ट्रिय मातृभाषा दिवसका अवसरमा प्रतिष्ठानले कुन साहित्यिक कार्यक्रम सञ्चालन गरेको उल्लेख छ?",
+      "options": [
+        "राष्ट्रिय खेलकुद प्रतियोगिता",
+        "कृषि मेला",
+        "मातृभाषा कविता वाचन",
+        "कर संकलन अभियान"
+      ],
+      "correct": 2,
+      "explanation": "प्रतिष्ठानले मातृभाषा राष्ट्रिय सेवा पुरस्कार वितरणसँगै मातृभाषा कविता वाचन कार्यक्रम सञ्चालन गरेको छ।",
+      "solution": "सही उत्तर: C — मातृभाषा कविता वाचन।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.6",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-071",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.2",
+      "subject": "इतिहास",
+      "topic": "दोस्रो विश्वयुद्ध",
+      "level": "level2",
+      "type": "gk",
+      "q": "स्टालिनग्राडको युद्ध दोस्रो विश्वयुद्धमा कुन मोर्चाको महत्वपूर्ण मोड थियो?",
+      "options": [
+        "पश्चिमी प्रशान्त",
+        "उत्तर अफ्रिका",
+        "दक्षिण अमेरिका",
+        "पूर्वी मोर्चा"
+      ],
+      "correct": 3,
+      "explanation": "स्टालिनग्राडमा सोभियत विजयले पूर्वी मोर्चामा जर्मनीको विस्तारलाई ठूलो धक्का दियो।",
+      "solution": "सही उत्तर: A — पूर्वी मोर्चा।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.4",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-011",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.2",
+      "subject": "इतिहास",
+      "topic": "म्याग्नाकार्टा",
+      "level": "level2",
+      "type": "gk",
+      "q": "म्याग्नाकार्टाको ऐतिहासिक महत्व मुख्यतः केसँग सम्बन्धित छ?",
+      "options": [
+        "औद्योगिक उत्पादन",
+        "समुद्री खोज",
+        "धार्मिक युद्ध",
+        "राजाको अधिकार सीमित गर्ने विचार"
+      ],
+      "correct": 3,
+      "explanation": "यसले राजकीय शक्तिमाथि कानुनी सीमाको विचार विकास गर्न महत्वपूर्ण योगदान गर्‍यो।",
+      "solution": "सही उत्तर: A — राजाको अधिकार सीमित गर्ने विचार।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.4",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-dem-l2-003",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.2",
+      "subject": "लोकतान्त्रिक आन्दोलन",
+      "topic": "२०१७ साल",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "२०१७ साल पुस १ गतेको राजनीतिक परिवर्तनको प्रमुख परिणाम कुन थियो?",
+      "options": [
+        "राणा शासनको पुनःस्थापना",
+        "संघीय गणतन्त्रको स्थापना",
+        "निर्दलीय पञ्चायती शासनको सुरुवात",
+        "संविधानसभा निर्वाचन"
+      ],
+      "correct": 2,
+      "explanation": "संसदीय इतिहासअनुसार २०१७ पुस १ गतेदेखि निर्दलीय पञ्चायती शासन व्यवस्था सुरु भयो।",
+      "solution": "सही उत्तर: A — निर्दलीय पञ्चायती शासनको सुरुवात।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.6",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.2-nh-l2-006",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.2",
+      "subject": "नेपाल इतिहास",
+      "topic": "एकीकरण",
+      "level": "level2",
+      "type": "verification",
+      "q": "नेपाल एकीकरण अभियानको दीर्घकालीन ऐतिहासिक महत्व कुन हो?",
+      "options": [
+        "नेपाल पूर्ण रूपमा उपनिवेश बन्यो",
+        "विभिन्न साना राज्यलाई एउटै राजनीतिक राज्यमा एकीकृत गर्ने आधार तयार भयो",
+        "राणा शासन तत्काल समाप्त भयो",
+        "संघीय गणतन्त्र तत्काल स्थापना भयो"
+      ],
+      "correct": 1,
+      "explanation": "एकीकरण अभियानले विभिन्न राज्य तथा भूभागलाई एउटै राजनीतिक संरचनामा जोड्ने प्रक्रिया अघि बढायो।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "2",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.5",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.3-gov-b-016",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar"
+      ],
+      "section": "A",
+      "unit": "1.3",
+      "subject": "शासनपद्धति र शासन",
+      "topic": "अन्तरसरकारी समन्वय",
+      "level": "level2",
+      "type": "analysis",
+      "q": "संघीय संरचनामा अधिकारक्षेत्रको अस्पष्टता उत्पन्न हुँदा सबैभन्दा उपयुक्त प्रशासनिक उपाय कुन हो?",
+      "options": [
+        "तल्लो तहको अधिकार स्वतः समाप्त गर्नु",
+        "संवैधानिक तथा कानुनी अधिकारक्षेत्र स्पष्ट गर्दै अन्तरतह समन्वय र सहकार्य गर्नु",
+        "मौखिक आदेशमा भर पर्नु",
+        "सबै अधिकार संघमा फिर्ता लैजानु"
+      ],
+      "correct": 1,
+      "explanation": "संघीय व्यवस्थामा विवाद वा अस्पष्टता समाधानका लागि संविधान, कानून र संस्थागत समन्वयका संयन्त्र प्रयोग गर्नुपर्छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.3-gov-b-023",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar"
+      ],
+      "section": "A",
+      "unit": "1.3",
+      "subject": "शासनपद्धति र शासन",
+      "topic": "प्रशासनिक सुधार",
+      "level": "level2",
+      "type": "analysis",
+      "q": "प्रशासनिक सुधारको मूल लक्ष्यसँग सबैभन्दा मिल्ने विकल्प कुन हो?",
+      "options": [
+        "प्रशासनलाई बढी प्रभावकारी, उत्तरदायी, पारदर्शी र सेवामुखी बनाउनु",
+        "प्रशासनिक प्रक्रियालाई अनावश्यक रूपमा जटिल बनाउनु",
+        "नागरिक पहुँच घटाउनु",
+        "जवाफदेहिता हटाउनु"
+      ],
+      "correct": 0,
+      "explanation": "प्रशासनिक सुधारले सेवा प्रवाह, दक्षता, उत्तरदायित्व, पारदर्शिता र नागरिकमैत्रीपन सुधार गर्ने लक्ष्य राख्छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.3-gov-c-019",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar"
+      ],
+      "section": "A",
+      "unit": "1.3",
+      "subject": "शासनपद्धति र शासन",
+      "topic": "लोक सेवा आयोग",
+      "level": "level2",
+      "type": "statement_correct",
+      "q": "लोक सेवा आयोगसम्बन्धी सही कथन कुन हो?",
+      "options": [
+        "यसले सबै स्थानीय बजेट स्वीकृत गर्छ",
+        "यसले सर्वोच्च अदालत सञ्चालन गर्छ",
+        "यसले निजामती सेवाका पदमा उपयुक्त उम्मेदवार छनोटका लागि परीक्षा सञ्चालन गर्छ",
+        "यसले मौद्रिक नीति तय गर्छ"
+      ],
+      "correct": 2,
+      "explanation": "लोक सेवा आयोगले निजामती सेवाका विभिन्न पदमा योग्य उम्मेदवार छनोटका लागि परीक्षा लगायतका कार्य गर्छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.3-gov-b-017",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar"
+      ],
+      "section": "A",
+      "unit": "1.3",
+      "subject": "शासनपद्धति र शासन",
+      "topic": "न्यायमा पहुँच",
+      "level": "level2",
+      "type": "concept",
+      "q": "अधिकारमा आधारित शासनमा न्यायमा पहुँचको अर्थ के हो?",
+      "options": [
+        "धनी व्यक्तिले अदालत जान पाउने व्यवस्था",
+        "सरकारी निकायविरुद्ध उजुरी निषेध गर्नु",
+        "व्यक्तिले अधिकार उल्लङ्घन हुँदा प्रभावकारी कानुनी उपचार पाउने अवसर",
+        "न्यायिक उपचारलाई प्रशासनिक कृपामा निर्भर बनाउनु"
+      ],
+      "correct": 2,
+      "explanation": "न्यायमा पहुँचले अधिकार उल्लङ्घन हुँदा प्रभावकारी, निष्पक्ष र पहुँचयोग्य उपचार प्राप्त गर्ने अवसरलाई जनाउँछ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.3-gov-c-024",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar"
+      ],
+      "section": "A",
+      "unit": "1.3",
+      "subject": "शासनपद्धति र शासन",
+      "topic": "सामाजिक समावेशिता",
+      "level": "level2",
+      "type": "scenario",
+      "q": "नीति निर्माणमा भाषिक, जातीय, लैङ्गिक र भौगोलिक विविधतालाई ध्यान दिनु कुन मूल्यसँग बढी सम्बन्धित छ?",
+      "options": [
+        "केन्द्रीकरण",
+        "एकरूपता",
+        "बहिष्करण",
+        "समावेशिता"
+      ],
+      "correct": 3,
+      "explanation": "विविध समूहको आवश्यकता र प्रतिनिधित्वलाई नीति निर्माणमा समेट्नु समावेशी शासनको प्रमुख विशेषता हो।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.3-gov-d-019",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar"
+      ],
+      "section": "A",
+      "unit": "1.3",
+      "subject": "शासनपद्धति र शासन",
+      "topic": "संघीयता कार्यान्वयन",
+      "level": "level2",
+      "type": "analysis",
+      "q": "संघीय प्रशासन कार्यान्वयनमा कर्मचारी समायोजनको प्रमुख उद्देश्य के थियो?",
+      "options": [
+        "संघीय संरचनाअनुसार प्रशासनिक जनशक्ति विभिन्न तहमा व्यवस्थापन गर्नु",
+        "सबै कर्मचारी संघमा राख्नु",
+        "प्रदेश र स्थानीय तहको प्रशासन हटाउनु",
+        "निजामती सेवा समाप्त गर्नु"
+      ],
+      "correct": 0,
+      "explanation": "संघीय संरचनाअनुकूल सेवा प्रवाहका लागि प्रशासनिक जनशक्तिलाई विभिन्न तहमा व्यवस्थापन गर्नु आवश्यक थियो।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.4.1-trans-013",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "यातायात र शिक्षा",
+      "level": "level2",
+      "type": "matching",
+      "q": "यातायात र सामाजिक पूर्वाधारको सही सम्बन्ध कुन हो?",
+      "options": [
+        "सडक — विद्यालय पहुँच घटाउने",
+        "पुल — स्वास्थ्य सेवा रोक्ने",
+        "विद्यालय पहुँच — विद्यार्थी र शिक्षकको आवागमन सहज बनाउने",
+        "यातायात — सेवा पहुँचसँग असम्बन्धित"
+      ],
+      "correct": 2,
+      "explanation": "Transport improves access to social services including schools and health facilities. ",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.7",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.4.1-devinfra-agri-019",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "कृषि सहकारी",
+      "level": "level1",
+      "type": "gk",
+      "q": "कृषि सहकारीको उत्पादनमूलक भूमिका कुन हो?",
+      "options": [
+        "सामूहिक खरिद, संकलन, भण्डारण र बजार पहुँच सहज बनाउनु",
+        "किसानलाई बजारबाट अलग गर्नु",
+        "कृषि ऋण बन्द गर्नु",
+        "उत्पादनलाई व्यक्तिगत रूपमा बेच्न बाध्य गर्नु"
+      ],
+      "correct": 0,
+      "explanation": "सहकारीले साना उत्पादकको सामूहिक सौदाबाजी र बजार पहुँच बढाउन सक्छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.7",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.4.1-devinfra-agri-025",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "कृषि र गरिबी",
+      "level": "level2",
+      "type": "verification",
+      "q": "ग्रामीण गरिबी न्यूनीकरणमा कृषि उत्पादकत्व बढाउनुको प्रभावबारे कुन कथन सही छ?",
+      "options": [
+        "उत्पादकत्व वृद्धिले गरिबी बढाउँछ",
+        "कृषिको आय र ग्रामीण रोजगारीबीच सम्बन्ध हुँदैन",
+        "सानो किसानको उत्पादन र आय बढेमा ग्रामीण माग तथा रोजगारीमा पनि सकारात्मक प्रभाव पर्न सक्छ",
+        "कृषि उत्पादकत्वको गरिबीमा कुनै प्रभाव हुँदैन"
+      ],
+      "correct": 2,
+      "explanation": "सानो किसानको उत्पादकत्व र बजार पहुँच सुधारले आय, रोजगारी र स्थानीय आर्थिक गतिविधिमा प्रभाव पार्न सक्छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level2"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.7",
+          "level": "level2"
+        }
+      }
+    },
+    {
+      "id": "bo-1.4.1-devinfra-agri-005",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "कृषि बजेट",
+      "level": "level1",
+      "type": "gk",
+      "q": "आ.व. २०८३/८४ को बजेटमा कृषि क्षेत्रका कार्यक्रमको मूल अभिमुखीकरण कुनसँग बढी सम्बन्धित छ?",
+      "options": [
+        "कृषि उत्पादन घटाउने",
+        "कृषि जमिनलाई गैरकृषि प्रयोगमा लैजाने",
+        "उत्पादन वृद्धि, व्यावसायिकीकरण र किसानको बजार पहुँच",
+        "आयातमै निर्भर हुने"
+      ],
+      "correct": 2,
+      "explanation": "बजेटले कृषि उत्पादन र उत्पादकत्व, व्यवसायीकरण, बजार तथा मूल्य शृंखलालाई प्राथमिकता दिएको छ।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.7",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.4.1-devinfra-agri-002",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "कृषि योगदान",
+      "level": "level1",
+      "type": "gk",
+      "q": "नेपालको अर्थतन्त्रमा कृषि क्षेत्रको रणनीतिक महत्त्वको प्रमुख कारण कुन हो?",
+      "options": [
+        "वैदेशिक मुद्रा खर्च गराउने क्षेत्र भएकाले",
+        "उद्योगभन्दा कृषि ठूलो हुने भएकाले",
+        "कृषिले सेवाक्षेत्रलाई विस्थापित गर्ने भएकाले",
+        "खाद्य सुरक्षा, रोजगारी र ग्रामीण आयसँग यसको प्रत्यक्ष सम्बन्ध"
+      ],
+      "correct": 3,
+      "explanation": "कृषि खाद्य सुरक्षा, रोजगारी, ग्रामीण जीविकोपार्जन र उद्योगका लागि कच्चा पदार्थसँग जोडिएको आधारभूत क्षेत्र हो।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.7",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.4.1-trade-015",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "section": "A",
+      "unit": "1.4.1",
+      "subject": "आर्थिक विकास",
+      "topic": "व्यापार पूर्वाधार",
+      "level": "level1",
+      "type": "matching",
+      "q": "व्यापार पूर्वाधार र कार्यको सही जोडी कुन हो?",
+      "options": [
+        "ड्राइ पोर्ट — सीमा बाहिर/भित्र माल व्यवस्थापन र clearance सहज बनाउने",
+        "गोदाम — माल क्षति बढाउने",
+        "सडक — व्यापार अवरोध बढाउने",
+        "डिजिटल भन्सार — कागजी प्रक्रिया बढाउने"
+      ],
+      "correct": 0,
+      "explanation": "Dry ports, warehouses, roads and digital customs trade logistics को महत्त्वपूर्ण हिस्सा हुन्।",
+      "solution": "सही उत्तर: A।",
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "3",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.7",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.5-environment-027",
+      "unit": "1.5",
+      "section": "A",
+      "subject": "दिगो विकास तथा वातावरण",
+      "level": "level1",
+      "type": "concept",
+      "question": "जनसांख्यिकीय लाभांश (demographic dividend) प्राप्त गर्न कुन अवस्था उपयोगी हुन्छ?",
+      "options": [
+        "काम गर्ने उमेरको जनसंख्यालाई निष्क्रिय राख्नु",
+        "बाल तथा वृद्ध जनसंख्या बढाउनु",
+        "काम गर्ने उमेरको जनसंख्याको ठूलो हिस्सालाई शिक्षा, सीप, स्वास्थ्य र रोजगारीमा जोड्नु",
+        "रोजगारीका अवसर घटाउनु"
+      ],
+      "correct": 2,
+      "solution": "सही उत्तर: C।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.9",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.5-environment-033",
+      "unit": "1.5",
+      "section": "A",
+      "subject": "दिगो विकास तथा वातावरण",
+      "level": "level1",
+      "type": "concept",
+      "question": "स्मार्ट सिटीको आधारभूत अवधारणामा कुन पक्ष पर्छ?",
+      "options": [
+        "प्रविधि, डेटा, प्रभावकारी सेवा, दिगो पूर्वाधार र नागरिक केन्द्रित शहरी व्यवस्थापन",
+        "अग्ला भवन",
+        "डिजिटल विज्ञापन",
+        "निजी सवारीसाधन विस्तार"
+      ],
+      "correct": 0,
+      "solution": "सही उत्तर: A।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.9",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.5-environment-021",
+      "unit": "1.5",
+      "section": "A",
+      "subject": "दिगो विकास तथा वातावरण",
+      "level": "level1",
+      "type": "concept",
+      "question": "जलवायु परिवर्तन न्यूनीकरण (mitigation) को उदाहरण कुन हो?",
+      "options": [
+        "हरितगृह ग्यास उत्सर्जन घटाउने नवीकरणीय ऊर्जा र ऊर्जा दक्षता प्रवर्द्धन",
+        "बाढीपछि राहत वितरण",
+        "भूकम्पीय भवन मापदण्ड लागू गर्नु",
+        "पहिरोपछि पुनर्स्थापना गर्नु"
+      ],
+      "correct": 0,
+      "solution": "सही उत्तर: A।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.9",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.5-environment-049",
+      "unit": "1.5",
+      "section": "A",
+      "subject": "दिगो विकास तथा वातावरण",
+      "level": "level1",
+      "type": "concept",
+      "question": "नेपालका प्राकृतिक स्रोतमा कुन समूह पर्छ?",
+      "options": [
+        "जल, वन, भूमि, जैविक स्रोत र खनिजजस्ता स्रोत",
+        "मुद्रा र बैंक",
+        "सडक र भवन",
+        "सरकारी कार्यालय"
+      ],
+      "correct": 0,
+      "solution": "सही उत्तर: A।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.9",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.5-environment-001",
+      "unit": "1.5",
+      "section": "A",
+      "subject": "दिगो विकास तथा वातावरण",
+      "level": "level1",
+      "type": "concept",
+      "question": "दिगो विकासको मूल अवधारणा कुन हो?",
+      "options": [
+        "वर्तमान पुस्ताको आवश्यकता पूरा गर्दा भावी पुस्ताको आवश्यकतासँग सम्झौता नगर्ने विकास",
+        "आर्थिक वृद्धि लाई विकास मान्ने",
+        "प्राकृतिक स्रोतको अधिकतम दोहन गर्ने",
+        "वातावरणीय विषयलाई विकासबाट अलग राख्ने"
+      ],
+      "correct": 0,
+      "solution": "सही उत्तर: A।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.9",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.5-environment-044",
+      "unit": "1.5",
+      "section": "A",
+      "subject": "दिगो विकास तथा वातावरण",
+      "level": "level1",
+      "type": "concept",
+      "question": "जल प्रदूषणको सामान्य स्रोत कुन हो?",
+      "options": [
+        "हिमपात",
+        "सूर्यको प्रकाश",
+        "प्राकृतिक हावा",
+        "अशोधित ढल, औद्योगिक फोहोर, कृषि रसायन तथा अन्य प्रदूषक"
+      ],
+      "correct": 3,
+      "solution": "सही उत्तर: D।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.9",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-1-057",
+      "unit": "1.6.1",
+      "section": "A",
+      "subject": "प्रमुख वैज्ञानिक तथा आविष्कारहरू",
+      "level": "level1",
+      "type": "analysis",
+      "question": "वैज्ञानिक साक्षरता बढाउनु लोकतान्त्रिक समाजका लागि किन उपयोगी हुन्छ?",
+      "options": [
+        "नागरिकलाई प्रमाण र मिथ्याबीच फरक छुट्याई सूचित निर्णय गर्न मद्दत गर्छ",
+        "यसले प्रश्न गर्ने अधिकार हटाउँछ",
+        "यसले अफवाह बढाउँछ",
+        "यसले नीति निर्माण रोक्छ"
+      ],
+      "correct": 0,
+      "solution": "सही उत्तर: A।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-2-059",
+      "unit": "1.6.2",
+      "section": "A",
+      "subject": "विज्ञान र प्रविधिको मानव जीवन र समाजमा परेको प्रभाव",
+      "level": "level1",
+      "type": "analysis",
+      "question": "साइबर आक्रमणपछि संस्थाको resilience बढाउने उपाय कुन हो?",
+      "options": [
+        "backup हटाउनु",
+        "सबै पासवर्ड एउटै राख्नु",
+        "backup, incident response, नियमित परीक्षण र पुनर्स्थापना योजना बनाउनु",
+        "सुरक्षा अद्यावधिक रोक्नु"
+      ],
+      "correct": 2,
+      "solution": "सही उत्तर: C।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-1-019",
+      "unit": "1.6.1",
+      "section": "A",
+      "subject": "प्रमुख वैज्ञानिक तथा आविष्कारहरू",
+      "level": "level1",
+      "type": "gk",
+      "question": "परमाणु संरचनाको ग्रहाकार मोडलसँग प्रमुख रूपमा जोडिने वैज्ञानिक को हुन्?",
+      "options": [
+        "जेम्स वाट",
+        "बेल",
+        "अर्नेस्ट रदरफोर्ड",
+        "एडिसन"
+      ],
+      "correct": 2,
+      "solution": "सही उत्तर: C।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-2-016",
+      "unit": "1.6.2",
+      "section": "A",
+      "subject": "विज्ञान र प्रविधिको मानव जीवन र समाजमा परेको प्रभाव",
+      "level": "level1",
+      "type": "concept",
+      "question": "कृषिमा प्रविधिको प्रयोगको उपयुक्त उदाहरण कुन हो?",
+      "options": [
+        "बीउ छनोट बन्द गर्नु",
+        "माटो परीक्षण हटाउनु",
+        "सिँचाइको ा अनुमानले तय गर्नु",
+        "मौसम सूचना, सिँचाइ व्यवस्थापन, ड्रोन वा सेन्सरको प्रयोग"
+      ],
+      "correct": 3,
+      "solution": "सही उत्तर: D।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-3-019",
+      "unit": "1.6.3",
+      "section": "A",
+      "subject": "कम्प्युटर, सञ्चार, स्वास्थ्य र रोगबारे सामान्य जानकारी",
+      "level": "level1",
+      "type": "concept",
+      "question": "मोबाइल नेटवर्कमा cell को अवधारणा केसँग सम्बन्धित छ?",
+      "options": [
+        "मोबाइलको battery cell",
+        "कम्प्युटरको hard disk",
+        "क्षेत्रलाई साना coverage क्षेत्रमा विभाजन गरी wireless सेवा सञ्चालन गर्नु",
+        "फाइबरको प्रकार"
+      ],
+      "correct": 2,
+      "solution": "सही उत्तर: C।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1-6-1-050",
+      "unit": "1.6.1",
+      "section": "A",
+      "subject": "प्रमुख वैज्ञानिक तथा आविष्कारहरू",
+      "level": "level1",
+      "type": "gk",
+      "question": "कुन आविष्कारले लामो दूरीको द्रुत सञ्चार विस्तारमा ऐतिहासिक भूमिका खेलेको थियो?",
+      "options": [
+        "भाप इन्जिन",
+        "टेलिग्राफ",
+        "माइक्रोस्कोप",
+        "थर्मोमिटर"
+      ],
+      "correct": 1,
+      "solution": "सही उत्तर: B।",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "4",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.8",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "1.7.1-011",
+      "unit": "1.7.1",
+      "level": "I",
+      "type": "mcq",
+      "question": "परराष्ट्र मन्त्रालयको स्वीकृत संगठन संरचनामा नेपाली दूतावास कति छन्?",
+      "options": [
+        "३१",
+        "३०",
+        "३२",
+        "२९"
+      ],
+      "correct": 2,
+      "solution": "",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.10",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "1.7.1-005",
+      "unit": "1.7.1",
+      "level": "I",
+      "type": "mcq",
+      "question": "नेपालले कति UN सदस्य राष्ट्रसँग कूटनीतिक सम्बन्ध स्थापना गरेको छ?",
+      "options": [
+        "१८६",
+        "१८४",
+        "१८५",
+        "१८७"
+      ],
+      "correct": 0,
+      "solution": "",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.10",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "1.7.2-029",
+      "unit": "1.7.2",
+      "level": "I",
+      "type": "mcq",
+      "question": "बहुपक्षीय वार्तामा consensus को अर्थ के हो?",
+      "options": [
+        "साझा स्वीकार्य समझदारी",
+        "५",
+        "चीन, फ्रान्स, रुस, बेलायत र अमेरिका",
+        "१९६९–७० र १९८८–८९"
+      ],
+      "correct": 0,
+      "solution": "",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.10",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "1.7.1-031",
+      "unit": "1.7.1",
+      "level": "I",
+      "type": "mcq",
+      "question": "नेपाल–जापान सम्बन्ध कहिले स्थापना भयो?",
+      "options": [
+        "१ सेप्टेम्बर १९५६",
+        "१ सेप्टेम्बर १९५५",
+        "१० सेप्टेम्बर १९५६",
+        "१ अक्टोबर १९५६"
+      ],
+      "correct": 2,
+      "solution": "सही उत्तर: C — १ सेप्टेम्बर १९५६।",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.10",
+          "level": "level1"
+        }
+      },
+      "explanation": "परराष्ट्र मन्त्रालयका अनुसार नेपाल–जापानबीच औपचारिक दौत्य सम्बन्ध १ सेप्टेम्बर १९५६ मा स्थापना भएको हो।"
+    },
+    {
+      "id": "1.7.1-019",
+      "unit": "1.7.1",
+      "level": "I",
+      "type": "mcq",
+      "question": "नेपाल–बेलायत सम्बन्धको प्रारम्भिक वर्ष कुन हो?",
+      "options": [
+        "१८१६",
+        "१८१४",
+        "१८१५",
+        "१८१७"
+      ],
+      "correct": 2,
+      "solution": "",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.10",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "1.7.1-053",
+      "unit": "1.7.1",
+      "level": "I",
+      "type": "mcq",
+      "question": "BIMSTEC सचिवालय कहाँ छ?",
+      "options": [
+        "ढाका",
+        "१४ डिसेम्बर १९५५",
+        "A/RES/995(X)",
+        "१८३"
+      ],
+      "correct": 0,
+      "solution": "",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.10",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.8-SPT-06",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ FIFA विश्वकपमा कुल कति खेल खेलिए?",
+      "options": [
+        "६४",
+        "१०४",
+        "८०",
+        "९६"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "FIFA",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.11",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.8-SCI-10",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ को अन्तरिक्ष विज्ञानमा AI प्रयोगको प्रमुख प्रवृत्ति कुन हो?",
+      "options": [
+        "AI पूर्ण रूपमा बन्द गर्नु",
+        "ठूलो वैज्ञानिक डेटाबाट संरचना पहिचान र विश्लेषण",
+        "मानव गणना",
+        "अन्तरिक्ष अनुसन्धान रोक्नु"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "NASA/Reuters",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.11",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.8-ECO-01",
+      "unit": "1.8",
+      "category": "आर्थिक",
+      "level": "I",
+      "type": "fact",
+      "question": "नेपालको आर्थिक वर्ष २०८३/८४ को बजेट कुन आर्थिक वर्षसँग मेल खान्छ?",
+      "options": [
+        "FY 2025/26",
+        "FY 2026/27",
+        "FY 2027/28",
+        "FY 2024/25"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "नेपाल अर्थ मन्त्रालय",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.11",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.8-SCI-06",
+      "unit": "1.8",
+      "category": "वैज्ञानिक",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ मा Isar Aerospace को Spectrum rocket को उपलब्धि के थियो?",
+      "options": [
+        "पहिलो चन्द्र अवतरण",
+        "महादेशीय युरोपबाट पहिलो commercial orbital launch",
+        "पहिलो मानवयुक्त उडान",
+        "पहिलो मंगल अवतरण"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "Reuters",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "examMappings": {}
+    },
+    {
+      "id": "bo-1.8-OTH-04",
+      "unit": "1.8",
+      "category": "अन्य महत्त्वपूर्ण",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ मा International Day of Democracy कुन मितिमा मनाइन्छ?",
+      "options": [
+        "१५ सेप्टेम्बर",
+        "२१ सेप्टेम्बर",
+        "२७ सेप्टेम्बर",
+        "२८ सेप्टेम्बर"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "United Nations",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "examMappings": {}
+    },
+    {
+      "id": "bo-1.8-ART-01",
+      "unit": "1.8",
+      "category": "कला",
+      "level": "I",
+      "type": "fact",
+      "question": "Venice Biennale Arte 2026 कुन संस्करण हो?",
+      "options": [
+        "६०औँ",
+        "६१औँ",
+        "५९औँ",
+        "६२औँ"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "La Biennale di Venezia",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "examMappings": {}
+    },
+    {
+      "id": "bo-1.8-POL-10",
+      "unit": "1.8",
+      "category": "राजनीतिक",
+      "level": "I",
+      "type": "fact",
+      "question": "नेपालको २०३७–३८ UNSC उम्मेदवारीको निर्वाचन कुन वर्ष हुने भनिएको छ?",
+      "options": [
+        "२०३४",
+        "२०३६",
+        "२०३५",
+        "२०३८"
+      ],
+      "correct": 1,
+      "asOf": "2026-09-12",
+      "source": "नेपाल परराष्ट्र मन्त्रालय",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.11",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-1.8-SPT-05",
+      "unit": "1.8",
+      "category": "खेलकुद",
+      "level": "I",
+      "type": "fact",
+      "question": "२०२६ FIFA विश्वकपमा कति टोली सहभागी थिए?",
+      "options": [
+        "४८",
+        "३२",
+        "४०",
+        "३६"
+      ],
+      "correct": 0,
+      "asOf": "2026-09-12",
+      "source": "FIFA",
+      "section": "A",
+      "examIds": [
+        "sakha-adhikrit",
+        "kharidar",
+        "nasu"
+      ],
+      "examMappings": {
+        "kharidar": {
+          "section": "A",
+          "unit": "5",
+          "level": "level1"
+        },
+        "nasu": {
+          "section": "A",
+          "unit": "1.11",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-2.1-10",
+      "unit": "2.1",
+      "level": "I",
+      "type": "classification",
+      "question": "Which pair is different?",
+      "options": [
+        "(3,9)",
+        "(6,30)",
+        "(4,16)",
+        "(5,25)"
+      ],
+      "correct": 1,
+      "solution": "The first three are x and x²; 6² is 36.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.1-24",
+      "unit": "2.1",
+      "level": "I",
+      "type": "analogy",
+      "question": "Eye : See :: Ear : ?",
+      "options": [
+        "Speak",
+        "Touch",
+        "Smell",
+        "Hear"
+      ],
+      "correct": 3,
+      "solution": "An ear is used for hearing.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.1-02",
+      "unit": "2.1",
+      "level": "I",
+      "type": "analogy",
+      "question": "Book : Author :: Painting : ?",
+      "options": [
+        "Gallery",
+        "Artist",
+        "Canvas",
+        "Colour"
+      ],
+      "correct": 1,
+      "solution": "An author creates a book; an artist creates a painting.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.1-35",
+      "unit": "2.1",
+      "level": "II",
+      "type": "statement-conclusion",
+      "question": "A department digitized records, reduced duplicates, and introduced role-based access. Conclusions: I Digitization can improve record management with controls. II Every digitized system is automatically secure.",
+      "options": [
+        "Only II",
+        "Both",
+        "Only I",
+        "Neither"
+      ],
+      "correct": 2,
+      "solution": "I is qualified and supported; II is absolute and unsupported.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.1-40",
+      "unit": "2.1",
+      "level": "II",
+      "type": "statement-assumption",
+      "question": "'The agency should publish recruitment results in machine-readable format.' Assumptions: I Such data can facilitate reuse and analysis. II Every citizen owns a computer.",
+      "options": [
+        "Only II",
+        "Both",
+        "Neither",
+        "Only I"
+      ],
+      "correct": 3,
+      "solution": "Reuse and analysis is relevant; universal computer ownership is not required.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.1-07",
+      "unit": "2.1",
+      "level": "I",
+      "type": "direction",
+      "question": "A person walks 6 km north and then 8 km east. What is the shortest distance from the start?",
+      "options": [
+        "12 km",
+        "14 km",
+        "10 km",
+        "16 km"
+      ],
+      "correct": 2,
+      "solution": "√(6²+8²)=10 km.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.2-007",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "B",
+      "unit": "2.2",
+      "subject": "Non-verbal Reasoning",
+      "topic": "आकृति क्रम",
+      "level": "L1",
+      "type": "pictorial",
+      "q": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+      "question": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+      "options": [
+        "B",
+        "C",
+        "A",
+        "D"
+      ],
+      "correct": 2,
+      "solution": "A-B-B-A क्रम; अर्को वृत्त हो।",
+      "image": "/image/exam/branch-officer-2.2/bo-2.2-007.png",
+      "imageAlt": "आकृति क्रम"
+    },
+    {
+      "id": "bo-2.2-019",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "B",
+      "unit": "2.2",
+      "subject": "Non-verbal Reasoning",
+      "topic": "भुजा क्रम",
+      "level": "L1",
+      "type": "pictorial",
+      "q": "भुजाको संख्या हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही विकल्प छान्नुहोस्।",
+      "question": "भुजाको संख्या हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही विकल्प छान्नुहोस्।",
+      "options": [
+        "A",
+        "B",
+        "D",
+        "C"
+      ],
+      "correct": 2,
+      "solution": "हरेक चरणमा २ थपिन्छ; १२ पछि १४।",
+      "image": "/image/exam/branch-officer-2.2/bo-2.2-019.png",
+      "imageAlt": "भुजा क्रम"
+    },
+    {
+      "id": "bo-2.2-016",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "B",
+      "unit": "2.2",
+      "subject": "Non-verbal Reasoning",
+      "topic": "भुजा क्रम",
+      "level": "L1",
+      "type": "pictorial",
+      "q": "भुजाको संख्या हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही विकल्प छान्नुहोस्।",
+      "question": "भुजाको संख्या हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही विकल्प छान्नुहोस्।",
+      "options": [
+        "B",
+        "C",
+        "D",
+        "A"
+      ],
+      "correct": 3,
+      "solution": "हरेक चरणमा १ थपिन्छ; ६ पछि ७।",
+      "image": "/image/exam/branch-officer-2.2/bo-2.2-016.png",
+      "imageAlt": "भुजा क्रम"
+    },
+    {
+      "id": "bo-2.2-004",
+      "examIds": [
+        "sakha-adhikrit",
+        "nasu"
+      ],
+      "section": "B",
+      "unit": "2.2",
+      "subject": "Non-verbal Reasoning",
+      "topic": "आकृति क्रम",
+      "level": "L1",
+      "type": "pictorial",
+      "q": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+      "question": "आकृतिहरूको क्रम हेरी प्रश्नचिह्न (?) को स्थानमा आउने सही आकृति छान्नुहोस्।",
+      "options": [
+        "A",
+        "C",
+        "D",
+        "B"
+      ],
+      "correct": 3,
+      "solution": "A-B-B-A क्रम दोहोरिन्छ; अर्को वृत्त हो।",
+      "image": "/image/exam/branch-officer-2.2/bo-2.2-004.png",
+      "imageAlt": "आकृति क्रम",
+      "examMappings": {
+        "nasu": {
+          "section": "B",
+          "unit": "2.3",
+          "level": "level1"
+        }
+      }
+    },
+    {
+      "id": "bo-2.2-tc-001",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "B",
+      "unit": "2.2",
+      "subject": "Non-verbal Reasoning",
+      "topic": "Triangle Counting",
+      "level": "L1",
+      "type": "gk",
+      "q": "दिइएको पूर्ण त्रिभुजलाई ४ वटा साना त्रिभुजमा विभाजन गरिएको छ। जम्मा कति त्रिभुज छन्?",
+      "options": [
+        "5",
+        "4",
+        "6",
+        "8"
+      ],
+      "correct": 0,
+      "solution": "४ वटा साना त्रिभुज र बीचमा बनेको १ उल्टो त्रिभुज गरी जम्मा ५ त्रिभुज छन्।",
+      "figure": "triangle-grid-2",
+      "imageAlt": "दुई तहको त्रिभुज जालो",
+      "image": "/image/exam/branch-officer-2.2/triangle-grid-2.svg",
+      "explanation": ""
+    },
+    {
+      "id": "bo-2.2-051",
+      "unit": "2.2",
+      "category": "Non-verbal Reasoning",
+      "level": "L2",
+      "type": "figure-series",
+      "question": "Select the next group.",
+      "figure": "◇  ◇◇  ◆  ◆◆  ◇◇◇  ?",
+      "options": [
+        "◆◆",
+        "◇◇◇◇",
+        "◆◆◆",
+        "◇◆◇"
+      ],
+      "correct": 2,
+      "solution": "Correct answer: B. The shape alternates hollow/filled while the count increases; next is three filled diamonds.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.3-053",
+      "unit": "2.3",
+      "category": "Quantitative Aptitude",
+      "level": "L2",
+      "type": "data-sufficiency",
+      "question": "Is x greater than 10? Statement I: x = 12. Statement II: x is an even number.",
+      "options": [
+        "Statement I alone is sufficient",
+        "Statement II alone is sufficient",
+        "Both together are sufficient",
+        "Neither is sufficient"
+      ],
+      "correct": 0,
+      "solution": "Correct answer: A. Statement I directly establishes x = 12.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.3-031",
+      "unit": "2.3",
+      "category": "Quantitative Aptitude",
+      "level": "L2",
+      "type": "number-series",
+      "question": "Find the next number: 2, 6, 12, 20, 30, ?.",
+      "options": [
+        "36",
+        "40",
+        "42",
+        "44"
+      ],
+      "correct": 2,
+      "solution": "Correct answer: C. Terms are n(n+1): 1×2, 2×3, ...; next is 6×7 = 42.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.3-041",
+      "unit": "2.3",
+      "category": "Quantitative Aptitude",
+      "level": "L2",
+      "type": "compound-interest",
+      "question": "The compound amount on Rs. 10,000 at 10% per annum for 2 years, compounded annually, is:",
+      "options": [
+        "Rs. 12,100",
+        "Rs. 11,000",
+        "Rs. 12,000",
+        "Rs. 12,200"
+      ],
+      "correct": 0,
+      "solution": "Correct answer: A. Amount = 10,000×1.1² = 12,100.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.3-036",
+      "unit": "2.3",
+      "category": "Quantitative Aptitude",
+      "level": "L2",
+      "type": "arithmetic",
+      "question": "The value of (18² − 12²) is:",
+      "options": [
+        "216",
+        "252",
+        "324",
+        "180"
+      ],
+      "correct": 3,
+      "solution": "Correct answer: D. (18−12)(18+12) = 6×30 = 180.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.3-014",
+      "unit": "2.3",
+      "category": "Quantitative Aptitude",
+      "level": "L1",
+      "type": "speed-distance",
+      "question": "A car travels 150 km in 3 hours. Its average speed is:",
+      "options": [
+        "40 km/h",
+        "50 km/h",
+        "45 km/h",
+        "60 km/h"
+      ],
+      "correct": 1,
+      "solution": "Correct answer: B. Speed = distance/time = 150/3 = 50 km/h.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.3-022",
+      "unit": "2.3",
+      "category": "Quantitative Aptitude",
+      "level": "L1",
+      "type": "profit-loss",
+      "question": "An item marked Rs. 800 is sold at a discount of 10%. Its selling price is:",
+      "options": [
+        "Rs. 700",
+        "Rs. 720",
+        "Rs. 740",
+        "Rs. 760"
+      ],
+      "correct": 1,
+      "solution": "Correct answer: B. 10% of 800 is 80, so selling price is 720.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.4-005",
+      "unit": "2.4",
+      "category": "General Mental Ability, Logical & Analytical Ability",
+      "level": "L1",
+      "type": "Statement-Conclusion",
+      "question": "Statement: The municipality introduced an online permit system, and the average processing time fell substantially within three months. Conclusions: I. The online system may have contributed to faster processing. II. Every municipality should immediately adopt the same system.",
+      "options": [
+        "Only I follows",
+        "Only II follows",
+        "Both follow",
+        "Neither follows"
+      ],
+      "correct": 0,
+      "solution": "The observed association supports a cautious possible inference, but it does not prove that every municipality should immediately adopt the same system.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.4-017",
+      "unit": "2.4",
+      "category": "General Mental Ability, Logical & Analytical Ability",
+      "level": "L1",
+      "type": "Course of Action",
+      "question": "A public office receives repeated complaints that citizens cannot easily find its service requirements online. Courses of action: I. Redesign the information page using clear headings and a checklist. II. Stop publishing service requirements online.",
+      "options": [
+        "Only I is appropriate",
+        "Only II is appropriate",
+        "Both are appropriate",
+        "Neither is appropriate"
+      ],
+      "correct": 0,
+      "solution": "Improving clarity addresses the complaint; removing information would worsen access.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.4-049",
+      "unit": "2.4",
+      "category": "General Mental Ability, Logical & Analytical Ability",
+      "level": "L2",
+      "type": "Selection Logic",
+      "question": "A four-person panel is selected from A, B, C, D, E and F. A and B cannot serve together. C must serve if D serves. E cannot serve if F serves. Which panel is valid?",
+      "options": [
+        "B, C, D, E",
+        "A, B, C, D",
+        "A, C, E, F",
+        "A, D, E, F"
+      ],
+      "correct": 0,
+      "solution": "B,C,D,E satisfies A-B restriction; D is accompanied by C; E is not paired with F.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.4-010",
+      "unit": "2.4",
+      "category": "General Mental Ability, Logical & Analytical Ability",
+      "level": "L1",
+      "type": "Statement-Assumption",
+      "question": "Statement: The department should add more public-service counters on peak days to reduce queues. Assumptions: I. Peak-day demand can create long queues. II. Additional counters can help handle the demand.",
+      "options": [
+        "Only I",
+        "Both I and II",
+        "Only II",
+        "Neither"
+      ],
+      "correct": 1,
+      "solution": "Both assumptions are necessary for the recommendation to make sense.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.4-031",
+      "unit": "2.4",
+      "category": "General Mental Ability, Logical & Analytical Ability",
+      "level": "L2",
+      "type": "Syllogism",
+      "question": "Statements: All policy analysts are researchers. Some researchers are economists. No economist is an auditor. Conclusions: I. Some researchers are not auditors. II. Some policy analysts are not auditors.",
+      "options": [
+        "Only II follows",
+        "Both follow",
+        "Only I follows",
+        "Neither follows"
+      ],
+      "correct": 2,
+      "solution": "The researchers who are economists are not auditors, so I follows. There is no stated existence of policy analysts among those researchers.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.4-027",
+      "unit": "2.4",
+      "category": "General Mental Ability, Logical & Analytical Ability",
+      "level": "L1",
+      "type": "Analytical Arrangement",
+      "question": "A meeting must include exactly three of four topics A, B, C and D. A cannot be together with C. B must be included if D is included. Which set is possible?",
+      "options": [
+        "A, B, C",
+        "A, C, D",
+        "A, B, D",
+        "B, C, D"
+      ],
+      "correct": 2,
+      "solution": "A,B,D satisfies the A-C restriction and includes B whenever D is present.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.5-049",
+      "unit": "2.5",
+      "category": "Data Interpretation",
+      "level": "L2",
+      "type": "pie-chart",
+      "data": "Budget Rs250m: Roads35%, Water25%, Health20%, Education12%, Other8%.",
+      "question": "Health allocation?",
+      "options": [
+        "Rs50m",
+        "Rs40m",
+        "Rs45m",
+        "Rs55m"
+      ],
+      "correct": 0,
+      "solution": "20%×250=50m.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.5-023",
+      "unit": "2.5",
+      "category": "Data Interpretation",
+      "level": "L1",
+      "type": "table",
+      "data": "Output tons: X Jan120 Feb132 Mar150 Apr168; Y 150,135,162,180; Z 100,125,140,154.",
+      "question": "Y's February share?",
+      "options": [
+        "32.1%",
+        "36.5%",
+        "34.4%",
+        "38%"
+      ],
+      "correct": 2,
+      "solution": "135/392=34.44%.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.5-047",
+      "unit": "2.5",
+      "category": "Data Interpretation",
+      "level": "L2",
+      "type": "bar-chart",
+      "data": "Water million L 2023→2024: Agriculture480→450; Industry180→210; Household120→150; Other60→75.",
+      "question": "Industry+Household as fraction of 2024 total?",
+      "options": [
+        "2/5",
+        "4/9",
+        "24/59",
+        "1/2"
+      ],
+      "correct": 2,
+      "solution": "360/885=24/59.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.5-046",
+      "unit": "2.5",
+      "category": "Data Interpretation",
+      "level": "L2",
+      "type": "bar-chart",
+      "data": "Water million L 2023→2024: Agriculture480→450; Industry180→210; Household120→150; Other60→75.",
+      "question": "Agriculture share fell by about how many percentage points?",
+      "options": [
+        "5.0",
+        "6.29",
+        "4.8",
+        "8.0"
+      ],
+      "correct": 1,
+      "solution": "57.14%→50.85%, fall 6.29 points.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.5-017",
+      "unit": "2.5",
+      "category": "Data Interpretation",
+      "level": "L1",
+      "type": "pie-chart",
+      "data": "Budget Rs80,000: Food30%, Housing25%, Education15%, Transport10%, Health8%, Other12%.",
+      "question": "Education expenditure?",
+      "options": [
+        "Rs12,000",
+        "Rs10,000",
+        "Rs15,000",
+        "Rs18,000"
+      ],
+      "correct": 0,
+      "solution": "15%=Rs12,000.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-2.5-048",
+      "unit": "2.5",
+      "category": "Data Interpretation",
+      "level": "L2",
+      "type": "bar-chart",
+      "data": "Water million L 2023→2024: Agriculture480→450; Industry180→210; Household120→150; Other60→75.",
+      "question": "If Other falls 20%, new total?",
+      "options": [
+        "875",
+        "880",
+        "885",
+        "870"
+      ],
+      "correct": 3,
+      "solution": "885−15=870.",
+      "section": "B",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.1-046",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Energy efficiency can reduce resource use without reducing services. Insulation, efficient appliances and sensible operating practices can cut waste. Small improvements can have a large combined effect across many buildings.",
+      "question": "What is the main point?",
+      "options": [
+        "Efficiency reduces comfort",
+        "Small measures can create large combined benefits",
+        "Only appliances matter",
+        "Demand is irrelevant"
+      ],
+      "correct": 1,
+      "solution": "The passage stresses cumulative benefits.",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.1-008",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Road widening can increase capacity, but extra private-vehicle trips may absorb it. Public transport, walking facilities and land-use planning can influence travel choices. Congestion policy should consider both infrastructure and demand.",
+      "question": "Which assumption supports the argument?",
+      "options": [
+        "Everyone prefers walking",
+        "Roads have no benefit",
+        "Congestion has one cause",
+        "Travel behaviour can respond to infrastructure"
+      ],
+      "correct": 3,
+      "solution": "The argument depends on infrastructure influencing travel choices.",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.1-034",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Urban parks provide shade, absorb some rainwater and support recreation. Their benefits depend on location, maintenance, accessibility and safety, not merely on the amount of green space.",
+      "question": "Which factor is NOT listed?",
+      "options": [
+        "Location",
+        "Export earnings",
+        "Maintenance",
+        "Accessibility"
+      ],
+      "correct": 1,
+      "solution": "Export earnings are not discussed.",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.1-037",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L1",
+      "type": "passage",
+      "passage": "A percentage can mislead if its denominator or comparison period is unclear. Readers should examine what was measured, how it was measured and the baseline. Graphs communicate trends but do not replace underlying data.",
+      "question": "Which statement is TRUE?",
+      "options": [
+        "A correct figure can still mislead",
+        "Every correct percentage is informative",
+        "Graphs make raw data unnecessary",
+        "Only researchers need statistical literacy"
+      ],
+      "correct": 0,
+      "solution": "A technically correct percentage can mislead without context.",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.1-032",
+      "unit": "3.1",
+      "category": "Comprehension",
+      "level": "L2",
+      "type": "passage",
+      "passage": "Urban parks provide shade, absorb some rainwater and support recreation. Their benefits depend on location, maintenance, accessibility and safety, not merely on the amount of green space.",
+      "question": "Why might a park be underused?",
+      "options": [
+        "It has trees",
+        "It provides shade",
+        "It has open space",
+        "It may be inaccessible or unsafe"
+      ],
+      "correct": 3,
+      "solution": "Accessibility and safety affect use.",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.2-058",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "derivative",
+      "question": "Choose the correct adjective form of “industry” in “an _____ process”.",
+      "options": [
+        "industry",
+        "industrious",
+        "industrialize",
+        "industrial"
+      ],
+      "correct": 3,
+      "solution": "“industrial” is the correct derived form required by the sentence.",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.2-037",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "antonym",
+      "question": "Choose the word opposite in meaning to “transparent”.",
+      "options": [
+        "visible",
+        "explicit",
+        "opaque",
+        "accessible"
+      ],
+      "correct": 2,
+      "solution": "“opaque” expresses the opposite meaning.",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.2-035",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "synonym",
+      "question": "Choose the word closest in meaning to “concise”.",
+      "options": [
+        "brief",
+        "complex",
+        "repetitive",
+        "ornate"
+      ],
+      "correct": 0,
+      "solution": "“brief” is the closest synonym in this context.",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.2-001",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "meaning",
+      "question": "In the sentence, “The minister’s remarks were deliberately measured,” what does “measured” mean?",
+      "options": [
+        "measured by a device",
+        "delivered very quickly",
+        "carefully controlled",
+        "emotionally exaggerated"
+      ],
+      "correct": 2,
+      "solution": "The context indicates that “carefully controlled” is the intended meaning.",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.2-018",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "one-word",
+      "question": "A place where aircraft are kept and maintained is a",
+      "options": [
+        "harbour",
+        "hostel",
+        "warehouse",
+        "hangar"
+      ],
+      "correct": 3,
+      "solution": "The standard one-word term is “hangar.”",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.2-009",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L1",
+      "type": "meaning",
+      "question": "In “The issue remains contentious,” what does “contentious” mean?",
+      "options": [
+        "easy to resolve",
+        "based on tradition",
+        "likely to cause disagreement",
+        "free from controversy"
+      ],
+      "correct": 2,
+      "solution": "The context indicates that “likely to cause disagreement” is the intended meaning.",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.2-061",
+      "unit": "3.2",
+      "category": "Vocabulary",
+      "level": "L2",
+      "type": "homophone/homonym",
+      "question": "Choose the correct word: The committee's decision was based on professional _____.",
+      "options": [
+        "advise",
+        "device",
+        "advice",
+        "advises"
+      ],
+      "correct": 2,
+      "solution": "“advice” is the noun meaning guidance; “advise” is the corresponding verb.",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.3-011",
+      "unit": "3.3",
+      "category": "Syntactic Ability",
+      "level": "L1",
+      "type": "parallelism",
+      "question": "The new policy aims to reduce costs, improve service and ___.",
+      "options": [
+        "increasing efficiency",
+        "increased efficiency",
+        "increase efficiency",
+        "efficiency increased"
+      ],
+      "correct": 2,
+      "solution": "The three coordinated verbs should be parallel: reduce, improve, increase.",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.3-006",
+      "unit": "3.3",
+      "category": "Syntactic Ability",
+      "level": "L2",
+      "type": "agreement",
+      "question": "The committee, together with its chairperson, ___ meeting tomorrow.",
+      "options": [
+        "are",
+        "is",
+        "were",
+        "have"
+      ],
+      "correct": 1,
+      "solution": "The main subject committee is singular; together with does not change the number.",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.3-005",
+      "unit": "3.3",
+      "category": "Syntactic Ability",
+      "level": "L1",
+      "type": "agreement",
+      "question": "Ten kilometres ___ a long distance to walk in the heat.",
+      "options": [
+        "is",
+        "are",
+        "were",
+        "have been"
+      ],
+      "correct": 0,
+      "solution": "A distance treated as one unit takes a singular verb.",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.3-003",
+      "unit": "3.3",
+      "category": "Syntactic Ability",
+      "level": "L2",
+      "type": "agreement",
+      "question": "A number of applicants ___ requested additional information.",
+      "options": [
+        "has",
+        "is",
+        "have",
+        "was"
+      ],
+      "correct": 2,
+      "solution": "A number of means several, so it takes a plural verb.",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.3-063",
+      "unit": "3.3",
+      "category": "Syntactic Ability",
+      "level": "L2",
+      "type": "parallelism",
+      "question": "The policy is intended to increase access, reduce inequality and ___ accountability.",
+      "options": [
+        "strengthening",
+        "strengthened",
+        "strengthen",
+        "to strengthening"
+      ],
+      "correct": 2,
+      "solution": "The infinitive-like coordination uses increase, reduce, strengthen.",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.3-002",
+      "unit": "3.3",
+      "category": "Syntactic Ability",
+      "level": "L1",
+      "type": "agreement",
+      "question": "The quality of these products ___ improved considerably.",
+      "options": [
+        "have",
+        "has",
+        "are",
+        "were"
+      ],
+      "correct": 1,
+      "solution": "The subject quality is singular, so has is correct.",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.3-018",
+      "unit": "3.3",
+      "category": "Syntactic Ability",
+      "level": "L2",
+      "type": "clause",
+      "question": "The reason ___ the project was delayed was lack of funding.",
+      "options": [
+        "because",
+        "why",
+        "for",
+        "that"
+      ],
+      "correct": 1,
+      "solution": "The standard construction is the reason why something happened.",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    },
+    {
+      "id": "bo-3.3-012",
+      "unit": "3.3",
+      "category": "Syntactic Ability",
+      "level": "L1",
+      "type": "parallelism",
+      "question": "The officer is responsible for planning, budgeting and ___.",
+      "options": [
+        "to supervise",
+        "supervision of",
+        "supervised",
+        "supervising"
+      ],
+      "correct": 3,
+      "solution": "The preposition for is followed by parallel gerunds: planning, budgeting, supervising.",
+      "section": "C",
+      "examIds": [
+        "sakha-adhikrit"
+      ]
+    }
+  ]
+}
