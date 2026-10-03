@@ -103,7 +103,7 @@
       "solution": "1,2,3,4 हुँदै बढ्छ।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-003.svg",
       "imageAlt": "आकृति संख्या — nasu-2.3-var-003",
-      "explanation": ""
+      "explanation": "त्रिभुजको संख्या १,२,३ हुँदै बढिरहेको छ। त्यसैले अर्को समूहमा ४ त्रिभुज हुन्छन्।"
     },
     {
       "id": "bo-1.2-nh-017",
@@ -202,7 +202,7 @@
         "आइतबार"
       ],
       "correct": 0,
-      "explanation": "",
+      "explanation": "साउन १ गते शुक्रबार भए ७ दिनपछि साउन ८ गते पनि शुक्रबार नै पर्छ।",
       "solution": ""
     },
     {
@@ -268,7 +268,7 @@
         "८"
       ],
       "correct": 0,
-      "explanation": "",
+      "explanation": "८ किमि उत्तर र ६ किमि पूर्वको विस्थापन समकोण त्रिभुज बनाउँछ। दूरी √(८²+६²)=√१००=१० किमि हुन्छ।",
       "solution": ""
     },
     {
@@ -292,7 +292,7 @@
       ],
       "correct": 3,
       "solution": "3/5=0.6; जम्मा 0.8।",
-      "explanation": ""
+      "explanation": "३/५ = ०.६ भएकाले ०.२+०.६=०.८ हुन्छ।"
     },
     {
       "id": "nasu-2.2-new-002",
@@ -344,7 +344,7 @@
       ],
       "correct": 1,
       "solution": "2.4/0.6=4।",
-      "explanation": ""
+      "explanation": "२.४÷०.६ = ४ हुन्छ।"
     },
     {
       "id": "bo-1.8-CUL-03",
@@ -583,7 +583,7 @@
       ],
       "correct": 0,
       "solution": "72/0.4=180।",
-      "explanation": ""
+      "explanation": "४०% = ०.४ भएकाले संख्या = ७२÷०.४ = १८०।"
     },
     {
       "id": "nasu-2.3-var-005",
@@ -608,7 +608,7 @@
       "solution": "आकृति पालैपालो र संख्या 1,1,2,2,3,3।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-005.svg",
       "imageAlt": "आकृति क्रम — nasu-2.3-var-005",
-      "explanation": ""
+      "explanation": "आकृति र संख्या पालैपालो दोहोरिन्छ: □,△; □□,△△; □□□, त्यसैले अर्को △△△ हो।"
     },
     {
       "id": "bo-1.5-environment-043",
@@ -904,7 +904,7 @@
         "20%"
       ],
       "correct": 2,
-      "explanation": "",
+      "explanation": "नाफा = ९२०−८०० = १२०। नाफा प्रतिशत = १२०÷८००×१०० = १५%।",
       "solution": ""
     },
     {
@@ -1000,7 +1000,7 @@
       "solution": "तेर्सो दर्पणमा दिशा उल्टिन्छ।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-006.svg",
       "imageAlt": "दर्पण — nasu-2.3-var-006",
-      "explanation": ""
+      "explanation": "दायाँतर्फको तीरको तेर्सो दर्पण प्रतिबिम्ब बायाँतर्फको तीर हुन्छ।"
     },
     {
       "id": "bo-2.2-tc-002",
@@ -1168,7 +1168,7 @@
         "२ दिन"
       ],
       "correct": 3,
-      "explanation": "",
+      "explanation": "३ जनाले ४ दिनमा गरेको काम = १२ व्यक्ति-दिन। ६ जनाले सोही काम गर्न १२÷६ = २ दिन लाग्छ।",
       "solution": ""
     },
     {
@@ -1228,7 +1228,7 @@
       ],
       "correct": 1,
       "solution": "A→E,D→H र K→O,N→Q; दुवै अक्षरमा +4।",
-      "explanation": ""
+      "explanation": "A→E र D→H जस्तै दुवै अक्षरमा +४ गर्दा K→O र N→R हुन्छ; त्यसैले OR सही हो।"
     },
     {
       "id": "bo-1.8-ECO-02",
@@ -1288,7 +1288,7 @@
       ],
       "correct": 2,
       "solution": "1.25×0.08=0.10।",
-      "explanation": ""
+      "explanation": "१.२५×०.०८ = ०.१० हुन्छ।"
     },
     {
       "id": "bo-1.1-l2-024",
@@ -1353,7 +1353,7 @@
         "कुनै निष्कर्ष निकाल्न सकिँदैन"
       ],
       "correct": 1,
-      "explanation": "",
+      "explanation": "सबै कर्मचारीले नियम पालना गर्नुपर्छ र सीता कर्मचारी हुन्। त्यसैले सीताले नियम पालना गर्नुपर्छ।",
       "solution": ""
     },
     {
@@ -1518,7 +1518,7 @@
       ],
       "correct": 3,
       "solution": "प्रत्येक अक्षर +1।",
-      "explanation": ""
+      "explanation": "NEPAL→OFQBM मा प्रत्येक अक्षर +1 भएकाले INDIA→JOEJB हुन्छ।"
     },
     {
       "id": "nasu-2.1-new-001",
@@ -1546,7 +1546,7 @@
         "54"
       ],
       "correct": 0,
-      "explanation": "",
+      "explanation": "क्रममा प्रत्येक संख्या अघिल्लो संख्याको २ गुणा छ: ३→६→१२→२४। त्यसैले अर्को संख्या ४८ हो।",
       "solution": ""
     },
     {
