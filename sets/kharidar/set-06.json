@@ -108,7 +108,7 @@
       ],
       "correct": 2,
       "explanation": "तराईको समथर भूभाग र तुलनात्मक रूपमा अनुकूल भौगोलिक अवस्थाले कृषि तथा घना बसोबासमा योगदान गरेको छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -144,7 +144,7 @@
       ],
       "correct": 2,
       "explanation": "Rub al Khali अरब प्रायद्वीपको दक्षिणी भागमा फैलिएको विशाल बालुवामय मरुभूमि क्षेत्र हो।",
-      "solution": "सही उत्तर: A — अरब प्रायद्वीप।",
+      "solution": "सही उत्तर: C — अरब प्रायद्वीप।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -180,7 +180,7 @@
       ],
       "correct": 3,
       "explanation": "ग्रेट भिक्टोरिया मरुभूमि अष्ट्रेलियाको ठूलो आन्तरिक शुष्क क्षेत्रमा पर्छ।",
-      "solution": "सही उत्तर: A — अष्ट्रेलिया।",
+      "solution": "सही उत्तर: D — अष्ट्रेलिया।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -217,7 +217,7 @@
       ],
       "correct": 3,
       "explanation": "Gulf Stream न्यानो समुद्री धाराको रूपमा उत्तर एटलान्टिक क्षेत्रको जलवायुमा प्रभाव पार्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -290,7 +290,7 @@
       ],
       "correct": 3,
       "explanation": "James Watt लगायतका सुधारहरूले वाष्पशक्तिको व्यावहारिक उपयोग विस्तार गर्न योगदान गरे, जसले उद्योग र यातायातमा परिवर्तन ल्यायो।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -326,7 +326,7 @@
       ],
       "correct": 2,
       "explanation": "सोभियत संघले 1957 मा Sputnik 1 प्रक्षेपण गर्‍यो।",
-      "solution": "सही उत्तर: B — सोभियत संघ।",
+      "solution": "सही उत्तर: C — सोभियत संघ।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -398,7 +398,7 @@
       ],
       "correct": 3,
       "explanation": "२००७, २०४६ र २०६२/६३ पछिका राजनीतिक परिवर्तनसँग क्रमशः शासन प्रणाली र संवैधानिक संरचनामा महत्वपूर्ण परिवर्तनहरू जोडिएका छन्।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -543,7 +543,7 @@
       ],
       "correct": 2,
       "explanation": "सार्वजनिक सुनुवाइ नागरिक प्रतिक्रिया, पारदर्शिता र उत्तरदायित्व बढाउने सहभागितामूलक माध्यम हो।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -572,7 +572,7 @@
         "७.१ प्रतिशत"
       ],
       "correct": 2,
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -584,7 +584,8 @@
           "unit": "1.7",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.4.1-ind-001",
@@ -637,7 +638,7 @@
         "सहायता अनुदान पनि हुन सक्छ; ऋण फिर्ता गर्नुपर्ने दायित्व हुन्छ"
       ],
       "correct": 3,
-      "solution": "सही उत्तर: B।",
+      "solution": "सही उत्तर: D।",
       "examIds": [
         "sakha-adhikrit",
         "kharidar",
@@ -654,7 +655,8 @@
           "unit": "1.7",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-3-020",
@@ -688,7 +690,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-2-003",
@@ -722,7 +725,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-2-034",
@@ -756,7 +760,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-025",
@@ -790,7 +795,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-003",
@@ -824,7 +830,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-1-060",
@@ -858,7 +865,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.8-SOC-06",
@@ -893,7 +901,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-MUS-05",
@@ -928,7 +938,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-CUL-06",
@@ -1000,7 +1012,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-SCI-02",
@@ -1035,7 +1049,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-AWD-02",
@@ -1070,7 +1086,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "kharidar-b1-new-2",
@@ -1146,7 +1164,8 @@
         "90"
       ],
       "correct": 2,
-      "solution": "हरेक पटक ×2।"
+      "solution": "हरेक पटक ×2।",
+      "explanation": ""
     },
     {
       "id": "kh-b2-pict-004",
@@ -1170,7 +1189,8 @@
       "correct": 1,
       "solution": "वर्ग र त्रिभुज पालैपालो छन्; अर्को वर्ग हो।",
       "image": "/image/exam/branch-officer-2.2/bo-2.2-008.png",
-      "imageAlt": "आकृति क्रम"
+      "imageAlt": "आकृति क्रम",
+      "explanation": ""
     },
     {
       "id": "kharidar-b3-new-2",
@@ -1221,7 +1241,8 @@
         "CEG"
       ],
       "correct": 0,
-      "solution": "पहिला तीनमा +2; DFI मा F→I +3।"
+      "solution": "पहिला तीनमा +2; DFI मा F→I +3।",
+      "explanation": ""
     },
     {
       "id": "kharidar-b4-new-2",
@@ -1272,7 +1293,8 @@
         "56"
       ],
       "correct": 2,
-      "solution": "संख्याको वर्ग।"
+      "solution": "संख्याको वर्ग।",
+      "explanation": ""
     },
     {
       "id": "kharidar-b5-new-2",
@@ -1406,7 +1428,8 @@
         "7/8"
       ],
       "correct": 3,
-      "solution": "6/8+1/8=7/8।"
+      "solution": "6/8+1/8=7/8।",
+      "explanation": ""
     },
     {
       "id": "kharidar-b7-new-1",
@@ -1486,7 +1509,8 @@
         "DBT"
       ],
       "correct": 1,
-      "solution": "हरेक अक्षर +1।"
+      "solution": "हरेक अक्षर +1।",
+      "explanation": ""
     },
     {
       "id": "khd-B9-001",
@@ -1508,7 +1532,8 @@
         "P-Q-R-S"
       ],
       "correct": 3,
-      "solution": "दुवै शर्त पूरा।"
+      "solution": "दुवै शर्त पूरा।",
+      "explanation": ""
     },
     {
       "id": "kh-b9-pict-001",
@@ -1533,7 +1558,8 @@
       "solution": "४ वटा साना त्रिभुज र बीचमा बनेको १ उल्टो त्रिभुज गरी जम्मा ५ त्रिभुज छन्।",
       "figure": "triangle-grid-2",
       "image": "/image/exam/branch-officer-2.2/triangle-grid-2.svg",
-      "imageAlt": "दुई तहको त्रिभुज जालो"
+      "imageAlt": "दुई तहको त्रिभुज जालो",
+      "explanation": ""
     },
     {
       "id": "khd-B10-001",
