@@ -34,7 +34,7 @@
       ],
       "correct": 0,
       "explanation": "U-shaped valley हिमनदीय क्षरणसँग सम्बन्धित भू-आकृति हो; मरुभूमिको हावाले मात्र बनाउँदैन।",
-      "solution": "सही उत्तर: D।",
+      "solution": "सही उत्तर: A।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -145,7 +145,7 @@
       ],
       "correct": 0,
       "explanation": "डेन्युब युरोपको प्रमुख नदी हो र अमेजन दक्षिण अमेरिकाको प्रमुख नदी हो।",
-      "solution": "सही उत्तर: B।",
+      "solution": "सही उत्तर: A।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -181,7 +181,7 @@
       ],
       "correct": 1,
       "explanation": "जिब्राल्टर जलडमरूमध्यले भूमध्यसागरलाई अटलान्टिक महासागरसँग जोड्छ।",
-      "solution": "सही उत्तर: A — भूमध्यसागर र अटलान्टिक महासागर।",
+      "solution": "सही उत्तर: B — भूमध्यसागर र अटलान्टिक महासागर।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -291,7 +291,7 @@
       ],
       "correct": 2,
       "explanation": "तीनै घटनाका प्रमुख राजनीतिक परिणामहरू यही क्रमसँग मेल खान्छन्।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -363,7 +363,7 @@
       ],
       "correct": 1,
       "explanation": "राई समुदायको मौखिक ज्ञान तथा अनुष्ठानिक परम्परासँग मुन्दुम जोडिन्छ।",
-      "solution": "सही उत्तर: D — मुन्दुम।",
+      "solution": "सही उत्तर: B — मुन्दुम।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -399,7 +399,7 @@
       ],
       "correct": 3,
       "explanation": "मल्लकालको उत्तरार्धमा काठमाडौं उपत्यकाका काठमाडौं, पाटन र भक्तपुर प्रमुख मल्ल राज्य थिए।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -435,7 +435,7 @@
       ],
       "correct": 1,
       "explanation": "नेपोलियनले 1804 मा आफूलाई फ्रान्सको सम्राट घोषणा गरे।",
-      "solution": "सही उत्तर: C — 1804।",
+      "solution": "सही उत्तर: B — 1804।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -509,7 +509,7 @@
       ],
       "correct": 3,
       "explanation": "Bridges remove network bottlenecks and improve connectivity. ",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -538,7 +538,7 @@
         "व्यापार सन्तुलन बचतमा हुनु"
       ],
       "correct": 0,
-      "solution": "सही उत्तर: C।",
+      "solution": "सही उत्तर: A।",
       "examIds": [
         "sakha-adhikrit",
         "kharidar",
@@ -555,7 +555,8 @@
           "unit": "1.7",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.4.3-global-012",
@@ -572,7 +573,7 @@
         "आयात–निर्यात बन्द गर्नु"
       ],
       "correct": 1,
-      "solution": "सही उत्तर: D।",
+      "solution": "सही उत्तर: B।",
       "examIds": [
         "sakha-adhikrit",
         "kharidar",
@@ -589,7 +590,8 @@
           "unit": "1.7",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.3-gov-b-020",
@@ -612,7 +614,7 @@
       ],
       "correct": 1,
       "explanation": "सार्वजनिक प्रशासनले सरकारी नीति तथा कानून कार्यान्वयन गर्दै सार्वजनिक सेवा प्रवाहमा महत्वपूर्ण भूमिका खेल्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -636,7 +638,7 @@
         "निर्यात वस्तु र बजारको दायरा फराकिलो बनाउनु"
       ],
       "correct": 3,
-      "solution": "सही उत्तर: B।",
+      "solution": "सही उत्तर: D।",
       "examIds": [
         "sakha-adhikrit",
         "kharidar",
@@ -653,7 +655,8 @@
           "unit": "1.7",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-013",
@@ -687,7 +690,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-3-050",
@@ -721,7 +725,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-1-032",
@@ -755,7 +760,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-2-027",
@@ -789,7 +795,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-1-012",
@@ -823,7 +830,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-2-022",
@@ -857,7 +865,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "1.7.2-015",
@@ -890,7 +899,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.8-SOC-02",
@@ -925,7 +935,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-ART-03",
@@ -960,7 +972,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-ECO-07",
@@ -995,7 +1009,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-BOK-05",
@@ -1030,7 +1046,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "1.7.1-047",
@@ -1063,7 +1081,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "kharidar-b1-new-1",
@@ -1141,7 +1160,8 @@
       "correct": 0,
       "solution": "चार आकृतिको चक्रपछि पहिलो आकृति अर्थात् हीरा आउँछ।",
       "image": "/image/exam/branch-officer-2.2/bo-2.2-005.png",
-      "imageAlt": "आकृति क्रम"
+      "imageAlt": "आकृति क्रम",
+      "explanation": ""
     },
     {
       "id": "kh-b2-pict-004",
@@ -1165,7 +1185,8 @@
       "correct": 1,
       "solution": "वर्ग र त्रिभुज पालैपालो छन्; अर्को वर्ग हो।",
       "image": "/image/exam/branch-officer-2.2/bo-2.2-008.png",
-      "imageAlt": "आकृति क्रम"
+      "imageAlt": "आकृति क्रम",
+      "explanation": ""
     },
     {
       "id": "khd-B3-002",
@@ -1187,7 +1208,8 @@
         "CEG"
       ],
       "correct": 0,
-      "solution": "पहिला तीनमा +2; DFI मा F→I +3।"
+      "solution": "पहिला तीनमा +2; DFI मा F→I +3।",
+      "explanation": ""
     },
     {
       "id": "kharidar-b3-new-2",
@@ -1238,7 +1260,8 @@
         "56"
       ],
       "correct": 2,
-      "solution": "संख्याको वर्ग।"
+      "solution": "संख्याको वर्ग।",
+      "explanation": ""
     },
     {
       "id": "kharidar-b4-new-2",
@@ -1318,7 +1341,8 @@
         "104"
       ],
       "correct": 3,
-      "solution": "बढ्दो क्रममा 104।"
+      "solution": "बढ्दो क्रममा 104।",
+      "explanation": ""
     },
     {
       "id": "khd-B6-001",
@@ -1477,7 +1501,8 @@
         "DBT"
       ],
       "correct": 1,
-      "solution": "हरेक अक्षर +1।"
+      "solution": "हरेक अक्षर +1।",
+      "explanation": ""
     },
     {
       "id": "kharidar-b9-new-1",
@@ -1532,7 +1557,8 @@
       "solution": "३ तहको मानक त्रिभुज जालोमा सबै आकार र दिशाका त्रिभुजको कुल संख्या १३ हुन्छ।",
       "figure": "triangle-grid-3",
       "image": "/image/exam/branch-officer-2.2/triangle-grid-3.svg",
-      "imageAlt": "तीन तहको त्रिभुज जालो"
+      "imageAlt": "तीन तहको त्रिभुज जालो",
+      "explanation": ""
     },
     {
       "id": "khd-B10-001",
