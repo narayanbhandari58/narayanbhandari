@@ -34,7 +34,7 @@
       ],
       "correct": 3,
       "explanation": "पृथ्वी पश्चिमबाट पूर्वतर्फ घुम्ने भएकाले पूर्वतर्फका स्थानमा स्थानीय समय तुलनात्मक रूपमा अगाडि हुन्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -70,7 +70,7 @@
       ],
       "correct": 1,
       "explanation": "भारतीय प्लेटको उत्तरतर्फको गति र युरेसियाली प्लेटसँगको टक्कर हिमालय निर्माणको प्रमुख भूगर्भीय कारण हो।",
-      "solution": "सही उत्तर: A — भारतीय र युरेसियाली।",
+      "solution": "सही उत्तर: B — भारतीय र युरेसियाली।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -143,7 +143,7 @@
       ],
       "correct": 2,
       "explanation": "आकर्षण, पहुँच, पूर्वाधार र सेवा-सुविधा पर्यटनको भौगोलिक विकाससँग सम्बन्धित हुन्छन्।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -253,7 +253,7 @@
       ],
       "correct": 1,
       "explanation": "दराई समुदायको बसोबास मध्य तराई तथा नदी आसपासका क्षेत्रमा पाइन्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -289,7 +289,7 @@
       ],
       "correct": 3,
       "explanation": "गुठीले नेवार समाजमा धार्मिक, सामाजिक र सांस्कृतिक गतिविधिमा महत्वपूर्ण भूमिका खेल्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -361,7 +361,7 @@
       ],
       "correct": 2,
       "explanation": "थोमस जेफरसन घोषणापत्रको प्रमुख लेखक थिए।",
-      "solution": "सही उत्तर: A — थोमस जेफरसन।",
+      "solution": "सही उत्तर: C — थोमस जेफरसन।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -397,7 +397,7 @@
       ],
       "correct": 3,
       "explanation": "इतिहासको पुनर्निर्माणमा अभिलेख, सिक्का, पुरातात्त्विक सामग्री र वंशावलीजस्ता स्रोतले प्रमाण उपलब्ध गराउँछन्।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -434,7 +434,7 @@
       ],
       "correct": 1,
       "explanation": "जर्मनीको पोल्याण्डमाथिको आक्रमणपछि 1939 मा बेलायत र फ्रान्सले जर्मनीविरुद्ध युद्ध घोषणा गरे।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -506,7 +506,7 @@
       ],
       "correct": 2,
       "explanation": "Digital infrastructure ultimately depends on reliable power. ",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -541,7 +541,7 @@
       ],
       "correct": 1,
       "explanation": "नेपालको संविधान २०७२ असोज ३ गते जारी भएको हो।",
-      "solution": "सही उत्तर: A — २०७२ असोज ३।",
+      "solution": "सही उत्तर: B — २०७२ असोज ३।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -571,7 +571,7 @@
       ],
       "correct": 2,
       "explanation": "सार्वजनिक सुनुवाइ नागरिक प्रतिक्रिया, पारदर्शिता र उत्तरदायित्व बढाउने सहभागितामूलक माध्यम हो।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -633,7 +633,7 @@
         "सहायता अनुदान पनि हुन सक्छ; ऋण फिर्ता गर्नुपर्ने दायित्व हुन्छ"
       ],
       "correct": 3,
-      "solution": "सही उत्तर: B।",
+      "solution": "सही उत्तर: D।",
       "examIds": [
         "sakha-adhikrit",
         "kharidar",
@@ -650,7 +650,8 @@
           "unit": "1.7",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-2-059",
@@ -684,7 +685,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-3-059",
@@ -718,7 +720,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-2-011",
@@ -752,7 +755,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-2-010",
@@ -786,7 +790,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-003",
@@ -820,7 +825,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-2-043",
@@ -854,7 +860,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "1.7.2-055",
@@ -887,7 +894,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.8-MUS-08",
@@ -922,7 +930,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "1.7.2-001",
@@ -955,7 +965,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.8-LIT-06",
@@ -990,7 +1001,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-SOC-08",
@@ -1025,7 +1038,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "1.7.2-017",
@@ -1058,7 +1073,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "kharidar-b1-new-2",
@@ -1136,7 +1152,8 @@
       "correct": 0,
       "solution": "चार आकृतिको चक्रपछि पहिलो आकृति अर्थात् हीरा आउँछ।",
       "image": "/image/exam/branch-officer-2.2/bo-2.2-005.png",
-      "imageAlt": "आकृति क्रम"
+      "imageAlt": "आकृति क्रम",
+      "explanation": ""
     },
     {
       "id": "khd-B2-002",
@@ -1158,7 +1175,8 @@
         "90"
       ],
       "correct": 2,
-      "solution": "हरेक पटक ×2।"
+      "solution": "हरेक पटक ×2।",
+      "explanation": ""
     },
     {
       "id": "khd-B3-002",
@@ -1180,7 +1198,8 @@
         "CEG"
       ],
       "correct": 0,
-      "solution": "पहिला तीनमा +2; DFI मा F→I +3।"
+      "solution": "पहिला तीनमा +2; DFI मा F→I +3।",
+      "explanation": ""
     },
     {
       "id": "kharidar-b3-new-2",
@@ -1260,7 +1279,8 @@
         "56"
       ],
       "correct": 2,
-      "solution": "संख्याको वर्ग।"
+      "solution": "संख्याको वर्ग।",
+      "explanation": ""
     },
     {
       "id": "khd-B5-002",
@@ -1282,7 +1302,8 @@
         "A-27"
       ],
       "correct": 0,
-      "solution": "संख्या +3।"
+      "solution": "संख्या +3।",
+      "explanation": ""
     },
     {
       "id": "kharidar-b5-new-1",
@@ -1470,7 +1491,8 @@
         "DBT"
       ],
       "correct": 1,
-      "solution": "हरेक अक्षर +1।"
+      "solution": "हरेक अक्षर +1।",
+      "explanation": ""
     },
     {
       "id": "kh-b9-pict-002",
@@ -1495,7 +1517,8 @@
       "solution": "३ तहको मानक त्रिभुज जालोमा सबै आकार र दिशाका त्रिभुजको कुल संख्या १३ हुन्छ।",
       "figure": "triangle-grid-3",
       "image": "/image/exam/branch-officer-2.2/triangle-grid-3.svg",
-      "imageAlt": "तीन तहको त्रिभुज जालो"
+      "imageAlt": "तीन तहको त्रिभुज जालो",
+      "explanation": ""
     },
     {
       "id": "kharidar-b9-new-1",
