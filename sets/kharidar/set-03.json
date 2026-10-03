@@ -70,7 +70,7 @@
       ],
       "correct": 1,
       "explanation": "भूपर्पटीमुनि फैलिएको बाक्लो चट्टानी तहलाई म्यान्टल भनिन्छ।",
-      "solution": "सही उत्तर: A — म्यान्टल।",
+      "solution": "सही उत्तर: B — म्यान्टल।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -107,7 +107,7 @@
       ],
       "correct": 1,
       "explanation": "पर्वतले आर्द्र हावालाई माथि उठाउन र पवनविमुखी भागमा तुलनात्मक सुख्खा rain shadow बनाउन सक्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -180,7 +180,7 @@
       ],
       "correct": 3,
       "explanation": "चुनढुंगा पानीमा घुलनशील भएकाले कार्स्ट स्थलरूप, गुफा र भूमिगत जल प्रणाली निर्माणमा महत्त्वपूर्ण हुन्छ।",
-      "solution": "सही उत्तर: A — चुनढुंगा।",
+      "solution": "सही उत्तर: D — चुनढुंगा।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -216,7 +216,7 @@
       ],
       "correct": 1,
       "explanation": "भारतीय प्लेटको उत्तरतर्फको गति र युरेसियाली प्लेटसँगको टक्कर हिमालय निर्माणको प्रमुख भूगर्भीय कारण हो।",
-      "solution": "सही उत्तर: A — भारतीय र युरेसियाली।",
+      "solution": "सही उत्तर: B — भारतीय र युरेसियाली।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -252,7 +252,7 @@
       ],
       "correct": 0,
       "explanation": "NFDIN को दनुवारसम्बन्धी विवरणमा जातिजन्य भाषा बोल्नेको संख्या ४९,९९२ उल्लेख छ।",
-      "solution": "सही उत्तर: B — ४९,९९२।",
+      "solution": "सही उत्तर: A — ४९,९९२।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -324,7 +324,7 @@
       ],
       "correct": 3,
       "explanation": "प्रतिष्ठान ऐनको परिभाषामा मातृभाषा, परम्परागत रीतिरिवाज, विशिष्ट सांस्कृतिक पहिचान, सामाजिक संरचना र लिखित वा अलिखित इतिहासलाई आधार मानिएको छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -396,7 +396,7 @@
       ],
       "correct": 1,
       "explanation": "कानुनी परिभाषाले मातृभाषा, रीतिरिवाज, विशिष्ट सांस्कृतिक पहिचान, सामाजिक संरचना र इतिहासजस्ता पक्षलाई समेट्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -432,7 +432,7 @@
       ],
       "correct": 3,
       "explanation": "पञ्चायतविरोधी आन्दोलनले बहुदलीय लोकतान्त्रिक राजनीतिक व्यवस्थाको पुनःस्थापनालाई प्रमुख लक्ष्य बनाएको थियो।",
-      "solution": "सही उत्तर: A — बहुदलीय लोकतान्त्रिक व्यवस्था पुनःस्थापना।",
+      "solution": "सही उत्तर: D — बहुदलीय लोकतान्त्रिक व्यवस्था पुनःस्थापना।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -468,7 +468,7 @@
       ],
       "correct": 2,
       "explanation": "विश्वसनीय तथ्याङ्कले कार्यक्रम लक्ष्यीकरण, स्रोत विनियोजन र परिणाम मूल्याङ्कन सुधार्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -572,7 +572,7 @@
       ],
       "correct": 2,
       "explanation": "Power reliability is an important operating condition for firms. ",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -608,7 +608,7 @@
       ],
       "correct": 1,
       "explanation": "Quality infrastructure supports market access and consumer confidence. ",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -684,7 +684,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-001",
@@ -718,7 +719,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-045",
@@ -752,7 +754,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-3-034",
@@ -786,7 +789,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-1-026",
@@ -820,7 +824,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-3-039",
@@ -854,7 +859,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.8-CUL-01",
@@ -889,7 +895,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-OTH-03",
@@ -924,7 +932,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-CUL-05",
@@ -959,7 +969,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "1.7.2-007",
@@ -992,7 +1004,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.8-CUL-07",
@@ -1027,7 +1040,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-ECO-01",
@@ -1062,7 +1077,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "khd-B1-002",
@@ -1140,7 +1157,8 @@
       "correct": 1,
       "solution": "वर्ग र त्रिभुज पालैपालो छन्; अर्को वर्ग हो।",
       "image": "/image/exam/branch-officer-2.2/bo-2.2-008.png",
-      "imageAlt": "आकृति क्रम"
+      "imageAlt": "आकृति क्रम",
+      "explanation": ""
     },
     {
       "id": "khd-B2-002",
@@ -1162,7 +1180,8 @@
         "90"
       ],
       "correct": 2,
-      "solution": "हरेक पटक ×2।"
+      "solution": "हरेक पटक ×2।",
+      "explanation": ""
     },
     {
       "id": "khd-B3-002",
@@ -1184,7 +1203,8 @@
         "CEG"
       ],
       "correct": 0,
-      "solution": "पहिला तीनमा +2; DFI मा F→I +3।"
+      "solution": "पहिला तीनमा +2; DFI मा F→I +3।",
+      "explanation": ""
     },
     {
       "id": "kharidar-b3-new-2",
@@ -1264,7 +1284,8 @@
         "56"
       ],
       "correct": 2,
-      "solution": "संख्याको वर्ग।"
+      "solution": "संख्याको वर्ग।",
+      "explanation": ""
     },
     {
       "id": "kharidar-b5-new-2",
@@ -1315,7 +1336,8 @@
         "104"
       ],
       "correct": 3,
-      "solution": "बढ्दो क्रममा 104।"
+      "solution": "बढ्दो क्रममा 104।",
+      "explanation": ""
     },
     {
       "id": "kharidar-b6-new-1",
@@ -1416,7 +1438,8 @@
         "7/8"
       ],
       "correct": 3,
-      "solution": "6/8+1/8=7/8।"
+      "solution": "6/8+1/8=7/8।",
+      "explanation": ""
     },
     {
       "id": "khd-B8-001",
@@ -1438,7 +1461,8 @@
         "DBT"
       ],
       "correct": 1,
-      "solution": "हरेक अक्षर +1।"
+      "solution": "हरेक अक्षर +1।",
+      "explanation": ""
     },
     {
       "id": "kharidar-b8-new-1",
@@ -1492,7 +1516,8 @@
       "solution": "४ वटा साना त्रिभुज र बीचमा बनेको १ उल्टो त्रिभुज गरी जम्मा ५ त्रिभुज छन्।",
       "figure": "triangle-grid-2",
       "image": "/image/exam/branch-officer-2.2/triangle-grid-2.svg",
-      "imageAlt": "दुई तहको त्रिभुज जालो"
+      "imageAlt": "दुई तहको त्रिभुज जालो",
+      "explanation": ""
     },
     {
       "id": "kharidar-b9-new-1",
