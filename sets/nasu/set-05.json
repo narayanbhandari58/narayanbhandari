@@ -101,7 +101,7 @@
       ],
       "correct": 2,
       "explanation": "आकर्षण, पहुँच, पूर्वाधार र सेवा-सुविधा पर्यटनको भौगोलिक विकाससँग सम्बन्धित हुन्छन्।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -137,7 +137,7 @@
       ],
       "correct": 1,
       "explanation": "भारतीय प्लेटको उत्तरतर्फको गति र युरेसियाली प्लेटसँगको टक्कर हिमालय निर्माणको प्रमुख भूगर्भीय कारण हो।",
-      "solution": "सही उत्तर: A — भारतीय र युरेसियाली।",
+      "solution": "सही उत्तर: B — भारतीय र युरेसियाली।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -174,7 +174,7 @@
       ],
       "correct": 1,
       "explanation": "नेपालमा उचाइ, भू-आकृति र जलवायुका आधारमा हिमाल, पहाड र तराईका प्रमुख भौगोलिक क्षेत्र देखिन्छन्।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -248,7 +248,7 @@
       ],
       "correct": 2,
       "explanation": "कोशी नेपालको प्रमुख नदी प्रणालीमध्ये एक हो र पूर्वी नेपालसँग सम्बन्धित छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -285,7 +285,7 @@
       ],
       "correct": 2,
       "explanation": "NATO 1949 मा पश्चिमी पक्षको सामूहिक सुरक्षा गठबन्धनका रूपमा स्थापित भयो।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -394,7 +394,7 @@
       ],
       "correct": 1,
       "explanation": "२००७ सालको राजनीतिक परिवर्तनपछि राणा शासनको अन्त्य भई प्रजातान्त्रिक व्यवस्था सुरु भयो।",
-      "solution": "सही उत्तर: A — प्रजातान्त्रिक व्यवस्था।",
+      "solution": "सही उत्तर: B — प्रजातान्त्रिक व्यवस्था।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -430,7 +430,7 @@
       ],
       "correct": 1,
       "explanation": "२०४६ सालको जनआन्दोलनपछि पञ्चायती व्यवस्था अन्त्य भई बहुदलीय लोकतन्त्र पुनःस्थापित भएको थियो।",
-      "solution": "सही उत्तर: D — २०४६ सालपछि पञ्चायती व्यवस्था पुनःस्थापित भएको कथन गलत हो।",
+      "solution": "सही उत्तर: B — २०४६ सालपछि पञ्चायती व्यवस्था पुनःस्थापित भएको कथन गलत हो।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -466,7 +466,7 @@
       ],
       "correct": 3,
       "explanation": "माझी समुदायको परम्परागत जीवन नदी, डुंगा र माछा मार्ने पेशासँग जोडिन्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -502,7 +502,7 @@
       ],
       "correct": 1,
       "explanation": "सेसिल रोड्स दक्षिणी अफ्रिकामा बेलायती साम्राज्य विस्तारसँग सम्बन्धित थिए।",
-      "solution": "सही उत्तर: A — सेसिल रोड्स।",
+      "solution": "सही उत्तर: B — सेसिल रोड्स।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -536,7 +536,7 @@
         "७.१ प्रतिशत"
       ],
       "correct": 2,
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -548,7 +548,8 @@
           "unit": "1.7",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.4.1-trade-002",
@@ -572,7 +573,7 @@
       ],
       "correct": 3,
       "explanation": "प्रतिस्पर्धी निर्यातले विदेशी मुद्रा, उत्पादन, लगानी र रोजगारीमा योगदान गर्न सक्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -608,7 +609,7 @@
       ],
       "correct": 1,
       "explanation": "Health is a component of human capital. ",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -654,7 +655,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-1-034",
@@ -688,7 +690,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-2-045",
@@ -722,7 +725,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-043",
@@ -756,7 +760,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-038",
@@ -790,7 +795,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-026",
@@ -824,7 +830,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "1.7.2-037",
@@ -857,7 +864,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.7-002",
@@ -892,7 +900,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.8-OTH-09",
@@ -927,7 +936,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-POL-10",
@@ -962,7 +973,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-ECO-10",
@@ -997,7 +1010,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-POL-01",
@@ -1032,7 +1047,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-MUS-03",
@@ -1067,7 +1084,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-var-002",
@@ -1089,7 +1108,8 @@
         "A"
       ],
       "correct": 3,
-      "solution": "+3,+4,+5,+6,+7; T+7=27 अर्थात् A।"
+      "solution": "+3,+4,+5,+6,+7; T+7=27 अर्थात् A।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-var-009",
@@ -1111,7 +1131,8 @@
         "M"
       ],
       "correct": 2,
-      "solution": "हरेक पटक +3; K।"
+      "solution": "हरेक पटक +3; K।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-var-001",
@@ -1133,7 +1154,8 @@
         "W"
       ],
       "correct": 2,
-      "solution": "+3,+4,+5,+6,+7; S+7=Z।"
+      "solution": "+3,+4,+5,+6,+7; S+7=Z।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-var-005",
@@ -1155,7 +1177,8 @@
         "FOH"
       ],
       "correct": 2,
-      "solution": "प्रत्येक अक्षर +1।"
+      "solution": "प्रत्येक अक्षर +1।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-new-006",
@@ -1235,7 +1258,8 @@
         "55"
       ],
       "correct": 2,
-      "solution": "250×18/100=45।"
+      "solution": "250×18/100=45।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-new-004",
@@ -1286,7 +1310,8 @@
         "0.15"
       ],
       "correct": 2,
-      "solution": "1.25×0.08=0.10।"
+      "solution": "1.25×0.08=0.10।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-new-008",
@@ -1337,7 +1362,8 @@
         "Rs.750"
       ],
       "correct": 0,
-      "solution": "छुट 100; बिक्री मूल्य 700।"
+      "solution": "छुट 100; बिक्री मूल्य 700।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-new-005",
@@ -1449,7 +1475,8 @@
       "correct": 3,
       "solution": "1,2,3,4 हुँदै बढ्छ।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-003.svg",
-      "imageAlt": "आकृति संख्या — nasu-2.3-var-003"
+      "imageAlt": "आकृति संख्या — nasu-2.3-var-003",
+      "explanation": ""
     },
     {
       "id": "bo-2.2-005",
@@ -1481,7 +1508,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-2.2-tc-002",
@@ -1513,7 +1541,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-2.2-003",
@@ -1545,7 +1574,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-2.2-002",
@@ -1577,7 +1607,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-005",
@@ -1601,7 +1632,8 @@
       "correct": 1,
       "solution": "आकृति पालैपालो र संख्या 1,1,2,2,3,3।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-005.svg",
-      "imageAlt": "आकृति क्रम — nasu-2.3-var-005"
+      "imageAlt": "आकृति क्रम — nasu-2.3-var-005",
+      "explanation": ""
     }
   ]
 }
