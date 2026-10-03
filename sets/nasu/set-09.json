@@ -62,7 +62,7 @@
       ],
       "correct": 1,
       "explanation": "पृथ्वीको अक्ष झुकेको अवस्था र सूर्य वरिपरिको परिक्रमणका कारण विभिन्न समयमा सूर्यका किरण पर्ने कोण र दिनको लम्बाइ फरक हुन्छ।",
-      "solution": "सही उत्तर: A — पृथ्वीको अक्षको झुकाव र सूर्य वरिपरिको परिक्रमण।",
+      "solution": "सही उत्तर: B — पृथ्वीको अक्षको झुकाव र सूर्य वरिपरिको परिक्रमण।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -101,7 +101,7 @@
       ],
       "correct": 3,
       "explanation": "Foehn आल्प्स क्षेत्रमा पहाडको पवनमुखी/पवनविमुखी प्रभावसँग सम्बन्धित न्यानो र सुख्खा हावा हो।",
-      "solution": "सही उत्तर: B — Foehn — आल्प्स क्षेत्रमा पाइने न्यानो, सुख्खा हावा।",
+      "solution": "सही उत्तर: D — Foehn — आल्प्स क्षेत्रमा पाइने न्यानो, सुख्खा हावा।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -206,7 +206,7 @@
       ],
       "correct": 2,
       "explanation": "तराईको समथर भूभाग र तुलनात्मक रूपमा अनुकूल भौगोलिक अवस्थाले कृषि तथा घना बसोबासमा योगदान गरेको छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -243,7 +243,7 @@
       ],
       "correct": 2,
       "explanation": "नेपालको हिमाली क्षेत्र उच्च उचाइ, हिमाच्छादित पर्वत र विशिष्ट हिमाली भू-दृश्यसँग सम्बन्धित छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -280,7 +280,7 @@
       ],
       "correct": 0,
       "explanation": "प्रथम विश्वयुद्धपछि जर्मन, अस्ट्रो-हंगेरी, रुसी र ओटोमन साम्राज्यलगायतमा ठूलो राजनीतिक परिवर्तन भयो।",
-      "solution": "सही उत्तर: D।",
+      "solution": "सही उत्तर: A।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -352,7 +352,7 @@
       ],
       "correct": 3,
       "explanation": "मल्लकालको उत्तरार्धमा काठमाडौं उपत्यकाका काठमाडौं, पाटन र भक्तपुर प्रमुख मल्ल राज्य थिए।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -388,7 +388,7 @@
       ],
       "correct": 2,
       "explanation": "नेवार समुदायलाई नेपालभाषाले भाषिक रूपमा जोडेको छ।",
-      "solution": "सही उत्तर: A — नेपालभाषा।",
+      "solution": "सही उत्तर: C — नेपालभाषा।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -532,7 +532,7 @@
       ],
       "correct": 1,
       "explanation": "Connectivity improves information access, safety and transaction efficiency. ",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -606,7 +606,7 @@
       ],
       "correct": 2,
       "explanation": "सोह्रौँ योजनाको कृषि दृष्टिकोण उत्पादन, उत्पादकत्व, व्यावसायिकीकरण र मूल्य शृंखला विकासतर्फ केन्द्रित छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -652,7 +652,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-3-033",
@@ -686,7 +687,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-1-055",
@@ -720,7 +722,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-051",
@@ -754,7 +757,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-050",
@@ -788,7 +792,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-003",
@@ -822,7 +827,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "1.7.2-003",
@@ -855,7 +861,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "1.7.1-051",
@@ -888,7 +895,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.8-CUL-07",
@@ -923,7 +931,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-CUL-09",
@@ -958,7 +968,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-ECO-08",
@@ -993,7 +1005,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-ECO-05",
@@ -1028,7 +1042,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-AWD-10",
@@ -1063,7 +1079,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-new-005",
@@ -1201,7 +1219,8 @@
         "DFI"
       ],
       "correct": 3,
-      "solution": "पहिला तीनमा +2; DFI मा F→I +3।"
+      "solution": "पहिला तीनमा +2; DFI मा F→I +3।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-var-001",
@@ -1223,7 +1242,8 @@
         "W"
       ],
       "correct": 2,
-      "solution": "+3,+4,+5,+6,+7; S+7=Z।"
+      "solution": "+3,+4,+5,+6,+7; S+7=Z।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-015",
@@ -1245,7 +1265,8 @@
         "240"
       ],
       "correct": 0,
-      "solution": "72/0.4=180।"
+      "solution": "72/0.4=180।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-new-007",
@@ -1296,7 +1317,8 @@
         "16"
       ],
       "correct": 0,
-      "solution": "B दर=1/8−1/12=1/24।"
+      "solution": "B दर=1/8−1/12=1/24।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-new-008",
@@ -1347,7 +1369,8 @@
         "16"
       ],
       "correct": 3,
-      "solution": "समय 20/1.25=16 दिन।"
+      "solution": "समय 20/1.25=16 दिन।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-006",
@@ -1369,7 +1392,8 @@
         "25%"
       ],
       "correct": 3,
-      "solution": "40/160×100=25%।"
+      "solution": "40/160×100=25%।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-new-004",
@@ -1459,7 +1483,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-005",
@@ -1483,7 +1508,8 @@
       "correct": 1,
       "solution": "आकृति पालैपालो र संख्या 1,1,2,2,3,3।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-005.svg",
-      "imageAlt": "आकृति क्रम — nasu-2.3-var-005"
+      "imageAlt": "आकृति क्रम — nasu-2.3-var-005",
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-001",
@@ -1507,7 +1533,8 @@
       "correct": 1,
       "solution": "तीन आकृतिको क्रम दोहोरिन्छ।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-001.svg",
-      "imageAlt": "आकृति क्रम — nasu-2.3-var-001"
+      "imageAlt": "आकृति क्रम — nasu-2.3-var-001",
+      "explanation": ""
     },
     {
       "id": "bo-2.2-003",
@@ -1539,7 +1566,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-002",
@@ -1563,7 +1591,8 @@
       "correct": 2,
       "solution": "90° घडीको दिशामा क्रम।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-002.svg",
-      "imageAlt": "दिशा परिवर्तन — nasu-2.3-var-002"
+      "imageAlt": "दिशा परिवर्तन — nasu-2.3-var-002",
+      "explanation": ""
     },
     {
       "id": "bo-2.2-004",
@@ -1595,7 +1624,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     }
   ]
 }
