@@ -1147,33 +1147,21 @@
       "solution": ""
     },
     {
-      "id": "nasu-2.1-new-004",
-      "examIds": [
-        "nasu"
+      "id": "nasu-2.1-new-008",
+      "q": "यदि TABLE लाई विपरीत वर्णमाला क्रममा GZYOV लेखिन्छ भने CHAIR लाई कसरी लेखिन्छ?",
+      "options": [
+        "XSZRI",
+        "XHZRI",
+        "XSYRI",
+        "WXSRI"
       ],
-      "examMappings": {
-        "nasu": {
-          "section": "B",
-          "unit": "2.1",
-          "level": "level1"
-        }
-      },
+      "correct": 0,
       "section": "B",
       "unit": "2.1",
+      "topic": "शाब्दिक तार्किक परीक्षण",
       "level": "level1",
       "type": "iq",
-      "subject": "सामान्य बौद्धिक परीक्षण",
-      "topic": "शाब्दिक तार्किक परीक्षण",
-      "q": "यदि CAT लाई DBU लेखिन्छ भने DOG लाई कसरी लेखिन्छ?",
-      "options": [
-        "EPG",
-        "FPH",
-        "DPH",
-        "EPH"
-      ],
-      "correct": 3,
-      "explanation": "",
-      "solution": ""
+      "explanation": "विपरीत वर्णमाला (Atbash) नियममा A↔Z, B↔Y, C↔X ... हुन्छ। त्यसैले C→X, H→S, A→Z, I→R र R→I हुँदा CHAIR = XSZRI हुन्छ।"
     },
     {
       "id": "nasu-2.1-new-006",
