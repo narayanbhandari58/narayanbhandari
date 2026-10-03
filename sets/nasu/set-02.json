@@ -1105,7 +1105,7 @@
       ],
       "correct": 2,
       "solution": "प्रत्येक अक्षर +1।",
-      "explanation": ""
+      "explanation": "CAT→DBU मा प्रत्येक अक्षर +1 भएकाले DOG→EPH हुन्छ।"
     },
     {
       "id": "nasu-2.1-new-001",
@@ -1233,7 +1233,7 @@
       ],
       "correct": 3,
       "solution": "प्रत्येक अक्षर +1।",
-      "explanation": ""
+      "explanation": "NEPAL→OFQBM मा प्रत्येक अक्षर +1 भएकाले INDIA→JOEJB हुन्छ।"
     },
     {
       "id": "nasu-2.2-var-015",
@@ -1256,7 +1256,7 @@
       ],
       "correct": 0,
       "solution": "72/0.4=180।",
-      "explanation": ""
+      "explanation": "४०% = ०.४ भएकाले संख्या = ७२÷०.४ = १८०।"
     },
     {
       "id": "nasu-2.2-var-014",
@@ -1279,7 +1279,7 @@
       ],
       "correct": 3,
       "solution": "3/5=0.6; जम्मा 0.8।",
-      "explanation": ""
+      "explanation": "३/५ = ०.६ भएकाले ०.२+०.६=०.८ हुन्छ।"
     },
     {
       "id": "nasu-2.2-new-005",
@@ -1331,7 +1331,7 @@
       ],
       "correct": 1,
       "solution": "2.4/0.6=4।",
-      "explanation": ""
+      "explanation": "२.४÷०.६ = ४ हुन्छ।"
     },
     {
       "id": "nasu-2.2-new-006",
@@ -1383,7 +1383,7 @@
       ],
       "correct": 3,
       "solution": "40/160×100=25%।",
-      "explanation": ""
+      "explanation": "वृद्धि = २००−१६०=४०। प्रतिशत वृद्धि = ४०÷१६०×१०० = २५%।"
     },
     {
       "id": "demo-003",
@@ -1500,7 +1500,7 @@
       "solution": "1,2,3,4 हुँदै बढ्छ।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-003.svg",
       "imageAlt": "आकृति संख्या — nasu-2.3-var-003",
-      "explanation": ""
+      "explanation": "त्रिभुजको संख्या १,२,३ हुँदै बढिरहेको छ। त्यसैले अर्को समूहमा ४ त्रिभुज हुन्छन्।"
     },
     {
       "id": "nasu-2.3-var-005",
@@ -1525,7 +1525,7 @@
       "solution": "आकृति पालैपालो र संख्या 1,1,2,2,3,3।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-005.svg",
       "imageAlt": "आकृति क्रम — nasu-2.3-var-005",
-      "explanation": ""
+      "explanation": "आकृति र संख्या पालैपालो दोहोरिन्छ: □,△; □□,△△; □□□, त्यसैले अर्को △△△ हो।"
     },
     {
       "id": "bo-2.2-002",
@@ -1616,7 +1616,7 @@
       "solution": "तीन आकृतिको क्रम दोहोरिन्छ।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-001.svg",
       "imageAlt": "आकृति क्रम — nasu-2.3-var-001",
-      "explanation": ""
+      "explanation": "△,□,○ को तीन-आकृति क्रम दोहोरिन्छ। त्यसैले △,□ पछि ○ आउँछ।"
     }
   ]
 }
