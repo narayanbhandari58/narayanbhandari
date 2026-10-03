@@ -33,7 +33,7 @@
       ],
       "correct": 3,
       "explanation": "याङ्त्से चीनको सबैभन्दा लामो नदी प्रणाली हो।",
-      "solution": "सही उत्तर: A — चीन।",
+      "solution": "सही उत्तर: D — चीन।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -70,7 +70,7 @@
       ],
       "correct": 0,
       "explanation": "U-shaped valley हिमनदीय क्षरणसँग सम्बन्धित भू-आकृति हो; मरुभूमिको हावाले मात्र बनाउँदैन।",
-      "solution": "सही उत्तर: D।",
+      "solution": "सही उत्तर: A।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -107,7 +107,7 @@
       ],
       "correct": 3,
       "explanation": "बसाइँसराइ बुझ्दा आर्थिक, सामाजिक र भौगोलिक pull/push factors लाई समग्र रूपमा हेर्नुपर्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -181,7 +181,7 @@
       ],
       "correct": 3,
       "explanation": "उत्पादनका साधन, बजार, यातायात, स्रोत र श्रमको वितरण आर्थिक गतिविधिको भौगोलिक अवस्थिति बुझ्न महत्वपूर्ण हुन्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -217,7 +217,7 @@
       ],
       "correct": 3,
       "explanation": "समुद्रतलमा हुने ठूलो भूकम्पले पानीको स्तम्भ विस्थापित गर्दा सुनामी उत्पन्न हुन सक्छ।",
-      "solution": "सही उत्तर: A — समुद्रतलमुनिको भूकम्प।",
+      "solution": "सही उत्तर: D — समुद्रतलमुनिको भूकम्प।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -325,7 +325,7 @@
       ],
       "correct": 3,
       "explanation": "यसले राजकीय शक्तिमाथि कानुनी सीमाको विचार विकास गर्न महत्वपूर्ण योगदान गर्‍यो।",
-      "solution": "सही उत्तर: A — राजाको अधिकार सीमित गर्ने विचार।",
+      "solution": "सही उत्तर: D — राजाको अधिकार सीमित गर्ने विचार।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -398,7 +398,7 @@
       ],
       "correct": 1,
       "explanation": "अमेरिकी उपनिवेशहरूले ब्रिटिश शासनविरुद्ध स्वतन्त्रताको आन्दोलन चलाएका थिए; फ्रान्सले पछि अमेरिकी पक्षलाई सहयोग गरेको थियो।",
-      "solution": "सही उत्तर: D।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -469,7 +469,7 @@
       ],
       "correct": 2,
       "explanation": "नियमित, स्वतन्त्र र निष्पक्ष निर्वाचनले प्रतिनिधिलाई मतदाताप्रति उत्तरदायी बनाउने लोकतान्त्रिक माध्यम प्रदान गर्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -534,7 +534,7 @@
         "न्यूनतम आधारभूत आवश्यकता पूरा गर्ने लक्ष्य"
       ],
       "correct": 3,
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -546,7 +546,8 @@
           "unit": "1.7",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.3-gov-b-018",
@@ -569,7 +570,7 @@
       ],
       "correct": 3,
       "explanation": "पारदर्शिता सुशासनको महत्वपूर्ण आधार हो।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -600,7 +601,7 @@
       ],
       "correct": 1,
       "explanation": "Transport infrastructure creates broad supply-chain and service linkages. ",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -682,7 +683,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-3-006",
@@ -716,7 +718,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-2-039",
@@ -750,7 +753,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-3-012",
@@ -784,7 +788,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-2-014",
@@ -818,7 +823,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-013",
@@ -852,7 +858,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.8-BOK-05",
@@ -887,7 +894,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-ART-05",
@@ -922,7 +931,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "1.7.1-027",
@@ -955,7 +966,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "1.7.1-011",
@@ -988,7 +1000,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.8-SOC-08",
@@ -1023,7 +1036,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-POL-04",
@@ -1058,7 +1073,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "khd-B1-002",
@@ -1136,7 +1153,8 @@
       "correct": 1,
       "solution": "वर्ग र त्रिभुज पालैपालो छन्; अर्को वर्ग हो।",
       "image": "/image/exam/branch-officer-2.2/bo-2.2-008.png",
-      "imageAlt": "आकृति क्रम"
+      "imageAlt": "आकृति क्रम",
+      "explanation": ""
     },
     {
       "id": "khd-B2-002",
@@ -1158,7 +1176,8 @@
         "90"
       ],
       "correct": 2,
-      "solution": "हरेक पटक ×2।"
+      "solution": "हरेक पटक ×2।",
+      "explanation": ""
     },
     {
       "id": "kharidar-b3-new-2",
@@ -1209,7 +1228,8 @@
         "CEG"
       ],
       "correct": 0,
-      "solution": "पहिला तीनमा +2; DFI मा F→I +3।"
+      "solution": "पहिला तीनमा +2; DFI मा F→I +3।",
+      "explanation": ""
     },
     {
       "id": "kharidar-b4-new-2",
@@ -1260,7 +1280,8 @@
         "56"
       ],
       "correct": 2,
-      "solution": "संख्याको वर्ग।"
+      "solution": "संख्याको वर्ग।",
+      "explanation": ""
     },
     {
       "id": "kharidar-b5-new-2",
@@ -1311,7 +1332,8 @@
         "104"
       ],
       "correct": 3,
-      "solution": "बढ्दो क्रममा 104।"
+      "solution": "बढ्दो क्रममा 104।",
+      "explanation": ""
     },
     {
       "id": "khd-B6-001",
@@ -1387,7 +1409,8 @@
         "7/8"
       ],
       "correct": 3,
-      "solution": "6/8+1/8=7/8।"
+      "solution": "6/8+1/8=7/8।",
+      "explanation": ""
     },
     {
       "id": "khd-B7-003",
@@ -1463,7 +1486,8 @@
         "DBT"
       ],
       "correct": 1,
-      "solution": "हरेक अक्षर +1।"
+      "solution": "हरेक अक्षर +1।",
+      "explanation": ""
     },
     {
       "id": "kharidar-b9-new-1",
@@ -1518,7 +1542,8 @@
       "solution": "३ तहको मानक त्रिभुज जालोमा सबै आकार र दिशाका त्रिभुजको कुल संख्या १३ हुन्छ।",
       "figure": "triangle-grid-3",
       "image": "/image/exam/branch-officer-2.2/triangle-grid-3.svg",
-      "imageAlt": "तीन तहको त्रिभुज जालो"
+      "imageAlt": "तीन तहको त्रिभुज जालो",
+      "explanation": ""
     },
     {
       "id": "khd-B10-001",
