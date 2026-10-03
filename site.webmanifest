@@ -1,0 +1,19 @@
+{
+  "name": "नारायण भण्डारी — आधिकारिक वेबसाइट",
+  "short_name": "नारायण भण्डारी",
+  "description": "लेख, साहित्य, लोकसेवा तयारी, शिक्षा र उपयोगी सामग्री।",
+  "lang": "ne-NP",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8f0e04",
+  "icons": [
+    {
+      "src": "/image/logo.png",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
