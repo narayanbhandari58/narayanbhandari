@@ -1106,7 +1106,7 @@
       ],
       "correct": 2,
       "solution": "प्रत्येक अक्षर +1।",
-      "explanation": ""
+      "explanation": "CAT→DBU मा प्रत्येक अक्षर +1 भएकाले DOG→EPH हुन्छ।"
     },
     {
       "id": "nasu-2.1-var-003",
@@ -1157,7 +1157,7 @@
         "८"
       ],
       "correct": 0,
-      "explanation": "",
+      "explanation": "८ किमि उत्तर र ६ किमि पूर्वको विस्थापन समकोण त्रिभुज बनाउँछ। दूरी √(८²+६²)=√१००=१० किमि हुन्छ।",
       "solution": ""
     },
     {
@@ -1232,7 +1232,7 @@
         "कुनै निष्कर्ष निकाल्न सकिँदैन"
       ],
       "correct": 1,
-      "explanation": "",
+      "explanation": "सबै कर्मचारीले नियम पालना गर्नुपर्छ र सीता कर्मचारी हुन्। त्यसैले सीताले नियम पालना गर्नुपर्छ।",
       "solution": ""
     },
     {
@@ -1261,7 +1261,7 @@
         "२ दिन"
       ],
       "correct": 3,
-      "explanation": "",
+      "explanation": "३ जनाले ४ दिनमा गरेको काम = १२ व्यक्ति-दिन। ६ जनाले सोही काम गर्न १२÷६ = २ दिन लाग्छ।",
       "solution": ""
     },
     {
@@ -1338,7 +1338,7 @@
       ],
       "correct": 3,
       "solution": "2/3≈0.667।",
-      "explanation": ""
+      "explanation": "२/३≈०.६६७, ५/८=०.६२५, ३/५=०.६ र ७/१२≈०.५८३ भएकाले २/३ ठूलो हो।"
     },
     {
       "id": "nasu-2.2-var-008",
@@ -1389,7 +1389,7 @@
         "45%"
       ],
       "correct": 1,
-      "explanation": "",
+      "explanation": "कुल ४५० मध्ये बुधबार १८० भएकाले १८०/४५०×१००=४०% हुन्छ।",
       "solution": ""
     },
     {
@@ -1418,7 +1418,7 @@
         "20%"
       ],
       "correct": 2,
-      "explanation": "",
+      "explanation": "नाफा = ९२०−८०० = १२०। नाफा प्रतिशत = १२०÷८००×१०० = १५%।",
       "solution": ""
     },
     {
@@ -1442,7 +1442,7 @@
       ],
       "correct": 3,
       "solution": "समय 20/1.25=16 दिन।",
-      "explanation": ""
+      "explanation": "B २५% बढी दक्ष भएकाले समय २०÷१.२५ = १६ दिन हुन्छ।"
     },
     {
       "id": "bo-2.2-003",
@@ -1500,7 +1500,7 @@
       "solution": "कालो/सेतो वैकल्पिक।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-004.svg",
       "imageAlt": "छायांकन — nasu-2.3-var-004",
-      "explanation": ""
+      "explanation": "● र ○ पालैपालो आएका छन्। त्यसैले अर्को ● हुन्छ।"
     },
     {
       "id": "nasu-2.3-var-005",
@@ -1525,7 +1525,7 @@
       "solution": "आकृति पालैपालो र संख्या 1,1,2,2,3,3।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-005.svg",
       "imageAlt": "आकृति क्रम — nasu-2.3-var-005",
-      "explanation": ""
+      "explanation": "आकृति र संख्या पालैपालो दोहोरिन्छ: □,△; □□,△△; □□□, त्यसैले अर्को △△△ हो।"
     },
     {
       "id": "nasu-2.3-var-002",
@@ -1550,7 +1550,7 @@
       "solution": "90° घडीको दिशामा क्रम।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-002.svg",
       "imageAlt": "दिशा परिवर्तन — nasu-2.3-var-002",
-      "explanation": ""
+      "explanation": "दिशा प्रत्येक पटक ९०° घडीको दिशामा घुमेको छ: ↑→↓←, त्यसैले अर्को ↑ हो।"
     },
     {
       "id": "bo-2.2-tc-002",
@@ -1608,7 +1608,7 @@
       "solution": "तीन आकृतिको क्रम दोहोरिन्छ।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-001.svg",
       "imageAlt": "आकृति क्रम — nasu-2.3-var-001",
-      "explanation": ""
+      "explanation": "△,□,○ को तीन-आकृति क्रम दोहोरिन्छ। त्यसैले △,□ पछि ○ आउँछ।"
     }
   ]
 }
