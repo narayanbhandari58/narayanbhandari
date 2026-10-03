@@ -33,7 +33,7 @@
       ],
       "correct": 0,
       "explanation": "NFDIN को आधिकारिक परिचयमा रानाथारु २०२० मा थपिएको उल्लेख छ।",
-      "solution": "सही उत्तर: B — २०२०।",
+      "solution": "सही उत्तर: A — २०२०।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -77,7 +77,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-003",
@@ -101,7 +102,8 @@
       "correct": 3,
       "solution": "1,2,3,4 हुँदै बढ्छ।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-003.svg",
-      "imageAlt": "आकृति संख्या — nasu-2.3-var-003"
+      "imageAlt": "आकृति संख्या — nasu-2.3-var-003",
+      "explanation": ""
     },
     {
       "id": "bo-1.2-nh-017",
@@ -125,7 +127,7 @@
       ],
       "correct": 1,
       "explanation": "नेपालको हिमालपार र दक्षिणतर्फको अवस्थिति भारत–तिब्बतबीचको स्थल व्यापारमा महत्वपूर्ण थियो।",
-      "solution": "सही उत्तर: A — भारत–तिब्बतबीचको व्यापारिक मार्ग।",
+      "solution": "सही उत्तर: B — भारत–तिब्बतबीचको व्यापारिक मार्ग।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -171,7 +173,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-new-007",
@@ -225,7 +228,7 @@
       ],
       "correct": 1,
       "explanation": "नेपालमा उचाइ, भू-आकृति र जलवायुका आधारमा हिमाल, पहाड र तराईका प्रमुख भौगोलिक क्षेत्र देखिन्छन्।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -288,7 +291,8 @@
         "0.8"
       ],
       "correct": 3,
-      "solution": "3/5=0.6; जम्मा 0.8।"
+      "solution": "3/5=0.6; जम्मा 0.8।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-new-002",
@@ -339,7 +343,8 @@
         "6"
       ],
       "correct": 1,
-      "solution": "2.4/0.6=4।"
+      "solution": "2.4/0.6=4।",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-CUL-03",
@@ -374,7 +379,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.1-071",
@@ -398,7 +405,7 @@
       ],
       "correct": 3,
       "explanation": "समुद्रतलमा हुने ठूलो भूकम्पले पानीको स्तम्भ विस्थापित गर्दा सुनामी उत्पन्न हुन सक्छ।",
-      "solution": "सही उत्तर: A — समुद्रतलमुनिको भूकम्प।",
+      "solution": "सही उत्तर: D — समुद्रतलमुनिको भूकम्प।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -445,7 +452,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1-6-3-032",
@@ -479,7 +488,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.1-l2-022",
@@ -504,7 +514,7 @@
       ],
       "correct": 2,
       "explanation": "कोशी नेपालको प्रमुख नदी प्रणालीमध्ये एक हो र पूर्वी नेपालसँग सम्बन्धित छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -549,7 +559,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-015",
@@ -571,7 +582,8 @@
         "240"
       ],
       "correct": 0,
-      "solution": "72/0.4=180।"
+      "solution": "72/0.4=180।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-005",
@@ -595,7 +607,8 @@
       "correct": 1,
       "solution": "आकृति पालैपालो र संख्या 1,1,2,2,3,3।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-005.svg",
-      "imageAlt": "आकृति क्रम — nasu-2.3-var-005"
+      "imageAlt": "आकृति क्रम — nasu-2.3-var-005",
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-043",
@@ -629,7 +642,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-var-001",
@@ -651,7 +665,8 @@
         "W"
       ],
       "correct": 2,
-      "solution": "+3,+4,+5,+6,+7; S+7=Z।"
+      "solution": "+3,+4,+5,+6,+7; S+7=Z।",
+      "explanation": ""
     },
     {
       "id": "bo-1.2-nh-006",
@@ -675,7 +690,7 @@
       ],
       "correct": 2,
       "explanation": "मल्लकालमा पगोडा शैली, काष्ठकला, धातुकला र मन्दिर वास्तुकलाले उल्लेखनीय विकास पाए।",
-      "solution": "सही उत्तर: A — पगोडा शैलीका मन्दिर र काष्ठकलाको विकास।",
+      "solution": "सही उत्तर: C — पगोडा शैलीका मन्दिर र काष्ठकलाको विकास।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -722,7 +737,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "nasu-1.1-new-007",
@@ -775,7 +792,7 @@
       ],
       "correct": 1,
       "explanation": "NFDIN को दराईसम्बन्धी विवरणमा २०७८ जनगणनाअनुसार दराई जनसंख्या १८,६९५ उल्लेख छ।",
-      "solution": "सही उत्तर: A — १८,६९५।",
+      "solution": "सही उत्तर: B — १८,६९५।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -858,7 +875,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-new-005",
@@ -922,7 +940,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-2.2-001",
@@ -954,7 +974,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-006",
@@ -978,7 +999,8 @@
       "correct": 2,
       "solution": "तेर्सो दर्पणमा दिशा उल्टिन्छ।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-006.svg",
-      "imageAlt": "दर्पण — nasu-2.3-var-006"
+      "imageAlt": "दर्पण — nasu-2.3-var-006",
+      "explanation": ""
     },
     {
       "id": "bo-2.2-tc-002",
@@ -1010,7 +1032,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.2-nh-l2-013",
@@ -1080,7 +1103,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.4.1-edu-016",
@@ -1104,7 +1128,7 @@
       ],
       "correct": 1,
       "explanation": "TVET is oriented toward occupational and technical competencies. ",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -1169,7 +1193,7 @@
       ],
       "correct": 3,
       "explanation": "हायु प्रतिष्ठानको ६० आदिवासी जनजातिको सूचीमा पर्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -1203,7 +1227,8 @@
         "PS"
       ],
       "correct": 1,
-      "solution": "A→E,D→H र K→O,N→Q; दुवै अक्षरमा +4।"
+      "solution": "A→E,D→H र K→O,N→Q; दुवै अक्षरमा +4।",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-ECO-02",
@@ -1238,7 +1263,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-017",
@@ -1260,7 +1287,8 @@
         "0.15"
       ],
       "correct": 2,
-      "solution": "1.25×0.08=0.10।"
+      "solution": "1.25×0.08=0.10।",
+      "explanation": ""
     },
     {
       "id": "bo-1.1-l2-024",
@@ -1350,7 +1378,7 @@
       ],
       "correct": 3,
       "explanation": "एन्डिज दक्षिण अमेरिकाको पश्चिमी भागमा उत्तर–दक्षिण दिशामा लामो दूरीसम्म फैलिएको छ।",
-      "solution": "सही उत्तर: A — दक्षिण अमेरिका।",
+      "solution": "सही उत्तर: D — दक्षिण अमेरिका।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -1386,7 +1414,7 @@
       ],
       "correct": 1,
       "explanation": "Transport infrastructure creates broad supply-chain and service linkages. ",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -1431,7 +1459,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-2-043",
@@ -1465,7 +1494,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-var-006",
@@ -1487,7 +1517,8 @@
         "JOEJB"
       ],
       "correct": 3,
-      "solution": "प्रत्येक अक्षर +1।"
+      "solution": "प्रत्येक अक्षर +1।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-new-001",
@@ -1540,7 +1571,7 @@
       ],
       "correct": 3,
       "explanation": "यसले राजकीय शक्तिमाथि कानुनी सीमाको विचार विकास गर्न महत्वपूर्ण योगदान गर्‍यो।",
-      "solution": "सही उत्तर: A — राजाको अधिकार सीमित गर्ने विचार।",
+      "solution": "सही उत्तर: D — राजाको अधिकार सीमित गर्ने विचार।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -1576,7 +1607,7 @@
       ],
       "correct": 3,
       "explanation": "Digitalization can simplify documentation, tracking and risk-based clearance. ",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
