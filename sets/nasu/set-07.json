@@ -63,7 +63,7 @@
       ],
       "correct": 3,
       "explanation": "पृथ्वी पश्चिमबाट पूर्वतर्फ घुम्ने भएकाले पूर्वतर्फका स्थानमा स्थानीय समय तुलनात्मक रूपमा अगाडि हुन्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -100,7 +100,7 @@
       ],
       "correct": 2,
       "explanation": "भूकम्प विभिन्न प्रकारका प्लेट सीमामा हुन सक्छन्; त्यसैले सबै भूकम्प divergent boundary मै हुन्छन् भन्ने भनाइ गलत हो।",
-      "solution": "सही उत्तर: D — सबै भूकम्प केवल divergent boundary मै हुन्छन्।",
+      "solution": "सही उत्तर: C — सबै भूकम्प केवल divergent boundary मै हुन्छन्।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -137,7 +137,7 @@
       ],
       "correct": 2,
       "explanation": "तराईको समथर भूभाग र तुलनात्मक रूपमा अनुकूल भौगोलिक अवस्थाले कृषि तथा घना बसोबासमा योगदान गरेको छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -174,7 +174,7 @@
       ],
       "correct": 1,
       "explanation": "नेपालको भौगोलिक विविधता कृषि, पर्यटन र जलविद्युतलगायत आर्थिक गतिविधिका अवसरसँग जोडिएको छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -210,7 +210,7 @@
       ],
       "correct": 0,
       "explanation": "भारतीय प्लेट उत्तरतर्फ सर्दै युरेसियाली प्लेटसँग ठोक्किँदा हिमालयको उत्थान भएको हो।",
-      "solution": "सही उत्तर: B — भारतीय र युरेसियाली प्लेट।",
+      "solution": "सही उत्तर: A — भारतीय र युरेसियाली प्लेट।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -283,7 +283,7 @@
       ],
       "correct": 2,
       "explanation": "सोभियत संघले 1957 मा Sputnik 1 प्रक्षेपण गर्‍यो।",
-      "solution": "सही उत्तर: B — सोभियत संघ।",
+      "solution": "सही उत्तर: C — सोभियत संघ।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -319,7 +319,7 @@
       ],
       "correct": 1,
       "explanation": "एकीकरण अभियानले विभिन्न राज्य तथा भूभागलाई एउटै राजनीतिक संरचनामा जोड्ने प्रक्रिया अघि बढायो।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -391,7 +391,7 @@
       ],
       "correct": 1,
       "explanation": "किसान प्रतिष्ठानको सूचीकृत आदिवासी जनजातिमध्ये पर्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -427,7 +427,7 @@
       ],
       "correct": 3,
       "explanation": "NFDIN का अनुसार राई आफैमा बहुभाषिक जाति हो र विभिन्न राई भाषिक समूह पाइन्छन्।",
-      "solution": "सही उत्तर: B।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -573,7 +573,7 @@
       ],
       "correct": 1,
       "explanation": "साना उद्योगले स्थानीय स्रोत र सीप प्रयोग गर्दै रोजगारी तथा उद्यमशीलता बढाउन सक्छन्।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -602,7 +602,7 @@
         "सरकारी तलब"
       ],
       "correct": 1,
-      "solution": "सही उत्तर: D।",
+      "solution": "सही उत्तर: B।",
       "examIds": [
         "sakha-adhikrit",
         "kharidar",
@@ -619,7 +619,8 @@
           "unit": "1.7",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-3-028",
@@ -653,7 +654,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-1-058",
@@ -687,7 +689,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-1-059",
@@ -721,7 +724,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-049",
@@ -755,7 +759,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-050",
@@ -789,7 +794,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-037",
@@ -823,7 +829,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "1.7.2-015",
@@ -856,7 +863,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "1.7.1-007",
@@ -889,7 +897,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.8-CUL-03",
@@ -924,7 +933,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-ECO-09",
@@ -959,7 +970,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-ECO-05",
@@ -994,7 +1007,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-ART-04",
@@ -1029,7 +1044,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-SOC-10",
@@ -1064,7 +1081,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-var-005",
@@ -1086,7 +1105,8 @@
         "FOH"
       ],
       "correct": 2,
-      "solution": "प्रत्येक अक्षर +1।"
+      "solution": "प्रत्येक अक्षर +1।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-var-003",
@@ -1108,7 +1128,8 @@
         "J10"
       ],
       "correct": 0,
-      "solution": "अक्षर र संख्या दुवै +2।"
+      "solution": "अक्षर र संख्या दुवै +2।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-new-005",
@@ -1159,7 +1180,8 @@
         "H"
       ],
       "correct": 1,
-      "solution": "समूह अन्त्य 1,3,6,10,15,21; 20औँ F समूहमा।"
+      "solution": "समूह अन्त्य 1,3,6,10,15,21; 20औँ F समूहमा।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-var-007",
@@ -1181,7 +1203,8 @@
         "Q"
       ],
       "correct": 0,
-      "solution": "N,O,P,Q,R।"
+      "solution": "N,O,P,Q,R।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-new-006",
@@ -1291,7 +1314,8 @@
         "7/12"
       ],
       "correct": 3,
-      "solution": "10/12−3/12=7/12।"
+      "solution": "10/12−3/12=7/12।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-018",
@@ -1313,7 +1337,8 @@
         "2/3"
       ],
       "correct": 3,
-      "solution": "2/3≈0.667।"
+      "solution": "2/3≈0.667।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-008",
@@ -1335,7 +1360,8 @@
         "9"
       ],
       "correct": 1,
-      "solution": "संयुक्त दर 5/36; समय 7.2 दिन।"
+      "solution": "संयुक्त दर 5/36; समय 7.2 दिन।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-new-008",
@@ -1415,7 +1441,8 @@
         "16"
       ],
       "correct": 3,
-      "solution": "समय 20/1.25=16 दिन।"
+      "solution": "समय 20/1.25=16 दिन।",
+      "explanation": ""
     },
     {
       "id": "bo-2.2-003",
@@ -1447,7 +1474,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-004",
@@ -1471,7 +1499,8 @@
       "correct": 0,
       "solution": "कालो/सेतो वैकल्पिक।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-004.svg",
-      "imageAlt": "छायांकन — nasu-2.3-var-004"
+      "imageAlt": "छायांकन — nasu-2.3-var-004",
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-005",
@@ -1495,7 +1524,8 @@
       "correct": 1,
       "solution": "आकृति पालैपालो र संख्या 1,1,2,2,3,3।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-005.svg",
-      "imageAlt": "आकृति क्रम — nasu-2.3-var-005"
+      "imageAlt": "आकृति क्रम — nasu-2.3-var-005",
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-002",
@@ -1519,7 +1549,8 @@
       "correct": 2,
       "solution": "90° घडीको दिशामा क्रम।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-002.svg",
-      "imageAlt": "दिशा परिवर्तन — nasu-2.3-var-002"
+      "imageAlt": "दिशा परिवर्तन — nasu-2.3-var-002",
+      "explanation": ""
     },
     {
       "id": "bo-2.2-tc-002",
@@ -1551,7 +1582,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-001",
@@ -1575,7 +1607,8 @@
       "correct": 1,
       "solution": "तीन आकृतिको क्रम दोहोरिन्छ।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-001.svg",
-      "imageAlt": "आकृति क्रम — nasu-2.3-var-001"
+      "imageAlt": "आकृति क्रम — nasu-2.3-var-001",
+      "explanation": ""
     }
   ]
 }
