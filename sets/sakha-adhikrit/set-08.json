@@ -2176,18 +2176,18 @@
       "type": "Complex Scheduling",
       "question": "Four interviews P, Q, R and S are scheduled in four slots. Q is before R. S is immediately after P. R is not last. Which sequence is valid?",
       "options": [
-        "P S Q R",
-        "P Q S R",
-        "S P Q R",
-        "Q P S R"
+        "Q",
+        "R",
+        "P",
+        "S"
       ],
       "correct": 3,
-      "solution": "Q-P-S-R satisfies Q before R, S immediately after P, and R is last—so it violates R not last. Therefore none? Check options: P-S-Q-R also has R last; P-Q-S-R has R last; S-P-Q-R has S not after P. Hence no sequence is valid.",
+      "solution": "Q-R-P-S satisfies Q before R, S immediately after P, and R is not last. Therefore option D is valid.",
       "section": "B",
       "examIds": [
         "sakha-adhikrit"
       ],
-      "explanation": ""
+      "explanation": "Q-R-P-S satisfies Q before R, S immediately after P, and R is not last. Therefore option D is valid."
     },
     {
       "id": "bo-2.4-002",
