@@ -2243,7 +2243,7 @@
       "category": "General Mental Ability, Logical & Analytical Ability",
       "level": "L1",
       "type": "Analytical Ordering",
-      "question": "Four officers K, L, M and N have different ranks. K is senior to L. M is junior to N but senior to L. Who can be the most senior?",
+      "question": "Four officers K, L, M and N have different ranks. K is senior to L. M is junior to N but senior to L. Who is definitely senior to M?",
       "options": [
         "K",
         "L",
@@ -2251,12 +2251,12 @@
         "M"
       ],
       "correct": 2,
-      "solution": "N is above M, and M is above L. K is above L but is not compared with N; therefore the statement set does not force N to be above K. Thus no option is necessarily most senior.",
+      "solution": "N is senior to M by the given condition. K is only known to be senior to L, so K's rank relative to M is not determined.",
       "section": "B",
       "examIds": [
         "sakha-adhikrit"
       ],
-      "explanation": ""
+      "explanation": "N is senior to M by the given condition. K is only known to be senior to L, so K's rank relative to M is not determined."
     },
     {
       "id": "bo-2.5-025",
