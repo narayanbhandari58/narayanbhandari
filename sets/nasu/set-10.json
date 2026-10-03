@@ -62,7 +62,7 @@
       ],
       "correct": 2,
       "explanation": "राइन नदी पश्चिमी युरोप हुँदै उत्तर सागरमा मिसिन्छ।",
-      "solution": "सही उत्तर: A — उत्तर सागर।",
+      "solution": "सही उत्तर: C — उत्तर सागर।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -98,7 +98,7 @@
       ],
       "correct": 1,
       "explanation": "पाम्पास दक्षिण अमेरिकाको दक्षिणपूर्वी भाग, विशेषतः अर्जेन्टिनासँग सम्बन्धित उर्वर घाँसे मैदान हो।",
-      "solution": "सही उत्तर: A — अर्जेन्टिना र आसपासको दक्षिण अमेरिका।",
+      "solution": "सही उत्तर: B — अर्जेन्टिना र आसपासको दक्षिण अमेरिका।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -134,7 +134,7 @@
       ],
       "correct": 0,
       "explanation": "भारतीय प्लेट उत्तरतर्फ सर्दै युरेसियाली प्लेटसँग ठोक्किँदा हिमालयको उत्थान भएको हो।",
-      "solution": "सही उत्तर: B — भारतीय र युरेसियाली प्लेट।",
+      "solution": "सही उत्तर: A — भारतीय र युरेसियाली प्लेट।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -208,7 +208,7 @@
       ],
       "correct": 2,
       "explanation": "तराईको समथर भूभाग र तुलनात्मक रूपमा अनुकूल भौगोलिक अवस्थाले कृषि तथा घना बसोबासमा योगदान गरेको छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -245,7 +245,7 @@
       ],
       "correct": 1,
       "explanation": "नेपालको भौगोलिक विविधता कृषि, पर्यटन र जलविद्युतलगायत आर्थिक गतिविधिका अवसरसँग जोडिएको छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -282,7 +282,7 @@
       ],
       "correct": 3,
       "explanation": "James Watt लगायतका सुधारहरूले वाष्पशक्तिको व्यावहारिक उपयोग विस्तार गर्न योगदान गरे, जसले उद्योग र यातायातमा परिवर्तन ल्यायो।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -354,7 +354,7 @@
       ],
       "correct": 1,
       "explanation": "लिच्छविकालका शिलालेख तथा अन्य अभिलेखले तत्कालीन राजनीतिक, प्रशासनिक, सामाजिक तथा धार्मिक अवस्थाबारे प्रत्यक्ष प्रमाण दिन्छन्।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -390,7 +390,7 @@
       ],
       "correct": 2,
       "explanation": "राजवंशी समुदायको ऐतिहासिक बसोबास पूर्वी तराईसँग जोडिन्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -462,7 +462,7 @@
       ],
       "correct": 2,
       "explanation": "संसदीय इतिहासअनुसार २०१७ पुस १ गतेदेखि निर्दलीय पञ्चायती शासन व्यवस्था सुरु भयो।",
-      "solution": "सही उत्तर: A — निर्दलीय पञ्चायती शासनको सुरुवात।",
+      "solution": "सही उत्तर: C — निर्दलीय पञ्चायती शासनको सुरुवात।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -498,7 +498,7 @@
       ],
       "correct": 0,
       "explanation": "एथेन्समा प्रत्यक्ष लोकतन्त्रको प्रारम्भिक रूप विकसित भएको थियो।",
-      "solution": "सही उत्तर: B — लोकतन्त्र।",
+      "solution": "सही उत्तर: A — लोकतन्त्र।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -606,7 +606,7 @@
       ],
       "correct": 1,
       "explanation": "सिँचाइ र जलसञ्चयले उत्पादन स्थिरता बढाउन सक्छन्; दक्ष प्रविधिले पानी बचत गर्न सहयोग गर्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -652,7 +652,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-1-015",
@@ -686,7 +687,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-1-040",
@@ -720,7 +722,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-008",
@@ -754,7 +757,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-013",
@@ -788,7 +792,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-003",
@@ -822,7 +827,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "1.7.1-059",
@@ -855,7 +861,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "1.7.1-053",
@@ -888,7 +895,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.8-SCI-05",
@@ -923,7 +931,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-OTH-01",
@@ -958,7 +968,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-POL-02",
@@ -993,7 +1005,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-SCI-04",
@@ -1028,7 +1042,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-ART-10",
@@ -1063,7 +1079,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-var-006",
@@ -1085,7 +1103,8 @@
         "JOEJB"
       ],
       "correct": 3,
-      "solution": "प्रत्येक अक्षर +1।"
+      "solution": "प्रत्येक अक्षर +1।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-new-005",
@@ -1136,7 +1155,8 @@
         "W"
       ],
       "correct": 2,
-      "solution": "+3,+4,+5,+6,+7; S+7=Z।"
+      "solution": "+3,+4,+5,+6,+7; S+7=Z।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-var-008",
@@ -1158,7 +1178,8 @@
         "O"
       ],
       "correct": 1,
-      "solution": "E,G,M,N,O,R,T,V; चौथो N।"
+      "solution": "E,G,M,N,O,R,T,V; चौथो N।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-new-003",
@@ -1238,7 +1259,8 @@
         "2/3"
       ],
       "correct": 3,
-      "solution": "2/3≈0.667।"
+      "solution": "2/3≈0.667।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-new-005",
@@ -1289,7 +1311,8 @@
         "240"
       ],
       "correct": 0,
-      "solution": "72/0.4=180।"
+      "solution": "72/0.4=180।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-019",
@@ -1311,7 +1334,8 @@
         "Rs.750"
       ],
       "correct": 0,
-      "solution": "छुट 100; बिक्री मूल्य 700।"
+      "solution": "छुट 100; बिक्री मूल्य 700।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-012",
@@ -1333,7 +1357,8 @@
         "8"
       ],
       "correct": 1,
-      "solution": "12×15=20×d; d=9।"
+      "solution": "12×15=20×d; d=9।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-006",
@@ -1355,7 +1380,8 @@
         "25%"
       ],
       "correct": 3,
-      "solution": "40/160×100=25%।"
+      "solution": "40/160×100=25%।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-new-002",
@@ -1406,7 +1432,8 @@
         "16"
       ],
       "correct": 0,
-      "solution": "B दर=1/8−1/12=1/24।"
+      "solution": "B दर=1/8−1/12=1/24।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-005",
@@ -1430,7 +1457,8 @@
       "correct": 1,
       "solution": "आकृति पालैपालो र संख्या 1,1,2,2,3,3।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-005.svg",
-      "imageAlt": "आकृति क्रम — nasu-2.3-var-005"
+      "imageAlt": "आकृति क्रम — nasu-2.3-var-005",
+      "explanation": ""
     },
     {
       "id": "bo-2.2-001",
@@ -1462,7 +1490,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-006",
@@ -1486,7 +1515,8 @@
       "correct": 2,
       "solution": "तेर्सो दर्पणमा दिशा उल्टिन्छ।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-006.svg",
-      "imageAlt": "दर्पण — nasu-2.3-var-006"
+      "imageAlt": "दर्पण — nasu-2.3-var-006",
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-001",
@@ -1510,7 +1540,8 @@
       "correct": 1,
       "solution": "तीन आकृतिको क्रम दोहोरिन्छ।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-001.svg",
-      "imageAlt": "आकृति क्रम — nasu-2.3-var-001"
+      "imageAlt": "आकृति क्रम — nasu-2.3-var-001",
+      "explanation": ""
     },
     {
       "id": "bo-2.2-003",
@@ -1542,7 +1573,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-2.2-002",
@@ -1574,7 +1606,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     }
   ]
 }
