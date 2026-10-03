@@ -1,14 +1,26 @@
 [
   {
+    "id": "gallery-1791038066635",
+    "image": "https://raw.githubusercontent.com/narayanbhandari58/narayanbhandari/main/image/uploads/1791038064989-1000095936.jpg",
+    "caption": "With my better half",
+    "alt": "With my better half",
+    "created": "2026-10-03T14:34:27.275Z",
+    "updated": "2026-10-03T14:34:27.277Z"
+  },
+  {
     "id": "profile",
     "image": "image/profile.png",
     "caption": "प्रोफाइल",
-    "alt": "नारायण भण्डारीको प्रोफाइल फोटो"
+    "alt": "नारायण भण्डारीको प्रोफाइल फोटो",
+    "created": "2026-10-03T14:34:27.277Z",
+    "updated": "2026-10-03T14:34:27.277Z"
   },
   {
     "id": "logo",
     "image": "image/logo.png",
     "caption": "वेबसाइट लोगो",
-    "alt": "नारायण भण्डारीको लोगो"
+    "alt": "नारायण भण्डारीको लोगो",
+    "created": "2026-10-03T14:34:27.277Z",
+    "updated": "2026-10-03T14:34:27.277Z"
   }
 ]
