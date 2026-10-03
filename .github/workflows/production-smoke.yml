@@ -80,11 +80,11 @@ jobs:
         run: |
           set -euo pipefail
           base="https://narayan-bhandari.com.np"
-          for path in / /about_me.html /gallery.html /loksewa.html /robots.txt /sitemap.xml; do
+          for path in / /about_me.html /gallery.html /loksewa.html /privacy.html /404.html /site.webmanifest /robots.txt /sitemap.xml; do
             code=$(curl -L -sS -o /tmp/nb-smoke -w '%{http_code}' "$base$path")
             echo "$path -> $code"
             test "$code" = "200"
           done
-          code=$(curl -L -sS -o /tmp/nb-api -w '%{http_code}' "$base/api/?action=posts")
-          echo "/api/?action=posts -> $code"
+          code=$(curl -L -sS -o /tmp/nb-api -w '%{http_code}' $base/api/nb?action=posts)
+          echo "/api/nb?action=posts -> $code"
           test "$code" = "200"
