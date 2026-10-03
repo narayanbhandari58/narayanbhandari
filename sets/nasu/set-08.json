@@ -98,7 +98,7 @@
       ],
       "correct": 0,
       "explanation": "Convergent boundary मा दुई प्लेट एकअर्कातर्फ सर्छन् र टक्कर वा सबडक्शन हुन सक्छ।",
-      "solution": "सही उत्तर: C — Convergent।",
+      "solution": "सही उत्तर: A — Convergent।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -135,7 +135,7 @@
       ],
       "correct": 2,
       "explanation": "तराईको समथर भूभाग र तुलनात्मक रूपमा अनुकूल भौगोलिक अवस्थाले कृषि तथा घना बसोबासमा योगदान गरेको छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -172,7 +172,7 @@
       ],
       "correct": 2,
       "explanation": "नेपालको हिमाली क्षेत्र उच्च उचाइ, हिमाच्छादित पर्वत र विशिष्ट हिमाली भू-दृश्यसँग सम्बन्धित छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -246,7 +246,7 @@
       ],
       "correct": 1,
       "explanation": "नेपालमा उचाइ, भू-आकृति र जलवायुका आधारमा हिमाल, पहाड र तराईका प्रमुख भौगोलिक क्षेत्र देखिन्छन्।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -282,7 +282,7 @@
       ],
       "correct": 1,
       "explanation": "विल्सनले 1918 मा 14 Points प्रस्तुत गरेका थिए।",
-      "solution": "सही उत्तर: C — 14।",
+      "solution": "सही उत्तर: B — 14।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -354,7 +354,7 @@
       ],
       "correct": 3,
       "explanation": "इतिहासको पुनर्निर्माणमा अभिलेख, सिक्का, पुरातात्त्विक सामग्री र वंशावलीजस्ता स्रोतले प्रमाण उपलब्ध गराउँछन्।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -390,7 +390,7 @@
       ],
       "correct": 2,
       "explanation": "लेप्चा प्रतिष्ठान ऐनमा सूचीकृत ६० आदिवासी जनजातिमध्ये एक हो।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -426,7 +426,7 @@
       ],
       "correct": 2,
       "explanation": "अन्तरिम संवैधानिक व्यवस्थाअनुसार संविधानसभा गठन गरी नेपाली जनताका लागि नयाँ संविधान निर्माण गर्ने प्रक्रिया अघि बढाइएको थियो।",
-      "solution": "सही उत्तर: A — संविधानसभा।",
+      "solution": "सही उत्तर: C — संविधानसभा।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -462,7 +462,7 @@
       ],
       "correct": 3,
       "explanation": "दुरा सूचीकृत ६० आदिवासी जनजातिमध्ये एक हो।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -498,7 +498,7 @@
       ],
       "correct": 1,
       "explanation": "जाति, भाषा, जनसंख्या, संस्कृति र आधिकारिक सूचीसम्बन्धी प्रश्नमा सरकारी प्रकाशन तथा सम्बन्धित सरकारी निकायका सामग्री बढी विश्वसनीय आधार हुन्।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -570,7 +570,7 @@
       ],
       "correct": 2,
       "explanation": "Demand-driven skills training उद्योगको वास्तविक सीप आवश्यकतासँग जोडिनुपर्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -606,7 +606,7 @@
       ],
       "correct": 2,
       "explanation": "Efficient public transport can reduce congestion and improve urban productivity. ",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -652,7 +652,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-1-032",
@@ -686,7 +687,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-2-052",
@@ -720,7 +722,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-009",
@@ -754,7 +757,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-015",
@@ -788,7 +792,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-027",
@@ -822,7 +827,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "1.7.1-041",
@@ -855,7 +861,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "1.7.1-019",
@@ -888,7 +895,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.8-CUL-02",
@@ -923,7 +931,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-SPT-09",
@@ -958,7 +968,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-ART-09",
@@ -993,7 +1005,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-ECO-05",
@@ -1028,7 +1042,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-AWD-10",
@@ -1063,7 +1079,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-new-001",
@@ -1143,7 +1161,8 @@
         "M"
       ],
       "correct": 2,
-      "solution": "हरेक पटक +3; K।"
+      "solution": "हरेक पटक +3; K।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-new-003",
@@ -1194,7 +1213,8 @@
         "O"
       ],
       "correct": 1,
-      "solution": "E,G,M,N,O,R,T,V; चौथो N।"
+      "solution": "E,G,M,N,O,R,T,V; चौथो N।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-new-006",
@@ -1245,7 +1265,8 @@
         "8"
       ],
       "correct": 1,
-      "solution": "12×15=20×d; d=9।"
+      "solution": "12×15=20×d; d=9।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-010",
@@ -1267,7 +1288,8 @@
         "16"
       ],
       "correct": 3,
-      "solution": "समय 20/1.25=16 दिन।"
+      "solution": "समय 20/1.25=16 दिन।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-006",
@@ -1289,7 +1311,8 @@
         "25%"
       ],
       "correct": 3,
-      "solution": "40/160×100=25%।"
+      "solution": "40/160×100=25%।",
+      "explanation": ""
     },
     {
       "id": "demo-003",
@@ -1341,7 +1364,8 @@
         "1/5"
       ],
       "correct": 2,
-      "solution": "संयुक्त दर 1/6; 3 दिनमा 1/2 काम।"
+      "solution": "संयुक्त दर 1/6; 3 दिनमा 1/2 काम।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-013",
@@ -1363,7 +1387,8 @@
         "24"
       ],
       "correct": 2,
-      "solution": "6/0.30=20 दिन।"
+      "solution": "6/0.30=20 दिन।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-017",
@@ -1385,7 +1410,8 @@
         "0.15"
       ],
       "correct": 2,
-      "solution": "1.25×0.08=0.10।"
+      "solution": "1.25×0.08=0.10।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-019",
@@ -1407,7 +1433,8 @@
         "Rs.750"
       ],
       "correct": 0,
-      "solution": "छुट 100; बिक्री मूल्य 700।"
+      "solution": "छुट 100; बिक्री मूल्य 700।",
+      "explanation": ""
     },
     {
       "id": "bo-2.2-tc-002",
@@ -1439,7 +1466,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-005",
@@ -1463,7 +1491,8 @@
       "correct": 1,
       "solution": "आकृति पालैपालो र संख्या 1,1,2,2,3,3।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-005.svg",
-      "imageAlt": "आकृति क्रम — nasu-2.3-var-005"
+      "imageAlt": "आकृति क्रम — nasu-2.3-var-005",
+      "explanation": ""
     },
     {
       "id": "bo-2.2-003",
@@ -1495,7 +1524,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-2.2-001",
@@ -1527,7 +1557,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-006",
@@ -1551,7 +1582,8 @@
       "correct": 2,
       "solution": "तेर्सो दर्पणमा दिशा उल्टिन्छ।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-006.svg",
-      "imageAlt": "दर्पण — nasu-2.3-var-006"
+      "imageAlt": "दर्पण — nasu-2.3-var-006",
+      "explanation": ""
     },
     {
       "id": "bo-2.2-002",
@@ -1583,7 +1615,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     }
   ]
 }
