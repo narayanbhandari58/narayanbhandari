@@ -63,7 +63,7 @@
       ],
       "correct": 1,
       "explanation": "जनसंख्या, शहरीकरण र आर्थिक गतिविधि बढ्दा पानी, भूमि, ऊर्जा तथा अन्य स्रोतको माग र व्यवस्थापन चुनौती बदलिन सक्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -173,7 +173,7 @@
       ],
       "correct": 2,
       "explanation": "कोशी नेपालको प्रमुख नदी प्रणालीमध्ये एक हो र पूर्वी नेपालसँग सम्बन्धित छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -210,7 +210,7 @@
       ],
       "correct": 1,
       "explanation": "नेपालमा उचाइ, भू-आकृति र जलवायुका आधारमा हिमाल, पहाड र तराईका प्रमुख भौगोलिक क्षेत्र देखिन्छन्।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -246,7 +246,7 @@
       ],
       "correct": 1,
       "explanation": "भारतीय प्लेटको उत्तरतर्फको गति र युरेसियाली प्लेटसँगको टक्कर हिमालय निर्माणको प्रमुख भूगर्भीय कारण हो।",
-      "solution": "सही उत्तर: A — भारतीय र युरेसियाली।",
+      "solution": "सही उत्तर: B — भारतीय र युरेसियाली।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -283,7 +283,7 @@
       ],
       "correct": 1,
       "explanation": "अमेरिकी उपनिवेशहरूले ब्रिटिश शासनविरुद्ध स्वतन्त्रताको आन्दोलन चलाएका थिए; फ्रान्सले पछि अमेरिकी पक्षलाई सहयोग गरेको थियो।",
-      "solution": "सही उत्तर: D।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -355,7 +355,7 @@
       ],
       "correct": 1,
       "explanation": "एकीकरण अभियानले विभिन्न राज्य तथा भूभागलाई एउटै राजनीतिक संरचनामा जोड्ने प्रक्रिया अघि बढायो।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -391,7 +391,7 @@
       ],
       "correct": 3,
       "explanation": "प्रतिष्ठान ऐनको परिभाषामा मातृभाषा, परम्परागत रीतिरिवाज, सांस्कृतिक पहिचान, सामाजिक संरचना र इतिहासजस्ता आधार छन्।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -463,7 +463,7 @@
       ],
       "correct": 3,
       "explanation": "लिम्बू समुदायको आफ्नै लिम्बू भाषा छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -499,7 +499,7 @@
       ],
       "correct": 3,
       "explanation": "मौखिक इतिहास धेरै समुदायमा ज्ञान, स्मृति र परम्परा हस्तान्तरण गर्ने माध्यम हो।",
-      "solution": "सही उत्तर: C।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -535,7 +535,7 @@
       ],
       "correct": 1,
       "explanation": "Market intelligence ले destination market को demand र regulatory requirements बुझ्न सहयोग गर्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -564,7 +564,7 @@
         "निर्यात वस्तु र बजारको दायरा फराकिलो बनाउनु"
       ],
       "correct": 3,
-      "solution": "सही उत्तर: B।",
+      "solution": "सही उत्तर: D।",
       "examIds": [
         "sakha-adhikrit",
         "kharidar",
@@ -581,7 +581,8 @@
           "unit": "1.7",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.4.1-trade-015",
@@ -651,7 +652,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-1-020",
@@ -685,7 +687,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-1-018",
@@ -719,7 +722,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-008",
@@ -753,7 +757,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-001",
@@ -787,7 +792,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-020",
@@ -821,7 +827,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "1.7.2-021",
@@ -854,7 +861,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "1.7.2-055",
@@ -887,7 +895,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.8-SCI-02",
@@ -922,7 +931,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-CUL-09",
@@ -957,7 +968,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-LIT-03",
@@ -992,7 +1005,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-SPT-03",
@@ -1027,7 +1042,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-OTH-06",
@@ -1062,7 +1079,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-var-011",
@@ -1084,7 +1103,8 @@
         "P15"
       ],
       "correct": 0,
-      "solution": "अन्तर +2,+3,+4,+5; O15।"
+      "solution": "अन्तर +2,+3,+4,+5; O15।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-new-005",
@@ -1193,7 +1213,8 @@
         "PS"
       ],
       "correct": 1,
-      "solution": "A→E,D→H र K→O,N→Q; दुवै अक्षरमा +4।"
+      "solution": "A→E,D→H र K→O,N→Q; दुवै अक्षरमा +4।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-var-007",
@@ -1215,7 +1236,8 @@
         "Q"
       ],
       "correct": 0,
-      "solution": "N,O,P,Q,R।"
+      "solution": "N,O,P,Q,R।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-001",
@@ -1237,7 +1259,8 @@
         "14/10"
       ],
       "correct": 2,
-      "solution": "6/10+7/10=13/10।"
+      "solution": "6/10+7/10=13/10।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-016",
@@ -1259,7 +1282,8 @@
         "1.5% वृद्धि"
       ],
       "correct": 1,
-      "solution": "1.15×0.90=1.035; 3.5% वृद्धि।"
+      "solution": "1.15×0.90=1.035; 3.5% वृद्धि।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-010",
@@ -1281,7 +1305,8 @@
         "16"
       ],
       "correct": 3,
-      "solution": "समय 20/1.25=16 दिन।"
+      "solution": "समय 20/1.25=16 दिन।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-new-005",
@@ -1361,7 +1386,8 @@
         "16"
       ],
       "correct": 0,
-      "solution": "B दर=1/8−1/12=1/24।"
+      "solution": "B दर=1/8−1/12=1/24।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-019",
@@ -1383,7 +1409,8 @@
         "Rs.750"
       ],
       "correct": 0,
-      "solution": "छुट 100; बिक्री मूल्य 700।"
+      "solution": "छुट 100; बिक्री मूल्य 700।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-003",
@@ -1405,7 +1432,8 @@
         "7/16"
       ],
       "correct": 0,
-      "solution": "375/1000=3/8।"
+      "solution": "375/1000=3/8।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-001",
@@ -1429,7 +1457,8 @@
       "correct": 1,
       "solution": "तीन आकृतिको क्रम दोहोरिन्छ।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-001.svg",
-      "imageAlt": "आकृति क्रम — nasu-2.3-var-001"
+      "imageAlt": "आकृति क्रम — nasu-2.3-var-001",
+      "explanation": ""
     },
     {
       "id": "bo-2.2-005",
@@ -1461,7 +1490,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-2.2-004",
@@ -1493,7 +1523,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-2.2-tc-002",
@@ -1525,7 +1556,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-004",
@@ -1549,7 +1581,8 @@
       "correct": 0,
       "solution": "कालो/सेतो वैकल्पिक।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-004.svg",
-      "imageAlt": "छायांकन — nasu-2.3-var-004"
+      "imageAlt": "छायांकन — nasu-2.3-var-004",
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-006",
@@ -1573,7 +1606,8 @@
       "correct": 2,
       "solution": "तेर्सो दर्पणमा दिशा उल्टिन्छ।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-006.svg",
-      "imageAlt": "दर्पण — nasu-2.3-var-006"
+      "imageAlt": "दर्पण — nasu-2.3-var-006",
+      "explanation": ""
     }
   ]
 }
