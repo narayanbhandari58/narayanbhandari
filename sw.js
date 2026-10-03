@@ -1,5 +1,5 @@
-const CACHE = "nb-shell-v1";
-const STATIC = ["/", "/about_me.html", "/loksewa.html", "/site.webmanifest", "/style.css"];
+const CACHE = "nb-shell-v2";
+const STATIC = ["/", "/about_me.html", "/loksewa.html", "/site.webmanifest", "/style.css", "/privacy.html", "/404.html"];
 
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(STATIC)).then(() => self.skipWaiting()));
