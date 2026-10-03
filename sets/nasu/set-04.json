@@ -99,7 +99,7 @@
       ],
       "correct": 2,
       "explanation": "आर्कटिक महासागर पाँच प्रमुख महासागरमध्ये क्षेत्रफलका आधारमा सबैभन्दा सानो हो।",
-      "solution": "सही उत्तर: B — आर्कटिक महासागर।",
+      "solution": "सही उत्तर: C — आर्कटिक महासागर।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -136,7 +136,7 @@
       ],
       "correct": 1,
       "explanation": "नेपालमा उचाइ, भू-आकृति र जलवायुका आधारमा हिमाल, पहाड र तराईका प्रमुख भौगोलिक क्षेत्र देखिन्छन्।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -173,7 +173,7 @@
       ],
       "correct": 2,
       "explanation": "कोशी नेपालको प्रमुख नदी प्रणालीमध्ये एक हो र पूर्वी नेपालसँग सम्बन्धित छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -209,7 +209,7 @@
       ],
       "correct": 0,
       "explanation": "भारतीय प्लेट उत्तरतर्फ सर्दै युरेसियाली प्लेटसँग ठोक्किँदा हिमालयको उत्थान भएको हो।",
-      "solution": "सही उत्तर: B — भारतीय र युरेसियाली प्लेट।",
+      "solution": "सही उत्तर: A — भारतीय र युरेसियाली प्लेट।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -276,7 +276,7 @@
       ],
       "correct": 3,
       "explanation": "पूर्वी जर्मनीले 1961 मा बर्लिन पर्खाल निर्माण गर्‍यो।",
-      "solution": "सही उत्तर: C — 1961।",
+      "solution": "सही उत्तर: D — 1961।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -312,7 +312,7 @@
       ],
       "correct": 1,
       "explanation": "नेपालको हिमालपार र दक्षिणतर्फको अवस्थिति भारत–तिब्बतबीचको स्थल व्यापारमा महत्वपूर्ण थियो।",
-      "solution": "सही उत्तर: A — भारत–तिब्बतबीचको व्यापारिक मार्ग।",
+      "solution": "सही उत्तर: B — भारत–तिब्बतबीचको व्यापारिक मार्ग।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -348,7 +348,7 @@
       ],
       "correct": 2,
       "explanation": "नेपाल–अंग्रेज युद्धपछि सन् 1816 मा सुगौली सन्धि भएको थियो।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -384,7 +384,7 @@
       ],
       "correct": 3,
       "explanation": "NFDIN ले मुन्दुमलाई राईको अनुष्ठानिक मौखिक ज्ञान परम्परा तथा बिजुवालाई पितृ/कुलपूजासँग सम्बन्धित स्वजातीय पुरोहितका रूपमा वर्णन गरेको छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -492,7 +492,7 @@
       ],
       "correct": 2,
       "explanation": "२०४६ सालको परिवर्तनपछि नेपाल अधिराज्यको संविधान, २०४७ जारी भयो।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: C।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -528,7 +528,7 @@
       ],
       "correct": 3,
       "explanation": "Effective learning environments require physical and learning-support infrastructure. ",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -600,7 +600,7 @@
       ],
       "correct": 3,
       "explanation": "Bridges remove network bottlenecks and improve connectivity. ",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -646,7 +646,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-1-012",
@@ -680,7 +681,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-2-052",
@@ -714,7 +716,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-021",
@@ -748,7 +751,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-014",
@@ -782,7 +786,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.5-environment-015",
@@ -816,7 +821,8 @@
           "unit": "1.9",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "1.7.2-043",
@@ -849,7 +855,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "1.7.1-035",
@@ -882,7 +889,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.8-ECO-02",
@@ -917,7 +925,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-CUL-02",
@@ -952,7 +962,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-SCI-10",
@@ -987,7 +999,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-OTH-09",
@@ -1022,7 +1036,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-POL-04",
@@ -1057,7 +1073,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-var-004",
@@ -1079,7 +1097,8 @@
         "PS"
       ],
       "correct": 1,
-      "solution": "A→E,D→H र K→O,N→Q; दुवै अक्षरमा +4।"
+      "solution": "A→E,D→H र K→O,N→Q; दुवै अक्षरमा +4।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-new-005",
@@ -1159,7 +1178,8 @@
         "A"
       ],
       "correct": 3,
-      "solution": "+3,+4,+5,+6,+7; T+7=27 अर्थात् A।"
+      "solution": "+3,+4,+5,+6,+7; T+7=27 अर्थात् A।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-var-009",
@@ -1181,7 +1201,8 @@
         "M"
       ],
       "correct": 2,
-      "solution": "हरेक पटक +3; K।"
+      "solution": "हरेक पटक +3; K।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.1-var-005",
@@ -1203,7 +1224,8 @@
         "FOH"
       ],
       "correct": 2,
-      "solution": "प्रत्येक अक्षर +1।"
+      "solution": "प्रत्येक अक्षर +1।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-new-002",
@@ -1254,7 +1276,8 @@
         "Rs.750"
       ],
       "correct": 0,
-      "solution": "छुट 100; बिक्री मूल्य 700।"
+      "solution": "छुट 100; बिक्री मूल्य 700।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-new-005",
@@ -1334,7 +1357,8 @@
         "8"
       ],
       "correct": 1,
-      "solution": "12×15=20×d; d=9।"
+      "solution": "12×15=20×d; d=9।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-013",
@@ -1356,7 +1380,8 @@
         "24"
       ],
       "correct": 2,
-      "solution": "6/0.30=20 दिन।"
+      "solution": "6/0.30=20 दिन।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-014",
@@ -1378,7 +1403,8 @@
         "0.8"
       ],
       "correct": 3,
-      "solution": "3/5=0.6; जम्मा 0.8।"
+      "solution": "3/5=0.6; जम्मा 0.8।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.2-var-003",
@@ -1400,7 +1426,8 @@
         "7/16"
       ],
       "correct": 0,
-      "solution": "375/1000=3/8।"
+      "solution": "375/1000=3/8।",
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-003",
@@ -1424,7 +1451,8 @@
       "correct": 3,
       "solution": "1,2,3,4 हुँदै बढ्छ।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-003.svg",
-      "imageAlt": "आकृति संख्या — nasu-2.3-var-003"
+      "imageAlt": "आकृति संख्या — nasu-2.3-var-003",
+      "explanation": ""
     },
     {
       "id": "bo-2.2-002",
@@ -1456,7 +1484,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-006",
@@ -1480,7 +1509,8 @@
       "correct": 2,
       "solution": "तेर्सो दर्पणमा दिशा उल्टिन्छ।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-006.svg",
-      "imageAlt": "दर्पण — nasu-2.3-var-006"
+      "imageAlt": "दर्पण — nasu-2.3-var-006",
+      "explanation": ""
     },
     {
       "id": "bo-2.2-tc-002",
@@ -1512,7 +1542,8 @@
           "unit": "2.3",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-004",
@@ -1536,7 +1567,8 @@
       "correct": 0,
       "solution": "कालो/सेतो वैकल्पिक।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-004.svg",
-      "imageAlt": "छायांकन — nasu-2.3-var-004"
+      "imageAlt": "छायांकन — nasu-2.3-var-004",
+      "explanation": ""
     },
     {
       "id": "nasu-2.3-var-001",
@@ -1560,7 +1592,8 @@
       "correct": 1,
       "solution": "तीन आकृतिको क्रम दोहोरिन्छ।",
       "image": "image/exam/nasu-kharidar-aptitude/nasu-2.3-var-001.svg",
-      "imageAlt": "आकृति क्रम — nasu-2.3-var-001"
+      "imageAlt": "आकृति क्रम — nasu-2.3-var-001",
+      "explanation": ""
     }
   ]
 }
