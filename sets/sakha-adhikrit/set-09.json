@@ -2194,13 +2194,13 @@
         "B is a liar and C is truthful",
         "B and C are both liars"
       ],
-      "correct": 2,
-      "solution": "A lying means B is not truthful, so B is a liar. B then lies when saying C is truthful, so C is a liar? Wait, if B lies, C is not truthful, hence C is a liar. Therefore D, not B.",
+      "correct": 3,
+      "solution": "A is a liar, so B is not truthful and is therefore a liar. B then lies when saying C is truthful, so C is also a liar. Therefore B and C are both liars.",
       "section": "B",
       "examIds": [
         "sakha-adhikrit"
       ],
-      "explanation": ""
+      "explanation": "A is a liar, so B is not truthful and is therefore a liar. B then lies when saying C is truthful, so C is also a liar. Therefore B and C are both liars."
     },
     {
       "id": "bo-2.4-004",
