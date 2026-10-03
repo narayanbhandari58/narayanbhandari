@@ -4,6 +4,8 @@
   "description": "लेख, साहित्य, लोकसेवा तयारी, शिक्षा र उपयोगी सामग्री।",
   "lang": "ne-NP",
   "dir": "ltr",
+  "orientation": "any",
+  "orientation": "any",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
