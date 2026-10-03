@@ -34,7 +34,7 @@
       ],
       "correct": 3,
       "explanation": "Gulf Stream न्यानो समुद्री धाराको रूपमा उत्तर एटलान्टिक क्षेत्रको जलवायुमा प्रभाव पार्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -107,7 +107,7 @@
       ],
       "correct": 0,
       "explanation": "Convergent boundary मा दुई प्लेट एकअर्कातर्फ सर्छन् र टक्कर वा सबडक्शन हुन सक्छ।",
-      "solution": "सही उत्तर: C — Convergent।",
+      "solution": "सही उत्तर: A — Convergent।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -143,7 +143,7 @@
       ],
       "correct": 2,
       "explanation": "नदीले बारम्बार बाढी ल्याउँदा बोकिएको महीन अवसाद वरपरको समथर क्षेत्रमा जम्मा भएर बाढी मैदान विकसित हुन्छ।",
-      "solution": "सही उत्तर: A — नदीको निक्षेपण।",
+      "solution": "सही उत्तर: C — नदीको निक्षेपण।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -217,7 +217,7 @@
       ],
       "correct": 3,
       "explanation": "ग्रेट भिक्टोरिया मरुभूमि अष्ट्रेलियाको ठूलो आन्तरिक शुष्क क्षेत्रमा पर्छ।",
-      "solution": "सही उत्तर: A — अष्ट्रेलिया।",
+      "solution": "सही उत्तर: D — अष्ट्रेलिया।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -253,7 +253,7 @@
       ],
       "correct": 3,
       "explanation": "इतिहासको पुनर्निर्माणमा अभिलेख, सिक्का, पुरातात्त्विक सामग्री र वंशावलीजस्ता स्रोतले प्रमाण उपलब्ध गराउँछन्।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -289,7 +289,7 @@
       ],
       "correct": 1,
       "explanation": "1789 को घोषणाले स्वतन्त्रता, समानता र अधिकारका सिद्धान्तलाई अघि बढायो।",
-      "solution": "सही उत्तर: A — मानव स्वतन्त्रता र समानता।",
+      "solution": "सही उत्तर: B — मानव स्वतन्त्रता र समानता।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -325,7 +325,7 @@
       ],
       "correct": 1,
       "explanation": "1453 मा ओटोमनहरूले कन्स्टान्टिनोपल कब्जा गरेपछि बाइजेन्टाइन साम्राज्यको अन्त्य भयो।",
-      "solution": "सही उत्तर: A — बाइजेन्टाइन साम्राज्य।",
+      "solution": "सही उत्तर: B — बाइजेन्टाइन साम्राज्य।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -361,7 +361,7 @@
       ],
       "correct": 3,
       "explanation": "1814–15 को भियना सम्मेलनले नेपोलियनपछिको युरोपको शक्ति सन्तुलन पुनर्स्थापित गर्न खोज्यो।",
-      "solution": "सही उत्तर: A — भियना सम्मेलन।",
+      "solution": "सही उत्तर: D — भियना सम्मेलन।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -397,7 +397,7 @@
       ],
       "correct": 1,
       "explanation": "चेपाङ समुदायको परम्परागत विश्वासमा प्रकृति तथा पुर्खासँग सम्बन्धित पूजा-अनुष्ठान पाइन्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -433,7 +433,7 @@
       ],
       "correct": 3,
       "explanation": "प्रतिष्ठानले भाषा, लिपि, संस्कृति, साहित्य, कला र इतिहासको संरक्षण तथा प्रवर्द्धनलाई आफ्नो उद्देश्यमा राखेको छ।",
-      "solution": "सही उत्तर: C।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -505,7 +505,7 @@
       ],
       "correct": 1,
       "explanation": "प्रशोधनले उत्पादनको shelf life, मूल्य र बजार विकल्प बढाउँछ तथा कृषि–उद्योग सम्बन्ध बलियो बनाउँछ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: B।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -577,7 +577,7 @@
       ],
       "correct": 3,
       "explanation": "प्रतिस्पर्धी निर्यातले विदेशी मुद्रा, उत्पादन, लगानी र रोजगारीमा योगदान गर्न सक्छ।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -613,7 +613,7 @@
       ],
       "correct": 3,
       "explanation": "कृषि निर्यातमा perishable nature का कारण quality, SPS, logistics र cold chain महत्त्वपूर्ण हुन्छन्।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -648,7 +648,7 @@
       ],
       "correct": 3,
       "explanation": "नेपालको संविधानको अनुसूची ८ मा स्थानीय तहका एकल अधिकारका विषयहरू छन्।",
-      "solution": "सही उत्तर: A।",
+      "solution": "सही उत्तर: D।",
       "examMappings": {
         "kharidar": {
           "section": "A",
@@ -689,7 +689,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-2-031",
@@ -723,7 +724,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-3-012",
@@ -757,7 +759,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-1-055",
@@ -791,7 +794,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-3-010",
@@ -825,7 +829,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1-6-2-050",
@@ -859,7 +864,8 @@
           "unit": "1.8",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.8-MUS-09",
@@ -894,7 +900,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "1.7.1-057",
@@ -927,7 +935,8 @@
           "unit": "1.10",
           "level": "level1"
         }
-      }
+      },
+      "explanation": ""
     },
     {
       "id": "bo-1.8-CUL-04",
@@ -962,7 +971,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-POL-02",
@@ -997,7 +1008,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-SOC-06",
@@ -1032,7 +1045,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "bo-1.8-AWD-05",
@@ -1067,7 +1082,9 @@
           "unit": "1.11",
           "level": "level1"
         }
-      }
+      },
+      "solution": "",
+      "explanation": ""
     },
     {
       "id": "khd-B1-001",
@@ -1089,7 +1106,8 @@
         "10"
       ],
       "correct": 3,
-      "solution": "प्रत्येक पटक +2।"
+      "solution": "प्रत्येक पटक +2।",
+      "explanation": ""
     },
     {
       "id": "khd-B1-002",
@@ -1136,7 +1154,8 @@
         "90"
       ],
       "correct": 2,
-      "solution": "हरेक पटक ×2।"
+      "solution": "हरेक पटक ×2।",
+      "explanation": ""
     },
     {
       "id": "kh-b2-pict-004",
@@ -1160,7 +1179,8 @@
       "correct": 1,
       "solution": "वर्ग र त्रिभुज पालैपालो छन्; अर्को वर्ग हो।",
       "image": "/image/exam/branch-officer-2.2/bo-2.2-008.png",
-      "imageAlt": "आकृति क्रम"
+      "imageAlt": "आकृति क्रम",
+      "explanation": ""
     },
     {
       "id": "kharidar-b3-new-2",
@@ -1211,7 +1231,8 @@
         "CEG"
       ],
       "correct": 0,
-      "solution": "पहिला तीनमा +2; DFI मा F→I +3।"
+      "solution": "पहिला तीनमा +2; DFI मा F→I +3।",
+      "explanation": ""
     },
     {
       "id": "kharidar-b4-new-2",
@@ -1262,7 +1283,8 @@
         "56"
       ],
       "correct": 2,
-      "solution": "संख्याको वर्ग।"
+      "solution": "संख्याको वर्ग।",
+      "explanation": ""
     },
     {
       "id": "kharidar-b5-new-2",
@@ -1313,7 +1335,8 @@
         "104"
       ],
       "correct": 3,
-      "solution": "बढ्दो क्रममा 104।"
+      "solution": "बढ्दो क्रममा 104।",
+      "explanation": ""
     },
     {
       "id": "khd-B6-001",
@@ -1389,7 +1412,8 @@
         "7/8"
       ],
       "correct": 3,
-      "solution": "6/8+1/8=7/8।"
+      "solution": "6/8+1/8=7/8।",
+      "explanation": ""
     },
     {
       "id": "khd-B7-003",
@@ -1465,7 +1489,8 @@
         "DBT"
       ],
       "correct": 1,
-      "solution": "हरेक अक्षर +1।"
+      "solution": "हरेक अक्षर +1।",
+      "explanation": ""
     },
     {
       "id": "kharidar-b9-new-1",
@@ -1520,7 +1545,8 @@
       "solution": "३ तहको मानक त्रिभुज जालोमा सबै आकार र दिशाका त्रिभुजको कुल संख्या १३ हुन्छ।",
       "figure": "triangle-grid-3",
       "image": "/image/exam/branch-officer-2.2/triangle-grid-3.svg",
-      "imageAlt": "तीन तहको त्रिभुज जालो"
+      "imageAlt": "तीन तहको त्रिभुज जालो",
+      "explanation": ""
     },
     {
       "id": "kharidar-b10-new-1",
