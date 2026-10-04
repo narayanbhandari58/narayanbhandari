@@ -111,6 +111,24 @@ async function readData() {
   return { sha: null, data };
 }
 async function writeData(data, sha) { return gh('exam-data.json', { method: 'PUT', body: JSON.stringify({ message: 'Update Loksewa exam question bank', content: Buffer.from(JSON.stringify(data, null, 2)).toString('base64'), branch: BRANCH, sha }) }) }
+async function readSetFile(examId, setId) {
+  const id = String(setId || '').replace(/[^0-9]/g, '').padStart(2, '0');
+  if (!['kharidar','nasu','sakha-adhikrit'].includes(String(examId))) throw Error('अमान्य परीक्षा चयन गरिएको छ।');
+  if (!/^(0[1-9]|[1-9][0-9])$/.test(id)) throw Error('अमान्य Set चयन गरिएको छ।');
+  return readGithubJson(`sets/${examId}/set-${id}.json`);
+}
+async function writeSetFile(examId, setId, data, sha) {
+  const id = String(setId).replace(/[^0-9]/g, '').padStart(2, '0');
+  return gh(`sets/${examId}/set-${id}.json`, {
+    method: 'PUT',
+    body: JSON.stringify({
+      message: `Update ${examId} Set ${Number(id)} question bank`,
+      content: Buffer.from(JSON.stringify(data, null, 2)).toString('base64'),
+      branch: BRANCH,
+      sha
+    })
+  });
+}
 function groupIdOf(q) { if (q?.groupId) return String(q.groupId); const raw = String(q?.passage || q?.data || q?.figure || '').trim(); if (!raw) return ''; const basis = `${q?.unit || ''}|${q?.type || ''}|${raw}`; return `g-${crypto.createHash('sha1').update(basis).digest('hex').slice(0, 10)}` }
 function questionImage(q) {
   const raw = q?.image || q?.imageUrl || q?.image_url || '';
@@ -331,7 +349,7 @@ exports.handler = async event => {
   if (event.httpMethod === 'OPTIONS') return json(204, {});
   try {
     const actionForLimit = new URLSearchParams(event.rawQuery || '').get('action') || 'config';
-    const limits = { config: [30, 60_000], submit: [8, 10 * 60_000], 'upload-image': [10, 10 * 60_000], 'admin-data': [20, 60_000], 'admin-history': [20, 60_000], 'admin-users': [20, 60_000], 'delete-user': [10, 10 * 60_000], 'save-data': [10, 60_000] };
+    const limits = { config: [30, 60_000], submit: [8, 10 * 60_000], 'upload-image': [10, 10 * 60_000], 'admin-data': [20, 60_000], 'admin-history': [20, 60_000], 'admin-users': [20, 60_000], 'delete-user': [10, 10 * 60_000], 'save-data': [10, 60_000], 'set-data': [30, 60_000], 'save-set-data': [10, 60_000] };
     const [limit, windowMs] = limits[actionForLimit] || [20, 60_000];
     if (!allow(event, `exam-api:${actionForLimit}`, limit, windowMs)) return json(429, { error: 'धेरै requests पठाइयो। केही बेरपछि फेरि प्रयास गर्नुहोस्।' });
     const p = new URLSearchParams(event.rawQuery || '');
@@ -402,6 +420,41 @@ exports.handler = async event => {
       await blobStore().set(result.attemptId, JSON.stringify(result), { metadata: { examId: exam.id, startedAt: String(attempt.startedAt) } });
       await blobStore().delete(activeKey).catch(() => {});
       return json(200, { result });
+    }
+    if (action === 'set-data') {
+      const examId = String(p.get('exam') || body.examId || '').trim();
+      const setId = String(p.get('set') || body.setId || '').trim();
+      try {
+        const index = await readGithubJson('sets/index.json');
+        const sets = (index.data?.sets || []).filter(x => String(x.examId) === examId);
+        const meta = sets.find(x => String(x.setId).padStart(2,'0') === String(setId).padStart(2,'0'));
+        if (!meta) return json(404, { error: 'यो Set भेटिएन।' });
+        const file = await readSetFile(examId, meta.setId);
+        return json(200, { meta, data: file.data });
+      } catch (e) { return json(404, { error: e.message || 'Set data पढ्न सकिएन।' }); }
+    }
+    if (action === 'save-set-data') {
+      if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' });
+      const examId = String(body.examId || '').trim();
+      const setId = String(body.setId || '').trim();
+      const next = body.data;
+      if (!examId || !setId || !next || !Array.isArray(next.questions)) return json(400, { error: 'Set data format गलत छ।' });
+      if (!['kharidar','nasu','sakha-adhikrit'].includes(examId)) return json(400, { error: 'अमान्य परीक्षा चयन गरिएको छ।' });
+      if (!/^(0[1-9]|[1-9][0-9])$/.test(setId)) return json(400, { error: 'अमान्य Set चयन गरिएको छ।' });
+      if (next.questions.some(q => !q || !String(q.id || '').trim() || !String(q.q || q.question || '').trim() || !Array.isArray(q.options) || q.options.length !== 4 || !Number.isInteger(Number(q.correct)))) {
+        return json(400, { error: 'प्रत्येक प्रश्नमा ID, प्रश्न, चार विकल्प र सही उत्तर आवश्यक छन्।' });
+      }
+      const ids = next.questions.map(q => String(q.id)), unique = new Set(ids);
+      if (ids.length !== unique.size) return json(400, { error: 'यस Set भित्र Question ID दोहोरिएको छ।' });
+      let current;
+      try { current = await readSetFile(examId, setId); }
+      catch (e) { return json(404, { error: 'Set file भेटिएन।' }); }
+      next.examId = examId;
+      next.setId = String(setId).padStart(2,'0');
+      next.title = next.title || `Set ${Number(setId)}`;
+      next.questionCount = next.questions.length;
+      await writeSetFile(examId, setId, next, current.sha);
+      return json(200, { ok: true, message: 'Set का प्रश्न स्थायी रूपमा सुरक्षित भयो।', data: next });
     }
     if (action === 'admin-data') {
       if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' });
