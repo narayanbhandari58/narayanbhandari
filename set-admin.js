@@ -1,8 +1,13 @@
 const API='/.netlify/functions/set-api?action=';const $=s=>document.querySelector(s);let set=null,editing=-1,isNew=false,sets=[];
-const names={kharidar:'खरिदार',nasu:'नायब सुब्बा','sakha-adhikrit':'शाखा अधिकृत'};const token=()=>localStorage.getItem('nb_admin_token')||'';
+const names={kharidar:'खरिदार',nasu:'नायब सुब्बा','sakha-adhikrit':'शाखा अधिकृत'};const examInfo={kharidar:{icon:'📘',count:50,time:45},nasu:{icon:'📗',count:50,time:45},'sakha-adhikrit':{icon:'📕',count:100,time:90}};const token=()=>localStorage.getItem('nb_admin_token')||'';
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 async function api(a,opt={}){const r=await fetch(API+a,{...opt,headers:{'Content-Type':'application/json',Authorization:'Bearer '+token(),...(opt.headers||{})}});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.error||'Request failed');return d}
 function auth(){if(!token()){location.href='admin.html?returnTo='+encodeURIComponent('set-admin.html');return false}return true}
+function renderExamCards(){
+ const holder=$('#examCards');
+ holder.innerHTML=Object.entries(names).map(([id,title])=>{const m=examInfo[id];return '<button type="button" class="exam-card '+(id===$('#exam').value?'active':'')+'" data-exam="'+id+'"><span class="exam-icon">'+m.icon+'</span><span><b>'+title+'</b><small>'+m.count+' प्रश्न · '+m.time+' मिनेट</small></span></button>'}).join('');
+ holder.querySelectorAll('[data-exam]').forEach(b=>b.onclick=()=>{$('#exam').value=b.dataset.exam;renderExamCards();loadSets()});
+}
 async function loadSets(){
  $('#setCards').innerHTML='<div class="loading">Set सूची लोड हुँदैछ…</div>';
  const d=await api('admin-list');sets=d.sets.filter(x=>x.examId===$('#exam').value);
@@ -52,6 +57,6 @@ async function saveForm(old,idx){
  catch(e){set.questions[idx]=before;alert(e.message)}
  finally{btn.disabled=false}
 }
-$('#exam').onchange=loadSets;$('#set').onchange=()=>{renderSetCards();loadSet()};$('#search').oninput=render;$('#newQuestion').onclick=newQ;
+$('#exam').onchange=loadSets;$('#set').onchange=()=>{renderSetCards();loadSet()};$('#search').oninput=render;$('#newQuestion').onclick=newQ;renderExamCards();
 $('#logout').onclick=()=>{localStorage.removeItem('nb_admin_token');location.href='admin.html'};
 if(auth())loadSets().catch(e=>alert(e.message));
