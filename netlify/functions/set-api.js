@@ -13,7 +13,7 @@ async function read(path){const m=await gh(path);if(typeof m.content==='string'&
 async function write(path,data,sha,message){return gh(path,{method:'PUT',body:JSON.stringify({message,content:Buffer.from(JSON.stringify(data,null,2)).toString('base64'),branch:BRANCH,sha})})}
 function path(exam,set){return 'sets/'+exam+'/set-'+String(set).padStart(2,'0')+'.json'}
 function safeExam(id){return /^(kharidar|nasu|sakha-adhikrit)$/.test(String(id))}
-function safeSet(n){return /^(?:[1-9]|[1-9][0-9])$/.test(String(n))}
+function safeSet(n){const v=String(n).trim();return /^(?:0*[1-9]|0*[1-9][0-9])$/.test(v)&&Number(v)>=1&&Number(v)<=99}
 function pub(q){const x={...q};delete x.correct;delete x.explanation;delete x.solution;return x}
 function validQuestion(q){return q&&String(q.q||q.question||'').trim()&&Array.isArray(q.options)&&q.options.length===4&&q.options.every(x=>String(x??'').trim())&&Number.isInteger(Number(q.correct))&&Number(q.correct)>=0&&Number(q.correct)<=3}
 function cleanQuestion(q,exam){return {...q,id:String(q.id||('setq-'+Date.now()+'-'+crypto.randomBytes(3).toString('hex'))),examIds:[exam],setOnly:true,q:String(q.q||q.question||'').trim(),options:q.options.map(x=>String(x).trim()),correct:Number(q.correct),section:String(q.section||'').trim(),unit:String(q.unit||'').trim(),subject:String(q.subject||'').trim(),topic:String(q.topic||'').trim(),level:String(q.level||'level1'),type:String(q.type||'gk'),explanation:String(q.explanation||'').trim(),solution:String(q.solution||'').trim(),image:String(q.image||'').trim(),imageAlt:String(q.imageAlt||q.image_alt||'').trim(),passage:String(q.passage||'').trim(),figure:String(q.figure||q.data||'').trim()}}
