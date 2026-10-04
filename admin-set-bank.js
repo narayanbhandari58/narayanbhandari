@@ -199,7 +199,7 @@ async function init(){
       exams=(await api('admin-list')).exams||[];
       $('#sbExam').innerHTML='<option value="">परीक्षा छान्नुहोस्</option>'+exams.map(x=>'<option value="'+esc(x.exam.id)+'">'+esc(x.exam.title)+'</option>').join('');
     }catch(e){
-      mount.innerHTML='<div class="nb-empty"><strong>Set Question Bank लोड भएन।</strong><p>'+esc(e.message)+'</p><button class="btn btn-outline" id="sbRetry" type="button">↻ फेरि प्रयास गर्नुहोस्</button></div>';
+      mount.innerHTML='<div class="nb-empty"><strong>Set Question Bank लोड भएन।</strong><p>'+esc(e.message)+'</p><button class="btn btn-outline" id="sbRetry" type="button">↻ फेरि प्रयास गर्नुहोस्</button></div>';const retry=$("#sbRetry");if(retry)retry.onclick=()=>{initPromise=null;init().catch(()=>{})};
       throw e;
     }finally{loading.remove()}
   })();
