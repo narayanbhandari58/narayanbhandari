@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ne">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Set Question Bank — नारायण भण्डारी</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="admin.css">
+<style>
+:root{--nbp:#8f0e04;--nbd:#650a03;--nbg:#f4c400}
+body{background:#faf8f7}.sqb-wrap{max-width:1180px;margin:auto;padding:22px 14px 60px}.sqb-head{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-bottom:18px}.sqb-head h1{margin:0;color:var(--nbd);font-size:1.45rem}.sqb-head p{margin:5px 0 0;color:#666}.sqb-actions{display:flex;gap:8px;flex-wrap:wrap}.sqb-card{background:#fff;border:1px solid #eadfdc;border-radius:16px;padding:16px;box-shadow:0 7px 24px rgba(15,23,42,.05);margin-bottom:14px}.sqb-filters{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.sqb-filters select,.sqb-filters input,.sqb-form input,.sqb-form select,.sqb-form textarea{width:100%;box-sizing:border-box;border:1px solid #d8dadd;border-radius:10px;padding:10px 11px;font:inherit;background:#fff}.sqb-count{margin:12px 0;color:#666;font-size:.9rem}.sqb-list{display:grid;gap:10px}.sqb-q{border:1px solid #e6e7e9;border-radius:13px;padding:13px;background:#fff;display:flex;justify-content:space-between;gap:14px}.sqb-q-main{min-width:0}.sqb-q-main strong{display:block;line-height:1.55}.sqb-meta{font-size:.78rem;color:#777;margin-top:6px;line-height:1.5}.sqb-answer{margin-top:5px;font-size:.85rem}.sqb-q-actions{display:flex;gap:7px;align-items:flex-start;flex-shrink:0}.sqb-form-wrap{display:none}.sqb-form-wrap.open{display:block}.sqb-form{display:grid;gap:12px}.sqb-grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.sqb-grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.sqb-form label{display:grid;gap:5px;font-weight:700;font-size:.9rem}.sqb-form textarea{min-height:82px;resize:vertical}.sqb-opt{display:grid;grid-template-columns:38px 1fr;gap:8px;align-items:center}.sqb-letter{font-weight:800;text-align:center;color:var(--nbd);background:#fff3ef;border:1px solid #efd0c8;border-radius:9px;padding:9px}.sqb-save-row{display:flex;gap:8px;flex-wrap:wrap}.sqb-note{padding:10px 12px;border-radius:10px;background:#fff8e1;border:1px solid #f1df9a;color:#5d4b00;font-size:.86rem}.sqb-error{color:#a00;margin-top:8px}.sqb-ok{color:#28733b;margin-top:8px}@media(max-width:760px){.sqb-head{align-items:flex-start;flex-direction:column}.sqb-filters,.sqb-grid2,.sqb-grid3{grid-template-columns:1fr}.sqb-q{flex-direction:column}.sqb-q-actions{width:100%}.sqb-q-actions .btn{flex:1}.sqb-wrap{padding:15px 10px 45px}.sqb-card{padding:12px}}
+</style>
+</head>
+<body>
+<nav class="navbar"><div class="container nav-container"><a class="brand" href="index.html#home"><img src="image/logo.png" alt="नारायण भण्डारी"><span>नारायण भण्डारी</span></a><a href="/admin">CMS Admin</a></div></nav>
+<main class="sqb-wrap">
+<header class="sqb-head"><div><h1>🧩 Set Question Bank</h1><p>Stable Set का प्रश्न यहाँ मात्र सम्पादन हुन्छ। मुख्य Question Bank मा असर पर्दैन।</p></div><div class="sqb-actions"><a class="btn btn-outline" href="/admin">← CMS</a><button class="btn btn-primary" id="newBtn" type="button">+ नयाँ प्रश्न</button></div></header>
+<section class="sqb-card"><div class="sqb-filters"><select id="exam"><option value="">परीक्षा छान्नुहोस्</option></select><select id="set" disabled><option value="">पहिले परीक्षा छान्नुहोस्</option></select><input id="search" type="search" placeholder="🔎 प्रश्न खोज्नुहोस्..."></div><div id="count" class="sqb-count"></div><div id="list" class="sqb-list"></div></section>
+<section id="formWrap" class="sqb-card sqb-form-wrap"><h2 id="formTitle">नयाँ प्रश्न</h2><div class="sqb-note">यो प्रश्न केवल चयन गरिएको Stable Set मा सुरक्षित हुनेछ। Main Question Bank मा लेखिँदैन। नयाँ प्रश्न थप्दा Set को प्रश्न संख्या पनि स्वतः अद्यावधिक हुन्छ।</div><form id="form" class="sqb-form">
+<div class="sqb-grid3"><label>Section<input id="section" placeholder="जस्तै A"></label><label>Unit / Syllabus<input id="unit" placeholder="जस्तै 1.2"></label><label>Level<select id="level"><option value="level1">Level I</option><option value="level2">Level II</option></select></label></div>
+<div class="sqb-grid2"><label>Subject / विषय<input id="subject" placeholder="जस्तै संविधान"></label><label>Topic / पाठ्यक्रम<input id="topic" placeholder="जस्तै मौलिक हक"></label></div>
+<label>प्रश्न<textarea id="q" rows="4" required></textarea></label>
+<div class="sqb-grid2"><label>प्रकार<select id="type"><option value="gk">GK / विषयगत</option><option value="iq">IQ</option><option value="pictorial">Pictorial</option><option value="table">Table</option><option value="bar-chart">Bar Chart</option><option value="line-graph">Line Graph</option><option value="pie-chart">Pie Chart</option></select></label><label>Image URL<input id="image" placeholder="https://... (आवश्यक भएमा)"></label></div>
+<div id="options"></div>
+<div class="sqb-grid2"><label>सही विकल्प<select id="correct"><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select></label><label>Image Alt<input id="imageAlt" placeholder="चित्रको संक्षिप्त विवरण"></label></div>
+<div class="sqb-grid2"><label>व्याख्या<textarea id="explanation"></textarea></label><label>Solution<textarea id="solution"></textarea></label></div>
+<div class="sqb-grid2"><label>Passage / Stimulus<textarea id="passage"></textarea></label><label>Figure / Data<textarea id="figure"></textarea></label></div>
+<div class="sqb-save-row"><button class="btn btn-primary" id="saveBtn" type="submit">प्रश्न सुरक्षित गर्नुहोस्</button><button class="btn btn-outline" id="cancelBtn" type="button">रद्द</button><button class="btn btn-danger" id="deleteBtn" type="button" hidden>यो प्रश्न हटाउनुहोस्</button></div><div id="msg"></div>
+</form></section>
+</main>
+<script src="set-question-bank.js?v=20261004-1"></script>
+</body></html>
