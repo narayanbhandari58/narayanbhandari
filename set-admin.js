@@ -59,4 +59,4 @@ async function saveForm(old,idx){
 }
 $('#exam').onchange=loadSets;$('#set').onchange=()=>{renderSetCards();loadSet()};$('#search').oninput=render;$('#newQuestion').onclick=newQ;renderExamCards();
 $('#logout').onclick=()=>{localStorage.removeItem('nb_admin_token');location.href='admin.html'};
-if(auth())loadSets().catch(e=>alert(e.message));
+if(auth())loadSets().catch(e=>{$('#setCards').innerHTML='<div class="error">'+esc(e.message||'Set सूची लोड गर्न सकिएन।')+'</div>';});
