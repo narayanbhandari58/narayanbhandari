@@ -1,7 +1,7 @@
 const API='/.netlify/functions/set-api?action=';const $=s=>document.querySelector(s);let set=null,editing=-1,isNew=false,sets=[];
 const names={kharidar:'खरिदार',nasu:'नायब सुब्बा','sakha-adhikrit':'शाखा अधिकृत'};const examInfo={kharidar:{icon:'📘',count:50,time:45},nasu:{icon:'📗',count:50,time:45},'sakha-adhikrit':{icon:'📕',count:100,time:90}};const token=()=>localStorage.getItem('nb_admin_token')||'';
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-async function api(a,opt={}){const r=await fetch(API+a,{...opt,headers:{'Content-Type':'application/json',Authorization:'Bearer '+token(),...(opt.headers||{})}});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.error||'Request failed');return d}
+async function api(a,opt={}){const r=await fetch(API+a,{...opt,headers:{'Content-Type':'application/json',Authorization:'Bearer '+token(),...(opt.headers||{})}});const d=await r.json().catch(()=>({}));if(r.status===401){localStorage.removeItem('nb_admin_token');localStorage.removeItem('nb_admin_username');location.href='admin.html?returnTo='+encodeURIComponent('set-admin.html');throw Error(d.error||'Admin login आवश्यक छ');}if(!r.ok)throw Error(d.error||'Request failed');return d}
 function auth(){if(!token()){location.href='admin.html?returnTo='+encodeURIComponent('set-admin.html');return false}return true}
 function renderExamCards(){
  const holder=$('#examCards');
