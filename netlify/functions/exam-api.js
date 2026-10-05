@@ -501,6 +501,9 @@ exports.handler = async event => {
       const verify = await readGithubJson('exam-data.json');
       const persisted = (verify.data.questions || []).find(x => String(x.id) === String(q.id));
       if (!persisted) return json(500, { error: 'प्रश्न GitHub backend मा सुरक्षित भएको पुष्टि हुन सकेन। फेरि प्रयास गर्नुहोस्।' });
+      if (JSON.stringify(persisted) !== JSON.stringify(q)) {
+        return json(500, { error: 'प्रश्नको नयाँ content GitHub backend मा ठ्याक्कै सुरक्षित भएको पुष्टि हुन सकेन। पुरानो content सुरक्षित रहेको हुन सक्छ। फेरि प्रयास गर्नुहोस्।' });
+      }
       return json(200, { ok: true, created: index < 0, question: persisted, commitSha: saved?.commit || null, verified: true, message: index < 0 ? 'नयाँ प्रश्न स्थायी रूपमा सुरक्षित भयो।' : 'प्रश्न स्थायी रूपमा सुरक्षित भयो।' });
     }
     if (action === 'save-data') {
