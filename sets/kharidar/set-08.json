@@ -847,12 +847,12 @@
       "unit": "5",
       "level": "level1",
       "type": "mcq",
-      "question": "नेपाल र भुटान BIMSTEC मा कहिले प्रवेश गरे?",
+      "question": "नेपाल र भुटान बहुक्षेत्रीय प्राविधिक तथा आर्थिक सहयोगका लागि बंगालको खाडीको पहल (Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation—BIMSTEC) मा कहिले प्रवेश गरे?",
       "options": [
-        "A/RES/995(X)",
-        "१८३",
-        "८ फेब्रुअरी २००४",
-        "१४ डिसेम्बर १९५५"
+        "२००४–२००५",
+        "२००३–२००४",
+        "२००५–२००६",
+        "२००६–२००७"
       ],
       "correct": 2,
       "solution": "",
@@ -882,7 +882,7 @@
       "category": "खेलकुद",
       "level": "level1",
       "type": "fact",
-      "question": "२०२६ विश्वकपको उपस्थिति करिब कति पुगेको FIFA ले जनाएको छ?",
+      "question": "२०२६ विश्वकपको उपस्थिति करिब कति पुगेको अन्तर्राष्ट्रिय फुटबल संघ महासंघ (Fédération Internationale de Football Association—FIFA) ले जनाएको छ?",
       "options": [
         "५,०००,०००",
         "७,५००,०००",
@@ -919,7 +919,7 @@
       "category": "खेलकुद",
       "level": "level1",
       "type": "fact",
-      "question": "२०२६ FIFA विश्वकपको विजेता कुन देश बन्यो?",
+      "question": "२०२६ अन्तर्राष्ट्रिय फुटबल संघ महासंघ (Fédération Internationale de Football Association—FIFA) विश्वकपको विजेता कुन देश बन्यो?",
       "options": [
         "स्पेन",
         "अर्जेन्टिना",
@@ -1027,7 +1027,7 @@
       "category": "कला",
       "level": "level1",
       "type": "fact",
-      "question": "काठमाडौँ उपत्यकाको UNESCO सम्पदा क्षेत्रको संरक्षणमा कुन विषय प्रमुख हुन्छ?",
+      "question": "काठमाडौँ उपत्यकाको संयुक्त राष्ट्र शैक्षिक, वैज्ञानिक तथा सांस्कृतिक संगठन (United Nations Educational, Scientific and Cultural Organization—UNESCO) सम्पदा क्षेत्रको संरक्षणमा कुन विषय प्रमुख हुन्छ?",
       "options": [
         "स्मारक र ऐतिहासिक सहरी संरचनाको संरक्षण",
         "आधुनिक भवन",
