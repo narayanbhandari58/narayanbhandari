@@ -21,7 +21,15 @@ function verify(t) {
     return good && o.sub && o.exp >= Date.now() / 1000 ? o : null;
   } catch { return null }
 }
-function isAdmin(e) { return verify((e.headers?.authorization || '').replace(/^Bearer\s+/i, '')) }
+function session(e) { return verify((e.headers?.authorization || '').replace(/^Bearer\s+/i, '')) }
+function isAdmin(e) {
+  const s = session(e);
+  return !!s && (s.role === 'admin' || s.role === 'moderator');
+}
+function isFullAdmin(e) {
+  const s = session(e);
+  return !!s && s.role === 'admin';
+}
 function signAttempt(payload) {
   if (!SECRET) throw Error('ADMIN_JWT_SECRET is not configured');
   const h = b64(JSON.stringify({ alg: 'HS256', typ: 'NB-EXAM' }));
@@ -423,7 +431,7 @@ exports.handler = async event => {
       return json(200, { data: adminData, examReadiness });
     }
     if (action === 'admin-history' || action === 'history' || action === 'admin-users' || action === 'users') {
-      if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' });
+      if (!isFullAdmin(event)) return json(403, { error: 'यो Online Exam को History/Users भाग केवल मुख्य Admin का लागि हो।' });
       const a = await attempts();
       const query = userQuery(p);
       if (action === 'admin-users' || action === 'users') {
@@ -440,7 +448,7 @@ exports.handler = async event => {
       return json(200, { attempts: a.filter(x => matchesUser(x, query)) });
     }
     if (action === 'delete-user') {
-      if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' });
+      if (!isFullAdmin(event)) return json(403, { error: 'User/history हटाउने अधिकार केवल मुख्य Admin लाई छ।' });
       const key = String(body.userId || body.id || body.key || '').trim();
       if (!key || key.length > 200) return json(400, { error: 'User identifier आवश्यक छ' });
       const store = blobStore();
