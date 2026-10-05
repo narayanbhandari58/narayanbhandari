@@ -959,9 +959,9 @@ exports.handler =
          ADMIN AUTHENTICATION
       =================================== */
 
-      if (
-        !auth(event)
-      ) {
+      const session = auth(event);
+
+      if (!session) {
 
         return {
 
