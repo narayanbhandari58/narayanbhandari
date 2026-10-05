@@ -523,10 +523,9 @@ exports.handler = async event => {
       else questions.unshift(q);
       const next = { ...currentData, questions };
       const saved = await writeData(next, current.sha);
-      // New questions created from the Moderator Question Bank are also kept in
-      // a dedicated seed file. The seed-sync workflow already imports all JSON
-      // seed files back into exam-data.json, so seed and live bank remain aligned.
-      if (index < 0) await mirrorModeratorQuestionToSeed(q);
+      // Keep every Moderator create/edit mirrored in the dedicated seed bank.
+      // This prevents a later seed sync from restoring an older edited version.
+      await mirrorModeratorQuestionToSeed(q);
       // Never report success merely because the GitHub PUT returned. Re-read the
       // file and verify the exact question is present. This prevents the CMS from
       // showing a false "saved" state when a stale/deployed function or write path
