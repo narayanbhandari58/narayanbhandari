@@ -52,24 +52,25 @@ function verifyAttempt(t) {
 async function gh(path, opt = {}) { if (!TOKEN) throw Error('GITHUB_TOKEN is not configured'); const r = await fetch(`${GH}/repos/${REPO}/contents/${path}`, { ...opt, headers: { Authorization: `Bearer ${TOKEN}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json', ...(opt.headers || {}) } }); const d = await r.json(); if (!r.ok) throw Error(d.message || 'GitHub request failed'); return d }
 async function readGithubJson(path) {
   const meta = await gh(path);
-  if (typeof meta.content === 'string' && meta.content.trim()) {
-    try { return { data: JSON.parse(Buffer.from(meta.content, 'base64').toString('utf8')), sha: meta.sha }; } catch {}
-  }
   if (!meta.sha) throw Error('GitHub file SHA भेटिएन।');
-  // exam-data.json is now large (> 1 MB). GitHub's Contents API may omit
-  // inline content for large files, so fetch the raw file instead of decoding
-  // the Git blob base64 payload. This avoids false JSON-format errors.
-  const raw = await fetch(`${GH}/repos/${REPO}/contents/${path}?ref=${encodeURIComponent(BRANCH)}`, {
+
+  // Large JSON files may omit inline Contents API data. Read the Git blob
+  // directly by SHA; this is reliable for the current ~1.9 MB exam-data.json.
+  const r = await fetch(`${GH}/repos/${REPO}/git/blobs/${meta.sha}`, {
     headers: {
       Authorization: `Bearer ${TOKEN}`,
-      Accept: 'application/vnd.github.raw',
+      Accept: 'application/vnd.github+json',
       'X-GitHub-Api-Version': '2022-11-28'
     }
   });
-  const rawText = await raw.text();
-  if (!raw.ok || !rawText.trim()) throw Error('GitHub file पढ्न सकिएन।');
+  const d = await r.json();
+  if (!r.ok || d.encoding !== 'base64' || typeof d.content !== 'string') {
+    throw Error('GitHub blob पढ्न सकिएन।');
+  }
+
+  const text = Buffer.from(d.content.replace(/\s/g, ''), 'base64').toString('utf8');
   try {
-    return { data: JSON.parse(rawText), sha: meta.sha };
+    return { data: JSON.parse(text), sha: meta.sha };
   } catch (e) {
     throw Error(`exam-data.json को JSON format गलत छ: ${e.message}`);
   }
