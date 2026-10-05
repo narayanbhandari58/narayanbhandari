@@ -1,5 +1,31 @@
 [
   {
+    "id": "q-1791210572072-d4t9r",
+    "examIds": [
+      "kharidar",
+      "nasu",
+      "sakha-adhikrit"
+    ],
+    "section": "",
+    "unit": "",
+    "level": "L1",
+    "type": "gk",
+    "subject": "खरिदार तयारी परीक्षा",
+    "topic": "नेपालको भूगोल",
+    "q": "नेपालको कुल क्षेत्रफल कति वर्गमाइल रहेको छ?",
+    "options": [
+      "५५६२७",
+      "५६८२७",
+      "५६६२६",
+      "५५८२७"
+    ],
+    "correct": 1,
+    "explanation": "",
+    "solution": "",
+    "image": "",
+    "imageAlt": "नेपालको भूगोल"
+  },
+  {
     "id": "q-1791207975031-pnaj6",
     "examIds": [
       "kharidar"
