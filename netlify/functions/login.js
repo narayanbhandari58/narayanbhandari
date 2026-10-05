@@ -6,6 +6,8 @@ const USER = process.env.ADMIN_USERNAME || "Narayan";
 const PASS = process.env.ADMIN_PASSWORD;
 const SECRET = process.env.ADMIN_JWT_SECRET;
 const TOKEN = process.env.GITHUB_TOKEN;
+const MODERATOR_USER = process.env.MODERATOR_USERNAME;
+const MODERATOR_PASS = process.env.MODERATOR_PASSWORD;
 
 function b64(s) {
   return Buffer.from(s).toString("base64url");
@@ -52,16 +54,33 @@ exports.handler = async event => {
     const username = String(body.username || "");
     const password = String(body.password || "");
 
-    if (username !== USER) return json(401, { error: "गलत username वा password" });
+    let role = "";
+    let matchedUser = "";
 
-    const valid = await verifyPassword(password, PASS);
-    if (!valid) return json(401, { error: "गलत username वा password" });
+    if (username === USER) {
+      const valid = await verifyPassword(password, PASS);
+      if (valid) {
+        role = "admin";
+        matchedUser = USER;
+      }
+    } else if (MODERATOR_USER && MODERATOR_PASS && username === MODERATOR_USER) {
+      const valid = await verifyPassword(password, MODERATOR_PASS);
+      if (valid) {
+        role = "moderator";
+        matchedUser = MODERATOR_USER;
+      }
+    }
+
+    if (!role) return json(401, { error: "गलत username वा password" });
 
     return json(200, {
       token: sign({
-        sub: USER,
+        sub: matchedUser,
+        role,
         exp: Math.floor(Date.now() / 1000) + 86400
-      })
+      }),
+      role,
+      username: matchedUser
     });
   } catch (e) {
     console.error(e);
