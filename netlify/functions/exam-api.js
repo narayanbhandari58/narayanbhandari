@@ -437,12 +437,12 @@ exports.handler = async event => {
       // Admin must read the just-saved GitHub version directly. The public
       // raw.githubusercontent.com CDN can briefly serve an older exam-data.json
       // after a write, which made edited questions appear to revert.
-      let adminData = data;
+      let adminData;
       try {
         const fresh = await readGithubJson('exam-data.json');
         adminData = fresh.data;
       } catch (e) {
-        console.warn('Fresh admin exam-data read failed; using public data:', e.message);
+        return json(500, { error: 'exam-data.json पढ्न सकिएन।: ' + e.message });
       }
       const examReadiness = (adminData.exams || []).map(exam => ({
         examId: exam.id,
