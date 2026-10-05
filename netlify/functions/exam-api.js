@@ -362,7 +362,12 @@ exports.handler = async event => {
     const action = p.get('action') || 'config';
     const body = event.body ? JSON.parse(event.body) : {};
     if (action === 'upload-image') { if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' }); return json(200, { ok: true, ...await uploadImage(body) }) }
-    const { data } = await readData();
+    // Only public exam actions need the published Raw data. Admin CRUD must read
+    // the current GitHub Contents version directly so CDN lag cannot block saves/deletes.
+    let data;
+    if (action === 'config' || action === 'start' || action === 'submit') {
+      ({ data } = await readData());
+    }
     if (action === 'config') {
       const exam = data.exams.find(x => x.id === (p.get('exam') || body.examId) && x.enabled !== false);
       if (!exam) return json(404, { error: 'परीक्षा भेटिएन' });
