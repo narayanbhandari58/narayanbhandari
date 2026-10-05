@@ -503,7 +503,26 @@ exports.handler = async event => {
       if (!persisted) return json(500, { error: 'प्रश्न GitHub backend मा सुरक्षित भएको पुष्टि हुन सकेन। फेरि प्रयास गर्नुहोस्।' });
       return json(200, { ok: true, created: index < 0, question: persisted, commitSha: saved?.commit || null, verified: true, message: index < 0 ? 'नयाँ प्रश्न स्थायी रूपमा सुरक्षित भयो।' : 'प्रश्न स्थायी रूपमा सुरक्षित भयो।' });
     }
-    if (action === 'save-data') { if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' }); if (!body.data || !Array.isArray(body.data.exams) || !Array.isArray(body.data.questions)) return json(400, { error: 'Exam data format गलत छ' }); const ids = body.data.questions.map(q => String(q.id || '').trim()).filter(Boolean), unique = new Set(ids); if (ids.length !== unique.size) return json(400, { error: 'Question ID दोहोरिएको छ। प्रत्येक प्रश्नको unique ID हुनुपर्छ।' }); const current = await gh('exam-data.json'); await writeData(body.data, current.sha); return json(200, { ok: true, message: 'Exam data सुरक्षित भयो' }) }
+    if (action === 'save-data') {
+      if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' });
+      if (!body.data || !Array.isArray(body.data.exams) || !Array.isArray(body.data.questions)) return json(400, { error: 'Exam data format गलत छ' });
+      const ids = body.data.questions.map(q => String(q.id || '').trim()).filter(Boolean), unique = new Set(ids);
+      if (ids.length !== unique.size) return json(400, { error: 'Question ID दोहोरिएको छ। प्रत्येक प्रश्नको unique ID हुनुपर्छ।' });
+      const current = await gh('exam-data.json');
+      const saved = await writeData(body.data, current.sha);
+      const verify = await readGithubJson('exam-data.json');
+      const verifiedQuestions = Array.isArray(verify.data.questions) ? verify.data.questions : [];
+      if (verifiedQuestions.length !== body.data.questions.length) {
+        return json(500, { error: 'Exam data GitHub backend मा पूरा रूपमा सुरक्षित भएको पुष्टि हुन सकेन। फेरि प्रयास गर्नुहोस्।' });
+      }
+      for (const q of body.data.questions) {
+        const persisted = verifiedQuestions.find(x => String(x.id) === String(q.id));
+        if (!persisted || JSON.stringify(persisted) !== JSON.stringify(q)) {
+          return json(500, { error: 'Exam data GitHub backend मा ठ्याक्कै सुरक्षित भएको पुष्टि हुन सकेन। फेरि प्रयास गर्नुहोस्।' });
+        }
+      }
+      return json(200, { ok: true, verified: true, commitSha: saved?.commit || null, message: 'Exam data GitHub backend मा स्थायी रूपमा सुरक्षित भयो' });
+    }
     return json(400, { error: 'Unknown action' });
   } catch (e) { console.error(e); return json(500, { error: e.message || 'Exam API error' }) }
 };
