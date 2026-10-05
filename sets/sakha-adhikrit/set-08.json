@@ -1168,7 +1168,7 @@
       "type": "concept",
       "question": "कृत्रिम बुद्धिमत्तामा algorithmic bias को जोखिम कुन हो?",
       "options": [
-        "AI ले डेटा कहिल्यै प्रयोग गर्दैन",
+        "कृत्रिम बुद्धिमत्ता (Artificial Intelligence—AI) ले डेटा कहिल्यै प्रयोग गर्दैन",
         "bias hardware को समस्या हो",
         "ऐतिहासिक वा त्रुटिपूर्ण डेटा/डिजाइनका कारण केही समूहप्रति अनुचित परिणाम आउन सक्छ",
         "यसले सबैलाई समान परिणामको ग्यारेन्टी गर्छ"
@@ -1515,7 +1515,7 @@
       "category": "कला",
       "level": "I",
       "type": "fact",
-      "question": "नेपालको सांस्कृतिक सम्पदामध्ये UNESCO World Heritage सूचीमा रहेका सांस्कृतिक सम्पदा कति छन्?",
+      "question": "नेपालको सांस्कृतिक सम्पदामध्ये संयुक्त राष्ट्र शैक्षिक, वैज्ञानिक तथा सांस्कृतिक संगठन (United Nations Educational, Scientific and Cultural Organization—UNESCO) World Heritage सूचीमा रहेका सांस्कृतिक सम्पदा कति छन्?",
       "options": [
         "१",
         "३",
@@ -1626,7 +1626,7 @@
       "category": "अन्य महत्त्वपूर्ण",
       "level": "I",
       "type": "fact",
-      "question": "IAEA General Conference २०२६ मा कुन अवधिमा आयोजना हुँदैछ?",
+      "question": "अन्तर्राष्ट्रिय आणविक ऊर्जा एजेन्सी (International Atomic Energy Agency—IAEA) General Conference २०२६ मा कुन अवधिमा आयोजना हुँदैछ?",
       "options": [
         "१४–१८ सेप्टेम्बर",
         "१–५ सेप्टेम्बर",
