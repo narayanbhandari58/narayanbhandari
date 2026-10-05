@@ -1,5 +1,5 @@
 const crypto = require("crypto");
-const { verifyPassword } = require("./auth-store");
+const { verifyPassword, verifyPasswordForKey } = require("./auth-store");
 const { allow, cleanup } = require("./security-rate-limit");
 
 const USER = process.env.ADMIN_USERNAME || "Narayan";
@@ -8,6 +8,7 @@ const SECRET = process.env.ADMIN_JWT_SECRET;
 const TOKEN = process.env.GITHUB_TOKEN;
 const MODERATOR_USER = process.env.MODERATOR_USERNAME;
 const MODERATOR_PASS = process.env.MODERATOR_PASSWORD;
+const MODERATOR_KEY = "moderator-credentials";
 
 function b64(s) {
   return Buffer.from(s).toString("base64url");
@@ -64,7 +65,7 @@ exports.handler = async event => {
         matchedUser = USER;
       }
     } else if (MODERATOR_USER && MODERATOR_PASS && username === MODERATOR_USER) {
-      const valid = await verifyPassword(password, MODERATOR_PASS);
+      const valid = await verifyPasswordForKey(password, MODERATOR_PASS, MODERATOR_KEY);
       if (valid) {
         role = "moderator";
         matchedUser = MODERATOR_USER;
