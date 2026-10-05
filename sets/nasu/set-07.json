@@ -908,10 +908,10 @@
       "type": "fact",
       "question": "नेपालमा अमूर्त सांस्कृतिक सम्पदा सूचीकरणको काममा कुन संस्थाले प्रमुख अन्तर्राष्ट्रिय सहयोग गरेको छ?",
       "options": [
-        "FIFA",
-        "WTO",
-        "IAEA",
-        "UNESCO"
+        "अन्तर्राष्ट्रिय फुटबल संघ महासंघ (Fédération Internationale de Football Association—FIFA)",
+        "विश्व व्यापार संगठन (World Trade Organization—WTO)",
+        "अन्तर्राष्ट्रिय आणविक ऊर्जा एजेन्सी (International Atomic Energy Agency—IAEA)",
+        "संयुक्त राष्ट्र शैक्षिक, वैज्ञानिक तथा सांस्कृतिक संगठन (United Nations Educational, Scientific and Cultural Organization—UNESCO)"
       ],
       "correct": 3,
       "asOf": "2026-09-12",
