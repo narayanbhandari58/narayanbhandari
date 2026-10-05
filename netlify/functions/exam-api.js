@@ -53,8 +53,13 @@ async function gh(path, opt = {}) { if (!TOKEN) throw Error('GITHUB_TOKEN is not
 async function readGithubJson(path) {
   const meta = await gh(path);
   if (!meta.sha) throw Error('GitHub file SHA भेटिएन।');
-  if (typeof meta.content !== 'string') throw Error(path + ' को content भेटिएन।');
-  const rawText = Buffer.from(meta.content.replace(/\\s/g, ''), 'base64').toString('utf8');
+  // GitHub Contents API may omit inline content for large JSON files.
+  // Read the blob by SHA so large exam-data.json remains reliable.
+  const blob = await gh('git/blobs/' + meta.sha);
+  if (!blob || blob.encoding !== 'base64' || typeof blob.content !== 'string') {
+    throw Error(path + ' को Git blob पढ्न सकिएन।');
+  }
+  const rawText = Buffer.from(blob.content.replace(/\s/g, ''), 'base64').toString('utf8');
   if (!rawText.trim()) throw Error(path + ' खाली छ।');
   try {
     return { data: JSON.parse(rawText), sha: meta.sha };
