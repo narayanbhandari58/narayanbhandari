@@ -354,10 +354,10 @@
       "type": "fact",
       "question": "नेपालमा अमूर्त सांस्कृतिक सम्पदा सूचीकरणको काममा कुन संस्थाले प्रमुख अन्तर्राष्ट्रिय सहयोग गरेको छ?",
       "options": [
-        "FIFA",
-        "WTO",
-        "IAEA",
-        "UNESCO"
+        "अन्तर्राष्ट्रिय फुटबल संघ महासंघ (Fédération Internationale de Football Association—FIFA)",
+        "विश्व व्यापार संगठन (World Trade Organization—WTO)",
+        "अन्तर्राष्ट्रिय आणविक ऊर्जा एजेन्सी (International Atomic Energy Agency—IAEA)",
+        "संयुक्त राष्ट्र शैक्षिक, वैज्ञानिक तथा सांस्कृतिक संगठन (United Nations Educational, Scientific and Cultural Organization—UNESCO)"
       ],
       "correct": 3,
       "asOf": "2026-09-12",
@@ -425,7 +425,7 @@
       "category": "अन्य महत्त्वपूर्ण",
       "level": "level1",
       "type": "fact",
-      "question": "UNGA 81 का अध्यक्ष को हुन्?",
+      "question": "संयुक्त राष्ट्र महासभा (United Nations General Assembly—UNGA) 81 का अध्यक्ष को हुन्?",
       "options": [
         "Dennis Francis",
         "Abdulla Shahid",
@@ -533,12 +533,12 @@
       "unit": "1.10",
       "level": "level1",
       "type": "mcq",
-      "question": "नेपाल ECOSOC मा कहिले निर्वाचित भयो?",
+      "question": "नेपाल संयुक्त राष्ट्र आर्थिक तथा सामाजिक परिषद् (United Nations Economic and Social Council—ECOSOC) मा कहिले निर्वाचित भयो?",
       "options": [
-        "चीन, फ्रान्स, रुस, बेलायत र अमेरिका",
-        "१९६९–७० र १९८८–८९",
         "२०२३",
-        "५"
+        "२०२४",
+        "२०२२",
+        "२०२५"
       ],
       "correct": 2,
       "solution": "",
@@ -1119,7 +1119,7 @@
       "topic": "प्राविधिक शिक्षा",
       "level": "level1",
       "type": "gk",
-      "q": "TVET को आर्थिक उद्देश्य कुन हो?",
+      "q": "प्राविधिक तथा व्यावसायिक शिक्षा तथा तालिम (Technical and Vocational Education and Training—TVET) को आर्थिक उद्देश्य कुन हो?",
       "options": [
         "सैद्धान्तिक शिक्षा बढाउनु",
         "रोजगारीयोग्य र उत्पादक प्राविधिक सीप विकास गर्नु",
@@ -1433,12 +1433,12 @@
       "unit": "1.10",
       "level": "level1",
       "type": "mcq",
-      "question": "UNSC का स्थायी सदस्य कति छन्?",
+      "question": "संयुक्त राष्ट्र सुरक्षा परिषद् (United Nations Security Council—UNSC) का स्थायी सदस्य कति छन्?",
       "options": [
         "५",
-        "चीन, फ्रान्स, रुस, बेलायत र अमेरिका",
-        "१९६९–७० र १९८८–८९",
-        "२०२३"
+        "६",
+        "४",
+        "७"
       ],
       "correct": 0,
       "solution": "",
