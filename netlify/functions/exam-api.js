@@ -53,18 +53,13 @@ async function gh(path, opt = {}) { if (!TOKEN) throw Error('GITHUB_TOKEN is not
 async function readGithubJson(path) {
   const meta = await gh(path);
   if (!meta.sha) throw Error('GitHub file SHA भेटिएन।');
-
-  // Read the actual raw repository file. Do not parse GitHub's Contents/Blob
-  // API wrapper here: large JSON files can otherwise produce misleading parse
-  // errors such as "Unexpected non-whitespace character after JSON".
-  const rawUrl = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/${path}?v=${encodeURIComponent(meta.sha)}`;
-  const raw = await fetch(rawUrl, { cache: 'no-store' });
-  const rawText = await raw.text();
-  if (!raw.ok || !rawText.trim()) throw Error('GitHub raw file पढ्न सकिएन।');
+  if (typeof meta.content !== 'string') throw Error(path + ' को content भेटिएन।');
+  const rawText = Buffer.from(meta.content.replace(/\\s/g, ''), 'base64').toString('utf8');
+  if (!rawText.trim()) throw Error(path + ' खाली छ।');
   try {
     return { data: JSON.parse(rawText), sha: meta.sha };
   } catch (e) {
-    throw Error(`exam-data.json को JSON format गलत छ: ${e.message}`);
+    throw Error(path + ' को JSON format गलत छ: ' + e.message);
   }
 }
 async function readData() {
