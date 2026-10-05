@@ -119,6 +119,24 @@ async function readData() {
   return { sha: null, data };
 }
 async function writeData(data, sha) { return gh('exam-data.json', { method: 'PUT', body: JSON.stringify({ message: 'Update Loksewa exam question bank', content: Buffer.from(JSON.stringify(data, null, 2)).toString('base64'), branch: BRANCH, sha }) }) }
+async function mirrorModeratorQuestionToSeed(q) {
+  const path = 'exam-question-seed/moderator-added-questions.json';
+  let seed = [];
+  let sha = null;
+  try {
+    const current = await readGithubJson(path);
+    seed = Array.isArray(current.data) ? current.data : [];
+    sha = current.sha;
+  } catch (e) {
+    if (!String(e.message || '').toLowerCase().includes('not found')) throw e;
+  }
+  const idx = seed.findIndex(x => String(x?.id) === String(q.id));
+  if (idx >= 0) seed[idx] = q;
+  else seed.unshift(q);
+  const body = { message: 'Mirror moderator question to seed bank', content: Buffer.from(JSON.stringify(seed, null, 2) + '\\n').toString('base64'), branch: BRANCH };
+  if (sha) body.sha = sha;
+  return gh(path, { method: 'PUT', body: JSON.stringify(body) });
+}
 function groupIdOf(q) { if (q?.groupId) return String(q.groupId); const raw = String(q?.passage || q?.data || q?.figure || '').trim(); if (!raw) return ''; const basis = `${q?.unit || ''}|${q?.type || ''}|${raw}`; return `g-${crypto.createHash('sha1').update(basis).digest('hex').slice(0, 10)}` }
 function questionImage(q) {
   const raw = q?.image || q?.imageUrl || q?.image_url || '';
@@ -494,6 +512,10 @@ exports.handler = async event => {
       else questions.unshift(q);
       const next = { ...currentData, questions };
       const saved = await writeData(next, current.sha);
+      // New questions created from the Moderator Question Bank are also kept in
+      // a dedicated seed file. The seed-sync workflow already imports all JSON
+      // seed files back into exam-data.json, so seed and live bank remain aligned.
+      if (index < 0) await mirrorModeratorQuestionToSeed(q);
       // Never report success merely because the GitHub PUT returned. Re-read the
       // file and verify the exact question is present. This prevents the CMS from
       // showing a false "saved" state when a stale/deployed function or write path
