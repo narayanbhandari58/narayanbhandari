@@ -22,29 +22,37 @@ function hashPassword(password, salt) {
   });
 }
 
-async function getCredentials() {
-  return store().get(KEY, { type: "json", consistency: "strong" });
+async function getCredentialsForKey(key = KEY) {
+  return store().get(key, { type: "json", consistency: "strong" });
 }
 
-async function setPassword(password) {
+async function getCredentials() {
+  return getCredentialsForKey(KEY);
+}
+
+async function setPasswordForKey(password, key = KEY) {
   const salt = crypto.randomBytes(16).toString("hex");
   const passwordHash = await hashPassword(password, salt);
-  await store().setJSON(KEY, {
+  await store().setJSON(key, {
     passwordHash,
     salt,
     updatedAt: new Date().toISOString()
   });
 }
 
-async function verifyPassword(password, fallbackPassword = "") {
-  let credentials = await getCredentials();
+async function setPassword(password) {
+  return setPasswordForKey(password, KEY);
+}
 
-  // First successful login/change after deployment migrates the old
-  // Netlify environment password into the Blob store as a hash.
+async function verifyPasswordForKey(password, fallbackPassword = "", key = KEY) {
+  let credentials = await getCredentialsForKey(key);
+
+  // First successful login after deployment migrates the configured
+  // environment password into the dedicated Blob credential record.
   if (!credentials?.passwordHash || !credentials?.salt) {
     if (!fallbackPassword || String(password) !== String(fallbackPassword)) return false;
-    await setPassword(fallbackPassword);
-    credentials = await getCredentials();
+    await setPasswordForKey(fallbackPassword, key);
+    credentials = await getCredentialsForKey(key);
   }
 
   const actual = await hashPassword(password, credentials.salt);
@@ -53,4 +61,8 @@ async function verifyPassword(password, fallbackPassword = "") {
   return a.length === b.length && crypto.timingSafeEqual(a, b);
 }
 
-module.exports = { getCredentials, setPassword, verifyPassword };
+async function verifyPassword(password, fallbackPassword = "") {
+  return verifyPasswordForKey(password, fallbackPassword, KEY);
+}
+
+module.exports = { getCredentials, setPassword, verifyPassword, verifyPasswordForKey };
