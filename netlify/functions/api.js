@@ -980,6 +980,13 @@ exports.handler =
       }
 
 
+      if (session.role === "moderator") {
+        return {
+          statusCode: 403,
+          body: JSON.stringify({ error: "Moderator लाई Online Exam बाहेक CMS का अन्य भागमा पहुँच छैन।" })
+        };
+      }
+
       /* SAVE GALLERY */
       if (action === "save-gallery") {
         if (!Array.isArray(body.gallery)) {
