@@ -53,11 +53,17 @@ async function gh(path, opt = {}) { if (!TOKEN) throw Error('GITHUB_TOKEN is not
 async function readGithubJson(path) {
   const meta = await gh(path);
   if (!meta.sha) throw Error('GitHub file SHA भेटिएन।');
-  // GitHub Contents API may omit inline content for large JSON files.
-  // Read the blob by SHA so large exam-data.json remains reliable.
-  const blob = await gh('git/blobs/' + meta.sha);
-  if (!blob || blob.encoding !== 'base64' || typeof blob.content !== 'string') {
-    throw Error(path + ' को Git blob पढ्न सकिएन।');
+  // Contents API omits inline content for large files. Use the Git Blobs API directly.
+  const blobRes = await fetch(GH + '/repos/' + REPO + '/git/blobs/' + meta.sha, {
+    headers: {
+      Authorization: 'Bearer ' + TOKEN,
+      Accept: 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28'
+    }
+  });
+  const blob = await blobRes.json();
+  if (!blobRes.ok || !blob || blob.encoding !== 'base64' || typeof blob.content !== 'string') {
+    throw Error(path + ' को Git blob पढ्न सकिएन: ' + (blob?.message || blobRes.status));
   }
   const rawText = Buffer.from(blob.content.replace(/\s/g, ''), 'base64').toString('utf8');
   if (!rawText.trim()) throw Error(path + ' खाली छ।');
