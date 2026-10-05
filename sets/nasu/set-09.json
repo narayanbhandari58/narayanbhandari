@@ -835,12 +835,12 @@
       "unit": "1.10",
       "level": "level1",
       "type": "mcq",
-      "question": "UNSC का पाँच स्थायी सदस्य को हुन्?",
+      "question": "संयुक्त राष्ट्र सुरक्षा परिषद् (United Nations Security Council—UNSC) का पाँच स्थायी सदस्य को हुन्?",
       "options": [
-        "१९६९–७० र १९८८–८९",
-        "२०२३",
         "चीन, फ्रान्स, रुस, बेलायत र अमेरिका",
-        "५"
+        "चीन, जापान, भारत, बेलायत र अमेरिका",
+        "फ्रान्स, जर्मनी, रुस, बेलायत र अमेरिका",
+        "चीन, फ्रान्स, जर्मनी, जापान र अमेरिका"
       ],
       "correct": 2,
       "solution": "",
@@ -869,12 +869,12 @@
       "unit": "1.10",
       "level": "level1",
       "type": "mcq",
-      "question": "नेपाल र भुटान BIMSTEC मा कहिले प्रवेश गरे?",
+      "question": "नेपाल र भुटान बहुक्षेत्रीय प्राविधिक तथा आर्थिक सहयोगका लागि बंगालको खाडीको पहल (Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation—BIMSTEC) मा कहिले प्रवेश गरे?",
       "options": [
-        "A/RES/995(X)",
-        "१८३",
-        "८ फेब्रुअरी २००४",
-        "१४ डिसेम्बर १९५५"
+        "२००४–२००५",
+        "२००३–२००४",
+        "२००५–२००६",
+        "२००६–२००७"
       ],
       "correct": 2,
       "solution": "",
@@ -941,7 +941,7 @@
       "category": "सांस्कृतिक",
       "level": "level1",
       "type": "fact",
-      "question": "नेपालका UNESCO विश्व सम्पदा सम्पत्तिको संख्या २०२६ मा कति छ?",
+      "question": "नेपालका संयुक्त राष्ट्र शैक्षिक, वैज्ञानिक तथा सांस्कृतिक संगठन (United Nations Educational, Scientific and Cultural Organization—UNESCO) विश्व सम्पदा सम्पत्तिको संख्या २०२६ मा कति छ?",
       "options": [
         "३",
         "४",
