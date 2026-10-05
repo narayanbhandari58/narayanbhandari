@@ -838,9 +838,9 @@
       "question": "थप कति UN agencies का programs नेपालमा छन्?",
       "options": [
         "९",
-        "५",
-        "चीन, फ्रान्स, रुस, बेलायत र अमेरिका",
-        "१९६९–७० र १९८८–८९"
+        "१०",
+        "८",
+        "११"
       ],
       "correct": 0,
       "solution": "",
@@ -941,7 +941,7 @@
       "category": "सांस्कृतिक",
       "level": "level1",
       "type": "fact",
-      "question": "नेपालका UNESCO विश्व सम्पदा सम्पत्तिको संख्या २०२६ मा कति छ?",
+      "question": "नेपालका संयुक्त राष्ट्र शैक्षिक, वैज्ञानिक तथा सांस्कृतिक संगठन (United Nations Educational, Scientific and Cultural Organization—UNESCO) विश्व सम्पदा सम्पत्तिको संख्या २०२६ मा कति छ?",
       "options": [
         "३",
         "४",
@@ -1015,7 +1015,7 @@
       "category": "खेलकुद",
       "level": "level1",
       "type": "fact",
-      "question": "२०२६ FIFA विश्वकपको फाइनलको अन्तिम स्कोर कति थियो?",
+      "question": "२०२६ अन्तर्राष्ट्रिय फुटबल संघ महासंघ (Fédération Internationale de Football Association—FIFA) विश्वकपको फाइनलको अन्तिम स्कोर कति थियो?",
       "options": [
         "स्पेन २–१ अर्जेन्टिना",
         "अर्जेन्टिना १–० स्पेन",
