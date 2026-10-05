@@ -370,6 +370,30 @@
   ],
   "questions": [
     {
+      "id": "q-1791197922841-ahwq2",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "",
+      "unit": "",
+      "level": "L1",
+      "type": "gk",
+      "subject": "भूगोल",
+      "topic": "नेपालको जलस्रोत",
+      "q": "यो backend save परीक्षणका लागि नयाँ प्रश्न हो?",
+      "options": [
+        "हो",
+        "होइन",
+        "थाहा छैन",
+        "जानकारी भएन"
+      ],
+      "correct": 0,
+      "explanation": "",
+      "solution": "",
+      "image": "",
+      "imageAlt": "नेपालको जलस्रोत"
+    },
+    {
       "id": "q-1791196510238-3zukn",
       "examIds": [
         "sakha-adhikrit"
