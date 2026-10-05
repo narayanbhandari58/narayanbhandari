@@ -18,7 +18,14 @@
 3. Netlify → Site configuration → Environment variables मा `.env.example` का सबै variables राख्नुहोस्।
 4. **पुरानो GitHub token तुरुन्त revoke गर्नुहोस् र नयाँ fine-grained token बनाउनुहोस्।** नयाँ token मा आवश्यक repository Contents permission मात्र दिनुहोस्।
 5. Deploy/redeploy गर्नुहोस्।
-6. `/admin.html` खोलेर `ADMIN_USERNAME` र `ADMIN_PASSWORD` ले login गर्नुहोस्।
+6. `/admin.html` खोलेर `ADMIN_USERNAME` र `ADMIN_PASSWORD` ले मुख्य Admin login गर्नुहोस्।
+
+### Online Exam Moderator
+CMS को **Online Exam भाग मात्र** चलाउने moderator बनाउन Netlify Environment Variables मा यी दुई variable थप्नुहोस्:
+- `MODERATOR_USERNAME` — moderator को username
+- `MODERATOR_PASSWORD` — moderator को password
+
+Moderator login गरेपछि CMS मा **Online Exam** मात्र देखिन्छ। Question Bank र Set Question Bank बाट प्रश्न सम्पादन गर्न सक्छ, तर Posts, About Me, Gallery, Analytics, Account, Users तथा अन्य CMS भागमा पहुँच हुँदैन। Server-side permission पनि लागू गरिएको छ, त्यसैले URL/API बाट लुकाइएका भाग खोल्न खोजे पनि अनुमति हुँदैन।
 
 ## महत्वपूर्ण
 यो package मा कुनै वास्तविक GitHub token वा पुरानो password राखिएको छैन।
