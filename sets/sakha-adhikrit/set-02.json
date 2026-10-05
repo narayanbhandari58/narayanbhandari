@@ -1164,7 +1164,7 @@
       "type": "matching",
       "question": "कुन कथन सही छ?",
       "options": [
-        "AI को output अन्तिम निर्णय हुनुपर्छ",
+        "कृत्रिम बुद्धिमत्ता (Artificial Intelligence—AI) को output अन्तिम निर्णय हुनुपर्छ",
         "privacy को प्रविधिसँग सम्बन्ध छैन",
         "डेटा bias ले परिणाममा असर गर्न सक्छ",
         "backup को आवश्यकता cloud मा हुँदैन"
@@ -1299,7 +1299,7 @@
       "unit": "1.7.1",
       "level": "I",
       "type": "mcq",
-      "question": "२०२५ को छैटौँ शिखर सम्मेलनपछि BIMSTEC अध्यक्षता कसले सम्हालेको छ?",
+      "question": "२०२५ को छैटौँ शिखर सम्मेलनपछि बहुक्षेत्रीय प्राविधिक तथा आर्थिक सहयोगका लागि बंगालको खाडीको पहल (Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation—BIMSTEC) अध्यक्षता कसले सम्हालेको छ?",
       "options": [
         "A/RES/995(X)",
         "१८३",
@@ -1369,10 +1369,10 @@
       "type": "mcq",
       "question": "नेपाल ECOSOC मा कहिले निर्वाचित भयो?",
       "options": [
-        "चीन, फ्रान्स, रुस, बेलायत र अमेरिका",
-        "१९६९–७० र १९८८–८९",
         "२०२३",
-        "५"
+        "२०२४",
+        "२०२२",
+        "२०२५"
       ],
       "correct": 2,
       "solution": "",
@@ -1403,10 +1403,10 @@
       "type": "mcq",
       "question": "नेपाल–UN UNSDCF को अवधि कुन हो?",
       "options": [
-        "२०२३–२०२७",
-        "५",
-        "चीन, फ्रान्स, रुस, बेलायत र अमेरिका",
-        "१९६९–७० र १९८८–८९"
+        "२०२७–२०२८",
+        "२०२६–२०२७",
+        "२०२८–२०२९",
+        "२०२९–२०३०"
       ],
       "correct": 0,
       "solution": "",
@@ -1531,7 +1531,7 @@
       "category": "खेलकुद",
       "level": "I",
       "type": "fact",
-      "question": "२०२६ विश्वकपको उपस्थिति करिब कति पुगेको FIFA ले जनाएको छ?",
+      "question": "२०२६ विश्वकपको उपस्थिति करिब कति पुगेको अन्तर्राष्ट्रिय फुटबल संघ महासंघ (Fédération Internationale de Football Association—FIFA) ले जनाएको छ?",
       "options": [
         "५,०००,०००",
         "७,५००,०००",
@@ -1706,9 +1706,9 @@
       "question": "GRAMMY Awards आयोजना गर्ने संस्थाको नाम के हो?",
       "options": [
         "Academy of Motion Picture Arts and Sciences",
-        "FIFA",
+        "अन्तर्राष्ट्रिय फुटबल संघ महासंघ (Fédération Internationale de Football Association—FIFA)",
         "Recording Academy",
-        "UNESCO"
+        "संयुक्त राष्ट्र शैक्षिक, वैज्ञानिक तथा सांस्कृतिक संगठन (United Nations Educational, Scientific and Cultural Organization—UNESCO)"
       ],
       "correct": 2,
       "asOf": "2026-09-12",
