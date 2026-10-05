@@ -869,7 +869,7 @@
       "topic": "BIMSTEC",
       "level": "level1",
       "type": "mcq",
-      "q": "BIMSTEC मा हाल कति सदस्य राष्ट्र छन्?",
+      "q": "बहुक्षेत्रीय प्राविधिक तथा आर्थिक सहयोगका लागि बंगालको खाडीको पहल (Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation—BIMSTEC) मा हाल कति सदस्य राष्ट्र छन्?",
       "options": [
         "७",
         "५",
@@ -1009,7 +1009,7 @@
       "category": "वैज्ञानिक",
       "level": "level1",
       "type": "fact",
-      "question": "NASA र IBM ले २०२६ मा चन्द्रमासम्बन्धी कुन AI मोडेल सार्वजनिक गरेका छन्?",
+      "question": "NASA र IBM ले २०२६ मा चन्द्रमासम्बन्धी कुन कृत्रिम बुद्धिमत्ता (Artificial Intelligence—AI) मोडेल सार्वजनिक गरेका छन्?",
       "options": [
         "Lunar Foundation Model",
         "Mars Language Model",
@@ -1045,12 +1045,12 @@
       "unit": "5",
       "level": "level1",
       "type": "mcq",
-      "question": "BIMSTEC सचिवालय कहाँ छ?",
+      "question": "बहुक्षेत्रीय प्राविधिक तथा आर्थिक सहयोगका लागि बंगालको खाडीको पहल (Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation—BIMSTEC) सचिवालय कहाँ छ?",
       "options": [
         "ढाका",
-        "१४ डिसेम्बर १९५५",
-        "A/RES/995(X)",
-        "१८३"
+        "काठमाडौं",
+        "न्यूयोर्क",
+        "जेनेभा"
       ],
       "correct": 0,
       "solution": "",
