@@ -1267,10 +1267,10 @@
       "type": "mcq",
       "question": "नेपाल ECOSOC मा कहिले निर्वाचित भयो?",
       "options": [
-        "चीन, फ्रान्स, रुस, बेलायत र अमेरिका",
-        "१९६९–७० र १९८८–८९",
         "२०२३",
-        "५"
+        "२०२४",
+        "२०२२",
+        "२०२५"
       ],
       "correct": 2,
       "solution": "",
@@ -1307,7 +1307,7 @@
       "topic": "BIMSTEC",
       "level": "L1",
       "type": "mcq",
-      "q": "BIMSTEC मा हाल कति सदस्य राष्ट्र छन्?",
+      "q": "बहुक्षेत्रीय प्राविधिक तथा आर्थिक सहयोगका लागि बंगालको खाडीको पहल (Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation—BIMSTEC) मा हाल कति सदस्य राष्ट्र छन्?",
       "options": [
         "७",
         "५",
@@ -1371,10 +1371,10 @@
       "type": "mcq",
       "question": "नेपालले ECOSOC को अध्यक्षता कुन अवधिमा गर्‍यो?",
       "options": [
-        "२०२५–२६",
-        "५",
-        "चीन, फ्रान्स, रुस, बेलायत र अमेरिका",
-        "१९६९–७० र १९८८–८९"
+        "२०२५–२०२६",
+        "२०२४–२०२५",
+        "२०२६–२०२७",
+        "२०२७–२०२८"
       ],
       "correct": 0,
       "solution": "",
@@ -1411,7 +1411,7 @@
       "topic": "SAARC",
       "level": "L1",
       "type": "mcq",
-      "q": "SAARC को सचिवालय कहाँ रहेको छ?",
+      "q": "दक्षिण एसियाली क्षेत्रीय सहयोग संगठन (South Asian Association for Regional Cooperation—SAARC) को सचिवालय कहाँ रहेको छ?",
       "options": [
         "ढाका",
         "नयाँदिल्ली",
@@ -1511,7 +1511,7 @@
       "category": "अन्य महत्त्वपूर्ण",
       "level": "I",
       "type": "fact",
-      "question": "IAEA General Conference २०२६ मा कुन अवधिमा आयोजना हुँदैछ?",
+      "question": "अन्तर्राष्ट्रिय आणविक ऊर्जा एजेन्सी (International Atomic Energy Agency—IAEA) General Conference २०२६ मा कुन अवधिमा आयोजना हुँदैछ?",
       "options": [
         "१४–१८ सेप्टेम्बर",
         "१–५ सेप्टेम्बर",
