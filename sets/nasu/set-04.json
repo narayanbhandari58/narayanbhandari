@@ -524,7 +524,7 @@
         "भवन",
         "खेल मैदान",
         "कार्यालय",
-        "कक्षा, खानेपानी/सरसफाइ, सुरक्षित भवन, ICT र सिकाइ सामग्री"
+        "कक्षा, खानेपानी/सरसफाइ, सुरक्षित भवन, सूचना तथा सञ्चार प्रविधि (Information and Communication Technology—ICT) र सिकाइ सामग्री"
       ],
       "correct": 3,
       "explanation": "Effective learning environments require physical and learning-support infrastructure. ",
@@ -972,9 +972,9 @@
       "category": "वैज्ञानिक",
       "level": "level1",
       "type": "fact",
-      "question": "२०२६ को अन्तरिक्ष विज्ञानमा AI प्रयोगको प्रमुख प्रवृत्ति कुन हो?",
+      "question": "२०२६ को अन्तरिक्ष विज्ञानमा कृत्रिम बुद्धिमत्ता (Artificial Intelligence—AI) प्रयोगको प्रमुख प्रवृत्ति कुन हो?",
       "options": [
-        "AI पूर्ण रूपमा बन्द गर्नु",
+        "कृत्रिम बुद्धिमत्ता (Artificial Intelligence—AI) पूर्ण रूपमा बन्द गर्नु",
         "ठूलो वैज्ञानिक डेटाबाट संरचना पहिचान र विश्लेषण",
         "मानव गणना",
         "अन्तरिक्ष अनुसन्धान रोक्नु"
