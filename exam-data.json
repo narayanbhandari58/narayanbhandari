@@ -370,6 +370,32 @@
   ],
   "questions": [
     {
+      "id": "q-1791211444005-8ks27",
+      "examIds": [
+        "kharidar",
+        "nasu",
+        "sakha-adhikrit"
+      ],
+      "section": "",
+      "unit": "",
+      "level": "L1",
+      "type": "gk",
+      "subject": "इतिहास",
+      "topic": "नेपालको इतिहास",
+      "q": "नेपालको इतिहासमा अभागी मल्ल राजा भनेर कुन राजालाई चिनिन्छ?",
+      "options": [
+        "जयस्थिति मल्ल",
+        "प्रताप मल्ल",
+        "जय प्रकाश मल्ल",
+        "सिद्धि नरसिंह मल्ल"
+      ],
+      "correct": 2,
+      "explanation": "",
+      "solution": "",
+      "image": "",
+      "imageAlt": "नेपालको इतिहास"
+    },
+    {
       "id": "q-1791210572072-d4t9r",
       "examIds": [
         "kharidar",
