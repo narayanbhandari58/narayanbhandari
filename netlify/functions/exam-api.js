@@ -525,6 +525,77 @@ exports.handler = async event => {
       }
       return json(200, { ok: true, created: index < 0, question: persisted, commitSha: saved?.commit || null, verified: true, message: index < 0 ? 'नयाँ प्रश्न स्थायी रूपमा सुरक्षित भयो।' : 'प्रश्न स्थायी रूपमा सुरक्षित भयो।' });
     }
+    if (action === 'delete-question') {
+      if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' });
+      const id = String(body?.id || '').trim();
+      const examId = String(body?.examId || '').trim();
+      if (!id) return json(400, { error: 'प्रश्न ID आवश्यक छ' });
+
+      const current = await readGithubJson('exam-data.json');
+      const questions = Array.isArray(current.data.questions) ? current.data.questions.slice() : [];
+      const index = questions.findIndex(q => String(q?.id) === id);
+      if (index < 0) return json(404, { error: 'प्रश्न भेटिएन।' });
+
+      if (examId) {
+        const q = { ...questions[index] };
+        q.examIds = Array.isArray(q.examIds) ? q.examIds.filter(x => String(x) !== examId) : [];
+        if (!q.examIds.length) questions.splice(index, 1);
+        else questions[index] = q;
+      } else {
+        questions.splice(index, 1);
+      }
+
+      const next = { ...current.data, questions };
+      const saved = await writeData(next, current.sha);
+
+      // Keep the dedicated moderator seed bank in sync so a later seed
+      // maintenance action cannot resurrect a deleted Moderator question.
+      try {
+        const seedPath = 'exam-question-seed/moderator-added-questions.json';
+        const seedCurrent = await readGithubJson(seedPath);
+        const seed = Array.isArray(seedCurrent.data) ? seedCurrent.data.slice() : [];
+        const si = seed.findIndex(q => String(q?.id) === id);
+        if (si >= 0) {
+          if (examId) {
+            const sq = { ...seed[si] };
+            sq.examIds = Array.isArray(sq.examIds) ? sq.examIds.filter(x => String(x) !== examId) : [];
+            if (sq.examIds.length) seed[si] = sq;
+            else seed.splice(si, 1);
+          } else {
+            seed.splice(si, 1);
+          }
+          await gh(seedPath, {
+            method: 'PUT',
+            body: JSON.stringify({
+              message: 'Remove moderator question from seed bank',
+              content: Buffer.from(JSON.stringify(seed, null, 2) + '\n').toString('base64'),
+              branch: BRANCH,
+              sha: seedCurrent.sha
+            })
+          });
+        }
+      } catch (e) {
+        console.warn('Moderator seed delete sync skipped:', e.message);
+      }
+
+      const verify = await readGithubJson('exam-data.json');
+      const stillThere = (verify.data.questions || []).find(q => String(q?.id) === id);
+      if (examId) {
+        if (stillThere && (!Array.isArray(stillThere.examIds) || stillThere.examIds.some(x => String(x) === examId))) {
+          return json(500, { error: 'प्रश्नबाट परीक्षा हटाइएको परिवर्तन GitHub backend मा पुष्टि हुन सकेन।' });
+        }
+      } else if (stillThere) {
+        return json(500, { error: 'प्रश्न GitHub backend बाट पूर्ण रूपमा हटेको पुष्टि हुन सकेन।' });
+      }
+
+      return json(200, {
+        ok: true,
+        deleted: !stillThere,
+        removedFromExam: examId || null,
+        commitSha: saved?.commit || null,
+        message: examId ? 'प्रश्न चयन गरिएको परीक्षाबाट हटाइयो।' : 'प्रश्न पूर्ण रूपमा हटाइयो।'
+      });
+    }
     if (action === 'save-data') {
       if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' });
       if (!body.data || !Array.isArray(body.data.exams) || !Array.isArray(body.data.questions)) return json(400, { error: 'Exam data format गलत छ' });

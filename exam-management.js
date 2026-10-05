@@ -30,7 +30,29 @@ $('#fImage').oninput=()=>{const v=$('#fImage').value.trim();$('#fImagePreview').
 $('#cancelQ').onclick=()=>form.remove();
 $('#fImage')?.addEventListener('input',()=>{const v=$('#fImage').value.trim(),im=$('#fImagePreview');if(im){im.src=v;im.style.display=v?'block':'none'}});
     $('#saveQ').onclick=async()=>{try{const ids=[...$('#fExam').selectedOptions].map(o=>o.value).filter(Boolean);if(!ids.length)throw Error('कम्तीमा एउटा परीक्षा छान्नुहोस्।');const imageValue=$('#fImage').value.trim();const typeValue=$('#fType').value;const imageTypes=['pictorial','bar-chart','line-graph','pie-chart'];if(imageTypes.includes(typeValue)&&!imageValue)throw Error('यो चित्र/ग्राफ प्रश्नका लागि JPG/PNG चित्र upload गर्नुहोस्।');const obj={id:q.id||`q-${Date.now()}`,examIds:ids,section:$('#fSection').value,unit:$('#fUnit').value,subject:$('#fSubject').value.trim(),topic:$('#fTopic').value.trim(),level:$('#fLevel').value,type:typeValue,format:$('#fFormat').value,q:$('#fQ').value.trim(),options:[0,1,2,3].map(i=>$('#fO'+i).value.trim()),correct:Number($('#fCorrect').value),explanation:$('#fExp').value.trim(),solution:$('#fSol').value.trim(),passage:$('#fPassage').value.trim(),data:$('#fData').value.trim(),figure:$('#fData').value.trim(),groupId:$('#fGroupId').value.trim(),image:imageValue,imageUrl:imageValue,imageAlt:$('#fImageAlt').value.trim()};if(!obj.q)throw Error('प्रश्न लेख्नुहोस्।');const old=data.questions.find(x=>x.id===obj.id);const merged=old?{...old,...obj}:obj;const idx=data.questions.findIndex(x=>x.id===obj.id);if(idx>=0)data.questions[idx]=merged;else data.questions.push(merged);await api('save-data',{method:'POST',body:JSON.stringify({data})});alert('प्रश्न सुरक्षित भयो।');form.remove();render()}catch(e){alert(e.message)}}}
-async function delQ(id){const q=data.questions.find(x=>x.id===id);if(!q)return;const names=(q.examIds||[]).map(x=>data.exams.find(e=>e.id===x)?.title||x);const choice=prompt(`यो प्रश्न कुन परीक्षा बाट हटाउने?\n${names.map((n,i)=>`${i+1}. ${n}`).join('\n')}\n\nनम्बर लेख्नुहोस्।\nपूरै प्रश्न मेटाउन 0 लेख्नुहोस्।`);if(choice===null)return;const n=Number(choice);if(n===0){if(!confirm('यो प्रश्न सबै परीक्षाबाट पूर्ण रूपमा मेटाउने?'))return;data.questions=data.questions.filter(x=>x.id!==id)}else{if(!Number.isInteger(n)||n<1||n>names.length)return alert('गलत विकल्प।');q.examIds=q.examIds.filter((_,i)=>i!==n-1);if(!q.examIds.length)data.questions=data.questions.filter(x=>x.id!==id)}try{await api('save-data',{method:'POST',body:JSON.stringify({data})});alert('परिवर्तन सुरक्षित भयो।');render()}catch(e){alert(e.message)}}
+async function delQ(id){
+  const q=data.questions.find(x=>x.id===id);
+  if(!q)return;
+  const names=(q.examIds||[]).map(x=>data.exams.find(e=>e.id===x)?.title||x);
+  const choice=prompt(`यो प्रश्न कुन परीक्षा बाट हटाउने?\\n${names.map((n,i)=>`${i+1}. ${n}`).join('\\n')}\\n\\nनम्बर लेख्नुहोस्।\\nपूरै प्रश्न मेटाउन 0 लेख्नुहोस्।`);
+  if(choice===null)return;
+  const n=Number(choice);
+  let examId='';
+  if(n===0){
+    if(!confirm('यो प्रश्न सबै परीक्षाबाट पूर्ण रूपमा मेटाउने?'))return;
+  }else{
+    if(!Number.isInteger(n)||n<1||n>names.length)return alert('गलत विकल्प।');
+    examId=String(q.examIds[n-1]||'');
+    if(!examId)return alert('परीक्षा भेटिएन।');
+    if(!confirm(`यो प्रश्न “${names[n-1]}” बाट मात्र हटाउने?`))return;
+  }
+  try{
+    const saved=await api('delete-question',{method:'POST',body:JSON.stringify({id,examId})});
+    data=(await api('admin-data')).data;
+    alert(saved.message||'प्रश्न हटाइयो।');
+    render();
+  }catch(e){alert(e.message)}
+}
 function blueprint(){const p=$('#blueprintPanel');if(!p)return;p.innerHTML=data.exams.map(e=>`<div class=blueprint-card><h3>${esc(e.title)}</h3>${(e.blueprint?.sections||[]).map(s=>`<div><b>${esc(s.id)} — ${esc(s.title)}</b><span>${s.questionCount||0} प्रश्न</span><ul>${(s.units||[]).map(u=>`<li>${esc(u.id)} ${esc(u.title)} — ${u.questionCount}</li>`).join('')}</ul></div>`).join('')}</div>`).join('')}
 function exams(){const p=$('#examsPanel');if(!p)return;p.innerHTML=data.exams.map(e=>`<div class=exam-item><b>${esc(e.title)}</b><small>${e.questionCount} प्रश्न · ${e.durationMinutes} मिनेट · +${e.positiveMark} / −${e.negativeMark}</small></div>`).join('')}
 function hist(){const p=$('#historyPanel');if(!p)return;p.innerHTML=history.map(x=>`<div class=history-item><b>${esc(x.candidate?.name||'—')}</b><small>${esc(x.examTitle||x.examId)} · ${esc(x.submittedAt||'')}</small><strong>${x.score}/${x.maxScore} (${x.percent}%)</strong></div>`).join('')||'<p>अहिलेसम्म attempt छैन।'}
