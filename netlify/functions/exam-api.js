@@ -514,7 +514,13 @@ exports.handler = async event => {
       const validExamIds = new Set((currentData.exams || []).map(x => String(x.id)));
       const requestedExamIds = [...new Set(q.examIds.map(x => String(x).trim()).filter(Boolean))];
       if (requestedExamIds.some(id => !validExamIds.has(id))) return json(400, { error: 'अमान्य परीक्षा Category चयन गरिएको छ।' });
-      q.examIds = requestedExamIds;
+      // Moderator-created/edited questions are maintained as a common bank item
+      // for all three Loksewa exams. Full Admin retains the ability to target
+      // selected exams explicitly.
+      const actor = session(event);
+      q.examIds = actor?.role === 'moderator'
+        ? ['kharidar', 'nasu', 'sakha-adhikrit'].filter(id => validExamIds.has(id))
+        : requestedExamIds;
       if (q.examMappings && typeof q.examMappings === 'object') {
         q.examMappings = Object.fromEntries(Object.entries(q.examMappings).filter(([id]) => requestedExamIds.includes(String(id))));
       }
