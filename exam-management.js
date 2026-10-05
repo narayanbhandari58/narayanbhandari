@@ -1,13 +1,15 @@
 (()=>{
 const API='/.netlify/functions/exam-api?action=';
 const token=()=>localStorage.getItem('nb_admin_token');
+const role=()=>localStorage.getItem('nb_admin_role')||'admin';
+const isModerator=()=>role()==='moderator';
 const $=s=>document.querySelector(s);
 let data=null,history=[],view='dashboard';
 let questionFilter={exam:'',unit:'',topic:'',search:''};
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
 async function api(a,o={}){const r=await fetch(API+a,{...o,headers:{Authorization:'Bearer '+token(),'Content-Type':'application/json',...(o.headers||{})}}),d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.error||'Request failed');return d}
 function show(v){view=v;document.querySelectorAll('.em-nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===v));document.querySelectorAll('.view').forEach(x=>x.hidden=x.id!=='view-'+v);render()}
-async function load(){if(!token())return location.href='admin.html';try{data=(await api('admin-data')).data;try{history=(await api('admin-history')).attempts||[]}catch(e){history=[]}document.querySelectorAll('.em-nav button').forEach(b=>b.onclick=()=>show(b.dataset.view));if($('#backAdmin'))$('#backAdmin').onclick=()=>location.href='admin.html';if($('#newQuestion'))$('#newQuestion').onclick=()=>editQ();show('dashboard')}catch(e){alert(e.message);location.href='admin.html'}}
+async function load(){if(!token())return location.href='admin.html';try{data=(await api('admin-data')).data;if(!isModerator()){try{history=(await api('admin-history')).attempts||[]}catch(e){history=[]}}else{history=[];document.querySelectorAll('.em-nav button[data-view="history"],.em-nav button[data-view="users"]').forEach(b=>{b.style.display='none'})}document.querySelectorAll('.em-nav button').forEach(b=>b.onclick=()=>{if(isModerator()&&['history','users'].includes(b.dataset.view))return;show(b.dataset.view)});if($('#backAdmin'))$('#backAdmin').onclick=()=>location.href='admin.html';if($('#newQuestion'))$('#newQuestion').onclick=()=>editQ();show('dashboard')}catch(e){alert(e.message);location.href='admin.html'}}
 function render(){if(view==='dashboard')dashboard();if(view==='questions')questions();if(view==='blueprint')blueprint();if(view==='exams')exams();if(view==='history')hist();if(view==='users')users()}
 function examBank(e){return data.questions.filter(q=>Array.isArray(q.examIds)&&q.examIds.includes(e.id))}
 function unitMatches(q,u){const a=String(q.unit??''),b=String(u??'');return a===b||a.startsWith(b+'.')}
