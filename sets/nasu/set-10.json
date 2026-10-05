@@ -835,7 +835,7 @@
       "unit": "1.10",
       "level": "level1",
       "type": "mcq",
-      "question": "नेपाल NAM मा कस्तो भूमिका भएको देश हो?",
+      "question": "नेपाल असंलग्न आन्दोलन (Non-Aligned Movement—NAM) मा कस्तो भूमिका भएको देश हो?",
       "options": [
         "A/RES/995(X)",
         "१८३",
@@ -869,12 +869,12 @@
       "unit": "1.10",
       "level": "level1",
       "type": "mcq",
-      "question": "BIMSTEC सचिवालय कहाँ छ?",
+      "question": "बहुक्षेत्रीय प्राविधिक तथा आर्थिक सहयोगका लागि बंगालको खाडीको पहल (Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation—BIMSTEC) सचिवालय कहाँ छ?",
       "options": [
         "ढाका",
-        "१४ डिसेम्बर १९५५",
-        "A/RES/995(X)",
-        "१८३"
+        "काठमाडौं",
+        "न्यूयोर्क",
+        "जेनेभा"
       ],
       "correct": 0,
       "solution": "",
@@ -1015,7 +1015,7 @@
       "category": "वैज्ञानिक",
       "level": "level1",
       "type": "fact",
-      "question": "NASA-IBM को चन्द्र AI मोडेलले अधिकतम करिब कति accuracy सुधार देखाएको रिपोर्ट छ?",
+      "question": "NASA-IBM को चन्द्र कृत्रिम बुद्धिमत्ता (Artificial Intelligence—AI) मोडेलले अधिकतम करिब कति accuracy सुधार देखाएको रिपोर्ट छ?",
       "options": [
         "५ प्रतिशत",
         "५० प्रतिशत",
