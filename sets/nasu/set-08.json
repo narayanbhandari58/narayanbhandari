@@ -565,7 +565,7 @@
       "options": [
         "प्रमाणपत्र वितरण",
         "उद्योगसँग तालिम अलग राख्नु",
-        "TVET, apprenticeship र उद्योगसँग जोडिएको सीप विकास",
+        "प्राविधिक तथा व्यावसायिक शिक्षा तथा तालिम (Technical and Vocational Education and Training—TVET), apprenticeship र उद्योगसँग जोडिएको सीप विकास",
         "प्राविधिक शिक्षा घटाउनु"
       ],
       "correct": 2,
@@ -835,12 +835,12 @@
       "unit": "1.10",
       "level": "level1",
       "type": "mcq",
-      "question": "SAARC सचिवालय कहाँ छ?",
+      "question": "दक्षिण एसियाली क्षेत्रीय सहयोग संगठन (South Asian Association for Regional Cooperation—SAARC) सचिवालय कहाँ छ?",
       "options": [
         "काठमाडौं",
-        "१४ डिसेम्बर १९५५",
-        "A/RES/995(X)",
-        "१८३"
+        "ढाका",
+        "न्यूयोर्क",
+        "जेनेभा"
       ],
       "correct": 0,
       "solution": "",
@@ -978,7 +978,7 @@
       "category": "कला",
       "level": "level1",
       "type": "fact",
-      "question": "UNESCO का अनुसार नेपालका विश्व सम्पदा सम्पत्तिको कुल संख्या कति छ?",
+      "question": "संयुक्त राष्ट्र शैक्षिक, वैज्ञानिक तथा सांस्कृतिक संगठन (United Nations Educational, Scientific and Cultural Organization—UNESCO) का अनुसार नेपालका विश्व सम्पदा सम्पत्तिको कुल संख्या कति छ?",
       "options": [
         "२",
         "४",
