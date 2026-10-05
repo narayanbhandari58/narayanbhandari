@@ -136,7 +136,7 @@ async function mirrorModeratorQuestionToSeed(q) {
   const idx = seed.findIndex(x => String(x?.id) === String(q.id));
   if (idx >= 0) seed[idx] = q;
   else seed.unshift(q);
-  const body = { message: 'Mirror moderator question to seed bank', content: Buffer.from(JSON.stringify(seed, null, 2) + '\\n').toString('base64'), branch: BRANCH };
+  const body = { message: 'Mirror moderator question to seed bank', content: Buffer.from(JSON.stringify(seed, null, 2) + '\n').toString('base64'), branch: BRANCH };
   if (sha) body.sha = sha;
   return gh(path, { method: 'PUT', body: JSON.stringify(body) });
 }
