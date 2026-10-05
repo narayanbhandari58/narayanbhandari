@@ -370,30 +370,6 @@
   ],
   "questions": [
     {
-      "id": "q-1791197922841-ahwq2",
-      "examIds": [
-        "sakha-adhikrit"
-      ],
-      "section": "",
-      "unit": "",
-      "level": "L1",
-      "type": "gk",
-      "subject": "भूगोल",
-      "topic": "नेपालको जलस्रोत",
-      "q": "यो backend save परीक्षणका लागि नयाँ प्रश्न हो?",
-      "options": [
-        "हो",
-        "होइन",
-        "थाहा छैन",
-        "जानकारी भएन"
-      ],
-      "correct": 0,
-      "explanation": "",
-      "solution": "",
-      "image": "",
-      "imageAlt": "नेपालको जलस्रोत"
-    },
-    {
       "id": "q-1791191943461-sat3o",
       "examIds": [
         "kharidar",
@@ -70887,5 +70863,5 @@
       "solution": "I बाट x=6 वा 8; II सँग मिल्दा x=6 मात्र।"
     }
   ],
-  "questionBankUpdatedAt": "2026-10-05T11:01:46.025293Z"
+  "questionBankUpdatedAt": "2026-10-05T10:41:25.194951Z"
 }
