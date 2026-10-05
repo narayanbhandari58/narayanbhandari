@@ -715,7 +715,7 @@
       "topic": "प्राविधिक शिक्षा",
       "level": "level1",
       "type": "gk",
-      "q": "TVET को आर्थिक उद्देश्य कुन हो?",
+      "q": "प्राविधिक तथा व्यावसायिक शिक्षा तथा तालिम (Technical and Vocational Education and Training—TVET) को आर्थिक उद्देश्य कुन हो?",
       "options": [
         "सैद्धान्तिक शिक्षा बढाउनु",
         "रोजगारीयोग्य र उत्पादक प्राविधिक सीप विकास गर्नु",
@@ -1135,7 +1135,7 @@
       "type": "matching",
       "question": "कुन कथन सही छ?",
       "options": [
-        "AI को output अन्तिम निर्णय हुनुपर्छ",
+        "कृत्रिम बुद्धिमत्ता (Artificial Intelligence—AI) को output अन्तिम निर्णय हुनुपर्छ",
         "privacy को प्रविधिसँग सम्बन्ध छैन",
         "डेटा bias ले परिणाममा असर गर्न सक्छ",
         "backup को आवश्यकता cloud मा हुँदैन"
@@ -1271,7 +1271,7 @@
       "unit": "1.7.1",
       "level": "I",
       "type": "mcq",
-      "question": "SAARC को सर्वोच्च निर्णय गर्ने निकाय कुन हो?",
+      "question": "दक्षिण एसियाली क्षेत्रीय सहयोग संगठन (South Asian Association for Regional Cooperation—SAARC) को सर्वोच्च निर्णय गर्ने निकाय कुन हो?",
       "options": [
         "A/RES/995(X)",
         "१८३",
@@ -1339,12 +1339,12 @@
       "unit": "1.7.1",
       "level": "I",
       "type": "mcq",
-      "question": "SAARC का सदस्य राष्ट्र कति छन्?",
+      "question": "दक्षिण एसियाली क्षेत्रीय सहयोग संगठन (South Asian Association for Regional Cooperation—SAARC) का सदस्य राष्ट्र कति छन्?",
       "options": [
-        "A/RES/995(X)",
-        "१८३",
         "८",
-        "१४ डिसेम्बर १९५५"
+        "९",
+        "७",
+        "१०"
       ],
       "correct": 2,
       "solution": "",
@@ -1373,12 +1373,12 @@
       "unit": "1.7.1",
       "level": "I",
       "type": "mcq",
-      "question": "BIMSTEC सचिवालय कहाँ छ?",
+      "question": "बहुक्षेत्रीय प्राविधिक तथा आर्थिक सहयोगका लागि बंगालको खाडीको पहल (Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation—BIMSTEC) सचिवालय कहाँ छ?",
       "options": [
         "ढाका",
-        "१४ डिसेम्बर १९५५",
-        "A/RES/995(X)",
-        "१८३"
+        "काठमाडौं",
+        "न्यूयोर्क",
+        "जेनेभा"
       ],
       "correct": 0,
       "solution": "",
@@ -1550,7 +1550,7 @@
       "category": "खेलकुद",
       "level": "I",
       "type": "fact",
-      "question": "२०२६ विश्वकपको उपस्थिति करिब कति पुगेको FIFA ले जनाएको छ?",
+      "question": "२०२६ विश्वकपको उपस्थिति करिब कति पुगेको अन्तर्राष्ट्रिय फुटबल संघ महासंघ (Fédération Internationale de Football Association—FIFA) ले जनाएको छ?",
       "options": [
         "५,०००,०००",
         "७,५००,०००",
@@ -1638,9 +1638,9 @@
       "question": "GRAMMY Awards आयोजना गर्ने संस्थाको नाम के हो?",
       "options": [
         "Academy of Motion Picture Arts and Sciences",
-        "FIFA",
+        "अन्तर्राष्ट्रिय फुटबल संघ महासंघ (Fédération Internationale de Football Association—FIFA)",
         "Recording Academy",
-        "UNESCO"
+        "संयुक्त राष्ट्र शैक्षिक, वैज्ञानिक तथा सांस्कृतिक संगठन (United Nations Educational, Scientific and Cultural Organization—UNESCO)"
       ],
       "correct": 2,
       "asOf": "2026-09-12",
@@ -1709,7 +1709,7 @@
       "category": "अन्य महत्त्वपूर्ण",
       "level": "I",
       "type": "fact",
-      "question": "IAEA General Conference २०२६ मा कुन अवधिमा आयोजना हुँदैछ?",
+      "question": "अन्तर्राष्ट्रिय आणविक ऊर्जा एजेन्सी (International Atomic Energy Agency—IAEA) General Conference २०२६ मा कुन अवधिमा आयोजना हुँदैछ?",
       "options": [
         "१४–१८ सेप्टेम्बर",
         "१–५ सेप्टेम्बर",
