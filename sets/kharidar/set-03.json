@@ -495,7 +495,7 @@
       "topic": "कृषि क्षेत्र",
       "level": "level1",
       "type": "gk",
-      "q": "आर्थिक सर्वेक्षण २०८२/८३ अनुसार GDP मा कृषि क्षेत्रको योगदान करिब कति रहने अनुमान छ?",
+      "q": "आर्थिक सर्वेक्षण २०८२/८३ अनुसार कुल गार्हस्थ्य उत्पादन (Gross Domestic Product—GDP) मा कृषि क्षेत्रको योगदान करिब कति रहने अनुमान छ?",
       "options": [
         "१४.० प्रतिशत",
         "२४.० प्रतिशत",
@@ -868,7 +868,7 @@
       "category": "सांस्कृतिक",
       "level": "level1",
       "type": "fact",
-      "question": "काठमाडौँ उपत्यका UNESCO विश्व सम्पदा सूचीमा कहिले सूचीकृत भयो?",
+      "question": "काठमाडौँ उपत्यका संयुक्त राष्ट्र शैक्षिक, वैज्ञानिक तथा सांस्कृतिक संगठन (United Nations Educational, Scientific and Cultural Organization—UNESCO) विश्व सम्पदा सूचीमा कहिले सूचीकृत भयो?",
       "options": [
         "१९८५",
         "१९७९",
@@ -905,7 +905,7 @@
       "category": "अन्य महत्त्वपूर्ण",
       "level": "level1",
       "type": "fact",
-      "question": "UNGA 81 का अध्यक्ष को हुन्?",
+      "question": "संयुक्त राष्ट्र महासभा (United Nations General Assembly—UNGA) 81 का अध्यक्ष को हुन्?",
       "options": [
         "Dennis Francis",
         "Abdulla Shahid",
@@ -942,7 +942,7 @@
       "category": "सांस्कृतिक",
       "level": "level1",
       "type": "fact",
-      "question": "UNESCO का अनुसार नेपालमा २०२६ सम्म कति भन्दा बढी जातीय समूहको उल्लेख गरिएको छ?",
+      "question": "संयुक्त राष्ट्र शैक्षिक, वैज्ञानिक तथा सांस्कृतिक संगठन (United Nations Educational, Scientific and Cultural Organization—UNESCO) का अनुसार नेपालमा २०२६ सम्म कति भन्दा बढी जातीय समूहको उल्लेख गरिएको छ?",
       "options": [
         "५० भन्दा कम",
         "१२५ भन्दा बढी",
@@ -978,12 +978,12 @@
       "unit": "5",
       "level": "level1",
       "type": "mcq",
-      "question": "नेपाल ECOSOC मा कहिले निर्वाचित भयो?",
+      "question": "नेपाल संयुक्त राष्ट्र आर्थिक तथा सामाजिक परिषद् (United Nations Economic and Social Council—ECOSOC) मा कहिले निर्वाचित भयो?",
       "options": [
-        "चीन, फ्रान्स, रुस, बेलायत र अमेरिका",
-        "१९६९–७० र १९८८–८९",
         "२०२३",
-        "५"
+        "२०२४",
+        "२०२२",
+        "२०२५"
       ],
       "correct": 2,
       "solution": "",
