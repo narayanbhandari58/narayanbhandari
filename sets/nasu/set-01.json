@@ -827,12 +827,12 @@
       "unit": "1.10",
       "level": "level1",
       "type": "mcq",
-      "question": "UNSC का स्थायी सदस्य कति छन्?",
+      "question": "संयुक्त राष्ट्र सुरक्षा परिषद् (United Nations Security Council—UNSC) का स्थायी सदस्य कति छन्?",
       "options": [
         "५",
-        "चीन, फ्रान्स, रुस, बेलायत र अमेरिका",
-        "१९६९–७० र १९८८–८९",
-        "२०२३"
+        "६",
+        "४",
+        "७"
       ],
       "correct": 0,
       "solution": "",
@@ -861,7 +861,7 @@
       "unit": "1.10",
       "level": "level1",
       "type": "mcq",
-      "question": "नेपालले कति UN सदस्य राष्ट्रसँग कूटनीतिक सम्बन्ध स्थापना गरेको छ?",
+      "question": "नेपालले कति संयुक्त राष्ट्र (United Nations—UN) सदस्य राष्ट्रसँग कूटनीतिक सम्बन्ध स्थापना गरेको छ?",
       "options": [
         "१८६",
         "१८४",
@@ -1044,7 +1044,7 @@
       "category": "अन्य महत्त्वपूर्ण",
       "level": "level1",
       "type": "fact",
-      "question": "UNGA 81 का अध्यक्ष को हुन्?",
+      "question": "संयुक्त राष्ट्र महासभा (United Nations General Assembly—UNGA) 81 का अध्यक्ष को हुन्?",
       "options": [
         "Dennis Francis",
         "Abdulla Shahid",
