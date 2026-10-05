@@ -1303,7 +1303,7 @@
       "unit": "1.7.1",
       "level": "I",
       "type": "mcq",
-      "question": "SAARC को सर्वोच्च निर्णय गर्ने निकाय कुन हो?",
+      "question": "दक्षिण एसियाली क्षेत्रीय सहयोग संगठन (South Asian Association for Regional Cooperation—SAARC) को सर्वोच्च निर्णय गर्ने निकाय कुन हो?",
       "options": [
         "A/RES/995(X)",
         "१८३",
@@ -1361,9 +1361,9 @@
       "question": "थप कति UN agencies का programs नेपालमा छन्?",
       "options": [
         "९",
-        "५",
-        "चीन, फ्रान्स, रुस, बेलायत र अमेरिका",
-        "१९६९–७० र १९८८–८९"
+        "१०",
+        "८",
+        "११"
       ],
       "correct": 0,
       "solution": "",
@@ -1392,12 +1392,12 @@
       "unit": "1.7.2",
       "level": "I",
       "type": "mcq",
-      "question": "UNSC का पाँच स्थायी सदस्य को हुन्?",
+      "question": "संयुक्त राष्ट्र सुरक्षा परिषद् (United Nations Security Council—UNSC) का पाँच स्थायी सदस्य को हुन्?",
       "options": [
-        "१९६९–७० र १९८८–८९",
-        "२०२३",
         "चीन, फ्रान्स, रुस, बेलायत र अमेरिका",
-        "५"
+        "चीन, जापान, भारत, बेलायत र अमेरिका",
+        "फ्रान्स, जर्मनी, रुस, बेलायत र अमेरिका",
+        "चीन, फ्रान्स, जर्मनी, जापान र अमेरिका"
       ],
       "correct": 2,
       "solution": "",
@@ -1461,7 +1461,7 @@
       "category": "सांस्कृतिक",
       "level": "I",
       "type": "fact",
-      "question": "नेपालमा २०२६ सम्म कति भन्दा बढी भाषाको उल्लेख UNESCO ले गरेको छ?",
+      "question": "नेपालमा २०२६ सम्म कति भन्दा बढी भाषाको उल्लेख संयुक्त राष्ट्र शैक्षिक, वैज्ञानिक तथा सांस्कृतिक संगठन (United Nations Educational, Scientific and Cultural Organization—UNESCO) ले गरेको छ?",
       "options": [
         "५० भन्दा बढी",
         "७५ भन्दा बढी",
@@ -1498,7 +1498,7 @@
       "category": "खेलकुद",
       "level": "I",
       "type": "fact",
-      "question": "२०२६ FIFA विश्वकपको फाइनलको अन्तिम स्कोर कति थियो?",
+      "question": "२०२६ अन्तर्राष्ट्रिय फुटबल संघ महासंघ (Fédération Internationale de Football Association—FIFA) विश्वकपको फाइनलको अन्तिम स्कोर कति थियो?",
       "options": [
         "स्पेन २–१ अर्जेन्टिना",
         "अर्जेन्टिना १–० स्पेन",
@@ -1612,9 +1612,9 @@
       "question": "GRAMMY Awards आयोजना गर्ने संस्थाको नाम के हो?",
       "options": [
         "Academy of Motion Picture Arts and Sciences",
-        "FIFA",
+        "अन्तर्राष्ट्रिय फुटबल संघ महासंघ (Fédération Internationale de Football Association—FIFA)",
         "Recording Academy",
-        "UNESCO"
+        "संयुक्त राष्ट्र शैक्षिक, वैज्ञानिक तथा सांस्कृतिक संगठन (United Nations Educational, Scientific and Cultural Organization—UNESCO)"
       ],
       "correct": 2,
       "asOf": "2026-09-12",
@@ -1646,7 +1646,7 @@
       "category": "खेलकुद",
       "level": "I",
       "type": "fact",
-      "question": "२०२६ विश्वकपको उपस्थिति करिब कति पुगेको FIFA ले जनाएको छ?",
+      "question": "२०२६ विश्वकपको उपस्थिति करिब कति पुगेको अन्तर्राष्ट्रिय फुटबल संघ महासंघ (Fédération Internationale de Football Association—FIFA) ले जनाएको छ?",
       "options": [
         "५,०००,०००",
         "७,५००,०००",
