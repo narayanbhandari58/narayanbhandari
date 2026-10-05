@@ -1257,12 +1257,12 @@
       "unit": "1.7.2",
       "level": "I",
       "type": "mcq",
-      "question": "UNSC का स्थायी सदस्य कति छन्?",
+      "question": "संयुक्त राष्ट्र सुरक्षा परिषद् (United Nations Security Council—UNSC) का स्थायी सदस्य कति छन्?",
       "options": [
         "५",
-        "चीन, फ्रान्स, रुस, बेलायत र अमेरिका",
-        "१९६९–७० र १९८८–८९",
-        "२०२३"
+        "६",
+        "४",
+        "७"
       ],
       "correct": 0,
       "solution": "",
@@ -1291,12 +1291,12 @@
       "unit": "1.7.1",
       "level": "I",
       "type": "mcq",
-      "question": "BIMSTEC का सदस्य राष्ट्र कति छन्?",
+      "question": "बहुक्षेत्रीय प्राविधिक तथा आर्थिक सहयोगका लागि बंगालको खाडीको पहल (Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation—BIMSTEC) का सदस्य राष्ट्र कति छन्?",
       "options": [
         "७",
-        "१४ डिसेम्बर १९५५",
-        "A/RES/995(X)",
-        "१८३"
+        "८",
+        "६",
+        "९"
       ],
       "correct": 0,
       "solution": "",
@@ -1393,12 +1393,12 @@
       "unit": "1.7.1",
       "level": "I",
       "type": "mcq",
-      "question": "१८औँ SAARC शिखर सम्मेलन कहाँ/कहिले भयो?",
+      "question": "१८औँ दक्षिण एसियाली क्षेत्रीय सहयोग संगठन (South Asian Association for Regional Cooperation—SAARC) शिखर सम्मेलन कहाँ/कहिले भयो?",
       "options": [
         "काठमाडौं, २६–२७ नोभेम्बर २०१४",
-        "१४ डिसेम्बर १९५५",
-        "A/RES/995(X)",
-        "१८३"
+        "काठमाडौं, ४–६ जनवरी २००२",
+        "ढाका, १२–१३ नोभेम्बर २००५",
+        "नयाँदिल्ली, ३–४ अप्रिल २००७"
       ],
       "correct": 0,
       "solution": "",
@@ -1671,7 +1671,7 @@
       "category": "वैज्ञानिक",
       "level": "I",
       "type": "fact",
-      "question": "NASA-IBM को चन्द्र AI मोडेलले अधिकतम करिब कति accuracy सुधार देखाएको रिपोर्ट छ?",
+      "question": "NASA-IBM को चन्द्र कृत्रिम बुद्धिमत्ता (Artificial Intelligence—AI) मोडेलले अधिकतम करिब कति accuracy सुधार देखाएको रिपोर्ट छ?",
       "options": [
         "५ प्रतिशत",
         "५० प्रतिशत",
