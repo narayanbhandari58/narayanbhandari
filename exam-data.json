@@ -370,30 +370,6 @@
   ],
   "questions": [
     {
-      "id": "q-1791193899579-olf6r",
-      "examIds": [
-        "sakha-adhikrit"
-      ],
-      "section": "",
-      "unit": "",
-      "level": "L1",
-      "type": "gk",
-      "subject": "भूगोल",
-      "topic": "नेपालको जलस्रोत",
-      "q": "नेपालमा प्रथम स्तरका नदीहरू कतिओटा रहेका छन्?",
-      "options": [
-        "२२",
-        "२४",
-        "२१",
-        "२३"
-      ],
-      "correct": 0,
-      "explanation": "सप्त कोशी, सप्त गण्डकी, सप्त कर्णाली, महाकाली 7*3+1=21+1=22",
-      "solution": "",
-      "image": "",
-      "imageAlt": "नेपालको जलस्रोत"
-    },
-    {
       "id": "q-1791191943461-sat3o",
       "examIds": [
         "kharidar",
@@ -70915,5 +70891,5 @@
       "solution": "I बाट x=6 वा 8; II सँग मिल्दा x=6 मात्र।"
     }
   ],
-  "questionBankUpdatedAt": "2026-10-05T10:31:52.187276Z"
+  "questionBankUpdatedAt": "2026-10-05T10:27:05.551236Z"
 }
