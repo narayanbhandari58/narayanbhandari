@@ -54,23 +54,20 @@ async function readGithubJson(path) {
   const meta = await gh(path);
   if (!meta.sha) throw Error('GitHub file SHA भेटिएन।');
 
-  // Large JSON files may omit inline Contents API data. Read the Git blob
-  // directly by SHA; this is reliable for the current ~1.9 MB exam-data.json.
-  const r = await fetch(`${GH}/repos/${REPO}/git/blobs/${meta.sha}`, {
+  // exam-data.json is now large. GitHub's Contents API can omit or alter
+  // inline blob content for large files, so read the current raw file directly.
+  // This prevents a false "JSON format गलत छ" error during Moderator saves.
+  const raw = await fetch(`${GH}/repos/${REPO}/contents/${path}?ref=${encodeURIComponent(BRANCH)}`, {
     headers: {
       Authorization: `Bearer ${TOKEN}`,
-      Accept: 'application/vnd.github+json',
+      Accept: 'application/vnd.github.raw',
       'X-GitHub-Api-Version': '2022-11-28'
     }
   });
-  const d = await r.json();
-  if (!r.ok || d.encoding !== 'base64' || typeof d.content !== 'string') {
-    throw Error('GitHub blob पढ्न सकिएन।');
-  }
-
-  const text = Buffer.from(d.content.replace(/\s/g, ''), 'base64').toString('utf8');
+  const rawText = await raw.text();
+  if (!raw.ok || !rawText.trim()) throw Error('GitHub file पढ्न सकिएन।');
   try {
-    return { data: JSON.parse(text), sha: meta.sha };
+    return { data: JSON.parse(rawText), sha: meta.sha };
   } catch (e) {
     throw Error(`exam-data.json को JSON format गलत छ: ${e.message}`);
   }
