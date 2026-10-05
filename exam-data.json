@@ -45725,12 +45725,12 @@
       "type": "mcq",
       "question": "नेपाल–जापान सम्बन्ध कहिले स्थापना भयो?",
       "options": [
-        "१ सेप्टेम्बर १९५६",
         "१ सेप्टेम्बर १९५५",
         "१० सेप्टेम्बर १९५६",
+        "१ सेप्टेम्बर १९५६",
         "१ अक्टोबर १९५६"
       ],
-      "correct": 0,
+      "correct": 2,
       "solution": "सही उत्तर: C — १ सेप्टेम्बर १९५६।",
       "section": "A",
       "examIds": [
@@ -45858,12 +45858,12 @@
       "type": "mcq",
       "question": "नेपाल–जर्मनी सम्बन्ध कहिले स्थापना भयो?",
       "options": [
-        "४ अप्रिल १९५८",
         "४ अप्रिल १९५७",
         "१४ अप्रिल १९५८",
+        "४ अप्रिल १९५८",
         "४ मे १९५८"
       ],
-      "correct": 0,
+      "correct": 2,
       "solution": "",
       "section": "A",
       "examIds": [
@@ -46254,12 +46254,12 @@
       "type": "mcq",
       "question": "बहुक्षेत्रीय प्राविधिक तथा आर्थिक सहयोगका लागि बंगालको खाडीको पहल (Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation—BIMSTEC) कहिले स्थापना भयो?",
       "options": [
-        "६ जुन १९९७",
         "६ जुन १९९६",
         "७ जुन १९९७",
+        "६ जुन १९९७",
         "६ जुलाई १९९७"
       ],
-      "correct": 0,
+      "correct": 2,
       "solution": "",
       "section": "A",
       "examIds": [
@@ -46386,12 +46386,12 @@
       "type": "mcq",
       "question": "नेपाल र भुटान बहुक्षेत्रीय प्राविधिक तथा आर्थिक सहयोगका लागि बंगालको खाडीको पहल (Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation—BIMSTEC) मा कहिले प्रवेश गरे?",
       "options": [
-        "८ फेब्रुअरी २००४",
         "८ फेब्रुअरी २००३",
         "७ फेब्रुअरी २००४",
+        "८ फेब्रुअरी २००४",
         "८ मार्च २००४"
       ],
-      "correct": 0,
+      "correct": 2,
       "solution": "",
       "section": "A",
       "examIds": [
@@ -46518,12 +46518,12 @@
       "type": "mcq",
       "question": "२०२५ को छैटौँ शिखर सम्मेलनपछि बहुक्षेत्रीय प्राविधिक तथा आर्थिक सहयोगका लागि बंगालको खाडीको पहल (Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation—BIMSTEC) अध्यक्षता कसले सम्हालेको छ?",
       "options": [
-        "बंगलादेश",
         "भारत",
         "थाइल्यान्ड",
+        "बंगलादेश",
         "नेपाल"
       ],
-      "correct": 0,
+      "correct": 2,
       "solution": "",
       "section": "A",
       "examIds": [
@@ -46650,12 +46650,12 @@
       "type": "mcq",
       "question": "नेपाल असंलग्न आन्दोलन (Non-Aligned Movement—NAM) मा कस्तो भूमिका भएको देश हो?",
       "options": [
-        "संस्थापक सदस्य",
         "सहयोगी सदस्य",
         "पर्यवेक्षक सदस्य",
+        "संस्थापक सदस्य",
         "गैर-सदस्य"
       ],
-      "correct": 0,
+      "correct": 2,
       "solution": "",
       "section": "A",
       "examIds": [
@@ -46782,12 +46782,12 @@
       "type": "mcq",
       "question": "संयुक्त राष्ट्र सुरक्षा परिषद् (United Nations Security Council—UNSC) का पाँच स्थायी सदस्य को हुन्?",
       "options": [
-        "चीन, फ्रान्स, रुस, बेलायत र अमेरिका",
         "चीन, जापान, भारत, बेलायत र अमेरिका",
         "फ्रान्स, जर्मनी, रुस, जापान र अमेरिका",
+        "चीन, फ्रान्स, रुस, बेलायत र अमेरिका",
         "रुस, बेलायत, जर्मनी, जापान र अमेरिका"
       ],
-      "correct": 0,
+      "correct": 2,
       "solution": "",
       "section": "A",
       "examIds": [
@@ -46901,12 +46901,12 @@
       "type": "mcq",
       "question": "नेपाल संयुक्त राष्ट्र आर्थिक तथा सामाजिक परिषद् (United Nations Economic and Social Council—ECOSOC) मा कहिले निर्वाचित भयो?",
       "options": [
-        "२०२३",
         "२०२२",
         "२०२४",
+        "२०२३",
         "२०२५"
       ],
-      "correct": 0,
+      "correct": 2,
       "solution": "",
       "section": "A",
       "examIds": [
@@ -70787,5 +70787,5 @@
       "solution": "I बाट x=6 वा 8; II सँग मिल्दा x=6 मात्र।"
     }
   ],
-  "questionBankUpdatedAt": "2026-10-05T08:14:18.781534Z"
+  "questionBankUpdatedAt": "2026-10-05T08:19:19.146962Z"
 }
