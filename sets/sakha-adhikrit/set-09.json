@@ -1264,12 +1264,12 @@
       "unit": "1.7.2",
       "level": "I",
       "type": "mcq",
-      "question": "नेपाल UNSC को non-permanent member कहिले थियो?",
+      "question": "नेपाल संयुक्त राष्ट्र सुरक्षा परिषद् (United Nations Security Council—UNSC) को non-permanent member कहिले थियो?",
       "options": [
-        "१९६९–७० र १९८८–८९",
-        "५",
-        "चीन, फ्रान्स, रुस, बेलायत र अमेरिका",
-        "२०२३"
+        "१९८८–१९८९",
+        "१९८७–१९८८",
+        "१९८९–१९९०",
+        "१९९०–१९९१"
       ],
       "correct": 0,
       "solution": "",
@@ -1288,9 +1288,9 @@
       "question": "थप कति UN agencies का programs नेपालमा छन्?",
       "options": [
         "९",
-        "५",
-        "चीन, फ्रान्स, रुस, बेलायत र अमेरिका",
-        "१९६९–७० र १९८८–८९"
+        "१०",
+        "८",
+        "११"
       ],
       "correct": 0,
       "solution": "",
@@ -1340,12 +1340,12 @@
       "unit": "1.7.1",
       "level": "I",
       "type": "mcq",
-      "question": "SAARC सचिवालय कहाँ छ?",
+      "question": "दक्षिण एसियाली क्षेत्रीय सहयोग संगठन (South Asian Association for Regional Cooperation—SAARC) सचिवालय कहाँ छ?",
       "options": [
         "काठमाडौं",
-        "१४ डिसेम्बर १९५५",
-        "A/RES/995(X)",
-        "१८३"
+        "ढाका",
+        "न्यूयोर्क",
+        "जेनेभा"
       ],
       "correct": 0,
       "solution": "",
@@ -1615,7 +1615,7 @@
       "category": "कला",
       "level": "I",
       "type": "fact",
-      "question": "UNESCO का अनुसार नेपालका विश्व सम्पदा सम्पत्तिको कुल संख्या कति छ?",
+      "question": "संयुक्त राष्ट्र शैक्षिक, वैज्ञानिक तथा सांस्कृतिक संगठन (United Nations Educational, Scientific and Cultural Organization—UNESCO) का अनुसार नेपालका विश्व सम्पदा सम्पत्तिको कुल संख्या कति छ?",
       "options": [
         "२",
         "४",
