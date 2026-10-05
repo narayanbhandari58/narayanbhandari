@@ -339,7 +339,7 @@ exports.handler = async event => {
   if (event.httpMethod === 'OPTIONS') return json(204, {});
   try {
     const actionForLimit = new URLSearchParams(event.rawQuery || '').get('action') || 'config';
-    const limits = { config: [30, 60_000], submit: [8, 10 * 60_000], 'upload-image': [10, 10 * 60_000], 'admin-data': [20, 60_000], 'admin-history': [20, 60_000], 'admin-users': [20, 60_000], 'delete-user': [10, 10 * 60_000], 'save-data': [10, 60_000] };
+    const limits = { config: [30, 60_000], submit: [8, 10 * 60_000], 'upload-image': [10, 10 * 60_000], 'admin-data': [20, 60_000], 'admin-history': [20, 60_000], 'admin-users': [20, 60_000], 'delete-user': [10, 10 * 60_000], 'save-question': [20, 60_000], 'save-data': [10, 60_000] };
     const [limit, windowMs] = limits[actionForLimit] || [20, 60_000];
     if (!allow(event, `exam-api:${actionForLimit}`, limit, windowMs)) return json(429, { error: 'धेरै requests पठाइयो। केही बेरपछि फेरि प्रयास गर्नुहोस्।' });
     const p = new URLSearchParams(event.rawQuery || '');
@@ -493,8 +493,15 @@ exports.handler = async event => {
       if (index >= 0) questions[index] = q;
       else questions.unshift(q);
       const next = { ...currentData, questions };
-      await writeData(next, current.sha);
-      return json(200, { ok: true, created: index < 0, question: q, message: index < 0 ? 'नयाँ प्रश्न स्थायी रूपमा सुरक्षित भयो।' : 'प्रश्न स्थायी रूपमा सुरक्षित भयो।' });
+      const saved = await writeData(next, current.sha);
+      // Never report success merely because the GitHub PUT returned. Re-read the
+      // file and verify the exact question is present. This prevents the CMS from
+      // showing a false "saved" state when a stale/deployed function or write path
+      // behaves unexpectedly.
+      const verify = await readGithubJson('exam-data.json');
+      const persisted = (verify.data.questions || []).find(x => String(x.id) === String(q.id));
+      if (!persisted) return json(500, { error: 'प्रश्न GitHub backend मा सुरक्षित भएको पुष्टि हुन सकेन। फेरि प्रयास गर्नुहोस्।' });
+      return json(200, { ok: true, created: index < 0, question: persisted, commitSha: saved?.commit || null, verified: true, message: index < 0 ? 'नयाँ प्रश्न स्थायी रूपमा सुरक्षित भयो।' : 'प्रश्न स्थायी रूपमा सुरक्षित भयो।' });
     }
     if (action === 'save-data') { if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' }); if (!body.data || !Array.isArray(body.data.exams) || !Array.isArray(body.data.questions)) return json(400, { error: 'Exam data format गलत छ' }); const ids = body.data.questions.map(q => String(q.id || '').trim()).filter(Boolean), unique = new Set(ids); if (ids.length !== unique.size) return json(400, { error: 'Question ID दोहोरिएको छ। प्रत्येक प्रश्नको unique ID हुनुपर्छ।' }); const current = await gh('exam-data.json'); await writeData(body.data, current.sha); return json(200, { ok: true, message: 'Exam data सुरक्षित भयो' }) }
     return json(400, { error: 'Unknown action' });
