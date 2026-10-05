@@ -370,6 +370,30 @@
   ],
   "questions": [
     {
+      "id": "q-1791206474910-nsr69",
+      "examIds": [
+        "kharidar"
+      ],
+      "section": "",
+      "unit": "",
+      "level": "L1",
+      "type": "gk",
+      "subject": "खरिदार तयारी परीक्षा",
+      "topic": "नेपालको जलस्रोत",
+      "q": "नेपालमा कुन मौसममा बढी पानी पर्ने गर्छ?",
+      "options": [
+        "वर्षा",
+        "शरद",
+        "हेमन्त",
+        "शिशिर"
+      ],
+      "correct": 0,
+      "explanation": "",
+      "solution": "",
+      "image": "",
+      "imageAlt": "नेपालको जलस्रोत"
+    },
+    {
       "id": "q-1791206319964-44e71",
       "examIds": [
         "kharidar"
