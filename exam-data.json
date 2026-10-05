@@ -370,6 +370,30 @@
   ],
   "questions": [
     {
+      "id": "q-1791198458455-ng18n",
+      "examIds": [
+        "sakha-adhikrit"
+      ],
+      "section": "",
+      "unit": "",
+      "level": "L1",
+      "type": "gk",
+      "subject": "भूगोल",
+      "topic": "नेपालको जलस्रोत",
+      "q": "नेपालमा प्रथमस्तरका नदीहरू कतिओटा रहेका छन्?",
+      "options": [
+        "२१",
+        "२२",
+        "२३",
+        "२०"
+      ],
+      "correct": 0,
+      "explanation": "",
+      "solution": "",
+      "image": "",
+      "imageAlt": "नेपालको जलस्रोत"
+    },
+    {
       "id": "q-1791198444559-irvmm",
       "examIds": [
         "sakha-adhikrit"
