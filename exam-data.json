@@ -370,6 +370,32 @@
   ],
   "questions": [
     {
+      "id": "q-1791198798120-owfqc",
+      "examIds": [
+        "kharidar",
+        "nasu",
+        "sakha-adhikrit"
+      ],
+      "section": "",
+      "unit": "",
+      "level": "L1",
+      "type": "gk",
+      "subject": "भूगोल",
+      "topic": "नेपालको जलस्रोत",
+      "q": "नेपालमा प्रथम स्तरका नदीहरू कतिओटा रहेका छन्?",
+      "options": [
+        "२२",
+        "२१",
+        "२०",
+        "२३"
+      ],
+      "correct": 0,
+      "explanation": "",
+      "solution": "",
+      "image": "",
+      "imageAlt": "नेपालको जलस्रोत"
+    },
+    {
       "id": "q-1791191943461-sat3o",
       "examIds": [
         "kharidar",
