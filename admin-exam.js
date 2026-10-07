@@ -9,6 +9,7 @@
   const $=s=>document.querySelector(s);
   const token=()=>localStorage.getItem('nb_admin_token');
   let data=null, editing=null, editingImage='', page=1;const PAGE_SIZE=25;let openHeading=null, selectedUnit=null;
+  const toNe=n=>String(n??'').replace(/[0-9]/g,d=>'०१२३४५६७८९'[Number(d)]);
   const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
   function placedForExam(q,examId){const m=q?.examMappings?.[examId];return m&&typeof m==='object'?{...q,...m}:q;}
   function unitMeta(examId,q){
