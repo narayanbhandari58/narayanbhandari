@@ -30,7 +30,7 @@
       <header class="nb-demo-head"><div><h2>📚 Online Exam — Question Bank</h2><p>Category → Subject → Topic अनुसार प्रश्न व्यवस्थापन</p></div><button class="nb-demo-new" id="mainNewQ" type="button">＋ नयाँ प्रश्न</button></header>
       <div class="nb-demo-selects">
         <label><span>१. परीक्षा छान्नुहोस्</span><select id="mainCat"><option value="">— परीक्षा छान्नुहोस् —</option></select></label>
-        <label><span>२. प्रकार छान्नुहोस्</span><select id="mainType" disabled><option value="">— प्रकार छान्नुहोस् —</option><option value="gk">GK / विषयगत</option><option value="iq">IQ</option><option value="pictorial">Pictorial</option><option value="table">Table</option><option value="bar-chart">Bar Chart</option><option value="line-graph">Line Graph</option><option value="pie-chart">Pie Chart</option></select></label>
+        <label><span>२. प्रकार छान्नुहोस्</span><select id="mainType" disabled><option value="">— प्रकार छान्नुहोस् —</option></select></label>
       </div>
       <nav id="mainCrumbs" class="nb-demo-crumbs" aria-label="breadcrumb"></nav>
       <p class="nb-demo-info">ℹ️ यहाँको navigation परीक्षा Blueprint अनुसार छ। विषय/Topic मा पुगेपछि मात्र सम्बन्धित प्रश्नहरू व्यवस्थापन गर्न सकिन्छ।</p>
@@ -55,32 +55,47 @@
       data={...incoming,exams:incoming.exams||[],questions:incoming.questions||[]};
       buildCategories();render();
     }catch(e){if(root){root.innerHTML='<div class="nb-demo-empty"><b>Question Bank लोड हुन सकेन।</b><br><small>'+esc(e.message||'Unknown error')+'</small><br><button class="btn btn-outline" id="nbRetry" type="button" style="margin-top:10px">↻ फेरि प्रयास गर्नुहोस्</button></div>';$('#nbRetry')?.addEventListener('click',()=>{data=null;init()})}toast(e.message)}}
+  const TYPE_META={gk:{label:'GK',section:'A'},iq:{label:'IQ',section:'B'},english:{label:'English',section:'C'}};
+  function availableTypes(examId){
+    const exam=data?.exams?.find(e=>e.id===examId);
+    const ids=new Set((exam?.blueprint?.sections||[]).map(s=>String(s.id||'')));
+    return ['gk','iq','english'].filter(t=>ids.has(TYPE_META[t].section));
+  }
+  function typeSection(type){return TYPE_META[String(type||'').toLowerCase()]?.section||''}
+  function isQuestionInType(q,examId,type){
+    const x=placedForExam(q,examId),section=typeSection(type);
+    return !!section&&String(x.section||'')===section;
+  }
   function buildCategories(){
     const c=$('#mainCat'),cur=savedFilters.cat||c.value;
     c.innerHTML='<option value="">— परीक्षा छान्नुहोस् —</option>'+data.exams.map(e=>`<option value="${esc(e.id)}">${esc(e.title)}</option>`).join('');
     if(cur)c.value=cur;
-    const type=$('#mainType');
-    type.disabled=!c.value;
-    if(!c.value){type.value='';return}
-    const types=[...new Set(data.questions.filter(q=>Array.isArray(q.examIds)&&q.examIds.includes(c.value)).map(q=>String(q.type||'').toLowerCase()).filter(Boolean))];
-    const known=['gk','iq','pictorial','table','bar-chart','line-graph','pie-chart'];
-    [...type.options].forEach(o=>{if(o.value)o.hidden=types.length&&!types.includes(o.value)&&!known.includes(o.value)});
-    if(savedFilters.type&&[...type.options].some(o=>o.value===savedFilters.type))type.value=savedFilters.type;
+    const type=$('#mainType'),cat=c.value,types=availableTypes(cat);
+    type.disabled=!cat;
+    type.innerHTML='<option value="">— प्रकार छान्नुहोस् —</option>'+types.map(t=>`<option value="${t}">${TYPE_META[t].label}</option>`).join('');
+    if(savedFilters.type&&types.includes(savedFilters.type))type.value=savedFilters.type; else type.value='';
   }
+
   function blueprintHeadings(examId,type){
     const exam=data?.exams?.find(e=>e.id===examId);
     if(!exam)return [];
-    const sections=exam.blueprint?.sections||[];
-    const qs=data.questions.filter(q=>Array.isArray(q.examIds)&&q.examIds.includes(examId)&&(!type||String(q.type||'').toLowerCase()===type));
+    const sectionId=typeSection(type);
+    const sections=(exam.blueprint?.sections||[]).filter(sec=>!sectionId||String(sec.id||'')===sectionId);
     return sections.map(sec=>({
       code:String(sec.id||''),title:String(sec.title||sec.name||sec.id||''),
-      children:(sec.units||[]).map(u=>({code:String(u.id||''),title:String(u.title||u.name||u.id||''),count:qs.filter(q=>{const x=placedForExam(q,examId);return String(x.section||'')===String(sec.id||'')&&(String(x.unit||'')===String(u.id||'')||String(x.unit||'').startsWith(String(u.id||'')+'.'))}).length}))
+      children:(sec.units||[]).map(u=>({code:String(u.id||''),title:String(u.title||u.name||u.id||''),count:data.questions.filter(q=>{
+        if(!Array.isArray(q.examIds)||!q.examIds.includes(examId)||!isQuestionInType(q,examId,type))return false;
+        const x=placedForExam(q,examId);
+        return String(x.unit||'')===String(u.id||'')||String(x.unit||'').startsWith(String(u.id||'')+'.');
+      }).length}))
     })).filter(h=>h.children.length);
   }
+
   function countForUnit(examId,type,code){
-    return data.questions.filter(q=>Array.isArray(q.examIds)&&q.examIds.includes(examId)&&(!type||String(q.type||'').toLowerCase()===type)&&(()=>{const x=placedForExam(q,examId);return String(x.unit||'')===String(code)||String(x.unit||'').startsWith(String(code)+'.')})()).length;
+    return data.questions.filter(q=>Array.isArray(q.examIds)&&q.examIds.includes(examId)&&isQuestionInType(q,examId,type)&&(()=>{const x=placedForExam(q,examId);return String(x.unit||'')===String(code)||String(x.unit||'').startsWith(String(code)+'.')})()).length;
   }
-  function countForHeading(examId,type,code){return data.questions.filter(q=>Array.isArray(q.examIds)&&q.examIds.includes(examId)&&(!type||String(q.type||'').toLowerCase()===type)&&String(placedForExam(q,examId).section||'')===String(code)).length}
+  function countForHeading(examId,type,code){return data.questions.filter(q=>Array.isArray(q.examIds)&&q.examIds.includes(examId)&&isQuestionInType(q,examId,type)&&String(placedForExam(q,examId).section||'')===String(code)).length}
+
   function render(){
     if(!data)return;
     const cat=$('#mainCat').value,type=$('#mainType').value,search=(selectedUnit?$('#mainSearch')?.value:'')?.trim().toLowerCase()||'';
@@ -97,7 +112,7 @@
       root.innerHTML='<div class="nb-demo-empty">सुरु गर्न माथिबाट परीक्षा छान्नुहोस्।</div>';return;
     }
     if(!type){
-      root.innerHTML='<div class="nb-demo-empty">अब प्रश्नको प्रकार (GK / IQ) छान्नुहोस्।</div>';return;
+      root.innerHTML='<div class="nb-demo-empty">अब प्रश्नको प्रकार (GK / IQ / English) छान्नुहोस्।</div>';return;
     }
     if(!selectedUnit){
       const headings=blueprintHeadings(cat,type);
@@ -107,7 +122,7 @@
       return;
     }
     const h=blueprintHeadings(cat,type).find(x=>x.code===selectedUnit.section),u=h?.children.find(x=>x.code===selectedUnit.code);
-    const all=data.questions.filter(q=>{if(!Array.isArray(q.examIds)||!q.examIds.includes(cat)||String(q.type||'').toLowerCase()!==type)return false;const x=placedForExam(q,cat);const ok=String(x.section||'')===selectedUnit.section&&(String(x.unit||'')===selectedUnit.code||String(x.unit||'').startsWith(selectedUnit.code+'.'));return ok&&(!search||`${x.q||x.question||''} ${x.subject||''} ${x.topic||''}`.toLowerCase().includes(search))});
+    const all=data.questions.filter(q=>{if(!Array.isArray(q.examIds)||!q.examIds.includes(cat)||!isQuestionInType(q,cat,type))return false;const x=placedForExam(q,cat);const ok=String(x.section||'')===selectedUnit.section&&(String(x.unit||'')===selectedUnit.code||String(x.unit||'').startsWith(selectedUnit.code+'.'));return ok&&(!search||`${x.q||x.question||''} ${x.subject||''} ${x.topic||''}`.toLowerCase().includes(search))});
     const totalPages=Math.max(1,Math.ceil(all.length/PAGE_SIZE));if(page>totalPages)page=totalPages;const start=(page-1)*PAGE_SIZE,visible=all.slice(start,start+PAGE_SIZE);
     root.innerHTML=`<section class="nb-demo-list"><div class="nb-demo-list-head"><div><button class="nb-demo-back" type="button" id="nbBack">← Blueprint मा फर्कनुहोस्</button><h3>${esc(selectedUnit.code)} ${esc(u?.title||'')}</h3><p>जम्मा ${toNe(all.length)} प्रश्न</p></div><button class="nb-demo-new" type="button" id="nbUnitNew">＋ नयाँ प्रश्न</button></div><input id="mainSearch" class="nb-demo-search" type="search" placeholder="🔍 प्रश्न, विकल्प वा व्याख्या खोज्नुहोस्…" autocomplete="off" value="${esc($('#mainSearch')?.value||'')}"><ul class="nb-demo-question-list">${visible.map((q,i)=>{const x=placedForExam(q,cat);return `<li class="nb-demo-question"><div class="nb-demo-meta"><b>प्रश्न ${toNe(start+i+1)}</b><span>Level ${esc(x.level||'')}</span></div><p class="nb-demo-qtext">${esc(x.q||x.question)}</p><ol>${(x.options||[]).map((o,k)=>`<li class="${k===x.correct?'correct':''}">${String.fromCharCode(65+k)}) ${esc(o)} ${k===x.correct?'✓':''}</li>`).join('')}</ol>${x.explanation?`<p class="nb-demo-exp"><b>व्याख्या:</b> ${esc(x.explanation)}</p>`:''}<div class="nb-demo-actions"><button class="btn btn-outline" type="button" data-edit="${esc(x.id)}">✏️ सम्पादन</button><button class="btn btn-danger" type="button" data-del="${esc(x.id)}">🗑️ हटाउने</button></div></li>`}).join('')||`<li class="nb-demo-empty">${search?'“'+esc(search)+'” सँग मिल्ने प्रश्न भेटिएन।':'यस Blueprint मा अहिलेसम्म प्रश्न छैन।'}</li>`}</ul><div class="nb-demo-pager"><button class="btn btn-outline" id="qPrev" ${page<=1?'disabled':''}>← अघिल्लो</button><span>पृष्ठ ${page} / ${totalPages}</span><button class="btn btn-outline" id="qNext" ${page>=totalPages?'disabled':''}>अर्को →</button></div></section>`;
     $('#nbBack').onclick=()=>{selectedUnit=null;page=1;render()};
@@ -123,7 +138,8 @@
       const cat=$('#mainCat')?.value||savedFilters.cat||data.exams[0]?.id||'';
       const x=selectedUnit||{};
       const type=$('#mainType')?.value||'gk';
-      q={id:'',examIds:cat?[cat]:[],section:x.section||'',unit:x.code||'',subject:'',topic:'',level:'i',type,q:'',options:['','','',''],correct:0,explanation:'',solution:'',image:'',imageAlt:''};
+      const defaultQuestionType=type==='english'?'passage':type;
+      q={id:'',examIds:cat?[cat]:[],section:x.section||'',unit:x.code||'',subject:'',topic:'',level:'i',type:defaultQuestionType,q:'',options:['','','',''],correct:0,explanation:'',solution:'',image:'',imageAlt:''};
     }
     editing=q.id||null;editingImage=String(q.image||q.imageUrl||q.image_url||'').trim();
     const editExam=$('#mainCat')?.value||q.examIds?.[0]||savedFilters.cat||data.exams[0]?.id||'';
