@@ -49,6 +49,9 @@ jobs:
               if 'sakha-adhikrit' not in ids:
                   ids.append('sakha-adhikrit')
               q['examIds'] = ids
+              lv = str(q.get('level', '')).strip().lower()
+              if lv in {'i','1','l1','level1','level i','level 1'}: q['level'] = 'i'
+              elif lv in {'ii','2','l2','level2','level ii','level 2'}: q['level'] = 'ii'
               if not (q.get('q') or q.get('question')):
                   raise ValueError(f"Question text missing: {q.get('id')}")
               if not isinstance(q.get('options'), list) or len(q.get('options')) != 4:
@@ -96,6 +99,12 @@ jobs:
                   if 'sakha-adhikrit' not in ids:
                       ids.append('sakha-adhikrit')
                   q['examIds'] = ids
+
+          for q in questions:
+              if not isinstance(q, dict) or 'level' not in q: continue
+              lv = str(q.get('level', '')).strip().lower()
+              if lv in {'i','1','l1','level1','level i','level 1'}: q['level'] = 'i'
+              elif lv in {'ii','2','l2','level2','level ii','level 2'}: q['level'] = 'ii'
 
           data['questions'] = questions
           data['version'] = max(int(data.get('version', 1)), 3)
