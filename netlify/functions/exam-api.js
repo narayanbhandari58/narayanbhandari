@@ -207,6 +207,12 @@ function matchesUser(x, query) {
 }
 function blobStore() { const siteID = process.env.NETLIFY_SITE_ID || process.env.SITE_ID; const token = process.env.NETLIFY_API_TOKEN || process.env.NETLIFY_AUTH_TOKEN || process.env.NETLIFY_TOKEN; return siteID && token ? getStore('exam-attempts', { siteID, token }) : getStore('exam-attempts') }
 async function attempts() { const store = blobStore(), out = []; let cursor; do { const r = await store.list(cursor ? { cursor } : {}); for (const b of (r.blobs || [])) { try { const x = await store.get(b.key, { type: 'json' }); if (x?.submittedAt && x?.examId && Array.isArray(x?.review)) out.push(x) } catch {} } cursor = r.cursor } while (cursor); return out.sort((a, b) => String(b.submittedAt).localeCompare(String(a.submittedAt))) }
+function canonicalLevel(value) {
+  const v = String(value ?? '').trim().toLowerCase();
+  if (v === 'i' || v === '1' || v === 'l1' || v === 'level1' || v === 'level i' || v === 'level 1') return 'i';
+  if (v === 'ii' || v === '2' || v === 'l2' || v === 'level2' || v === 'level ii' || v === 'level 2') return 'ii';
+  return value;
+}
 function levelOf(q) { const v = String(q.level ?? '').toLowerCase(); if (v === 'level1' || v === 'l1' || v === 'i' || v === '1') return 'level1'; if (v === 'level2' || v === 'l2' || v === 'ii' || v === '2') return 'level2'; return v }
 function unitMatches(q, u) { const a = String(q.unit ?? ''); const b = String(u ?? ''); return a === b || a.startsWith(b + '.') }
 function stimulusKey(q) { if (q.groupId) return `group:${q.groupId}`; if (q.passage) return `passage:${q.passage}`; if (q.figure) return `figure:${q.figure}`; if (q.data) return `data:${q.data}`; return '' }
@@ -517,6 +523,7 @@ exports.handler = async event => {
       // Moderator-created/edited questions are maintained as a common bank item
       // for all three Loksewa exams. Full Admin retains the ability to target
       // selected exams explicitly.
+      q.level = canonicalLevel(q.level);
       const actor = session(event);
       q.examIds = actor?.role === 'moderator'
         ? ['kharidar', 'nasu', 'sakha-adhikrit'].filter(id => validExamIds.has(id))
@@ -621,6 +628,7 @@ exports.handler = async event => {
     if (action === 'save-data') {
       if (!isAdmin(event)) return json(401, { error: 'Admin login आवश्यक छ' });
       if (!body.data || !Array.isArray(body.data.exams) || !Array.isArray(body.data.questions)) return json(400, { error: 'Exam data format गलत छ' });
+      body.data.questions = body.data.questions.map(q => ({ ...q, level: canonicalLevel(q?.level) }));
       const ids = body.data.questions.map(q => String(q.id || '').trim()).filter(Boolean), unique = new Set(ids);
       if (ids.length !== unique.size) return json(400, { error: 'Question ID दोहोरिएको छ। प्रत्येक प्रश्नको unique ID हुनुपर्छ।' });
       const current = await gh('exam-data.json');
