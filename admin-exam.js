@@ -88,7 +88,7 @@
     const crumbs=$('#mainCrumbs');
     const parts=[{label:'प्रश्न बैंक',click:()=>{openHeading=null;selectedUnit=null;page=1;render()}}];
     if(exam)parts.push({label:exam.title,click:type?()=>{openHeading=null;selectedUnit=null;page=1;render()}:null});
-    if(type)parts.push({label:type,click:selectedUnit?()=>{selectedUnit=null;page=1;render()}:null});
+    if(type)parts.push({label:TYPE_META[type]?.label||type,click:selectedUnit?()=>{selectedUnit=null;page=1;render()}:null});
     if(selectedUnit){const h=blueprintHeadings(cat,type).find(x=>x.code===selectedUnit.section);const u=h?.children.find(x=>x.code===selectedUnit.code);if(h)parts.push({label:h.code+' '+h.title});if(u)parts.push({label:u.code+' '+u.title})}
     crumbs.innerHTML=parts.map((p,i)=>`<span>${i?'› ':''}${p.click?`<button type="button" data-crumb="${i}">${esc(p.label)}</button>`:`<span>${esc(p.label)}</span>`}</span>`).join('');
     crumbs.querySelectorAll('[data-crumb]').forEach((b,i)=>b.onclick=()=>parts[i].click());
