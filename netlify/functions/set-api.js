@@ -18,7 +18,13 @@ function safeExam(id){return /^(kharidar|nasu|sakha-adhikrit)$/.test(String(id))
 function safeSet(n){const v=String(n).trim();return /^(?:0*[1-9]|0*[1-9][0-9])$/.test(v)&&Number(v)>=1&&Number(v)<=99}
 function pub(q){const x={...q};delete x.correct;delete x.explanation;delete x.solution;return x}
 function validQuestion(q){return q&&String(q.q||q.question||'').trim()&&Array.isArray(q.options)&&q.options.length===4&&q.options.every(x=>String(x??'').trim())&&Number.isInteger(Number(q.correct))&&Number(q.correct)>=0&&Number(q.correct)<=3}
-function cleanQuestion(q,exam){return {...q,id:String(q.id||('setq-'+Date.now()+'-'+crypto.randomBytes(3).toString('hex'))),examIds:[exam],setOnly:true,q:String(q.q||q.question||'').trim(),options:q.options.map(x=>String(x).trim()),correct:Number(q.correct),section:String(q.section||'').trim(),unit:String(q.unit||'').trim(),subject:String(q.subject||'').trim(),topic:String(q.topic||'').trim(),level:String(q.level||'level1'),type:String(q.type||'gk'),explanation:String(q.explanation||'').trim(),solution:String(q.solution||'').trim(),image:String(q.image||'').trim(),imageAlt:String(q.imageAlt||q.image_alt||'').trim(),passage:String(q.passage||'').trim(),figure:String(q.figure||q.data||'').trim()}}
+function canonicalLevel(value){
+  const v=String(value??'').trim().toLowerCase();
+  if(v==='i'||v==='1'||v==='l1'||v==='level1'||v==='level i'||v==='level 1')return 'i';
+  if(v==='ii'||v==='2'||v==='l2'||v==='level2'||v==='level ii'||v==='level 2')return 'ii';
+  return 'i';
+}
+function cleanQuestion(q,exam){return {...q,id:String(q.id||('setq-'+Date.now()+'-'+crypto.randomBytes(3).toString('hex'))),examIds:[exam],setOnly:true,q:String(q.q||q.question||'').trim(),options:q.options.map(x=>String(x).trim()),correct:Number(q.correct),section:String(q.section||'').trim(),unit:String(q.unit||'').trim(),subject:String(q.subject||'').trim(),topic:String(q.topic||'').trim(),level:canonicalLevel(q.level),type:String(q.type||'gk'),explanation:String(q.explanation||'').trim(),solution:String(q.solution||'').trim(),image:String(q.image||'').trim(),imageAlt:String(q.imageAlt||q.image_alt||'').trim(),passage:String(q.passage||'').trim(),figure:String(q.figure||q.data||'').trim()}}
 function examEditorOnly(e){if(!isExamModerator(e))return json(401,{error:'Online Exam moderator/admin login आवश्यक छ'});return null}
 exports.handler=async event=>{if(event.httpMethod==='OPTIONS')return json(204,{});try{
  const p=new URLSearchParams(event.rawQuery||''),a=p.get('action')||'list',body=event.body?JSON.parse(event.body):{};
