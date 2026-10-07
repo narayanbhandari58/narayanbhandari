@@ -85,7 +85,7 @@ function ui(){
       <div class="nb-set-grid">
         <label class="nb-set-field">सही विकल्प<select id="sbCorrect"><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select></label>
         <label class="nb-set-field">प्रकार<select id="sbType"><option value="gk">GK / विषयगत</option><option value="iq">IQ</option><option value="pictorial">Pictorial</option><option value="table">Table</option><option value="bar-chart">Bar Chart</option><option value="line-graph">Line Graph</option><option value="pie-chart">Pie Chart</option></select></label>
-        <label class="nb-set-field">Level<input id="sbLevel" placeholder="जस्तै L1 / L2"></label>
+        <label class="nb-set-field">Level<select id="sbLevel"><option value="i">i</option><option value="ii">ii</option></select></label>
         <label class="nb-set-field">Image URL<input id="sbImage" placeholder="https://..."></label>
         <label class="nb-set-field">Image Alt<input id="sbImageAlt"></label>
         <label class="nb-set-field">Format<input id="sbFormat" placeholder="आवश्यक भएमा"></label>
@@ -136,7 +136,7 @@ function fill(q={}){
   [0,1,2,3].forEach(i=>$('#sb'+i).value=q.options?.[i]||'');
   $('#sbCorrect').value=String(q.correct??0);
   $('#sbType').value=q.type||'gk';
-  $('#sbLevel').value=q.level||'';
+  $('#sbLevel').value=(q.level==='ii'||q.level==='level2'||q.level==='L2'||q.level==='2')?'ii':'i';
   $('#sbImage').value=q.image||q.imageUrl||q.image_url||'';
   $('#sbImageAlt').value=q.imageAlt||q.image_alt||'';
   $('#sbFormat').value=q.format||'';
