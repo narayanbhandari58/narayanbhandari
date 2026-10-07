@@ -34,7 +34,7 @@
       </div>
       <nav id="mainCrumbs" class="nb-demo-crumbs" aria-label="breadcrumb"></nav>
       <p class="nb-demo-info">ℹ️ यहाँको navigation परीक्षा Blueprint अनुसार छ। विषय/Topic मा पुगेपछि मात्र सम्बन्धित प्रश्नहरू व्यवस्थापन गर्न सकिन्छ।</p>
-      <div id="mainQForm" hidden></div><div id="mainQuestions"></div>
+      <div id="mainQForm" hidden></div><div id="mainQuestions"><div class="nb-demo-empty">Question Bank data लोड हुँदैछ…</div></div>
     </div>\`;
     if(anchor.id==='questionBankMount'){anchor.innerHTML='';anchor.appendChild(sec)}else{anchor.parentNode.insertBefore(sec,anchor)}
     const toastEl=document.createElement('div');toastEl.id='examAdminToast';toastEl.className='exam-admin-toast';document.body.appendChild(toastEl);
@@ -45,8 +45,16 @@
   }
   async function init(){
     if(!inject())return setTimeout(init,500);
-    if(!token())return setTimeout(init,700);
-    try{data=(await api('admin-data')).data;buildCategories();render()}catch(e){toast(e.message)}}
+    const root=$('#mainQuestions');
+    if(root&&!data)root.innerHTML='<div class="nb-demo-empty">Question Bank data लोड हुँदैछ…</div>';
+    if(!token()){if(root)root.innerHTML='<div class="nb-demo-empty">Admin login आवश्यक छ।</div>';return setTimeout(init,700)}
+    try{
+      const response=await api('admin-data');
+      const incoming=response?.data;
+      if(!incoming||!Array.isArray(incoming.exams)||!Array.isArray(incoming.questions))throw Error('Question Bank data को संरचना गलत छ।');
+      data={...incoming,exams:incoming.exams||[],questions:incoming.questions||[]};
+      buildCategories();render();
+    }catch(e){if(root){root.innerHTML='<div class="nb-demo-empty"><b>Question Bank लोड हुन सकेन।</b><br><small>'+esc(e.message||'Unknown error')+'</small><br><button class="btn btn-outline" id="nbRetry" type="button" style="margin-top:10px">↻ फेरि प्रयास गर्नुहोस्</button></div>';$('#nbRetry')?.addEventListener('click',()=>{data=null;init()})}toast(e.message)}}
   function buildCategories(){
     const c=$('#mainCat'),cur=savedFilters.cat||c.value;
     c.innerHTML='<option value="">— परीक्षा छान्नुहोस् —</option>'+data.exams.map(e=>\`<option value="${esc(e.id)}">${esc(e.title)}</option>\`).join('');
